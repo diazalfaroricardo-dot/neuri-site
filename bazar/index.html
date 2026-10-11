@@ -1,207 +1,1219 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neuri Bazar — La caja y las cuentas de tu bazar | Neuri</title>
-<meta name="description" content="Neuri Bazar: cobras con el celular, la comisión y la renta del puesto se calculan solas y cada vendedor ve cuánto le debes. Para bazares, tianguis y tiendas de consignación. Desde $499 MXN al mes, 14 días gratis.">
+<title>Neuri Bazar — Muchos vendedores, una sola caja</title>
+<meta name="description" content="App de caja para bazares, tianguis, tiendas de consignación y antique malls. Cobras con el celular y la comisión, el IVA, la renta y lo que le debes a cada vendedor salen solos. 14 días gratis.">
+<meta name="theme-color" content="#1E2A5A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 22%22%3E%3Cpath d=%22M9 0h21a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H9L0 11z%22 fill=%22%23F6C744%22/%3E%3Ccircle cx=%229%22 cy=%2211%22 r=%222.6%22 fill=%22%231E2A5A%22/%3E%3C/svg%3E">
 <link rel="alternate" hreflang="en" href="https://neuri.tech/en/">
+<link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Necesito comprar equipo?","acceptedAnswer":{"@type":"Answer","text":"No. Funciona en el celular que ya tienes: la cámara lee las etiquetas. Si quieres ir más rápido, puedes conectar una pistola lectora y una impresora de etiquetas o de tickets."}},
+{"@type":"Question","name":"Mis vendedores no son de tecnología. ¿Tienen que instalar algo?","acceptedAnswer":{"@type":"Answer","text":"No. Cada vendedor recibe un link privado, sin contraseña. Lo abre como cualquier mensaje y ve su saldo, sus piezas y sus ventas del mes. Su estado de cuenta le llega por WhatsApp o por correo."}},
+{"@type":"Question","name":"Hoy llevo todo en libreta o en Excel. ¿Es difícil cambiarme?","acceptedAnswer":{"@type":"Answer","text":"Subes tu lista de vendedores y tus piezas desde Excel, y las etiquetas que ya tienes pegadas se pueden seguir escaneando. A los primeros 10 bazares se lo instalamos y capacitamos gratis."}},
+{"@type":"Question","name":"¿Y si se va el internet?","acceptedAnswer":{"@type":"Answer","text":"Por ahora la caja necesita conexión. Funciona con los datos del celular, así que basta con un teléfono con saldo o un módem. El modo sin conexión todavía no está listo."}},
+{"@type":"Question","name":"¿Emite factura (CFDI)?","acceptedAnswer":{"@type":"Answer","text":"Todavía no. El recibo es una nota de venta impresa, por WhatsApp o por correo. El reporte de impuestos por mes te da lo que necesita tu contador."}},
+{"@type":"Question","name":"¿Cobran comisión por cada venta?","acceptedAnswer":{"@type":"Answer","text":"No. Pagas un precio fijo al mes por tu bazar, vendas lo que vendas. En México el precio es más IVA."}},
+{"@type":"Question","name":"¿Qué pasa al terminar los 14 días gratis?","acceptedAnswer":{"@type":"Answer","text":"Te avisamos por correo dos días antes. Si sigues, eliges tu plan y todo queda como está. Si no, no se te cobra nada."}},
+{"@type":"Question","name":"¿Mis datos son míos?","acceptedAnswer":{"@type":"Answer","text":"Sí. Descargas todo tu negocio con un botón cuando quieras. Además, cada cambio de precio, comisión o venta anulada queda en una bitácora que nadie puede editar ni borrar, ni siquiera el dueño."}},
+{"@type":"Question","name":"¿Sirve en Estados Unidos y en inglés?","acceptedAnswer":{"@type":"Answer","text":"Sí. Cobra en dólares con el sales tax encima, manda estados de cuenta mensuales y cada usuario elige español o inglés."}}
+]}
+</script>
 <style>
-  :root{--ink:#1E2A5A;--green:#22B573;--yellow:#F6C744;--paper:#FFFFFF;--mist:#F3F5FA;--muted:#59637F;--line:#DCE3EE}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Figtree,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px}
-  a{color:inherit}
-  :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-  h1,h2,h3,.logo,.tag b,.plan .p{font-family:"Bricolage Grotesque",Figtree,sans-serif}
-  nav{display:flex;align-items:center;gap:18px;height:68px}
-  .logo{font-weight:800;font-size:25px;letter-spacing:-.5px;text-decoration:none;margin-right:auto}
-  .logo span{color:var(--green)}
-  nav .lang{font-size:15px;font-weight:600;text-decoration:none}
-  .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;border:0;cursor:pointer;font-family:inherit}
-  .btn.go{background:var(--green);color:#fff}
-  .btn.dark{background:var(--ink);color:#fff}
-  .btn.line{text-decoration:underline;padding:13px 4px;color:var(--ink)}
-  .btn.ghost{border:1.5px solid var(--line);background:#fff;color:var(--ink)}
-  nav .btn{padding:9px 16px;font-size:15px}
+:root{
+  --anil:#1E2A5A; --anil-2:#17214A; --anil-3:#2B3A73;
+  --etiqueta:#F6C744; --etiqueta-2:#E5B42C;
+  --papel:#FFFFFF; --neblina:#EEF0F7; --linea:#D3D8E7;
+  --gris:#4F587A; --sobre-anil:#C9D0EC;
+  --rosa:#C2255C; --verde-agua:#0B7480; --naranja:#AD4A06;
+  --display:"Archivo","Archivo Narrow","Arial Narrow","Inter Display","Inter",system-ui,sans-serif;
+  --texto:"Archivo","Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ticket:"IBM Plex Mono","DejaVu Sans Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--texto);font-size:17px;line-height:1.55;color:var(--anil);background:var(--papel);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--etiqueta);outline-offset:3px;border-radius:4px}
+.claro :focus-visible,.panel-claro :focus-visible{outline-color:var(--rosa)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-stretch:78%;font-weight:850;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4.6vw,52px);max-width:16em}
+h3{font-size:24px;font-stretch:85%}
+.entrada{font-size:19px;color:var(--gris);max-width:36em;margin-top:14px}
+.oscuro .entrada,.heroe .entrada{color:var(--sobre-anil)}
+section{padding:80px 0}
+@media(max-width:700px){section{padding:56px 0}}
+.oscuro{background:var(--anil);color:#fff}
 
-  .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding-top:40px}
-  @media(max-width:880px){.hero{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:24px}}
-  h1{font-size:clamp(34px,5vw,58px);line-height:1.03;letter-spacing:-1.6px;font-weight:800}
-  .lead{font-size:19px;color:var(--muted);margin-top:18px;max-width:32em}
-  .actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:26px}
-  .tag{display:inline-block;background:var(--yellow);color:var(--ink);padding:8px 14px 8px 22px;border-radius:6px 12px 12px 6px;transform:rotate(-3deg);box-shadow:0 3px 0 rgba(30,42,90,.18);line-height:1.15;position:relative;margin-top:26px}
-  .tag::before{content:"";position:absolute;left:8px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--paper)}
-  .tag small{display:block;font-size:12px;font-weight:600}
-  .tag b{font-size:22px;font-weight:800}
-  .free{font-size:15px;color:var(--muted);margin-left:14px}
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 24px;border-radius:12px;font-weight:750;font-size:17px;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.15;text-align:center}
+.btn-etiqueta{background:var(--etiqueta);color:var(--anil);box-shadow:0 3px 0 var(--etiqueta-2)}
+.btn-etiqueta:hover{background:#FFD45E}
+.btn-anil{background:var(--anil);color:#fff}
+.btn-anil:hover{background:var(--anil-3)}
+.btn-borde{border-color:currentColor;background:transparent}
+.btn-chico{min-height:44px;padding:8px 16px;font-size:15px}
 
-  /* Dos pantallas reales: lo que ve el dueño y lo que ve el vendedor */
-  .views{display:flex;gap:18px;justify-content:center;align-items:flex-end;background:var(--mist);border-radius:28px 28px 0 0;padding:28px 20px 0;border:1px solid var(--line);border-bottom:0}
-  .views figure{width:240px;max-width:48%}
-  .views figcaption{font-weight:700;font-size:15px;margin-bottom:8px}
-  .views figcaption span{display:block;font-weight:400;color:var(--muted);font-size:14px}
-  .views img{width:100%;height:auto;display:block;border:7px solid var(--ink);border-bottom:0;border-radius:22px 22px 0 0}
-  .views figure:last-child{margin-bottom:0}
+/* Encabezado */
+header{background:var(--anil);color:#fff;position:relative;z-index:5}
+nav{display:flex;align-items:center;gap:22px;height:70px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;font-family:var(--display);font-stretch:75%;font-weight:850;font-size:25px;letter-spacing:-.01em}
+.marca svg{width:34px;height:22px;flex:none}
+nav .ir{text-decoration:none;font-weight:600;font-size:16px;color:var(--sobre-anil);padding:12px 0}
+nav .ir:hover{color:#fff;text-decoration:underline}
+@media(max-width:860px){nav .ir.solo-ancho{display:none}}
+.marca,nav .btn{white-space:nowrap}
+@media(max-width:420px){nav{gap:12px}.marca{font-size:21px;gap:8px}.marca svg{width:28px}nav .btn{padding:8px 12px;font-size:14px}nav .ir{font-size:15px}}
 
-  section{padding:64px 0}
-  .mist{background:var(--mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  h2{font-size:clamp(28px,3.4vw,38px);letter-spacing:-.8px;font-weight:800;line-height:1.1}
-  .sub{color:var(--muted);margin-top:8px;max-width:38em}
+/* Héroe */
+.heroe{background:var(--anil);color:#fff;padding:28px 0 72px}
+.heroe-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.heroe-texto{position:sticky;top:24px;padding-top:28px}
+h1{font-size:clamp(44px,6.4vw,82px);font-stretch:72%;line-height:.95}
+.heroe .entrada{font-size:20px;margin-top:20px}
+.heroe-acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.heroe-letra{margin-top:18px;font-size:15px;color:var(--sobre-anil)}
+.paso-demo{display:flex;gap:10px;align-items:baseline;margin-top:36px;padding-top:20px;border-top:1px solid var(--anil-3);font-size:16px;color:var(--sobre-anil)}
+.paso-demo b{color:var(--etiqueta);font-family:var(--display);font-size:20px;font-stretch:80%}
+@media(max-width:1000px){
+  .heroe-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .heroe-texto{position:static;padding-top:12px}
+  .paso-demo{display:none}
+}
+@media(max-width:560px){.demo-bloque h3{flex-direction:column;gap:2px}.pieza .pre{font-size:22px}.pieza .tag{padding-right:8px}.caso-num img{max-width:200px}.telefono{max-width:210px}}
 
-  .steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:32px;counter-reset:s}
-  @media(max-width:780px){.steps{grid-template-columns:1fr;gap:20px}}
-  .steps li{counter-increment:s;border-top:3px solid var(--ink);padding-top:14px}
-  .steps li::before{content:"Paso " counter(s);font-weight:700;color:var(--green);font-size:15px}
-  .steps b{display:block;font-size:20px;margin:4px 0;font-family:"Bricolage Grotesque",sans-serif}
-  .steps p{color:var(--muted)}
+/* Demo de caja */
+.demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.demo-bloque{background:var(--anil-2);border:1px solid var(--anil-3);border-radius:18px;padding:18px}
+.demo-bloque h3{font-size:20px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.demo-bloque h3 small{font-family:var(--texto);font-stretch:100%;font-weight:500;font-size:14px;color:var(--sobre-anil)}
+.mesa{grid-column:1/-1}
+.mesa-piezas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px;list-style:none}
+@media(max-width:560px){.mesa-piezas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pieza{width:100%;background:none;border:0;padding:0;cursor:pointer;text-align:left;border-radius:10px;position:relative}
+.pieza .tag{display:block;background:var(--etiqueta);color:var(--anil);padding:10px 10px 10px 26px;clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%);border-radius:0 8px 8px 0;transition:transform .15s ease,background .15s;min-height:104px;position:relative}
+.pieza .tag::before{content:"";position:absolute;left:10px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--anil-2)}
+.pieza .nom{display:block;font-weight:700;font-size:15px;line-height:1.2}
+.pieza .pre{display:block;font-family:var(--display);font-stretch:80%;font-weight:850;font-size:24px;margin-top:4px}
+.pieza .pto{display:inline-block;margin-top:6px;font-size:12.5px;white-space:nowrap;font-weight:700;color:#fff;padding:1px 8px;border-radius:99px}
+.pieza:hover .tag{transform:rotate(-1.5deg)}
+.pieza[aria-pressed="true"] .tag{background:#fff}
+.pieza[aria-pressed="true"]::after{content:"En el ticket";position:absolute;right:6px;top:-9px;background:var(--anil);color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px}
+.pieza:disabled{cursor:default}
+.pieza:disabled .tag{background:#3A4782;color:#C3CAEA}
+.pieza:disabled .tag::before{background:var(--anil-2)}
+.pieza:disabled::after{content:"Vendida";position:absolute;right:6px;top:-9px;background:var(--etiqueta);color:var(--anil);font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px}
+.v-mari{background:var(--rosa)} .v-beto{background:var(--verde-agua)} .v-lupita{background:var(--naranja)}
+.mesa-pie{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;font-size:14px;color:var(--sobre-anil);flex-wrap:wrap}
+.linkboton{background:none;border:0;color:var(--etiqueta);text-decoration:underline;cursor:pointer;font-weight:650;font-size:15px;padding:6px 0;min-height:44px}
 
-  table.swap{width:100%;border-collapse:collapse;margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
-  .swap th,.swap td{text-align:left;padding:16px 20px;border-top:1px solid var(--line);vertical-align:top}
-  .swap thead th{border-top:0;font-family:"Bricolage Grotesque",sans-serif;font-size:18px}
-  .swap thead th:first-child{color:var(--muted)}
-  .swap thead th:last-child{background:var(--ink);color:#fff}
-  .swap td:first-child{color:var(--muted);width:45%}
-  .swap td:last-child{font-weight:600;background:#F7FBF9}
-  @media(max-width:640px){
-    .swap thead{display:none}
-    .swap tr{display:block;border-top:1px solid var(--line);padding:12px 16px}
-    .swap td{display:block;border:0;padding:2px 0;width:auto!important;background:none!important}
-    .swap td:first-child{text-decoration:line-through;text-decoration-color:rgba(89,99,127,.5)}
-  }
+/* Ticket */
+.caja-cuerpo{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.ticket{background:#fff;color:#1b1f2e;font-family:var(--ticket);font-size:13.5px;line-height:1.5;padding:16px 16px 22px;position:relative;
+  -webkit-mask:radial-gradient(circle 6px at 50% 100%,transparent 98%,#000) 0 0/14px 100% repeat-x;
+          mask:radial-gradient(circle 6px at 50% 100%,transparent 98%,#000) 0 0/14px 100% repeat-x}
+.ticket .t-enc{text-align:center;border-bottom:1px dashed #9aa0b4;padding-bottom:8px;margin-bottom:8px}
+.ticket .t-enc b{display:block;font-size:14px}
+.ticket table{width:100%;border-collapse:collapse}
+.ticket td{padding:1px 0;vertical-align:top}
+.ticket td:last-child{text-align:right;white-space:nowrap;padding-left:8px}
+.ticket .t-tot td{border-top:1px dashed #9aa0b4;padding-top:6px;font-weight:600;font-size:15px}
+.ticket .t-vacio{color:#5d6378;text-align:center;padding:12px 0}
+.ticket.impreso{animation:imprime .9s steps(9,end)}
+@keyframes imprime{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.ticket .t-sello{display:none;text-align:center;margin-top:8px;font-weight:600}
+.ticket.impreso .t-sello,.ticket.cobrado .t-sello{display:block}
+fieldset{border:0}
+.pago legend{font-weight:700;font-size:15px;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:99px;border:1.5px solid #7683BE;font-size:14px;font-weight:650;color:var(--sobre-anil)}
+.chip input:checked+span{background:var(--etiqueta);border-color:var(--etiqueta);color:var(--anil)}
+.chip input:focus-visible+span{outline:3px solid var(--etiqueta);outline-offset:2px}
+.cambio{font-size:15px;color:var(--sobre-anil);min-height:1.5em}
+.cambio b{color:#fff}
+.btn-cobrar{width:100%}
+.btn-cobrar:disabled{background:transparent;border-color:var(--anil-3);color:var(--sobre-anil);cursor:not-allowed;box-shadow:none}
 
-  .toggle{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:4px;margin-top:22px;background:#fff}
-  .toggle button{border:0;background:none;padding:8px 16px;border-radius:999px;font:inherit;font-weight:600;cursor:pointer;color:var(--muted)}
-  .toggle button[aria-pressed="true"]{background:var(--ink);color:#fff}
-  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-  @media(max-width:820px){.plans{grid-template-columns:1fr}}
-  .plan{border:1.5px solid var(--line);border-radius:20px;padding:24px;background:#fff}
-  .plan.pro{border:2.5px solid var(--ink)}
-  .plan h3{font-size:22px}
-  .plan h3 em{font-style:normal;font-size:14px;font-weight:600;color:var(--green);margin-left:6px;font-family:Figtree,sans-serif}
-  .plan .p{font-size:36px;font-weight:800;letter-spacing:-1px}
-  .plan .p small{font-size:15px;color:var(--muted);font-weight:500;font-family:Figtree,sans-serif}
-  .plan ul{list-style:none;display:grid;gap:6px;margin-top:10px;font-size:16px}
-  .plan li::before{content:"✓";color:var(--green);font-weight:800;margin-right:8px}
-  .offer{margin-top:20px;background:var(--yellow);border-radius:16px;padding:18px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-  .offer p{font-weight:600;max-width:42em}
+/* Reparto */
+.reparto-barra{display:flex;height:30px;border-radius:8px;overflow:hidden;margin-top:14px;background:var(--anil-3)}
+.reparto-barra span{display:block;height:100%;transition:width .35s ease}
+.reparto-barra .s-iva{background:var(--etiqueta)}
+.reparto-barra .s-com{background:#8C97C8}
+.reparto-ley{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:13px;color:var(--sobre-anil);list-style:none}
+.reparto-ley i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.reparto-lista{list-style:none;margin-top:12px}
+.reparto-lista li{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 0;border-bottom:1px solid var(--anil-3);font-variant-numeric:tabular-nums}
+.reparto-lista .quien{font-weight:700;display:flex;align-items:center;gap:8px}
+.reparto-lista .quien i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.reparto-lista .para{font-family:var(--display);font-stretch:80%;font-weight:850;font-size:22px;color:var(--etiqueta);text-align:right;line-height:1.1}
+.reparto-lista .det{grid-column:1/-1;font-size:13.5px;color:var(--sobre-anil)}
+.reparto-lista .vacio{display:block;color:var(--sobre-anil);font-size:15px}
+.reparto-total{display:grid;grid-template-columns:1fr auto;gap:4px 12px;margin-top:10px;font-size:14.5px;font-variant-numeric:tabular-nums}
+.reparto-total:empty{display:none}
+.reparto-total span:nth-child(even){text-align:right;font-weight:700}
+.reparto-nota{font-size:13px;color:var(--sobre-anil);margin-top:10px}
 
-  .faq{max-width:760px;margin-top:22px}
-  .faq details{border-bottom:1px solid var(--line);padding:16px 0}
-  .faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
-  .faq summary::after{content:"+";color:var(--green);font-weight:800;font-size:20px;line-height:1}
-  .faq details[open] summary::after{content:"–"}
-  .faq p{color:var(--muted);margin-top:8px}
-  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+/* Mi Puesto mini */
+.mipuesto{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:start}
+@media(max-width:640px){.mipuesto{grid-template-columns:minmax(0,1fr)}.demo{grid-template-columns:minmax(0,1fr)}}
+.mp-tel{background:#fff;color:var(--anil);border-radius:22px;overflow:hidden;border:6px solid #0f1636;max-width:340px;width:100%}
+.mp-top{background:var(--anil);color:#fff;padding:14px 16px 16px}
+.mp-top small{display:block;font-size:12px;color:var(--sobre-anil)}
+.mp-top .hola{font-weight:750;font-size:19px}
+.mp-top .saldo{font-family:var(--display);font-stretch:80%;font-weight:850;font-size:40px;line-height:1.05;margin-top:6px;transition:color .3s}
+.mp-top .saldo.sube{color:var(--etiqueta)}
+.mp-movs{list-style:none;padding:8px 12px 12px;font-size:14px;max-height:220px;overflow:auto}
+.mp-movs li{display:flex;justify-content:space-between;gap:10px;padding:8px 4px;border-bottom:1px solid var(--linea)}
+.mp-movs li span:last-child{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mp-movs li.nuevo{background:#FFF6D6}
+.mp-movs .neg{color:var(--rosa)}
+.mp-movs small{display:block;color:var(--gris);font-size:12px}
+.mp-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.mp-lado p{color:var(--sobre-anil);font-size:15px}
+.mp-lado p+p{margin-top:8px}
+
+/* Para quién */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.tab{border:2px solid var(--anil);background:#fff;border-radius:12px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:16px;text-align:left;line-height:1.2}
+.tab small{display:block;font-weight:500;font-size:13px;color:var(--gris)}
+.tab[aria-selected="true"]{background:var(--anil);color:#fff}
+.tab[aria-selected="true"] small{color:var(--sobre-anil)}
+.caso{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;margin-top:28px;align-items:start}
+@media(max-width:860px){.caso{grid-template-columns:minmax(0,1fr);gap:24px}}
+.caso-sello{display:inline-block;background:var(--neblina);border:1px dashed var(--gris);border-radius:8px;padding:4px 10px;font-size:14px;font-weight:650;color:var(--gris)}
+.caso h3{font-size:clamp(26px,3vw,34px);margin-top:12px;max-width:18em}
+.caso .problema{margin-top:12px;color:var(--gris);max-width:36em}
+.dia{list-style:none;margin-top:22px;border-left:3px solid var(--etiqueta);padding-left:20px;display:grid;gap:16px}
+.dia li{position:relative}
+.dia li::before{content:"";position:absolute;left:-28px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--anil);border:3px solid var(--etiqueta)}
+.dia b{display:block;font-size:15px;color:var(--rosa)}
+.caso-num{background:var(--anil);color:#fff;border-radius:18px;padding:22px}
+.caso-num h4{font-size:16px;font-weight:700}
+.caso-num dl{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin-top:12px;font-size:15px}
+.caso-num dt{color:var(--sobre-anil)}
+.caso-num dd{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.caso-num dd.grande{font-family:var(--display);font-stretch:80%;font-size:28px;color:var(--etiqueta);font-weight:850}
+.caso-num p{font-size:13px;color:var(--sobre-anil);margin-top:14px}
+.caso-num img{margin-top:16px;border-radius:14px;border:5px solid #0f1636;width:100%;max-width:240px}
+
+/* Antes y después */
+.antes{background:var(--neblina)}
+.cambiador{display:inline-flex;background:#fff;border:2px solid var(--anil);border-radius:14px;padding:4px;margin-top:26px}
+.cambiador button{border:0;background:none;padding:10px 18px;border-radius:10px;font-weight:750;cursor:pointer;font-size:16px}
+.cambiador button[aria-pressed="true"]{background:var(--anil);color:#fff}
+.domingo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;margin-top:22px;align-items:start}
+@media(max-width:820px){.domingo{grid-template-columns:minmax(0,1fr)}}
+.hoja{background:#fff;border-radius:16px;padding:22px;border:1px solid var(--linea)}
+.hoja.libreta{background:#FFFDF5 linear-gradient(90deg,transparent 30px,#E7A3A8 30px 32px,transparent 32px);padding-left:46px;border-color:#E3DCC4}
+.hoja.libreta li{border-bottom:1px solid #C9D6EE}
+.hoja h3{font-size:22px}
+.hoja ol{list-style:none;margin-top:12px}
+.hoja li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;line-height:1.35;min-height:32px}
+.hoja li span:last-child{font-weight:750;white-space:nowrap}
+.hoja .mal{color:var(--rosa)}
+.hoja .total{border-top:2px solid var(--anil);margin-top:6px;padding-top:10px;font-weight:800;font-size:19px}
+.domingo-lado{display:grid;gap:14px}
+.medidor{background:var(--anil);color:#fff;border-radius:16px;padding:20px}
+.medidor b{display:block;font-family:var(--display);font-stretch:78%;font-weight:850;font-size:54px;line-height:1;color:var(--etiqueta)}
+.medidor span{color:var(--sobre-anil);font-size:15px}
+.nota-chica{font-size:13px;color:var(--gris)}
+
+/* Dos vistas */
+.vistas-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:32px}
+@media(max-width:860px){.vistas-grid{grid-template-columns:minmax(0,1fr)}}
+.vista{border-radius:22px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:22px;align-items:start}
+@media(max-width:520px){.vista{grid-template-columns:minmax(0,1fr)}}
+.vista.duenio{background:var(--anil);color:#fff}
+.vista.vendedor{background:var(--etiqueta);color:var(--anil)}
+.vista h3{font-size:28px}
+.vista .quien{font-size:15px;margin-top:6px}
+.vista.duenio .quien{color:var(--sobre-anil)}
+.pantallas{list-style:none;margin-top:16px;display:grid;gap:6px}
+.pantallas button{width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:9px 12px;cursor:pointer;font-size:15.5px;line-height:1.3;border:2px solid transparent}
+.pantallas button b{display:block;font-size:16px}
+.vista.duenio .pantallas button{color:var(--sobre-anil)}
+.vista.duenio .pantallas button b{color:#fff}
+.vista.duenio .pantallas button[aria-current="true"]{border-color:var(--etiqueta)}
+.vista.vendedor .pantallas button[aria-current="true"]{border-color:var(--anil);background:rgba(255,255,255,.4)}
+.telefono{border:7px solid #0f1636;border-radius:26px;overflow:hidden;background:#fff;aspect-ratio:390/844;width:100%;max-width:240px;justify-self:center}
+.telefono img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* Calculadora */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;margin-top:32px;align-items:start}
+@media(max-width:860px){.calc{grid-template-columns:minmax(0,1fr)}}
+.deslizador{margin-bottom:24px}
+.deslizador label{display:flex;justify-content:space-between;font-weight:700;gap:12px}
+.deslizador output{font-family:var(--display);font-stretch:80%;font-weight:850;font-size:26px;line-height:1}
+.deslizador input{width:100%;margin-top:10px;accent-color:var(--etiqueta);height:32px}
+.deslizador small{color:var(--gris);font-size:14px}
+.resultado{background:var(--anil);color:#fff;border-radius:20px;padding:26px}
+.resultado .horas{font-family:var(--display);font-stretch:75%;font-weight:850;font-size:clamp(64px,9vw,104px);line-height:.9;color:var(--etiqueta)}
+.resultado .horas small{font-size:.35em;color:#fff;font-stretch:90%}
+.resultado ul{list-style:none;margin-top:16px;font-size:15px}
+.resultado li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--anil-3)}
+.resultado li span:last-child{font-weight:700;white-space:nowrap}
+.resultado .plan-sug{margin-top:16px;background:var(--anil-2);border-radius:12px;padding:12px 14px;font-size:15px}
+.resultado .plan-sug b{color:var(--etiqueta)}
+details.supuestos{margin-top:14px;font-size:14px;color:var(--sobre-anil)}
+details.supuestos summary{cursor:pointer;font-weight:650;color:#fff;padding:10px 0}
+details.supuestos ul{margin-top:8px;list-style:disc;padding-left:20px}
+details.supuestos li{display:list-item;border:0;padding:2px 0}
+
+/* Todo lo que trae */
+.trae{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:32px}
+@media(max-width:960px){.trae{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.trae{grid-template-columns:minmax(0,1fr)}}
+.trae h3{font-size:22px;padding-bottom:10px;border-bottom:3px solid var(--anil)}
+.trae ul{list-style:none;margin-top:10px}
+.trae li{padding:7px 0 7px 22px;position:relative;border-bottom:1px solid var(--linea);font-size:16px;line-height:1.35}
+.trae li::before{content:"";position:absolute;left:0;top:13px;width:12px;height:8px;background:var(--etiqueta);clip-path:polygon(4px 0,100% 0,100% 100%,4px 100%,0 50%)}
+
+/* Precios */
+.precios{background:var(--neblina)}
+.moneda{display:inline-flex;background:#fff;border:2px solid var(--anil);border-radius:14px;padding:4px;margin-top:24px}
+.moneda button{border:0;background:none;padding:9px 16px;min-height:44px;border-radius:10px;font-weight:750;cursor:pointer;font-size:15px}
+.moneda button[aria-pressed="true"]{background:var(--anil);color:#fff}
+.planes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px;align-items:stretch}
+@media(max-width:860px){.planes{grid-template-columns:minmax(0,1fr)}}
+.plan{background:#fff;border:2px solid var(--linea);border-radius:18px;padding:24px;display:flex;flex-direction:column}
+.plan.pro{border-color:var(--anil);border-width:3px}
+.plan .para-quien{color:var(--gris);font-size:15px;margin-top:4px}
+.plan .monto{font-family:var(--display);font-stretch:78%;font-weight:850;font-size:48px;line-height:1;margin-top:16px}
+.plan .monto small{font-family:var(--texto);font-stretch:100%;font-size:15px;font-weight:500;color:var(--gris);display:block;margin-top:6px}
+.plan ul{list-style:none;margin:16px 0 20px;display:grid;gap:7px;font-size:16px}
+.plan li{padding-left:22px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:8px;background:var(--etiqueta-2);clip-path:polygon(4px 0,100% 0,100% 100%,4px 100%,0 50%)}
+.plan .btn{margin-top:auto}
+.plan .sello{display:inline-block;background:var(--etiqueta);color:var(--anil);font-size:13px;font-weight:750;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:4px;font-family:var(--texto);font-stretch:100%}
+.fundadores{margin-top:28px;background:var(--anil);color:#fff;border-radius:22px;padding:28px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:center;position:relative;overflow:hidden}
+@media(max-width:860px){.fundadores{grid-template-columns:minmax(0,1fr)}}
+.fundadores h3{font-size:clamp(28px,3.4vw,38px)}
+.fundadores ul{list-style:none;margin-top:14px;display:grid;gap:8px}
+.fundadores li{padding-left:26px;position:relative}
+.fundadores li::before{content:"";position:absolute;left:0;top:7px;width:15px;height:10px;background:var(--etiqueta);clip-path:polygon(5px 0,100% 0,100% 100%,5px 100%,0 50%)}
+.fundadores .honesto{font-size:15px;color:var(--sobre-anil)}
+.fundadores .honesto+.btn{margin-top:16px}
+
+/* Asistente de prueba */
+.prueba-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:start}
+@media(max-width:900px){.prueba-grid{grid-template-columns:minmax(0,1fr);gap:28px}}
+.prueba-lado ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.prueba-lado li{padding-left:28px;position:relative;color:var(--sobre-anil)}
+.prueba-lado li b{color:#fff}
+.prueba-lado li::before{content:"";position:absolute;left:0;top:7px;width:15px;height:10px;background:var(--etiqueta);clip-path:polygon(5px 0,100% 0,100% 100%,5px 100%,0 50%)}
+.asistente{background:#fff;color:var(--anil);border-radius:22px;padding:26px;box-shadow:0 0 0 6px var(--etiqueta)}
+.progreso{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:650;color:var(--gris)}
+.progreso-barra{height:8px;background:var(--neblina);border-radius:99px;margin-top:8px;overflow:hidden}
+.progreso-barra span{display:block;height:100%;background:var(--anil);border-radius:99px;transition:width .3s ease;width:25%}
+.paso{margin-top:22px}
+.paso[hidden]{display:none}
+.paso h3{font-size:28px;outline:none}
+.paso .ayuda{color:var(--gris);font-size:15px;margin-top:6px}
+.campo{margin-top:18px}
+.campo label,.campo legend{display:block;font-weight:700;margin-bottom:6px}
+.campo input[type=text],.campo input[type=email]{width:100%;min-height:52px;border:2px solid var(--linea);border-radius:12px;padding:10px 14px;font-size:18px;background:#fff}
+.campo input:focus{border-color:var(--anil);outline:3px solid var(--etiqueta);outline-offset:1px}
+.campo input[aria-invalid="true"]{border-color:var(--rosa)}
+.opciones{display:grid;gap:8px}
+.opciones.dos{grid-template-columns:1fr 1fr}
+.opcion{position:relative}
+.opcion input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%}
+.opcion span{display:block;border:2px solid var(--linea);border-radius:12px;padding:12px 14px;font-weight:700;line-height:1.25}
+.opcion span small{display:block;font-weight:500;color:var(--gris);font-size:14px}
+.opcion input:checked+span{border-color:var(--anil);background:#FFF6D6;box-shadow:inset 0 0 0 1px var(--anil)}
+.opcion input:focus-visible+span{outline:3px solid var(--etiqueta);outline-offset:2px}
+.error{color:var(--rosa);font-weight:650;font-size:15px;margin-top:8px}
+.error:empty{display:none}
+.asistente-botones{display:flex;gap:10px;justify-content:space-between;margin-top:24px;flex-wrap:wrap}
+.asistente-botones .btn-anil{margin-left:auto}
+.btn-atras{background:none;border:0;text-decoration:underline;font-weight:650;cursor:pointer;padding:12px 4px;color:var(--gris)}
+.resumen{background:var(--neblina);border-radius:12px;padding:14px;margin-top:16px;font-size:15px}
+.resumen dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+.resumen dt{color:var(--gris)}
+.resumen dd{font-weight:700;overflow-wrap:anywhere}
+.listo{text-align:left}
+.listo .tag-grande{display:inline-block;background:var(--etiqueta);padding:8px 18px 8px 30px;clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%);font-family:var(--display);font-stretch:80%;font-weight:850;font-size:22px}
+
+/* Preguntas */
+.faq{max-width:820px;margin-top:28px}
+.faq details{border-bottom:1px solid var(--linea)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-weight:750;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--display);font-size:28px;line-height:.8;font-weight:800;flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:8px;background:var(--neblina)}
+.faq details[open] summary::after{content:"−";background:var(--etiqueta)}
+.faq p{padding:0 0 18px;color:var(--gris);max-width:40em}
+
+footer{background:var(--anil-2);color:var(--sobre-anil);padding:32px 0 110px;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(min-width:861px){footer{padding-bottom:32px}}
+
+/* CTA fijo en celular */
+.cta-fijo{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--anil);border-top:1px solid var(--anil-3);display:flex;gap:12px;align-items:center;transform:translateY(110%);transition:transform .25s ease}
+.cta-fijo.ver{transform:none}
+.cta-fijo p{color:#fff;font-size:14px;line-height:1.25;flex:1}
+.cta-fijo p small{display:block;color:var(--sobre-anil)}
+.cta-fijo .btn{min-height:46px;padding:10px 16px;font-size:16px;flex:none}
+@media(min-width:861px){.cta-fijo{display:none}}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav>
-  <a class="logo" href="/">neuri<span>.</span></a>
-  <a class="lang" href="/en/" lang="en">English</a>
-  <a class="btn dark" data-trial href="mailto:hola@neuri.tech?subject=Prueba%20gratis%20Neuri%20Bazar&body=Nombre%20del%20bazar%3A%0ACiudad%3A%0ACorreo%20de%20Google%20para%20entrar%3A">Probar gratis</a>
-</nav></div></header>
+<header>
+  <div class="wrap"><nav aria-label="Principal">
+    <a class="marca" href="#inicio" aria-label="Neuri Bazar, inicio">
+      <svg viewBox="0 0 34 22" aria-hidden="true"><path d="M9 0h21a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H9L0 11z" fill="#F6C744"/><circle cx="9" cy="11" r="2.6" fill="#1E2A5A"/></svg>
+      Neuri Bazar
+    </a>
+    <a class="ir solo-ancho" href="#caja">Pruébala</a>
+    <a class="ir solo-ancho" href="#precios">Precios</a>
+    <a class="ir solo-ancho" href="#preguntas">Preguntas</a>
+    <a class="ir" href="/en/" lang="en" hreflang="en">English</a>
+    <a class="btn btn-etiqueta btn-chico" href="#prueba" data-trial>Probar gratis</a>
+  </nav></div>
+</header>
 
-<main>
-<div class="wrap hero">
-  <div style="padding-bottom:40px">
-    <h1>Neuri Bazar lleva la caja y las cuentas de tu bazar.</h1>
-    <p class="lead">Cobras con el celular, la comisión y la renta de cada puesto se calculan solas, y cada vendedor ve cuánto le debes sin tener que preguntarte.</p>
-    <div class="actions">
-      <a class="btn go" data-trial href="mailto:hola@neuri.tech?subject=Prueba%20gratis%20Neuri%20Bazar&body=Nombre%20del%20bazar%3A%0ACiudad%3A%0ACorreo%20de%20Google%20para%20entrar%3A">Probar gratis 14 días</a>
-      <a class="btn line" href="#como">Cómo funciona</a>
+<main id="inicio">
+<!-- HÉROE + CAJA JUGABLE -->
+<section class="heroe" aria-labelledby="titulo">
+  <div class="wrap heroe-grid">
+    <div class="heroe-texto">
+      <h1 id="titulo">Muchos vendedores, una sola caja. Las cuentas salen solas.</h1>
+      <p class="entrada">Neuri Bazar es la caja de tu bazar en el celular. Escaneas la etiqueta, cobras, y la comisión, el IVA y lo que le toca a cada vendedor se separan al momento. Cada vendedor ve en su link cuánto le debes.</p>
+      <div class="heroe-acciones">
+        <a class="btn btn-etiqueta" href="#prueba" data-trial>Probar 14 días gratis</a>
+        <a class="btn btn-borde" href="#caja">Cobrar en la caja de prueba</a>
+      </div>
+      <p class="heroe-letra">Para bazares, tianguis, tiendas de consignación y antique malls. Desde $499 MXN al mes. Sin tarjeta para empezar.</p>
+      <p class="paso-demo" aria-hidden="true"><b>Pruébala aquí</b> Toca piezas de distintos puestos y cóbralas. Mira cómo se reparte el dinero.</p>
     </div>
-    <div><span class="tag"><small>desde</small><b>$499</b><small>MXN al mes</small></span><span class="free">Para bazares, tianguis y tiendas de consignación.</span></div>
-  </div>
-  <div class="views">
-    <figure><figcaption>Lo que ves tú<span>Ventas y lo que debes</span></figcaption><img src="/img/bazar-inicio.jpg" width="390" height="450" alt="Inicio del dueño: ventas de hoy $3,579, por pagar a vendedores $1,917.44 y 2 piezas por aprobar"></figure>
-    <figure><figcaption>Lo que ve tu vendedor<span>En su link, sin contraseña</span></figcaption><img src="/img/bazar-mi-puesto.jpg" width="390" height="450" alt="Mi Puesto de la vendedora Lupita: le deben $71.55, con su venta y su pago recibido"></figure>
-  </div>
-</div>
 
-<section class="mist" id="como"><div class="wrap">
-  <h2>Cómo funciona</h2>
-  <p class="sub">Funciona en el celular que ya tienes. Lo dejas listo en una tarde.</p>
-  <ol class="steps">
-    <li><b>Etiquetas la pieza</b><p>Das de alta la pieza con su precio y su vendedor, e imprimes una etiqueta con código.</p></li>
-    <li><b>La cobras en caja</b><p>Escaneas la etiqueta con la cámara. La comisión, el impuesto y la parte del vendedor se separan solos.</p></li>
-    <li><b>Le pagas a cada vendedor</b><p>Cada uno ve sus ventas y su saldo en su link. Le pagas, lo registras y su cuenta queda en cero.</p></li>
-  </ol>
-</div></section>
+    <div class="demo" id="caja" aria-label="Caja de prueba">
+      <div class="demo-bloque mesa">
+        <h3>1. Toca las piezas que te traen a la caja <small>Es como escanear la etiqueta</small></h3>
+        <ul class="mesa-piezas" id="mesa"></ul>
+        <div class="mesa-pie">
+          <span>Datos de ejemplo. Tres vendedores con comisiones distintas: 30%, 25% y 20%.</span>
+          <button type="button" class="linkboton" id="surtir">Volver a poner las piezas</button>
+        </div>
+      </div>
 
-<section><div class="wrap">
-  <h2>Lo que te quita de encima</h2>
-  <table class="swap">
-    <thead><tr><th scope="col">Hoy</th><th scope="col">Con Neuri Bazar</th></tr></thead>
-    <tbody>
-      <tr><td>Anotas cada venta en una libreta</td><td>Cada venta queda registrada al cobrar</td></tr>
-      <tr><td>Calculas a mano la comisión y la renta del puesto</td><td>Se calculan solas, al centavo</td></tr>
-      <tr><td>Los vendedores te preguntan cuánto llevan</td><td>Lo ven en su link cuando quieran</td></tr>
-      <tr><td>El corte del día no cuadra</td><td>Corte con lo esperado contra lo contado</td></tr>
-      <tr><td>Discusiones por "a mí me tocaba más"</td><td>Historial de cada venta y pago que nadie puede borrar</td></tr>
-    </tbody>
-  </table>
-</div></section>
+      <div class="demo-bloque">
+        <h3>2. Cobra <small id="num-ticket">Ticket 0041</small></h3>
+        <div class="caja-cuerpo">
+          <div class="ticket" id="ticket" aria-live="polite">
+            <div class="t-enc"><b>Mercadito de ejemplo</b><span id="t-fecha"></span></div>
+            <div id="t-lineas"><p class="t-vacio">Ticket vacío. Toca una pieza.</p></div>
+            <p class="t-sello" id="t-sello">¡Gracias por su compra!</p>
+          </div>
+          <fieldset class="pago">
+            <legend>Cómo paga el cliente</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="pago" value="efectivo" checked><span>Efectivo</span></label>
+              <label class="chip"><input type="radio" name="pago" value="tarjeta"><span>Tarjeta</span></label>
+              <label class="chip"><input type="radio" name="pago" value="transferencia"><span>Transferencia</span></label>
+              <label class="chip"><input type="radio" name="pago" value="dividido"><span>$500 efectivo + tarjeta</span></label>
+            </div>
+          </fieldset>
+          <p class="cambio" id="cambio" aria-live="polite"></p>
+          <button type="button" class="btn btn-etiqueta btn-cobrar" id="cobrar" disabled>Cobrar</button>
+        </div>
+      </div>
 
-<section class="mist" id="planes"><div class="wrap">
-  <h2>Precio</h2>
-  <p class="sub">Un precio fijo por bazar, sin cobro por venta. Los primeros 14 días son gratis.</p>
-  <div class="toggle" role="group" aria-label="País">
-    <button type="button" data-c="mx" aria-pressed="true">México (MXN)</button>
-    <button type="button" data-c="us" aria-pressed="false">Estados Unidos (USD)</button>
-  </div>
-  <div class="plans">
-    <div class="plan"><h3>Básico</h3>
-      <div class="p" data-mx="$499 <small>MXN al mes + IVA</small>" data-us="$79 <small>USD al mes</small>">$499 <small>MXN al mes + IVA</small></div>
-      <ul><li>Hasta 30 vendedores</li><li>1 caja</li><li>Link de saldo para cada vendedor</li></ul></div>
-    <div class="plan pro"><h3>Pro<em>El más elegido</em></h3>
-      <div class="p" data-mx="$899 <small>MXN al mes + IVA</small>" data-us="$119 <small>USD al mes</small>">$899 <small>MXN al mes + IVA</small></div>
-      <ul><li>Hasta 75 vendedores</li><li>3 cajas</li><li>Estado de cuenta semanal por WhatsApp</li><li>Reportes y exportar a Excel</li></ul></div>
-    <div class="plan"><h3>Plus</h3>
-      <div class="p" data-mx="$1,499 <small>MXN al mes + IVA</small>" data-us="$149 <small>USD al mes</small>">$1,499 <small>MXN al mes + IVA</small></div>
-      <ul><li>Vendedores y cajas sin límite</li><li>Varias sucursales</li><li>Todo lo de Pro</li></ul></div>
-  </div>
-  <div class="offer">
-    <p>Primeros 10 bazares: te lo instalamos y capacitamos gratis, primer mes gratis y el precio no sube en 12 meses.</p>
-    <a class="btn dark" href="mailto:hola@neuri.tech?subject=Quiero%20ser%20bazar%20fundador%20de%20Neuri%20Bazar&body=Nombre%20del%20bazar%3A%0ACiudad%3A%0AN%C3%BAmero%20de%20vendedores%3A%0AWhatsApp%3A">Apartar mi lugar</a>
-  </div>
-</div></section>
+      <div class="demo-bloque">
+        <h3>3. Así se reparte <small>En vivo</small></h3>
+        <div class="reparto-barra" id="barra" aria-hidden="true"></div>
+        <ul class="reparto-ley" aria-hidden="true">
+          <li><i style="background:var(--rosa)"></i>Mari</li>
+          <li><i style="background:var(--verde-agua)"></i>Beto</li>
+          <li><i style="background:var(--naranja)"></i>Lupita</li>
+          <li><i style="background:#8C97C8"></i>Comisión tuya</li>
+          <li><i style="background:var(--etiqueta)"></i>IVA</li>
+        </ul>
+        <ul class="reparto-lista" id="reparto" aria-label="Reparto del ticket por vendedor"></ul>
+        <div class="reparto-total" id="reparto-total"></div>
+        <p class="reparto-nota">El precio de la etiqueta ya trae IVA. La comisión se calcula sobre el precio sin IVA, igual que en la app. La renta del puesto no se cobra por venta: se descuenta sola cada semana.</p>
+      </div>
 
-<section><div class="wrap">
-  <h2>Preguntas frecuentes</h2>
-  <div class="faq">
-    <details><summary>¿Necesito comprar equipo?</summary><p>No. Funciona en el celular que ya tienes. Si quieres, puedes usar una pistola lectora y una impresora de etiquetas.</p></details>
-    <details><summary>¿Mis vendedores tienen que instalar algo?</summary><p>No. Ven su saldo desde un link y les llegan sus avisos por WhatsApp o correo.</p></details>
-    <details><summary>¿Puedo pasar mis datos de otro sistema?</summary><p>Sí. Importamos tus piezas y vendedores desde Excel, y tus etiquetas ya pegadas siguen funcionando.</p></details>
-    <details><summary>¿Emite factura (CFDI)?</summary><p>Por ahora el recibo es nota de venta. La facturación electrónica viene después.</p></details>
-    <details><summary>¿Qué pasa al terminar los 14 días?</summary><p>Te avisamos antes. Si sigues, eliges tu plan; tus datos se quedan como están.</p></details>
+      <div class="demo-bloque mipuesto">
+        <div class="mp-lado">
+          <h3>4. Lo que ve tu vendedor</h3>
+          <p>Cada vendedor tiene su link de <b>Mi Puesto</b>. Sin contraseña y sin instalar nada. En cuanto cobras, ve su venta y su saldo.</p>
+          <div class="mp-tabs" role="group" aria-label="Elegir vendedor">
+            <button type="button" class="btn btn-chico btn-etiqueta" data-v="mari" aria-pressed="true">Mari, puesto 3</button>
+            <button type="button" class="btn btn-chico btn-borde" data-v="beto" aria-pressed="false">Beto, puesto 7</button>
+            <button type="button" class="btn btn-chico btn-borde" data-v="lupita" aria-pressed="false">Lupita, puesto 12</button>
+          </div>
+          <p>Ya no te mandan WhatsApp a las 11 de la noche para preguntarte cuánto llevan.</p>
+        </div>
+        <div class="mp-tel" aria-live="polite">
+          <div class="mp-top">
+            <small>Mercadito de ejemplo, Mi Puesto</small>
+            <span class="hola" id="mp-hola">Hola, Mari</span>
+            <small>Te debemos</small>
+            <div class="saldo" id="mp-saldo">$0.00</div>
+          </div>
+          <ul class="mp-movs" id="mp-movs"></ul>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="sub" style="margin-top:22px">¿Otra duda? Escríbenos a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a>.</p>
-</div></section>
+</section>
+
+<!-- PARA QUIÉN -->
+<section id="casos" aria-labelledby="t-casos">
+  <div class="wrap">
+    <h2 id="t-casos">Así funcionaría en tu tipo de negocio</h2>
+    <p class="entrada">Todavía no tenemos clientes que paguen, así que no te vamos a enseñar testimonios inventados. Te enseñamos cómo se usaría, con ejemplos.</p>
+    <div class="tabs" role="tablist" aria-label="Tipo de negocio">
+      <button class="tab" role="tab" id="tab-tianguis" aria-controls="caso-tianguis" aria-selected="true">Mercadito de fin de semana<small>Bazar de emprendedores, tianguis con caja</small></button>
+      <button class="tab" role="tab" id="tab-ropa" aria-controls="caso-ropa" aria-selected="false" tabindex="-1">Bazar de ropa y consignación<small>Piezas de muchas personas</small></button>
+      <button class="tab" role="tab" id="tab-mall" aria-controls="caso-mall" aria-selected="false" tabindex="-1">Antique mall<small>Phoenix y otras ciudades de EE.UU.</small></button>
+    </div>
+
+    <div class="caso" role="tabpanel" id="caso-tianguis" aria-labelledby="tab-tianguis" tabindex="0">
+      <div>
+        <span class="caso-sello">Ejemplo: así funcionaría en un mercadito de 40 puestos</span>
+        <h3>Sábado y domingo, 40 emprendedores, una caja a la entrada</h3>
+        <p class="problema">El problema de siempre: el domingo en la noche hay que separar a mano lo que vendió cada quien, restar la comisión y repartir el efectivo. Y alguien siempre dice que le tocaba más.</p>
+        <ol class="dia">
+          <li><b>Jueves</b>Subes tu lista de emprendedores desde Excel, con su comisión y su renta. Cada uno imprime sus etiquetas con código.</li>
+          <li><b>Sábado</b>Abres hasta 3 cajas con el plan Pro. Cobras con la cámara del celular; si pagan mitad efectivo y mitad tarjeta, la app te da el cambio.</li>
+          <li><b>Domingo, 8 p.m.</b>Haces el corte: cuentas el efectivo y la app te dice cuánto debía haber. Si no cuadra, anotas el motivo.</li>
+          <li><b>Lunes</b>A cada emprendedor le llega su estado de cuenta por WhatsApp o correo. Bajas el archivo para el banco y les pagas por transferencia.</li>
+        </ol>
+      </div>
+      <div class="caso-num">
+        <h4>Lo que ve el organizador el lunes</h4>
+        <img src="img/dueno-pagos.webp" width="390" height="844" alt="Pantalla Pagos a vendedores: lista de cuatro vendedores con lo que se le debe a cada uno y botón para bajar el archivo del banco">
+        <p>Pantalla real de la app con datos de demostración.</p>
+      </div>
+    </div>
+
+    <div class="caso" role="tabpanel" id="caso-ropa" aria-labelledby="tab-ropa" tabindex="0" hidden>
+      <div>
+        <span class="caso-sello">Ejemplo: así funcionaría en una tienda de consignación de ropa</span>
+        <h3>Cientos de prendas de 60 consignantes, cada una con su dueña</h3>
+        <p class="problema">Lo difícil no es vender, es saber de quién era cada prenda, cuánto le toca, qué está apartado y qué lleva meses sin moverse.</p>
+        <ol class="dia">
+          <li><b>Al recibir</b>La consignante propone sus prendas desde su link, con hasta 3 fotos. Tú apruebas con un toque e imprimes la etiqueta.</li>
+          <li><b>En la caja</b>Una clienta aparta un vestido con abono. Otra devuelve una blusa: la comisión se regresa sola y el saldo de la consignante queda bien.</li>
+          <li><b>Promociones</b>"25% en el puesto 12 hasta el domingo." La caja lo descuenta sola. La consignante también puede pedir su promoción.</li>
+          <li><b>Piezas paradas</b>A los 60 y 90 días la app le sugiere a la consignante una rebaja. Acepta con un clic desde su link.</li>
+        </ol>
+      </div>
+      <div class="caso-num">
+        <h4>Lo que ve la consignante en su link</h4>
+        <img src="img/puesto-piezas.webp" width="390" height="844" loading="lazy" alt="Mi Puesto, pestaña Mis piezas: botón Agregar una pieza, promoción de tu puesto y piezas por aprobar en la tienda">
+        <p>Pantalla real de la app con datos de demostración.</p>
+      </div>
+    </div>
+
+    <div class="caso" role="tabpanel" id="caso-mall" aria-labelledby="tab-mall" tabindex="0" hidden>
+      <div>
+        <span class="caso-sello">Ejemplo: así funcionaría en un antique mall con 150 booths</span>
+        <h3>Renta mensual, vitrinas con otra comisión y sales tax encima</h3>
+        <p class="problema">En un vendor mall cada booth paga renta, algunas vitrinas cobran un porcentaje distinto y cada mes hay que mandar 150 estados de cuenta y cheques.</p>
+        <ol class="dia">
+          <li><b>Día 1 del mes</b>La renta de cada booth se carga sola y cada vendedor recibe su estado de cuenta mensual por correo.</li>
+          <li><b>Todos los días</b>Cobras en dólares con el sales tax encima. Las piezas de vitrina pueden tener su propia comisión.</li>
+          <li><b>Equipo</b>El cajero no ve costos. El gerente aprueba descuentos con su PIN. Cada quien usa la app en español o en inglés.</li>
+          <li><b>Fin de año</b>Descargas cuánto le pagaste a cada vendedor en el año, listo para el 1099, y el reporte de impuestos por mes.</li>
+        </ol>
+      </div>
+      <div class="caso-num">
+        <h4>Lo que ve el dueño en el reporte por pieza</h4>
+        <img src="img/dueno-reporte.webp" width="390" height="844" loading="lazy" alt="Reportes, vista Por pieza: fecha, pieza, vendedor y precio de cada venta en un rango de fechas">
+        <p>Pantalla real de la app con datos de demostración. Plan Plus: vendedores y cajas sin límite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES Y DESPUÉS -->
+<section class="antes" aria-labelledby="t-antes">
+  <div class="wrap">
+    <h2 id="t-antes">Domingo, 8 de la noche. Cerraste.</h2>
+    <p class="entrada">Lo mismo, de dos maneras. Ejemplo con 30 vendedores y 90 ventas en el día.</p>
+    <div class="cambiador" role="group" aria-label="Comparar">
+      <button type="button" data-modo="libreta" aria-pressed="true">Con libreta</button>
+      <button type="button" data-modo="neuri" aria-pressed="false">Con Neuri Bazar</button>
+    </div>
+    <div class="domingo">
+      <div class="hoja libreta" id="hoja" aria-live="polite"></div>
+      <div class="domingo-lado">
+        <div class="medidor"><b id="medidor">2 h 45 min</b><span id="medidor-txt">para cerrar el día, y todavía falta repartir el dinero</span></div>
+        <p class="nota-chica">Tiempos de ejemplo para que te des una idea. Haz tu propia cuenta en la calculadora de abajo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOS VISTAS -->
+<section aria-labelledby="t-vistas">
+  <div class="wrap">
+    <h2 id="t-vistas">Tú ves todo el negocio. Cada vendedor ve solo lo suyo.</h2>
+    <p class="entrada">Pantallas reales de la app, con datos de demostración. Toca cada una para verla.</p>
+    <div class="vistas-grid">
+      <div class="vista duenio">
+        <div>
+          <h3>Tú, el dueño</h3>
+          <p class="quien">También tu gerente y tu cajero, cada uno con su permiso.</p>
+          <ul class="pantallas" data-grupo="duenio">
+            <li><button type="button" aria-current="true" data-img="img/dueno-inicio.webp" data-alt="Inicio del negocio: ventas de hoy $3,579, por pagar a vendedores $1,917.44 y 2 piezas por aprobar"><b>Inicio</b>Ventas de hoy y lo que debes a vendedores</button></li>
+            <li><button type="button" aria-current="false" data-img="img/dueno-vendedores.webp" data-alt="Vendedores: lista con lo que se le debe a cada uno y su comisión"><b>Vendedores</b>Cuánto le debes a cada uno</button></li>
+            <li><button type="button" aria-current="false" data-img="img/dueno-por-aprobar.webp" data-alt="Inventario con aviso de 2 piezas por aprobar propuestas por vendedores"><b>Piezas por aprobar</b>Lo que te proponen tus vendedores</button></li>
+            <li><button type="button" aria-current="false" data-img="img/dueno-promocion.webp" data-alt="Detalle de vendedor con saldo, promoción del puesto de 25% hasta una fecha y registro de pago"><b>Promoción del puesto</b>Descuento con fecha de fin</button></li>
+            <li><button type="button" aria-current="false" data-img="img/dueno-etiquetas.webp" data-alt="Etiquetas por imprimir con vista previa de códigos de barras"><b>Etiquetas</b>Con código de barras, en rollo u hoja carta</button></li>
+            <li><button type="button" aria-current="false" data-img="img/dueno-bitacora.webp" data-alt="Bitácora de cambios: quién editó, pagó o abrió caja, con fecha y hora"><b>Bitácora</b>Quién cambió qué. Nadie la puede borrar</button></li>
+          </ul>
+        </div>
+        <div class="telefono"><img id="img-duenio" src="img/dueno-inicio.webp" width="390" height="844" alt="Inicio del negocio: ventas de hoy $3,579, por pagar a vendedores $1,917.44 y 2 piezas por aprobar"></div>
+      </div>
+      <div class="vista vendedor">
+        <div>
+          <h3>Tu vendedor</h3>
+          <p class="quien">Desde un link privado. No ve costos ni lo de los demás.</p>
+          <ul class="pantallas" data-grupo="vendedor">
+            <li><button type="button" aria-current="true" data-img="img/puesto-saldo.webp" data-alt="Mi Puesto de Lupita: te debemos $71.55, con su venta y su pago recibido"><b>Su saldo</b>Cuánto le debes y cada movimiento</button></li>
+            <li><button type="button" aria-current="false" data-img="img/puesto-ventas.webp" data-alt="Mi Puesto, Mis ventas: piezas vendidas, total y su parte por mes, con botón para descargar CSV"><b>Sus ventas por mes</b>Y las descarga en Excel</button></li>
+            <li><button type="button" aria-current="false" data-img="img/puesto-piezas.webp" data-alt="Mi Puesto, Mis piezas: agregar una pieza, pedir promoción y piezas por aprobar"><b>Sus piezas</b>Propone nuevas y pide promociones</button></li>
+          </ul>
+        </div>
+        <div class="telefono"><img id="img-vendedor" src="img/puesto-saldo.webp" width="390" height="844" alt="Mi Puesto de Lupita: te debemos $71.55, con su venta y su pago recibido"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULADORA -->
+<section class="oscuro" aria-labelledby="t-calc" style="background:var(--anil-2)">
+  <div class="wrap">
+    <h2 id="t-calc">¿Cuántas horas al mes te quita hacer cuentas?</h2>
+    <p class="entrada">Mueve los números a como es tu bazar.</p>
+    <div class="calc">
+      <div>
+        <div class="deslizador">
+          <label for="c-vend">Vendedores o puestos <output id="o-vend" for="c-vend">30</output></label>
+          <input type="range" id="c-vend" min="5" max="200" step="5" value="30">
+        </div>
+        <div class="deslizador">
+          <label for="c-ventas">Ventas en un día abierto <output id="o-ventas" for="c-ventas">60</output></label>
+          <input type="range" id="c-ventas" min="10" max="400" step="10" value="60">
+        </div>
+        <div class="deslizador">
+          <label for="c-dias">Días que abres a la semana <output id="o-dias" for="c-dias">3</output></label>
+          <input type="range" id="c-dias" min="1" max="7" step="1" value="3">
+          <small style="color:var(--sobre-anil)">Un mercadito de fin de semana: 2. Una tienda: 6 o 7.</small>
+        </div>
+      </div>
+      <div class="resultado" aria-live="polite">
+        <div class="horas" id="r-horas">25 <small>horas al mes</small></div>
+        <p id="r-dias" style="color:var(--sobre-anil);margin-top:8px">Más de 3 días de trabajo de 8 horas.</p>
+        <ul id="r-desglose"></ul>
+        <p class="plan-sug" id="r-plan"></p>
+        <details class="supuestos">
+          <summary>Cómo lo calculamos</summary>
+          <ul>
+            <li>Anotar y sumar cada venta en la libreta: 30 segundos por venta. Con la app queda registrada al cobrar.</li>
+            <li>Separar ventas, comisión y renta de cada vendedor: 4 minutos por vendedor a la semana. Con la app sale sola.</li>
+            <li>Contestar "¿cuánto llevo?": una pregunta por vendedor a la semana, 3 minutos. Con la app lo ven en su link.</li>
+            <li>Corte del día: de 20 minutos a 5.</li>
+            <li>Mes de 4.3 semanas. Son estimaciones, no resultados de clientes.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TODO LO QUE TRAE -->
+<section aria-labelledby="t-trae">
+  <div class="wrap">
+    <h2 id="t-trae">Todo lo que ya trae</h2>
+    <p class="entrada">Funciona hoy, en el celular. Sin equipo especial.</p>
+    <div class="trae">
+      <div><h3>En la caja</h3><ul>
+        <li>Escanea con la cámara o con pistola lectora</li>
+        <li>Varias piezas en un ticket</li>
+        <li>Efectivo, tarjeta y transferencia, y pagos divididos con cambio</li>
+        <li>Apartados con abonos</li>
+        <li>Devoluciones</li>
+        <li>Recibo impreso, por WhatsApp o por correo</li>
+      </ul></div>
+      <div><h3>Con tus vendedores</h3><ul>
+        <li>Comisión por vendedor y por pieza</li>
+        <li>Renta del puesto cobrada sola</li>
+        <li>Promoción por puesto con fecha de fin</li>
+        <li>Proponen piezas desde su link y tú apruebas</li>
+        <li>Estado de cuenta semanal o mensual</li>
+        <li>Pagos registrados y archivo para el banco</li>
+      </ul></div>
+      <div><h3>Para que cuadre</h3><ul>
+        <li>Corte del día: esperado contra contado</li>
+        <li>Bitácora de cambios que nadie puede editar</li>
+        <li>Cajero, gerente y dueño con distintos permisos</li>
+        <li>El cajero no ve costos</li>
+        <li>Reportes por día, vendedor, pieza e impuestos</li>
+      </ul></div>
+      <div><h3>Para empezar y salir</h3><ul>
+        <li>Importa vendedores y piezas desde Excel</li>
+        <li>Tus etiquetas viejas siguen sirviendo</li>
+        <li>Imprime etiquetas en rollo u hoja carta</li>
+        <li>Pesos o dólares, IVA o sales tax</li>
+        <li>Español o inglés por usuario</li>
+        <li>Exporta todos tus datos con un botón</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section class="precios" id="precios" aria-labelledby="t-precios">
+  <div class="wrap">
+    <h2 id="t-precios">Un precio fijo al mes. Sin cobro por venta.</h2>
+    <p class="entrada">Los primeros 14 días son gratis y no te pedimos tarjeta.</p>
+    <div class="moneda" role="group" aria-label="Moneda">
+      <button type="button" data-moneda="mx" aria-pressed="true">México, pesos</button>
+      <button type="button" data-moneda="us" aria-pressed="false">EE.UU., dólares</button>
+    </div>
+    <div class="planes">
+      <div class="plan">
+        <h3>Básico</h3>
+        <p class="para-quien">Para un bazar que empieza.</p>
+        <p class="monto" data-mx="$499|MXN al mes + IVA" data-us="$79|USD al mes">$499<small>MXN al mes + IVA</small></p>
+        <ul><li>Hasta 30 vendedores</li><li>1 caja</li><li>Mi Puesto para cada vendedor</li><li>Corte, apartados y devoluciones</li></ul>
+        <a class="btn btn-borde" href="#prueba" data-trial data-plan="Básico">Probar Básico gratis</a>
+      </div>
+      <div class="plan pro">
+        <h3>Pro <span class="sello">El que recomendamos</span></h3>
+        <p class="para-quien">Para un mercadito con varias cajas.</p>
+        <p class="monto" data-mx="$899|MXN al mes + IVA" data-us="$119|USD al mes">$899<small>MXN al mes + IVA</small></p>
+        <ul><li>Hasta 75 vendedores</li><li>3 cajas</li><li>Estado de cuenta semanal por WhatsApp o correo</li><li>Reportes y exportar a Excel</li></ul>
+        <a class="btn btn-anil" href="#prueba" data-trial data-plan="Pro">Probar Pro gratis</a>
+      </div>
+      <div class="plan">
+        <h3>Plus</h3>
+        <p class="para-quien">Para malls y varias sucursales.</p>
+        <p class="monto" data-mx="$1,499|MXN al mes + IVA" data-us="$149|USD al mes">$1,499<small>MXN al mes + IVA</small></p>
+        <ul><li>Vendedores sin límite</li><li>Cajas sin límite</li><li>Varias sucursales</li><li>Todo lo de Pro</li></ul>
+        <a class="btn btn-borde" href="#prueba" data-trial data-plan="Plus">Probar Plus gratis</a>
+      </div>
+    </div>
+
+    <div class="fundadores" id="fundadores">
+      <div>
+        <h3>Buscamos 10 bazares fundadores</h3>
+        <ul>
+          <li>Te lo instalamos y capacitamos a tu equipo gratis</li>
+          <li>El primer mes no pagas</li>
+          <li>Tu precio no sube en 12 meses</li>
+        </ul>
+      </div>
+      <div>
+        <p class="honesto">Aún no tenemos clientes que paguen. Por eso buscamos a los primeros 10: a cambio de tu opinión, te lo dejamos funcionando.</p>
+        <a class="btn btn-etiqueta" id="btn-fundador" href="mailto:hola@neuri.tech?subject=Quiero%20ser%20bazar%20fundador%20de%20Neuri%20Bazar&amp;body=Nombre%20del%20bazar%3A%0ACiudad%3A%0AN%C3%BAmero%20de%20vendedores%3A%0AWhatsApp%3A">Apartar mi lugar de fundador</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRUEBA GRATIS -->
+<section class="oscuro" id="prueba" aria-labelledby="t-prueba">
+  <div class="wrap prueba-grid">
+    <div class="prueba-lado">
+      <h2 id="t-prueba">Abre tu bazar en Neuri en 4 pasos</h2>
+      <p class="entrada">Te toma un minuto. Con esto dejamos tu bazar listo para que empieces a cobrar.</p>
+      <ul>
+        <li><b>14 días gratis.</b> Sin tarjeta. Te avisamos antes de que termine.</li>
+        <li><b>Te ayudamos a subir tus datos.</b> Mándanos tu Excel o tu libreta en foto.</li>
+        <li><b>Tus vendedores no instalan nada.</b> Les llega su link.</li>
+      </ul>
+    </div>
+
+    <form class="asistente" id="asistente" novalidate aria-labelledby="t-prueba">
+      <div class="progreso"><span id="prog-txt">Paso 1 de 4</span><span id="prog-sig">Sigue: tu ciudad</span></div>
+      <div class="progreso-barra" aria-hidden="true"><span id="prog-barra"></span></div>
+
+      <div class="paso" data-paso="1">
+        <h3 tabindex="-1">¿Cómo se llama tu bazar?</h3>
+        <p class="ayuda">Así lo verán tus vendedores en su link y tus clientes en el ticket.</p>
+        <div class="campo">
+          <label for="f-nombre">Nombre del bazar</label>
+          <input type="text" id="f-nombre" name="nombre" autocomplete="organization" placeholder="Ej. Mercadito La Lona" aria-describedby="e-nombre">
+          <p class="error" id="e-nombre" role="alert"></p>
+        </div>
+      </div>
+
+      <div class="paso" data-paso="2" hidden>
+        <h3 tabindex="-1">¿Dónde está?</h3>
+        <p class="ayuda">Con esto ponemos la moneda y el impuesto correctos.</p>
+        <div class="campo">
+          <label for="f-ciudad">Ciudad</label>
+          <input type="text" id="f-ciudad" name="ciudad" autocomplete="address-level2" placeholder="Ej. Culiacán" aria-describedby="e-ciudad">
+          <p class="error" id="e-ciudad" role="alert"></p>
+        </div>
+        <fieldset class="campo" aria-describedby="e-pais">
+          <legend>País</legend>
+          <div class="opciones dos">
+            <label class="opcion"><input type="radio" name="pais" value="MX"><span>México<small>Pesos, IVA incluido</small></span></label>
+            <label class="opcion"><input type="radio" name="pais" value="US"><span>Estados Unidos<small>Dólares, sales tax encima</small></span></label>
+          </div>
+          <p class="error" id="e-pais" role="alert"></p>
+        </fieldset>
+      </div>
+
+      <div class="paso" data-paso="3" hidden>
+        <h3 tabindex="-1">¿Cuántos vendedores tienes?</h3>
+        <p class="ayuda">Un cálculo está bien. Puedes cambiar de plan cuando quieras.</p>
+        <fieldset class="campo" aria-describedby="e-vend">
+          <legend class="sr">Número de vendedores</legend>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="vendedores" value="Hasta 30" data-plan="Básico"><span>Hasta 30<small>Plan Básico</small></span></label>
+            <label class="opcion"><input type="radio" name="vendedores" value="De 31 a 75" data-plan="Pro"><span>De 31 a 75<small>Plan Pro</small></span></label>
+            <label class="opcion"><input type="radio" name="vendedores" value="Más de 75" data-plan="Plus"><span>Más de 75<small>Plan Plus</small></span></label>
+          </div>
+          <p class="error" id="e-vend" role="alert"></p>
+        </fieldset>
+      </div>
+
+      <div class="paso" data-paso="4" hidden>
+        <h3 tabindex="-1">¿A qué correo te mandamos el acceso?</h3>
+        <p class="ayuda">Usa el correo con el que vas a entrar a la app. No te mandamos publicidad.</p>
+        <div class="campo">
+          <label for="f-correo">Correo</label>
+          <input type="email" id="f-correo" name="correo" autocomplete="email" inputmode="email" placeholder="tu@correo.com" aria-describedby="e-correo">
+          <p class="error" id="e-correo" role="alert"></p>
+        </div>
+        <div class="resumen" id="resumen"></div>
+      </div>
+
+      <div class="paso listo" data-paso="5" hidden>
+        <span class="tag-grande">¡Listo!</span>
+        <h3 tabindex="-1" style="margin-top:14px" id="listo-titulo">Ya casi abres tu bazar</h3>
+        <p class="ayuda" id="listo-txt">Se abrió tu correo con tus datos. Solo dale Enviar y te mandamos tu acceso.</p>
+        <p class="ayuda">¿No se abrió? Escríbenos a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> con el nombre de tu bazar.</p>
+        <p class="ayuda">Mientras, juega otra vez con <a href="#caja">la caja de prueba</a>.</p>
+      </div>
+
+      <div class="asistente-botones" id="botones">
+        <button type="button" class="btn-atras" id="atras" hidden>Atrás</button>
+        <button type="submit" class="btn btn-anil" id="siguiente">Siguiente</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- PREGUNTAS -->
+<section id="preguntas" aria-labelledby="t-faq">
+  <div class="wrap">
+    <h2 id="t-faq">Lo que nos preguntan</h2>
+    <div class="faq">
+      <details><summary>¿Necesito comprar equipo?</summary><p>No. Funciona en el celular que ya tienes: la cámara lee las etiquetas. Si quieres ir más rápido, puedes conectar una pistola lectora y una impresora de etiquetas o de tickets.</p></details>
+      <details><summary>Mis vendedores no son de tecnología. ¿Tienen que instalar algo?</summary><p>No. Cada vendedor recibe un link privado, sin contraseña. Lo abre como cualquier mensaje y ve su saldo, sus piezas y sus ventas del mes. Su estado de cuenta le llega por WhatsApp o por correo.</p></details>
+      <details><summary>Hoy llevo todo en libreta o en Excel. ¿Es difícil cambiarme?</summary><p>Subes tu lista de vendedores y tus piezas desde Excel, y las etiquetas que ya tienes pegadas se pueden seguir escaneando. A los primeros 10 bazares se lo instalamos y capacitamos gratis.</p></details>
+      <details><summary>¿Y si se va el internet?</summary><p>Por ahora la caja necesita conexión. Funciona con los datos del celular, así que basta con un teléfono con saldo o un módem. El modo sin conexión todavía no está listo.</p></details>
+      <details><summary>¿Emite factura (CFDI)?</summary><p>Todavía no. El recibo es una nota de venta impresa, por WhatsApp o por correo. El reporte de impuestos por mes te da lo que necesita tu contador.</p></details>
+      <details><summary>¿Cobran comisión por cada venta?</summary><p>No. Pagas un precio fijo al mes por tu bazar, vendas lo que vendas. En México el precio es más IVA.</p></details>
+      <details><summary>¿Qué pasa al terminar los 14 días gratis?</summary><p>Te avisamos por correo dos días antes. Si sigues, eliges tu plan y todo queda como está. Si no, no se te cobra nada.</p></details>
+      <details><summary>¿Mis datos son míos?</summary><p>Sí. Descargas todo tu negocio con un botón cuando quieras. Además, cada cambio de precio, comisión o venta anulada queda en una bitácora que nadie puede editar ni borrar, ni siquiera el dueño.</p></details>
+      <details><summary>¿Sirve en Estados Unidos y en inglés?</summary><p>Sí. Cobra en dólares con el sales tax encima, manda estados de cuenta mensuales y cada usuario elige español o inglés.</p></details>
+    </div>
+    <p class="entrada" style="margin-top:24px">¿Otra duda? Escríbenos a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a>.</p>
+  </div>
+</section>
 </main>
 
-<footer><div class="wrap">
-  <span>© 2026 Neuri LLC, Arizona, EE.UU.</span>
-  <span><a href="/">neuri.tech</a> · <a href="/sigue-disponible/">¿Sigue Disponible?</a> · <a href="/en/">English</a></span>
-</div></footer>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Neuri LLC, Arizona, EE.UU.</span>
+    <span><a href="mailto:hola@neuri.tech">hola@neuri.tech</a>  <a href="/en/" lang="en" hreflang="en" style="margin-left:14px">English</a></span>
+  </div>
+</footer>
+
+<div class="cta-fijo" id="cta-fijo" aria-hidden="true">
+  <p>14 días gratis<small>Sin tarjeta. Desde $499 MXN al mes.</small></p>
+  <a class="btn btn-etiqueta" href="#prueba" data-trial tabindex="-1">Probar gratis</a>
+</div>
+
 <script>
-  document.querySelectorAll('.toggle button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var c = b.dataset.c;
-      document.querySelectorAll('.toggle button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-      document.querySelectorAll('.plan .p').forEach(function (p) { p.innerHTML = p.dataset[c]; });
+// Al desplegar la app, poner aquí su URL (p. ej. https://app.neuri.tech): los botones de prueba
+// gratis abren el alta directo. Mientras esté vacía, el asistente arma un correo a hola@neuri.tech.
+var APP_URL = '';
+
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function dinero(c) {
+    var neg = c < 0; c = Math.abs(c);
+    var s = (Math.floor(c / 100)).toLocaleString('en-US') + '.' + String(c % 100).padStart(2, '0');
+    return (neg ? '−$' : '$') + s;
+  }
+
+  if (APP_URL) {
+    $$('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=MX'; });
+  }
+
+  /* ---------- Caja de prueba ---------- */
+  var IVA = 1600; // 16% en puntos base
+  var VEND = {
+    mari:   { nombre: 'Mari',   puesto: 3,  com: 3000, saldo: 124000, movs: [] },
+    beto:   { nombre: 'Beto',   puesto: 7,  com: 2500, saldo: 86000,  movs: [] },
+    lupita: { nombre: 'Lupita', puesto: 12, com: 2000, saldo: 41500,  movs: [] }
+  };
+  VEND.mari.movs = [{ t: 'Ventas de la semana', d: 'Lunes a sábado', a: 154000 }, { t: 'Renta del puesto', d: 'Se cobró sola el lunes', a: -30000 }];
+  VEND.beto.movs = [{ t: 'Ventas de la semana', d: 'Lunes a sábado', a: 111000 }, { t: 'Renta del puesto', d: 'Se cobró sola el lunes', a: -25000 }];
+  VEND.lupita.movs = [{ t: 'Ventas de la semana', d: 'Lunes a sábado', a: 61500 }, { t: 'Renta del puesto', d: 'Se cobró sola el lunes', a: -20000 }];
+  var PIEZAS = [
+    { id: 'p1', nom: 'Chamarra de mezclilla', pre: 45000, v: 'mari' },
+    { id: 'p2', nom: 'Lámpara de latón', pre: 85000, v: 'beto' },
+    { id: 'p3', nom: 'Aretes de plata', pre: 28000, v: 'lupita' },
+    { id: 'p4', nom: 'Vestido vintage', pre: 38000, v: 'mari' },
+    { id: 'p5', nom: 'Radio antiguo', pre: 120000, v: 'beto' },
+    { id: 'p6', nom: 'Bolsa tejida', pre: 22000, v: 'lupita' }
+  ];
+  var ticket = [], vendidas = {}, numTicket = 41, vendorVista = 'mari';
+
+  function partir(p) {
+    var neto = Math.round(p.pre * 10000 / (10000 + IVA));
+    var iva = p.pre - neto;
+    var vendedor = Math.floor(neto * (10000 - VEND[p.v].com) / 10000);
+    return { neto: neto, iva: iva, com: neto - vendedor, vend: vendedor };
+  }
+  function pieza(id) { for (var i = 0; i < PIEZAS.length; i++) if (PIEZAS[i].id === id) return PIEZAS[i]; }
+
+  var mesa = $('#mesa');
+  PIEZAS.forEach(function (p) {
+    var v = VEND[p.v];
+    var li = document.createElement('li');
+    li.innerHTML = '<button type="button" class="pieza" data-id="' + p.id + '" aria-pressed="false">' +
+      '<span class="tag"><span class="nom">' + p.nom + '</span> <span class="pre">' + dinero(p.pre) + '</span> ' +
+      '<span class="pto v-' + p.v + '">Puesto ' + v.puesto + ', ' + v.nombre + '</span></span></button>';
+    mesa.appendChild(li);
+  });
+  mesa.addEventListener('click', function (e) {
+    var b = e.target.closest('.pieza'); if (!b || b.disabled) return;
+    var id = b.dataset.id, i = ticket.indexOf(id);
+    var t = $('#ticket'); t.classList.remove('impreso', 'cobrado');
+    if (i === -1) ticket.push(id); else ticket.splice(i, 1);
+    b.setAttribute('aria-pressed', String(i === -1));
+    pintarCaja();
+  });
+  $('#surtir').addEventListener('click', function () {
+    vendidas = {}; ticket = [];
+    $$('.pieza').forEach(function (b) { b.disabled = false; b.setAttribute('aria-pressed', 'false'); });
+    $('#ticket').classList.remove('impreso', 'cobrado');
+    pintarCaja();
+  });
+  $$('input[name=pago]').forEach(function (r) { r.addEventListener('change', pintarCambio); });
+
+  function total() { return ticket.reduce(function (s, id) { return s + pieza(id).pre; }, 0); }
+  function pintarCambio() {
+    var tot = total(), modo = ($('input[name=pago]:checked') || {}).value, el = $('#cambio');
+    if (!tot) { el.innerHTML = ''; return; }
+    if (modo === 'efectivo') {
+      var paga = Math.ceil(tot / 50000) * 50000; if (paga === tot) paga += 0;
+      el.innerHTML = 'Te pagan con ' + dinero(paga) + '. Cambio: <b>' + dinero(paga - tot) + '</b>';
+    } else if (modo === 'dividido') {
+      el.innerHTML = tot > 50000 ? '$500.00 en efectivo y <b>' + dinero(tot - 50000) + '</b> con tarjeta' : 'El ticket es menor a $500. Cóbralo todo en efectivo.';
+    } else {
+      el.innerHTML = 'Todo con ' + modo + ': <b>' + dinero(tot) + '</b>';
+    }
+  }
+  function lineasTicket() {
+    if (!ticket.length) return '<p class="t-vacio">Ticket vacío. Toca una pieza.</p>';
+    var tot = 0, iva = 0, h = '<table><tbody>';
+    ticket.forEach(function (id) { var p = pieza(id), s = partir(p); tot += p.pre; iva += s.iva;
+      h += '<tr><td>' + p.nom + '<br><small>P' + VEND[p.v].puesto + '</small></td><td>' + dinero(p.pre) + '</td></tr>'; });
+    h += '</tbody><tfoot><tr class="t-tot"><td>Total</td><td>' + dinero(tot) + '</td></tr>' +
+      '<tr><td><small>IVA incluido</small></td><td><small>' + dinero(iva) + '</small></td></tr></tfoot></table>';
+    return h;
+  }
+  function pintarCaja() {
+    $('#t-lineas').innerHTML = lineasTicket();
+    $('#num-ticket').textContent = 'Ticket ' + String(numTicket).padStart(4, '0');
+    var tot = total(), cobrar = $('#cobrar');
+    cobrar.disabled = !tot;
+    cobrar.textContent = tot ? 'Cobrar ' + dinero(tot) : 'Cobrar';
+    pintarCambio(); pintarReparto();
+  }
+  function pintarReparto() {
+    var por = {}, tot = 0, tIva = 0, tCom = 0;
+    ticket.forEach(function (id) { var p = pieza(id), s = partir(p);
+      por[p.v] = por[p.v] || { pre: 0, iva: 0, com: 0, vend: 0 };
+      por[p.v].pre += p.pre; por[p.v].iva += s.iva; por[p.v].com += s.com; por[p.v].vend += s.vend;
+      tot += p.pre; tIva += s.iva; tCom += s.com; });
+    var body = '', barra = '';
+    Object.keys(VEND).forEach(function (k) {
+      if (!por[k]) return; var r = por[k], v = VEND[k];
+      body += '<li><span class="quien"><i class="v-' + k + '"></i>Para ' + v.nombre + '</span><span class="para">' + dinero(r.vend) + '</span>' +
+        '<span class="det">Vendió ' + dinero(r.pre) + '. Menos IVA ' + dinero(r.iva) + ' y tu comisión de ' + v.com / 100 + '%: ' + dinero(r.com) + '.</span></li>';
+      barra += '<span class="v-' + k + '" style="width:' + (r.vend / tot * 100) + '%"></span>';
+    });
+    if (!tot) {
+      body = '<li><span class="vacio">Todavía no hay nada que repartir. Toca una pieza.</span></li>';
+      $('#reparto-total').innerHTML = '';
+    } else {
+      barra += '<span class="s-com" style="width:' + (tCom / tot * 100) + '%"></span><span class="s-iva" style="width:' + (tIva / tot * 100) + '%"></span>';
+      $('#reparto-total').innerHTML = '<span>Total del ticket</span><span>' + dinero(tot) + '</span><span>Para tus vendedores</span><span>' + dinero(tot - tIva - tCom) + '</span><span>Tu comisión</span><span>' + dinero(tCom) + '</span><span>IVA</span><span>' + dinero(tIva) + '</span>';
+    }
+    $('#reparto').innerHTML = body;
+    $('#barra').innerHTML = barra;
+  }
+  $('#cobrar').addEventListener('click', function () {
+    if (!ticket.length) return;
+    var modo = $('input[name=pago]:checked').value;
+    var primero = null;
+    ticket.forEach(function (id) {
+      var p = pieza(id), s = partir(p), v = VEND[p.v];
+      v.saldo += s.vend;
+      v.movs.unshift({ t: 'Venta: ' + p.nom, d: 'Ticket ' + String(numTicket).padStart(4, '0') + ', hace un momento', a: s.vend, nuevo: true });
+      vendidas[id] = true; if (!primero) primero = p.v;
+      var b = $('.pieza[data-id="' + id + '"]'); b.disabled = true; b.setAttribute('aria-pressed', 'false');
+    });
+    var t = $('#ticket');
+    $('#t-sello').textContent = 'Pagado con ' + ({ efectivo: 'efectivo', tarjeta: 'tarjeta', transferencia: 'transferencia', dividido: 'efectivo y tarjeta' })[modo] + '. ¡Gracias por su compra!';
+    t.classList.remove('impreso'); void t.offsetWidth; t.classList.add(reduce ? 'cobrado' : 'impreso');
+    $('#cobrar').disabled = true; $('#cobrar').textContent = 'Cobrado';
+    var cobradoTicket = ticket.slice(); ticket = [];
+    numTicket++;
+    elegirVendedor(primero, true);
+    // El ticket se queda impreso; el reparto muestra lo que se acaba de cobrar.
+    ticket = cobradoTicket; pintarReparto(); ticket = [];
+    $('#num-ticket').textContent = 'Siguiente: ticket ' + String(numTicket).padStart(4, '0');
+    $('#cambio').innerHTML = 'Cobrado. En el paso 4 ves cómo le llegó a ' + VEND[primero].nombre + '. Toca otra pieza para la siguiente venta.';
+    if (Object.keys(vendidas).length === PIEZAS.length) $('#surtir').focus();
+  });
+
+  function elegirVendedor(k, destacar) {
+    vendorVista = k;
+    $$('.mp-tabs button').forEach(function (b) {
+      var on = b.dataset.v === k;
+      b.setAttribute('aria-pressed', String(on));
+      b.className = 'btn btn-chico ' + (on ? 'btn-etiqueta' : 'btn-borde');
+    });
+    var v = VEND[k];
+    $('#mp-hola').textContent = 'Hola, ' + v.nombre;
+    var s = $('#mp-saldo'); s.textContent = dinero(v.saldo);
+    if (destacar) { s.classList.add('sube'); setTimeout(function () { s.classList.remove('sube'); }, 1600); }
+    $('#mp-movs').innerHTML = v.movs.map(function (m) {
+      return '<li class="' + (m.nuevo && destacar ? 'nuevo' : '') + '"><span>' + m.t + '<small>' + m.d + '</small></span><span class="' + (m.a < 0 ? 'neg' : '') + '">' + (m.a < 0 ? '' : '+') + dinero(m.a) + '</span></li>';
+    }).join('');
+    v.movs.forEach(function (m) { if (destacar) m.nuevo = false; });
+  }
+  $$('.mp-tabs button').forEach(function (b) { b.addEventListener('click', function () { elegirVendedor(b.dataset.v, false); }); });
+  var hoy = new Date();
+  $('#t-fecha').textContent = hoy.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' });
+  pintarCaja(); elegirVendedor('mari', false);
+
+  /* ---------- Pestañas de casos ---------- */
+  var tabs = $$('[role=tab]');
+  function abrirTab(t, foco) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute('aria-selected', String(on)); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (foco) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { abrirTab(t); });
+    t.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') n = tabs[0];
+      if (e.key === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); abrirTab(n, true); }
     });
   });
-</script>
-<script>
-  // Al desplegar la app, poner aquí su URL (p. ej. https://app.neuri.tech): los botones de prueba
-  // gratis abren el alta directo. Mientras esté vacía, siguen mandando correo.
-  var APP_URL = '';
-  if (APP_URL) document.querySelectorAll('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=MX'; });
+
+  /* ---------- Antes y después ---------- */
+  var HOJAS = {
+    libreta: { titulo: 'Con libreta', clase: 'hoja libreta', filas: [
+      ['Sumar las 90 ventas de la libreta', '35 min'],
+      ['Separar qué vendió cada uno de los 30', '45 min'],
+      ['Restar comisión y renta de cada uno, con calculadora', '40 min'],
+      ['Contar el efectivo. No cuadra por $150', '20 min', 'mal'],
+      ['Contestar WhatsApps de "¿cuánto llevo?"', '25 min']
+    ], total: '2 h 45 min', medidor: '2 h 45 min', txt: 'para cerrar el día, y todavía falta repartir el dinero' },
+    neuri: { titulo: 'Con Neuri Bazar', clase: 'hoja', filas: [
+      ['Las 90 ventas ya quedaron separadas al cobrar', '0 min'],
+      ['Comisión, IVA y renta de cada vendedor: ya están', '0 min'],
+      ['Contar el efectivo. La app te dice cuánto debía haber', '5 min'],
+      ['Si no cuadra, anotas el motivo y queda en la bitácora', '1 min'],
+      ['Los vendedores ven su saldo en su link', '0 min']
+    ], total: '6 min', medidor: '6 min', txt: 'y te vas a tu casa. El estado de cuenta les llega solo.' }
+  };
+  function pintarHoja(m) {
+    var d = HOJAS[m], h = $('#hoja');
+    h.className = d.clase;
+    h.innerHTML = '<h3>' + d.titulo + '</h3><ol>' + d.filas.map(function (f) {
+      return '<li class="' + (f[2] || '') + '"><span>' + f[0] + '</span><span>' + f[1] + '</span></li>'; }).join('') +
+      '<li class="total"><span>Total</span><span>' + d.total + '</span></li></ol>';
+    $('#medidor').textContent = d.medidor; $('#medidor-txt').textContent = d.txt;
+    $$('.cambiador button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.modo === m)); });
+  }
+  $$('.cambiador button').forEach(function (b) { b.addEventListener('click', function () { pintarHoja(b.dataset.modo); }); });
+  pintarHoja('libreta');
+
+  /* ---------- Dos vistas ---------- */
+  $$('.pantallas').forEach(function (ul) {
+    var img = ul.dataset.grupo === 'duenio' ? $('#img-duenio') : $('#img-vendedor');
+    $$('button', ul).forEach(function (b) {
+      b.addEventListener('click', function () {
+        $$('button', ul).forEach(function (x) { x.setAttribute('aria-current', String(x === b)); });
+        img.src = b.dataset.img; img.alt = b.dataset.alt;
+      });
+    });
+  });
+
+  /* ---------- Moneda ---------- */
+  var moneda = 'mx';
+  $$('.moneda button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      moneda = b.dataset.moneda;
+      $$('.moneda button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      $$('.plan .monto').forEach(function (p) {
+        var v = p.dataset[moneda].split('|'); p.innerHTML = v[0] + '<small>' + v[1] + '</small>';
+      });
+      calcular();
+    });
+  });
+
+  /* ---------- Calculadora ---------- */
+  var cV = $('#c-vend'), cS = $('#c-ventas'), cD = $('#c-dias');
+  function calcular() {
+    var v = +cV.value, s = +cS.value, d = +cD.value, sem = 4.3;
+    $('#o-vend').textContent = v; $('#o-ventas').textContent = s; $('#o-dias').textContent = d;
+    var anotar = 0.5 * s * d * sem, separar = 4 * v * sem, preguntas = 3 * v * sem, corte = 15 * d * sem;
+    var tot = anotar + separar + preguntas + corte, h = Math.round(tot / 60);
+    $('#r-horas').innerHTML = h + ' <small>horas al mes</small>';
+    var jornadas = Math.floor(tot / 60 / 8);
+    $('#r-dias').textContent = jornadas >= 1 ? 'Es como ' + (jornadas === 1 ? 'un día completo' : jornadas + ' días completos') + ' de trabajo de 8 horas, cada mes.' : 'Menos de un día de trabajo, pero cada semana.';
+    function hm(m) { return m >= 60 ? (Math.round(m / 6) / 10) + ' h' : Math.round(m) + ' min'; }
+    $('#r-desglose').innerHTML =
+      '<li><span>Anotar y sumar ventas</span><span>' + hm(anotar) + '</span></li>' +
+      '<li><span>Separar comisión y renta por vendedor</span><span>' + hm(separar) + '</span></li>' +
+      '<li><span>Contestar "¿cuánto llevo?"</span><span>' + hm(preguntas) + '</span></li>' +
+      '<li><span>Corte del día más rápido</span><span>' + hm(corte) + '</span></li>';
+    var plan = v <= 30 ? ['Básico', '$499 MXN', '$79 USD'] : v <= 75 ? ['Pro', '$899 MXN', '$119 USD'] : ['Plus', '$1,499 MXN', '$149 USD'];
+    $('#r-plan').innerHTML = 'Con ' + v + ' vendedores te toca el plan <b>' + plan[0] + '</b>: ' + (moneda === 'mx' ? plan[1] + ' al mes + IVA' : plan[2] + ' al mes') + '.';
+  }
+  [cV, cS, cD].forEach(function (i) { i.addEventListener('input', calcular); });
+  calcular();
+
+  /* ---------- Asistente de prueba ---------- */
+  var form = $('#asistente'), paso = 1, TOTAL = 4;
+  var SIG = { 1: 'Sigue: tu ciudad', 2: 'Sigue: tus vendedores', 3: 'Sigue: tu correo', 4: 'Último paso' };
+  function val(n) { var el = form.elements[n]; return el ? (el.value || '').trim() : ''; }
+  function radio(n) { var r = $('input[name=' + n + ']:checked', form); return r ? r.value : ''; }
+  function error(id, msg, campo) {
+    $('#' + id).textContent = msg || '';
+    if (campo) campo.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  }
+  function validar(p) {
+    if (p === 1) {
+      var ok = val('nombre').length >= 2;
+      error('e-nombre', ok ? '' : 'Escribe el nombre de tu bazar para seguir. Si aún no tiene, pon uno provisional.', form.elements.nombre);
+      if (!ok) form.elements.nombre.focus(); return ok;
+    }
+    if (p === 2) {
+      var c = val('ciudad').length >= 2, pa = !!radio('pais');
+      error('e-ciudad', c ? '' : 'Escribe la ciudad donde está tu bazar.', form.elements.ciudad);
+      error('e-pais', pa ? '' : 'Elige México o Estados Unidos.');
+      if (!c) form.elements.ciudad.focus(); else if (!pa) $('input[name=pais]', form).focus();
+      return c && pa;
+    }
+    if (p === 3) {
+      var vv = !!radio('vendedores');
+      error('e-vend', vv ? '' : 'Elige un rango. Un cálculo aproximado está bien.');
+      if (!vv) $('input[name=vendedores]', form).focus(); return vv;
+    }
+    if (p === 4) {
+      var m = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val('correo'));
+      error('e-correo', m ? '' : 'Revisa tu correo. Debe verse así: nombre@correo.com', form.elements.correo);
+      if (!m) form.elements.correo.focus(); return m;
+    }
+    return true;
+  }
+  function plan() { var r = $('input[name=vendedores]:checked', form); return r ? r.dataset.plan : 'Pro'; }
+  function ir(p) {
+    paso = p;
+    $$('.paso', form).forEach(function (s) { s.hidden = +s.dataset.paso !== p; });
+    var fin = p > TOTAL;
+    $('#prog-txt').textContent = fin ? 'Listo' : 'Paso ' + p + ' de ' + TOTAL;
+    $('#prog-sig').textContent = fin ? '' : SIG[p];
+    $('#prog-barra').style.width = (fin ? 100 : p / TOTAL * 100) + '%';
+    $('#atras').hidden = p === 1 || fin;
+    $('#botones').hidden = fin;
+    $('#siguiente').textContent = p === TOTAL ? 'Crear mi bazar gratis' : 'Siguiente';
+    if (p === TOTAL) {
+      var pais = radio('pais') === 'US' ? 'Estados Unidos' : 'México';
+      $('#resumen').innerHTML = '<dl><dt>Bazar</dt><dd></dd><dt>Dónde</dt><dd></dd><dt>Vendedores</dt><dd></dd><dt>Plan de prueba</dt><dd></dd></dl>';
+      var dd = $$('#resumen dd');
+      dd[0].textContent = val('nombre'); dd[1].textContent = val('ciudad') + ', ' + pais;
+      dd[2].textContent = radio('vendedores'); dd[3].textContent = plan() + ', 14 días gratis';
+    }
+    var h = $('.paso[data-paso="' + p + '"] h3', form); if (h && document.activeElement !== document.body) h.focus();
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validar(paso)) return;
+    if (paso < TOTAL) { ir(paso + 1); return; }
+    var pais = radio('pais') || 'MX';
+    if (APP_URL) { window.location.href = APP_URL + '/?signup&country=' + pais; return; }
+    var cuerpo = 'Nombre del bazar: ' + val('nombre') + '\nCiudad: ' + val('ciudad') + '\nPaís: ' + (pais === 'US' ? 'Estados Unidos' : 'México') +
+      '\nNúmero de vendedores: ' + radio('vendedores') + '\nPlan: ' + plan() + '\nCorreo para entrar: ' + val('correo') + '\n';
+    var url = 'mailto:hola@neuri.tech?subject=' + encodeURIComponent('Prueba gratis Neuri Bazar') + '&body=' + encodeURIComponent(cuerpo);
+    $('#listo-titulo').textContent = 'Ya casi abres ' + val('nombre');
+    ir(TOTAL + 1);
+    window.location.href = url;
+  });
+  $('#atras').addEventListener('click', function () { if (paso > 1) ir(paso - 1); });
+  $$('input[type=radio]', form).forEach(function (r) { r.addEventListener('change', function () {
+    if (r.name === 'pais') error('e-pais', ''); if (r.name === 'vendedores') error('e-vend', ''); }); });
+  $$('[data-plan]').forEach(function (a) {
+    if (a.tagName !== 'A') return;
+    a.addEventListener('click', function () {
+      var r = $('input[name=vendedores][data-plan="' + a.dataset.plan + '"]', form); if (r && !APP_URL) r.checked = true;
+    });
+  });
+  // Al entrar al asistente desde un botón, poner el foco en el primer campo.
+  $$('a[href="#prueba"]').forEach(function (a) { a.addEventListener('click', function () {
+    if (APP_URL) return; setTimeout(function () { if (paso === 1) form.elements.nombre.focus({ preventScroll: true }); }, reduce ? 0 : 450); }); });
+
+  /* ---------- CTA fijo en celular ---------- */
+  var cta = $('#cta-fijo'), heroeVisible = true, pruebaVisible = false;
+  function ctaPintar() {
+    var ver = !heroeVisible && !pruebaVisible;
+    cta.classList.toggle('ver', ver);
+    cta.setAttribute('aria-hidden', String(!ver));
+    $('a', cta).tabIndex = ver ? 0 : -1;
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { heroeVisible = en[0].isIntersecting; ctaPintar(); }).observe($('.heroe-acciones'));
+    new IntersectionObserver(function (en) { pruebaVisible = en[0].isIntersecting; ctaPintar(); }, { threshold: 0.05 }).observe($('#prueba'));
+  }
+})();
 </script>
 </body>
 </html>

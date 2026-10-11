@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuri Bazar — Software for antique malls and vendor malls</title>
+<meta name="description" content="Neuri Bazar: checkout, commissions, booth rent and vendor statements for antique malls and vendor malls. Bilingual English/Spanish. Sell, pay and update your vendors without doing the math.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1E2A5A;--accent:#22B573;--muted:#5B6683;--soft:#EAF7F0;--line:#DCE3EE;--bg:#FFFFFF;--band:#F5F7FB}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header{border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:800;font-size:22px;letter-spacing:-.5px;text-decoration:none}
+  .logo span{color:var(--accent)}
+  nav a.cta{background:var(--ink);color:#fff;text-decoration:none;padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px}
+  .hero{padding:72px 0 56px}
+  .eyebrow{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  h1{font-size:clamp(32px,5.5vw,54px);line-height:1.08;letter-spacing:-1.5px;margin:14px 0 18px;max-width:780px}
+  .lead{font-size:19px;color:var(--muted);max-width:640px}
+  .actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:16px}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.ghost{border:1.5px solid var(--line);background:#fff}
+  section.band{background:var(--band);padding:64px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  section.plain{padding:64px 0}
+  h2{font-size:30px;letter-spacing:-.8px;margin-bottom:8px}
+  .sub{color:var(--muted);margin-bottom:32px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;counter-reset:s}
+  .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+  .step::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--soft);color:#167a4e;font-weight:800;margin-bottom:10px}
+  .step b{display:block;margin-bottom:4px}
+  .step p{color:var(--muted);font-size:15px}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px}
+  .feat div{border-left:3px solid var(--accent);padding-left:14px;color:var(--muted);font-size:15px}
+  .feat b{display:block;margin-bottom:4px;color:var(--ink)}
+  .toggle{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:4px;margin-bottom:26px;background:#fff}
+  .toggle button{border:0;background:none;padding:8px 16px;border-radius:999px;font-weight:600;cursor:pointer;color:var(--muted);font:inherit}
+  .toggle button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column}
+  .plan.pro{border:2px solid var(--accent);box-shadow:0 10px 30px rgba(34,181,115,.12)}
+  .badge{align-self:flex-start;background:var(--soft);color:#167a4e;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+  .plan h3{font-size:20px}
+  .price{font-size:38px;font-weight:800;letter-spacing:-1px;margin:8px 0 2px}
+  .price small{font-size:15px;font-weight:500;color:var(--muted)}
+  .note{color:var(--muted);font-size:13px;min-height:20px}
+  .plan ul{list-style:none;margin:18px 0 22px;display:grid;gap:8px;font-size:15px}
+  .plan li::before{content:"✓";color:var(--accent);font-weight:800;margin-right:8px}
+  .plan .btn{margin-top:auto;text-align:center}
+  .founder{margin-top:26px;background:var(--ink);color:#fff;border-radius:18px;padding:24px 26px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .founder p{color:#C9D2EE;max-width:640px}
+  .faq details{border-bottom:1px solid var(--line);padding:16px 0}
+  .faq summary{font-weight:600;cursor:pointer}
+  .faq p{color:var(--muted);margin-top:8px}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="/">neuri<span>.</span></a>
+  <a class="cta" href="#planes">Pricing</a>
+</nav></div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Neuri Bazar · For antique malls and vendor malls</p>
+  <h1>Sell, pay and update your vendors without doing the math.</h1>
+  <p class="lead">Phone-first checkout, commissions and booth rent calculated for you, a vendor portal with live balances, and an end-of-day close that balances to the cent. In English and Spanish, for your staff and your vendors.</p>
+  <div class="actions">
+    <a class="btn primary" href="mailto:hola@neuri.tech?subject=Neuri%20Bazar%20demo%20request&body=Store%20name%3A%0ACity%3A%0ANumber%20of%20vendors%2Fbooths%3A%0APhone%3A">Book a 15-minute demo</a>
+    <a class="btn ghost" href="#como">How it works</a>
+  </div>
+</div></section>
+
+<section class="band" id="como"><div class="wrap">
+  <h2>Month-end vendor payouts, without the spreadsheet</h2>
+  <p class="sub">What takes your office a day every month, Neuri Bazar does on its own.</p>
+  <div class="steps">
+    <div class="step"><b>Tag and sell</b><p>Vendors or staff add an item with a photo and price, print a barcode tag, and the register scans it with a phone or a scanner gun.</p></div>
+    <div class="step"><b>Commission, tax and rent done</b><p>Every sale splits sales tax, your commission and the vendor&rsquo;s share to the cent. Booth rent is charged automatically and netted from payouts.</p></div>
+    <div class="step"><b>Vendors see their numbers</b><p>Each vendor gets a private link with their sales, balance and items. No more &ldquo;did my piece sell?&rdquo; calls.</p></div>
+    <div class="step"><b>Close and pay in minutes</b><p>Expected vs. counted cash at close, and every vendor payout recorded in a ledger nobody can edit.</p></div>
+  </div>
+</div></section>
+
+<section class="plain"><div class="wrap">
+  <h2>Built for how a vendor mall actually works</h2>
+  <p class="sub">Not a generic POS: it understands booths, consignment, commission and rent.</p>
+  <div class="feat">
+    <div><b>Booths and consignment</b>Every item knows whose it is and who gets what.</div>
+    <div><b>My Booth portal</b>Vendors see balance, sales and available items from a link, no password.</div>
+    <div><b>Split payments</b>Cash, card (Square or your terminal) and transfer on one sale, with change.</div>
+    <div><b>Tamper-proof ledger</b>Every sale, refund and payout is permanent. Vendors trust the numbers.</div>
+    <div><b>Roles</b>Owner, manager, cashier and staff each see only what they need.</div>
+    <div><b>Bilingual</b>Every screen in English and Spanish, per user. Great for mixed staff and vendors.</div>
+  </div>
+</div></section>
+
+<section class="band" id="planes"><div class="wrap">
+  <h2>Pricing</h2>
+  <p class="sub">One flat price per store. No per-sale fees.</p>
+  <div class="toggle" role="group" aria-label="País">
+    <button type="button" data-c="mx" aria-pressed="false">México (MXN)</button>
+    <button type="button" data-c="us" aria-pressed="true">United States (USD)</button>
+  </div>
+  <div class="plans">
+    <div class="plan">
+      <h3>Basic</h3>
+      <div class="price" data-mx="MX$499" data-us="$79">$79 <small>/mo</small></div>
+      <div class="note" data-mx="+ IVA" data-us=""></div>
+      <ul><li>Up to 30 vendors</li><li>1 register</li><li>Vendor portal links</li><li>300 vendor messages / month</li></ul>
+      <a class="btn ghost" href="mailto:hola@neuri.tech?subject=Neuri%20Bazar%20-%20Plan%20B%C3%A1sico">I&rsquo;m interested</a>
+    </div>
+    <div class="plan pro">
+      <span class="badge">Most popular</span>
+      <h3>Pro</h3>
+      <div class="price" data-mx="MX$899" data-us="$119">$119 <small>/mo</small></div>
+      <div class="note" data-mx="+ IVA" data-us=""></div>
+      <ul><li>Up to 75 vendors</li><li>3 registers</li><li>Weekly vendor statements</li><li>800 messages / month</li><li>Reports and Excel export</li></ul>
+      <a class="btn primary" href="mailto:hola@neuri.tech?subject=Neuri%20Bazar%20-%20Plan%20Pro">I&rsquo;m interested</a>
+    </div>
+    <div class="plan">
+      <h3>Plus</h3>
+      <div class="price" data-mx="MX$1,499" data-us="$149">$149 <small>/mo</small></div>
+      <div class="note" data-mx="+ IVA" data-us=""></div>
+      <ul><li>Unlimited vendors and registers</li><li>Multiple locations</li><li>2,000 messages / month</li><li>Everything in Pro</li></ul>
+      <a class="btn ghost" href="mailto:hola@neuri.tech?subject=Neuri%20Bazar%20-%20Plan%20Plus">I&rsquo;m interested</a>
+    </div>
+  </div>
+  <div class="founder">
+    <div><b>Founding stores · first 10</b><p>Free setup and training, first month free and your price locked for 12 months in exchange for feedback and a testimonial.</p></div>
+    <a class="btn primary" href="mailto:hola@neuri.tech?subject=Quiero%20ser%20negocio%20fundador%20de%20Neuri%20Bazar">Claim a spot</a>
+  </div>
+</div></section>
+
+<section class="plain faq"><div class="wrap">
+  <h2>FAQ</h2>
+  <details><summary>Do I need new hardware?</summary><p>No. It runs on the phones and tablets you already have. USB or Bluetooth scanner guns and label printers work too.</p></details>
+  <details><summary>Do vendors have to install anything?</summary><p>No. They open their private link to see balance, sales and items.</p></details>
+  <details><summary>Do you handle sales tax?</summary><p>Yes. Set your local rate; tax is added at checkout and reported separately from your commission.</p></details>
+  <details><summary>How do vendor payouts work?</summary><p>Neuri tracks each vendor&rsquo;s balance (sales minus commission and rent). You pay by check, cash or transfer and record it; the vendor sees it instantly.</p></details>
+  <details><summary>Can I bring my data from another system?</summary><p>Yes. We import your vendors and items, and your existing tags keep scanning.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Neuri LLC · Phoenix, Arizona</span>
+  <span><a href="/bazar/">Español</a> · hola@neuri.tech</span>
+</div></footer>
+<script>
+  document.querySelectorAll('.toggle button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var c = b.dataset.c;
+      document.querySelectorAll('.toggle button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      document.querySelectorAll('.price').forEach(function (p) { p.innerHTML = p.dataset[c] + ' <small>/mo</small>'; });
+      document.querySelectorAll('.note').forEach(function (n) { n.textContent = n.dataset[c]; });
+    });
+  });
+</script>
+</body>
+</html>

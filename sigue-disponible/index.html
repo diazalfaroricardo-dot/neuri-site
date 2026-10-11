@@ -78,7 +78,15 @@
   .result{background:#fff;border:2px solid var(--accent);border-radius:18px;padding:26px}
   .result p{color:var(--muted);font-size:15px;margin-top:8px}
   .result b{color:var(--ink)}
+  .faq{display:grid;gap:10px;max-width:760px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+  .faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  .faq summary::after{content:"+";color:var(--accent);font-weight:800}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{color:var(--muted);margin-top:8px;font-size:15px}
+  .support{margin-top:22px;color:var(--muted);font-size:15px;max-width:760px}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Necesito saber de tecnología?", "acceptedAnswer": {"@type": "Answer", "text": "No. Llenas un formulario de 3 minutos y conectas tu página de Facebook o tu WhatsApp con un clic que te guiamos. Nosotros armamos todo."}}, {"@type": "Question", "name": "¿Qué pasa si el asistente no sabe una respuesta?", "acceptedAnswer": {"@type": "Answer", "text": "No inventa. Te pasa la conversación a ti y te avisa por WhatsApp para que contestes."}}, {"@type": "Question", "name": "¿Va a decir mi precio mínimo?", "acceptedAnswer": {"@type": "Answer", "text": "Nunca. El precio mínimo solo sirve para que el asistente sepa hasta dónde puede bajar si tú lo permites; el comprador no lo ve."}}, {"@type": "Question", "name": "¿Cómo actualizo mis piezas?", "acceptedAnswer": {"@type": "Answer", "text": "En tu hoja de catálogo: si marcas una pieza como vendida, el asistente deja de ofrecerla en unos minutos. No tienes que escribirnos."}}, {"@type": "Question", "name": "¿Cuánto tarda en estar listo?", "acceptedAnswer": {"@type": "Answer", "text": "Normalmente el mismo día que conectas tu página."}}, {"@type": "Question", "name": "¿Puedo apagarlo cuando quiera?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Lo pausas cuando quieras y no hay plazo forzoso; cancelas cuando quieras y no se cobra el siguiente mes."}}, {"@type": "Question", "name": "¿Cómo se cobra?", "acceptedAnswer": {"@type": "Answer", "text": "Mensual con tarjeta. Si un cobro falla te avisamos y tienes 5 días para actualizar tu tarjeta antes de que el asistente se pause; no se borra nada."}}, {"@type": "Question", "name": "¿Qué datos guardan de mis clientes?", "acceptedAnswer": {"@type": "Answer", "text": "Solo lo necesario para contestar y apartar (nombre y la conversación). No vendemos ni compartimos datos."}}, {"@type": "Question", "name": "¿Funciona en Instagram y Marketplace?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. En Marketplace pones tu link de WhatsApp en cada publicación y el asistente contesta ahí. También funciona en Messenger e Instagram de tu página."}}, {"@type": "Question", "name": "¿Cada cuánto sé cómo me fue?", "acceptedAnswer": {"@type": "Answer", "text": "Cada lunes te llega un resumen con conversaciones atendidas, visitas y apartados."}}]}</script>
 </head>
 <body>
 <header><div class="wrap"><nav>
@@ -177,6 +185,25 @@
     <div class="plan pro"><b>Pro</b><div class="p">$1,299 <small>MXN/mes</small></div>
       <ul><li>Todo lo de Básico</li><li>Agenda de visitas o entregas</li><li>Recordatorios automáticos</li><li>Ajustes ilimitados a tus respuestas</li></ul></div>
   </div>
+</div></section>
+
+
+<section class="plain" id="preguntas"><div class="wrap">
+  <h2>Preguntas frecuentes</h2>
+  <p class="sub">Lo que casi todos preguntan antes de empezar.</p>
+  <div class="faq">
+    <details><summary>¿Necesito saber de tecnología?</summary><p>No. Llenas un formulario de 3 minutos y conectas tu página de Facebook o tu WhatsApp con un clic que te guiamos. Nosotros armamos todo.</p></details>
+    <details><summary>¿Qué pasa si el asistente no sabe una respuesta?</summary><p>No inventa. Te pasa la conversación a ti y te avisa por WhatsApp para que contestes.</p></details>
+    <details><summary>¿Va a decir mi precio mínimo?</summary><p>Nunca. El precio mínimo solo sirve para que el asistente sepa hasta dónde puede bajar si tú lo permites; el comprador no lo ve.</p></details>
+    <details><summary>¿Cómo actualizo mis piezas?</summary><p>En tu hoja de catálogo: si marcas una pieza como vendida, el asistente deja de ofrecerla en unos minutos. No tienes que escribirnos.</p></details>
+    <details><summary>¿Cuánto tarda en estar listo?</summary><p>Normalmente el mismo día que conectas tu página.</p></details>
+    <details><summary>¿Puedo apagarlo cuando quiera?</summary><p>Sí. Lo pausas cuando quieras y no hay plazo forzoso; cancelas cuando quieras y no se cobra el siguiente mes.</p></details>
+    <details><summary>¿Cómo se cobra?</summary><p>Mensual con tarjeta. Si un cobro falla te avisamos y tienes 5 días para actualizar tu tarjeta antes de que el asistente se pause; no se borra nada.</p></details>
+    <details><summary>¿Qué datos guardan de mis clientes?</summary><p>Solo lo necesario para contestar y apartar (nombre y la conversación). No vendemos ni compartimos datos.</p></details>
+    <details><summary>¿Funciona en Instagram y Marketplace?</summary><p>Sí. En Marketplace pones tu link de WhatsApp en cada publicación y el asistente contesta ahí. También funciona en Messenger e Instagram de tu página.</p></details>
+    <details><summary>¿Cada cuánto sé cómo me fue?</summary><p>Cada lunes te llega un resumen con conversaciones atendidas, visitas y apartados.</p></details>
+  </div>
+  <p class="support"><b>Soporte:</b> escríbenos por WhatsApp o a hola@neuri.tech. Contestamos de lunes a sábado, normalmente el mismo día. El plan Pro incluye ajustes ilimitados a tus respuestas.</p>
 </div></section>
 
 <section class="band" id="alta"><div class="wrap">

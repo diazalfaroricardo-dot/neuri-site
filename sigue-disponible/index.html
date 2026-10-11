@@ -266,7 +266,8 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){v[e.target===alta?'a':'h']=e.isIntersecting});st.classList.toggle('off',!!(v.a||v.h))});
     io.observe(hero);io.observe(alta);})();
   var form = document.getElementById('f');
-  var altaId = '';
+  // Si viene del correo de recordatorio (?alta=…), completa la misma alta en vez de crear otra.
+  var altaId = (new URLSearchParams(location.search).get('alta') || '').slice(0, 64);
   function mailto(f) {
     var labels = {nombre:'Nombre',whatsapp:'WhatsApp',correo:'Correo',negocio:'Negocio',vendes:'Qué vende',donde:'Dónde vende',mensajes:'Mensajes al día',horario:'Horario',entrega:'Entrega',pagos:'Pagos',faq:'Preguntas frecuentes',agenda:'Agenda',plan:'Plan'};
     var lines = ['ALTA ¿SIGUE DISPONIBLE?', ''];

@@ -264,7 +264,8 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){v[e.target===alta?'a':'h']=e.isIntersecting});st.classList.toggle('off',!!(v.a||v.h))});
     io.observe(hero);io.observe(alta);})();
   var form = document.getElementById('f');
-  var altaId = '';
+  // Si viene del correo de recordatorio (?alta=…), completa la misma alta en vez de crear otra.
+  var altaId = (new URLSearchParams(location.search).get('alta') || '').slice(0, 64);
   function mailto(f) {
     var labels = {nombre:'Name',whatsapp:'Mobile',correo:'Email',negocio:'Business',vendes:'Sells',donde:'Sells on',mensajes:'Messages per day',horario:'Hours',entrega:'Pickup/delivery',pagos:'Payments',faq:'Top questions',agenda:'Booking',plan:'Plan'};
     var lines = ['SIGN-UP STILL AVAILABLE? (EN)', ''];

@@ -3,206 +3,1220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neuri Bazar — Register and vendor accounts for antique malls | Neuri</title>
-<meta name="description" content="Neuri Bazar: ring up sales on a phone, commission and booth rent figured for you, and every vendor sees their balance from a link. For antique malls and vendor malls. From $79 a month, 14 days free.">
+<title>Neuri Bazar — One register for every booth</title>
+<meta name="description" content="Point-of-sale app for antique malls, vendor malls and consignment shops. Ring up sales on your phone, add sales tax on top, and every vendor's commission, booth rent and payout adds up on its own. 14 days free.">
+<meta name="theme-color" content="#1E2A5A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 22%22%3E%3Cpath d=%22M9 0h21a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H9L0 11z%22 fill=%22%23F6C744%22/%3E%3Ccircle cx=%229%22 cy=%2211%22 r=%222.6%22 fill=%22%231E2A5A%22/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="en" href="https://neuri.tech/en/">
 <link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Do I need to buy hardware?","acceptedAnswer":{"@type":"Answer","text":"No. It runs on the phone you already have: the camera reads the tags. If you want to go faster, you can connect a handheld barcode scanner and a tag or receipt printer."}},
+{"@type":"Question","name":"My vendors aren't tech people. Do they have to install anything?","acceptedAnswer":{"@type":"Answer","text":"No. Each vendor gets a private link, no password. They open it like any other link and see their balance, their items and their sales for the month. Their statement arrives by email."}},
+{"@type":"Question","name":"I run everything on paper or a spreadsheet today. Is it hard to switch?","acceptedAnswer":{"@type":"Answer","text":"You upload your vendor list and your items from Excel or a CSV, and the tags already on your merchandise keep scanning. For our first 10 stores, we set it up and train your staff for free."}},
+{"@type":"Question","name":"What if the internet goes down?","acceptedAnswer":{"@type":"Answer","text":"For now the register needs a connection. It works on cellular data, so a phone with a data plan or a hotspot is enough. Offline mode isn't ready yet."}},
+{"@type":"Question","name":"Does it file my sales tax or send 1099s?","acceptedAnswer":{"@type":"Answer","text":"No, but it gets you the numbers. Sales tax is added on top of every sale and shows up in a monthly tax report for your filing, and at year end you download the total paid to each vendor, ready for your 1099s. You or your accountant file them."}},
+{"@type":"Question","name":"Do you take a cut of every sale?","acceptedAnswer":{"@type":"Answer","text":"No. You pay one flat monthly price for your store, no matter how much you sell."}},
+{"@type":"Question","name":"What happens when the 14-day free trial ends?","acceptedAnswer":{"@type":"Answer","text":"We email you two days before. If you stay, you pick a plan and everything stays as it is. If not, you aren't charged anything."}},
+{"@type":"Question","name":"Is my data mine?","acceptedAnswer":{"@type":"Answer","text":"Yes. Download your whole business with one click, any time. And every change to a price or commission, and every voided sale, goes into an activity log that no one can edit or delete, not even the owner."}},
+{"@type":"Question","name":"Does it work in Spanish, or in Mexico?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each user picks English or Spanish. In Mexico it runs in pesos with IVA included."}}
+]}
+</script>
 <style>
-  :root{--ink:#1E2A5A;--green:#22B573;--yellow:#F6C744;--paper:#FFFFFF;--mist:#F3F5FA;--muted:#59637F;--line:#DCE3EE}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Figtree,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px}
-  a{color:inherit}
-  :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-  h1,h2,h3,.logo,.tag b,.plan .p{font-family:"Bricolage Grotesque",Figtree,sans-serif}
-  nav{display:flex;align-items:center;gap:18px;height:68px}
-  .logo{font-weight:800;font-size:25px;letter-spacing:-.5px;text-decoration:none;margin-right:auto}
-  .logo span{color:var(--green)}
-  nav .lang{font-size:15px;font-weight:600;text-decoration:none}
-  .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;border:0;cursor:pointer;font-family:inherit}
-  .btn.go{background:var(--green);color:#fff}
-  .btn.dark{background:var(--ink);color:#fff}
-  .btn.line{text-decoration:underline;padding:13px 4px;color:var(--ink)}
-  .btn.ghost{border:1.5px solid var(--line);background:#fff;color:var(--ink)}
-  nav .btn{padding:9px 16px;font-size:15px}
+:root{
+  --anil:#1E2A5A; --anil-2:#17214A; --anil-3:#2B3A73;
+  --etiqueta:#F6C744; --etiqueta-2:#E5B42C;
+  --papel:#FFFFFF; --neblina:#EEF0F7; --linea:#D3D8E7;
+  --gris:#4F587A; --sobre-anil:#C9D0EC;
+  --rosa:#C2255C; --verde-agua:#0B7480; --naranja:#AD4A06;
+  --display:"Archivo","Archivo Narrow","Arial Narrow","Inter Display","Inter",system-ui,sans-serif;
+  --texto:"Archivo","Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ticket:"IBM Plex Mono","DejaVu Sans Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--texto);font-size:17px;line-height:1.55;color:var(--anil);background:var(--papel);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--etiqueta);outline-offset:3px;border-radius:4px}
+.claro :focus-visible,.panel-claro :focus-visible{outline-color:var(--rosa)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-stretch:78%;font-weight:850;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4.6vw,52px);max-width:16em}
+h3{font-size:24px;font-stretch:85%}
+.entrada{font-size:19px;color:var(--gris);max-width:36em;margin-top:14px}
+.oscuro .entrada,.heroe .entrada{color:var(--sobre-anil)}
+section{padding:80px 0}
+@media(max-width:700px){section{padding:56px 0}}
+.oscuro{background:var(--anil);color:#fff}
 
-  .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding-top:40px}
-  @media(max-width:880px){.hero{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:24px}}
-  h1{font-size:clamp(34px,5vw,58px);line-height:1.03;letter-spacing:-1.6px;font-weight:800}
-  .lead{font-size:19px;color:var(--muted);margin-top:18px;max-width:32em}
-  .actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:26px}
-  .tag{display:inline-block;background:var(--yellow);color:var(--ink);padding:8px 14px 8px 22px;border-radius:6px 12px 12px 6px;transform:rotate(-3deg);box-shadow:0 3px 0 rgba(30,42,90,.18);line-height:1.15;position:relative;margin-top:26px}
-  .tag::before{content:"";position:absolute;left:8px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--paper)}
-  .tag small{display:block;font-size:12px;font-weight:600}
-  .tag b{font-size:22px;font-weight:800}
-  .free{font-size:15px;color:var(--muted);margin-left:14px}
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 24px;border-radius:12px;font-weight:750;font-size:17px;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.15;text-align:center}
+.btn-etiqueta{background:var(--etiqueta);color:var(--anil);box-shadow:0 3px 0 var(--etiqueta-2)}
+.btn-etiqueta:hover{background:#FFD45E}
+.btn-anil{background:var(--anil);color:#fff}
+.btn-anil:hover{background:var(--anil-3)}
+.btn-borde{border-color:currentColor;background:transparent}
+.btn-chico{min-height:44px;padding:8px 16px;font-size:15px}
 
-  /* Dos pantallas reales: lo que ve el dueño y lo que ve el vendedor */
-  .views{display:flex;gap:18px;justify-content:center;align-items:flex-end;background:var(--mist);border-radius:28px 28px 0 0;padding:28px 20px 0;border:1px solid var(--line);border-bottom:0}
-  .views figure{width:240px;max-width:48%}
-  .views figcaption{font-weight:700;font-size:15px;margin-bottom:8px}
-  .views figcaption span{display:block;font-weight:400;color:var(--muted);font-size:14px}
-  .views img{width:100%;height:auto;display:block;border:7px solid var(--ink);border-bottom:0;border-radius:22px 22px 0 0}
-  .views figure:last-child{margin-bottom:0}
+/* Encabezado */
+header{background:var(--anil);color:#fff;position:relative;z-index:5}
+nav{display:flex;align-items:center;gap:22px;height:70px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;font-family:var(--display);font-stretch:75%;font-weight:850;font-size:25px;letter-spacing:-.01em}
+.marca svg{width:34px;height:22px;flex:none}
+nav .ir{text-decoration:none;font-weight:600;font-size:16px;color:var(--sobre-anil);padding:12px 0}
+nav .ir:hover{color:#fff;text-decoration:underline}
+@media(max-width:860px){nav .ir.solo-ancho{display:none}}
+.marca,nav .btn{white-space:nowrap}
+@media(max-width:420px){nav{gap:12px}.marca{font-size:21px;gap:8px}.marca svg{width:28px}nav .btn{padding:8px 12px;font-size:14px}nav .ir{font-size:15px}}
 
-  section{padding:64px 0}
-  .mist{background:var(--mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  h2{font-size:clamp(28px,3.4vw,38px);letter-spacing:-.8px;font-weight:800;line-height:1.1}
-  .sub{color:var(--muted);margin-top:8px;max-width:38em}
+/* Héroe */
+.heroe{background:var(--anil);color:#fff;padding:28px 0 72px}
+.heroe-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.heroe-texto{position:sticky;top:24px;padding-top:28px}
+h1{font-size:clamp(44px,6.4vw,82px);font-stretch:72%;line-height:.95}
+.heroe .entrada{font-size:20px;margin-top:20px}
+.heroe-acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.heroe-letra{margin-top:18px;font-size:15px;color:var(--sobre-anil)}
+.paso-demo{display:flex;gap:10px;align-items:baseline;margin-top:36px;padding-top:20px;border-top:1px solid var(--anil-3);font-size:16px;color:var(--sobre-anil)}
+.paso-demo b{color:var(--etiqueta);font-family:var(--display);font-size:20px;font-stretch:80%}
+@media(max-width:1000px){
+  .heroe-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .heroe-texto{position:static;padding-top:12px}
+  .paso-demo{display:none}
+}
+@media(max-width:560px){.demo-bloque h3{flex-direction:column;gap:2px}.pieza .pre{font-size:22px}.pieza .tag{padding-right:8px}.caso-num img{max-width:200px}.telefono{max-width:210px}}
 
-  .steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:32px;counter-reset:s}
-  @media(max-width:780px){.steps{grid-template-columns:1fr;gap:20px}}
-  .steps li{counter-increment:s;border-top:3px solid var(--ink);padding-top:14px}
-  .steps li::before{content:"Step " counter(s);font-weight:700;color:var(--green);font-size:15px}
-  .steps b{display:block;font-size:20px;margin:4px 0;font-family:"Bricolage Grotesque",sans-serif}
-  .steps p{color:var(--muted)}
+/* Demo de caja */
+.demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.demo-bloque{background:var(--anil-2);border:1px solid var(--anil-3);border-radius:18px;padding:18px}
+.demo-bloque h3{font-size:20px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.demo-bloque h3 small{font-family:var(--texto);font-stretch:100%;font-weight:500;font-size:14px;color:var(--sobre-anil)}
+.mesa{grid-column:1/-1}
+.mesa-piezas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px;list-style:none}
+@media(max-width:560px){.mesa-piezas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pieza{width:100%;background:none;border:0;padding:0;cursor:pointer;text-align:left;border-radius:10px;position:relative}
+.pieza .tag{display:block;background:var(--etiqueta);color:var(--anil);padding:10px 10px 10px 26px;clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%);border-radius:0 8px 8px 0;transition:transform .15s ease,background .15s;min-height:104px;position:relative}
+.pieza .tag::before{content:"";position:absolute;left:10px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--anil-2)}
+.pieza .nom{display:block;font-weight:700;font-size:15px;line-height:1.2}
+.pieza .pre{display:block;font-family:var(--display);font-stretch:80%;font-weight:850;font-size:24px;margin-top:4px}
+.pieza .pto{display:inline-block;margin-top:6px;font-size:12.5px;white-space:nowrap;font-weight:700;color:#fff;padding:1px 8px;border-radius:99px}
+.pieza:hover .tag{transform:rotate(-1.5deg)}
+.pieza[aria-pressed="true"] .tag{background:#fff}
+.pieza[aria-pressed="true"]::after{content:"Added";position:absolute;right:6px;top:-9px;background:var(--anil);color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px}
+.pieza:disabled{cursor:default}
+.pieza:disabled .tag{background:#3A4782;color:#C3CAEA}
+.pieza:disabled .tag::before{background:var(--anil-2)}
+.pieza:disabled::after{content:"Sold";position:absolute;right:6px;top:-9px;background:var(--etiqueta);color:var(--anil);font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px}
+.v-linda{background:var(--rosa)} .v-jim{background:var(--verde-agua)} .v-rosa{background:var(--naranja)}
+.mesa-pie{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;font-size:14px;color:var(--sobre-anil);flex-wrap:wrap}
+.linkboton{background:none;border:0;color:var(--etiqueta);text-decoration:underline;cursor:pointer;font-weight:650;font-size:15px;padding:6px 0;min-height:44px}
 
-  table.swap{width:100%;border-collapse:collapse;margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
-  .swap th,.swap td{text-align:left;padding:16px 20px;border-top:1px solid var(--line);vertical-align:top}
-  .swap thead th{border-top:0;font-family:"Bricolage Grotesque",sans-serif;font-size:18px}
-  .swap thead th:first-child{color:var(--muted)}
-  .swap thead th:last-child{background:var(--ink);color:#fff}
-  .swap td:first-child{color:var(--muted);width:45%}
-  .swap td:last-child{font-weight:600;background:#F7FBF9}
-  @media(max-width:640px){
-    .swap thead{display:none}
-    .swap tr{display:block;border-top:1px solid var(--line);padding:12px 16px}
-    .swap td{display:block;border:0;padding:2px 0;width:auto!important;background:none!important}
-    .swap td:first-child{text-decoration:line-through;text-decoration-color:rgba(89,99,127,.5)}
-  }
+/* Ticket */
+.caja-cuerpo{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.ticket{background:#fff;color:#1b1f2e;font-family:var(--ticket);font-size:13.5px;line-height:1.5;padding:16px 16px 22px;position:relative;
+  -webkit-mask:radial-gradient(circle 6px at 50% 100%,transparent 98%,#000) 0 0/14px 100% repeat-x;
+          mask:radial-gradient(circle 6px at 50% 100%,transparent 98%,#000) 0 0/14px 100% repeat-x}
+.ticket .t-enc{text-align:center;border-bottom:1px dashed #9aa0b4;padding-bottom:8px;margin-bottom:8px}
+.ticket .t-enc b{display:block;font-size:14px}
+.ticket table{width:100%;border-collapse:collapse}
+.ticket td{padding:1px 0;vertical-align:top}
+.ticket td:last-child{text-align:right;white-space:nowrap;padding-left:8px}
+.ticket .t-tot td{border-top:1px dashed #9aa0b4;padding-top:6px;font-weight:600;font-size:15px}
+.ticket .t-vacio{color:#5d6378;text-align:center;padding:12px 0}
+.ticket.impreso{animation:imprime .9s steps(9,end)}
+@keyframes imprime{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.ticket .t-sello{display:none;text-align:center;margin-top:8px;font-weight:600}
+.ticket.impreso .t-sello,.ticket.cobrado .t-sello{display:block}
+fieldset{border:0}
+.pago legend{font-weight:700;font-size:15px;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:99px;border:1.5px solid #7683BE;font-size:14px;font-weight:650;color:var(--sobre-anil)}
+.chip input:checked+span{background:var(--etiqueta);border-color:var(--etiqueta);color:var(--anil)}
+.chip input:focus-visible+span{outline:3px solid var(--etiqueta);outline-offset:2px}
+.cambio{font-size:15px;color:var(--sobre-anil);min-height:1.5em}
+.cambio b{color:#fff}
+.btn-cobrar{width:100%}
+.btn-cobrar:disabled{background:transparent;border-color:var(--anil-3);color:var(--sobre-anil);cursor:not-allowed;box-shadow:none}
 
-  .toggle{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:4px;margin-top:22px;background:#fff}
-  .toggle button{border:0;background:none;padding:8px 16px;border-radius:999px;font:inherit;font-weight:600;cursor:pointer;color:var(--muted)}
-  .toggle button[aria-pressed="true"]{background:var(--ink);color:#fff}
-  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-  @media(max-width:820px){.plans{grid-template-columns:1fr}}
-  .plan{border:1.5px solid var(--line);border-radius:20px;padding:24px;background:#fff}
-  .plan.pro{border:2.5px solid var(--ink)}
-  .plan h3{font-size:22px}
-  .plan h3 em{font-style:normal;font-size:14px;font-weight:600;color:var(--green);margin-left:6px;font-family:Figtree,sans-serif}
-  .plan .p{font-size:36px;font-weight:800;letter-spacing:-1px}
-  .plan .p small{font-size:15px;color:var(--muted);font-weight:500;font-family:Figtree,sans-serif}
-  .plan ul{list-style:none;display:grid;gap:6px;margin-top:10px;font-size:16px}
-  .plan li::before{content:"✓";color:var(--green);font-weight:800;margin-right:8px}
-  .offer{margin-top:20px;background:var(--yellow);border-radius:16px;padding:18px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-  .offer p{font-weight:600;max-width:42em}
+/* Reparto */
+.reparto-barra{display:flex;height:30px;border-radius:8px;overflow:hidden;margin-top:14px;background:var(--anil-3)}
+.reparto-barra span{display:block;height:100%;transition:width .35s ease}
+.reparto-barra .s-tax{background:var(--etiqueta)}
+.reparto-barra .s-com{background:#8C97C8}
+.reparto-ley{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:13px;color:var(--sobre-anil);list-style:none}
+.reparto-ley i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.reparto-lista{list-style:none;margin-top:12px}
+.reparto-lista li{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 0;border-bottom:1px solid var(--anil-3);font-variant-numeric:tabular-nums}
+.reparto-lista .quien{font-weight:700;display:flex;align-items:center;gap:8px}
+.reparto-lista .quien i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.reparto-lista .para{font-family:var(--display);font-stretch:80%;font-weight:850;font-size:22px;color:var(--etiqueta);text-align:right;line-height:1.1}
+.reparto-lista .det{grid-column:1/-1;font-size:13.5px;color:var(--sobre-anil)}
+.reparto-lista .vacio{display:block;color:var(--sobre-anil);font-size:15px}
+.reparto-total{display:grid;grid-template-columns:1fr auto;gap:4px 12px;margin-top:10px;font-size:14.5px;font-variant-numeric:tabular-nums}
+.reparto-total:empty{display:none}
+.reparto-total span:nth-child(even){text-align:right;font-weight:700}
+.reparto-nota{font-size:13px;color:var(--sobre-anil);margin-top:10px}
 
-  .faq{max-width:760px;margin-top:22px}
-  .faq details{border-bottom:1px solid var(--line);padding:16px 0}
-  .faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
-  .faq summary::after{content:"+";color:var(--green);font-weight:800;font-size:20px;line-height:1}
-  .faq details[open] summary::after{content:"–"}
-  .faq p{color:var(--muted);margin-top:8px}
-  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+/* Mi Puesto mini */
+.mipuesto{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:start}
+@media(max-width:640px){.mipuesto{grid-template-columns:minmax(0,1fr)}.demo{grid-template-columns:minmax(0,1fr)}}
+.mp-tel{background:#fff;color:var(--anil);border-radius:22px;overflow:hidden;border:6px solid #0f1636;max-width:340px;width:100%}
+.mp-top{background:var(--anil);color:#fff;padding:14px 16px 16px}
+.mp-top small{display:block;font-size:12px;color:var(--sobre-anil)}
+.mp-top .hola{font-weight:750;font-size:19px}
+.mp-top .saldo{font-family:var(--display);font-stretch:80%;font-weight:850;font-size:40px;line-height:1.05;margin-top:6px;transition:color .3s}
+.mp-top .saldo.sube{color:var(--etiqueta)}
+.mp-movs{list-style:none;padding:8px 12px 12px;font-size:14px;max-height:220px;overflow:auto}
+.mp-movs li{display:flex;justify-content:space-between;gap:10px;padding:8px 4px;border-bottom:1px solid var(--linea)}
+.mp-movs li span:last-child{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mp-movs li.nuevo{background:#FFF6D6}
+.mp-movs .neg{color:var(--rosa)}
+.mp-movs small{display:block;color:var(--gris);font-size:12px}
+.mp-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.mp-lado p{color:var(--sobre-anil);font-size:15px}
+.mp-lado p+p{margin-top:8px}
+
+/* Para quién */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.tab{border:2px solid var(--anil);background:#fff;border-radius:12px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:16px;text-align:left;line-height:1.2}
+.tab small{display:block;font-weight:500;font-size:13px;color:var(--gris)}
+.tab[aria-selected="true"]{background:var(--anil);color:#fff}
+.tab[aria-selected="true"] small{color:var(--sobre-anil)}
+.caso{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;margin-top:28px;align-items:start}
+@media(max-width:860px){.caso{grid-template-columns:minmax(0,1fr);gap:24px}}
+.caso-sello{display:inline-block;background:var(--neblina);border:1px dashed var(--gris);border-radius:8px;padding:4px 10px;font-size:14px;font-weight:650;color:var(--gris)}
+.caso h3{font-size:clamp(26px,3vw,34px);margin-top:12px;max-width:18em}
+.caso .problema{margin-top:12px;color:var(--gris);max-width:36em}
+.dia{list-style:none;margin-top:22px;border-left:3px solid var(--etiqueta);padding-left:20px;display:grid;gap:16px}
+.dia li{position:relative}
+.dia li::before{content:"";position:absolute;left:-28px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--anil);border:3px solid var(--etiqueta)}
+.dia b{display:block;font-size:15px;color:var(--rosa)}
+.caso-num{background:var(--anil);color:#fff;border-radius:18px;padding:22px}
+.caso-num h4{font-size:16px;font-weight:700}
+.caso-num dl{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin-top:12px;font-size:15px}
+.caso-num dt{color:var(--sobre-anil)}
+.caso-num dd{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.caso-num dd.grande{font-family:var(--display);font-stretch:80%;font-size:28px;color:var(--etiqueta);font-weight:850}
+.caso-num p{font-size:13px;color:var(--sobre-anil);margin-top:14px}
+.caso-num img{margin-top:16px;border-radius:14px;border:5px solid #0f1636;width:100%;max-width:240px}
+
+/* Antes y después */
+.antes{background:var(--neblina)}
+.cambiador{display:inline-flex;background:#fff;border:2px solid var(--anil);border-radius:14px;padding:4px;margin-top:26px}
+.cambiador button{border:0;background:none;padding:10px 18px;border-radius:10px;font-weight:750;cursor:pointer;font-size:16px}
+.cambiador button[aria-pressed="true"]{background:var(--anil);color:#fff}
+.domingo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;margin-top:22px;align-items:start}
+@media(max-width:820px){.domingo{grid-template-columns:minmax(0,1fr)}}
+.hoja{background:#fff;border-radius:16px;padding:22px;border:1px solid var(--linea)}
+.hoja.libreta{background:#FFFDF5 linear-gradient(90deg,transparent 30px,#E7A3A8 30px 32px,transparent 32px);padding-left:46px;border-color:#E3DCC4}
+.hoja.libreta li{border-bottom:1px solid #C9D6EE}
+.hoja h3{font-size:22px}
+.hoja ol{list-style:none;margin-top:12px}
+.hoja li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;line-height:1.35;min-height:32px}
+.hoja li span:last-child{font-weight:750;white-space:nowrap}
+.hoja .mal{color:var(--rosa)}
+.hoja .total{border-top:2px solid var(--anil);margin-top:6px;padding-top:10px;font-weight:800;font-size:19px}
+.domingo-lado{display:grid;gap:14px}
+.medidor{background:var(--anil);color:#fff;border-radius:16px;padding:20px}
+.medidor b{display:block;font-family:var(--display);font-stretch:78%;font-weight:850;font-size:54px;line-height:1;color:var(--etiqueta)}
+.medidor span{color:var(--sobre-anil);font-size:15px}
+.nota-chica{font-size:13px;color:var(--gris)}
+
+/* Dos vistas */
+.vistas-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:32px}
+@media(max-width:860px){.vistas-grid{grid-template-columns:minmax(0,1fr)}}
+.vista{border-radius:22px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:22px;align-items:start}
+@media(max-width:520px){.vista{grid-template-columns:minmax(0,1fr)}}
+.vista.duenio{background:var(--anil);color:#fff}
+.vista.vendedor{background:var(--etiqueta);color:var(--anil)}
+.vista h3{font-size:28px}
+.vista .quien{font-size:15px;margin-top:6px}
+.vista.duenio .quien{color:var(--sobre-anil)}
+.pantallas{list-style:none;margin-top:16px;display:grid;gap:6px}
+.pantallas button{width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:9px 12px;cursor:pointer;font-size:15.5px;line-height:1.3;border:2px solid transparent}
+.pantallas button b{display:block;font-size:16px}
+.vista.duenio .pantallas button{color:var(--sobre-anil)}
+.vista.duenio .pantallas button b{color:#fff}
+.vista.duenio .pantallas button[aria-current="true"]{border-color:var(--etiqueta)}
+.vista.vendedor .pantallas button[aria-current="true"]{border-color:var(--anil);background:rgba(255,255,255,.4)}
+.telefono{border:7px solid #0f1636;border-radius:26px;overflow:hidden;background:#fff;aspect-ratio:390/844;width:100%;max-width:240px;justify-self:center}
+.telefono img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* Calculadora */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;margin-top:32px;align-items:start}
+@media(max-width:860px){.calc{grid-template-columns:minmax(0,1fr)}}
+.deslizador{margin-bottom:24px}
+.deslizador label{display:flex;justify-content:space-between;font-weight:700;gap:12px}
+.deslizador output{font-family:var(--display);font-stretch:80%;font-weight:850;font-size:26px;line-height:1}
+.deslizador input{width:100%;margin-top:10px;accent-color:var(--etiqueta);height:32px}
+.deslizador small{color:var(--gris);font-size:14px}
+.resultado{background:var(--anil);color:#fff;border-radius:20px;padding:26px}
+.resultado .horas{font-family:var(--display);font-stretch:75%;font-weight:850;font-size:clamp(64px,9vw,104px);line-height:.9;color:var(--etiqueta)}
+.resultado .horas small{font-size:.35em;color:#fff;font-stretch:90%}
+.resultado ul{list-style:none;margin-top:16px;font-size:15px}
+.resultado li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--anil-3)}
+.resultado li span:last-child{font-weight:700;white-space:nowrap}
+.resultado .plan-sug{margin-top:16px;background:var(--anil-2);border-radius:12px;padding:12px 14px;font-size:15px}
+.resultado .plan-sug b{color:var(--etiqueta)}
+details.supuestos{margin-top:14px;font-size:14px;color:var(--sobre-anil)}
+details.supuestos summary{cursor:pointer;font-weight:650;color:#fff;padding:10px 0;min-height:44px}
+details.supuestos ul{margin-top:8px;list-style:disc;padding-left:20px}
+details.supuestos li{display:list-item;border:0;padding:2px 0}
+
+/* Todo lo que trae */
+.trae{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:32px}
+@media(max-width:960px){.trae{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.trae{grid-template-columns:minmax(0,1fr)}}
+.trae h3{font-size:22px;padding-bottom:10px;border-bottom:3px solid var(--anil)}
+.trae ul{list-style:none;margin-top:10px}
+.trae li{padding:7px 0 7px 22px;position:relative;border-bottom:1px solid var(--linea);font-size:16px;line-height:1.35}
+.trae li::before{content:"";position:absolute;left:0;top:13px;width:12px;height:8px;background:var(--etiqueta);clip-path:polygon(4px 0,100% 0,100% 100%,4px 100%,0 50%)}
+
+/* Precios */
+.precios{background:var(--neblina)}
+.moneda{display:inline-flex;background:#fff;border:2px solid var(--anil);border-radius:14px;padding:4px;margin-top:24px}
+.moneda button{border:0;background:none;padding:9px 16px;min-height:44px;border-radius:10px;font-weight:750;cursor:pointer;font-size:15px}
+.moneda button[aria-pressed="true"]{background:var(--anil);color:#fff}
+.planes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px;align-items:stretch}
+@media(max-width:860px){.planes{grid-template-columns:minmax(0,1fr)}}
+.plan{background:#fff;border:2px solid var(--linea);border-radius:18px;padding:24px;display:flex;flex-direction:column}
+.plan.pro{border-color:var(--anil);border-width:3px}
+.plan .para-quien{color:var(--gris);font-size:15px;margin-top:4px}
+.plan .monto{font-family:var(--display);font-stretch:78%;font-weight:850;font-size:48px;line-height:1;margin-top:16px}
+.plan .monto small{font-family:var(--texto);font-stretch:100%;font-size:15px;font-weight:500;color:var(--gris);display:block;margin-top:6px}
+.plan ul{list-style:none;margin:16px 0 20px;display:grid;gap:7px;font-size:16px}
+.plan li{padding-left:22px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:8px;background:var(--etiqueta-2);clip-path:polygon(4px 0,100% 0,100% 100%,4px 100%,0 50%)}
+.plan .btn{margin-top:auto}
+.plan .sello{display:inline-block;background:var(--etiqueta);color:var(--anil);font-size:13px;font-weight:750;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:4px;font-family:var(--texto);font-stretch:100%}
+.fundadores{margin-top:28px;background:var(--anil);color:#fff;border-radius:22px;padding:28px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:center;position:relative;overflow:hidden}
+@media(max-width:860px){.fundadores{grid-template-columns:minmax(0,1fr)}}
+.fundadores h3{font-size:clamp(28px,3.4vw,38px)}
+.fundadores ul{list-style:none;margin-top:14px;display:grid;gap:8px}
+.fundadores li{padding-left:26px;position:relative}
+.fundadores li::before{content:"";position:absolute;left:0;top:7px;width:15px;height:10px;background:var(--etiqueta);clip-path:polygon(5px 0,100% 0,100% 100%,5px 100%,0 50%)}
+.fundadores .honesto{font-size:15px;color:var(--sobre-anil)}
+.fundadores .honesto+.btn{margin-top:16px}
+
+/* Asistente de prueba */
+.prueba-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:start}
+@media(max-width:900px){.prueba-grid{grid-template-columns:minmax(0,1fr);gap:28px}}
+.prueba-lado ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.prueba-lado li{padding-left:28px;position:relative;color:var(--sobre-anil)}
+.prueba-lado li b{color:#fff}
+.prueba-lado li::before{content:"";position:absolute;left:0;top:7px;width:15px;height:10px;background:var(--etiqueta);clip-path:polygon(5px 0,100% 0,100% 100%,5px 100%,0 50%)}
+.asistente{background:#fff;color:var(--anil);border-radius:22px;padding:26px;box-shadow:0 0 0 6px var(--etiqueta)}
+.progreso{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:650;color:var(--gris)}
+.progreso-barra{height:8px;background:var(--neblina);border-radius:99px;margin-top:8px;overflow:hidden}
+.progreso-barra span{display:block;height:100%;background:var(--anil);border-radius:99px;transition:width .3s ease;width:25%}
+.paso{margin-top:22px}
+.paso[hidden]{display:none}
+.paso h3{font-size:28px;outline:none}
+.paso .ayuda{color:var(--gris);font-size:15px;margin-top:6px}
+.campo{margin-top:18px}
+.campo label,.campo legend{display:block;font-weight:700;margin-bottom:6px}
+.campo input[type=text],.campo input[type=email]{width:100%;min-height:52px;border:2px solid var(--linea);border-radius:12px;padding:10px 14px;font-size:18px;background:#fff}
+.campo input:focus{border-color:var(--anil);outline:3px solid var(--etiqueta);outline-offset:1px}
+.campo input[aria-invalid="true"]{border-color:var(--rosa)}
+.opciones{display:grid;gap:8px}
+.opciones.dos{grid-template-columns:1fr 1fr}
+.opcion{position:relative}
+.opcion input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%}
+.opcion span{display:block;border:2px solid var(--linea);border-radius:12px;padding:12px 14px;font-weight:700;line-height:1.25}
+.opcion span small{display:block;font-weight:500;color:var(--gris);font-size:14px}
+.opcion input:checked+span{border-color:var(--anil);background:#FFF6D6;box-shadow:inset 0 0 0 1px var(--anil)}
+.opcion input:focus-visible+span{outline:3px solid var(--etiqueta);outline-offset:2px}
+.error{color:var(--rosa);font-weight:650;font-size:15px;margin-top:8px}
+.error:empty{display:none}
+.asistente-botones{display:flex;gap:10px;justify-content:space-between;margin-top:24px;flex-wrap:wrap}
+.asistente-botones .btn-anil{margin-left:auto}
+.btn-atras{background:none;border:0;text-decoration:underline;font-weight:650;cursor:pointer;padding:12px 4px;color:var(--gris)}
+.resumen{background:var(--neblina);border-radius:12px;padding:14px;margin-top:16px;font-size:15px}
+.resumen dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+.resumen dt{color:var(--gris)}
+.resumen dd{font-weight:700;overflow-wrap:anywhere}
+.listo{text-align:left}
+.listo .tag-grande{display:inline-block;background:var(--etiqueta);padding:8px 18px 8px 30px;clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%);font-family:var(--display);font-stretch:80%;font-weight:850;font-size:22px}
+
+/* Preguntas */
+.faq{max-width:820px;margin-top:28px}
+.faq details{border-bottom:1px solid var(--linea)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-weight:750;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--display);font-size:28px;line-height:.8;font-weight:800;flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:8px;background:var(--neblina)}
+.faq details[open] summary::after{content:"−";background:var(--etiqueta)}
+.faq p{padding:0 0 18px;color:var(--gris);max-width:40em}
+
+footer{background:var(--anil-2);color:var(--sobre-anil);padding:32px 0 110px;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(min-width:861px){footer{padding-bottom:32px}}
+
+/* CTA fijo en celular */
+.cta-fijo{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--anil);border-top:1px solid var(--anil-3);display:flex;gap:12px;align-items:center;transform:translateY(110%);transition:transform .25s ease}
+.cta-fijo.ver{transform:none}
+.cta-fijo p{color:#fff;font-size:14px;line-height:1.25;flex:1}
+.cta-fijo p small{display:block;color:var(--sobre-anil)}
+.cta-fijo .btn{min-height:46px;padding:10px 16px;font-size:16px;flex:none}
+@media(min-width:861px){.cta-fijo{display:none}}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav>
-  <a class="logo" href="/">neuri<span>.</span></a>
-  <a class="lang" href="/bazar/" lang="es">Español</a>
-  <a class="btn dark" data-trial href="mailto:hola@neuri.tech?subject=Neuri%20Bazar%20free%20trial&body=Store%20name%3A%0ACity%3A%0AEmail%20to%20sign%20in%20(Google)%3A">Try it free</a>
-</nav></div></header>
+<header>
+  <div class="wrap"><nav aria-label="Main">
+    <a class="marca" href="#inicio" aria-label="Neuri Bazar, home">
+      <svg viewBox="0 0 34 22" aria-hidden="true"><path d="M9 0h21a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H9L0 11z" fill="#F6C744"/><circle cx="9" cy="11" r="2.6" fill="#1E2A5A"/></svg>
+      Neuri Bazar
+    </a>
+    <a class="ir solo-ancho" href="#caja">Try it</a>
+    <a class="ir solo-ancho" href="#precios">Pricing</a>
+    <a class="ir solo-ancho" href="#preguntas">FAQ</a>
+    <a class="ir" href="/bazar/" lang="es" hreflang="es">Español</a>
+    <a class="btn btn-etiqueta btn-chico" href="#prueba" data-trial>Try it free</a>
+  </nav></div>
+</header>
 
-<main>
-<div class="wrap hero">
-  <div style="padding-bottom:40px">
-    <h1>Neuri Bazar: the register and vendor accounts for your antique mall.</h1>
-    <p class="lead">Ring up sales on a phone, commission and booth rent are figured for you, and every vendor sees what you owe them without calling you.</p>
-    <div class="actions">
-      <a class="btn go" data-trial href="mailto:hola@neuri.tech?subject=Neuri%20Bazar%20free%20trial&body=Store%20name%3A%0ACity%3A%0AEmail%20to%20sign%20in%20(Google)%3A">Start a free 14-day trial</a>
-      <a class="btn line" href="#como">How it works</a>
+<main id="inicio">
+<!-- HERO + PLAYABLE REGISTER -->
+<section class="heroe" aria-labelledby="titulo">
+  <div class="wrap heroe-grid">
+    <div class="heroe-texto">
+      <h1 id="titulo">One register for every booth. The vendor math does itself.</h1>
+      <p class="entrada">Neuri Bazar is the checkout for your antique mall, on the phone you already have. Scan the tag and ring it up: sales tax, your commission and each vendor's share are split on the spot. Every vendor sees what you owe them from their own link.</p>
+      <div class="heroe-acciones">
+        <a class="btn btn-etiqueta" href="#prueba" data-trial>Start your 14-day free trial</a>
+        <a class="btn btn-borde" href="#caja">Ring up a sale in the demo</a>
+      </div>
+      <p class="heroe-letra">For antique malls, vendor malls, consignment shops and makers markets. From $79 a month. No credit card to start.</p>
+      <p class="paso-demo" aria-hidden="true"><b>Try it here</b> Tap items from different booths and ring them up. Watch how the money splits.</p>
     </div>
-    <div><span class="tag"><small>from</small><b>$79</b><small>a month</small></span><span class="free">For antique malls, vendor malls and consignment stores.</span></div>
-  </div>
-  <div class="views">
-    <figure><figcaption>What you see<span>Sales and what you owe</span></figcaption><img src="/img/bazar-home-en.jpg" width="390" height="450" alt="Owner home screen: today's sales $583.74, owed to vendors $463.30, one open layaway"></figure>
-    <figure><figcaption>What your vendor sees<span>From a private link, no password</span></figcaption><img src="/img/bazar-my-booth-en.jpg" width="390" height="450" alt="My Booth for vendor Linda: we owe you $20.50, with a sale and a payout received"></figure>
-  </div>
-</div>
 
-<section class="mist" id="como"><div class="wrap">
-  <h2>How it works</h2>
-  <p class="sub">Runs on the phones you already have. You can be set up in an afternoon.</p>
-  <ol class="steps">
-    <li><b>Tag the item</b><p>Add the item with its price and vendor, and print a barcode tag.</p></li>
-    <li><b>Ring it up</b><p>Scan the tag with the phone camera. Sales tax, your commission and the vendor's share are split automatically.</p></li>
-    <li><b>Pay each vendor</b><p>Each vendor sees their sales and balance from their link. You pay them, record it, and their balance goes to zero.</p></li>
-  </ol>
-</div></section>
+    <div class="demo" id="caja" aria-label="Demo register">
+      <div class="demo-bloque mesa">
+        <h3>1. Tap the items a customer brings up <small>Just like scanning the tag</small></h3>
+        <ul class="mesa-piezas" id="mesa"></ul>
+        <div class="mesa-pie">
+          <span>Example data. Three vendors on different commissions: 30%, 25% and 20%.</span>
+          <button type="button" class="linkboton" id="surtir">Put the items back</button>
+        </div>
+      </div>
 
-<section><div class="wrap">
-  <h2>What it takes off your plate</h2>
-  <table class="swap">
-    <thead><tr><th scope="col">Today</th><th scope="col">With Neuri Bazar</th></tr></thead>
-    <tbody>
-      <tr><td>Writing down each sale and its booth number</td><td>Every sale is recorded at checkout</td></tr>
-      <tr><td>Figuring commission and booth rent in a spreadsheet</td><td>Calculated for you, to the cent</td></tr>
-      <tr><td>Vendors calling to ask if their piece sold</td><td>They check their link any time</td></tr>
-      <tr><td>A close that doesn't balance</td><td>Expected vs. counted cash at close</td></tr>
-      <tr><td>Building the 1099 list at year end</td><td>One file with what you paid each vendor</td></tr>
-    </tbody>
-  </table>
-</div></section>
+      <div class="demo-bloque">
+        <h3>2. Ring it up <small id="num-ticket">Sale #0041</small></h3>
+        <div class="caja-cuerpo">
+          <div class="ticket" id="ticket" aria-live="polite">
+            <div class="t-enc"><b>Example Antique Mall</b><span id="t-fecha"></span></div>
+            <div id="t-lineas"><p class="t-vacio">Empty receipt. Tap an item.</p></div>
+            <p class="t-sello" id="t-sello">Thank you for shopping!</p>
+          </div>
+          <fieldset class="pago">
+            <legend>How the customer pays</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="pago" value="cash" checked><span>Cash</span></label>
+              <label class="chip"><input type="radio" name="pago" value="card"><span>Card</span></label>
+              <label class="chip"><input type="radio" name="pago" value="transfer"><span>Transfer</span></label>
+              <label class="chip"><input type="radio" name="pago" value="split"><span>$50 cash + card</span></label>
+            </div>
+          </fieldset>
+          <p class="cambio" id="cambio" aria-live="polite"></p>
+          <button type="button" class="btn btn-etiqueta btn-cobrar" id="cobrar" disabled>Charge</button>
+        </div>
+      </div>
 
-<section class="mist" id="planes"><div class="wrap">
-  <h2>Pricing</h2>
-  <p class="sub">One flat price per store, no per-sale fees. The first 14 days are free.</p>
-  <div class="toggle" role="group" aria-label="Country">
-    <button type="button" data-c="us" aria-pressed="true">United States (USD)</button>
-    <button type="button" data-c="mx" aria-pressed="false">Mexico (MXN)</button>
-  </div>
-  <div class="plans">
-    <div class="plan"><h3>Basic</h3>
-      <div class="p" data-us="$79 <small>a month</small>" data-mx="$499 <small>MXN a month + IVA</small>">$79 <small>a month</small></div>
-      <ul><li>Up to 30 vendors</li><li>1 register</li><li>A balance link for every vendor</li></ul></div>
-    <div class="plan pro"><h3>Pro<em>Most popular</em></h3>
-      <div class="p" data-us="$119 <small>a month</small>" data-mx="$899 <small>MXN a month + IVA</small>">$119 <small>a month</small></div>
-      <ul><li>Up to 75 vendors</li><li>3 registers</li><li>Weekly vendor statements by email or text</li><li>Reports and Excel export</li></ul></div>
-    <div class="plan"><h3>Plus</h3>
-      <div class="p" data-us="$149 <small>a month</small>" data-mx="$1,499 <small>MXN a month + IVA</small>">$149 <small>a month</small></div>
-      <ul><li>Unlimited vendors and registers</li><li>Multiple locations</li><li>Everything in Pro</li></ul></div>
-  </div>
-  <div class="offer">
-    <p>First 10 stores: free setup and training, first month free, and your price locked for 12 months.</p>
-    <a class="btn dark" href="mailto:hola@neuri.tech?subject=Founding%20store%20-%20Neuri%20Bazar&body=Store%20name%3A%0ACity%3A%0ANumber%20of%20vendors%2Fbooths%3A%0APhone%3A">Claim a spot</a>
-  </div>
-</div></section>
+      <div class="demo-bloque">
+        <h3>3. Who gets what <small>Live</small></h3>
+        <div class="reparto-barra" id="barra" aria-hidden="true"></div>
+        <ul class="reparto-ley" aria-hidden="true">
+          <li><i style="background:var(--rosa)"></i>Linda</li>
+          <li><i style="background:var(--verde-agua)"></i>Jim</li>
+          <li><i style="background:var(--naranja)"></i>Rosa</li>
+          <li><i style="background:#8C97C8"></i>Your commission</li>
+          <li><i style="background:var(--etiqueta)"></i>Sales tax</li>
+        </ul>
+        <ul class="reparto-lista" id="reparto" aria-label="How this sale splits by vendor"></ul>
+        <div class="reparto-total" id="reparto-total"></div>
+        <p class="reparto-nota">Tag prices are before tax. Sales tax is added at checkout (8.6% here, an example rate; yours depends on your city) and kept separate so you can remit it. Your commission comes off the tag price, same as in the app. Booth rent isn't taken per sale: it's charged automatically on the 1st of the month.</p>
+      </div>
 
-<section><div class="wrap">
-  <h2>Questions</h2>
-  <div class="faq">
-    <details><summary>Do I need new hardware?</summary><p>No. It runs on the phones and tablets you already have. Scanner guns and label printers work too.</p></details>
-    <details><summary>Do vendors have to install anything?</summary><p>No. They open their private link to see their balance, sales and items.</p></details>
-    <details><summary>Do you handle sales tax?</summary><p>Yes. Set your local rate; tax is added at checkout and reported apart from your commission.</p></details>
-    <details><summary>Can I bring my data from another system?</summary><p>Yes. We import your vendors and items from a spreadsheet, and the tags already on your items keep scanning.</p></details>
-    <details><summary>Is it in Spanish too?</summary><p>Yes. Each person picks English or Spanish, so mixed staff and vendors each read it in their language.</p></details>
-    <details><summary>What happens after the 14 days?</summary><p>We let you know before it ends. If you stay, you pick a plan; your data stays as it is.</p></details>
+      <div class="demo-bloque mipuesto">
+        <div class="mp-lado">
+          <h3>4. What your vendor sees</h3>
+          <p>Every vendor gets a <b>My Booth</b> link. No password, nothing to install. The moment you ring up their item, they see the sale and their balance.</p>
+          <div class="mp-tabs" role="group" aria-label="Choose a vendor">
+            <button type="button" class="btn btn-chico btn-etiqueta" data-v="linda" aria-pressed="true">Linda, booth 3</button>
+            <button type="button" class="btn btn-chico btn-borde" data-v="jim" aria-pressed="false">Jim, booth 7</button>
+            <button type="button" class="btn btn-chico btn-borde" data-v="rosa" aria-pressed="false">Rosa, booth 12</button>
+          </div>
+          <p>No more texts at 11 p.m. asking how much they've sold this month.</p>
+        </div>
+        <div class="mp-tel" aria-live="polite">
+          <div class="mp-top">
+            <small>Example Antique Mall · My Booth</small>
+            <span class="hola" id="mp-hola">Hi, Linda</span>
+            <small>We owe you</small>
+            <div class="saldo" id="mp-saldo">$0.00</div>
+          </div>
+          <ul class="mp-movs" id="mp-movs"></ul>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="sub" style="margin-top:22px">Something else? Email <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> or download the <a href="/en/neuri-bazar-one-pager.pdf">one-page summary (PDF)</a>.</p>
-</div></section>
+</section>
+
+<!-- USE CASES -->
+<section id="casos" aria-labelledby="t-casos">
+  <div class="wrap">
+    <h2 id="t-casos">How it would work in your kind of store</h2>
+    <p class="entrada">We don't have paying customers yet, so we won't show you made-up testimonials. Here's how it would work, with examples.</p>
+    <div class="tabs" role="tablist" aria-label="Type of store">
+      <button class="tab" role="tab" id="tab-mall" aria-controls="caso-mall" aria-selected="true">Antique mall<small>Vendor malls in Phoenix and beyond</small></button>
+      <button class="tab" role="tab" id="tab-ropa" aria-controls="caso-ropa" aria-selected="false" tabindex="-1">Consignment shop<small>Pieces from lots of consignors</small></button>
+      <button class="tab" role="tab" id="tab-tianguis" aria-controls="caso-tianguis" aria-selected="false" tabindex="-1">Weekend market<small>Makers and flea markets with one checkout</small></button>
+    </div>
+
+    <div class="caso" role="tabpanel" id="caso-mall" aria-labelledby="tab-mall" tabindex="0">
+      <div>
+        <span class="caso-sello">Example: how it would work in a 150-booth antique mall</span>
+        <h3>Monthly booth rent, showcases at a different commission, sales tax on top</h3>
+        <p class="problema">In a vendor mall every booth pays rent, some showcases take a different cut, and every month someone has to send out 150 statements and cut 150 checks.</p>
+        <ol class="dia">
+          <li><b>The 1st of the month</b>Booth rent posts on its own, and every vendor gets their monthly statement by email.</li>
+          <li><b>Every day</b>Ring up sales in dollars with sales tax added on top. Showcase items can carry their own commission.</li>
+          <li><b>Your staff</b>Cashiers don't see costs. Managers approve discounts with their PIN. Everyone uses the app in English or Spanish.</li>
+          <li><b>Payday and year end</b>Pay vendors by ACH with the bank file, or write checks and log the check number. In January, download what you paid each vendor for the year, ready for 1099s.</li>
+        </ol>
+      </div>
+      <div class="caso-num">
+        <h4>What the owner sees on payday</h4>
+        <img src="img/owner-payouts.webp" width="390" height="844" alt="Vendor payouts screen: four vendors with the amount owed to each, a Download bank file (CSV) button and a reference field for ACH">
+        <p>Real app screen with demo data. Plus plan: unlimited vendors and registers.</p>
+      </div>
+    </div>
+
+    <div class="caso" role="tabpanel" id="caso-ropa" aria-labelledby="tab-ropa" tabindex="0" hidden>
+      <div>
+        <span class="caso-sello">Example: how it would work in a clothing consignment shop</span>
+        <h3>Hundreds of pieces from 60 consignors, each with its own owner</h3>
+        <p class="problema">Selling isn't the hard part. Knowing whose piece it was, what they're owed, what's on layaway and what hasn't moved in months is.</p>
+        <ol class="dia">
+          <li><b>At intake</b>The consignor submits her items from her link, with up to 3 photos. You approve with one tap and print the tag.</li>
+          <li><b>At the register</b>One customer puts a dress on layaway. Another returns a blouse: the commission reverses on its own and the consignor's balance stays right.</li>
+          <li><b>Sales</b>"25% off booth 12 through Sunday." The register takes it off automatically. Consignors can ask for a sale too.</li>
+          <li><b>Slow movers</b>At 60 and 90 days the app suggests a markdown to the consignor. She accepts with one click from her link.</li>
+        </ol>
+      </div>
+      <div class="caso-num">
+        <h4>What the consignor sees on her link</h4>
+        <img src="img/booth-items.webp" width="390" height="844" loading="lazy" alt="My Booth, My items tab: Add an item button, your booth sale, and items waiting for store approval">
+        <p>Real app screen with demo data.</p>
+      </div>
+    </div>
+
+    <div class="caso" role="tabpanel" id="caso-tianguis" aria-labelledby="tab-tianguis" tabindex="0" hidden>
+      <div>
+        <span class="caso-sello">Example: how it would work in a 40-vendor weekend market</span>
+        <h3>Saturday and Sunday, 40 makers, one checkout at the door</h3>
+        <p class="problema">The same headache every weekend: Sunday night you sort out by hand what each vendor sold, take off the commission and split up the cash. And someone always thinks they were owed more.</p>
+        <ol class="dia">
+          <li><b>Thursday</b>Upload your vendor list from Excel with each one's commission and rent. Each vendor prints their own barcode tags.</li>
+          <li><b>Saturday</b>Open up to 3 registers on the Pro plan. Scan with the phone camera; if someone pays half cash, half card, the app works out the change.</li>
+          <li><b>Sunday, 6 p.m.</b>Close out: count the cash and the app tells you what should be there. If it's off, you note why.</li>
+          <li><b>Monday</b>Every vendor gets their statement by email. Download the bank file and pay them by ACH.</li>
+        </ol>
+      </div>
+      <div class="caso-num">
+        <h4>What the organizer sees on Monday</h4>
+        <img src="img/owner-home.webp" width="390" height="844" loading="lazy" alt="Home screen: today's sales $583.74, owed to vendors $463.30, one open layaway and 2 items to approve">
+        <p>Real app screen with demo data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE AND AFTER -->
+<section class="antes" aria-labelledby="t-antes">
+  <div class="wrap">
+    <h2 id="t-antes">6 p.m. You just locked the door.</h2>
+    <p class="entrada">Same day, two ways. Example with 30 vendors and 90 sales.</p>
+    <div class="cambiador" role="group" aria-label="Compare">
+      <button type="button" data-modo="libreta" aria-pressed="true">With a ledger</button>
+      <button type="button" data-modo="neuri" aria-pressed="false">With Neuri Bazar</button>
+    </div>
+    <div class="domingo">
+      <div class="hoja libreta" id="hoja" aria-live="polite"></div>
+      <div class="domingo-lado">
+        <div class="medidor"><b id="medidor">2 h 45 min</b><span id="medidor-txt">to close out the day, and you still have to pay everyone</span></div>
+        <p class="nota-chica">Example times to give you an idea. Run your own numbers in the calculator below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO VIEWS -->
+<section aria-labelledby="t-vistas">
+  <div class="wrap">
+    <h2 id="t-vistas">You see the whole store. Each vendor sees only their own.</h2>
+    <p class="entrada">Real app screens with demo data. Tap each one to see it.</p>
+    <div class="vistas-grid">
+      <div class="vista duenio">
+        <div>
+          <h3>You, the owner</h3>
+          <p class="quien">Plus your manager and cashiers, each with their own permissions.</p>
+          <ul class="pantallas" data-grupo="duenio">
+            <li><button type="button" aria-current="true" data-img="img/owner-home.webp" data-alt="Home screen: today's sales $583.74, owed to vendors $463.30, one open layaway and 2 items to approve"><b>Home</b>Today's sales and what you owe vendors</button></li>
+            <li><button type="button" aria-current="false" data-img="img/owner-vendors.webp" data-alt="Vendors: list with the amount owed to each vendor and their commission"><b>Vendors</b>What you owe each one</button></li>
+            <li><button type="button" aria-current="false" data-img="img/owner-to-approve.webp" data-alt="Inventory with a notice: 2 items to approve, proposed by vendors from My Booth"><b>Items to approve</b>What your vendors propose</button></li>
+            <li><button type="button" aria-current="false" data-img="img/owner-booth-sale.webp" data-alt="Vendor detail with balance, a 25% booth sale with an end date, and Record payout"><b>Booth sale</b>A discount with an end date</button></li>
+            <li><button type="button" aria-current="false" data-img="img/owner-tags.webp" data-alt="Tags to print, with a barcode preview"><b>Tags</b>Barcodes on rolls or letter sheets</button></li>
+            <li><button type="button" aria-current="false" data-img="img/owner-activity-log.webp" data-alt="Activity log: who edited, paid or opened the register, with date and time"><b>Activity log</b>Who changed what. No one can delete it</button></li>
+          </ul>
+        </div>
+        <div class="telefono"><img id="img-duenio" src="img/owner-home.webp" width="390" height="844" loading="lazy" alt="Home screen: today's sales $583.74, owed to vendors $463.30, one open layaway and 2 items to approve"></div>
+      </div>
+      <div class="vista vendedor">
+        <div>
+          <h3>Your vendor</h3>
+          <p class="quien">From a private link. They never see costs or anyone else's numbers.</p>
+          <ul class="pantallas" data-grupo="vendedor">
+            <li><button type="button" aria-current="true" data-img="img/booth-balance.webp" data-alt="Linda's My Booth: we owe you $20.50, with her sale and a payout received"><b>Their balance</b>What you owe them, line by line</button></li>
+            <li><button type="button" aria-current="false" data-img="img/booth-sales.webp" data-alt="My Booth, My sales: items sold, total and her share by month, with a Download CSV button"><b>Their sales by month</b>And a CSV download for Excel</button></li>
+            <li><button type="button" aria-current="false" data-img="img/booth-items.webp" data-alt="My Booth, My items: add an item, ask for a booth sale, and items waiting for approval"><b>Their items</b>They submit new ones and ask for sales</button></li>
+          </ul>
+        </div>
+        <div class="telefono"><img id="img-vendedor" src="img/booth-balance.webp" width="390" height="844" loading="lazy" alt="Linda's My Booth: we owe you $20.50, with her sale and a payout received"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="oscuro" aria-labelledby="t-calc" style="background:var(--anil-2)">
+  <div class="wrap">
+    <h2 id="t-calc">How many hours a month does the vendor math cost you?</h2>
+    <p class="entrada">Move the sliders to match your store.</p>
+    <div class="calc">
+      <div>
+        <div class="deslizador">
+          <label for="c-vend">Vendors or booths <output id="o-vend" for="c-vend">60</output></label>
+          <input type="range" id="c-vend" min="5" max="200" step="5" value="60">
+        </div>
+        <div class="deslizador">
+          <label for="c-ventas">Sales on a typical day <output id="o-ventas" for="c-ventas">50</output></label>
+          <input type="range" id="c-ventas" min="10" max="400" step="10" value="50">
+        </div>
+        <div class="deslizador">
+          <label for="c-dias">Days open per week <output id="o-dias" for="c-dias">6</output></label>
+          <input type="range" id="c-dias" min="1" max="7" step="1" value="6">
+          <small style="color:var(--sobre-anil)">An antique mall: 6 or 7. A weekend market: 2.</small>
+        </div>
+      </div>
+      <div class="resultado" aria-live="polite">
+        <div class="horas" id="r-horas">0 <small>hours a month</small></div>
+        <p id="r-dias" style="color:var(--sobre-anil);margin-top:8px"></p>
+        <ul id="r-desglose"></ul>
+        <p class="plan-sug" id="r-plan"></p>
+        <details class="supuestos">
+          <summary>How we estimate this</summary>
+          <ul>
+            <li>Writing down and adding up each sale by hand: 30 seconds per sale. With the app it's recorded when you ring it up.</li>
+            <li>Splitting out each vendor's sales, commission and rent: 4 minutes per vendor per week. With the app it's automatic.</li>
+            <li>Answering "how am I doing?": one question per vendor per week, 3 minutes each. With the app they check their link.</li>
+            <li>Closing out the day: from 20 minutes down to 5.</li>
+            <li>A month is 4.3 weeks. These are estimates, not customer results.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVERYTHING IT DOES -->
+<section aria-labelledby="t-trae">
+  <div class="wrap">
+    <h2 id="t-trae">Everything it already does</h2>
+    <p class="entrada">Works today, on a phone. No special hardware.</p>
+    <div class="trae">
+      <div><h3>At the register</h3><ul>
+        <li>Scan with the camera or a handheld scanner</li>
+        <li>Several items on one sale</li>
+        <li>Cash, card and transfer, plus split payments with change</li>
+        <li>Layaways with payments</li>
+        <li>Returns</li>
+        <li>Printed or emailed receipts</li>
+      </ul></div>
+      <div><h3>With your vendors</h3><ul>
+        <li>Commission by vendor and by item</li>
+        <li>Booth rent charged automatically</li>
+        <li>Booth sales with an end date</li>
+        <li>Vendors submit items from their link; you approve</li>
+        <li>Weekly or monthly statements</li>
+        <li>Payouts logged, plus a bank file for ACH</li>
+      </ul></div>
+      <div><h3>So the drawer balances</h3><ul>
+        <li>End-of-day close: expected vs. counted</li>
+        <li>Activity log no one can edit</li>
+        <li>Separate permissions for cashier, manager and owner</li>
+        <li>Cashiers don't see costs</li>
+        <li>Reports by day, vendor, item and tax</li>
+        <li>Year-end totals per vendor for 1099s</li>
+      </ul></div>
+      <div><h3>Getting in and out</h3><ul>
+        <li>Import vendors and items from Excel</li>
+        <li>Your existing tags still scan</li>
+        <li>Print tags on rolls or letter sheets</li>
+        <li>Dollars or pesos, sales tax or IVA</li>
+        <li>English or Spanish, per user</li>
+        <li>Export all your data with one click</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="precios" id="precios" aria-labelledby="t-precios">
+  <div class="wrap">
+    <h2 id="t-precios">One flat monthly price. No per-sale fees.</h2>
+    <p class="entrada">The first 14 days are free, and we don't ask for a credit card.</p>
+    <div class="moneda" role="group" aria-label="Currency">
+      <button type="button" data-moneda="us" aria-pressed="true">US, dollars</button>
+      <button type="button" data-moneda="mx" aria-pressed="false">Mexico, pesos</button>
+    </div>
+    <div class="planes">
+      <div class="plan">
+        <h3>Basic</h3>
+        <p class="para-quien">For a smaller shop or market.</p>
+        <p class="monto" data-mx="$499|MXN per month + IVA" data-us="$79|USD per month">$79<small>USD per month</small></p>
+        <ul><li>Up to 30 vendors</li><li>1 register</li><li>My Booth link for every vendor</li><li>Close-out, layaways and returns</li></ul>
+        <a class="btn btn-borde" href="#prueba" data-trial data-plan="Basic">Try Basic free</a>
+      </div>
+      <div class="plan pro">
+        <h3>Pro <span class="sello">Our pick</span></h3>
+        <p class="para-quien">For a busy store with several registers.</p>
+        <p class="monto" data-mx="$899|MXN per month + IVA" data-us="$119|USD per month">$119<small>USD per month</small></p>
+        <ul><li>Up to 75 vendors</li><li>3 registers</li><li>Weekly or monthly statements by email</li><li>Reports and Excel export</li></ul>
+        <a class="btn btn-anil" href="#prueba" data-trial data-plan="Pro">Try Pro free</a>
+      </div>
+      <div class="plan">
+        <h3>Plus</h3>
+        <p class="para-quien">For large malls and multiple locations.</p>
+        <p class="monto" data-mx="$1,499|MXN per month + IVA" data-us="$149|USD per month">$149<small>USD per month</small></p>
+        <ul><li>Unlimited vendors</li><li>Unlimited registers</li><li>Multiple locations</li><li>Everything in Pro</li></ul>
+        <a class="btn btn-borde" href="#prueba" data-trial data-plan="Plus">Try Plus free</a>
+      </div>
+    </div>
+
+    <div class="fundadores" id="fundadores">
+      <div>
+        <h3>We're looking for 10 founding stores</h3>
+        <ul>
+          <li>We set it up and train your staff for free</li>
+          <li>Your first month is free</li>
+          <li>Your price is locked for 12 months</li>
+        </ul>
+      </div>
+      <div>
+        <p class="honesto">We don't have paying customers yet. That's why we're looking for the first 10: you give us honest feedback, we get you up and running.</p>
+        <a class="btn btn-etiqueta" id="btn-fundador" href="mailto:hola@neuri.tech?subject=Founding%20store%20-%20Neuri%20Bazar&amp;body=Store%20name%3A%0ACity%3A%0ANumber%20of%20vendors%20or%20booths%3A%0APhone%3A">Claim a founding spot</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TRIAL -->
+<section class="oscuro" id="prueba" aria-labelledby="t-prueba">
+  <div class="wrap prueba-grid">
+    <div class="prueba-lado">
+      <h2 id="t-prueba">Set up your store on Neuri in 4 steps</h2>
+      <p class="entrada">It takes about a minute. With this we get your store ready to start ringing up sales.</p>
+      <ul>
+        <li><b>14 days free.</b> No credit card. We remind you before it ends.</li>
+        <li><b>We help you bring your data over.</b> Send us your spreadsheet, or a photo of your ledger.</li>
+        <li><b>Your vendors don't install anything.</b> They just get their link.</li>
+      </ul>
+    </div>
+
+    <form class="asistente" id="asistente" novalidate aria-labelledby="t-prueba">
+      <div class="progreso"><span id="prog-txt">Step 1 of 4</span><span id="prog-sig">Next: your city</span></div>
+      <div class="progreso-barra" aria-hidden="true"><span id="prog-barra"></span></div>
+
+      <div class="paso" data-paso="1">
+        <h3 tabindex="-1">What's your store called?</h3>
+        <p class="ayuda">Your vendors see it on their link, and customers see it on their receipt.</p>
+        <div class="campo">
+          <label for="f-nombre">Store name</label>
+          <input type="text" id="f-nombre" name="nombre" autocomplete="organization" placeholder="e.g. Main Street Antique Mall" aria-describedby="e-nombre">
+          <p class="error" id="e-nombre" role="alert"></p>
+        </div>
+      </div>
+
+      <div class="paso" data-paso="2" hidden>
+        <h3 tabindex="-1">Where is it?</h3>
+        <p class="ayuda">So we set up the right currency and sales tax.</p>
+        <div class="campo">
+          <label for="f-ciudad">City</label>
+          <input type="text" id="f-ciudad" name="ciudad" autocomplete="address-level2" placeholder="e.g. Mesa, AZ" aria-describedby="e-ciudad">
+          <p class="error" id="e-ciudad" role="alert"></p>
+        </div>
+        <fieldset class="campo" aria-describedby="e-pais">
+          <legend>Country</legend>
+          <div class="opciones dos">
+            <label class="opcion"><input type="radio" name="pais" value="US" checked><span>United States<small>Dollars, sales tax added</small></span></label>
+            <label class="opcion"><input type="radio" name="pais" value="MX"><span>Mexico<small>Pesos, IVA included</small></span></label>
+          </div>
+          <p class="error" id="e-pais" role="alert"></p>
+        </fieldset>
+      </div>
+
+      <div class="paso" data-paso="3" hidden>
+        <h3 tabindex="-1">How many vendors do you have?</h3>
+        <p class="ayuda">A rough number is fine. You can switch plans any time.</p>
+        <fieldset class="campo" aria-describedby="e-vend">
+          <legend class="sr">Number of vendors</legend>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="vendedores" value="Up to 30" data-plan="Basic"><span>Up to 30<small>Basic plan</small></span></label>
+            <label class="opcion"><input type="radio" name="vendedores" value="31 to 75" data-plan="Pro"><span>31 to 75<small>Pro plan</small></span></label>
+            <label class="opcion"><input type="radio" name="vendedores" value="More than 75" data-plan="Plus"><span>More than 75<small>Plus plan</small></span></label>
+          </div>
+          <p class="error" id="e-vend" role="alert"></p>
+        </fieldset>
+      </div>
+
+      <div class="paso" data-paso="4" hidden>
+        <h3 tabindex="-1">Where should we send your login?</h3>
+        <p class="ayuda">Use the email you'll sign in to the app with. We don't send marketing emails.</p>
+        <div class="campo">
+          <label for="f-correo">Email</label>
+          <input type="email" id="f-correo" name="correo" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="e-correo">
+          <p class="error" id="e-correo" role="alert"></p>
+        </div>
+        <div class="resumen" id="resumen"></div>
+      </div>
+
+      <div class="paso listo" data-paso="5" hidden>
+        <span class="tag-grande">All set!</span>
+        <h3 tabindex="-1" style="margin-top:14px" id="listo-titulo">You're almost open</h3>
+        <p class="ayuda" id="listo-txt">Your email app opened with your details. Just hit Send and we'll send you your login.</p>
+        <p class="ayuda">Didn't open? Email us at <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> with your store's name.</p>
+        <p class="ayuda">In the meantime, play with <a href="#caja">the demo register</a> again.</p>
+      </div>
+
+      <div class="asistente-botones" id="botones">
+        <button type="button" class="btn-atras" id="atras" hidden>Back</button>
+        <button type="submit" class="btn btn-anil" id="siguiente">Next</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="preguntas" aria-labelledby="t-faq">
+  <div class="wrap">
+    <h2 id="t-faq">Questions we get</h2>
+    <div class="faq">
+      <details><summary>Do I need to buy hardware?</summary><p>No. It runs on the phone you already have: the camera reads the tags. If you want to go faster, you can connect a handheld barcode scanner and a tag or receipt printer.</p></details>
+      <details><summary>My vendors aren't tech people. Do they have to install anything?</summary><p>No. Each vendor gets a private link, no password. They open it like any other link and see their balance, their items and their sales for the month. Their statement arrives by email.</p></details>
+      <details><summary>I run everything on paper or a spreadsheet today. Is it hard to switch?</summary><p>You upload your vendor list and your items from Excel or a CSV, and the tags already on your merchandise keep scanning. For our first 10 stores, we set it up and train your staff for free.</p></details>
+      <details><summary>What if the internet goes down?</summary><p>For now the register needs a connection. It works on cellular data, so a phone with a data plan or a hotspot is enough. Offline mode isn't ready yet.</p></details>
+      <details><summary>Does it file my sales tax or send 1099s?</summary><p>No, but it gets you the numbers. Sales tax is added on top of every sale and shows up in a monthly tax report for your filing, and at year end you download the total paid to each vendor, ready for your 1099s. You or your accountant file them.</p></details>
+      <details><summary>Do you take a cut of every sale?</summary><p>No. You pay one flat monthly price for your store, no matter how much you sell.</p></details>
+      <details><summary>What happens when the 14-day free trial ends?</summary><p>We email you two days before. If you stay, you pick a plan and everything stays as it is. If not, you aren't charged anything.</p></details>
+      <details><summary>Is my data mine?</summary><p>Yes. Download your whole business with one click, any time. And every change to a price or commission, and every voided sale, goes into an activity log that no one can edit or delete, not even the owner.</p></details>
+      <details><summary>Does it work in Spanish, or in Mexico?</summary><p>Yes. Each user picks English or Spanish. In Mexico it runs in pesos with IVA included.</p></details>
+    </div>
+    <p class="entrada" style="margin-top:24px">Something else? Email us at <a href="mailto:hola@neuri.tech">hola@neuri.tech</a>, or download the <a href="/en/neuri-bazar-one-pager.pdf">one-page summary (PDF)</a> to share with your partner or manager.</p>
+  </div>
+</section>
 </main>
 
-<footer><div class="wrap">
-  <span>© 2026 Neuri LLC, Phoenix, Arizona</span>
-  <span><a href="/en/still-available/">Still Available? for Marketplace sellers</a> · <a href="/bazar/">Español</a> · hola@neuri.tech</span>
-</div></footer>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Neuri LLC, Arizona, USA</span>
+    <span><a href="mailto:hola@neuri.tech">hola@neuri.tech</a> <a href="/en/neuri-bazar-one-pager.pdf" style="margin-left:14px">One-page summary (PDF)</a> <a href="/bazar/" lang="es" hreflang="es" style="margin-left:14px">Español</a></span>
+  </div>
+</footer>
+
+<div class="cta-fijo" id="cta-fijo" aria-hidden="true">
+  <p>14 days free<small>No credit card. From $79 a month.</small></p>
+  <a class="btn btn-etiqueta" href="#prueba" data-trial tabindex="-1">Try it free</a>
+</div>
+
 <script>
-  document.querySelectorAll('.toggle button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var c = b.dataset.c;
-      document.querySelectorAll('.toggle button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-      document.querySelectorAll('.plan .p').forEach(function (p) { p.innerHTML = p.dataset[c]; });
+// Once the app is deployed, put its URL here (e.g. https://app.neuri.tech): the free-trial buttons
+// go straight to signup. While it's empty, the wizard builds an email to hola@neuri.tech.
+var APP_URL = '';
+
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function dinero(c) {
+    var neg = c < 0; c = Math.abs(c);
+    var s = (Math.floor(c / 100)).toLocaleString('en-US') + '.' + String(c % 100).padStart(2, '0');
+    return (neg ? '−$' : '$') + s;
+  }
+  function num(n) { return '#' + String(n).padStart(4, '0'); }
+
+  if (APP_URL) {
+    $$('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=US'; });
+  }
+
+  /* ---------- Demo register (sales tax added on top) ---------- */
+  var TAX = 860; // 8.6% in basis points: an example rate, not tied to a specific city
+  var VEND = {
+    linda: { nombre: 'Linda', puesto: 3,  com: 3000, saldo: 124000, movs: [] },
+    jim:   { nombre: 'Jim',   puesto: 7,  com: 2500, saldo: 86000,  movs: [] },
+    rosa:  { nombre: 'Rosa',  puesto: 12, com: 2000, saldo: 41500,  movs: [] }
+  };
+  VEND.linda.movs = [{ t: 'Sales this month', d: 'Since the 1st', a: 154000 }, { t: 'Booth rent', d: 'Charged automatically on the 1st', a: -30000 }];
+  VEND.jim.movs = [{ t: 'Sales this month', d: 'Since the 1st', a: 111000 }, { t: 'Booth rent', d: 'Charged automatically on the 1st', a: -25000 }];
+  VEND.rosa.movs = [{ t: 'Sales this month', d: 'Since the 1st', a: 61500 }, { t: 'Booth rent', d: 'Charged automatically on the 1st', a: -20000 }];
+  var PIEZAS = [
+    { id: 'p1', nom: 'Vintage denim jacket', pre: 4500, v: 'linda' },
+    { id: 'p2', nom: 'Brass table lamp', pre: 8500, v: 'jim' },
+    { id: 'p3', nom: 'Turquoise earrings', pre: 2800, v: 'rosa' },
+    { id: 'p4', nom: '1950s cocktail dress', pre: 3800, v: 'linda' },
+    { id: 'p5', nom: '1940s tube radio', pre: 12000, v: 'jim' },
+    { id: 'p6', nom: 'Depression glass bowl', pre: 2200, v: 'rosa' }
+  ];
+  var ticket = [], vendidas = {}, numTicket = 41, vendorVista = 'linda';
+
+  function partir(p) {
+    var vendedor = Math.floor(p.pre * (10000 - VEND[p.v].com) / 10000);
+    return { com: p.pre - vendedor, vend: vendedor };
+  }
+  function pieza(id) { for (var i = 0; i < PIEZAS.length; i++) if (PIEZAS[i].id === id) return PIEZAS[i]; }
+  function subtotal(lista) { return lista.reduce(function (s, id) { return s + pieza(id).pre; }, 0); }
+  function impuesto(sub) { return Math.round(sub * TAX / 10000); }
+  function total() { var s = subtotal(ticket); return s + impuesto(s); }
+
+  var mesa = $('#mesa');
+  PIEZAS.forEach(function (p) {
+    var v = VEND[p.v];
+    var li = document.createElement('li');
+    li.innerHTML = '<button type="button" class="pieza" data-id="' + p.id + '" aria-pressed="false">' +
+      '<span class="tag"><span class="nom">' + p.nom + '</span> <span class="pre">' + dinero(p.pre) + '</span> ' +
+      '<span class="pto v-' + p.v + '">Booth ' + v.puesto + ', ' + v.nombre + '</span></span></button>';
+    mesa.appendChild(li);
+  });
+  mesa.addEventListener('click', function (e) {
+    var b = e.target.closest('.pieza'); if (!b || b.disabled) return;
+    var id = b.dataset.id, i = ticket.indexOf(id);
+    var t = $('#ticket'); t.classList.remove('impreso', 'cobrado');
+    if (i === -1) ticket.push(id); else ticket.splice(i, 1);
+    b.setAttribute('aria-pressed', String(i === -1));
+    pintarCaja();
+  });
+  $('#surtir').addEventListener('click', function () {
+    vendidas = {}; ticket = [];
+    $$('.pieza').forEach(function (b) { b.disabled = false; b.setAttribute('aria-pressed', 'false'); });
+    $('#ticket').classList.remove('impreso', 'cobrado');
+    pintarCaja();
+  });
+  $$('input[name=pago]').forEach(function (r) { r.addEventListener('change', pintarCambio); });
+
+  function pintarCambio() {
+    var tot = total(), modo = ($('input[name=pago]:checked') || {}).value, el = $('#cambio');
+    if (!ticket.length) { el.innerHTML = ''; return; }
+    if (modo === 'cash') {
+      var paga = Math.ceil(tot / 1000) * 1000;
+      el.innerHTML = 'Customer hands you ' + dinero(paga) + '. Change: <b>' + dinero(paga - tot) + '</b>';
+    } else if (modo === 'split') {
+      el.innerHTML = tot > 5000 ? '$50.00 in cash and <b>' + dinero(tot - 5000) + '</b> on card' : 'The total is under $50. Take it all in cash.';
+    } else {
+      el.innerHTML = 'All by ' + modo + ': <b>' + dinero(tot) + '</b>';
+    }
+  }
+  function lineasTicket() {
+    if (!ticket.length) return '<p class="t-vacio">Empty receipt. Tap an item.</p>';
+    var sub = subtotal(ticket), tax = impuesto(sub), h = '<table><tbody>';
+    ticket.forEach(function (id) { var p = pieza(id);
+      h += '<tr><td>' + p.nom + '<br><small>Booth ' + VEND[p.v].puesto + '</small></td><td>' + dinero(p.pre) + '</td></tr>'; });
+    h += '</tbody><tfoot><tr><td>Subtotal</td><td>' + dinero(sub) + '</td></tr>' +
+      '<tr><td>Sales tax 8.6%<br><small>Example rate</small></td><td>' + dinero(tax) + '</td></tr>' +
+      '<tr class="t-tot"><td>Total</td><td>' + dinero(sub + tax) + '</td></tr></tfoot></table>';
+    return h;
+  }
+  function pintarCaja() {
+    $('#t-lineas').innerHTML = lineasTicket();
+    $('#num-ticket').textContent = 'Sale ' + num(numTicket);
+    var tot = total(), cobrar = $('#cobrar');
+    cobrar.disabled = !ticket.length;
+    cobrar.textContent = ticket.length ? 'Charge ' + dinero(tot) : 'Charge';
+    pintarCambio(); pintarReparto();
+  }
+  function pintarReparto() {
+    var por = {}, sub = subtotal(ticket), tax = impuesto(sub), tot = sub + tax, tCom = 0;
+    ticket.forEach(function (id) { var p = pieza(id), s = partir(p);
+      por[p.v] = por[p.v] || { pre: 0, com: 0, vend: 0 };
+      por[p.v].pre += p.pre; por[p.v].com += s.com; por[p.v].vend += s.vend;
+      tCom += s.com; });
+    var body = '', barra = '';
+    Object.keys(VEND).forEach(function (k) {
+      if (!por[k]) return; var r = por[k], v = VEND[k];
+      body += '<li><span class="quien"><i class="v-' + k + '"></i>To ' + v.nombre + '</span><span class="para">' + dinero(r.vend) + '</span>' +
+        '<span class="det">Sold ' + dinero(r.pre) + ' before tax. Minus your ' + v.com / 100 + '% commission: ' + dinero(r.com) + '.</span></li>';
+      barra += '<span class="v-' + k + '" style="width:' + (r.vend / tot * 100) + '%"></span>';
+    });
+    if (!ticket.length) {
+      body = '<li><span class="vacio">Nothing to split yet. Tap an item.</span></li>';
+      $('#reparto-total').innerHTML = '';
+    } else {
+      barra += '<span class="s-com" style="width:' + (tCom / tot * 100) + '%"></span><span class="s-tax" style="width:' + (tax / tot * 100) + '%"></span>';
+      $('#reparto-total').innerHTML = '<span>Sale total</span><span>' + dinero(tot) + '</span><span>To your vendors</span><span>' + dinero(sub - tCom) + '</span><span>Your commission</span><span>' + dinero(tCom) + '</span><span>Sales tax to remit</span><span>' + dinero(tax) + '</span>';
+    }
+    $('#reparto').innerHTML = body;
+    $('#barra').innerHTML = barra;
+  }
+  $('#cobrar').addEventListener('click', function () {
+    if (!ticket.length) return;
+    var modo = $('input[name=pago]:checked').value;
+    var primero = null;
+    ticket.forEach(function (id) {
+      var p = pieza(id), s = partir(p), v = VEND[p.v];
+      v.saldo += s.vend;
+      v.movs.unshift({ t: 'Sale: ' + p.nom, d: 'Sale ' + num(numTicket) + ', just now', a: s.vend, nuevo: true });
+      vendidas[id] = true; if (!primero) primero = p.v;
+      var b = $('.pieza[data-id="' + id + '"]'); b.disabled = true; b.setAttribute('aria-pressed', 'false');
+    });
+    var t = $('#ticket');
+    $('#t-sello').textContent = 'Paid ' + ({ cash: 'in cash', card: 'by card', transfer: 'by transfer', split: 'with cash and card' })[modo] + '. Thank you for shopping!';
+    t.classList.remove('impreso'); void t.offsetWidth; t.classList.add(reduce ? 'cobrado' : 'impreso');
+    $('#cobrar').disabled = true; $('#cobrar').textContent = 'Paid';
+    var cobradoTicket = ticket.slice(); ticket = [];
+    numTicket++;
+    elegirVendedor(primero, true);
+    // The receipt stays printed; the split shows what was just rung up.
+    ticket = cobradoTicket; pintarReparto(); ticket = [];
+    $('#num-ticket').textContent = 'Next: sale ' + num(numTicket);
+    $('#cambio').innerHTML = 'Paid. Step 4 shows how it reached ' + VEND[primero].nombre + '. Tap another item for the next sale.';
+    if (Object.keys(vendidas).length === PIEZAS.length) $('#surtir').focus();
+  });
+
+  function elegirVendedor(k, destacar) {
+    vendorVista = k;
+    $$('.mp-tabs button').forEach(function (b) {
+      var on = b.dataset.v === k;
+      b.setAttribute('aria-pressed', String(on));
+      b.className = 'btn btn-chico ' + (on ? 'btn-etiqueta' : 'btn-borde');
+    });
+    var v = VEND[k];
+    $('#mp-hola').textContent = 'Hi, ' + v.nombre;
+    var s = $('#mp-saldo'); s.textContent = dinero(v.saldo);
+    if (destacar) { s.classList.add('sube'); setTimeout(function () { s.classList.remove('sube'); }, 1600); }
+    $('#mp-movs').innerHTML = v.movs.map(function (m) {
+      return '<li class="' + (m.nuevo && destacar ? 'nuevo' : '') + '"><span>' + m.t + '<small>' + m.d + '</small></span><span class="' + (m.a < 0 ? 'neg' : '') + '">' + (m.a < 0 ? '' : '+') + dinero(m.a) + '</span></li>';
+    }).join('');
+    v.movs.forEach(function (m) { if (destacar) m.nuevo = false; });
+  }
+  $$('.mp-tabs button').forEach(function (b) { b.addEventListener('click', function () { elegirVendedor(b.dataset.v, false); }); });
+  var hoy = new Date();
+  $('#t-fecha').textContent = hoy.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  pintarCaja(); elegirVendedor('linda', false);
+
+  /* ---------- Use-case tabs ---------- */
+  var tabs = $$('[role=tab]');
+  function abrirTab(t, foco) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute('aria-selected', String(on)); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (foco) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { abrirTab(t); });
+    t.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') n = tabs[0];
+      if (e.key === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); abrirTab(n, true); }
     });
   });
-</script>
-<script>
-  // Al desplegar la app, poner aquí su URL (p. ej. https://app.neuri.tech): los botones de prueba
-  // gratis abren el alta directo. Mientras esté vacía, siguen mandando correo.
-  var APP_URL = '';
-  if (APP_URL) document.querySelectorAll('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=US'; });
+
+  /* ---------- Before and after ---------- */
+  var HOJAS = {
+    libreta: { titulo: 'With a ledger', clase: 'hoja libreta', filas: [
+      ['Add up 90 sales from the ledger', '35 min'],
+      ['Sort out what each of the 30 vendors sold', '45 min'],
+      ['Take off commission and booth rent for each, on a calculator', '40 min'],
+      ['Count the drawer. It\'s off by $15', '20 min', 'mal'],
+      ['Answer texts asking "how am I doing?"', '25 min']
+    ], total: '2 h 45 min', medidor: '2 h 45 min', txt: 'to close out the day, and you still have to pay everyone' },
+    neuri: { titulo: 'With Neuri Bazar', clase: 'hoja', filas: [
+      ['All 90 sales were split by vendor when you rang them up', '0 min'],
+      ['Each vendor\'s commission, sales tax and rent: already done', '0 min'],
+      ['Count the drawer. The app tells you what should be there', '5 min'],
+      ['If it\'s off, note why and it goes in the activity log', '1 min'],
+      ['Vendors check their balance on their link', '0 min']
+    ], total: '6 min', medidor: '6 min', txt: 'and you head home. Statements go out on their own.' }
+  };
+  function pintarHoja(m) {
+    var d = HOJAS[m], h = $('#hoja');
+    h.className = d.clase;
+    h.innerHTML = '<h3>' + d.titulo + '</h3><ol>' + d.filas.map(function (f) {
+      return '<li class="' + (f[2] || '') + '"><span>' + f[0] + '</span><span>' + f[1] + '</span></li>'; }).join('') +
+      '<li class="total"><span>Total</span><span>' + d.total + '</span></li></ol>';
+    $('#medidor').textContent = d.medidor; $('#medidor-txt').textContent = d.txt;
+    $$('.cambiador button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.modo === m)); });
+  }
+  $$('.cambiador button').forEach(function (b) { b.addEventListener('click', function () { pintarHoja(b.dataset.modo); }); });
+  pintarHoja('libreta');
+
+  /* ---------- Two views ---------- */
+  $$('.pantallas').forEach(function (ul) {
+    var img = ul.dataset.grupo === 'duenio' ? $('#img-duenio') : $('#img-vendedor');
+    $$('button', ul).forEach(function (b) {
+      b.addEventListener('click', function () {
+        $$('button', ul).forEach(function (x) { x.setAttribute('aria-current', String(x === b)); });
+        img.src = b.dataset.img; img.alt = b.dataset.alt;
+      });
+    });
+  });
+
+  /* ---------- Currency ---------- */
+  var moneda = 'us';
+  $$('.moneda button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      moneda = b.dataset.moneda;
+      $$('.moneda button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      $$('.plan .monto').forEach(function (p) {
+        var v = p.dataset[moneda].split('|'); p.innerHTML = v[0] + '<small>' + v[1] + '</small>';
+      });
+      calcular();
+    });
+  });
+
+  /* ---------- Calculator ---------- */
+  var cV = $('#c-vend'), cS = $('#c-ventas'), cD = $('#c-dias');
+  function calcular() {
+    var v = +cV.value, s = +cS.value, d = +cD.value, sem = 4.3;
+    $('#o-vend').textContent = v; $('#o-ventas').textContent = s; $('#o-dias').textContent = d;
+    var anotar = 0.5 * s * d * sem, separar = 4 * v * sem, preguntas = 3 * v * sem, corte = 15 * d * sem;
+    var tot = anotar + separar + preguntas + corte, h = Math.round(tot / 60);
+    $('#r-horas').innerHTML = h + ' <small>hours a month</small>';
+    var jornadas = Math.floor(tot / 60 / 8);
+    $('#r-dias').textContent = jornadas >= 1 ? 'That\'s ' + (jornadas === 1 ? 'one full 8-hour workday' : jornadas + ' full 8-hour workdays') + ', every month.' : 'Less than a full workday, but it comes back every week.';
+    function hm(m) { return m >= 60 ? (Math.round(m / 6) / 10) + ' h' : Math.round(m) + ' min'; }
+    $('#r-desglose').innerHTML =
+      '<li><span>Writing down and adding up sales</span><span>' + hm(anotar) + '</span></li>' +
+      '<li><span>Splitting commission and rent by vendor</span><span>' + hm(separar) + '</span></li>' +
+      '<li><span>Answering "how am I doing?"</span><span>' + hm(preguntas) + '</span></li>' +
+      '<li><span>Faster end-of-day close</span><span>' + hm(corte) + '</span></li>';
+    var plan = v <= 30 ? ['Basic', '$499 MXN', '$79'] : v <= 75 ? ['Pro', '$899 MXN', '$119'] : ['Plus', '$1,499 MXN', '$149'];
+    $('#r-plan').innerHTML = 'With ' + v + ' vendors you\'d be on the <b>' + plan[0] + '</b> plan: ' + (moneda === 'mx' ? plan[1] + ' per month + IVA' : plan[2] + ' per month') + '.';
+  }
+  [cV, cS, cD].forEach(function (i) { i.addEventListener('input', calcular); });
+  calcular();
+
+  /* ---------- Free-trial wizard ---------- */
+  var form = $('#asistente'), paso = 1, TOTAL = 4;
+  var SIG = { 1: 'Next: your city', 2: 'Next: your vendors', 3: 'Next: your email', 4: 'Last step' };
+  function val(n) { var el = form.elements[n]; return el ? (el.value || '').trim() : ''; }
+  function radio(n) { var r = $('input[name=' + n + ']:checked', form); return r ? r.value : ''; }
+  function error(id, msg, campo) {
+    $('#' + id).textContent = msg || '';
+    if (campo) campo.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  }
+  function validar(p) {
+    if (p === 1) {
+      var ok = val('nombre').length >= 2;
+      error('e-nombre', ok ? '' : 'Enter your store\'s name to continue. A working name is fine.', form.elements.nombre);
+      if (!ok) form.elements.nombre.focus(); return ok;
+    }
+    if (p === 2) {
+      var c = val('ciudad').length >= 2, pa = !!radio('pais');
+      error('e-ciudad', c ? '' : 'Enter the city your store is in.', form.elements.ciudad);
+      error('e-pais', pa ? '' : 'Choose United States or Mexico.');
+      if (!c) form.elements.ciudad.focus(); else if (!pa) $('input[name=pais]', form).focus();
+      return c && pa;
+    }
+    if (p === 3) {
+      var vv = !!radio('vendedores');
+      error('e-vend', vv ? '' : 'Pick a range. A rough number is fine.');
+      if (!vv) $('input[name=vendedores]', form).focus(); return vv;
+    }
+    if (p === 4) {
+      var m = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val('correo'));
+      error('e-correo', m ? '' : 'Check your email address. It should look like name@example.com', form.elements.correo);
+      if (!m) form.elements.correo.focus(); return m;
+    }
+    return true;
+  }
+  function plan() { var r = $('input[name=vendedores]:checked', form); return r ? r.dataset.plan : 'Pro'; }
+  function paisNombre(c) { return c === 'MX' ? 'Mexico' : 'United States'; }
+  function ir(p) {
+    paso = p;
+    $$('.paso', form).forEach(function (s) { s.hidden = +s.dataset.paso !== p; });
+    var fin = p > TOTAL;
+    $('#prog-txt').textContent = fin ? 'Done' : 'Step ' + p + ' of ' + TOTAL;
+    $('#prog-sig').textContent = fin ? '' : SIG[p];
+    $('#prog-barra').style.width = (fin ? 100 : p / TOTAL * 100) + '%';
+    $('#atras').hidden = p === 1 || fin;
+    $('#botones').hidden = fin;
+    $('#siguiente').textContent = p === TOTAL ? 'Start my free trial' : 'Next';
+    if (p === TOTAL) {
+      $('#resumen').innerHTML = '<dl><dt>Store</dt><dd></dd><dt>Location</dt><dd></dd><dt>Vendors</dt><dd></dd><dt>Trial plan</dt><dd></dd></dl>';
+      var dd = $$('#resumen dd');
+      dd[0].textContent = val('nombre'); dd[1].textContent = val('ciudad') + ', ' + paisNombre(radio('pais'));
+      dd[2].textContent = radio('vendedores'); dd[3].textContent = plan() + ', 14 days free';
+    }
+    var h = $('.paso[data-paso="' + p + '"] h3', form); if (h && document.activeElement !== document.body) h.focus();
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validar(paso)) return;
+    if (paso < TOTAL) { ir(paso + 1); return; }
+    var pais = radio('pais') || 'US';
+    if (APP_URL) { window.location.href = APP_URL + '/?signup&country=' + pais; return; }
+    var cuerpo = 'Store name: ' + val('nombre') + '\nCity: ' + val('ciudad') + '\nCountry: ' + paisNombre(pais) +
+      '\nNumber of vendors: ' + radio('vendedores') + '\nPlan: ' + plan() + '\nEmail to sign in: ' + val('correo') + '\n';
+    var url = 'mailto:hola@neuri.tech?subject=' + encodeURIComponent('Neuri Bazar free trial') + '&body=' + encodeURIComponent(cuerpo);
+    $('#listo-titulo').textContent = val('nombre') + ' is almost open';
+    ir(TOTAL + 1);
+    window.location.href = url;
+  });
+  $('#atras').addEventListener('click', function () { if (paso > 1) ir(paso - 1); });
+  $$('input[type=radio]', form).forEach(function (r) { r.addEventListener('change', function () {
+    if (r.name === 'pais') error('e-pais', ''); if (r.name === 'vendedores') error('e-vend', ''); }); });
+  $$('[data-plan]').forEach(function (a) {
+    if (a.tagName !== 'A') return;
+    a.addEventListener('click', function () {
+      var r = $('input[name=vendedores][data-plan="' + a.dataset.plan + '"]', form); if (r && !APP_URL) r.checked = true;
+    });
+  });
+  // When arriving at the wizard from a button, focus the first field.
+  $$('a[href="#prueba"]').forEach(function (a) { a.addEventListener('click', function () {
+    if (APP_URL) return; setTimeout(function () { if (paso === 1) form.elements.nombre.focus({ preventScroll: true }); }, reduce ? 0 : 450); }); });
+
+  /* ---------- Sticky CTA on phones ---------- */
+  var cta = $('#cta-fijo'), heroeVisible = true, pruebaVisible = false;
+  function ctaPintar() {
+    var ver = !heroeVisible && !pruebaVisible;
+    cta.classList.toggle('ver', ver);
+    cta.setAttribute('aria-hidden', String(!ver));
+    $('a', cta).tabIndex = ver ? 0 : -1;
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { heroeVisible = en[0].isIntersecting; ctaPintar(); }).observe($('.heroe-acciones'));
+    new IntersectionObserver(function (en) { pruebaVisible = en[0].isIntersecting; ctaPintar(); }, { threshold: 0.05 }).observe($('#prueba'));
+  }
+})();
 </script>
 </body>
 </html>

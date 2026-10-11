@@ -3,105 +3,185 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neuri — Software y automatización para bazares y pequeños negocios</title>
-<meta name="description" content="Neuri crea software y automatizaciones por WhatsApp para bazares, mercaditos y pequeños negocios. Neuri Bazar: cobra, paga y avisa a tus vendedores sin hacer cuentas.">
+<title>Neuri — Bot que contesta tus mensajes y sistema para bazares</title>
+<meta name="description" content="Neuri hace dos cosas: ¿Sigue Disponible?, un asistente que contesta por ti los mensajes de Marketplace, Instagram y WhatsApp, y Neuri Bazar, la caja y las cuentas de los vendedores para bazares y tianguis.">
+<link rel="alternate" hreflang="en" href="https://neuri.tech/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#1E2A5A;--accent:#22B573;--muted:#5B6683;--soft:#EAF7F0;--line:#DCE3EE;--bg:#FFFFFF;--band:#F5F7FB}
+  :root{--ink:#1E2A5A;--ink2:#2B3870;--green:#22B573;--yellow:#F6C744;--paper:#FFFFFF;--mist:#F3F5FA;--muted:#59637F;--line:#DCE3EE;--bubble:#DCF8C6}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  body{font-family:Figtree,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px}
   a{color:inherit}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-  header{border-bottom:1px solid var(--line)}
-  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:22px;letter-spacing:-.5px;text-decoration:none}
-  .logo span{color:var(--accent)}
-  nav a.cta{background:var(--ink);color:#fff;text-decoration:none;padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px}
-  .hero{padding:80px 0 64px}
-  .eyebrow{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
-  h1{font-size:clamp(34px,5.5vw,56px);line-height:1.08;letter-spacing:-1.5px;margin:14px 0 18px;max-width:760px}
-  .lead{font-size:19px;color:var(--muted);max-width:620px}
-  .actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none}
-  .btn.primary{background:var(--accent);color:#fff}
-  .btn.ghost{border:1.5px solid var(--line)}
-  section.band{background:var(--band);padding:64px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  h2{font-size:30px;letter-spacing:-.8px;margin-bottom:8px}
-  .sub{color:var(--muted);margin-bottom:32px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
-  .card .tag{display:inline-block;background:var(--soft);color:#167a4e;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px}
-  .card h3{font-size:19px;margin-bottom:6px}
-  .card p{color:var(--muted);font-size:15px}
-  .features{padding:64px 0}
-  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
-  .feat div b{display:block;margin-bottom:4px}
-  .feat div{border-left:3px solid var(--accent);padding-left:14px;color:var(--muted);font-size:15px}
-  .feat div b{color:var(--ink)}
-  .contact{padding:64px 0;text-align:center}
-  .contact p{color:var(--muted);margin:8px 0 24px}
-  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+  :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  h1,h2,h3,.logo,.tag b{font-family:"Bricolage Grotesque",Figtree,sans-serif}
+
+  nav{display:flex;align-items:center;gap:22px;height:68px}
+  .logo{font-weight:800;font-size:25px;letter-spacing:-.5px;text-decoration:none;margin-right:auto}
+  .logo span{color:var(--green)}
+  nav .links a{text-decoration:none;font-weight:600;font-size:15px;margin-left:20px}
+  nav .links a:hover{text-decoration:underline}
+  @media (max-width:640px){nav .links{display:none}}
+
+  .hero{padding:48px 0 36px}
+  h1{font-size:clamp(34px,5.6vw,64px);line-height:1.02;letter-spacing:-1.8px;font-weight:800;max-width:15em}
+  .lead{font-size:19px;color:var(--muted);max-width:36em;margin-top:18px}
+
+  .products{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:64px}
+  @media (max-width:860px){.products{grid-template-columns:1fr}}
+  .prod{border-radius:28px;padding:30px 30px 0;display:flex;flex-direction:column;overflow:hidden;position:relative}
+  .prod.sd{background:var(--ink);color:#fff}
+  .prod.bz{background:var(--mist);border:1px solid var(--line)}
+  .who{font-size:15px;font-weight:600;opacity:.8}
+  .prod h2{font-size:clamp(30px,3.4vw,40px);letter-spacing:-1px;line-height:1.05;margin:6px 0 10px;font-weight:800}
+  .prod .what{font-size:18px;max-width:30em}
+  .prod.sd .what{color:#D5DCF3}
+  .prod.bz .what{color:var(--muted)}
+  .prod ul{list-style:none;margin:16px 0 0;display:grid;gap:6px;font-size:16px}
+  .prod li{padding-left:24px;position:relative}
+  .prod li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--green)}
+  .row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
+  .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px}
+  .sd .btn.main{background:var(--green);color:#fff}
+  .bz .btn.main{background:var(--ink);color:#fff}
+  .btn.alt{text-decoration:underline;padding:13px 4px}
+
+  /* Etiqueta de precio, como las que cuelgan de las piezas en un bazar */
+  .tag{position:absolute;top:26px;right:24px;background:var(--yellow);color:var(--ink);padding:8px 14px 8px 22px;border-radius:6px 12px 12px 6px;transform:rotate(4deg);box-shadow:0 3px 0 rgba(30,42,90,.18);line-height:1.15;text-align:left}
+  .tag::before{content:"";position:absolute;left:8px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--paper)}
+  .tag small{display:block;font-size:12px;font-weight:600}
+  .tag b{font-size:22px;font-weight:800;letter-spacing:-.5px}
+  @media (max-width:520px){.tag{position:static;align-self:flex-start;transform:rotate(-2deg);margin-bottom:14px}}
+  .prod .who{max-width:calc(100% - 150px)}
+  @media (max-width:520px){.prod .who{max-width:none}}
+
+  .stage{margin-top:28px;display:flex;justify-content:center;align-items:flex-end;min-height:290px}
+  /* Chat de Marketplace */
+  .phone{width:300px;max-width:100%;background:#fff;color:#1c1e21;border-radius:26px 26px 0 0;padding:14px 14px 18px;box-shadow:0 -6px 30px rgba(0,0,0,.25)}
+  .phone .top{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid #eee;margin-bottom:12px;font-size:14px}
+  .phone .av{width:34px;height:34px;border-radius:50%;background:#e4e6eb;display:grid;place-items:center;font-weight:700;color:#65676b}
+  .phone .top small{display:block;color:#65676b;font-size:12px}
+  .msg{max-width:84%;padding:8px 12px;border-radius:18px;font-size:14.5px;line-height:1.35;margin-bottom:8px;opacity:0;animation:pop .35s ease forwards}
+  .msg.in{background:#e4e6eb;border-bottom-left-radius:6px}
+  .msg.out{background:#0866ff;color:#fff;margin-left:auto;border-bottom-right-radius:6px}
+  .msg:nth-child(2){animation-delay:.4s}.msg:nth-child(3){animation-delay:1.4s}.msg:nth-child(4){animation-delay:2.4s}.msg:nth-child(5){animation-delay:3.3s}
+  .bot{font-size:11.5px;color:#65676b;text-align:right;margin-top:2px;opacity:0;animation:pop .35s ease 3.6s forwards}
+  @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.msg,.bot{animation:none;opacity:1}}
+  /* Captura real de la app */
+  .shot{width:300px;max-width:100%;border-radius:26px 26px 0 0;border:8px solid var(--ink);border-bottom:0;display:block;box-shadow:0 -6px 30px rgba(30,42,90,.18)}
+
+  .pick{background:var(--mist);padding:64px 0;border-top:1px solid var(--line)}
+  .pick h2{font-size:34px;letter-spacing:-.8px;font-weight:800}
+  .pick .sub{color:var(--muted);margin:6px 0 26px}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+  th,td{text-align:left;padding:16px 18px;vertical-align:top;border-top:1px solid var(--line);font-size:16px}
+  thead th{border-top:0;background:var(--ink);color:#fff;font-family:"Bricolage Grotesque",sans-serif;font-size:18px}
+  tbody th{font-weight:600;color:var(--muted);width:24%}
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block}
+    thead{display:none}
+    tbody tr{border-top:1px solid var(--line);padding:12px 4px}
+    tbody th{border:0;width:auto;padding:4px 14px;color:var(--ink)}
+    tbody td{border:0;padding:2px 14px 2px 14px;font-size:15px}
+    tbody td::before{content:attr(data-p) ": ";font-weight:700}
+  }
+
+  .talk{padding:64px 0;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .talk h2{font-size:30px;letter-spacing:-.6px;font-weight:800}
+  .talk p{color:var(--muted);max-width:34em;margin-top:6px}
+  .talk .btn{background:var(--green);color:#fff}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </style>
 </head>
 <body>
 <header><div class="wrap"><nav>
   <a class="logo" href="/">neuri<span>.</span></a>
-  <a class="cta" href="mailto:hola@neuri.tech">Contáctanos</a>
+  <span class="links"><a href="/sigue-disponible/">¿Sigue Disponible?</a><a href="/bazar/">Neuri Bazar</a><a href="/en/">English</a></span>
 </nav></div></header>
 
 <main>
 <section class="hero"><div class="wrap">
-  <p class="eyebrow">Software · WhatsApp · Automatización</p>
-  <h1>Herramientas sencillas para que tu negocio trabaje solo.</h1>
-  <p class="lead">Neuri crea software y automatizaciones por WhatsApp para bazares, mercaditos y pequeños negocios en México y Estados Unidos. Todo en español, pensado para el celular.</p>
-  <div class="actions">
-    <a class="btn primary" href="/bazar/">Conoce Neuri Bazar</a>
-    <a class="btn ghost" href="#productos">Ver productos</a>
-  </div>
+  <h1>Un bot que contesta tus mensajes de venta y un sistema para cobrar en tu bazar.</h1>
+  <p class="lead">Neuri hace dos productos para gente que vende en México y Estados Unidos. Elige el que va con tu negocio.</p>
 </div></section>
 
-<section class="band" id="productos"><div class="wrap">
-  <h2>Productos</h2>
-  <p class="sub">Dos formas de ahorrarte horas cada semana.</p>
-  <div class="grid">
-    <div class="card">
-      <span class="tag">Próximamente</span>
-      <h3>Neuri Bazar</h3>
-      <p>Cobra, paga y avisa a tus vendedores sin hacer cuentas. Caja con varios artículos, comisiones y renta de puesto, estados de cuenta por WhatsApp y corte diario para bazares y mercaditos.</p>
-      <p style="margin-top:12px"><a href="/bazar/" style="color:#167a4e;font-weight:600">Ver planes y precios →</a></p>
+<div class="wrap products">
+  <section class="prod sd" aria-labelledby="sd-h">
+    <div class="tag"><small>desde</small><b>$899</b><small>MXN al mes</small></div>
+    <p class="who">Si vendes por Marketplace, Instagram o WhatsApp</p>
+    <h2 id="sd-h">¿Sigue Disponible?</h2>
+    <p class="what">Un asistente que contesta por ti a cada comprador, a cualquier hora, con tus precios y tus reglas.</p>
+    <ul>
+      <li>Dice si la pieza sigue, el precio, dónde estás y cómo pagar</li>
+      <li>Aparta y agenda visitas, y te avisa</li>
+      <li>Lo que no sabe te lo pasa a ti</li>
+    </ul>
+    <div class="row">
+      <a class="btn main" href="/sigue-disponible/#prueba">Pruébalo ahora</a>
+      <a class="btn alt" href="/sigue-disponible/">Cómo funciona</a>
     </div>
-    <div class="card">
-      <span class="tag">Fundadores</span>
-      <h3>¿Sigue Disponible?</h3>
-      <p>Un asistente de WhatsApp que contesta las preguntas de tus clientes y agenda por ti, para vendedores de Marketplace y pequeños negocios.</p>
-      <p style="margin-top:12px"><a href="/sigue-disponible/" style="color:#167a4e;font-weight:600">Ver cómo funciona →</a></p>
+    <div class="stage" aria-hidden="true">
+      <div class="phone">
+        <div class="top"><span class="av">A</span><div><b>Andrea M.</b><small>Ropero de madera · Marketplace</small></div></div>
+        <div class="msg in">Hola, ¿sigue disponible?</div>
+        <div class="msg out">¡Hola Andrea! Sí sigue. Está en $1,800 y lo puedes ver en Guamúchil hoy de 4 a 7.</div>
+        <div class="msg in">¿Me lo apartas para mañana?</div>
+        <div class="msg out">Listo, apartado a tu nombre hasta mañana a las 7 pm. Te mando la ubicación.</div>
+        <div class="bot">Contestado al instante por tu asistente</div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="prod bz" aria-labelledby="bz-h">
+    <div class="tag"><small>desde</small><b>$499</b><small>MXN al mes</small></div>
+    <p class="who">Si tienes un bazar, tianguis o tienda de consignación con vendedores</p>
+    <h2 id="bz-h">Neuri Bazar</h2>
+    <p class="what">La caja y las cuentas de tus vendedores en el celular: cobras, se calcula la comisión y cada vendedor ve lo que se le debe.</p>
+    <ul>
+      <li>Caja con etiquetas y código de barras</li>
+      <li>Comisiones, renta de puesto y pagos sin hacer cuentas</li>
+      <li>Cada vendedor ve sus ventas en su propio link</li>
+    </ul>
+    <div class="row">
+      <a class="btn main" href="/bazar/">Ver planes</a>
+      <a class="btn alt" href="/bazar/#como">Cómo funciona</a>
+    </div>
+    <div class="stage">
+      <img class="shot" src="/img/bazar-inicio.jpg" width="300" height="346" alt="Pantalla de inicio de Neuri Bazar: ventas de hoy $3,579, por pagar a vendedores $1,917.44 y 2 piezas por aprobar">
+    </div>
+  </section>
+</div>
+
+<section class="pick"><div class="wrap">
+  <h2>¿Cuál necesito?</h2>
+  <p class="sub">Si vendes tú, es ¿Sigue Disponible?. Si administras un lugar donde venden otros, es Neuri Bazar.</p>
+  <table>
+    <thead><tr><th scope="col"><span class="sr" style="position:absolute;left:-9999px">Pregunta</span></th><th scope="col">¿Sigue Disponible?</th><th scope="col">Neuri Bazar</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Es para</th><td data-p="¿Sigue Disponible?">Quien vende muebles, ropa, autos o lo que sea por redes</td><td data-p="Neuri Bazar">Dueños de bazares y tiendas con varios vendedores</td></tr>
+      <tr><th scope="row">Te quita</th><td data-p="¿Sigue Disponible?">Contestar lo mismo 50 veces al día y perder ventas por tardar</td><td data-p="Neuri Bazar">Libretas, cuentas a mano y vendedores preguntando cuánto llevan</td></tr>
+      <tr><th scope="row">Precio</th><td data-p="¿Sigue Disponible?">$899 o $1,299 MXN al mes. Los primeros 10 negocios: instalación y primer mes gratis</td><td data-p="Neuri Bazar">$499, $899 o $1,499 MXN al mes + IVA. 14 días gratis</td></tr>
+      <tr><th scope="row">Listo en</th><td data-p="¿Sigue Disponible?">Llenas un formulario de 5 minutos; tu asistente queda en 1 o 2 días y tú lo apruebas</td><td data-p="Neuri Bazar">Subes tu lista de vendedores y empiezas a cobrar el mismo día</td></tr>
+    </tbody>
+  </table>
 </div></section>
 
-<section class="features"><div class="wrap">
-  <h2>Cómo trabajamos</h2>
-  <p class="sub">Simple de usar, serio con tus datos.</p>
-  <div class="feat">
-    <div><b>En español, de verdad</b>Pesos y dólares, IVA o sales tax, y soporte en tu idioma.</div>
-    <div><b>WhatsApp primero</b>Tus clientes y vendedores reciben todo donde ya están.</div>
-    <div><b>Tus datos, protegidos</b>Cada negocio separado y acceso por roles.</div>
-    <div><b>Sin complicaciones</b>Te lo dejamos listo y te capacitamos en una hora.</div>
+<section><div class="wrap talk">
+  <div>
+    <h2>¿Prefieres que te lo expliquemos?</h2>
+    <p>Escríbenos qué vendes y dónde, y te decimos cuál te sirve. Contestamos de lunes a sábado.</p>
   </div>
-</div></section>
-
-<section class="band contact"><div class="wrap">
-  <h2>Hablemos</h2>
-  <p>¿Tienes un bazar, mercadito o negocio que quieres automatizar?</p>
-  <a class="btn primary" href="mailto:hola@neuri.tech">hola@neuri.tech</a>
+  <a class="btn" href="mailto:hola@neuri.tech?subject=Quiero%20saber%20m%C3%A1s">Escribir a hola@neuri.tech</a>
 </div></section>
 </main>
 
 <footer><div class="wrap">
-  <span>© 2026 Neuri LLC · Arizona, EE.UU.</span>
-  <span>hola@neuri.tech</span>
+  <span>© 2026 Neuri LLC, Arizona, EE.UU.</span>
+  <span><a href="/sigue-disponible/">¿Sigue Disponible?</a> · <a href="/bazar/">Neuri Bazar</a> · <a href="/en/">English</a></span>
 </div></footer>
 </body>
 </html>

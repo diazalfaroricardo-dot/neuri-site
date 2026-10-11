@@ -204,6 +204,8 @@
       <label>¿Quieres que agende visitas o entregas?<select name="agenda"><option>Sí</option><option>No</option></select></label>
       <label>Plan de interés<select name="plan"><option>Básico ($899)</option><option>Pro ($1,299)</option></select></label>
     </div>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+    <div class="ok" id="missing" style="background:#FFF6D6;color:#7a5a00"></div>
     <label class="check"><input type="checkbox" name="consent" required> Acepto que Neuri use estos datos para configurar mi asistente y contactarme. No los compartimos con nadie más.</label>
     <button class="btn primary" type="submit">Enviar mi alta</button>
     <div class="ok" id="ok">Se abrió tu correo con tu alta lista. Solo dale enviar y te contactamos por WhatsApp en menos de 24 horas.</div>
@@ -216,17 +218,49 @@
   <span><a href="/">neuri.tech</a> · hola@neuri.tech</span>
 </div></footer>
 <script>
-  document.getElementById('f').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var f = e.target;
-    if (!f.reportValidity()) return;
+  // Cuando el webhook de alta esté desplegado, poner su URL aquí; mientras, se usa el correo.
+  var SD_ENDPOINT = '';
+  var form = document.getElementById('f');
+  var altaId = '';
+  function mailto(f) {
     var labels = {nombre:'Nombre',whatsapp:'WhatsApp',correo:'Correo',negocio:'Negocio',vendes:'Qué vende',donde:'Dónde vende',mensajes:'Mensajes al día',horario:'Horario',entrega:'Entrega',pagos:'Pagos',faq:'Preguntas frecuentes',agenda:'Agenda',plan:'Plan'};
     var lines = ['ALTA ¿SIGUE DISPONIBLE?', ''];
     Object.keys(labels).forEach(function (k) { lines.push(labels[k] + ': ' + (f.elements[k].value || '-')); });
     lines.push('', 'Consentimiento: sí');
-    var subject = 'Alta ¿Sigue Disponible? - ' + f.elements.negocio.value;
-    window.location.href = 'mailto:hola@neuri.tech?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-    document.getElementById('ok').style.display = 'block';
+    window.location.href = 'mailto:hola@neuri.tech?subject=' + encodeURIComponent('Alta ¿Sigue Disponible? - ' + f.elements.negocio.value) + '&body=' + encodeURIComponent(lines.join('\n'));
+    var ok = document.getElementById('ok');
+    ok.textContent = 'Se abrió tu correo con tu alta lista. Solo dale enviar y te contactamos por WhatsApp en menos de 24 horas.';
+    ok.style.display = 'block';
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target;
+    if (!f.reportValidity()) return;
+    if (!SD_ENDPOINT) return mailto(f);
+    var data = {};
+    Array.prototype.forEach.call(f.elements, function (el) {
+      if (!el.name) return;
+      data[el.name] = el.type === 'checkbox' ? (el.checked ? 'on' : '') : el.value;
+    });
+    if (altaId) data.id = altaId;
+    var btn = f.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Revisando tu alta…';
+    fetch(SD_ENDPOINT + '/intake', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      .then(function (r) {
+        altaId = r.id;
+        var miss = document.getElementById('missing'), ok = document.getElementById('ok');
+        if (r.missing && r.missing.length) {
+          miss.textContent = 'Casi listo. Para que tu asistente conteste bien nos falta: ' + r.missing.join(', ') + '. Complétalo arriba y vuelve a enviar.';
+          miss.style.display = 'block'; ok.style.display = 'none';
+        } else {
+          miss.style.display = 'none';
+          ok.textContent = '¡Listo! Tu alta quedó completa. Te escribimos por WhatsApp para conectar tu página; en cuanto la conectes, tu asistente se arma solo.';
+          ok.style.display = 'block';
+        }
+      })
+      .catch(function () { mailto(f); })
+      .then(function () { btn.disabled = false; btn.textContent = 'Enviar mi alta'; });
   });
 </script>
 

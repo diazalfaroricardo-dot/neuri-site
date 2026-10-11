@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Still Available? — An assistant that answers Marketplace buyers for you | Neuri</title>
+<meta name="description" content="Your assistant answers price, location and pickup questions on Messenger, Instagram and WhatsApp, books pickups and only pings you when a buyer is serious. From $49/month.">
+<link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/">
+<link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1E2A5A;--accent:#22B573;--muted:#5B6683;--soft:#EAF7F0;--line:#DCE3EE;--bg:#FFFFFF;--band:#F5F7FB;--wa:#E7FFDB}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header{border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:800;font-size:22px;letter-spacing:-.5px;text-decoration:none}
+  .logo span{color:var(--accent)}
+  nav a.cta{background:var(--ink);color:#fff;text-decoration:none;padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px}
+  .hero{padding:64px 20px 48px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  @media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:36px}.hero h1{font-size:30px}}
+  .mas{border:1.5px dashed var(--line);border-radius:12px;padding:12px 14px}
+  .mas summary{cursor:pointer;font-weight:600}.mas summary span{display:block;font-weight:400;color:var(--muted);font-size:13px}
+  .mas[open]{display:grid;gap:16px}
+  .sticky{display:none}
+  @media(max-width:640px){.sticky{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:20;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.18);transition:opacity .2s}.sticky.off{opacity:0;pointer-events:none}body{padding-bottom:76px}}
+  .eyebrow{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  h1{font-size:clamp(32px,5vw,50px);line-height:1.08;letter-spacing:-1.5px;margin:14px 0 18px}
+  .lead{font-size:18px;color:var(--muted)}
+  .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:16px;font-family:inherit}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+  .actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .price-tag{color:var(--muted);font-size:14px}
+  .phone{background:#ECE5DD;border-radius:28px;padding:18px 14px;border:8px solid #1E2A5A;max-width:330px;width:100%;justify-self:center}
+  .msg{max-width:85%;padding:8px 11px;border-radius:10px;margin:7px 0;font-size:14px;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+  .in{background:#fff}
+  .out{background:var(--wa);margin-left:auto}
+  .msg small{display:block;color:#7a8597;font-size:11px;text-align:right}
+  section.band{background:var(--band);padding:60px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  section.plain{padding:60px 0}
+  h2{font-size:30px;letter-spacing:-.8px;margin-bottom:8px}
+  .sub{color:var(--muted);margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+  .card b{display:block;margin-bottom:4px}
+  .card p{color:var(--muted);font-size:15px}
+  form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:16px;max-width:760px}
+  label{font-weight:600;font-size:14px;display:grid;gap:6px}
+  label span{font-weight:400;color:var(--muted);font-size:13px}
+  input,select,textarea{font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;width:100%;background:#fff;color:var(--ink)}
+  textarea{min-height:90px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:640px){.row{grid-template-columns:1fr}}
+  .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px}
+  .check input{width:auto;margin-top:3px}
+  .ok{display:none;background:var(--soft);color:#167a4e;padding:14px;border-radius:12px;font-weight:600}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+  .plan.pro{border:2px solid var(--accent)}
+  .plan .p{font-size:34px;font-weight:800;letter-spacing:-1px;margin:6px 0}
+  .plan .p small{font-size:14px;color:var(--muted);font-weight:500}
+  .plan ul{list-style:none;display:grid;gap:7px;margin-top:12px;font-size:15px}
+  .plan li::before{content:"✓";color:var(--accent);font-weight:800;margin-right:8px}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .sim{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:start}
+  @media(max-width:820px){.sim{grid-template-columns:1fr}}
+  .sim .phone{justify-self:start;display:flex;flex-direction:column;height:440px}
+  .chat{flex:1;overflow-y:auto;padding-right:4px}
+  .chatbar{display:flex;gap:6px;margin-top:10px}
+  .chatbar input{border-radius:999px;padding:9px 13px;font-size:14px}
+  .chatbar button{border-radius:999px;border:0;background:var(--accent);color:#fff;font-weight:700;padding:0 14px;cursor:pointer;font-family:inherit}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  .chips button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink)}
+  .chips button:hover{border-color:var(--accent)}
+  .note{font-size:13px;color:var(--muted)}
+  .calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  @media(max-width:820px){.calc{grid-template-columns:1fr}}
+  .calc form{max-width:none}
+  .calc output{display:block}
+  .big{font-size:clamp(36px,6vw,52px);font-weight:800;letter-spacing:-1.5px;color:var(--accent);line-height:1.05}
+  .result{background:#fff;border:2px solid var(--accent);border-radius:18px;padding:26px}
+  .result p{color:var(--muted);font-size:15px;margin-top:8px}
+  .result b{color:var(--ink)}
+  .faq{display:grid;gap:10px;max-width:760px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+  .faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  .faq summary::after{content:"+";color:var(--accent);font-weight:800}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{color:var(--muted);margin-top:8px;font-size:15px}
+  .support{margin-top:22px;color:var(--muted);font-size:15px;max-width:760px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to be tech-savvy?", "acceptedAnswer": {"@type": "Answer", "text": "No. You fill out a 3-minute form and connect your Facebook Page with one click; we walk you through it. We build everything else."}}, {"@type": "Question", "name": "What if the assistant doesn't know an answer?", "acceptedAnswer": {"@type": "Answer", "text": "It never makes things up. It hands the chat to you and pings you so you can reply."}}, {"@type": "Question", "name": "Will it reveal my lowest price?", "acceptedAnswer": {"@type": "Answer", "text": "Never. Your floor price only tells the assistant how far it can go if you allow it; buyers never see it."}}, {"@type": "Question", "name": "How do I update my items?", "acceptedAnswer": {"@type": "Answer", "text": "In your catalog sheet: mark an item as sold and the assistant stops offering it within minutes. No need to message us."}}, {"@type": "Question", "name": "How long until it's live?", "acceptedAnswer": {"@type": "Answer", "text": "Usually the same day you connect your Page."}}, {"@type": "Question", "name": "Can I turn it off anytime?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pause it whenever you want. No contract; cancel anytime and you won't be charged the next month."}}, {"@type": "Question", "name": "How does billing work?", "acceptedAnswer": {"@type": "Answer", "text": "Monthly, by card. If a payment fails we let you know and you have 5 days to update your card before the assistant pauses. Nothing gets deleted."}}, {"@type": "Question", "name": "What customer data do you keep?", "acceptedAnswer": {"@type": "Answer", "text": "Only what's needed to answer and hold items (name and the conversation). We never sell or share data."}}, {"@type": "Question", "name": "Does it work with Marketplace and Instagram?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Marketplace buyers message your Page on Messenger and the assistant answers there. It also works on Instagram DMs and WhatsApp."}}, {"@type": "Question", "name": "How do I know how it's going?", "acceptedAnswer": {"@type": "Answer", "text": "Every Monday you get a summary: conversations handled, visits booked and items held."}}]}</script>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="/en/">neuri<span>.</span></a>
+  <span style="display:flex;gap:14px;align-items:center"><a href="/sigue-disponible/" lang="es" style="font-size:14px;color:var(--muted)">Español</a><a class="cta" href="#signup">Get my assistant</a></span>
+</nav></div></header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <p class="eyebrow">Still Available? · Assistant for Marketplace sellers</p>
+    <h1>Getting asked "is this still available?" is easy. Closing the sale is the hard part.</h1>
+    <p class="lead">Your assistant instantly answers price, location, pickup and payment questions on Messenger, Instagram and WhatsApp, books the pickup, and only pings you when a buyer is serious. You just get paid.</p>
+    <div class="actions">
+      <a class="btn primary" href="#signup">Get my assistant</a>
+      <a class="btn ghost" href="#try">Try it first</a>
+      <span class="price-tag">From $49/month · first 10 sellers: free setup and first month free</span>
+    </div>
+  </div>
+  <div class="phone" aria-label="Sample conversation">
+    <div class="msg in">Hi, is the oak dining table still available?<small>10:41</small></div>
+    <div class="msg out">Hi! Yes, it's still available 🙌 It's $350. You can see it in Mesa, 10 am to 7 pm.<small>10:41</small></div>
+    <div class="msg out">Want me to book a time to see it? Reply 1 for today or 2 for tomorrow.<small>10:41</small></div>
+    <div class="msg in">2<small>10:42</small></div>
+    <div class="msg out">Done, you're set for tomorrow at 11:00. I'll send you the address 📍<small>10:42</small></div>
+  </div>
+</div>
+
+<section class="band"><div class="wrap">
+  <h2>What it does for you</h2>
+  <p class="sub">Built for Marketplace and Instagram sellers and small shops.</p>
+  <div class="grid">
+    <div class="card"><b>Answers instantly</b><p>Price, size, location and hours, day and night, in your inbox.</p></div>
+    <div class="card"><b>Pickup and payment</b><p>Explains your area, delivery fee and payment methods without you typing a word.</p></div>
+    <div class="card"><b>Books for you</b><p>Schedules pickups and visits and tells you who's coming and when.</p></div>
+    <div class="card"><b>Only the serious ones</b><p>Filters the "what's your lowest?" and pings you when someone books or wants it held.</p></div>
+  </div>
+</div></section>
+
+<section class="plain" id="try"><div class="wrap sim">
+  <div>
+    <h2>Try it yourself</h2>
+    <p class="sub">Type like a buyer would. This example is a $350 oak dining table in Mesa; your assistant uses your items, prices and rules.</p>
+    <div class="chips" aria-label="Sample questions">
+      <button type="button">Is this still available?</button>
+      <button type="button">What's your lowest?</button>
+      <button type="button">Where are you?</button>
+      <button type="button">Do you deliver?</button>
+      <button type="button">Do you take cards?</button>
+      <button type="button">What are the dimensions?</button>
+      <button type="button">Can you hold it for me?</button>
+    </div>
+    <p class="note">Simulation with sample answers. Anything the assistant doesn't know goes to you instead of being made up.</p>
+  </div>
+  <div class="phone" aria-label="Chat simulator">
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <form class="chatbar" id="chatform" style="padding:0;border:0;background:none;display:flex;gap:6px">
+      <input id="chatin" placeholder="Type a message…" aria-label="Message" autocomplete="off">
+      <button type="submit" aria-label="Send">➤</button>
+    </form>
+  </div>
+</div></section>
+
+<section class="band" id="calculator"><div class="wrap">
+  <h2>How much are slow replies costing you?</h2>
+  <p class="sub">Plug in your numbers. The math is simple and conservative: it only counts buyers who would have bought if you'd answered fast.</p>
+  <div class="calc">
+    <form id="calcf" onsubmit="return false">
+      <label>Buyer messages per day <span>"still available?", "price?", "where?"</span>
+        <input type="number" id="c_msgs" min="1" max="1000" value="20" inputmode="numeric"></label>
+      <label>How many get a late reply or none? <span>Percent. Replying hours later counts as late.</span>
+        <input type="number" id="c_late" min="0" max="100" value="40" inputmode="numeric"></label>
+      <div class="row">
+        <label>How many buy when you reply fast? <span>Percent</span>
+          <input type="number" id="c_close" min="0" max="100" value="10" inputmode="numeric"></label>
+        <label>Average sale <span>in dollars</span>
+          <input type="number" id="c_ticket" min="1" value="120" inputmode="numeric"></label>
+      </div>
+    </form>
+    <div class="result" aria-live="polite">
+      <span style="color:var(--muted);font-weight:600">Sales you may be losing each month</span>
+      <output class="big" id="c_out">$2,880</output>
+      <p id="c_detail"></p>
+      <p>The Basic plan is <b>$49 a month</b>. <a href="#signup">Get my assistant →</a></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="plain"><div class="wrap">
+  <h2>Plans</h2>
+  <p class="sub">Flat monthly price. First 10 sellers: free setup and first month free.</p>
+  <div class="plans">
+    <div class="plan"><b>Basic</b><div class="p">$49 <small>USD/month</small></div>
+      <ul><li>Automatic answers (availability, price, pickup, payment)</li><li>Your top 5 questions</li><li>Buyer tags</li></ul></div>
+    <div class="plan pro"><b>Pro</b><div class="p">$69 <small>USD/month</small></div>
+      <ul><li>Everything in Basic</li><li>Pickup and visit booking</li><li>Automatic reminders</li><li>Unlimited tweaks to your answers</li></ul></div>
+  </div>
+</div></section>
+
+<section class="plain" id="faq"><div class="wrap">
+  <h2>Questions</h2>
+  <p class="sub">What almost everyone asks before starting.</p>
+  <div class="faq">
+    <details><summary>Do I need to be tech-savvy?</summary><p>No. You fill out a 3-minute form and connect your Facebook Page with one click; we walk you through it. We build everything else.</p></details>
+    <details><summary>What if the assistant doesn't know an answer?</summary><p>It never makes things up. It hands the chat to you and pings you so you can reply.</p></details>
+    <details><summary>Will it reveal my lowest price?</summary><p>Never. Your floor price only tells the assistant how far it can go if you allow it; buyers never see it.</p></details>
+    <details><summary>How do I update my items?</summary><p>In your catalog sheet: mark an item as sold and the assistant stops offering it within minutes. No need to message us.</p></details>
+    <details><summary>How long until it's live?</summary><p>Usually the same day you connect your Page.</p></details>
+    <details><summary>Can I turn it off anytime?</summary><p>Yes. Pause it whenever you want. No contract; cancel anytime and you won't be charged the next month.</p></details>
+    <details><summary>How does billing work?</summary><p>Monthly, by card. If a payment fails we let you know and you have 5 days to update your card before the assistant pauses. Nothing gets deleted.</p></details>
+    <details><summary>What customer data do you keep?</summary><p>Only what's needed to answer and hold items (name and the conversation). We never sell or share data.</p></details>
+    <details><summary>Does it work with Marketplace and Instagram?</summary><p>Yes. Marketplace buyers message your Page on Messenger and the assistant answers there. It also works on Instagram DMs and WhatsApp.</p></details>
+    <details><summary>How do I know how it's going?</summary><p>Every Monday you get a summary: conversations handled, visits booked and items held.</p></details>
+  </div>
+  <p class="support"><b>Support:</b> message us or email hola@neuri.tech. We reply Monday to Saturday, usually the same day. Pro includes unlimited tweaks to your answers.</p>
+</div></section>
+
+<section class="band" id="signup"><div class="wrap">
+  <h2>Sign up in 3 minutes</h2>
+  <p class="sub">This is all we need to set up your assistant. The only thing you'll do afterwards is connect your Facebook Page (we guide you step by step).</p>
+  <form id="f" novalidate>
+    <input type="hidden" name="idioma" value="en">
+    <div class="row">
+      <label>Your name<input name="nombre" required autocomplete="name"></label>
+      <label>Mobile (text or WhatsApp)<input name="whatsapp" required inputmode="tel" autocomplete="tel"></label>
+    </div>
+    <div class="row">
+      <label>Email<input name="correo" type="email" required autocomplete="email"></label>
+      <label>Business name<input name="negocio" required></label>
+    </div>
+    <label>What do you sell?<span>Categories or examples: furniture, clothing, electronics…</span><input name="vendes" required></label>
+    <div class="row">
+      <label>Where do you sell?<select name="donde"><option value="Facebook Marketplace">Facebook Marketplace</option><option value="Instagram">Instagram</option><option value="Tienda física">Physical store</option><option value="Varios">Several</option></select></label>
+      <label>Messages per day<select name="mensajes"><option value="Menos de 20">Under 20</option><option value="20 a 50">20 to 50</option><option value="50 a 150">50 to 150</option><option value="Más de 150">Over 150</option></select></label>
+    </div>
+    <details class="mas" id="mas"><summary>Business details (optional)<span>Fill these in now and your assistant is ready without a call. Otherwise we'll ask you by text.</span></summary>
+    <label>Business hours<input name="horario" placeholder="Mon–Sat, 10 to 7"></label>
+    <label>Pickup or delivery<span>Area, pickup address, whether you deliver and what it costs</span><textarea name="entrega"></textarea></label>
+    <label>Payment methods<input name="pagos" placeholder="Cash, Venmo, Zelle, card"></label>
+    <label>The 5 questions you get most, with your answer<textarea name="faq" placeholder="Do you negotiate? — Only for cash pickup this week…"></textarea></label>
+    <div class="row">
+      <label>Should it book pickups or visits?<select name="agenda"><option value="Sí">Yes</option><option value="No">No</option></select></label>
+      </div></details>
+    <div class="row">
+      <label>Plan<select name="plan"><option value="Básico ($49 USD)">Basic ($49)</option><option value="Pro ($69 USD)">Pro ($69)</option></select></label>
+    </div>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+    <div class="ok" id="missing" style="background:#FFF6D6;color:#7a5a00"></div>
+    <label class="check"><input type="checkbox" name="consent" required> I agree that Neuri may use this information to set up my assistant and contact me. It's never shared with anyone else.</label>
+    <button class="btn primary" type="submit">Send my sign-up</button>
+    <div class="ok" id="ok"></div>
+  </form>
+</div></section>
+</main>
+
+<a class="btn primary sticky" id="sticky" href="#signup">Get my assistant · from $49</a>
+
+<footer><div class="wrap">
+  <span>© 2026 Neuri LLC · Arizona, USA</span>
+  <span><a href="/en/">neuri.tech</a> · hola@neuri.tech</span>
+</div></footer>
+<script>
+  // Same intake webhook as the Spanish page; while empty, sign-ups go by email.
+  var SD_ENDPOINT = '';
+  (function(){var st=document.getElementById('sticky'),hero=document.querySelector('.hero .actions'),alta=document.getElementById('signup');
+    if(!('IntersectionObserver' in window))return;var v={};
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){v[e.target===alta?'a':'h']=e.isIntersecting});st.classList.toggle('off',!!(v.a||v.h))});
+    io.observe(hero);io.observe(alta);})();
+  var form = document.getElementById('f');
+  var altaId = '';
+  function mailto(f) {
+    var labels = {nombre:'Name',whatsapp:'Mobile',correo:'Email',negocio:'Business',vendes:'Sells',donde:'Sells on',mensajes:'Messages per day',horario:'Hours',entrega:'Pickup/delivery',pagos:'Payments',faq:'Top questions',agenda:'Booking',plan:'Plan'};
+    var lines = ['SIGN-UP STILL AVAILABLE? (EN)', ''];
+    Object.keys(labels).forEach(function (k) { lines.push(labels[k] + ': ' + (f.elements[k].value || '-')); });
+    lines.push('', 'Consent: yes');
+    window.location.href = 'mailto:hola@neuri.tech?subject=' + encodeURIComponent('Sign-up Still Available? - ' + f.elements.negocio.value) + '&body=' + encodeURIComponent(lines.join('\n'));
+    var ok = document.getElementById('ok');
+    ok.textContent = 'Your email app opened with your sign-up ready. Just hit send and we\'ll text you within 24 hours.';
+    ok.style.display = 'block';
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target;
+    if (!f.reportValidity()) return;
+    if (!SD_ENDPOINT) return mailto(f);
+    var data = {};
+    Array.prototype.forEach.call(f.elements, function (el) {
+      if (!el.name) return;
+      data[el.name] = el.type === 'checkbox' ? (el.checked ? 'on' : '') : el.value;
+    });
+    if (altaId) data.id = altaId;
+    var btn = f.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Checking your sign-up…';
+    fetch(SD_ENDPOINT + '/intake', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      .then(function (r) {
+        altaId = r.id;
+        var miss = document.getElementById('missing'), ok = document.getElementById('ok');
+        if (r.missing && r.missing.length) {
+          document.getElementById('mas').open = true;
+          miss.textContent = 'Almost done. So your assistant answers well, we still need: ' + r.missing.join(', ') + '. Fill it in above and send again.';
+          miss.style.display = 'block'; ok.style.display = 'none';
+        } else {
+          miss.style.display = 'none';
+          ok.textContent = 'All set! Your sign-up is complete. We\'ll text you to connect your Page; once it\'s connected, your assistant builds itself.';
+          ok.style.display = 'block';
+        }
+      })
+      .catch(function () { mailto(f); })
+      .then(function () { btn.disabled = false; btn.textContent = 'Send my sign-up'; });
+  });
+</script>
+
+<script>
+(function(){
+  var chat=document.getElementById('chat'),form=document.getElementById('chatform'),inp=document.getElementById('chatin');
+  var state={holding:false};
+  function hora(){var d=new Date();var h=d.getHours()%12||12;return h+':'+String(d.getMinutes()).padStart(2,'0')+(d.getHours()<12?' am':' pm');}
+  function add(t,who){var m=document.createElement('div');m.className='msg '+who;m.textContent=t;var s=document.createElement('small');s.textContent=hora();m.appendChild(s);chat.appendChild(m);chat.scrollTop=chat.scrollHeight;}
+  function reply(raw){
+    var t=raw.toLowerCase();
+    if(state.holding){
+      if(/\b1\b|today/.test(t)){state.holding=false;return['Great 🙌 See you today between 5 and 7 pm. What name should I hold it under?','(Here the seller gets: "Visit today 5–7 pm — oak dining table")'];}
+      if(/\b2\b|tomorrow/.test(t)){state.holding=false;return['Done, you\'re set for tomorrow at 11:00. I\'ll send the address 📍 What name should I put it under?','(Here the seller gets: "Visit tomorrow 11:00 — oak dining table")'];}
+    }
+    if(/hold|reserve|visit|i.ll take it|i want it|pick.?up today|come see/.test(t)){state.holding=true;return['Sure! To hold it you can come see it. Reply 1 for today (5–7 pm) or 2 for tomorrow (11 am).'];}
+    if(/lowest|best price|discount|negotiable|obo|take \$?\d|less/.test(t)){return['It\'s $350 and in great shape 😊 If you pick it up this week I can do $320. Want me to hold it?'];}
+    if(/available|still have|still for sale/.test(t)){state.holding=true;return['Hi! Yes, it\'s still available 🙌 It\'s $350. Want to see it? Reply 1 for today or 2 for tomorrow.'];}
+    if(/price|how much|cost/.test(t)){return['It\'s $350. Solid oak and in very good condition.'];}
+    if(/where|location|address|area|located/.test(t)){return['We\'re in Mesa, near Main St. I\'ll send the exact address when you book 📍'];}
+    if(/hour|open|close/.test(t)){return['We\'re available 10 am to 7 pm, Monday to Saturday.'];}
+    if(/deliver|delivery|ship|bring it/.test(t)){return['Yes, we deliver in the East Valley for $40. Phoenix or the West Valley we quote. Where would it go?'];}
+    if(/card|venmo|zelle|cash|pay/.test(t)){return['We take cash, Venmo, Zelle and card at pickup.'];}
+    if(/dimension|size|measure|long|wide|tall|seat/.test(t)){return['It\'s 63 in long, 35 in wide and 30 in tall. Seats 6.'];}
+    if(/photo|picture|pic|video/.test(t)){return['Of course! I\'ll send more photos in a moment 📸'];}
+    if(/^(hi|hello|hey)|good (morning|afternoon)/.test(t)){return['Hi! Thanks for reaching out. Interested in the oak dining table? Ask me about price, size or how to hold it.'];}
+    return['Good question 🙂 The seller will answer that one directly; I\'ve let them know and they\'ll message you shortly.','(Here the assistant hands the chat to the seller instead of making something up)'];
+  }
+  function send(text){text=text.trim();if(!text)return;add(text,'in');var r=reply(text);var i=0;(function next(){if(i>=r.length)return;setTimeout(function(){add(r[i],'out');i++;next();},450+i*350);})();}
+  form.addEventListener('submit',function(e){e.preventDefault();send(inp.value);inp.value='';});
+  document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){send(b.textContent);});});
+  add('Hi! 👋 I\'m the assistant for Sample Furniture. Ask me anything about the oak dining table.','out');
+})();
+</script>
+
+<script>
+(function(){
+  var ids=['c_msgs','c_late','c_close','c_ticket'];
+  function v(id){var x=parseFloat(document.getElementById(id).value);return isFinite(x)&&x>0?x:0;}
+  var fmt=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+  function calc(){
+    var msgs=v('c_msgs'),late=Math.min(v('c_late'),100)/100,close=Math.min(v('c_close'),100)/100,ticket=v('c_ticket');
+    var lostBuyers=msgs*30*late*close, lost=lostBuyers*ticket;
+    document.getElementById('c_out').textContent=fmt.format(Math.round(lost));
+    var detail=Math.round(msgs*30*late)+' messages a month without a timely reply → about '+(Math.round(lostBuyers*10)/10)+' lost sales.';
+    var need=Math.max(1,Math.ceil(49/Math.max(ticket,1)));
+    if(lost>49){detail+=' Win back just '+need+' sale'+(need>1?'s':'')+' a month and it pays for itself.';}
+    document.getElementById('c_detail').textContent=detail;
+  }
+  ids.forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+  calc();
+})();
+</script>
+</body>
+</html>

@@ -70,6 +70,14 @@
   .chips button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink)}
   .chips button:hover{border-color:var(--accent)}
   .note{font-size:13px;color:var(--muted)}
+  .calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  @media(max-width:820px){.calc{grid-template-columns:1fr}}
+  .calc form{max-width:none}
+  .calc output{display:block}
+  .big{font-size:clamp(36px,6vw,52px);font-weight:800;letter-spacing:-1.5px;color:var(--accent);line-height:1.05}
+  .result{background:#fff;border:2px solid var(--accent);border-radius:18px;padding:26px}
+  .result p{color:var(--muted);font-size:15px;margin-top:8px}
+  .result b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -131,6 +139,32 @@
       <input id="chatin" placeholder="Escribe un mensaje…" aria-label="Mensaje" autocomplete="off">
       <button type="submit" aria-label="Enviar">➤</button>
     </form>
+  </div>
+</div></section>
+
+
+<section class="band" id="calculadora"><div class="wrap">
+  <h2>¿Cuánto se te va por no contestar a tiempo?</h2>
+  <p class="sub">Ponle tus números. El cálculo es sencillo y conservador: solo cuenta a los que habrían comprado si les contestabas rápido.</p>
+  <div class="calc">
+    <form id="calcf" onsubmit="return false">
+      <label>Mensajes de compradores al día <span>"¿sigue disponible?", "¿precio?", "¿dónde?"</span>
+        <input type="number" id="c_msgs" min="1" max="1000" value="20" inputmode="numeric"></label>
+      <label>De esos, ¿cuántos contestas tarde o no contestas? <span>Porcentaje. Si contestas horas después, cuenta como tarde.</span>
+        <input type="number" id="c_late" min="0" max="100" value="40" inputmode="numeric"></label>
+      <div class="row">
+        <label>¿Cuántos compran si les contestas rápido? <span>Porcentaje</span>
+          <input type="number" id="c_close" min="0" max="100" value="10" inputmode="numeric"></label>
+        <label>Venta promedio <span>en pesos</span>
+          <input type="number" id="c_ticket" min="1" value="600" inputmode="numeric"></label>
+      </div>
+    </form>
+    <div class="result" aria-live="polite">
+      <span style="color:var(--muted);font-weight:600">Ventas que se te pueden ir al mes</span>
+      <output class="big" id="c_out">$14,400</output>
+      <p id="c_detail"></p>
+      <p>El plan Básico cuesta <b>$899 al mes</b>. <a href="#alta">Quiero mi bot →</a></p>
+    </div>
   </div>
 </div></section>
 
@@ -226,6 +260,24 @@
   form.addEventListener('submit',function(e){e.preventDefault();send(inp.value);inp.value='';});
   document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){send(b.textContent);});});
   add('¡Hola! 👋 Soy el asistente de Muebles Ejemplo. Pregúntame lo que quieras de la mesa de madera.','out');
+})();
+</script>
+
+<script>
+(function(){
+  var ids=['c_msgs','c_late','c_close','c_ticket'];
+  function v(id){var x=parseFloat(document.getElementById(id).value);return isFinite(x)&&x>0?x:0;}
+  var fmt=new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0});
+  function calc(){
+    var msgs=v('c_msgs'),late=Math.min(v('c_late'),100)/100,close=Math.min(v('c_close'),100)/100,ticket=v('c_ticket');
+    var lostBuyers=msgs*30*late*close, lost=lostBuyers*ticket;
+    document.getElementById('c_out').textContent=fmt.format(Math.round(lost));
+    var detail=Math.round(msgs*30*late)+' mensajes al mes sin respuesta a tiempo → unas '+(Math.round(lostBuyers*10)/10)+' ventas perdidas.';
+    if(lost>899){detail+=' Recuperando solo '+Math.max(1,Math.ceil(899/Math.max(ticket,1)))+' venta'+(Math.ceil(899/Math.max(ticket,1))>1?'s':'')+' al mes, el bot se paga solo.';}
+    document.getElementById('c_detail').textContent=detail;
+  }
+  ids.forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+  calc();
 })();
 </script>
 </body>

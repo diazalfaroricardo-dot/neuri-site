@@ -74,6 +74,7 @@
   <p class="lead">Caja con varios artículos, comisiones y renta de puesto calculadas solas, estados de cuenta por WhatsApp y corte diario. En español, en pesos o dólares, con IVA o sales tax.</p>
   <div class="actions">
     <a class="btn primary" href="mailto:hola@neuri.tech?subject=Quiero%20ser%20negocio%20fundador%20de%20Neuri%20Bazar&body=Nombre%20del%20bazar%3A%0ACiudad%3A%0ANúmero%20de%20vendedores%3A%0AWhatsApp%3A">Quiero ser negocio fundador</a>
+    <a class="btn ghost" data-trial href="mailto:hola@neuri.tech?subject=Prueba%20gratis%20Neuri%20Bazar&body=Nombre%20del%20bazar%3A%0ACiudad%3A%0ACorreo%20de%20Google%20para%20entrar%3A">Probar gratis 14 días</a>
     <a class="btn ghost" href="#como">Cómo funciona</a>
   </div>
 </div></section>
@@ -167,6 +168,12 @@
       document.querySelectorAll('.note').forEach(function (n) { n.textContent = n.dataset[c]; });
     });
   });
+</script>
+<script>
+  // Al desplegar la app, poner aquí su URL (p. ej. https://app.neuri.tech): los botones de prueba
+  // gratis abren el alta directo. Mientras esté vacía, siguen mandando correo.
+  var APP_URL = '';
+  if (APP_URL) document.querySelectorAll('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=MX'; });
 </script>
 </body>
 </html>

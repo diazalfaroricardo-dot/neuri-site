@@ -74,6 +74,7 @@
   <p class="lead">Phone-first checkout, commissions and booth rent calculated for you, a vendor portal with live balances, and an end-of-day close that balances to the cent. In English and Spanish, for your staff and your vendors.</p>
   <div class="actions">
     <a class="btn primary" href="mailto:hola@neuri.tech?subject=Neuri%20Bazar%20demo%20request&body=Store%20name%3A%0ACity%3A%0ANumber%20of%20vendors%2Fbooths%3A%0APhone%3A">Book a 15-minute demo</a>
+    <a class="btn ghost" data-trial href="mailto:hola@neuri.tech?subject=Neuri%20Bazar%20free%20trial&body=Store%20name%3A%0ACity%3A%0AEmail%20to%20sign%20in%20(Google)%3A">Start a free 14-day trial</a>
     <a class="btn ghost" href="#como">How it works</a>
   </div>
 </div></section>
@@ -168,6 +169,12 @@
       document.querySelectorAll('.note').forEach(function (n) { n.textContent = n.dataset[c]; });
     });
   });
+</script>
+<script>
+  // Al desplegar la app, poner aquí su URL (p. ej. https://app.neuri.tech): los botones de prueba
+  // gratis abren el alta directo. Mientras esté vacía, siguen mandando correo.
+  var APP_URL = '';
+  if (APP_URL) document.querySelectorAll('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=US'; });
 </script>
 </body>
 </html>

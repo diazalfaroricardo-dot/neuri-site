@@ -59,6 +59,17 @@
   .plan li::before{content:"✓";color:var(--accent);font-weight:800;margin-right:8px}
   footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .sim{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:start}
+  @media(max-width:820px){.sim{grid-template-columns:1fr}}
+  .sim .phone{justify-self:start;display:flex;flex-direction:column;height:440px}
+  .chat{flex:1;overflow-y:auto;padding-right:4px}
+  .chatbar{display:flex;gap:6px;margin-top:10px}
+  .chatbar input{border-radius:999px;padding:9px 13px;font-size:14px}
+  .chatbar button{border-radius:999px;border:0;background:var(--accent);color:#fff;font-weight:700;padding:0 14px;cursor:pointer;font-family:inherit}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  .chips button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink)}
+  .chips button:hover{border-color:var(--accent)}
+  .note{font-size:13px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -95,6 +106,31 @@
     <div class="card"><b>Entrega y pagos</b><p>Explica tu zona, costo de envío y formas de pago sin que escribas nada.</p></div>
     <div class="card"><b>Agenda por ti</b><p>Aparta visitas o entregas y te avisa quién viene y a qué hora.</p></div>
     <div class="card"><b>Te pasa solo a los serios</b><p>Filtra el "¿último precio?" y te avisa cuando alguien agenda o quiere apartar.</p></div>
+  </div>
+</div></section>
+
+
+<section class="plain" id="prueba"><div class="wrap sim">
+  <div>
+    <h2>Pruébalo tú</h2>
+    <p class="sub">Escribe como si fueras un comprador. Este ejemplo es una mesa de madera de $1,800 en Guamúchil; tu bot usa tus productos, precios y reglas.</p>
+    <div class="chips" aria-label="Preguntas de ejemplo">
+      <button type="button">¿Sigue disponible?</button>
+      <button type="button">¿Último precio?</button>
+      <button type="button">¿Dónde están?</button>
+      <button type="button">¿Hacen envío?</button>
+      <button type="button">¿Aceptan tarjeta?</button>
+      <button type="button">¿Qué medidas tiene?</button>
+      <button type="button">Quiero apartarla</button>
+    </div>
+    <p class="note">Simulación con respuestas de ejemplo. Lo que el bot no sabe, te lo pasa a ti en lugar de inventar.</p>
+  </div>
+  <div class="phone" aria-label="Simulador de conversación">
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <form class="chatbar" id="chatform" style="padding:0;border:0;background:none;display:flex;gap:6px">
+      <input id="chatin" placeholder="Escribe un mensaje…" aria-label="Mensaje" autocomplete="off">
+      <button type="submit" aria-label="Enviar">➤</button>
+    </form>
   </div>
 </div></section>
 
@@ -158,6 +194,39 @@
     window.location.href = 'mailto:hola@neuri.tech?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
     document.getElementById('ok').style.display = 'block';
   });
+</script>
+
+<script>
+(function(){
+  var chat=document.getElementById('chat'),form=document.getElementById('chatform'),inp=document.getElementById('chatin');
+  var state={apartando:false};
+  function hora(){var d=new Date();return d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');}
+  function add(t,who){var m=document.createElement('div');m.className='msg '+who;m.textContent=t;var s=document.createElement('small');s.textContent=hora();m.appendChild(s);chat.appendChild(m);chat.scrollTop=chat.scrollHeight;}
+  function norm(t){return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  function reply(raw){
+    var t=norm(raw);
+    if(state.apartando){
+      if(/\b1\b|hoy/.test(t)){state.apartando=false;return['Listo 🙌 Te esperamos hoy entre 5 y 7 pm. ¿A nombre de quién la aparto?','(Aquí el vendedor recibe el aviso: "Visita hoy 5–7 pm — mesa de madera")'];}
+      if(/\b2\b|manana/.test(t)){state.apartando=false;return['Listo, quedaste mañana a las 11:00. Te mando la ubicación 📍 ¿A nombre de quién?','(Aquí el vendedor recibe el aviso: "Visita mañana 11:00 — mesa de madera")'];}
+    }
+    if(/apart|visita|la quiero|me la llevo|reserv/.test(t)){state.apartando=true;return['¡Va! Para apartarla puedes venir a verla. Responde 1 para hoy (5 a 7 pm) o 2 para mañana (11 am).'];}
+    if(/ultimo|menos|rebaja|descuento|negociable|lo menos|\$\s*1[0-7]00|1[0-7]00/.test(t)){return['El precio es $1,800 y está muy bien cuidada 😊 Si la recoges esta semana te la dejo en $1,650. ¿Te la aparto?'];}
+    if(/disponible|todavia|aun/.test(t)){state.apartando=true;return['¡Hola! Sí, sigue disponible 🙌 Cuesta $1,800. ¿Quieres verla? Responde 1 para hoy o 2 para mañana.'];}
+    if(/precio|cuanto|cuesta|vale/.test(t)){return['Cuesta $1,800. Es de madera maciza y está en muy buen estado.'];}
+    if(/donde|ubicacion|direccion|ubicados|zona/.test(t)){return['Estamos en Guamúchil centro. Al apartar te mando la ubicación exacta 📍'];}
+    if(/hora|abren|cierran|horario/.test(t)){return['Atendemos de 10 am a 7 pm, de lunes a sábado.'];}
+    if(/envio|entrega|domicilio|mandan|llevan|flete/.test(t)){return['Sí hacemos entrega en Guamúchil por $150. A Culiacán o Los Mochis se cotiza. ¿A dónde sería?'];}
+    if(/tarjeta|transferencia|pago|efectivo|deposito|oxxo/.test(t)){return['Aceptamos efectivo, transferencia y tarjeta (con terminal al recoger).'];}
+    if(/medida|mide|tamano|largo|ancho|alto/.test(t)){return['Mide 1.60 m de largo, 90 cm de ancho y 76 cm de alto. Es para 6 personas.'];}
+    if(/foto|imagen|video/.test(t)){return['¡Claro! Te mando más fotos en un momento 📸'];}
+    if(/hola|buenas|buen dia|que tal/.test(t)){return['¡Hola! Gracias por escribir. ¿Te interesa la mesa de madera? Pregúntame precio, medidas o cómo apartarla.'];}
+    return['Buena pregunta 🙂 Esa la contesta el vendedor directamente; ya le avisé y te escribe en breve.','(Aquí el bot pasa la conversación al vendedor en vez de inventar)'];
+  }
+  function send(text){text=text.trim();if(!text)return;add(text,'in');var r=reply(text);var i=0;(function next(){if(i>=r.length)return;setTimeout(function(){add(r[i],'out');i++;next();},450+i*350);})();}
+  form.addEventListener('submit',function(e){e.preventDefault();send(inp.value);inp.value='';});
+  document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){send(b.textContent);});});
+  add('¡Hola! 👋 Soy el asistente de Muebles Ejemplo. Pregúntame lo que quieras de la mesa de madera.','out');
+})();
 </script>
 </body>
 </html>

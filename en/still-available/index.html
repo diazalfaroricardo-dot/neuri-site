@@ -218,8 +218,8 @@
   .llega h3{margin-bottom:10px}
   .wa-shot{background:#EAE2DA;border-radius:22px;padding:16px;display:grid;gap:8px}
   .wa-shot .bub{background:#fff;border-radius:12px 12px 12px 4px;padding:10px 12px;font-size:15.5px;max-width:92%;box-shadow:0 1px 0 rgba(0,0,0,.08)}
-  .wa-shot .bub .h{display:block;text-align:right;font-size:11.5px;color:#7a7a7a}
-  .wa-shot .from{font-size:13px;font-weight:700;color:var(--ok)}
+  .wa-shot .bub .h{display:block;text-align:right;font-size:11.5px;color:#666}
+  .wa-shot .from{font-size:13px;font-weight:700;color:#0B5E3B}
   .mail{background:#fff;border-radius:22px;border:1.5px solid var(--linea);overflow:hidden}
   .mail .mh{padding:14px 18px;border-bottom:1px solid var(--linea);font-size:14.5px;color:var(--gris)}
   .mail .mh b{color:var(--tinta);display:block;font-size:16px}
@@ -1051,7 +1051,7 @@
             miss.classList.add('on');
             go(first);
           } else {
-            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>We\'ll text you within 24 hours to connect your Page or WhatsApp.</li><li>In 1 to 2 days we send you your assistant to try.</li><li>Once you approve it, it starts answering.</li></ol>');
+            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we sent you a link to connect your ManyChat (about 5 minutes). No email? We\'ll text it to you.</li><li>We review your assistant; it stays off in the meantime.</li><li>We email you when it starts answering, with your My assistant link.</li></ol>');
           }
         })
         .catch(function(e){

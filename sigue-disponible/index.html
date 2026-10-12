@@ -607,7 +607,7 @@
         <div class="fields">
           <div class="f"><label for="nombre">Tu nombre</label><input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="e-nombre"><p class="err" id="e-nombre">Escribe tu nombre para saber cómo llamarte.</p></div>
           <div class="f"><label for="whatsapp">Tu WhatsApp</label><input type="tel" id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="673 123 4567" required aria-describedby="h-wa e-whatsapp"><p class="help" id="h-wa">10 dígitos. Si es de EE. UU., ponle +1.</p><p class="err" id="e-whatsapp">Revisa tu WhatsApp: necesitamos al menos 10 dígitos.</p></div>
-          <div class="f"><label for="correo">Tu correo <span class="opt">(recomendado)</span></label><input type="email" id="correo" name="correo" autocomplete="email" aria-describedby="h-correo e-correo"><p class="help" id="h-correo">Ahí te llega el reporte de cada lunes.</p><p class="err" id="e-correo">Ese correo no se ve completo. Revisa que tenga @ y punto, o déjalo vacío.</p><p class="warn" id="w-correo" role="alert">Sin correo no te llega el reporte de los lunes. Puedes agregarlo o darle «Siguiente» otra vez para seguir sin él.</p></div>
+          <div class="f"><label for="correo">Tu correo</label><input type="email" id="correo" name="correo" autocomplete="email" required aria-describedby="h-correo e-correo"><p class="help" id="h-correo">Ahí te llega el link para conectar y tus avisos de cobro.</p><p class="err" id="e-correo">Escribe tu correo completo, con @ y punto: ahí te llega el link para conectar y tus avisos de cobro.</p></div>
         </div>
       </fieldset>
       <!-- Paso 2 -->
@@ -949,7 +949,7 @@
     var NAMES={1:'Tus datos',2:'Tu negocio',3:'Cómo atiendes',4:'Tu plan'};
     var STEP_OF={nombre:1,whatsapp:1,correo:1,negocio:2,vendes:2,donde:2,mensajes:2,horario:3,entrega:3,pagos:3,agenda:3,faq:4,plan:4,consent:4};
     var LABEL={nombre:'tu nombre',whatsapp:'tu WhatsApp',correo:'tu correo',negocio:'el nombre de tu negocio',vendes:'qué vendes',donde:'dónde vendes',mensajes:'cuántos mensajes recibes',horario:'tu horario',entrega:'cómo entregas',pagos:'tus formas de pago',agenda:'si quieres que agende',faq:'tus preguntas frecuentes',plan:'el plan',consent:'tu permiso para usar los datos'};
-    var step=1, warnedMail=false, steps=form.querySelectorAll('.paso');
+    var step=1, steps=form.querySelectorAll('.paso');
     var bBack=document.getElementById('bBack'),bNext=document.getElementById('bNext'),bSend=document.getElementById('bSend'),bSkip=document.getElementById('bSkip');
 
     // Chips de giro → campo «vendes»
@@ -969,10 +969,7 @@
         var nom=form.elements.nombre.value.trim(), wa=form.elements.whatsapp.value.replace(/\D/g,''), mail=form.elements.correo.value.trim();
         setErr('nombre',!nom); if(!nom)bad.push('nombre');
         setErr('whatsapp',wa.length<10); if(wa.length<10)bad.push('whatsapp');
-        var mailBad=mail&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail); setErr('correo',mailBad); if(mailBad)bad.push('correo');
-        var w=document.getElementById('w-correo');
-        if(!bad.length&&!mail&&!warnedMail){warnedMail=true;w.classList.add('on');form.elements.correo.focus();return false;}
-        if(mail)w.classList.remove('on');
+        var mailBad=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail); setErr('correo',mailBad); if(mailBad)bad.push('correo');
       }
       if(n===2){var neg=form.elements.negocio.value.trim();setErr('negocio',!neg);if(!neg)bad.push('negocio');}
       if(n===4){var c=form.elements.consent.checked;setErr('consent',!c);if(!c)bad.push('consent');}
@@ -1045,7 +1042,7 @@
             miss.classList.add('on');
             go(first);
           } else {
-            done('<p class="big">¡Listo! Tu alta quedó completa.</p><p>Esto sigue:</p><ol><li>Revisa tu correo: te llegó un link para conectar tu ManyChat (unos 5 minutos). Si no dejaste correo, te lo mandamos por WhatsApp.</li><li>Al conectarlo te llega otro correo para probarlo tú: no le contesta a nadie hasta que tú lo prendas.</li><li>Cuando lo prendas te llega tu link a Mi asistente para pausarlo o cambiar tus datos.</li></ol>');
+            done('<p class="big">¡Listo! Tu alta quedó completa.</p><p>Esto sigue:</p><ol><li>Revisa tu correo: te llegó un link para conectar tu ManyChat (unos 5 minutos).</li><li>Al conectarlo te llega otro correo para probarlo tú: no le contesta a nadie hasta que tú lo prendas.</li><li>Cuando lo prendas te llega tu link a Mi asistente para pausarlo o cambiar tus datos.</li></ol>');
           }
         })
         .catch(function(e){

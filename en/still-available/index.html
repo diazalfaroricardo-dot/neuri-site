@@ -610,7 +610,7 @@
         <div class="fields">
           <div class="f"><label for="nombre">Your name</label><input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="e-nombre"><p class="err" id="e-nombre">Enter your name so we know what to call you.</p></div>
           <div class="f"><label for="whatsapp">Your mobile number (text or WhatsApp)</label><input type="tel" id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="480 555 0123" required aria-describedby="h-wa e-whatsapp"><p class="help" id="h-wa">10 digits. Outside the US? Add your country code.</p><p class="err" id="e-whatsapp">Check your number: we need at least 10 digits.</p></div>
-          <div class="f"><label for="correo">Your email <span class="opt">(recommended)</span></label><input type="email" id="correo" name="correo" autocomplete="email" aria-describedby="h-correo e-correo"><p class="help" id="h-correo">That's where your Monday report goes.</p><p class="err" id="e-correo">That email doesn't look complete. Check it has an @ and a dot, or leave it blank.</p><p class="warn" id="w-correo" role="alert">Without an email you won't get the Monday report. Add one, or tap “Next” again to continue without it.</p></div>
+          <div class="f"><label for="correo">Your email</label><input type="email" id="correo" name="correo" autocomplete="email" required aria-describedby="h-correo e-correo"><p class="help" id="h-correo">That's where your link to connect and your billing notices arrive.</p><p class="err" id="e-correo">Enter your full email, with an @ and a dot: that's where your link to connect and your billing notices arrive.</p></div>
         </div>
       </fieldset>
       <!-- Step 2 -->
@@ -955,7 +955,7 @@
     var NAMES={1:'About you',2:'Your business',3:'How you handle buyers',4:'Your plan'};
     var STEP_OF={nombre:1,whatsapp:1,correo:1,negocio:2,vendes:2,donde:2,mensajes:2,horario:3,entrega:3,pagos:3,agenda:3,faq:4,plan:4,consent:4};
     var LABEL={nombre:'your name',whatsapp:'your mobile number',correo:'your email',negocio:'your business name',vendes:'what you sell',donde:'where you sell',mensajes:'how many messages you get',horario:'your hours',entrega:'how pickup or delivery works',pagos:'your payment methods',agenda:'whether it should book pickups',faq:'your common questions',plan:'your plan',consent:'your OK to use this information'};
-    var step=1, warnedMail=false, steps=form.querySelectorAll('.paso');
+    var step=1, steps=form.querySelectorAll('.paso');
     var bBack=document.getElementById('bBack'),bNext=document.getElementById('bNext'),bSend=document.getElementById('bSend'),bSkip=document.getElementById('bSkip');
 
     // Category chips → "vendes" field
@@ -975,10 +975,7 @@
         var nom=form.elements.nombre.value.trim(), wa=form.elements.whatsapp.value.replace(/\D/g,''), mail=form.elements.correo.value.trim();
         setErr('nombre',!nom); if(!nom)bad.push('nombre');
         setErr('whatsapp',wa.length<10); if(wa.length<10)bad.push('whatsapp');
-        var mailBad=mail&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail); setErr('correo',mailBad); if(mailBad)bad.push('correo');
-        var w=document.getElementById('w-correo');
-        if(!bad.length&&!mail&&!warnedMail){warnedMail=true;w.classList.add('on');form.elements.correo.focus();return false;}
-        if(mail)w.classList.remove('on');
+        var mailBad=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail); setErr('correo',mailBad); if(mailBad)bad.push('correo');
       }
       if(n===2){var neg=form.elements.negocio.value.trim();setErr('negocio',!neg);if(!neg)bad.push('negocio');}
       if(n===4){var c=form.elements.consent.checked;setErr('consent',!c);if(!c)bad.push('consent');}
@@ -1051,7 +1048,7 @@
             miss.classList.add('on');
             go(first);
           } else {
-            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we sent you a link to connect your ManyChat (about 5 minutes). No email? We\'ll text it to you.</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
+            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we sent you a link to connect your ManyChat (about 5 minutes).</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
           }
         })
         .catch(function(e){

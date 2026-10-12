@@ -701,7 +701,7 @@
       <button type="button" class="btn go" id="iaCopy" aria-label="Copy the connector URL">Copy</button>
     </div>
     <output class="ia-ok" id="iaOk" for="iaCopy" aria-live="polite"></output>
-    <p class="ia-seg">Your card and your ManyChat key never go through the chat: you enter them only on Neuri's and Stripe's secure pages.</p>
+    <p class="ia-seg">Your card and your passwords never go through the chat: your Instagram or Messenger connects directly in one click on Meta's secure page, and your card only on Stripe's.</p>
   </div>
   <ol class="pasos" aria-label="Steps to connect it">
       <li><h3>Add a custom connector</h3><p>In your AI assistant's connector settings, paste this URL.</p></li>
@@ -1082,7 +1082,7 @@
             miss.classList.add('on');
             go(first);
           } else {
-            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we sent you a link to connect your ManyChat (about 5 minutes).</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
+            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we sent you a link to connect your Instagram or Facebook Page directly, in one click (no other apps to install).</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
           }
         })
         .catch(function(e){

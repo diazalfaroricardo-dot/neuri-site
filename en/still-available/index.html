@@ -360,6 +360,20 @@
   .hero h1 q{quotes:"\201C" "\201D"}
   .wrap.hero{padding-left:16px;padding-right:16px}
   @media(min-width:700px){.wrap.hero{padding-left:28px;padding-right:28px}}
+  /* A60: configúralo con tu asistente de IA */
+  #ia{background:#fff;padding:56px 0}
+  @media(min-width:900px){#ia{padding:72px 0}}
+  .ia{display:grid;gap:28px;align-items:start}
+  @media(min-width:860px){.ia{grid-template-columns:1fr 1.1fr;gap:48px}}
+  .ia-url{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--muro);border:1.5px solid var(--linea);border-radius:16px;padding:10px 10px 10px 16px}
+  .ia-url code{flex:1 1 auto;min-width:0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;font-weight:700;color:var(--tinta);overflow-wrap:anywhere}
+  @media(min-width:420px){.ia-url code{font-size:17px}}
+  .ia-url .btn{min-height:44px;padding:8px 20px;font-size:16px}
+  .ia-ok{display:block;min-height:1.5em;margin-top:8px;font-size:15px;color:var(--ok);font-weight:700}
+  .ia .pasos{margin-top:0;grid-template-columns:1fr;gap:18px}
+  .ia .pasos li::before{font-size:28px}
+  .ia .pasos h3{font-size:18px}
+  .ia-seg{margin-top:18px;padding:12px 16px;border-left:4px solid var(--rosa);background:var(--rubor);border-radius:0 12px 12px 0;font-size:16px}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Do I need to be tech-savvy?","acceptedAnswer":{"@type":"Answer","text":"No. You fill out the sign-up and connect your Facebook Page or WhatsApp in one click; we walk you through it. We build the rest."}},
@@ -674,6 +688,26 @@
     </form>
     <div class="listo" id="ok" hidden tabindex="-1" role="status"></div>
   </div>
+</div></section>
+
+<!-- A60: CON TU ASISTENTE DE IA -->
+<section id="ia" aria-labelledby="ia-t"><div class="wrap ia">
+  <div>
+    <h2 id="ia-t">Set it up with your AI assistant</h2>
+    <p class="sub">If you use Claude or ChatGPT, your assistant can sign you up and get your bot ready, just by chatting.</p>
+    <p class="sr" id="ia-lab">Connector URL</p>
+    <div class="ia-url" role="group" aria-labelledby="ia-lab">
+      <code id="iaUrl">https://sd.neuri.tech/mcp</code>
+      <button type="button" class="btn go" id="iaCopy" aria-label="Copy the connector URL">Copy</button>
+    </div>
+    <output class="ia-ok" id="iaOk" for="iaCopy" aria-live="polite"></output>
+    <p class="ia-seg">Your card and your ManyChat key never go through the chat: you enter them only on Neuri's and Stripe's secure pages.</p>
+  </div>
+  <ol class="pasos" aria-label="Steps to connect it">
+      <li><h3>Add a custom connector</h3><p>In your AI assistant's connector settings, paste this URL.</p></li>
+      <li><h3>Sign in with your email</h3><p>A Neuri page opens: enter your business email and the 6-digit code we send you.</p></li>
+      <li><h3>Ask for what you need</h3><p>Type: “set up my ¿Sigue Disponible? assistant”. It walks you through each step and asks you to confirm before turning anything on or charging you.</p></li>
+  </ol>
 </div></section>
 
 <!-- FAQ -->
@@ -1062,6 +1096,12 @@
     if(altaId){document.getElementById('resumeNote').hidden=false;window.addEventListener('load',function(){document.getElementById('signup').scrollIntoView();});}
     go(1,true);
   })();
+// A60: copiar la URL del conector
+(function(){var b=document.getElementById('iaCopy'),o=document.getElementById('iaOk'),u=document.getElementById('iaUrl');if(!b)return;
+function sel(){try{var r=document.createRange();r.selectNodeContents(u);var s=getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}}
+b.addEventListener('click',function(){var t=u.textContent.trim();o.textContent='';
+var done=function(){o.textContent='Copied! Paste it into your AI assistant.';},bad=function(){sel();o.textContent="Couldn't copy: select the URL and copy it by hand.";};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,bad);}else{bad();}});})();
 </script>
 </body>
 </html>

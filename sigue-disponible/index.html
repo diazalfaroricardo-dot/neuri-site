@@ -358,6 +358,20 @@
   @media(max-width:759px){.sticky{display:flex}body{padding-bottom:84px}}
   .wrap.hero{padding-left:16px;padding-right:16px}
   @media(min-width:700px){.wrap.hero{padding-left:28px;padding-right:28px}}
+  /* A60: configúralo con tu asistente de IA */
+  #ia{background:#fff;padding:56px 0}
+  @media(min-width:900px){#ia{padding:72px 0}}
+  .ia{display:grid;gap:28px;align-items:start}
+  @media(min-width:860px){.ia{grid-template-columns:1fr 1.1fr;gap:48px}}
+  .ia-url{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--muro);border:1.5px solid var(--linea);border-radius:16px;padding:10px 10px 10px 16px}
+  .ia-url code{flex:1 1 auto;min-width:0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;font-weight:700;color:var(--tinta);overflow-wrap:anywhere}
+  @media(min-width:420px){.ia-url code{font-size:17px}}
+  .ia-url .btn{min-height:44px;padding:8px 20px;font-size:16px}
+  .ia-ok{display:block;min-height:1.5em;margin-top:8px;font-size:15px;color:var(--ok);font-weight:700}
+  .ia .pasos{margin-top:0;grid-template-columns:1fr;gap:18px}
+  .ia .pasos li::before{font-size:28px}
+  .ia .pasos h3{font-size:18px}
+  .ia-seg{margin-top:18px;padding:12px 16px;border-left:4px solid var(--rosa);background:var(--rubor);border-radius:0 12px 12px 0;font-size:16px}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"¿Necesito saber de tecnología?","acceptedAnswer":{"@type":"Answer","text":"No. Llenas el alta y conectas tu página de Facebook o tu WhatsApp con un clic; te guiamos. Nosotros armamos todo."}},
@@ -671,6 +685,26 @@
     </form>
     <div class="listo" id="ok" hidden tabindex="-1" role="status"></div>
   </div>
+</div></section>
+
+<!-- A60: CON TU ASISTENTE DE IA -->
+<section id="ia" aria-labelledby="ia-t"><div class="wrap ia">
+  <div>
+    <h2 id="ia-t">Configúralo con tu asistente de IA</h2>
+    <p class="sub">Si usas Claude o ChatGPT, tu asistente puede darte de alta y dejar tu bot listo, platicando.</p>
+    <p class="sr" id="ia-lab">URL del conector</p>
+    <div class="ia-url" role="group" aria-labelledby="ia-lab">
+      <code id="iaUrl">https://sd.neuri.tech/mcp</code>
+      <button type="button" class="btn go" id="iaCopy" aria-label="Copiar la URL del conector">Copiar</button>
+    </div>
+    <output class="ia-ok" id="iaOk" for="iaCopy" aria-live="polite"></output>
+    <p class="ia-seg">Tu tarjeta y tu llave de ManyChat nunca pasan por el chat: se ponen solo en las páginas seguras de Neuri y Stripe.</p>
+  </div>
+  <ol class="pasos" aria-label="Pasos para conectarlo">
+      <li><h3>Agrega un conector personalizado</h3><p>En la configuración de conectores de tu asistente de IA, pega esta URL.</p></li>
+      <li><h3>Entra con tu correo</h3><p>Se abre una página de Neuri: escribe el correo de tu negocio y el código de 6 dígitos que te llega.</p></li>
+      <li><h3>Pídele lo que quieres</h3><p>Escríbele: «configura mi asistente de ¿Sigue Disponible?». Te va guiando paso a paso y te pide confirmar antes de prender o cobrar algo.</p></li>
+  </ol>
 </div></section>
 
 <!-- FAQ -->
@@ -1056,6 +1090,12 @@
     if(altaId){document.getElementById('resumeNote').hidden=false;window.addEventListener('load',function(){document.getElementById('alta').scrollIntoView();});}
     go(1,true);
   })();
+// A60: copiar la URL del conector
+(function(){var b=document.getElementById('iaCopy'),o=document.getElementById('iaOk'),u=document.getElementById('iaUrl');if(!b)return;
+function sel(){try{var r=document.createRange();r.selectNodeContents(u);var s=getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}}
+b.addEventListener('click',function(){var t=u.textContent.trim();o.textContent='';
+var done=function(){o.textContent='¡Copiada! Pégala en tu asistente de IA.';},bad=function(){sel();o.textContent='No se pudo copiar: selecciona la URL y cópiala a mano.';};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,bad);}else{bad();}});})();
 </script>
 </body>
 </html>

@@ -943,6 +943,8 @@
   var form = document.getElementById('f');
   // Si viene del correo de recordatorio (?alta=…), completa la misma alta en vez de crear otra.
   var altaId = (new URLSearchParams(location.search).get('alta') || '').slice(0, 64);
+  // Link de referido (?ref=…): se guarda para acreditar el mes gratis a los dos.
+  var refCode = (new URLSearchParams(location.search).get('ref') || '').replace(/[^a-z0-9]/gi, '').slice(0, 16);
   (function(){
     var NAMES={1:'Tus datos',2:'Tu negocio',3:'Cómo atiendes',4:'Tu plan'};
     var STEP_OF={nombre:1,whatsapp:1,correo:1,negocio:2,vendes:2,donde:2,mensajes:2,horario:3,entrega:3,pagos:3,agenda:3,faq:4,plan:4,consent:4};
@@ -1016,6 +1018,7 @@
       var labels={nombre:'Nombre',whatsapp:'WhatsApp',correo:'Correo',negocio:'Negocio',vendes:'Qué vende',donde:'Dónde vende',mensajes:'Mensajes al día',horario:'Horario',entrega:'Entrega',pagos:'Pagos',faq:'Preguntas frecuentes',agenda:'Agenda',plan:'Plan'};
       var lines=['ALTA ¿SIGUE DISPONIBLE?',''];
       if(altaId)lines.push('Alta: '+altaId,'');
+      if(refCode)lines.push('Recomendado por: '+refCode,'');
       Object.keys(labels).forEach(function(k){lines.push(labels[k]+': '+(d[k]||'-'));});
       lines.push('','Consentimiento: sí');
       window.location.href='mailto:hola@neuri.tech?subject='+encodeURIComponent('Alta ¿Sigue Disponible? - '+d.negocio)+'&body='+encodeURIComponent(lines.join('\n'));
@@ -1029,6 +1032,7 @@
       var d=collect();
       if(!SD_ENDPOINT)return mailto(d);
       if(altaId)d.id=altaId;
+      if(refCode)d.ref=refCode;
       bSend.disabled=true;bSend.textContent='Revisando tu alta…';
       fetch(SD_ENDPOINT+'/intake',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)})
         .then(function(r){if(!r.ok)throw new Error();return r.json();})

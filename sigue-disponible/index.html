@@ -1035,7 +1035,7 @@
       if(refCode)d.ref=refCode;
       bSend.disabled=true;bSend.textContent='Revisando tu alta…';
       fetch(SD_ENDPOINT+'/intake',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)})
-        .then(function(r){if(!r.ok)throw new Error();return r.json();})
+        .then(function(r){if(r.status===429)return r.json().then(function(b){throw {limit:b.message};});if(!r.ok)throw new Error();return r.json();})
         .then(function(r){
           if(r.id)altaId=r.id;
           var miss=document.getElementById('missing');
@@ -1048,7 +1048,11 @@
             done('<p class="big">¡Listo! Tu alta quedó completa.</p><p>Esto sigue:</p><ol><li>Te escribimos por WhatsApp en menos de 24 horas para conectar tu página o tu WhatsApp.</li><li>En 1 o 2 días te mandamos tu asistente para que lo pruebes.</li><li>Cuando tú lo apruebes, empieza a contestar.</li></ol>');
           }
         })
-        .catch(function(){mailto(d);})
+        .catch(function(e){
+          // A48: demasiadas altas (429): el mensaje del servidor y la opción de mandarla por correo; el formulario sigue lleno.
+          if(e&&e.limit){var miss=document.getElementById('missing');miss.textContent=e.limit+' ';var b=document.createElement('button');b.type='button';b.className='btn ghost';b.style.marginTop='10px';b.textContent='Mandar mi alta por correo';b.addEventListener('click',function(){mailto(d);});miss.appendChild(b);miss.classList.add('on');miss.scrollIntoView({block:'center'});return;}
+          mailto(d);
+        })
         .then(function(){bSend.disabled=false;bSend.textContent='Pedir mi asistente';});
     });
 

@@ -372,6 +372,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* 101: configúralo con tu asistente de IA */
+#ia{background:var(--neblina)}
+.ia{display:grid;gap:32px;align-items:start}
+@media(min-width:900px){.ia{grid-template-columns:1fr 1fr;gap:56px}}
+.ia h2{max-width:13em}
+.ia-tag{margin-top:26px;position:relative;background:var(--etiqueta);color:var(--anil);border-radius:0 14px 14px 0;padding:14px 14px 14px 34px;clip-path:polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%);display:flex;flex-wrap:wrap;gap:10px;align-items:center;box-shadow:inset 0 -3px 0 var(--etiqueta-2)}
+.ia-tag::before{content:"";position:absolute;left:16px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--neblina)}
+.ia-tag code{flex:1 1 12em;min-width:0;font-family:var(--ticket);font-weight:600;font-size:15px;overflow-wrap:anywhere}
+@media(max-width:419px){.ia-tag code{flex-basis:100%;overflow-wrap:normal}}
+@media(min-width:420px){.ia-tag code{font-size:17px}}
+.ia-tag .btn{min-height:44px;padding:8px 20px;font-size:16px}
+.ia-ok{display:block;min-height:1.5em;margin-top:8px;font-size:15px;font-weight:700;color:var(--verde-agua)}
+.ia-pide{margin-top:18px}
+.ia-pide p{font-weight:750;font-size:16px}
+.ia-pide ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ia-pide li{background:#fff;border:1.5px solid var(--linea);border-radius:999px;padding:6px 14px;font-size:15px;color:var(--anil)}
+.ia .ticket{font-size:15px;padding:20px 20px 28px;box-shadow:0 1px 0 var(--linea)}
+.ia .ticket ol{list-style:none;counter-reset:p}
+.ia .ticket li{counter-increment:p;display:grid;grid-template-columns:2.2em 1fr;padding:10px 0;border-bottom:1px dashed #9aa0b4}
+.ia .ticket li::before{content:counter(p,decimal-leading-zero);font-weight:600;color:var(--gris)}
+.ia .ticket li:last-child{border-bottom:0}
+.ia .t-seg{margin-top:10px;padding-top:12px;border-top:2px solid var(--anil);font-weight:600;text-align:center}
 </style>
 </head>
 <body>
@@ -822,6 +845,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </section>
 
 <!-- FAQ -->
+<!-- 101: SET IT UP WITH YOUR AI ASSISTANT -->
+<section id="ia" aria-labelledby="t-ia">
+  <div class="wrap ia">
+    <div>
+      <h2 id="t-ia">Set it up with your AI assistant</h2>
+      <p class="entrada">If you use Claude or ChatGPT, your assistant can add your vendors, load your inventory and get your store ready. You just talk; it does the work in your Neuri Bazar, with your permission.</p>
+      <p class="sr" id="ia-lab">Connector URL</p>
+      <div class="ia-tag" role="group" aria-labelledby="ia-lab">
+        <code id="iaUrl">https://bazar.neuri.tech/mcp</code>
+        <button type="button" class="btn btn-anil" id="iaCopy" aria-label="Copy the connector URL">Copy</button>
+      </div>
+      <output class="ia-ok" id="iaOk" for="iaCopy" aria-live="polite"></output>
+      <div class="ia-pide">
+        <p>Ask it things like:</p>
+        <ul><li>“Add Lupita as a vendor, 30% commission”</li><li>“Add these 20 items”</li><li>“What’s left before I can start selling?”</li></ul>
+      </div>
+    </div>
+    <div class="ticket" role="group" aria-labelledby="t-ia-pasos">
+      <div class="t-enc"><b id="t-ia-pasos">How to connect it</b><span>Only the owner or a manager can connect it.</span></div>
+      <ol><li><span>In Claude or ChatGPT, add a custom connector and paste this URL. If you can’t find the option, search “custom connector” in your assistant’s help.</span></li><li><span>A Neuri Bazar page opens: enter the email you use for your store. No passwords.</span></li><li><span>Open the link we send you, on the same device.</span></li><li><span>Review what it will be able to do and tap Allow access. Done.</span></li></ol>
+      <p class="t-seg">Your card never goes through the chat; nothing gets deleted.</p>
+    </div>
+  </div>
+</section>
+
 <section id="preguntas" aria-labelledby="t-faq">
   <div class="wrap">
     <h2 id="t-faq">Questions we get</h2>
@@ -1217,6 +1265,14 @@ var APP_URL = '';
     new IntersectionObserver(function (en) { pruebaVisible = en[0].isIntersecting; ctaPintar(); }, { threshold: 0.05 }).observe($('#prueba'));
   }
 })();
+</script>
+<script>
+// 101: copiar la URL del conector
+(function(){var b=document.getElementById('iaCopy');if(!b)return;var o=document.getElementById('iaOk'),u=document.getElementById('iaUrl');
+b.addEventListener('click',function(){var t=u.textContent.trim();
+var sel=function(){var r=document.createRange();r.selectNodeContents(u);var s=window.getSelection();s.removeAllRanges();s.addRange(r);};
+var done=function(){o.textContent='Copied! Paste it into your AI assistant.';},bad=function(){sel();o.textContent='Couldn’t copy. Select the URL and copy it by hand.';};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,bad);}else{bad();}});})();
 </script>
 </body>
 </html>

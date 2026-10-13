@@ -289,6 +289,7 @@
   .paso > p.why{color:var(--gris);margin-top:4px;font-size:16px}
   .fields{display:grid;gap:16px;margin-top:18px}
   .f{display:grid;gap:6px}
+  .f[hidden]{display:none}
   .f > label,.f > .lab{font-weight:700;font-size:16px}
   .f .help{font-size:14.5px;color:var(--gris)}
   .f .opt{font-weight:400;color:var(--gris);font-size:14.5px}
@@ -302,6 +303,17 @@
   .warn.on{display:block}
   .row2{display:grid;gap:16px}
   @media(min-width:600px){.row2{grid-template-columns:1fr 1fr}}
+  .tipos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .tipo{position:relative}
+  .tipo input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+  .tipo > span{display:flex;align-items:center;gap:10px;height:100%;min-height:56px;padding:10px 12px;border:1.5px solid #9A7A8C;border-radius:14px;background:#fff;font-weight:700;font-size:15.5px;line-height:1.25}
+  .tipo > span i{font-style:normal;font-size:22px;flex:none}
+  .tipo > span small{display:block;font-weight:400;font-size:13.5px;color:var(--gris)}
+  .tipo.wide{grid-column:1/-1}
+  .tipo input:checked + span{background:var(--tinta);border-color:var(--tinta);color:#fff}
+  .tipo input:checked + span small{color:#F3E6EC}
+  .tipo input:focus-visible + span{outline:3px solid var(--cobalto);outline-offset:2px}
+  .tipos[aria-invalid="true"] .tipo > span{border-color:#C0123F}
   .pills{display:flex;flex-wrap:wrap;gap:8px}
   .pill{position:relative}
   .pill input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%;margin:0}
@@ -641,6 +653,8 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
         <p class="why">Con esto elegimos las preguntas que más le hacen a tu giro.</p>
         <div class="fields">
           <div class="f"><label for="negocio">Nombre de tu negocio</label><input type="text" id="negocio" name="negocio" required placeholder="Ej. Muebles Don Chuy" aria-describedby="e-negocio"><p class="err" id="e-negocio">Ponle nombre, aunque sea tu nombre de vendedor.</p></div>
+          <div class="f"><span class="lab" id="l-giro">¿Qué tipo de negocio es?</span><p class="help" id="h-giro">Con esto prendemos lo que le sirve a tu negocio; lo cambias cuando quieras.</p><div class="tipos" id="giros" role="radiogroup" aria-labelledby="l-giro" aria-describedby="h-giro e-giro" aria-required="true"><label class="tipo"><input type="radio" name="giro" value="bazar" required><span><i aria-hidden="true">🛋️</i><span>Bazar o segunda mano</span></span></label><label class="tipo"><input type="radio" name="giro" value="ropa" required><span><i aria-hidden="true">👗</i><span>Ropa o boutique</span></span></label><label class="tipo"><input type="radio" name="giro" value="comida" required><span><i aria-hidden="true">☕</i><span>Comida o café</span></span></label><label class="tipo"><input type="radio" name="giro" value="citas" required><span><i aria-hidden="true">💅</i><span>Citas<small>uñas, pestañas, barbería…</small></span></span></label><label class="tipo wide"><input type="radio" name="giro" value="otro" required><span><i aria-hidden="true">✨</i><span>Otro</span></span></label></div><p class="err" id="e-giro">Elige el que más se parezca: con eso prendemos lo que te sirve.</p></div>
+          <div class="f" id="subgiroBox" hidden><label for="subgiro">¿De qué son tus citas? <span class="opt">(opcional)</span></label><select id="subgiro" name="subgiro" aria-describedby="h-subgiro"><option value="">Elige…</option><option value="unas">Uñas</option><option value="barberia">Barbería / corte</option><option value="pestanas">Pestañas / cejas</option><option value="masajes">Masajes</option><option value="otro">Otro</option></select><p class="help" id="h-subgiro">Llenamos tu agenda con servicios de ejemplo; el precio lo pones tú.</p></div>
           <div class="f"><span class="lab" id="l-vendes">¿Qué vendes? <span class="opt">(toca todos los que apliquen)</span></span><div class="pills" id="vendesPills" role="group" aria-labelledby="l-vendes"></div>
             <label class="sr" for="vendes">Otros productos o detalle</label><input type="text" id="vendes" name="vendes" placeholder="Otro, o más detalle: «muebles rústicos de segunda»"></div>
           <div class="f"><span class="lab" id="l-donde">¿Dónde vendes más?</span><div class="pills" role="radiogroup" aria-labelledby="l-donde">
@@ -994,7 +1008,7 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
   var refCode = (new URLSearchParams(location.search).get('ref') || '').replace(/[^a-z0-9]/gi, '').slice(0, 16);
   (function(){
     var NAMES={1:'Tus datos',2:'Tu negocio',3:'Cómo atiendes',4:'Tu plan'};
-    var STEP_OF={nombre:1,whatsapp:1,correo:1,negocio:2,vendes:2,donde:2,mensajes:2,horario:3,entrega:3,pagos:3,agenda:3,faq:4,plan:4,consent:4};
+    var STEP_OF={nombre:1,whatsapp:1,correo:1,negocio:2,giro:2,subgiro:2,vendes:2,donde:2,mensajes:2,horario:3,entrega:3,pagos:3,agenda:3,faq:4,plan:4,consent:4};
     var LABEL={nombre:'tu nombre',whatsapp:'tu celular',correo:'tu correo',negocio:'el nombre de tu negocio',vendes:'qué vendes',donde:'dónde vendes',mensajes:'cuántos mensajes recibes',horario:'tu horario',entrega:'cómo entregas',pagos:'tus formas de pago',agenda:'si quieres que agende',faq:'tus preguntas frecuentes',plan:'el plan',consent:'tu permiso para usar los datos'};
     var step=1, steps=form.querySelectorAll('.paso');
     var bBack=document.getElementById('bBack'),bNext=document.getElementById('bNext'),bSend=document.getElementById('bSend'),bSkip=document.getElementById('bSkip');
@@ -1009,6 +1023,11 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
       l.querySelector('input').addEventListener('change',function(){pIn.value=[].map.call(pp.querySelectorAll('input:checked'),function(i){return i.value;}).join(', ');});});
     function vendesValue(){var extra=vIn.value.trim();return picked.concat(extra?[extra]:[]).join(', ');}
 
+    // A118: tipo de negocio (obligatorio) y sub-giro de citas (opcional, solo con «citas»)
+    var subBox=document.getElementById('subgiroBox'),subSel=document.getElementById('subgiro');
+    function giroValue(){var g=form.querySelector('input[name=giro]:checked');return g?g.value:'';}
+    function giroLabel(){var g=form.querySelector('input[name=giro]:checked');return g?g.nextElementSibling.textContent.trim():'';}
+    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');});});
     function setErr(name,on){var el=form.elements[name],e=document.getElementById('e-'+name);if(el&&el.setAttribute)el.setAttribute('aria-invalid',on?'true':'false');if(e)e.classList.toggle('on',!!on);}
     function validate(n){
       var bad=[];
@@ -1018,13 +1037,13 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
         setErr('whatsapp',wa.length<10); if(wa.length<10)bad.push('whatsapp');
         var mailBad=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail); setErr('correo',mailBad); if(mailBad)bad.push('correo');
       }
-      if(n===2){var neg=form.elements.negocio.value.trim();setErr('negocio',!neg);if(!neg)bad.push('negocio');}
+      if(n===2){var neg=form.elements.negocio.value.trim();setErr('negocio',!neg);if(!neg)bad.push('negocio');var gi=giroValue();document.getElementById('giros').setAttribute('aria-invalid',gi?'false':'true');document.getElementById('e-giro').classList.toggle('on',!gi);if(!gi)bad.push('giro');}
       if(n===4){var c=form.elements.consent.checked;setErr('consent',!c);if(!c)bad.push('consent');}
-      if(bad.length){var f=form.elements[bad[0]];if(f&&f.focus)f.focus();return false;}
+      if(bad.length){var f=bad[0]==='giro'?form.querySelector('input[name=giro]'):form.elements[bad[0]];if(f&&f.focus)f.focus();return false;}
       return true;
     }
     function summary(){
-      var rows=[['Nombre',form.elements.nombre.value],['WhatsApp',form.elements.whatsapp.value],['Correo',form.elements.correo.value||'Sin correo'],['Negocio',form.elements.negocio.value],['Vende',vendesValue()||'Sin especificar'],['Dónde',form.elements.donde.value]];
+      var rows=[['Nombre',form.elements.nombre.value],['WhatsApp',form.elements.whatsapp.value],['Correo',form.elements.correo.value||'Sin correo'],['Negocio',form.elements.negocio.value],['Tipo',giroLabel()+(subSel.value?' · '+subSel.options[subSel.selectedIndex].text:'')],['Vende',vendesValue()||'Sin especificar'],['Dónde',form.elements.donde.value]];
       document.getElementById('resumen').innerHTML=rows.map(function(r){return '<dt>'+r[0]+'</dt><dd>'+esc(r[1])+'</dd>';}).join('')+'<dd><button type="button" class="skip" data-go="1">Corregir algo</button></dd>';
       document.querySelector('[data-go]').addEventListener('click',function(){go(1);});
     }
@@ -1059,7 +1078,7 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
       var ok=document.getElementById('ok');ok.innerHTML=html;ok.hidden=false;ok.focus();
     }
     function mailto(d){
-      var labels={nombre:'Nombre',whatsapp:'WhatsApp',correo:'Correo',negocio:'Negocio',vendes:'Qué vende',donde:'Dónde vende',mensajes:'Mensajes al día',horario:'Horario',entrega:'Entrega',pagos:'Pagos',faq:'Preguntas frecuentes',agenda:'Agenda',plan:'Plan'};
+      var labels={nombre:'Nombre',whatsapp:'WhatsApp',correo:'Correo',negocio:'Negocio',giro:'Giro',subgiro:'Giro (citas)',vendes:'Qué vende',donde:'Dónde vende',mensajes:'Mensajes al día',horario:'Horario',entrega:'Entrega',pagos:'Pagos',faq:'Preguntas frecuentes',agenda:'Agenda',plan:'Plan'};
       var lines=['ALTA ¿SIGUE DISPONIBLE?',''];
       if(altaId)lines.push('Alta: '+altaId,'');
       if(refCode)lines.push('Recomendado por: '+refCode,'');

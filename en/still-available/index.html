@@ -311,6 +311,7 @@
   .tipo > span i{font-style:normal;font-size:22px;flex:none}
   .tipo > span small{display:block;font-weight:400;font-size:13.5px;color:var(--gris)}
   .tipo.wide{grid-column:1/-1}
+  .tipo:hover > span,.pill:hover > span{border-color:var(--tinta)}
   .tipo input:checked + span{background:var(--tinta);border-color:var(--tinta);color:#fff}
   .tipo input:checked + span small{color:#F3E6EC}
   .tipo input:focus-visible + span{outline:3px solid var(--cobalto);outline-offset:2px}
@@ -318,7 +319,8 @@
   .pills{display:flex;flex-wrap:wrap;gap:8px}
   .pill{position:relative}
   .pill input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%;margin:0}
-  .pill span{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #9A7A8C;border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px;min-height:44px;background:#fff}
+  .pill > span{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #9A7A8C;border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px;min-height:44px;background:#fff}
+  .pill > span > span{font-size:18px;line-height:1}
   .pill input:checked + span{background:var(--tinta);border-color:var(--tinta);color:#fff}
   .pill input:focus-visible + span{outline:3px solid var(--cobalto);outline-offset:2px}
   .planpick{display:grid;gap:10px}
@@ -1054,7 +1056,7 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
     var subBox=document.getElementById('subgiroBox'),subSel=document.getElementById('subgiro');
     function giroValue(){var g=form.querySelector('input[name=giro]:checked');return g?g.value:'';}
     function giroLabel(){var g=form.querySelector('input[name=giro]:checked');return g?g.nextElementSibling.textContent.trim():'';}
-    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');});});
+    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');var same={ropa:'ropa',comida:'comida'}[giroValue()];if(same&&!picked.length){var chip=vp.querySelectorAll('input')[ORDEN.indexOf(same)];if(chip&&!chip.checked){chip.checked=true;chip.dispatchEvent(new Event('change'));}}});});
     function setErr(name,on){var el=form.elements[name],e=document.getElementById('e-'+name);if(el&&el.setAttribute)el.setAttribute('aria-invalid',on?'true':'false');if(e)e.classList.toggle('on',!!on);}
     function validate(n){
       var bad=[];

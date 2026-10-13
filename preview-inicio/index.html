@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Neuri — Laboratorio de productos de inteligencia artificial</title>
-<meta name="description" content="Neuri diseña agentes de IA que hacen el trabajo repetitivo de los negocios: contestar compradores, cobrar, apartar y cuadrar la caja. Productos: ¿Sigue Disponible? y Neuri Bazar.">
+<meta name="description" content="Neuri diseña agentes de IA que hacen el trabajo repetitivo de los negocios: contestar compradores, cobrar, apartar y cuadrar la caja. Productos: neuri.bots y neuri.bazar.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#04060A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%2304060A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%238FE0B4%22/%3E%3Ccircle cx=%2223%22 cy=%229%22 r=%222%22 fill=%22%23E9EEF2%22/%3E%3C/svg%3E">
@@ -278,8 +278,8 @@ details summary::-webkit-details-marker{display:none}
 <footer style="border-top: 1px solid rgba(233,238,242,.08); padding: 28px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
 <span class="x-mono" style="font-size: 11.5px; color: #6E7A86">© 2026 Neuri LLC · 33.4484° N, 112.0740° W · Phoenix, Arizona</span>
 <span style="display: flex; gap: 22px; flex-wrap: wrap; font-size: 14px">
-<a href="/sigue-disponible/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">¿Sigue Disponible?</a>
-<a href="/bazar/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Neuri Bazar</a>
+<a href="/sigue-disponible/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">neuri.bots</a>
+<a href="/bazar/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">neuri.bazar</a>
 <a href="/en/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">English</a>
 </span>
 </footer>
@@ -295,13 +295,13 @@ class Component extends DCLogic {
     this.state = { wi: 0, flip: false, clock: '', cmd: 0, shown: 0, running: false, auto: true, typed: 0 };
     this.words = ['contesta', 'cobra', 'aparta', 'agenda', 'cuadra la caja'];
     this.cmdDefs = [
-      { key: 'contestar', label: 'Contestar a mis compradores', hint: '¿Sigue Disponible?', icon: '✦', iconBg: 'rgba(143,224,180,.12)', iconColor: '#8FE0B4', short: '↵',
+      { key: 'contestar', label: 'Contestar a mis compradores', hint: 'neuri.bots', icon: '✦', iconBg: 'rgba(143,224,180,.12)', iconColor: '#8FE0B4', short: '↵',
         log: [['› Leyendo 14 mensajes nuevos de Instagram y Messenger', 0], ['› 11 resueltos con tu hoja: precio, entrega y pagos', 0], ['› 2 apartados confirmados · ropero blanco, mesa de centro', 1], ['› 1 regateo detectado → te lo pasé a ti', 2], ['✓ Listo en 2.8 s · no tocaste el celular', 1]] },
-      { key: 'cerrar-dia', label: 'Cerrar el día del bazar', hint: 'Neuri Bazar', icon: '◈', iconBg: 'rgba(167,139,250,.14)', iconColor: '#A78BFA', short: '⌘1',
+      { key: 'cerrar-dia', label: 'Cerrar el día del bazar', hint: 'neuri.bazar', icon: '◈', iconBg: 'rgba(167,139,250,.14)', iconColor: '#A78BFA', short: '⌘1',
         log: [['› 90 ventas de 30 vendedores, separadas al cobrar', 0], ['› Rentas de la semana descontadas de cada saldo', 0], ['› Corte de caja: esperado $18,420 · contado $18,420', 1], ['› 30 estados de cuenta listos para enviar', 0], ['✓ Día cerrado en 6 min', 1]] },
-      { key: 'rentar-puesto', label: 'Rentar un puesto nuevo', hint: 'Neuri Bazar', icon: '⬡', iconBg: 'rgba(103,232,249,.12)', iconColor: '#67E8F9', short: '⌘2',
+      { key: 'rentar-puesto', label: 'Rentar un puesto nuevo', hint: 'neuri.bazar', icon: '⬡', iconBg: 'rgba(103,232,249,.12)', iconColor: '#67E8F9', short: '⌘2',
         log: [['› Puesto 12 libre · renta fija $300 a la semana', 0], ['› Contrato enviado a Lupita por WhatsApp', 0], ['› Firmado desde su celular', 1], ['› Su link de Mi Puesto ya está activo', 0], ['✓ Vendedora dada de alta', 1]] },
-      { key: 'agendar', label: 'Agendar una visita y recordarla', hint: '¿Sigue Disponible? · Pro', icon: '◎', iconBg: 'rgba(233,238,242,.08)', iconColor: '#E9EEF2', short: '⌘3',
+      { key: 'agendar', label: 'Agendar una visita y recordarla', hint: 'neuri.bots · Pro', icon: '◎', iconBg: 'rgba(233,238,242,.08)', iconColor: '#E9EEF2', short: '⌘3',
         log: [['› Ana pregunta si puede ver la mesa el sábado', 0], ['› Visita agendada: sábado 11 am', 1], ['› Recordatorio programado 2 horas antes', 0], ['› Recordatorio enviado · Ana confirmó', 0], ['✓ Visita lista sin que escribieras nada', 1]] }
     ];
     this.timers = [];
@@ -371,14 +371,14 @@ class Component extends DCLogic {
         return { t: w, style: 'animation-range: entry ' + a + '% cover ' + b + '%;' + (mColors[w] ? ' color: ' + mColors[w] + ';' : '') };
       }),
       missions: [
-        { code: 'MISIÓN 01 · AGENTE DE MENSAJES', name: '¿Sigue Disponible?', status: 'En operación', color: '#8FE0B4', border: 'rgba(143,224,180,.4)',
+        { code: 'MISIÓN 01 · AGENTE DE MENSAJES', name: 'neuri.bots', status: 'En operación', color: '#8FE0B4', border: 'rgba(143,224,180,.4)',
           desc: 'Contesta a tus compradores en Instagram y Messenger con tus precios y tus reglas: si sigue, cuánto cuesta, dónde se entrega. Aparta, agenda y te pasa lo difícil.',
           stats: [{ v: '< 3 s', k: 'Para contestar' }, { v: '24/7', k: 'Despierto' }, { v: '0', k: 'Precios inventados' }],
-          cta: 'Entrar a ¿Sigue Disponible?', href: '/sigue-disponible/' },
-        { code: 'MISIÓN 02 · AGENTE DE OPERACIONES', name: 'Neuri Bazar', status: 'En operación', color: '#A78BFA', border: 'rgba(167,139,250,.45)',
+          cta: 'Entrar a neuri.bots', href: '/sigue-disponible/' },
+        { code: 'MISIÓN 02 · AGENTE DE OPERACIONES', name: 'neuri.bazar', status: 'En operación', color: '#A78BFA', border: 'rgba(167,139,250,.45)',
           desc: 'La caja y las cuentas de bazares, tianguis y antique malls. Cada venta va al saldo de su vendedor, la renta del puesto se cobra sola y el día cuadra sin libreta.',
           stats: [{ v: '6 min', k: 'Para cerrar el día' }, { v: '0', k: 'Comisiones por venta' }, { v: 'ES · EN', k: 'MX y EE.UU.' }],
-          cta: 'Entrar a Neuri Bazar', href: '/bazar/' }
+          cta: 'Entrar a neuri.bazar', href: '/bazar/' }
       ],
       query: cur.label.slice(0, st.typed),
       runKey: cur.key,

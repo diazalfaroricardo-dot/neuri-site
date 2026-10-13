@@ -1,0 +1,6 @@
+# neuri.tech
+User-agent: *
+Allow: /
+Disallow: /preview-inicio/
+
+Sitemap: https://neuri.tech/sitemap.xml

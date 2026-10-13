@@ -2369,6 +2369,8 @@ document.addEventListener('click', function (e) {
   var refCode = (new URLSearchParams(location.search).get('ref') || '').replace(/[^a-z0-9]/gi, '').slice(0, 16);
   (function(){
     var NAMES={1:'Tus datos',2:'Tu negocio',3:'Cómo atiendes',4:'Tu plan'};
+    // /intake regresa lo que falta con nombre para personas («Formas de pago»): se traduce al campo para llevarla a ese paso
+    var FIELD_OF={'Nombre del negocio':'negocio','Business name':'negocio','Horario de atención':'horario','Business hours':'horario','Dónde se recoge o se ve la pieza':'entrega','Where buyers pick up or see the item':'entrega','Formas de pago':'pagos','Payment methods':'pagos'};
     var STEP_OF={nombre:1,whatsapp:1,correo:1,negocio:2,giro:2,subgiro:2,vendes:2,donde:2,mensajes:2,horario:3,entrega:3,pagos:3,agenda:3,faq:4,plan:4,consent:4};
     var LABEL={nombre:'tu nombre',whatsapp:'tu celular',correo:'tu correo',negocio:'el nombre de tu negocio',vendes:'qué vendes',donde:'dónde vendes',mensajes:'cuántos mensajes recibes',horario:'tu horario',entrega:'cómo entregas',pagos:'tus formas de pago',agenda:'si quieres que agende',faq:'tus preguntas frecuentes',plan:'el plan',consent:'tu permiso para usar los datos'};
     var step=1, steps=form.querySelectorAll('.paso');
@@ -2468,7 +2470,7 @@ document.addEventListener('click', function (e) {
           if(r.id)altaId=r.id;
           var miss=document.getElementById('missing');
           if(r.missing&&r.missing.length){
-            var first=4;r.missing.forEach(function(k){if(STEP_OF[k]&&STEP_OF[k]<first)first=STEP_OF[k];setErr(k,true);});
+            var first=4;r.missing.forEach(function(m){var k=FIELD_OF[m]||m;if(STEP_OF[k]&&STEP_OF[k]<first)first=STEP_OF[k];setErr(k,true);});
             miss.textContent='Casi listo. Para que tu asistente conteste bien nos falta: '+r.missing.map(function(k){return LABEL[k]||k;}).join(', ')+'. Te llevamos a ese paso.';
             miss.classList.add('on');
             go(first);

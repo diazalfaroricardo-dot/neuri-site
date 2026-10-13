@@ -2371,6 +2371,8 @@ document.addEventListener('click', function (e) {
   var refCode = (new URLSearchParams(location.search).get('ref') || '').replace(/[^a-z0-9]/gi, '').slice(0, 16);
   (function(){
     var NAMES={1:'About you',2:'Your business',3:'How you handle buyers',4:'Your plan'};
+    // /intake regresa lo que falta con nombre para personas («Formas de pago»): se traduce al campo para llevarla a ese paso
+    var FIELD_OF={'Nombre del negocio':'negocio','Business name':'negocio','Horario de atención':'horario','Business hours':'horario','Dónde se recoge o se ve la pieza':'entrega','Where buyers pick up or see the item':'entrega','Formas de pago':'pagos','Payment methods':'pagos'};
     var STEP_OF={nombre:1,whatsapp:1,correo:1,negocio:2,giro:2,subgiro:2,vendes:2,donde:2,mensajes:2,horario:3,entrega:3,pagos:3,agenda:3,faq:4,plan:4,consent:4};
     var LABEL={nombre:'your name',whatsapp:'your mobile number',correo:'your email',negocio:'your business name',vendes:'what you sell',donde:'where you sell',mensajes:'how many messages you get',horario:'your hours',entrega:'how pickup or delivery works',pagos:'your payment methods',agenda:'whether it should book pickups',faq:'your common questions',plan:'your plan',consent:'your OK to use this information'};
     var step=1, steps=form.querySelectorAll('.paso');
@@ -2470,7 +2472,7 @@ document.addEventListener('click', function (e) {
           if(r.id)altaId=r.id;
           var miss=document.getElementById('missing');
           if(r.missing&&r.missing.length){
-            var first=4;r.missing.forEach(function(k){if(STEP_OF[k]&&STEP_OF[k]<first)first=STEP_OF[k];setErr(k,true);});
+            var first=4;r.missing.forEach(function(m){var k=FIELD_OF[m]||m;if(STEP_OF[k]&&STEP_OF[k]<first)first=STEP_OF[k];setErr(k,true);});
             miss.textContent='Almost done. So your assistant answers well, we still need: '+r.missing.map(function(k){return LABEL[k]||k;}).join(', ')+'. We\'ll take you to that step.';
             miss.classList.add('on');
             go(first);

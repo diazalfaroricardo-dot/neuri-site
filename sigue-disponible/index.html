@@ -385,6 +385,20 @@
   .ia .pasos h3{font-size:18px}
   .ia-seg{margin-top:18px;padding:12px 16px;border-left:4px solid var(--rosa);background:var(--rubor);border-radius:0 12px 12px 0;font-size:16px}
 footer a{display:inline-block;min-height:44px;line-height:44px}
+  /* Comparación */
+  .cmp-scroll{overflow-x:auto;margin-top:28px;border-radius:22px;background:#fff;color:var(--tinta)}
+  .cmp{width:100%;min-width:700px;border-collapse:collapse;font-size:16px}
+  .cmp th,.cmp td{padding:15px 16px;text-align:left;vertical-align:top;border-top:1px solid var(--linea);line-height:1.35}
+  .cmp thead th{border-top:0;font-size:15px;color:var(--gris);font-weight:700}
+  .cmp thead th.sd{background:var(--rosa);color:#fff}
+  .cmp tbody th{font-weight:700}
+  .cmp td.no{color:var(--rosa-osc)}
+  .cmp td.meh{color:var(--gris)}
+  .cmp td.ok{color:var(--ok);font-weight:700}
+  .cmp td.sd{background:var(--rubor);font-weight:700}
+  .cmp td.sd::before{content:"✓ ";color:var(--ok)}
+  .cmp-pie{margin-top:16px;font-size:15px;color:#E3D3E6}
+  @media(min-width:760px){.cmp-pie{display:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"¿Necesito saber de tecnología?","acceptedAnswer":{"@type":"Answer","text":"No. Llenas el alta y nosotros armamos todo. El link para conectar tu Instagram o tu página de Facebook te llega por correo; te guiamos."}},
@@ -585,6 +599,13 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
 </div></section>
 
 <!-- PRECIOS -->
+<section class="dark" id="comparar" aria-labelledby="comparar-t"><div class="wrap">
+  <h2 id="comparar-t">Las otras opciones, y por qué esta sale mejor</h2>
+  <p class="sub">Puedes seguir contestando tú, pagarle a alguien o armar un bot por tu cuenta. Así se comparan.</p>
+  <div class="cmp-scroll" role="region" aria-labelledby="comparar-t" tabindex="0"><table class="cmp"><thead><tr><th scope="col"><span class="sr">Qué comparamos</span></th><th scope="col">Contestar tú</th><th scope="col">Pagarle a alguien</th><th scope="col">Bot que armas tú</th><th scope="col" class="sd">¿Sigue Disponible?</th></tr></thead><tbody><tr><th scope="row">Contesta a las 2 de la mañana</th><td class="no">Si estás despierto</td><td class="no">Solo en su turno</td><td class="ok">Sí</td><td class="sd">Sí, siempre</td></tr><tr><th scope="row">Lo que cuesta</th><td class="meh">Tu tiempo y tu sueño</td><td class="no">Un sueldo cada mes</td><td class="meh">Un plan mensual y tus horas armándolo</td><td class="sd">Desde $899 al mes</td></tr><tr><th scope="row">Quién lo arma</th><td class="no">Nadie: eres tú</td><td class="no">Tú le enseñas todo</td><td class="no">Tú, flujo por flujo</td><td class="sd">Nosotros, con tu hoja</td></tr><tr><th scope="row">Usa tus precios sin inventar</th><td class="ok">Sí</td><td class="meh">Si se los aprende</td><td class="meh">Depende de cómo lo armes</td><td class="sd">Solo contesta con tu hoja</td></tr><tr><th scope="row">Te pasa lo difícil</th><td class="meh">No aplica</td><td class="ok">Sí</td><td class="meh">Si lo programas</td><td class="sd">Regateos y dudas raras, a ti</td></tr><tr><th scope="row">Sin saber de tecnología</th><td class="ok">Sí</td><td class="ok">Sí</td><td class="no">No</td><td class="sd">Sí</td></tr></tbody></table></div>
+  <p class="cmp-pie">Desliza la tabla a los lados para ver todo.</p>
+</div></section>
+
 <section id="planes" aria-labelledby="planes-t"><div class="wrap">
   <h2 id="planes-t">Precio claro, sin contrato</h2>
   <p class="sub">Pagas cada mes con tarjeta y cancelas cuando quieras.</p>

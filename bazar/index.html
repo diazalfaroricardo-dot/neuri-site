@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Neuri Bazar — Muchos vendedores, una sola caja</title>
-<meta name="description" content="App de caja para bazares, tianguis, tiendas de consignación y antique malls. Cobras con el celular y la comisión, el IVA, la renta y lo que le debes a cada vendedor salen solos. 14 días gratis.">
+<meta name="description" content="App de caja para bazares, tianguis y antique malls que rentan puestos. Cobras con el celular y lo que vendió cada vendedor, la renta de su puesto y lo que le debes salen solos. 14 días gratis.">
 <meta name="theme-color" content="#1E2A5A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 22%22%3E%3Cpath d=%22M9 0h21a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H9L0 11z%22 fill=%22%23F6C744%22/%3E%3Ccircle cx=%229%22 cy=%2211%22 r=%222.6%22 fill=%22%231E2A5A%22/%3E%3C/svg%3E">
 <link rel="alternate" hreflang="en" href="https://neuri.tech/en/">
@@ -21,7 +21,7 @@
 {"@type":"Question","name":"¿Emite factura (CFDI)?","acceptedAnswer":{"@type":"Answer","text":"Todavía no. El recibo es una nota de venta impresa, por WhatsApp o por correo. El reporte de impuestos por mes te da lo que necesita tu contador."}},
 {"@type":"Question","name":"¿Cobran comisión por cada venta?","acceptedAnswer":{"@type":"Answer","text":"No. Pagas un precio fijo al mes por tu bazar, vendas lo que vendas. En México el precio es más IVA."}},
 {"@type":"Question","name":"¿Qué pasa al terminar los 14 días gratis?","acceptedAnswer":{"@type":"Answer","text":"Te avisamos por correo dos días antes. Si sigues, eliges tu plan y todo queda como está. Si no, no se te cobra nada."}},
-{"@type":"Question","name":"¿Mis datos son míos?","acceptedAnswer":{"@type":"Answer","text":"Sí. Descargas todo tu negocio con un botón cuando quieras. Además, cada cambio de precio, comisión o venta anulada queda en una bitácora que nadie puede editar ni borrar, ni siquiera el dueño."}},
+{"@type":"Question","name":"¿Mis datos son míos?","acceptedAnswer":{"@type":"Answer","text":"Sí. Descargas todo tu negocio con un botón cuando quieras. Además, cada cambio de precio, de renta o venta anulada queda en una bitácora que nadie puede editar ni borrar, ni siquiera el dueño."}},
 {"@type":"Question","name":"¿Sirve en Estados Unidos y en inglés?","acceptedAnswer":{"@type":"Answer","text":"Sí. Cobra en dólares con el sales tax encima, manda estados de cuenta mensuales y cada usuario elige español o inglés."}}
 ]}
 </script>
@@ -395,6 +395,81 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .ia .ticket li::before{content:counter(p,decimal-leading-zero);font-weight:600;color:var(--gris)}
 .ia .ticket li:last-child{border-bottom:0}
 .ia .t-seg{margin-top:10px;padding-top:12px;border-top:2px solid var(--anil);font-weight:600;text-align:center}
+/* Alta de vendedor */
+.alta-v{background:var(--neblina)}
+.av-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;margin-top:32px;align-items:start}
+@media(max-width:860px){.av-grid{grid-template-columns:minmax(0,1fr)}}
+.av-pasos{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:24px;display:grid;gap:22px}
+.av-pasos fieldset{border:0;min-width:0}
+.av-pasos legend{font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.av-pasos legend span{width:28px;height:28px;border-radius:50%;background:var(--anil);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:none}
+.av-mapa{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+@media(max-width:480px){.av-mapa{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.av-p{min-height:56px;border-radius:10px;border:2px solid var(--linea);background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;cursor:pointer;padding:4px;transition:transform .15s,background .2s}
+.av-p b{font-size:17px;line-height:1}
+.av-p small{font-size:11.5px;color:var(--gris);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.av-p.ocu{background:var(--neblina);border-color:transparent;color:#8A92B2;cursor:not-allowed}
+.av-p.ocu small{color:#8A92B2}
+.av-p.lib{border-style:dashed;border-color:var(--verde-agua)}
+.av-p.lib:hover{transform:translateY(-2px)}
+.av-p[aria-pressed="true"]{background:var(--etiqueta);border:2px solid var(--etiqueta-2);color:var(--anil)}
+.av-p[aria-pressed="true"] small{color:var(--anil)}
+.av-p.mio{background:var(--anil);border-color:var(--anil);color:#fff}
+.av-p.mio small{color:var(--etiqueta)}
+.av-ley{display:flex;gap:14px;align-items:center;margin-top:10px;font-size:14px;color:var(--gris)}
+.av-ley i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:-8px}
+.av-ley .lib{border:2px dashed var(--verde-agua)}
+.av-ley .ocu{background:var(--neblina);border:1px solid var(--linea)}
+.av-chips{display:flex;flex-wrap:wrap;gap:8px}
+.av-chip{min-height:48px;padding:8px 16px;border-radius:12px;border:2px solid var(--linea);background:#fff;font-weight:750;font-size:16px;cursor:pointer;display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;line-height:1.15}
+.av-chip small{font-weight:500;font-size:13px;color:var(--gris)}
+.av-chip[aria-pressed="true"]{border-color:var(--anil);background:var(--anil);color:#fff}
+.av-chip[aria-pressed="true"] small{color:var(--sobre-anil)}
+.av-dar{width:100%}
+.av-dar:disabled{background:var(--verde-agua);cursor:default}
+.av-lado{display:grid;gap:16px;justify-items:center}
+.av-tel{width:100%;max-width:360px;background:#ECE5DA;border:6px solid #0f1636;border-radius:26px;overflow:hidden}
+.av-tel-top{background:#0B5E3A;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:baseline}
+.av-tel-top small{color:#CFE6D9;font-size:12px}
+.av-chat{min-height:280px;padding:14px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.4}
+.av-vacio{color:#56635C;font-size:14.5px;text-align:center;margin:auto 8px}
+.av-msg{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;max-width:90%;align-self:flex-start;box-shadow:0 1px 1px rgba(0,0,0,.08);animation:avIn .35s ease both}
+.av-msg.yo{align-self:flex-end;background:#D9FDD3;border-radius:14px 14px 4px 14px}
+.av-link{display:block;background:var(--anil);color:#fff;font-weight:750;border-radius:10px;padding:10px 12px;margin-bottom:8px;text-align:center}
+@keyframes avIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.av-cuenta{width:100%;max-width:360px;background:#fff;border:1px solid var(--linea);border-radius:18px;padding:20px;animation:avIn .4s ease both}
+.av-cuenta h3{font-size:21px}
+.av-sub{color:var(--gris);font-size:15px;margin-top:4px}
+.av-cuenta ul{list-style:none;margin-top:10px}
+.av-cuenta li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--linea);font-variant-numeric:tabular-nums}
+.av-cuenta li span:last-child{font-weight:750}
+.av-cuenta li.neg span:last-child{color:var(--rosa)}
+.av-cuenta li.tot{border-bottom:0;border-top:2px solid var(--anil);font-weight:800;font-size:19px}
+.av-slider{margin-top:12px;display:grid;gap:6px}
+.av-slider label{font-size:14px;font-weight:650;color:var(--gris)}
+.av-slider input{width:100%;accent-color:var(--anil);min-height:44px}
+.av-nota{font-size:13.5px;color:var(--gris);margin-top:6px}
+.av-pie{font-size:14px;color:var(--gris);margin-top:18px}
+.demo-cal{margin-top:18px;color:var(--sobre-anil);font-size:16px}
+.demo-cal a{color:var(--etiqueta);font-weight:700;display:inline-flex;align-items:center;min-height:44px}
+/* Por qué cambiarte */
+.cmp-scroll{overflow-x:auto;margin-top:28px;border:1px solid var(--linea);border-radius:18px;background:#fff}
+.cmp{width:100%;min-width:680px;border-collapse:collapse;font-size:15.5px}
+.cmp th,.cmp td{padding:14px 16px;text-align:left;vertical-align:top;border-top:1px solid var(--linea);line-height:1.35}
+.cmp thead th{border-top:0;font-size:15px;color:var(--gris);font-weight:700}
+.cmp thead th.nb{background:var(--anil);color:#fff}
+.cmp tbody th{font-weight:700}
+.cmp td.no{color:var(--rosa)}
+.cmp td.mas{color:var(--naranja)}
+.cmp td.si{color:var(--verde-agua);font-weight:650}
+.cmp td.nb{background:#FFF8DF;font-weight:750}
+.mudanza{margin-top:36px}
+.mudanza ol{list-style:none;counter-reset:m;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:16px}
+@media(max-width:760px){.mudanza ol{grid-template-columns:minmax(0,1fr)}}
+.mudanza li{counter-increment:m;border-top:3px solid var(--anil);padding-top:12px;color:var(--gris)}
+.mudanza li::before{content:counter(m);font-family:var(--display);font-stretch:78%;font-weight:850;font-size:34px;color:var(--anil);display:block;line-height:1}
+.mudanza li b{display:block;color:var(--anil);font-size:18px;margin:6px 0 2px}
+@media(prefers-reduced-motion:reduce){.av-msg,.av-cuenta{animation:none}.av-p{transition:none}}
 </style>
 </head>
 <body>
@@ -418,12 +493,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap heroe-grid">
     <div class="heroe-texto">
       <h1 id="titulo">Muchos vendedores, una sola caja. Las cuentas salen solas.</h1>
-      <p class="entrada">Neuri Bazar es la caja de tu bazar en el celular. Escaneas la etiqueta, cobras, y la comisión, el IVA y lo que le toca a cada vendedor se separan al momento. Cada vendedor ve en su link cuánto le debes.</p>
+      <p class="entrada">Neuri Bazar es la caja de tu bazar en el celular. Escaneas la etiqueta, cobras, y lo que vendió cada vendedor se suma a su saldo al momento. La renta fija de su puesto se descuenta sola. Cada vendedor ve en su link cuánto le debes.</p>
       <div class="heroe-acciones">
         <a class="btn btn-etiqueta" href="#prueba" data-trial>Probar 14 días gratis</a>
         <a class="btn btn-borde" href="#caja">Cobrar en la caja de prueba</a>
       </div>
-      <p class="heroe-letra">Para bazares, tianguis, tiendas de consignación y antique malls. Desde $499 MXN al mes. Sin tarjeta para empezar.</p>
+      <p class="heroe-letra">Para bazares, tianguis, mercaditos y antique malls que rentan puestos. Desde $499 MXN al mes. Sin tarjeta para empezar.</p>
       <p class="paso-demo" aria-hidden="true"><b>Pruébala aquí</b> Toca piezas de distintos puestos y cóbralas. Mira cómo se reparte el dinero.</p>
     </div>
 
@@ -432,7 +507,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <h3>1. Toca las piezas que te traen a la caja <small>Es como escanear la etiqueta</small></h3>
         <ul class="mesa-piezas" id="mesa"></ul>
         <div class="mesa-pie">
-          <span>Datos de ejemplo. Tres vendedores con comisiones distintas: 30%, 25% y 20%.</span>
+          <span>Datos de ejemplo. Tres vendedores con renta fija: lo que venden es 100% suyo.</span>
           <button type="button" class="linkboton" id="surtir">Volver a poner las piezas</button>
         </div>
       </div>
@@ -466,12 +541,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <li><i style="background:var(--rosa)"></i>Mari</li>
           <li><i style="background:var(--verde-agua)"></i>Beto</li>
           <li><i style="background:var(--naranja)"></i>Lupita</li>
-          <li><i style="background:#8C97C8"></i>Comisión tuya</li>
-          <li><i style="background:var(--etiqueta)"></i>IVA</li>
         </ul>
         <ul class="reparto-lista" id="reparto" aria-label="Reparto del ticket por vendedor"></ul>
         <div class="reparto-total" id="reparto-total"></div>
-        <p class="reparto-nota">El precio de la etiqueta ya trae IVA. La comisión se calcula sobre el precio sin IVA, igual que en la app. La renta del puesto no se cobra por venta: se descuenta sola cada semana.</p>
+        <p class="reparto-nota">Lo que vende cada vendedor es 100% suyo y se suma a su saldo al cobrar. Tú ganas con la renta fija de cada puesto: no se cobra por venta, se descuenta sola cada semana.</p>
       </div>
 
       <div class="demo-bloque mipuesto">
@@ -506,7 +579,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <p class="entrada">Todavía no tenemos clientes que paguen, así que no te vamos a enseñar testimonios inventados. Te enseñamos cómo se usaría, con ejemplos.</p>
     <div class="tabs" role="tablist" aria-label="Tipo de negocio">
       <button class="tab" role="tab" id="tab-tianguis" aria-controls="caso-tianguis" aria-selected="true">Mercadito de fin de semana<small>Bazar de emprendedores, tianguis con caja</small></button>
-      <button class="tab" role="tab" id="tab-ropa" aria-controls="caso-ropa" aria-selected="false" tabindex="-1">Bazar de ropa y consignación<small>Piezas de muchas personas</small></button>
+      <button class="tab" role="tab" id="tab-ropa" aria-controls="caso-ropa" aria-selected="false" tabindex="-1">Bazar de ropa<small>Racks rentados a muchas vendedoras</small></button>
       <button class="tab" role="tab" id="tab-mall" aria-controls="caso-mall" aria-selected="false" tabindex="-1">Antique mall<small>Phoenix y otras ciudades de EE.UU.</small></button>
     </div>
 
@@ -514,9 +587,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div>
         <span class="caso-sello">Ejemplo: así funcionaría en un mercadito de 40 puestos</span>
         <h3>Sábado y domingo, 40 emprendedores, una caja a la entrada</h3>
-        <p class="problema">El problema de siempre: el domingo en la noche hay que separar a mano lo que vendió cada quien, restar la comisión y repartir el efectivo. Y alguien siempre dice que le tocaba más.</p>
+        <p class="problema">El problema de siempre: el domingo en la noche hay que separar a mano lo que vendió cada quien, cobrar las rentas y repartir el efectivo. Y alguien siempre dice que le tocaba más.</p>
         <ol class="dia">
-          <li><b>Jueves</b>Subes tu lista de emprendedores desde Excel, con su comisión y su renta. Cada uno imprime sus etiquetas con código.</li>
+          <li><b>Jueves</b>Subes tu lista de emprendedores desde Excel, con su puesto y su renta. Cada uno imprime sus etiquetas con código.</li>
           <li><b>Sábado</b>Abres hasta 3 cajas con el plan Pro. Cobras con la cámara del celular; si pagan mitad efectivo y mitad tarjeta, la app te da el cambio.</li>
           <li><b>Domingo, 8 p.m.</b>Haces el corte: cuentas el efectivo y la app te dice cuánto debía haber. Si no cuadra, anotas el motivo.</li>
           <li><b>Lunes</b>A cada emprendedor le llega su estado de cuenta por WhatsApp o correo. Bajas el archivo para el banco y les pagas por transferencia.</li>
@@ -531,18 +604,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
     <div class="caso" role="tabpanel" id="caso-ropa" aria-labelledby="tab-ropa" tabindex="0" hidden>
       <div>
-        <span class="caso-sello">Ejemplo: así funcionaría en una tienda de consignación de ropa</span>
-        <h3>Cientos de prendas de 60 consignantes, cada una con su dueña</h3>
+        <span class="caso-sello">Ejemplo: así funcionaría en un bazar de ropa con racks rentados</span>
+        <h3>Cientos de prendas de 60 vendedoras, cada una con su rack</h3>
         <p class="problema">Lo difícil no es vender, es saber de quién era cada prenda, cuánto le toca, qué está apartado y qué lleva meses sin moverse.</p>
         <ol class="dia">
-          <li><b>Al recibir</b>La consignante propone sus prendas desde su link, con hasta 3 fotos. Tú apruebas con un toque e imprimes la etiqueta.</li>
-          <li><b>En la caja</b>Una clienta aparta un vestido con abono. Otra devuelve una blusa: la comisión se regresa sola y el saldo de la consignante queda bien.</li>
-          <li><b>Promociones</b>"25% en el puesto 12 hasta el domingo." La caja lo descuenta sola. La consignante también puede pedir su promoción.</li>
-          <li><b>Piezas paradas</b>A los 60 y 90 días la app le sugiere a la consignante una rebaja. Acepta con un clic desde su link.</li>
+          <li><b>Al recibir</b>La vendedora propone sus prendas desde su link, con hasta 3 fotos. Tú apruebas con un toque e imprimes la etiqueta.</li>
+          <li><b>En la caja</b>Una clienta aparta un vestido con abono. Otra devuelve una blusa: la venta se regresa sola y el saldo de la vendedora queda bien.</li>
+          <li><b>Promociones</b>"25% en el puesto 12 hasta el domingo." La caja lo descuenta sola. La vendedora también puede pedir su promoción.</li>
+          <li><b>Piezas paradas</b>A los 60 y 90 días la app le sugiere a la vendedora una rebaja. Acepta con un clic desde su link.</li>
         </ol>
       </div>
       <div class="caso-num">
-        <h4>Lo que ve la consignante en su link</h4>
+        <h4>Lo que ve la vendedora en su link</h4>
         <img src="img/puesto-piezas.webp" width="390" height="844" loading="lazy" alt="Mi Puesto, pestaña Mis piezas: botón Agregar una pieza, promoción de tu puesto y piezas por aprobar en la tienda">
         <p>Pantalla real de la app con datos de demostración.</p>
       </div>
@@ -551,11 +624,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="caso" role="tabpanel" id="caso-mall" aria-labelledby="tab-mall" tabindex="0" hidden>
       <div>
         <span class="caso-sello">Ejemplo: así funcionaría en un antique mall con 150 booths</span>
-        <h3>Renta mensual, vitrinas con otra comisión y sales tax encima</h3>
-        <p class="problema">En un vendor mall cada booth paga renta, algunas vitrinas cobran un porcentaje distinto y cada mes hay que mandar 150 estados de cuenta y cheques.</p>
+        <h3>Renta mensual por booth, vitrinas y sales tax encima</h3>
+        <p class="problema">En un vendor mall cada booth paga renta, las vitrinas tienen otra tarifa y cada mes hay que mandar 150 estados de cuenta y cheques.</p>
         <ol class="dia">
           <li><b>Día 1 del mes</b>La renta de cada booth se carga sola y cada vendedor recibe su estado de cuenta mensual por correo.</li>
-          <li><b>Todos los días</b>Cobras en dólares con el sales tax encima. Las piezas de vitrina pueden tener su propia comisión.</li>
+          <li><b>Todos los días</b>Cobras en dólares con el sales tax encima. Las vitrinas pueden tener su propia renta.</li>
           <li><b>Equipo</b>El cajero no ve costos. El gerente aprueba descuentos con su PIN. Cada quien usa la app en español o en inglés.</li>
           <li><b>Fin de año</b>Descargas cuánto le pagaste a cada vendedor en el año, listo para el 1099, y el reporte de impuestos por mes.</li>
         </ol>
@@ -625,6 +698,55 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </section>
 
+<!-- ALTA DE VENDEDOR -->
+<section class="alta-v" id="alta-vendedor" aria-labelledby="t-alta-v">
+  <div class="wrap">
+    <h2 id="t-alta-v">Rentas un puesto nuevo en un minuto</h2>
+    <p class="entrada">Eliges el puesto libre, a quién se lo rentas y su renta fija. A tu vendedor le llega su link de Mi Puesto y desde ahí sube sus piezas. Lo que vende es suyo; la renta se descuenta sola.</p>
+    <div class="av-grid">
+      <div class="av-pasos">
+        <fieldset>
+          <legend><span>1</span>Elige un puesto libre</legend>
+          <div class="av-mapa" id="av-mapa"></div>
+          <p class="av-ley"><i class="lib"></i>Libre <i class="ocu"></i>Rentado</p>
+        </fieldset>
+        <fieldset>
+          <legend><span>2</span>¿A quién se lo rentas?</legend>
+          <div class="av-chips" id="av-quien"></div>
+        </fieldset>
+        <fieldset>
+          <legend><span>3</span>Renta fija a la semana</legend>
+          <div class="av-chips" id="av-renta"></div>
+        </fieldset>
+        <button type="button" class="btn btn-anil av-dar" id="av-dar">Darle el puesto</button>
+      </div>
+      <div class="av-lado" aria-live="polite">
+        <div class="av-tel">
+          <div class="av-tel-top"><b>Neuri Bazar</b><small>WhatsApp</small></div>
+          <div class="av-chat" id="av-chat">
+            <p class="av-vacio">Elige puesto, vendedor y renta, y dale «Darle el puesto». Aquí ves lo que le llega a su celular.</p>
+          </div>
+        </div>
+        <div class="av-cuenta" id="av-cuenta" hidden>
+          <h3>Su estado de cuenta del lunes</h3>
+          <p class="av-sub">Si vende <b id="av-vende">$1,800</b> en la semana:</p>
+          <ul>
+            <li><span>Ventas de la semana</span><span id="av-c-ventas"></span></li>
+            <li class="neg"><span id="av-c-renta-t">Renta del puesto</span><span id="av-c-renta"></span></li>
+            <li class="tot"><span>Le pagas</span><span id="av-c-paga"></span></li>
+          </ul>
+          <div class="av-slider">
+            <label for="av-ventas">Mueve cuánto vende</label>
+            <input type="range" id="av-ventas" min="0" max="5000" step="100" value="1800">
+          </div>
+          <p class="av-nota" id="av-nota">Le llega solo por WhatsApp o correo. Tú bajas el archivo para el banco.</p>
+        </div>
+      </div>
+    </div>
+    <p class="av-pie">Bazar, puestos y vendedores de ejemplo.</p>
+  </div>
+</section>
+
 <!-- CALCULADORA -->
 <section class="oscuro" aria-labelledby="t-calc" style="background:var(--anil-2)">
   <div class="wrap">
@@ -655,7 +777,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <summary>Cómo lo calculamos</summary>
           <ul>
             <li>Anotar y sumar cada venta en la libreta: 30 segundos por venta. Con la app queda registrada al cobrar.</li>
-            <li>Separar ventas, comisión y renta de cada vendedor: 4 minutos por vendedor a la semana. Con la app sale sola.</li>
+            <li>Separar ventas y renta de cada vendedor: 4 minutos por vendedor a la semana. Con la app sale sola.</li>
+            <li>Pagarle a cada vendedor y cobrar las rentas atrasadas: 3 minutos por vendedor a la semana. Con la app bajas un archivo para el banco.</li>
             <li>Contestar "¿cuánto llevo?": una pregunta por vendedor a la semana, 3 minutos. Con la app lo ven en su link.</li>
             <li>Corte del día: de 20 minutos a 5.</li>
             <li>Mes de 4.3 semanas. Son estimaciones, no resultados de clientes.</li>
@@ -681,7 +804,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <li>Recibo impreso, por WhatsApp o por correo</li>
       </ul></div>
       <div><h3>Con tus vendedores</h3><ul>
-        <li>Comisión por vendedor y por pieza</li>
+        <li>Alta de vendedor nuevo: puesto, renta y su link</li>
         <li>Renta del puesto cobrada sola</li>
         <li>Promoción por puesto con fecha de fin</li>
         <li>Proponen piezas desde su link y tú apruebas</li>
@@ -703,6 +826,35 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <li>Español o inglés por usuario</li>
         <li>Exporta todos tus datos con un botón</li>
       </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ CAMBIARTE -->
+<section class="cambiarte" id="cambiarte" aria-labelledby="t-camb">
+  <div class="wrap">
+    <h2 id="t-camb">Hecho para bazares, no para cualquier tienda</h2>
+    <p class="entrada">Un punto de venta común cobra, pero no sabe de puestos, rentas ni vendedores. Neuri Bazar sí.</p>
+    <div class="cmp-scroll" role="region" aria-labelledby="t-camb" tabindex="0">
+      <table class="cmp">
+        <thead><tr><th scope="col">Lo que necesita un bazar</th><th scope="col">Libreta o Excel</th><th scope="col">Punto de venta común</th><th scope="col" class="nb">Neuri Bazar</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Saber qué vendió cada vendedor</th><td class="no">Lo sumas a mano</td><td class="mas">Si creas un producto por vendedor</td><td class="nb">Solo, al cobrar</td></tr>
+          <tr><th scope="row">Cobrar la renta de cada puesto</th><td class="no">Persigues a cada quien</td><td class="no">No lo hace</td><td class="nb">Se descuenta sola</td></tr>
+          <tr><th scope="row">Dar de alta a un vendedor nuevo</th><td class="mas">Una hoja más</td><td class="no">No tiene vendedores</td><td class="nb">Puesto, renta y su link</td></tr>
+          <tr><th scope="row">Que el vendedor vea su saldo</th><td class="no">Te pregunta por WhatsApp</td><td class="no">No lo hace</td><td class="nb">En su link, sin instalar nada</td></tr>
+          <tr><th scope="row">Pagarle a cada vendedor</th><td class="no">Calculadora y efectivo</td><td class="no">No lo hace</td><td class="nb">Estado de cuenta y archivo para el banco</td></tr>
+          <tr><th scope="row">Corte del día que cuadre</th><td class="no">Nunca cuadra</td><td class="si">Sí</td><td class="nb">Sí, con bitácora</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mudanza">
+      <h3>Cambiarte no te cuesta trabajo</h3>
+      <ol>
+        <li><b>Nos mandas lo que ya tienes</b>Tu Excel, tu libreta en fotos o el archivo que saca tu sistema.</li>
+        <li><b>Nosotros lo cargamos</b>Puestos, rentas, vendedores y piezas, listos en tu cuenta.</li>
+        <li><b>Tus vendedores reciben su link</b>A cada uno le llega su Mi Puesto. Tú abres caja y cobras.</li>
+      </ol>
     </div>
   </div>
 </section>
@@ -735,7 +887,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <h3>Plus</h3>
         <p class="para-quien">Para malls y varias sucursales.</p>
         <p class="monto" data-mx="$1,499|MXN al mes + IVA" data-us="$149|USD al mes">$1,499<small>MXN al mes + IVA</small></p>
-        <ul><li>Vendedores sin límite</li><li>Cajas sin límite</li><li>Varias sucursales</li><li>Todo lo de Pro</li></ul>
+        <ul><li>Vendedores sin límite</li><li>Cajas sin límite</li><li>Varias sucursales</li><li>Tu sitio con tus piezas (próximamente)</li><li>Todo lo de Pro</li></ul>
         <a class="btn btn-borde" href="#prueba" data-trial data-plan="Plus">Probar Plus gratis</a>
       </div>
     </div>
@@ -768,6 +920,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <li><b>Te ayudamos a subir tus datos.</b> Mándanos tu Excel o tu libreta en foto.</li>
         <li><b>Tus vendedores no instalan nada.</b> Les llega su link.</li>
       </ul>
+      <p class="demo-cal">¿Prefieres verlo con una persona? <a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" target="_blank" rel="noopener">Agenda una demo por videollamada</a>.</p>
     </div>
 
     <form class="asistente" id="asistente" novalidate aria-labelledby="t-prueba">
@@ -858,7 +1011,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <output class="ia-ok" id="iaOk" for="iaCopy" aria-live="polite"></output>
       <div class="ia-pide">
         <p>Pídele, por ejemplo:</p>
-        <ul><li>“Da de alta a Lupita, 30 % de comisión”</li><li>“Agrega estas 20 piezas”</li><li>“¿Qué me falta para empezar a vender?”</li></ul>
+        <ul><li>“Renta el puesto 12 a Lupita, $300 a la semana”</li><li>“Agrega estas 20 piezas”</li><li>“¿Qué me falta para empezar a vender?”</li></ul>
       </div>
     </div>
     <div class="ticket" role="group" aria-labelledby="t-ia-pasos">
@@ -880,7 +1033,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <details><summary>¿Emite factura (CFDI)?</summary><p>Todavía no. El recibo es una nota de venta impresa, por WhatsApp o por correo. El reporte de impuestos por mes te da lo que necesita tu contador.</p></details>
       <details><summary>¿Cobran comisión por cada venta?</summary><p>No. Pagas un precio fijo al mes por tu bazar, vendas lo que vendas. En México el precio es más IVA.</p></details>
       <details><summary>¿Qué pasa al terminar los 14 días gratis?</summary><p>Te avisamos por correo dos días antes. Si sigues, eliges tu plan y todo queda como está. Si no, no se te cobra nada.</p></details>
-      <details><summary>¿Mis datos son míos?</summary><p>Sí. Descargas todo tu negocio con un botón cuando quieras. Además, cada cambio de precio, comisión o venta anulada queda en una bitácora que nadie puede editar ni borrar, ni siquiera el dueño.</p></details>
+      <details><summary>¿Mis datos son míos?</summary><p>Sí. Descargas todo tu negocio con un botón cuando quieras. Además, cada cambio de precio, de renta o venta anulada queda en una bitácora que nadie puede editar ni borrar, ni siquiera el dueño.</p></details>
       <details><summary>¿Sirve en Estados Unidos y en inglés?</summary><p>Sí. Cobra en dólares con el sales tax encima, manda estados de cuenta mensuales y cada usuario elige español o inglés.</p></details>
     </div>
     <p class="entrada" style="margin-top:24px">¿Otra duda? Escríbenos a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a>.</p>
@@ -923,9 +1076,9 @@ var APP_URL = '';
   /* ---------- Caja de prueba ---------- */
   var IVA = 1600; // 16% en puntos base
   var VEND = {
-    mari:   { nombre: 'Mari',   puesto: 3,  com: 3000, saldo: 124000, movs: [] },
-    beto:   { nombre: 'Beto',   puesto: 7,  com: 2500, saldo: 86000,  movs: [] },
-    lupita: { nombre: 'Lupita', puesto: 12, com: 2000, saldo: 41500,  movs: [] }
+    mari:   { nombre: 'Mari',   puesto: 3,  com: 0, saldo: 124000, movs: [] },
+    beto:   { nombre: 'Beto',   puesto: 7,  com: 0, saldo: 86000,  movs: [] },
+    lupita: { nombre: 'Lupita', puesto: 12, com: 0, saldo: 41500,  movs: [] }
   };
   VEND.mari.movs = [{ t: 'Ventas de la semana', d: 'Lunes a sábado', a: 154000 }, { t: 'Renta del puesto', d: 'Se cobró sola el lunes', a: -30000 }];
   VEND.beto.movs = [{ t: 'Ventas de la semana', d: 'Lunes a sábado', a: 111000 }, { t: 'Renta del puesto', d: 'Se cobró sola el lunes', a: -25000 }];
@@ -943,8 +1096,7 @@ var APP_URL = '';
   function partir(p) {
     var neto = Math.round(p.pre * 10000 / (10000 + IVA));
     var iva = p.pre - neto;
-    var vendedor = Math.floor(neto * (10000 - VEND[p.v].com) / 10000);
-    return { neto: neto, iva: iva, com: neto - vendedor, vend: vendedor };
+    return { neto: neto, iva: iva, com: 0, vend: p.pre };
   }
   function pieza(id) { for (var i = 0; i < PIEZAS.length; i++) if (PIEZAS[i].id === id) return PIEZAS[i]; }
 
@@ -1013,15 +1165,14 @@ var APP_URL = '';
     Object.keys(VEND).forEach(function (k) {
       if (!por[k]) return; var r = por[k], v = VEND[k];
       body += '<li><span class="quien"><i class="v-' + k + '"></i>Para ' + v.nombre + '</span><span class="para">' + dinero(r.vend) + '</span>' +
-        '<span class="det">Vendió ' + dinero(r.pre) + '. Menos IVA ' + dinero(r.iva) + ' y tu comisión de ' + v.com / 100 + '%: ' + dinero(r.com) + '.</span></li>';
+        '<span class="det">Vendió ' + dinero(r.pre) + '. Es 100% suyo; su renta del puesto ' + v.puesto + ' se descuenta el lunes.</span></li>';
       barra += '<span class="v-' + k + '" style="width:' + (r.vend / tot * 100) + '%"></span>';
     });
     if (!tot) {
       body = '<li><span class="vacio">Todavía no hay nada que repartir. Toca una pieza.</span></li>';
       $('#reparto-total').innerHTML = '';
     } else {
-      barra += '<span class="s-com" style="width:' + (tCom / tot * 100) + '%"></span><span class="s-iva" style="width:' + (tIva / tot * 100) + '%"></span>';
-      $('#reparto-total').innerHTML = '<span>Total del ticket</span><span>' + dinero(tot) + '</span><span>Para tus vendedores</span><span>' + dinero(tot - tIva - tCom) + '</span><span>Tu comisión</span><span>' + dinero(tCom) + '</span><span>IVA</span><span>' + dinero(tIva) + '</span>';
+      $('#reparto-total').innerHTML = '<span>Total del ticket</span><span>' + dinero(tot) + '</span><span>Para tus vendedores</span><span>' + dinero(tot) + '</span><span>Tu ganancia</span><span>La renta fija, cada lunes</span>';
     }
     $('#reparto').innerHTML = body;
     $('#barra').innerHTML = barra;
@@ -1099,13 +1250,13 @@ var APP_URL = '';
     libreta: { titulo: 'Con libreta', clase: 'hoja libreta', filas: [
       ['Sumar las 90 ventas de la libreta', '35 min'],
       ['Separar qué vendió cada uno de los 30', '45 min'],
-      ['Restar comisión y renta de cada uno, con calculadora', '40 min'],
+      ['Restar la renta de cada uno y separar su efectivo', '40 min'],
       ['Contar el efectivo. No cuadra por $150', '20 min', 'mal'],
       ['Contestar WhatsApps de "¿cuánto llevo?"', '25 min']
     ], total: '2 h 45 min', medidor: '2 h 45 min', txt: 'para cerrar el día, y todavía falta repartir el dinero' },
     neuri: { titulo: 'Con Neuri Bazar', clase: 'hoja', filas: [
       ['Las 90 ventas ya quedaron separadas al cobrar', '0 min'],
-      ['Comisión, IVA y renta de cada vendedor: ya están', '0 min'],
+      ['Ventas y renta de cada vendedor: ya están', '0 min'],
       ['Contar el efectivo. La app te dice cuánto debía haber', '5 min'],
       ['Si no cuadra, anotas el motivo y queda en la bitácora', '1 min'],
       ['Los vendedores ven su saldo en su link', '0 min']
@@ -1147,20 +1298,110 @@ var APP_URL = '';
     });
   });
 
+  /* ---------- Alta de vendedor nuevo ---------- */
+  (function () {
+    var mapa = $('#av-mapa'); if (!mapa) return;
+    var T = {
+      puesto: 'Puesto', libre: 'Libre', rentadoA: 'rentado a',
+      quien: ['Lupita', 'Don Chuy', 'Karla'], giro: ['Ropa vintage', 'Herramienta', 'Joyería'],
+      rentas: [20000, 30000, 45000],
+      dinero: function (c) { return '$' + (c / 100).toLocaleString('en-US'); },
+      dar: 'Darle el puesto', listo: 'Listo: ya tiene su puesto',
+      vacio: 'Elige puesto, vendedor y renta, y dale «Darle el puesto». Aquí ves lo que le llega a su celular.',
+      m1: function (n, p, r) { return 'Hola ' + n + ', Bazar Las Palmas te rentó el <b>Puesto ' + p + '</b>. Renta fija: <b>' + r + ' a la semana</b>. Todo lo que vendas es tuyo.'; },
+      link: 'Abrir mi puesto', m2: 'Este es tu link de Mi Puesto. Sin contraseña y sin instalar nada. Ahí subes tus piezas y ves tus ventas.',
+      m3: '¡Gracias! Ya subí 3 piezas 🙌',
+      m4: function (n) { return 'Listo, ' + n + '. El bazar aprueba tus piezas e imprime tus etiquetas. Cada venta la ves en tu link, y tu renta se descuenta sola el lunes.'; },
+      rentaDe: 'Renta del puesto',
+      nota: 'Le llega solo por WhatsApp o correo. Tú bajas el archivo para el banco y le pagas.',
+      noAlcanza: function (d) { return 'Esta semana no le alcanzó para la renta: te debe ' + d + ' y lo ves en su saldo.'; }
+    };
+    var PUESTOS = [
+      { n: 1, q: 'Mari' }, { n: 2, q: 'Toño' }, { n: 3, q: null }, { n: 4, q: 'Beto' }, { n: 5, q: 'Rosa' },
+      { n: 6, q: null }, { n: 7, q: 'Lalo' }, { n: 8, q: 'Ceci' }, { n: 9, q: null }, { n: 10, q: 'Paty' },
+      { n: 11, q: 'Juan' }, { n: 12, q: null }
+    ];
+    var est = { p: 12, q: 0, r: 1, dado: false, ventas: 180000 };
+    var timers = [];
+    function limpiar() { timers.forEach(clearTimeout); timers = []; }
+    function chip(txt, on, fn, sub) {
+      var b = document.createElement('button'); b.type = 'button';
+      b.className = 'av-chip'; b.setAttribute('aria-pressed', String(on));
+      b.innerHTML = txt + (sub ? '<small>' + sub + '</small>' : '');
+      b.addEventListener('click', fn); return b;
+    }
+    function reiniciar() { if (est.dado) { est.dado = false; limpiar(); pintarChat(); $('#av-cuenta').hidden = true; } }
+    function pintar() {
+      mapa.innerHTML = '';
+      PUESTOS.forEach(function (p) {
+        var b = document.createElement('button'); b.type = 'button';
+        var libre = !p.q || (est.dado && p.n === est.p);
+        var mio = est.dado && p.n === est.p;
+        b.className = 'av-p ' + (p.q ? 'ocu' : (mio ? 'mio' : 'lib'));
+        b.disabled = !!p.q;
+        b.setAttribute('aria-pressed', String(p.n === est.p && !p.q));
+        b.innerHTML = '<b>' + p.n + '</b><small>' + (p.q ? p.q : (mio ? T.quien[est.q] : T.libre)) + '</small>';
+        b.setAttribute('aria-label', T.puesto + ' ' + p.n + ', ' + (p.q ? T.rentadoA + ' ' + p.q : T.libre));
+        if (!p.q) b.addEventListener('click', function () { reiniciar(); est.p = p.n; pintar(); });
+        mapa.appendChild(b);
+      });
+      var q = $('#av-quien'); q.innerHTML = '';
+      T.quien.forEach(function (n, i) { q.appendChild(chip(n, est.q === i, function () { reiniciar(); est.q = i; pintar(); }, T.giro[i])); });
+      var r = $('#av-renta'); r.innerHTML = '';
+      T.rentas.forEach(function (v, i) { r.appendChild(chip(T.dinero(v), est.r === i, function () { reiniciar(); est.r = i; pintar(); })); });
+      var dar = $('#av-dar');
+      dar.textContent = est.dado ? T.listo : T.dar;
+      dar.disabled = est.dado;
+      cuenta();
+    }
+    function burbuja(html, cls) {
+      var d = document.createElement('div'); d.className = 'av-msg ' + (cls || ''); d.innerHTML = html;
+      $('#av-chat').appendChild(d);
+    }
+    function pintarChat() { $('#av-chat').innerHTML = '<p class="av-vacio">' + T.vacio + '</p>'; }
+    function cuenta() {
+      var renta = T.rentas[est.r], v = est.ventas;
+      $('#av-vende').textContent = T.dinero(v);
+      $('#av-c-ventas').textContent = '+' + T.dinero(v);
+      $('#av-c-renta-t').textContent = T.rentaDe + ' ' + est.p;
+      $('#av-c-renta').textContent = '−' + T.dinero(renta);
+      var paga = v - renta;
+      $('#av-c-paga').textContent = T.dinero(Math.max(0, paga));
+      $('#av-nota').textContent = paga < 0 ? T.noAlcanza(T.dinero(-paga)) : T.nota;
+    }
+    $('#av-ventas').addEventListener('input', function (e) { est.ventas = +e.target.value * 100; cuenta(); });
+    $('#av-dar').addEventListener('click', function () {
+      if (est.dado) return;
+      est.dado = true; limpiar(); pintar();
+      var chat = $('#av-chat'); chat.innerHTML = '';
+      var nom = T.quien[est.q], renta = T.dinero(T.rentas[est.r]);
+      var pasos = [
+        function () { burbuja(T.m1(nom, est.p, renta)); },
+        function () { burbuja('<span class="av-link">' + T.link + '</span>' + T.m2); },
+        function () { burbuja(T.m3, 'yo'); },
+        function () { burbuja(T.m4(nom)); $('#av-cuenta').hidden = false; }
+      ];
+      if (reduce) { pasos.forEach(function (f) { f(); }); return; }
+      pasos.forEach(function (f, i) { timers.push(setTimeout(f, 350 + i * 900)); });
+    });
+    pintar();
+  })();
+
   /* ---------- Calculadora ---------- */
   var cV = $('#c-vend'), cS = $('#c-ventas'), cD = $('#c-dias');
   function calcular() {
     var v = +cV.value, s = +cS.value, d = +cD.value, sem = 4.3;
     $('#o-vend').textContent = v; $('#o-ventas').textContent = s; $('#o-dias').textContent = d;
-    var anotar = 0.5 * s * d * sem, separar = 4 * v * sem, preguntas = 3 * v * sem, corte = 15 * d * sem;
-    var tot = anotar + separar + preguntas + corte, h = Math.round(tot / 60);
+    var anotar = 0.5 * s * d * sem, separar = 4 * v * sem, pagos = 3 * v * sem, preguntas = 3 * v * sem, corte = 15 * d * sem;
+    var tot = anotar + separar + pagos + preguntas + corte, h = Math.round(tot / 60);
     $('#r-horas').innerHTML = h + ' <small>horas al mes</small>';
     var jornadas = Math.floor(tot / 60 / 8);
     $('#r-dias').textContent = jornadas >= 1 ? 'Es como ' + (jornadas === 1 ? 'un día completo' : jornadas + ' días completos') + ' de trabajo de 8 horas, cada mes.' : 'Menos de un día de trabajo, pero cada semana.';
     function hm(m) { return m >= 60 ? (Math.round(m / 6) / 10) + ' h' : Math.round(m) + ' min'; }
     $('#r-desglose').innerHTML =
       '<li><span>Anotar y sumar ventas</span><span>' + hm(anotar) + '</span></li>' +
-      '<li><span>Separar comisión y renta por vendedor</span><span>' + hm(separar) + '</span></li>' +
+      '<li><span>Separar ventas y renta por vendedor</span><span>' + hm(separar) + '</span></li>' +
+      '<li><span>Pagar a vendedores y cobrar rentas</span><span>' + hm(pagos) + '</span></li>' +
       '<li><span>Contestar "¿cuánto llevo?"</span><span>' + hm(preguntas) + '</span></li>' +
       '<li><span>Corte del día más rápido</span><span>' + hm(corte) + '</span></li>';
     var plan = v <= 30 ? ['Básico', '$499 MXN', '$79 USD'] : v <= 75 ? ['Pro', '$899 MXN', '$119 USD'] : ['Plus', '$1,499 MXN', '$149 USD'];

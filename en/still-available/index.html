@@ -387,6 +387,20 @@
   .ia .pasos h3{font-size:18px}
   .ia-seg{margin-top:18px;padding:12px 16px;border-left:4px solid var(--rosa);background:var(--rubor);border-radius:0 12px 12px 0;font-size:16px}
 footer a{display:inline-block;min-height:44px;line-height:44px}
+  /* Comparación */
+  .cmp-scroll{overflow-x:auto;margin-top:28px;border-radius:22px;background:#fff;color:var(--tinta)}
+  .cmp{width:100%;min-width:700px;border-collapse:collapse;font-size:16px}
+  .cmp th,.cmp td{padding:15px 16px;text-align:left;vertical-align:top;border-top:1px solid var(--linea);line-height:1.35}
+  .cmp thead th{border-top:0;font-size:15px;color:var(--gris);font-weight:700}
+  .cmp thead th.sd{background:var(--rosa);color:#fff}
+  .cmp tbody th{font-weight:700}
+  .cmp td.no{color:var(--rosa-osc)}
+  .cmp td.meh{color:var(--gris)}
+  .cmp td.ok{color:var(--ok);font-weight:700}
+  .cmp td.sd{background:var(--rubor);font-weight:700}
+  .cmp td.sd::before{content:"✓ ";color:var(--ok)}
+  .cmp-pie{margin-top:16px;font-size:15px;color:#E3D3E6}
+  @media(min-width:760px){.cmp-pie{display:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Do I need to be tech-savvy?","acceptedAnswer":{"@type":"Answer","text":"No. You fill out the sign-up and we build the rest. The link to connect your Instagram or Facebook Page arrives by email; we walk you through it."}},
@@ -587,6 +601,13 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
 </div></section>
 
 <!-- PRICING -->
+<section class="dark" id="compare" aria-labelledby="compare-t"><div class="wrap">
+  <h2 id="compare-t">Your other options, and why this one wins</h2>
+  <p class="sub">You can keep answering yourself, pay someone, or build a bot on your own. Here’s how they stack up.</p>
+  <div class="cmp-scroll" role="region" aria-labelledby="compare-t" tabindex="0"><table class="cmp"><thead><tr><th scope="col"><span class="sr">What we compare</span></th><th scope="col">Answer yourself</th><th scope="col">Pay someone</th><th scope="col">DIY bot</th><th scope="col" class="sd">Still Available?</th></tr></thead><tbody><tr><th scope="row">Answers at 2 a.m.</th><td class="no">Only if you’re awake</td><td class="no">Only on their shift</td><td class="ok">Yes</td><td class="sd">Yes, always</td></tr><tr><th scope="row">What it costs</th><td class="meh">Your time and your sleep</td><td class="no">A paycheck every month</td><td class="meh">A monthly plan plus your hours building it</td><td class="sd">From $49 a month</td></tr><tr><th scope="row">Who sets it up</th><td class="no">Nobody: it’s you</td><td class="no">You train them on everything</td><td class="no">You, flow by flow</td><td class="sd">We do, from your sheet</td></tr><tr><th scope="row">Uses your prices, never makes them up</th><td class="ok">Yes</td><td class="meh">Once they learn them</td><td class="meh">Depends on how you build it</td><td class="sd">Answers only from your sheet</td></tr><tr><th scope="row">Hands you the tricky ones</th><td class="meh">N/A</td><td class="ok">Yes</td><td class="meh">If you program it</td><td class="sd">Haggling and odd questions go to you</td></tr><tr><th scope="row">No tech skills needed</th><td class="ok">Yes</td><td class="ok">Yes</td><td class="no">No</td><td class="sd">Yes</td></tr></tbody></table></div>
+  <p class="cmp-pie">Swipe the table sideways to see it all.</p>
+</div></section>
+
 <section id="pricing" aria-labelledby="pricing-t"><div class="wrap">
   <h2 id="pricing-t">Simple pricing, no contract</h2>
   <p class="sub">Pay monthly by card and cancel anytime.</p>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Still Available? — An assistant that answers your buyers | Neuri</title>
-<meta name="description" content="An assistant that answers buyers who message you on Marketplace, Instagram, Messenger or WhatsApp: if it's still available, price, location and how to pay. It holds items, books pickups and visits (Pro) and pings you on WhatsApp. From $49 a month.">
+<meta name="description" content="An assistant that answers buyers who message you on Instagram or Messenger (WhatsApp coming soon): if it's still available, price, location and how to pay. It holds items, books pickups and visits (Pro) and pings you on WhatsApp. From $49 a month.">
 <meta name="theme-color" content="#D4146E">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Cpath d=%22M20 3C10.6 3 3 9.9 3 18.4c0 4.6 2.2 8.7 5.7 11.5L7 37l8.2-4.1c1.5.4 3.1.6 4.8.6 9.4 0 17-6.9 17-15.1S29.4 3 20 3z%22 fill=%22%23D4146E%22/%3E%3C/svg%3E">
 <link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/">
@@ -377,12 +377,15 @@
 footer a{display:inline-block;min-height:44px;line-height:44px}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Do I need to be tech-savvy?","acceptedAnswer":{"@type":"Answer","text":"No. You fill out the sign-up and connect your Instagram or Facebook Page in one click; we walk you through it. We build the rest."}},
-{"@type":"Question","name":"How does it work with Marketplace?","acceptedAnswer":{"@type":"Answer","text":"You add your WhatsApp link to each listing and the assistant answers there. It also works on your Page's Messenger and Instagram."}},
+{"@type":"Question","name":"Do I need to be tech-savvy?","acceptedAnswer":{"@type":"Answer","text":"No. You fill out the sign-up and we build the rest. The link to connect your Instagram or Facebook Page arrives by email; we walk you through it."}},
+{"@type":"Question","name":"Does it answer with AI?","acceptedAnswer":{"@type":"Answer","text":"Yes. It answers with your info and your rules, and anything the rules don't cover it answers with Claude, an AI. It never makes up prices or availability: if it's not in your sheet, it tells the buyer you'll answer and hands you the conversation."}},
+{"@type":"Question","name":"Does it answer at any hour, even old messages?","acceptedAnswer":{"@type":"Answer","text":"It answers right away, at any hour. Meta only allows replies within 24 hours of the buyer's last message; after that, the conversation is yours to answer."}},
+{"@type":"Question","name":"How do I test it before turning it on?","acceptedAnswer":{"@type":"Answer","text":"In My assistant we give you your test code (for example #prueba-4821). Send it from your personal account to your business on Instagram or Messenger: it answers only you, and no one else gets replies until you turn it on."}},
+{"@type":"Question","name":"What about WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"Coming soon. We're adding WhatsApp through Meta's official API. Today it answers on Instagram and on your Facebook Page's Messenger."}},
 {"@type":"Question","name":"How do I update my items?","acceptedAnswer":{"@type":"Answer","text":"In your catalog sheet. Mark an item as sold and the assistant stops offering it within about 10 minutes. How to publish your sheet."}},
-{"@type":"Question","name":"What if a buyer asks something it doesn't know?","acceptedAnswer":{"@type":"Answer","text":"It doesn't make things up. It tells the buyer you'll answer and passes you the conversation on WhatsApp."}},
+{"@type":"Question","name":"What if a buyer asks something it doesn't know?","acceptedAnswer":{"@type":"Answer","text":"It doesn't make things up. It tells the buyer you'll answer and passes you the conversation."}},
 {"@type":"Question","name":"Will it tell buyers my lowest price?","acceptedAnswer":{"@type":"Answer","text":"Never. It only uses it to know how far it can negotiate, and only if you let it."}},
-{"@type":"Question","name":"How long does setup take?","acceptedAnswer":{"@type":"Answer","text":"Usually 1 to 2 days. We send you a link to try it, and it doesn't answer anyone until you approve it."}},
+{"@type":"Question","name":"How long does setup take?","acceptedAnswer":{"@type":"Answer","text":"The direct connection with Meta is in review: we'll email you as soon as it opens, and meanwhile we build your assistant. You test it with your code, and it doesn't answer anyone until you turn it on."}},
 {"@type":"Question","name":"Can I turn it off anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. No contract or minimum term: cancel anytime from My assistant, it keeps answering until the end of the month you already paid for, and you won't be charged again. If you just need a break, pause it there instead (pausing doesn't stop billing)."}},
 {"@type":"Question","name":"How does billing work?","acceptedAnswer":{"@type":"Answer","text":"Monthly by card. If a payment fails we let you know, and you have 5 days to update your card before it pauses. Nothing gets deleted."}},
 {"@type":"Question","name":"What buyer data do you keep?","acceptedAnswer":{"@type":"Answer","text":"Only name and conversation, to answer and hold items. We never sell or share it."}},
@@ -404,8 +407,9 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
 <div class="wrap hero">
   <div>
     <h1>They ask <q>Is this still available?</q> all day. Let your assistant answer.</h1>
-    <p class="lead">It answers instantly on WhatsApp, Instagram and Messenger, and Marketplace buyers through your WhatsApp link: if it's still available, the price, where you are and how to pay. It holds the item and pings you on WhatsApp; on the Pro plan it also books pickups and visits. You only deal with people ready to buy.</p>
-    <ul class="chan" aria-label="Where it answers"><li>Marketplace</li><li>Instagram</li><li>Messenger</li><li>WhatsApp</li></ul>
+    <p class="lead">It answers instantly on Instagram and your Facebook Page's Messenger: if it's still available, the price, where you are and how to pay. It holds the item and pings you; on the Pro plan it also books pickups and visits. You only deal with people ready to buy.</p>
+    <ul class="chan" aria-label="Where it answers"><li>Instagram</li><li>Messenger</li><li>WhatsApp (coming soon)</li></ul>
+    <p class="ia-seg" id="aviso-meta">The direct connection to Instagram and Messenger is in review with Meta. We'll email you as soon as it opens; meanwhile, we build your assistant. Save your spot.</p>
     <div class="actions" id="heroActions">
       <a class="btn go" href="#signup">Be one of the first 10</a>
       <a class="btn ghost" href="#try">Try the assistant</a>
@@ -442,7 +446,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
     </div>
     <div class="demo-side">
       <div class="panel">
-        <h3>What you get on WhatsApp</h3>
+        <h3>What you get</h3>
         <p class="hint">When someone puts an item on hold, books a time (Pro) or asks something the assistant doesn't know.</p>
         <div class="wa" id="wa" aria-live="polite"><p class="empty">Nothing yet. Try typing “can you hold it?” or ask a tricky question.</p></div>
       </div>
@@ -506,8 +510,8 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
   <p class="sub">The assistant handles the usual questions. It only messages you when there's something to do, and every Monday it sends you how the week went.</p>
   <div class="llega">
     <div>
-      <h3>When someone puts an item on hold: a WhatsApp</h3>
-      <div class="wa-shot" aria-label="Example WhatsApp alert">
+      <h3>When someone puts an item on hold: an alert</h3>
+      <div class="wa-shot" aria-label="Example alert">
         <span class="from">Still Available?</span>
         <div class="bub">✅ <b>On hold:</b> Oak dining table for 6 ($350)<br>👤 Tyler B.<br>📅 Pickup tomorrow at 11:00 AM (booked on Pro)<br>💬 Asked if you take Venmo: I told him yes.<span class="h">6:21 AM</span></div>
         <div class="bub">🙋 <b>Question for you:</b> Marcus R. wants to know if the table can be stained walnut. I told him you'd answer.<span class="h">10:05 PM</span></div>
@@ -537,11 +541,11 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
 
 <!-- HOW IT WORKS -->
 <section id="how" aria-labelledby="how-t"><div class="wrap">
-  <h2 id="how-t">Ready in 1 to 2 days, and you approve it first</h2>
+  <h2 id="how-t">We build it with you, and you approve it first</h2>
   <ol class="pasos">
     <li><h3>Fill out the sign-up</h3><p>What you sell, how buyers get it and how you get paid. 4 short steps, right here.</p></li>
     <li><h3>We build it, you try it</h3><p>We set it up with the questions buyers in your category ask most. We send you a link to try it: it doesn't answer anyone until you say yes.</p></li>
-    <li><h3>It answers for you</h3><p>Add your link to your listings and it takes it from there. Pause it whenever you want.</p></li>
+    <li><h3>It answers for you</h3><p>Connect your Instagram or Facebook Page with the link we email you and it takes it from there. Pause it whenever you want.</p></li>
   </ol>
 </div></section>
 
@@ -554,7 +558,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
       <li>Price, size and condition, straight from your sheet</li>
       <li>Where you are, your hours and what delivery costs</li>
       <li>How to pay</li>
-      <li>Holds items and pings you on WhatsApp. On Pro, it also books pickups and visits</li>
+      <li>Holds items and pings you. On Pro, it also books pickups and visits</li>
     </ul></div>
     <div class="no"><h3>It never</h3><ul>
       <li>Reveals your lowest price. It only uses it to know how far to negotiate, if you allow it</li>
@@ -602,7 +606,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
     <p class="sub" style="color:#4F3D55">4 steps, about 3 minutes. With this we can get it almost ready.</p>
     <ul class="promesas">
       <li>It doesn't answer anyone until you approve it</li>
-      <li>We'll text you within 24 hours</li>
+      <li>We'll reach out within 24 hours</li>
       <li>First 10 sellers: free setup and first month free, no card</li>
       <li>No contract. Cancel anytime</li>
     </ul>
@@ -621,7 +625,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
       <fieldset class="paso" data-step="1" style="border:0">
         <legend class="sr">Step 1: About you</legend>
         <h3 tabindex="-1">Who are we talking to?</h3>
-        <p class="why">We'll text you to connect your Page. That's it.</p>
+        <p class="why">We'll reach out to build your assistant. The link to connect arrives by email.</p>
         <div class="fields">
           <div class="f"><label for="nombre">Your name</label><input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="e-nombre"><p class="err" id="e-nombre">Enter your name so we know what to call you.</p></div>
           <div class="f"><label for="whatsapp">Your mobile number (text or WhatsApp)</label><input type="tel" id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="480 555 0123" required aria-describedby="h-wa e-whatsapp"><p class="help" id="h-wa">10 digits. Outside the US? Add your country code.</p><p class="err" id="e-whatsapp">Check your number: we need at least 10 digits.</p></div>
@@ -640,7 +644,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
           <div class="f"><span class="lab" id="l-donde">Where do you sell most?</span><div class="pills" role="radiogroup" aria-labelledby="l-donde">
             <label class="pill"><input type="radio" name="donde" value="Facebook Marketplace" checked><span>Marketplace</span></label>
             <label class="pill"><input type="radio" name="donde" value="Instagram"><span>Instagram</span></label>
-            <label class="pill"><input type="radio" name="donde" value="WhatsApp"><span>WhatsApp</span></label>
+            <label class="pill"><input type="radio" name="donde" value="WhatsApp"><span>WhatsApp (coming soon)</span></label>
             <label class="pill"><input type="radio" name="donde" value="Tienda física"><span>Physical store</span></label>
             <label class="pill"><input type="radio" name="donde" value="Varios"><span>Several</span></label></div></div>
           <div class="f"><span class="lab" id="l-msj">How many messages do you get a day?</span><div class="pills" role="radiogroup" aria-labelledby="l-msj">
@@ -702,7 +706,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
       <button type="button" class="btn go" id="iaCopy" aria-label="Copy the connector URL">Copy</button>
     </div>
     <output class="ia-ok" id="iaOk" for="iaCopy" aria-live="polite"></output>
-    <p class="ia-seg">Your card and your passwords never go through the chat: your Instagram or Messenger connects directly in one click on Meta's secure page, and your card only on Stripe's.</p>
+    <p class="ia-seg">Your card and your passwords never go through the chat: your Instagram or Messenger connects directly on Meta's secure page (once Meta approves the connection), and your card only on Stripe's.</p>
   </div>
   <ol class="pasos" aria-label="Steps to connect it">
       <li><h3>Add a custom connector</h3><p>In your AI assistant's connector settings, paste this URL.</p></li>
@@ -715,12 +719,15 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
 <section id="faq-sec" aria-labelledby="faq-t"><div class="wrap">
   <h2 id="faq-t">Questions</h2>
   <div class="faq">
-    <details><summary>Do I need to be tech-savvy?</summary><p>No. You fill out the sign-up and connect your Instagram or Facebook Page in one click; we walk you through it. We build the rest.</p></details>
-    <details><summary>How does it work with Marketplace?</summary><p>You add your WhatsApp link to each listing and the assistant answers there. It also works on your Page's Messenger and Instagram.</p></details>
+    <details><summary>Do I need to be tech-savvy?</summary><p>No. You fill out the sign-up and we build the rest. The link to connect your Instagram or Facebook Page arrives by email; we walk you through it.</p></details>
+    <details><summary>Does it answer with AI?</summary><p>Yes. It answers with your info and your rules, and anything the rules don't cover it answers with Claude, an AI. It never makes up prices or availability: if it's not in your sheet, it tells the buyer you'll answer and hands you the conversation.</p></details>
+    <details><summary>Does it answer at any hour, even old messages?</summary><p>It answers right away, at any hour. Meta only allows replies within 24 hours of the buyer's last message; after that, the conversation is yours to answer.</p></details>
+    <details><summary>How do I test it before turning it on?</summary><p>In My assistant we give you your test code (for example #prueba-4821). Send it from your personal account to your business on Instagram or Messenger: it answers only you, and no one else gets replies until you turn it on.</p></details>
+    <details><summary>What about WhatsApp?</summary><p>Coming soon. We're adding WhatsApp through Meta's official API. Today it answers on Instagram and on your Facebook Page's Messenger.</p></details>
     <details><summary>How do I update my items?</summary><p>In your catalog sheet. Mark an item as sold and the assistant stops offering it within about 10 minutes. <a href="/en/still-available/sheet/">How to publish your sheet</a>.</p></details>
-    <details><summary>What if a buyer asks something it doesn't know?</summary><p>It doesn't make things up. It tells the buyer you'll answer and passes you the conversation on WhatsApp.</p></details>
+    <details><summary>What if a buyer asks something it doesn't know?</summary><p>It doesn't make things up. It tells the buyer you'll answer and passes you the conversation.</p></details>
     <details><summary>Will it tell buyers my lowest price?</summary><p>Never. It only uses it to know how far it can negotiate, and only if you let it.</p></details>
-    <details><summary>How long does setup take?</summary><p>Usually 1 to 2 days. We send you a link to try it, and it doesn't answer anyone until you approve it.</p></details>
+    <details><summary>How long does setup take?</summary><p>The direct connection with Meta is in review: we'll email you as soon as it opens, and meanwhile we build your assistant. You test it with your code, and it doesn't answer anyone until you turn it on.</p></details>
     <details><summary>Can I turn it off anytime?</summary><p>Yes. No contract or minimum term: cancel anytime from My assistant, it keeps answering until the end of the month you already paid for, and you won't be charged again. If you just need a break, pause it there instead (pausing doesn't stop billing).</p></details>
     <details><summary>How does billing work?</summary><p>Monthly by card. If a payment fails we let you know, and you have 5 days to update your card before it pauses. Nothing gets deleted.</p></details>
     <details><summary>What buyer data do you keep?</summary><p>Only name and conversation, to answer and hold items. We never sell or share it.</p></details>
@@ -756,14 +763,14 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
       env:'Yes, we deliver in the East Valley (Mesa, Gilbert, Chandler, Tempe) for $40. Phoenix or the West Valley, I can get you a quote.',pago:'Cash, Venmo, Zelle or card at pickup.',
       donde:'We\'re in Mesa, near Main St & Dobson. I\'ll send the exact address once it\'s on hold 📍',hora:'Monday to Saturday, 10 am to 7 pm.',
       hard:'Can you stain it walnut?',a:'it',
-      caso:{quien:'A used-furniture seller in Mesa',prob:'Lists 15 pieces on Marketplace and gets dozens of “Is this still available?” and “Lowest price?” messages, mostly at night.',hace:'Answers price and dimensions from the sheet, negotiates only as far as the owner allows without revealing the floor price, and books a time to come see the piece (Pro).'}},
+      caso:{quien:'A used-furniture seller in Mesa',prob:'Lists 15 pieces on its Facebook Page and gets dozens of “Is this still available?” and “Lowest price?” messages, mostly at night.',hace:'Answers price and dimensions from the sheet, negotiates only as far as the owner allows without revealing the floor price, and books a time to come see the piece (Pro).'}},
     ropa:{label:'Clothing',emo:'👗',neg:'Sample Closet',item:'Denim jacket, size M',price:35,
       detQ:'What are the measurements?',topic:'the measurements',det:'Worn twice, no flaws. Size M: 21 in across the chest and 25 in long.',
       min:28,offer:30,cond:'if you pick it up today',
       env:'We ship anywhere in the US for $8, or it\'s free porch pickup in Gilbert.',pago:'Venmo, Zelle or PayPal. Cash for pickup.',
       donde:'Porch pickup in Gilbert, near Val Vista & Williams Field 📍',hora:'Pickups Monday to Friday, 5 to 8 pm.',
       hard:'Do you have it in size L?',a:'it',
-      caso:{quien:'A clothing reseller on Instagram',prob:'Posts one-of-a-kind pieces, and every story brings 30 messages asking “What size?” and “How much is shipping?”.',hace:'Answers size, measurements and shipping, holds the piece for whoever asks first and tells her on WhatsApp who\'s holding it.'}},
+      caso:{quien:'A clothing reseller on Instagram',prob:'Posts one-of-a-kind pieces, and every story brings 30 messages asking “What size?” and “How much is shipping?”.',hace:'Answers size, measurements and shipping, holds the piece for whoever asks first and tells her who\'s holding it.'}},
     electronicos:{label:'Electronics',emo:'📺',neg:'Sample Electronics',item:'55" 4K TV',price:300,
       detQ:'What condition is it in?',topic:'the condition',det:'Works perfectly, 2 years old, and comes with the remote and stand. No scratches on the screen.',
       min:260,offer:275,cond:'if you pay cash',
@@ -805,7 +812,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
       env:'Delivery in Gilbert for $10, or you can pick it up.',pago:'50% deposit by Venmo or Zelle, the rest at pickup.',
       donde:'We deliver in Gilbert. Pickup near downtown Gilbert 📍',hora:'Orders Monday to Saturday, 9 am to 6 pm.',
       hard:'Can you make it sugar-free?',a:'it',
-      caso:{quien:'A home baker who sells custom orders',prob:'Loses orders because she can\'t answer flavors, prices and dates while she\'s baking.',hace:'Answers flavors and prices, takes the order for an open date (Pro) and tells her on WhatsApp who ordered what and for when.'}}
+      caso:{quien:'A home baker who sells custom orders',prob:'Loses orders because she can\'t answer flavors, prices and dates while she\'s baking.',hace:'Answers flavors and prices, takes the order for an open date (Pro) and tells her who ordered what and for when.'}}
   };
   var ORDEN = ['muebles','ropa','electronicos','llantas','bebe','electrodomesticos','plantas','comida'];
   function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
@@ -837,7 +844,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
           st.stage=null;
           out.push({t:'Thanks, '+nm+'. '+(cur==='comida'?'Your order is':'It\'s')+' under your name. See you '+st.when+' 🙌'});
           out.push({fx:function(){notify('ok',(cur==='comida'?'New order: ':'On hold: ')+g.item,nm+', '+st.when+', for '+money(st.deal||g.price));}});
-          out.push({t:'This is how the alert reaches you on WhatsApp: see “What you get on WhatsApp.” Booking a time is a Pro plan feature; on Basic it holds the item and pings you.',note:1});
+          out.push({t:'This is how the alert reaches you: see “What you get.” Booking a time is a Pro plan feature; on Basic it holds the item and pings you.',note:1});
           return out;
         }
       }
@@ -923,7 +930,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
            res:['Result','One lost sale','And you never even found out why. It happens every night the phone stays on the table.']},
       con:{ev:[['9:14 PM','bien','Jessica asks “Is this still available?”','Your assistant answers in seconds: yes, it\'s $350.'],
                ['9:16 PM','bien','She asks “Lowest price?”','It offers $320 if she picks it up this week. Your floor price is never shared.'],
-               ['9:18 PM','bien','She books a pickup for tomorrow at 11','The assistant sends her the address and pings you on WhatsApp. Booking is on the Pro plan.'],
+               ['9:18 PM','bien','She books a pickup for tomorrow at 11','The assistant sends her the address and pings you. Booking is on the Pro plan.'],
                ['7:50 AM','bien','You wake up and see the alert','A pickup booked for 11. You didn\'t type a thing.']],
            res:['Result','A pickup on your calendar','While you were at dinner. On Basic it holds the table and pings you instead. Anything it doesn\'t know goes to you.']}
     };
@@ -1083,7 +1090,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
             miss.classList.add('on');
             go(first);
           } else {
-            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we sent you a link to connect your Instagram or Facebook Page directly, in one click (no other apps to install).</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
+            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we'll let you know as soon as the direct connection with Meta opens and send you the link to connect your Instagram or Facebook Page (no other apps to install). Meanwhile, we build your assistant.</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
           }
         })
         .catch(function(e){

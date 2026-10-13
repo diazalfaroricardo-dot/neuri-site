@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuri — Laboratorio de productos de inteligencia artificial</title>
+<meta name="description" content="Neuri diseña agentes de IA que hacen el trabajo repetitivo de los negocios: contestar compradores, cobrar, apartar y cuadrar la caja. Productos: ¿Sigue Disponible? y Neuri Bazar.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#04060A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%2304060A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%238FE0B4%22/%3E%3Ccircle cx=%2223%22 cy=%229%22 r=%222%22 fill=%22%23E9EEF2%22/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="https://neuri.tech/">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:#04060A}
+body{overflow-x:hidden}
+#dc-a{overflow-x:clip}
+:focus-visible{outline:2px solid #8FE0B4;outline-offset:3px}
+#dc-a a,#dc-a button{min-height:44px}
+
+body{margin:0;background:#04060A}
+a{color:#E9EEF2}a:hover{color:#8FE0B4}
+::selection{background:#8FE0B4;color:#04060A}
+.x-mono{font-family:'Geist Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}
+@keyframes xDrift{0%{background-position:0 0,0 0,0 0}100%{background-position:0 -600px,0 -400px,0 -260px}}
+.x-stars{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.75;
+  background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 140px 80px,rgba(255,255,255,.7),transparent),radial-gradient(1.5px 1.5px at 90px 160px,rgba(143,224,180,.8),transparent);
+  background-size:220px 220px,300px 300px,420px 420px;animation:xDrift 90s linear infinite}
+.x-aurora{position:absolute;z-index:0;pointer-events:none;border-radius:50%;filter:blur(80px);opacity:.55}
+@keyframes xFloatA{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,40px)}}
+@keyframes xFloatB{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-50px)}}
+.x-aur-a{animation:xFloatA 18s ease-in-out infinite}
+.x-aur-b{animation:xFloatB 22s ease-in-out infinite}
+.x-grid{position:absolute;left:-20%;right:-20%;bottom:-2px;height:46%;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(143,224,180,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(143,224,180,.22) 1px,transparent 1px);
+  background-size:64px 64px;transform:perspective(520px) rotateX(62deg);transform-origin:bottom;
+  -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%);animation:xGrid 6s linear infinite}
+@keyframes xGrid{0%{background-position:0 0}100%{background-position:0 64px}}
+@keyframes xSpin{to{transform:rotate(360deg)}}
+@keyframes xSpinR{to{transform:rotate(-360deg)}}
+.x-spin{transform-origin:210px 210px;animation:xSpin 28s linear infinite}
+.x-spin-r{transform-origin:210px 210px;animation:xSpinR 40s linear infinite}
+.x-spin-f{transform-origin:210px 210px;animation:xSpin 12s linear infinite}
+@keyframes xPulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.x-core{transform-origin:210px 210px;animation:xPulse 3.2s ease-in-out infinite}
+@keyframes xDash{to{stroke-dashoffset:-200}}
+.x-synapse{stroke-dasharray:6 14;animation:xDash 3s linear infinite}
+@keyframes xBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.x-caret{animation:xBlink 1s step-end infinite}
+@keyframes xLive{0%{box-shadow:0 0 0 0 rgba(143,224,180,.6)}100%{box-shadow:0 0 0 9px rgba(143,224,180,0)}}
+.x-live{width:8px;height:8px;border-radius:50%;background:#8FE0B4;animation:xLive 1.6s infinite;flex-shrink:0}
+@keyframes xWordA{0%{opacity:0;transform:translateY(.4em);filter:blur(6px)}100%{opacity:1;transform:none;filter:none}}
+@keyframes xWordB{0%{opacity:0;transform:translateY(.4em);filter:blur(6px)}100%{opacity:1;transform:none;filter:none}}
+.x-wa{display:inline-block;animation:xWordA .6s cubic-bezier(.2,.8,.2,1) both}
+.x-wb{display:inline-block;animation:xWordB .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes xLine{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
+.x-line{animation:xLine .35s ease both}
+@keyframes xRise{0%{opacity:0;transform:translateY(28px)}100%{opacity:1;transform:none}}
+.x-rise{animation:xRise .9s cubic-bezier(.2,.8,.2,1) both}
+.x-r2{animation-delay:.12s}.x-r3{animation-delay:.24s}.x-r4{animation-delay:.36s}
+@keyframes xScan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+.x-scan{position:absolute;left:0;right:0;top:0;height:100%;background:linear-gradient(to bottom,transparent,rgba(143,224,180,.08) 48%,rgba(143,224,180,.25) 50%,transparent 52%);animation:xScan 4.5s linear infinite;pointer-events:none}
+.x-card{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s}
+.x-card:hover{transform:translateY(-6px);border-color:rgba(143,224,180,.55)!important}
+.x-btn{transition:transform .2s,box-shadow .2s,background .2s}
+.x-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px #8FE0B4,0 12px 40px -8px rgba(143,224,180,.55)}
+.x-cmd{transition:background .2s,border-color .2s}
+.x-cmd:hover{background:rgba(255,255,255,.06)!important}
+.x-word{opacity:1}
+@supports (animation-timeline: view()){
+  @keyframes xLit{0%{opacity:.14}100%{opacity:1}}
+  .x-word{animation:xLit linear both;animation-timeline:view()}
+}
+@keyframes xMarq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.x-marq{display:flex;gap:56px;width:max-content;animation:xMarq 38s linear infinite}
+.x-marq-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+details summary{list-style:none;cursor:pointer}
+details summary::-webkit-details-marker{display:none}
+@media (max-width:900px){.x-hide-sm{display:none !important}}
+@media (prefers-reduced-motion:reduce){.x-stars,.x-aur-a,.x-aur-b,.x-grid,.x-spin,.x-spin-r,.x-spin-f,.x-core,.x-synapse,.x-caret,.x-live,.x-wa,.x-wb,.x-line,.x-rise,.x-scan,.x-marq{animation:none !important}.x-word{animation:none !important;opacity:1}}
+
+</style>
+</head>
+<body>
+<div id="dc-a"></div>
+<template data-dc-part="dc-a">
+<div style="background: #04060A; color: #E9EEF2; font-family: 'Geist', system-ui, sans-serif; min-height: 100%; overflow: hidden">
+
+<header style="position: relative; z-index: 5; max-width: 1280px; margin: 0 auto; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px">
+<a href="#inicio" aria-label="Neuri, inicio" style="text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px">
+<svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"></circle><circle cx="15" cy="15" r="5" fill="#8FE0B4"></circle><circle cx="26" cy="9" r="2" fill="#E9EEF2"></circle></svg>
+<span style="font-weight: 700; font-size: 22px; letter-spacing: -0.04em">neuri</span>
+</a>
+<nav aria-label="Principal" style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap">
+<a class="x-hide-sm x-mono" href="#sistemas" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Sistemas</a>
+<a class="x-hide-sm x-mono" href="#consola" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consola</a>
+<a class="x-hide-sm x-mono" href="#principios" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Principios</a>
+<a class="x-hide-sm x-mono" href="#laboratorio" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Laboratorio</a>
+<a class="x-btn" href="mailto:hola@neuri.tech" style="text-decoration: none; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Hablar con Neuri</a>
+</nav>
+</header>
+
+<section id="inicio" aria-labelledby="x-h1" style="position: relative; padding: 40px 28px 150px">
+<div class="x-stars" aria-hidden="true"></div>
+<div class="x-aurora x-aur-a" aria-hidden="true" style="width: 620px; height: 620px; top: -140px; right: -120px; background: radial-gradient(closest-side, rgba(143,224,180,.55), rgba(56,189,248,.18), transparent)"></div>
+<div class="x-aurora x-aur-b" aria-hidden="true" style="width: 520px; height: 520px; top: 260px; left: -220px; background: radial-gradient(closest-side, rgba(129,104,255,.45), transparent)"></div>
+<div class="x-grid" aria-hidden="true"></div>
+<div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 26px">
+<span class="x-mono x-rise" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; color: #8FE0B4; border: 1px solid rgba(143,224,180,.35); background: rgba(143,224,180,.06); padding: 8px 14px; border-radius: 999px"><span class="x-live"></span>Laboratorio de productos de IA · Phoenix → Sinaloa</span>
+<h1 id="x-h1" class="x-rise x-r2" style="margin: 0; font-weight: 700; font-size: clamp(52px, 8vw, 112px); line-height: 0.92; letter-spacing: -0.06em">Software que <span class="{{wordCls}}" style="background: linear-gradient(92deg, #8FE0B4, #67E8F9 55%, #A78BFA); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .08em">{{word}}</span><br>mientras tú vives.</h1>
+<p class="x-rise x-r3" style="margin: 0; font-size: 21px; line-height: 1.5; color: #B7C2CC; max-width: 34em; font-weight: 300">Neuri diseña agentes de inteligencia artificial que hacen el trabajo repetitivo de los negocios reales: contestar, cobrar, apartar, cuadrar la caja. Tú decides. Ellos ejecutan.</p>
+<div class="x-rise x-r4" style="display: flex; gap: 12px; flex-wrap: wrap">
+<a class="x-btn" href="#sistemas" style="text-decoration: none; background: #E9EEF2; color: #04060A; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px">Ver sistemas en operación<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="x-btn" href="#consola" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px"><span class="x-mono" style="font-size: 12px; border: 1px solid rgba(233,238,242,.3); border-radius: 6px; padding: 2px 6px">⌘K</span>Abrir la consola</a>
+</div>
+</div>
+
+<div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; position: relative">
+<div style="position: relative; width: 420px; max-width: 100%; aspect-ratio: 1">
+<svg viewBox="0 0 420 420" width="100%" height="100%" role="img" aria-label="Núcleo de Neuri: anillos de agentes girando alrededor de un centro brillante">
+<defs>
+<radialGradient id="xg-core" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E9FFF4"></stop><stop offset="35%" stop-color="#8FE0B4"></stop><stop offset="100%" stop-color="#8FE0B4" stop-opacity="0"></stop></radialGradient>
+<linearGradient id="xg-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8FE0B4"></stop><stop offset="100%" stop-color="#A78BFA" stop-opacity=".3"></stop></linearGradient>
+</defs>
+<circle cx="210" cy="210" r="200" fill="none" stroke="rgba(233,238,242,.08)"></circle>
+<g class="x-spin-r"><circle cx="210" cy="210" r="182" fill="none" stroke="url(#xg-ring)" stroke-width="1" stroke-dasharray="2 10"></circle><circle cx="392" cy="210" r="5" fill="#A78BFA"></circle><circle cx="28" cy="210" r="3" fill="#E9EEF2"></circle></g>
+<g class="x-spin"><circle cx="210" cy="210" r="140" fill="none" stroke="rgba(143,224,180,.45)" stroke-width="1"></circle><circle cx="210" cy="70" r="6" fill="#8FE0B4"></circle><circle cx="350" cy="210" r="3.5" fill="#67E8F9"></circle><circle cx="111" cy="309" r="4" fill="#E9EEF2"></circle></g>
+<g class="x-spin-f"><circle cx="210" cy="210" r="96" fill="none" stroke="rgba(103,232,249,.35)" stroke-width="1" stroke-dasharray="40 18"></circle><circle cx="306" cy="210" r="3" fill="#67E8F9"></circle></g>
+<path class="x-synapse" d="M210 210 L210 70 M210 210 L350 210 M210 210 L111 309 M210 210 L392 210" stroke="rgba(143,224,180,.5)" stroke-width="1" fill="none"></path>
+<circle class="x-core" cx="210" cy="210" r="64" fill="url(#xg-core)"></circle>
+<circle cx="210" cy="210" r="14" fill="#04060A" stroke="#E9FFF4" stroke-width="2"></circle>
+</svg>
+<div class="x-mono" style="position: absolute; top: 6%; left: -6%; font-size: 11px; color: #9AA6B2; background: rgba(4,6,10,.75); border: 1px solid rgba(233,238,242,.12); border-radius: 12px; padding: 10px 12px; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 4px">
+<span style="color: #8FE0B4">● Agente · mensajes</span><span style="color: #E9EEF2; font-size: 13px; letter-spacing: .02em; text-transform: none">Responde en segundos</span>
+</div>
+<div class="x-mono" style="position: absolute; bottom: 10%; right: -6%; font-size: 11px; color: #9AA6B2; background: rgba(4,6,10,.75); border: 1px solid rgba(233,238,242,.12); border-radius: 12px; padding: 10px 12px; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 4px">
+<span style="color: #A78BFA">● Agente · caja</span><span style="color: #E9EEF2; font-size: 13px; letter-spacing: .02em; text-transform: none">Cuadra el día solo</span>
+</div>
+<div class="x-mono" style="position: absolute; bottom: -2%; left: 4%; font-size: 11px; color: #9AA6B2">PHX {{clock}} · Sistema en línea</div>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="Lo que hacen los agentes" style="position: relative; z-index: 2; border-top: 1px solid rgba(233,238,242,.08); border-bottom: 1px solid rgba(233,238,242,.08); padding: 22px 0; background: #070A10">
+<div class="x-marq-wrap"><div class="x-marq x-mono" style="font-size: 13px; color: #6E7A86">
+<template sc-for list="{{marquee}}" as="m" hint-placeholder-count="10"><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>{{m.t}}</span></template>
+</div></div>
+</section>
+
+<section aria-label="Manifiesto" style="max-width: 1120px; margin: 0 auto; padding: 150px 28px">
+<p class="x-mono" style="margin: 0 0 28px; font-size: 12px; color: #8FE0B4">01 · Manifiesto</p>
+<p style="margin: 0; font-size: clamp(32px, 4.6vw, 60px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 500">
+<template sc-for list="{{manifesto}}" as="w" hint-placeholder-count="30"><span class="x-word" style="{{w.style}}">{{w.t}} </span></template>
+</p>
+</section>
+
+<section id="sistemas" aria-labelledby="x-sis" style="max-width: 1280px; margin: 0 auto; padding: 40px 28px 140px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 44px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">02 · Sistemas en operación</p>
+<h2 id="x-sis" style="margin: 0; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Dos misiones. Ya en órbita.</h2>
+</div>
+<p style="margin: 0; color: #9AA6B2; font-size: 17px; max-width: 26em; line-height: 1.5">Cada producto es un agente especializado en un trabajo que antes te robaba horas.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 20px">
+<template sc-for list="{{missions}}" as="ms" hint-placeholder-count="2">
+<a class="x-card" href="{{ms.href}}" style="text-decoration: none; color: #E9EEF2; position: relative; overflow: hidden; border: 1px solid rgba(233,238,242,.12); border-radius: 28px; padding: 32px; background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); display: flex; flex-direction: column; gap: 22px; min-height: 420px">
+<div class="x-scan" aria-hidden="true"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; position: relative">
+<span class="x-mono" style="font-size: 12px; color: #9AA6B2">{{ms.code}}</span>
+<span class="x-mono" style="display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: {{ms.color}}; border: 1px solid {{ms.border}}; padding: 6px 10px; border-radius: 999px"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{ms.color}}"></span>{{ms.status}}</span>
+</div>
+<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: clamp(34px, 3.6vw, 48px); letter-spacing: -0.045em; font-weight: 700; line-height: 1">{{ms.name}}</h3>
+<p style="margin: 0; font-size: 18px; color: #B7C2CC; line-height: 1.5; font-weight: 300">{{ms.desc}}</p>
+</div>
+<div style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: auto">
+<template sc-for list="{{ms.stats}}" as="s" hint-placeholder-count="3">
+<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: {{ms.color}}">{{s.v}}</span>
+<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">{{s.k}}</span>
+</div>
+</template>
+</div>
+<span style="position: relative; display: inline-flex; align-items: center; gap: 10px; font-weight: 600">{{ms.cta}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"></path></svg></span>
+</a>
+</template>
+</div>
+</section>
+
+<section id="consola" aria-labelledby="x-con" style="position: relative; padding: 140px 28px; background: radial-gradient(900px 500px at 50% 0%, rgba(103,232,249,.10), transparent), #05080D; border-top: 1px solid rgba(233,238,242,.08)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
+<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">03 · Consola</p>
+<h2 id="x-con" style="margin: 0; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Una orden. El agente hace el resto.</h2>
+<p style="margin: 0; font-size: 19px; color: #9AA6B2; line-height: 1.5; font-weight: 300">Elige una orden y mira lo que pasa por dentro. Es una simulación con datos de ejemplo de lo que ya hacen nuestros productos.</p>
+</div>
+<div style="border: 1px solid rgba(233,238,242,.14); border-radius: 24px; background: rgba(10,14,20,.85); box-shadow: 0 40px 120px -40px rgba(103,232,249,.25); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(233,238,242,.08)">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA6B2" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<span style="flex: 1; font-size: 17px; color: #E9EEF2">{{query}}<span class="x-caret" style="color: #8FE0B4">▍</span></span>
+<span class="x-mono x-hide-sm" style="font-size: 11px; color: #6E7A86; border: 1px solid rgba(233,238,242,.15); border-radius: 6px; padding: 3px 7px">⌘K</span>
+</div>
+<div style="display: flex; flex-wrap: wrap">
+<div role="listbox" aria-label="Órdenes" style="flex: 1 1 340px; min-width: 0; padding: 10px; border-right: 1px solid rgba(233,238,242,.08); display: flex; flex-direction: column; gap: 4px">
+<template sc-for list="{{cmds}}" as="c" hint-placeholder-count="4">
+<button type="button" class="x-cmd" role="option" aria-selected="{{c.sel}}" onClick="{{c.run}}" style="{{c.style}}">
+<span style="width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: {{c.iconBg}}; color: {{c.iconColor}}; font-size: 16px">{{c.icon}}</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15.5px; font-weight: 500">{{c.label}}</span><span class="x-mono" style="font-size: 10.5px; color: #6E7A86">{{c.hint}}</span></span>
+<span class="x-mono" style="font-size: 11px; color: #6E7A86">{{c.key}}</span>
+</button>
+</template>
+</div>
+<div aria-live="polite" style="flex: 999 1 420px; min-width: 0; padding: 22px 24px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; line-height: 1.75; min-height: 300px; display: flex; flex-direction: column; gap: 4px">
+<span style="color: #6E7A86">$ neuri run {{runKey}}</span>
+<template sc-for list="{{logLines}}" as="l" hint-placeholder-count="4"><span class="x-line" style="{{l.style}}">{{l.t}}</span></template>
+<template sc-if value="{{running}}" hint-placeholder-val="{{ false }}"><span style="color: #8FE0B4"><span class="x-caret">▍</span></span></template>
+<span style="margin-top: auto; padding-top: 18px; color: #4F5A64; font-size: 11.5px">Simulación · datos de ejemplo</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="principios" aria-labelledby="x-pri" style="max-width: 1280px; margin: 0 auto; padding: 140px 28px">
+<p class="x-mono" style="margin: 0 0 16px; font-size: 12px; color: #8FE0B4">04 · Principios de diseño</p>
+<h2 id="x-pri" style="margin: 0 0 56px; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700; max-width: 16ch">Autónomo. Honesto. Bajo tu mando.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1px; background: rgba(233,238,242,.1); border: 1px solid rgba(233,238,242,.1); border-radius: 24px; overflow: hidden">
+<template sc-for list="{{principles}}" as="p" hint-placeholder-count="3">
+<div style="background: #04060A; padding: 34px 30px; display: flex; flex-direction: column; gap: 18px; min-height: 280px">
+<span class="x-mono" style="font-size: 12px; color: #6E7A86">{{p.n}}</span>
+<svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="{{p.icon}}"></path></svg>
+<h3 style="margin: 0; font-size: 28px; letter-spacing: -0.035em; font-weight: 600">{{p.t}}</h3>
+<p style="margin: 0; color: #9AA6B2; font-size: 16.5px; line-height: 1.55; font-weight: 300">{{p.d}}</p>
+</div>
+</template>
+</div>
+</section>
+
+<section id="laboratorio" aria-labelledby="x-lab" style="position: relative; padding: 140px 28px; border-top: 1px solid rgba(233,238,242,.08); background: #05080D; overflow: hidden">
+<div class="x-stars" aria-hidden="true" style="opacity: .35"></div>
+<div style="position: relative; max-width: 1280px; margin: 0 auto">
+<p class="x-mono" style="margin: 0 0 16px; font-size: 12px; color: #8FE0B4">05 · Laboratorio</p>
+<h2 id="x-lab" style="margin: 0 0 18px; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Lo que viene en la siguiente órbita.</h2>
+<p style="margin: 0 0 60px; color: #9AA6B2; font-size: 18px; max-width: 34em; font-weight: 300; line-height: 1.5">Construimos en público. Esto es lo que ya funciona y lo que estamos terminando.</p>
+<div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 28px">
+<div aria-hidden="true" class="x-hide-sm" style="position: absolute; left: 0; right: 0; top: 13px; height: 1px; background: linear-gradient(90deg, #8FE0B4, rgba(167,139,250,.6), rgba(233,238,242,.1))"></div>
+<template sc-for list="{{roadmap}}" as="r" hint-placeholder-count="4">
+<div style="position: relative; display: flex; flex-direction: column; gap: 14px">
+<span style="width: 27px; height: 27px; border-radius: 50%; border: 1px solid {{r.color}}; background: #05080D; display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: {{r.color}}"></span></span>
+<span class="x-mono" style="font-size: 11.5px; color: {{r.color}}">{{r.status}}</span>
+<h3 style="margin: 0; font-size: 22px; letter-spacing: -0.03em; font-weight: 600">{{r.t}}</h3>
+<p style="margin: 0; color: #9AA6B2; font-size: 15.5px; line-height: 1.55; font-weight: 300">{{r.d}}</p>
+</div>
+</template>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="x-fin" style="position: relative; padding: 170px 28px 150px; text-align: center; overflow: hidden">
+<div class="x-aurora x-aur-a" aria-hidden="true" style="width: 760px; height: 420px; left: 50%; top: 40%; margin-left: -380px; background: radial-gradient(closest-side, rgba(143,224,180,.35), rgba(167,139,250,.2), transparent)"></div>
+<div class="x-grid" aria-hidden="true" style="height: 60%"></div>
+<div style="position: relative; z-index: 2; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px">
+<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">T-minus 0 · Lanzamiento</p>
+<h2 id="x-fin" style="margin: 0; font-size: clamp(44px, 7vw, 96px); line-height: 0.94; letter-spacing: -0.06em; font-weight: 700">El futuro de tu negocio ya contesta solo.</h2>
+<p style="margin: 0; font-size: 20px; color: #B7C2CC; max-width: 32em; font-weight: 300; line-height: 1.5">Estamos abriendo con los primeros negocios en México y Estados Unidos. Escríbenos y te decimos qué agente te sirve.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
+<a class="x-btn" href="mailto:hola@neuri.tech" style="text-decoration: none; background: #8FE0B4; color: #04060A; font-weight: 600; font-size: 17px; padding: 18px 28px; border-radius: 999px; min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center">hola@neuri.tech</a>
+<a class="x-btn" href="#sistemas" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 17px; padding: 18px 28px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center">Ver los productos</a>
+</div>
+</div>
+</section>
+
+<footer style="border-top: 1px solid rgba(233,238,242,.08); padding: 28px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+<span class="x-mono" style="font-size: 11.5px; color: #6E7A86">© 2026 Neuri LLC · 33.4484° N, 112.0740° W · Phoenix, Arizona</span>
+<span style="display: flex; gap: 22px; flex-wrap: wrap; font-size: 14px">
+<a href="/sigue-disponible/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">¿Sigue Disponible?</a>
+<a href="/bazar/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Neuri Bazar</a>
+<a href="/en/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">English</a>
+</span>
+</footer>
+</div>
+</template>
+<script type="application/json" id="dc-props">{"$preview":{"width":1440,"height":6200}}</script>
+<script src="/assets/dc-lite.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { wi: 0, flip: false, clock: '', cmd: 0, shown: 0, running: false, auto: true, typed: 0 };
+    this.words = ['contesta', 'cobra', 'aparta', 'agenda', 'cuadra la caja'];
+    this.cmdDefs = [
+      { key: 'contestar', label: 'Contestar a mis compradores', hint: '¿Sigue Disponible?', icon: '✦', iconBg: 'rgba(143,224,180,.12)', iconColor: '#8FE0B4', short: '↵',
+        log: [['› Leyendo 14 mensajes nuevos de Instagram y Messenger', 0], ['› 11 resueltos con tu hoja: precio, entrega y pagos', 0], ['› 2 apartados confirmados · ropero blanco, mesa de centro', 1], ['› 1 regateo detectado → te lo pasé a ti', 2], ['✓ Listo en 2.8 s · no tocaste el celular', 1]] },
+      { key: 'cerrar-dia', label: 'Cerrar el día del bazar', hint: 'Neuri Bazar', icon: '◈', iconBg: 'rgba(167,139,250,.14)', iconColor: '#A78BFA', short: '⌘1',
+        log: [['› 90 ventas de 30 vendedores, separadas al cobrar', 0], ['› Rentas de la semana descontadas de cada saldo', 0], ['› Corte de caja: esperado $18,420 · contado $18,420', 1], ['› 30 estados de cuenta listos para enviar', 0], ['✓ Día cerrado en 6 min', 1]] },
+      { key: 'rentar-puesto', label: 'Rentar un puesto nuevo', hint: 'Neuri Bazar', icon: '⬡', iconBg: 'rgba(103,232,249,.12)', iconColor: '#67E8F9', short: '⌘2',
+        log: [['› Puesto 12 libre · renta fija $300 a la semana', 0], ['› Contrato enviado a Lupita por WhatsApp', 0], ['› Firmado desde su celular', 1], ['› Su link de Mi Puesto ya está activo', 0], ['✓ Vendedora dada de alta', 1]] },
+      { key: 'agendar', label: 'Agendar una visita y recordarla', hint: '¿Sigue Disponible? · Pro', icon: '◎', iconBg: 'rgba(233,238,242,.08)', iconColor: '#E9EEF2', short: '⌘3',
+        log: [['› Ana pregunta si puede ver la mesa el sábado', 0], ['› Visita agendada: sábado 11 am', 1], ['› Recordatorio programado 2 horas antes', 0], ['› Recordatorio enviado · Ana confirmó', 0], ['✓ Visita lista sin que escribieras nada', 1]] }
+    ];
+    this.timers = [];
+    this.runTimers = [];
+  }
+  tick() {
+    try {
+      this.setState({ clock: new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'America/Phoenix' }) });
+    } catch (e) {}
+  }
+  run(i, manual) {
+    var self = this;
+    this.runTimers.forEach(function (t) { clearTimeout(t); });
+    this.runTimers = [];
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    var n = this.cmdDefs[i].log.length;
+    var next = { cmd: i, shown: 0, running: true, typed: 0 };
+    if (manual) next.auto = false;
+    if (reduce) { next.shown = n; next.running = false; next.typed = 999; this.setState(next); return; }
+    this.setState(next);
+    var label = this.cmdDefs[i].label;
+    for (var c = 1; c <= label.length; c++) {
+      (function (c) { self.runTimers.push(setTimeout(function () { self.setState({ typed: c }); }, c * 22)); })(c);
+    }
+    var base = label.length * 22 + 250;
+    for (var k = 1; k <= n; k++) {
+      (function (k) { self.runTimers.push(setTimeout(function () { self.setState({ shown: k, running: k < n }); }, base + k * 520)); })(k);
+    }
+    this.runTimers.push(setTimeout(function () {
+      if (self.state.auto) self.run((i + 1) % self.cmdDefs.length, false);
+    }, base + n * 520 + 3200));
+  }
+  componentDidMount() {
+    var self = this;
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    this.tick();
+    this.timers.push(setInterval(function () { self.tick(); }, 1000));
+    if (!reduce) {
+      this.timers.push(setInterval(function () {
+        self.setState({ wi: (self.state.wi + 1) % self.words.length, flip: !self.state.flip });
+      }, 2400));
+    }
+    this.timers.push(setTimeout(function () { self.run(0, false); }, 900));
+  }
+  componentWillUnmount() {
+    this.timers.forEach(function (t) { clearInterval(t); clearTimeout(t); });
+    this.runTimers.forEach(function (t) { clearTimeout(t); });
+    this.timers = []; this.runTimers = [];
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state;
+    var cur = this.cmdDefs[st.cmd];
+    var manifestoText = 'Los negocios pequeños no necesitan más pantallas. Necesitan tiempo. Por eso construimos agentes que contestan, cobran y llevan las cuentas solos, con las reglas de cada dueño, para que la gente vuelva a hacer lo que solo la gente puede hacer.';
+    var mw = manifestoText.split(' ');
+    var mColors = { 'agentes': '#8FE0B4', 'tiempo.': '#8FE0B4', 'solos,': '#67E8F9', 'gente': '#E9EEF2' };
+    var toneColor = ['#C5CED6', '#8FE0B4', '#FCA5A5'];
+    return {
+      word: this.words[st.wi],
+      wordCls: st.flip ? 'x-wb' : 'x-wa',
+      clock: st.clock || '--:--:--',
+      marquee: ['Contesta en segundos', 'Aparta y agenda', 'Cobra en caja', 'Separa lo de cada vendedor', 'Cobra rentas solo', 'Te pasa lo difícil', 'Nunca inventa precios', 'Instagram · Messenger', 'Español e inglés', 'Pesos y dólares', 'Contesta en segundos', 'Aparta y agenda', 'Cobra en caja', 'Separa lo de cada vendedor', 'Cobra rentas solo', 'Te pasa lo difícil', 'Nunca inventa precios', 'Instagram · Messenger', 'Español e inglés', 'Pesos y dólares'].map(function (t) { return { t: t }; }),
+      manifesto: mw.map(function (w, i) {
+        var a = Math.round(i / mw.length * 40), b = a + 25;
+        return { t: w, style: 'animation-range: entry ' + a + '% cover ' + b + '%;' + (mColors[w] ? ' color: ' + mColors[w] + ';' : '') };
+      }),
+      missions: [
+        { code: 'MISIÓN 01 · AGENTE DE MENSAJES', name: '¿Sigue Disponible?', status: 'En operación', color: '#8FE0B4', border: 'rgba(143,224,180,.4)',
+          desc: 'Contesta a tus compradores en Instagram y Messenger con tus precios y tus reglas: si sigue, cuánto cuesta, dónde se entrega. Aparta, agenda y te pasa lo difícil.',
+          stats: [{ v: '< 3 s', k: 'Para contestar' }, { v: '24/7', k: 'Despierto' }, { v: '0', k: 'Precios inventados' }],
+          cta: 'Entrar a ¿Sigue Disponible?', href: '/sigue-disponible/' },
+        { code: 'MISIÓN 02 · AGENTE DE OPERACIONES', name: 'Neuri Bazar', status: 'En operación', color: '#A78BFA', border: 'rgba(167,139,250,.45)',
+          desc: 'La caja y las cuentas de bazares, tianguis y antique malls. Cada venta va al saldo de su vendedor, la renta del puesto se cobra sola y el día cuadra sin libreta.',
+          stats: [{ v: '6 min', k: 'Para cerrar el día' }, { v: '0', k: 'Comisiones por venta' }, { v: 'ES · EN', k: 'MX y EE.UU.' }],
+          cta: 'Entrar a Neuri Bazar', href: '/bazar/' }
+      ],
+      query: cur.label.slice(0, st.typed),
+      runKey: cur.key,
+      running: st.running,
+      cmds: this.cmdDefs.map(function (c, i) {
+        var on = st.cmd === i;
+        return { label: c.label, hint: c.hint, icon: c.icon, iconBg: c.iconBg, iconColor: c.iconColor, key: c.short, sel: on ? 'true' : 'false',
+          style: 'font: inherit; cursor: pointer; color: #E9EEF2; display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; border-radius: 14px; min-height: 60px; border: 1px solid ' + (on ? 'rgba(143,224,180,.4)' : 'transparent') + '; background: ' + (on ? 'rgba(143,224,180,.08)' : 'transparent') + ';',
+          run: function () { self.run(i, true); } };
+      }),
+      logLines: cur.log.slice(0, st.shown).map(function (l) { return { t: l[0], style: 'color: ' + toneColor[l[1]] + ';' }; }),
+      principles: [
+        { n: '01', t: 'Autónomo', d: 'Cada agente termina el trabajo completo: no te deja una sugerencia, te deja la venta apartada o el día cuadrado.', icon: 'M22 4v6M22 34v6M4 22h6M34 22h6M22 14a8 8 0 1 0 0 16a8 8 0 1 0 0-16z' },
+        { n: '02', t: 'Honesto', d: 'Contesta solo con tu información. Si no sabe algo, no inventa: te pasa la conversación y le avisa al cliente.', icon: 'M22 4l15 6v10c0 9-6.5 16.5-15 20c-8.5-3.5-15-11-15-20V10zM15 22l5 5l9-10' },
+        { n: '03', t: 'Bajo tu mando', d: 'Tú apruebas antes de que conteste a nadie, decides qué resuelve solo y lo pausas cuando quieras.', icon: 'M8 30h28M14 30V18M22 30V10M30 30V22M6 38h32' }
+      ],
+      roadmap: [
+        { status: 'Disponible', color: '#8FE0B4', t: 'Instagram y Messenger', d: 'El agente de mensajes contesta en la API oficial de Meta. La conexión directa está en su revisión final.' },
+        { status: 'Disponible', color: '#8FE0B4', t: 'Configúralo con tu IA', d: 'Conecta Neuri a Claude o ChatGPT y da de alta tu negocio platicando.' },
+        { status: 'En construcción', color: '#A78BFA', t: 'WhatsApp oficial', d: 'Tu mismo número, contestado por tu agente, en la plataforma oficial de WhatsApp Business.' },
+        { status: 'En construcción', color: '#A78BFA', t: 'Tu bazar en internet', d: 'Un sitio con todo el inventario de tu bazar, que se actualiza solo con cada venta.' }
+      ]
+    };
+  }
+}
+
+DCMount(Component);
+</script>
+</body>
+</html>

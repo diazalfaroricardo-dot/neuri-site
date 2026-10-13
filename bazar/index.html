@@ -11,12 +11,12 @@
 <link rel="alternate" hreflang="en" href="https://neuri.tech/en/">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap">
 <style>
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 #dc-a,#dc-b,.legacy{overflow-x:clip}
-body{font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+body{font-family:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
 img,svg{max-width:100%}
 :focus-visible{outline:3px solid currentColor;outline-offset:3px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -32,7 +32,7 @@ input[type=range].b-range-l::-moz-range-track{height:8px;border-radius:999px;bac
 input[type=range].n-range::-webkit-slider-thumb,input[type=range].b-range::-webkit-slider-thumb,input[type=range].b-range-l::-webkit-slider-thumb{margin-top:-9px}
 
 body{margin:0;background:#F7F1E8}
-a{color:#1E1A16}a:hover{color:#B4441A}
+a{color:#05080D}a:hover{color:#B4441A}
 details summary{list-style:none;cursor:pointer}
 details summary::-webkit-details-marker{display:none}
 details[open] .b-plus{transform:rotate(45deg)}
@@ -50,7 +50,7 @@ details[open] .b-plus{transform:rotate(45deg)}
 .b-rise-2{animation-delay:.12s}.b-rise-3{animation-delay:.24s}.b-rise-4{animation-delay:.36s}
 .b-scan{position:absolute;left:10px;right:10px;height:2px;background:#B4441A;box-shadow:0 0 12px 2px rgba(180,68,26,.55);animation:bScan 2.2s ease-in-out infinite}
 .b-tilt{animation:bTilt 7s ease-in-out infinite}
-.b-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #E6DBC9;border-radius:16px;padding:10px 14px 10px 10px;box-shadow:0 18px 40px -18px rgba(30,26,22,.4);font-size:14px;font-weight:600;white-space:nowrap}
+.b-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #E6DBC9;border-radius:16px;padding:10px 14px 10px 10px;box-shadow:0 18px 40px -18px rgba(5,8,13,.4);font-size:14px;font-weight:600;white-space:nowrap}
 .b-bob{animation:bBob 5.5s ease-in-out infinite}.b-bob-2{animation-delay:-2s}
 .b-ico{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .b-live{width:8px;height:8px;border-radius:50%;background:#B4441A;animation:bPulse 1.6s infinite}
@@ -60,17 +60,17 @@ details[open] .b-plus{transform:rotate(45deg)}
 .b-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .b-marquee:hover .b-track{animation-play-state:paused}
 .b-tag{flex-shrink:0;padding:14px 22px;border-radius:999px;font-size:17px;font-weight:600;background:#FFFFFF;border:1px solid #E6DBC9;display:inline-flex;align-items:center;gap:10px}
-.b-tag-dark{background:#1E1A16;color:#FFFFFF;border-color:#1E1A16}
+.b-tag-dark{background:#05080D;color:#FFFFFF;border-color:#05080D}
 .b-btn{transition:transform .18s,box-shadow .18s,background .18s}
 .b-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(180,68,26,.6)}
 .b-bar{transition:width .5s cubic-bezier(.2,.8,.2,1)}
 .b-card{transition:transform .2s,border-color .2s,box-shadow .2s}
-.b-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px rgba(30,26,22,.35)}
+.b-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px rgba(5,8,13,.35)}
 input[type=range].b-range{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;background:#3A332C;outline-offset:4px}
 input[type=range].b-range::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#F7F1E8;border:4px solid #B4441A;cursor:pointer}
 input[type=range].b-range::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#F7F1E8;border:4px solid #B4441A;cursor:pointer}
 input[type=range].b-range-l{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;background:#E6DBC9;outline-offset:4px}
-input[type=range].b-range-l::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#FFFFFF;border:4px solid #B4441A;cursor:pointer;box-shadow:0 2px 6px rgba(30,26,22,.25)}
+input[type=range].b-range-l::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#FFFFFF;border:4px solid #B4441A;cursor:pointer;box-shadow:0 2px 6px rgba(5,8,13,.25)}
 input[type=range].b-range-l::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#FFFFFF;border:4px solid #B4441A;cursor:pointer}
 @keyframes bToast{0%{opacity:0;transform:translateY(-14px) scale(.96)}100%{opacity:1;transform:none}}
 @keyframes bFlash{0%{background:#8FE0B4;color:#0B4A4A}100%{background:rgba(255,255,255,.1);color:#FFFFFF}}
@@ -526,24 +526,24 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.legacy .av-msg,.legacy .av-cuenta{animation:none}
 .legacy .av-p{transition:none}
 }
-.legacy{--anil:#1E1A16;--anil-2:#2B2520;--anil-3:#3A332C;--etiqueta:#F3B38F;--etiqueta-2:#B4441A;--papel:#FFFFFF;--neblina:#EFE6D8;--linea:#E6DBC9;--gris:#5E554C;--sobre-anil:#CFC4B4;--rosa:#B4441A;--verde-agua:#0E6B6B;--naranja:#8A3313;
-  --display:"Bricolage Grotesque",system-ui,sans-serif;--texto:"Instrument Sans",system-ui,sans-serif;background:#F7F1E8;color:#1E1A16;font-family:var(--texto)}
+.legacy{--anil:#05080D;--anil-2:#2B2520;--anil-3:#3A332C;--etiqueta:#F3B38F;--etiqueta-2:#B4441A;--papel:#FFFFFF;--neblina:#EFE6D8;--linea:#E6DBC9;--gris:#5E554C;--sobre-anil:#CFC4B4;--rosa:#B4441A;--verde-agua:#0E6B6B;--naranja:#8A3313;
+  --display:"Geist",system-ui,sans-serif;--texto:"Geist",system-ui,sans-serif;background:#F7F1E8;color:#05080D;font-family:var(--texto)}
 .legacy h1,.legacy h2,.legacy h3{font-stretch:100%;font-weight:800;letter-spacing:-.03em}
-.legacy .oscuro{background:#1E1A16}
+.legacy .oscuro{background:#05080D}
 .legacy .btn-etiqueta:hover{background:#F7C6A9}
 
 </style>
 </head>
 <body>
 <div id="dc-a">
-<div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #1E1A16; background: #F7F1E8; min-height: 100vh">
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #05080D; background: #F7F1E8; min-height: 100vh">
 
 <header style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
 <a href="#inicio" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
 <span style="width: 34px; height: 34px; border-radius: 10px; background: #B4441A; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"></path><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"></path><path d="M5 13v7h14v-7"></path></svg>
 </span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">neuri <span style="color: #B4441A">bazar</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">neuri<span style="color: #B4441A">.bazar</span></span>
 </a>
 <nav aria-label="Principal" style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
 <a class="hide-sm" href="#simula" style="text-decoration: none; font-weight: 500">Pruébalo</a>
@@ -551,18 +551,18 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 <a class="hide-sm" href="#funciones" style="text-decoration: none; font-weight: 500">Funciones</a>
 <a class="hide-sm" href="#precios" style="text-decoration: none; font-weight: 500">Precios</a>
 <a class="hide-sm" href="/en/" lang="en" hreflang="en" style="text-decoration: none; font-weight: 500">English</a>
-<a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #1E1A16; color: #FFFFFF; font-weight: 600; padding: 12px 18px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Agenda una demo</a>
+<a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #05080D; color: #FFFFFF; font-weight: 600; padding: 12px 18px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Agenda una demo</a>
 </nav>
 </header>
 
 <section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
 <div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <span class="b-rise" style="align-self: flex-start; background: #F3DCCD; color: #8A3313; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Para mercaditos, bazares y antique malls</span>
-<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Tu bazar en orden. Tus vendedores, siempre enterados.</h1>
+<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Tu bazar en orden. Tus vendedores, siempre enterados.</h1>
 <p class="b-rise b-rise-3" style="margin: 0; font-size: 20px; line-height: 1.5; color: #4E463E; max-width: 560px">Puestos, rentas, inventario y caja en un solo lugar. La renta se cobra sola, cada venta llega directo al saldo del vendedor y él lo ve en Mi Puesto.</p>
 <div class="b-rise b-rise-4" style="display: flex; flex-wrap: wrap; gap: 12px">
 <a class="b-btn" href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #B4441A; color: #FFFFFF; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box">Agenda una demo</a>
-<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #1E1A16; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
+<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #05080D; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Pruébalo</a>
 </div>
 <p style="margin: 0; font-size: 15px; color: #5E554C">Español e inglés · Pesos y dólares · Desde $499 MXN al mes</p>
@@ -576,15 +576,15 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </div>
 
 
-<div class="b-tilt" role="img" aria-label="Caja de neuri.bazar: se escanean dos artículos de distintos vendedores, se cobra el total y cada vendedor recibe el aviso de su venta." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(30,26,22,.45); overflow: hidden">
-<div style="background: #1E1A16; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
+<div class="b-tilt" role="img" aria-label="Caja de neuri.bazar: se escanean dos artículos de distintos vendedores, se cobra el total y cada vendedor recibe el aviso de su venta." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(5,8,13,.45); overflow: hidden">
+<div style="background: #05080D; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
 <span style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px"><span class="b-live"></span>Caja 1 · Bazar Las Palmas</span>
 <span style="font-size: 13px; color: #CFC4B4">Cajero: Ana</span>
 </div>
 <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
 <div style="position: relative; height: 70px; border-radius: 14px; background: #F7F1E8; border: 1.5px dashed #D9CCB8; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden">
 <span class="b-scan"></span>
-<span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span>
+<span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span>
 </div>
 <div style="min-height: 132px; display: flex; flex-direction: column; gap: 10px">
 
@@ -595,7 +595,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </div>
 <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DBC9; padding-top: 14px">
 <span style="font-weight: 600; color: #5E554C">Total</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">$0</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">$0</span>
 </div>
 <div style="position: relative">
 
@@ -617,11 +617,11 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </div>
 </section>
 
-<section id="simula" aria-label="Alta de un vendedor nuevo" style="background: #1E1A16; color: #FFFFFF; position: relative; overflow: hidden">
+<section id="simula" aria-label="Alta de un vendedor nuevo" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px"><span class="b-live"></span>Pruébalo</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Renta un puesto a un vendedor nuevo en dos minutos.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Renta un puesto a un vendedor nuevo en dos minutos.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Eliges el puesto, a quién de tu lista de espera y su renta. Neuri le manda el contrato, lo firma desde su celular y queda dado de alta.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: stretch">
@@ -638,7 +638,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 1</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">TM</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">TM</span>
 </div>
 
 
@@ -646,7 +646,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 2</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">JP</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">JP</span>
 </div>
 
 
@@ -663,7 +663,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 4</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">CA</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">CA</span>
 </div>
 
 
@@ -671,7 +671,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 5</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">PL</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">PL</span>
 </div>
 
 
@@ -679,7 +679,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 6</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">RG</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">RG</span>
 </div>
 
 
@@ -687,7 +687,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 7</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">LU</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">LU</span>
 </div>
 
 
@@ -704,7 +704,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 9</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">AN</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">AN</span>
 </div>
 
 
@@ -712,7 +712,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 10</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">SL</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">SL</span>
 </div>
 
 
@@ -729,7 +729,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto 12</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">DR</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">DR</span>
 </div>
 
 
@@ -742,17 +742,17 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px">
 
 <button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; color: #FFFFFF; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; min-height: 60px; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.14);" data-dc-click="3">
-<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">MA</span>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">MA</span>
 <span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700">Mariela</span><span style="font-size: 12.5px; color: #CFC4B4">Ropa vintage</span></span>
 </button>
 
 <button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; color: #FFFFFF; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; min-height: 60px; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.14);" data-dc-click="4">
-<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">TO</span>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">TO</span>
 <span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700">Toño</span><span style="font-size: 12.5px; color: #CFC4B4">Discos y vinil</span></span>
 </button>
 
 <button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; color: #FFFFFF; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; min-height: 60px; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.14);" data-dc-click="5">
-<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">SO</span>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">SO</span>
 <span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700">Sofi</span><span style="font-size: 12.5px; color: #CFC4B4">Plantas y macetas</span></span>
 </button>
 
@@ -764,7 +764,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 <div style="background: #2B2520; border: 1px solid #3A332C; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A89C8C">3 · Renta y avisos</span>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="renta" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Renta fija a la semana <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">$900</span></label>
+<label for="renta" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Renta fija a la semana <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">$900</span></label>
 <input id="renta" class="b-range" type="range" min="300" max="2000" step="50" value="900" data-dc-input="6">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
@@ -775,7 +775,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 15px; padding: 11px 16px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.28);" data-dc-click="8">Resumen diario</button>
 
-<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 15px; padding: 11px 16px; border-radius: 999px; min-height: 44px; background: #F7F1E8; color: #1E1A16; border: 1.5px solid #F7F1E8;" data-dc-click="9">Resumen semanal</button>
+<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 15px; padding: 11px 16px; border-radius: 999px; min-height: 44px; background: #F7F1E8; color: #05080D; border: 1.5px solid #F7F1E8;" data-dc-click="9">Resumen semanal</button>
 
 </div>
 </div>
@@ -792,9 +792,9 @@ Elige un puesto libre
 
 <div style="flex: 1 1 340px; display: flex; justify-content: center; align-items: flex-start">
 <div style="width: 340px; max-width: 100%; background: #0F0D0B; border-radius: 44px; padding: 12px; box-shadow: 0 40px 80px -24px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); position: sticky; top: 24px">
-<div style="background: #ECE5DA; border-radius: 34px; overflow: hidden; color: #1E1A16; display: flex; flex-direction: column">
+<div style="background: #ECE5DA; border-radius: 34px; overflow: hidden; color: #05080D; display: flex; flex-direction: column">
 <div style="background: #0E6B6B; color: #FFFFFF; padding: 18px; display: flex; align-items: center; gap: 12px">
-<span style="width: 38px; height: 38px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 700; display: flex; align-items: center; justify-content: center">?</span>
+<span style="width: 38px; height: 38px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 700; display: flex; align-items: center; justify-content: center">?</span>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-weight: 600; font-size: 15px">Celular de tu vendedor</span>
 <span style="font-size: 12px; color: #CDE5E4">WhatsApp · neuri.bazar</span>
@@ -812,10 +812,10 @@ Elige un puesto libre
 </div>
 </div>
 
-<div style="background: #F7F1E8; color: #1E1A16; border-radius: 26px; padding: 30px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
+<div style="background: #F7F1E8; color: #05080D; border-radius: 26px; padding: 30px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
 <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5E554C">Su estado de cuenta, cada semana, solo</span>
-<label for="ventas-sem" style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 16px">Si vende a la semana <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: #B4441A">$4,000</span></label>
+<label for="ventas-sem" style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 16px">Si vende a la semana <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 26px; color: #B4441A">$4,000</span></label>
 <input id="ventas-sem" class="b-range-l" type="range" min="0" max="15000" step="250" value="4000" data-dc-input="11">
 <span style="font-size: 14px; color: #5E554C">Se calcula con la renta que elegiste arriba. Todo lo que vende es suyo.</span>
 </div>
@@ -826,7 +826,7 @@ Elige un puesto libre
 <span class="b-bar" style="display: block; height: 100%; width: 78%; background: #0E6B6B"></span>
 <span class="b-bar" style="display: block; height: 100%; width: 23%; background: #D9B88F"></span>
 </span>
-<span style="display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #1E1A16; padding-top: 10px"><span style="font-weight: 800">Le pagas</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: #0E6B6B">$3,100</span></span>
+<span style="display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #05080D; padding-top: 10px"><span style="font-weight: 800">Le pagas</span><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 26px; color: #0E6B6B">$3,100</span></span>
 
 </div>
 </div>
@@ -837,7 +837,7 @@ Elige un puesto libre
 <section id="ahorro" aria-label="Calculadora de tiempo ahorrado" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px 0; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
 <span style="align-self: flex-start; background: #DCEDEC; color: #0B5555; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Calculadora</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">¿Cuántas horas al mes te regresa neuri.bazar?</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">¿Cuántas horas al mes te regresa neuri.bazar?</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Pon los números de tu bazar. El cálculo usa tus propios estimados; ajústalos si trabajas distinto.</p>
 </div>
 
@@ -845,22 +845,22 @@ Elige un puesto libre
 <div style="flex: 999 1 460px; min-width: 0; background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 26px">
 
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-vendors" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Vendedores en tu bazar<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">30</span></label>
+<label for="c-vendors" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Vendedores en tu bazar<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">30</span></label>
 <input id="c-vendors" class="b-range-l" type="range" min="5" max="150" step="1" value="30" data-dc-input="12">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-sales" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Ventas en un día abierto<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">40</span></label>
+<label for="c-sales" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Ventas en un día abierto<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">40</span></label>
 <input id="c-sales" class="b-range-l" type="range" min="5" max="300" step="5" value="40" data-dc-input="13">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-days" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Días que abres a la semana<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">3 días</span></label>
+<label for="c-days" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Días que abres a la semana<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">3 días</span></label>
 <input id="c-days" class="b-range-l" type="range" min="1" max="7" step="1" value="3" data-dc-input="14">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-rate" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Lo que vale tu hora<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">$100 MXN</span></label>
+<label for="c-rate" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Lo que vale tu hora<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">$100 MXN</span></label>
 <input id="c-rate" class="b-range-l" type="range" min="50" max="500" step="10" value="100" data-dc-input="15">
 </div>
 
@@ -870,32 +870,32 @@ Elige un puesto libre
 <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 18px">
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minSale" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Anotar cada venta y a quién le toca<span style="font-weight: 700; font-size: 17px; color: #1E1A16">1 min</span></label>
+<label for="c-minSale" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Anotar cada venta y a quién le toca<span style="font-weight: 700; font-size: 17px; color: #05080D">1 min</span></label>
 <input id="c-minSale" class="b-range-l" type="range" min="0.5" max="5" step="0.5" value="1" data-dc-input="16">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minCorte" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Hacer el corte semanal de cada vendedor<span style="font-weight: 700; font-size: 17px; color: #1E1A16">15 min</span></label>
+<label for="c-minCorte" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Hacer el corte semanal de cada vendedor<span style="font-weight: 700; font-size: 17px; color: #05080D">15 min</span></label>
 <input id="c-minCorte" class="b-range-l" type="range" min="5" max="60" step="5" value="15" data-dc-input="17">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minMsg" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Contestar «¿ya se vendió lo mío?»<span style="font-weight: 700; font-size: 17px; color: #1E1A16">3 min</span></label>
+<label for="c-minMsg" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Contestar «¿ya se vendió lo mío?»<span style="font-weight: 700; font-size: 17px; color: #05080D">3 min</span></label>
 <input id="c-minMsg" class="b-range-l" type="range" min="1" max="10" step="1" value="3" data-dc-input="18">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minPay" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Calcular y registrar el pago semanal de cada vendedor<span style="font-weight: 700; font-size: 17px; color: #1E1A16">10 min</span></label>
+<label for="c-minPay" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Calcular y registrar el pago semanal de cada vendedor<span style="font-weight: 700; font-size: 17px; color: #05080D">10 min</span></label>
 <input id="c-minPay" class="b-range-l" type="range" min="2" max="30" step="1" value="10" data-dc-input="19">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minRent" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Cobrar la renta de cada puesto y dar recibo<span style="font-weight: 700; font-size: 17px; color: #1E1A16">5 min</span></label>
+<label for="c-minRent" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Cobrar la renta de cada puesto y dar recibo<span style="font-weight: 700; font-size: 17px; color: #05080D">5 min</span></label>
 <input id="c-minRent" class="b-range-l" type="range" min="1" max="20" step="1" value="5" data-dc-input="20">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minCaja" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Cuadrar la caja al cierre de cada día<span style="font-weight: 700; font-size: 17px; color: #1E1A16">20 min</span></label>
+<label for="c-minCaja" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Cuadrar la caja al cierre de cada día<span style="font-weight: 700; font-size: 17px; color: #05080D">20 min</span></label>
 <input id="c-minCaja" class="b-range-l" type="range" min="5" max="60" step="5" value="20" data-dc-input="21">
 </div>
 
@@ -903,11 +903,11 @@ Elige un puesto libre
 </details>
 </div>
 
-<div aria-live="polite" style="flex: 1 1 380px; background: #1E1A16; color: #FFFFFF; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 22px; position: relative; overflow: hidden">
+<div aria-live="polite" style="flex: 1 1 380px; background: #05080D; color: #FFFFFF; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 22px; position: relative; overflow: hidden">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A89C8C">Te ahorras cada mes</span>
 <p style="margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(72px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.05em; color: #F3B38F">0</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 28px">horas</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(72px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.05em; color: #F3B38F">0</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 700; font-size: 28px">horas</span>
 </p>
 <p style="margin: 0; font-size: 18px; color: #CFC4B4">Casi 11 días de trabajo de 8 horas.</p>
 <div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #3A332C; padding-top: 20px">
@@ -945,7 +945,7 @@ Elige un puesto libre
 </div>
 <div style="margin-top: auto; background: #2B2520; border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 15px; color: #CFC4B4">Con tu hora a $100, ese tiempo vale</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">$9,030 <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">al mes</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">$9,030 <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">al mes</span></span>
 <span style="font-size: 15px; color: #F3B38F; font-weight: 600">Es 10.0 veces lo que cuesta Pro ($899 MXN).</span>
 </div>
 </div>
@@ -956,39 +956,39 @@ Elige un puesto libre
 <section id="vendedores" aria-label="Mi Puesto, para tus vendedores" style="background: #EADFCD; border-top: 1px solid #DCCDB4; border-bottom: 1px solid #DCCDB4; margin-top: 104px; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 780px">
-<span style="align-self: flex-start; background: #1E1A16; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Mi Puesto · para tus vendedores</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Tus vendedores también lo van a querer.</h2>
+<span style="align-self: flex-start; background: #05080D; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Mi Puesto · para tus vendedores</span>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Tus vendedores también lo van a querer.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Un bazar con vendedores contentos se llena solo. Cada uno tiene su Mi Puesto en el celular: ve su dinero claro, sube sus piezas y decide sus promociones. Sin bajar ninguna app y sin preguntarte «¿cuánto llevo?».</p>
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
 <div role="tablist" aria-label="Pantallas de Mi Puesto" style="flex: 999 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
 
-<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: #FFFFFF; border: 2px solid #1E1A16; box-shadow: 0 16px 30px -20px rgba(30,26,22,.5);" data-dc-click="22">
+<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: #FFFFFF; border: 2px solid #05080D; box-shadow: 0 16px 30px -20px rgba(5,8,13,.5);" data-dc-click="22">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #B4441A; color: #FFFFFF;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">Qué hacer ahora</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">Al abrir ve su saldo y lo único que tiene pendiente.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="b-prog" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="23">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="23">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #F7F1E8; color: #5E554C;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">Sus ventas al momento</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">Cada venta aparece en cuanto la cobras en caja.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="24">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="24">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #F7F1E8; color: #5E554C;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h4l2-3h4l2 3h4v12H4zM8 13a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">Sube sus piezas</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">Foto y precio desde el celular. Tú las apruebas antes de venderse.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="25">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="25">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #F7F1E8; color: #5E554C;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M17 7H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">Su dinero, explicado</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">Ventas, renta y pago, movimiento por movimiento.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="26">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="26">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #F7F1E8; color: #5E554C;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8zM7.5 7.5h.01"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">Decide sus promociones</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">Tú propones un descuento y cada vendedor decide si entra.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
@@ -997,19 +997,19 @@ Elige un puesto libre
 </div>
 
 <div style="flex: 1 1 320px; display: flex; justify-content: center">
-<div class="b-tilt" style="width: 320px; background: #0F0D0B; border-radius: 42px; padding: 11px; box-shadow: 0 50px 90px -40px rgba(30,26,22,.7), 0 0 0 1px rgba(0,0,0,.2)">
-<div style="height: 620px; border-radius: 32px; overflow: hidden; background: #F7F1E8; color: #1E1A16; display: flex; flex-direction: column">
+<div class="b-tilt" style="width: 320px; background: #0F0D0B; border-radius: 42px; padding: 11px; box-shadow: 0 50px 90px -40px rgba(5,8,13,.7), 0 0 0 1px rgba(0,0,0,.2)">
+<div style="height: 620px; border-radius: 32px; overflow: hidden; background: #F7F1E8; color: #05080D; display: flex; flex-direction: column">
 <div style="background: #0E6B6B; color: #FFFFFF; padding: 18px 16px 16px; display: flex; align-items: center; gap: 12px">
-<span style="width: 40px; height: 40px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; display: flex; align-items: center; justify-content: center">DR</span>
+<span style="width: 40px; height: 40px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; display: flex; align-items: center; justify-content: center">DR</span>
 <span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-weight: 700; font-size: 15px">Mi Puesto · Doña Rosa</span><span style="font-size: 12px; color: #CDE5E4">Puesto 12 · Bazar Las Palmas</span></span>
 </div>
 
 <div aria-live="polite" style="flex: 1; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; position: relative">
 
 
-<div class="b-pop" style="background: #1E1A16; color: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+<div class="b-pop" style="background: #05080D; color: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 12.5px; color: #CFC4B4">Tu saldo</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em">$1,230</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em">$1,230</span>
 <span style="font-size: 12.5px; color: #8FE0B4; font-weight: 600">Se te paga el viernes</span>
 </div>
 <span style="font-weight: 800; font-size: 14px; margin-top: 4px">Qué hacer ahora</span>
@@ -1071,7 +1071,7 @@ Elige un puesto libre
 
 <section id="funciones" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Todo lo que tu bazar necesita, nada que sobre.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Todo lo que tu bazar necesita, nada que sobre.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">Lo hicimos corriendo nuestro propio bazar, no en una oficina.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
@@ -1110,7 +1110,7 @@ Elige un puesto libre
 <h3 style="margin: 0; font-size: 19px; font-weight: 700">Puestos y contratos</h3>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #4E463E">Mapa de puestos, lista de espera y contrato de renta firmado desde el celular.</p>
 </div>
-<div class="b-card" style="background: #1E1A16; color: #FFFFFF; border: 1px solid #1E1A16; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+<div class="b-card" style="background: #05080D; color: #FFFFFF; border: 1px solid #05080D; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
 <span class="b-ico" style="background: #3A332C; width: 44px; height: 44px; border-radius: 12px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></span>
 <h3 style="margin: 0; font-size: 19px; font-weight: 700">Tu bazar en internet</h3>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #CFC4B4">Un sitio público con todo tu inventario, actualizado solo. Próximamente en Plus.</p>
@@ -1123,13 +1123,13 @@ Elige un puesto libre
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; background: rgba(243,179,143,0.18); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Próximamente en Plus</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">De una foto a vendido, sin capturar nada.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">De una foto a vendido, sin capturar nada.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CDE5E4">Tomas la foto, Neuri arma la ficha y la publica en tu sitio. Tus clientes apartan desde su casa y, cuando la cobras, el sitio se actualiza solo.</p>
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px" role="tablist" aria-label="Pasos de la demo">
 
-<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; padding: 12px 16px 14px; border-radius: 14px; font-size: 15px; font-weight: 600; min-height: 48px; background: #F7F1E8; color: #1E1A16; border: 1.5px solid #F7F1E8;" data-dc-click="32">
+<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; padding: 12px 16px 14px; border-radius: 14px; font-size: 15px; font-weight: 600; min-height: 48px; background: #F7F1E8; color: #05080D; border: 1.5px solid #F7F1E8;" data-dc-click="32">
 <span style="display: flex; align-items: center; gap: 10px"><span style="width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 800; background: #B4441A; color: #FFFFFF;">1</span><span>Foto</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: rgba(255,255,255,0.08)"><span class="b-prog" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
@@ -1161,10 +1161,10 @@ Elige un puesto libre
 <div style="flex: 0 0 290px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9FCFCC">Tu celular · neuri.bazar</span>
 <div style="width: 290px; background: #0F0D0B; border-radius: 40px; padding: 10px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08)">
-<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; color: #1E1A16">
+<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; color: #05080D">
 
 
-<div style="position: absolute; inset: 0; background: #1E1A16; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 20px 30px">
+<div style="position: absolute; inset: 0; background: #05080D; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 20px 30px">
 <span style="color: #FFFFFF; font-weight: 600; font-size: 14px">Nueva pieza</span>
 <div style="position: relative; width: 210px; height: 260px; border-radius: 18px; background: #F5E6B8; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 0 7 4 7 9s-3 9-7 9-7-4-7-9 3-9 7-9zM12 20v2M9 22h6"></path></svg>
@@ -1201,10 +1201,10 @@ Elige un puesto libre
 <div style="flex: 0 0 290px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9FCFCC">El celular de tu cliente</span>
 <div style="width: 290px; background: #0F0D0B; border-radius: 40px; padding: 10px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08)">
-<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; background: #FFFFFF; color: #1E1A16; display: flex; flex-direction: column">
+<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; background: #FFFFFF; color: #05080D; display: flex; flex-direction: column">
 <div style="padding: 16px 16px 12px; border-bottom: 1px solid #EFE6D8; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 11px; color: #5E554C; text-align: center">laspalmas.neuri.tech</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Bazar Las Palmas</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Bazar Las Palmas</span>
 <span style="display: flex; align-items: center; gap: 8px; background: #F7F1E8; border-radius: 999px; padding: 8px 12px; font-size: 12.5px; color: #5E554C"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Buscar en el bazar</span>
 </div>
 
@@ -1214,22 +1214,22 @@ Elige un puesto libre
 
 
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="width: 56px; height: 56px; border-radius: 12px; background: #F3DCCD; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l3 7H6zM12 10v8M8 21h8M12 18v3"></path></svg></span>
+<span style="width: 56px; height: 56px; border-radius: 12px; background: #F3DCCD; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l3 7H6zM12 10v8M8 21h8M12 18v3"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">Lámpara de latón vintage</span><span style="font-size: 11.5px; color: #5E554C">Puesto 12</span><span style="font-weight: 800; font-size: 13.5px">$450</span></span>
 </div>
 
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="width: 56px; height: 56px; border-radius: 12px; background: #E6E0F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h4l2-3h4l2 3h4v12H4zM8 13a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path></svg></span>
+<span style="width: 56px; height: 56px; border-radius: 12px; background: #E6E0F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h4l2-3h4l2 3h4v12H4zM8 13a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">Cámara de rollo</span><span style="font-size: 11.5px; color: #5E554C">Puesto 9</span><span style="font-weight: 800; font-size: 13.5px">$1,200</span></span>
 </div>
 
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="width: 56px; height: 56px; border-radius: 12px; background: #DCEDEC; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18v12H3zM7 4l10 4M12 14a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M6 12h3M6 16h3"></path></svg></span>
+<span style="width: 56px; height: 56px; border-radius: 12px; background: #DCEDEC; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18v12H3zM7 4l10 4M12 14a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M6 12h3M6 16h3"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">Radio de bulbos</span><span style="font-size: 11.5px; color: #5E554C">Puesto 11</span><span style="font-weight: 800; font-size: 13.5px">$1,650</span></span>
 </div>
 
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="width: 56px; height: 56px; border-radius: 12px; background: #D8E6D2; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3c0 3-4 5-4 10a6 6 0 0 0 12 0c0-5-4-7-4-10"></path></svg></span>
+<span style="width: 56px; height: 56px; border-radius: 12px; background: #D8E6D2; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3c0 3-4 5-4 10a6 6 0 0 0 12 0c0-5-4-7-4-10"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">Florero de barro</span><span style="font-size: 11.5px; color: #5E554C">Puesto 3</span><span style="font-weight: 800; font-size: 13.5px">$320</span></span>
 </div>
 
@@ -1246,7 +1246,7 @@ Elige un puesto libre
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 28px">
 <div aria-live="polite" style="flex: 999 1 420px; display: flex; flex-direction: column; gap: 8px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">1. Tomas una foto</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">1. Tomas una foto</span>
 <span style="font-size: 17px; line-height: 1.5; color: #CDE5E4; max-width: 640px">Desde tu celular, ahí en el puesto. Nada de capturar a mano.</span>
 </div>
 <div style="display: flex; gap: 10px">
@@ -1255,7 +1255,7 @@ Elige un puesto libre
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
 
 </button>
-<button type="button" class="b-btn" style="font: inherit; cursor: pointer; height: 50px; padding: 0 22px; border-radius: 999px; border: none; background: #F7F1E8; color: #1E1A16; font-weight: 700; display: flex; align-items: center; gap: 8px" data-dc-click="39">Siguiente<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+<button type="button" class="b-btn" style="font: inherit; cursor: pointer; height: 50px; padding: 0 22px; border-radius: 999px; border: none; background: #F7F1E8; color: #05080D; font-weight: 700; display: flex; align-items: center; gap: 8px" data-dc-click="39">Siguiente<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 </div>
 <p style="margin: 0; font-size: 14px; color: #9FCFCC">Bazar, piezas y clientes de ejemplo. Tu sitio usa tus fotos, tus precios y tu dirección.</p>
@@ -1264,7 +1264,7 @@ Elige un puesto libre
 
 <section id="cambiarte" aria-label="Por qué cambiarte" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Hecho para bazares, no para cualquier tienda.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Hecho para bazares, no para cualquier tienda.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E; line-height: 1.5">Un punto de venta común cobra, pero no sabe de puestos, rentas ni vendedores. neuri.bazar sí.</p>
 </div>
 
@@ -1275,7 +1275,7 @@ Elige un puesto libre
 <th scope="col" style="padding: 18px 20px; font-weight: 600; color: #5E554C; width: 40%">Lo que necesita un bazar</th>
 <th scope="col" style="padding: 18px 16px; font-weight: 700">Libreta o Excel</th>
 <th scope="col" style="padding: 18px 16px; font-weight: 700">Punto de venta común</th>
-<th scope="col" style="padding: 18px 16px; font-weight: 800; background: #1E1A16; color: #FFFFFF; border-radius: 0 21px 0 0">neuri.bazar</th>
+<th scope="col" style="padding: 18px 16px; font-weight: 800; background: #05080D; color: #FFFFFF; border-radius: 0 21px 0 0">neuri.bazar</th>
 </tr>
 </thead>
 <tbody>
@@ -1311,7 +1311,7 @@ Elige un puesto libre
 <tr style="border-top: 1px solid #EFE6D8">
 <th scope="row" style="padding: 15px 20px; text-align: left; font-weight: 600">Caja con escáner e inventario</th>
 <td style="padding: 15px 16px; color: #8C8073">No</td>
-<td style="padding: 15px 16px; color: #1E1A16">Sí</td>
+<td style="padding: 15px 16px; color: #05080D">Sí</td>
 <td style="padding: 15px 16px; background: #F7F1E8; font-weight: 700; color: #0E6B6B"><span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Incluido</span></td>
 </tr>
 
@@ -1333,15 +1333,15 @@ Elige un puesto libre
 </table>
 </div>
 
-<div style="background: #1E1A16; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px">
+<div style="background: #05080D; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 700px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F3B38F">Cambiarte no te cuesta trabajo</span>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">Te lo dejamos cargado y funcionando.</h3>
+<h3 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">Te lo dejamos cargado y funcionando.</h3>
 </div>
 <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">1</span><span style="font-weight: 700; font-size: 18px">Nos mandas lo que ya tienes</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Tu Excel, tu libreta en fotos o el archivo que saca tu sistema actual.</span></li>
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">2</span><span style="font-weight: 700; font-size: 18px">Nosotros lo cargamos</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Puestos, rentas, vendedores e inventario, listos en tu cuenta.</span></li>
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">3</span><span style="font-weight: 700; font-size: 18px">Tus vendedores reciben su link</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">A cada uno le llega su Mi Puesto por WhatsApp. Tú abres caja y vendes.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">1</span><span style="font-weight: 700; font-size: 18px">Nos mandas lo que ya tienes</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Tu Excel, tu libreta en fotos o el archivo que saca tu sistema actual.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">2</span><span style="font-weight: 700; font-size: 18px">Nosotros lo cargamos</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Puestos, rentas, vendedores e inventario, listos en tu cuenta.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">3</span><span style="font-weight: 700; font-size: 18px">Tus vendedores reciben su link</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">A cada uno le llega su Mi Puesto por WhatsApp. Tú abres caja y vendes.</span></li>
 </ol>
 <div style="display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 15.5px; color: #E8DFD2">
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8FE0B4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Pagas mes a mes</span>
@@ -1354,27 +1354,27 @@ Elige un puesto libre
 <section id="precios" style="background: #FFFFFF; border-top: 1px solid #E6DBC9; border-bottom: 1px solid #E6DBC9">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Un precio fijo al mes. Sin comisiones por venta.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Un precio fijo al mes. Sin comisiones por venta.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">En Estados Unidos: US$79, US$119 y US$149 al mes.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
 <div style="background: #F7F1E8; border: 1px solid #E6DBC9; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Básico</h3>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$499</span><span style="color: #5E554C">MXN / mes</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$499</span><span style="color: #5E554C">MXN / mes</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #4E463E">Para empezar con un bazar chico.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Hasta 30 vendedores · 1 caja</li>
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Inventario, caja y cortes</li>
 <li style="display: flex; gap: 10px; color: #5E554C"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Mi Puesto para cada vendedor</li>
 </ul>
-<a href="#prueba" data-trial="" data-plan="Básico" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #1E1A16; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #1E1A16; min-height: 48px; box-sizing: border-box">Probar gratis</a>
+<a href="#prueba" data-trial="" data-plan="Básico" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #05080D; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #05080D; min-height: 48px; box-sizing: border-box">Probar gratis</a>
 </div>
-<div style="background: #1E1A16; color: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(30,26,22,.6)">
+<div style="background: #05080D; color: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(5,8,13,.6)">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Pro</h3>
-<span style="background: #F3B38F; color: #1E1A16; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 999px">Recomendado</span>
+<span style="background: #F3B38F; color: #05080D; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 999px">Recomendado</span>
 </div>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$899</span><span style="color: #CFC4B4">MXN / mes</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$899</span><span style="color: #CFC4B4">MXN / mes</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #CFC4B4">Para el bazar que ya está lleno.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Hasta 75 vendedores</li>
@@ -1385,14 +1385,14 @@ Elige un puesto libre
 </div>
 <div style="background: #F7F1E8; border: 1px solid #E6DBC9; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Plus</h3>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$1,499</span><span style="color: #5E554C">MXN / mes</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$1,499</span><span style="color: #5E554C">MXN / mes</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #4E463E">Para vender también por internet.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Todo lo de Pro</li>
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Tu sitio con tu inventario (próximamente)</li>
 <li style="display: flex; gap: 10px; color: #5E554C"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Vendedores y cajas sin límite</li>
 </ul>
-<a href="#prueba" data-trial="" data-plan="Plus" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #1E1A16; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #1E1A16; min-height: 48px; box-sizing: border-box">Probar gratis</a>
+<a href="#prueba" data-trial="" data-plan="Plus" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #05080D; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #05080D; min-height: 48px; box-sizing: border-box">Probar gratis</a>
 </div>
 </div>
 </div>
@@ -1510,7 +1510,7 @@ Elige un puesto libre
 </section>
 </div>
 <div id="dc-b"><section id="preguntas" style="max-width: 820px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 28px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Preguntas frecuentes</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Preguntas frecuentes</h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E6DBC9">
 <details style="border-bottom: 1px solid #E6DBC9; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">¿Mis vendedores tienen que bajar una app?<span class="b-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #B4441A">+</span></summary>
@@ -1535,13 +1535,13 @@ Elige un puesto libre
 </div>
 </section>
 
-<section id="demo" aria-label="Arma tu bazar" style="background: #1E1A16; color: #FFFFFF; position: relative; overflow: hidden">
+<section id="demo" aria-label="Arma tu bazar" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div class="b-dots" aria-hidden="true" style="inset: 0; opacity: 0.35"></div>
 <div class="b-orb" aria-hidden="true"></div>
 <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 44px; position: relative; z-index: 1">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Último paso</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Arma tu bazar en 10 segundos.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Arma tu bazar en 10 segundos.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Dinos cómo se llama, cuántos puestos tiene y cuánto cobras de renta. Neuri lo arma frente a ti.</p>
 </div>
 
@@ -1549,14 +1549,14 @@ Elige un puesto libre
 <div style="flex: 1 1 340px; background: #2B2520; border: 1px solid #3A332C; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 22px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <label for="b-name" style="font-weight: 600; font-size: 15px">Nombre de tu bazar</label>
-<input id="b-name" type="text" value="Bazar Las Palmas" maxlength="40" autocomplete="off" style="font: inherit; font-size: 17px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #4A4239; background: #1E1A16; color: #FFFFFF; min-height: 50px; box-sizing: border-box" data-dc-input="40">
+<input id="b-name" type="text" value="Bazar Las Palmas" maxlength="40" autocomplete="off" style="font: inherit; font-size: 17px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #4A4239; background: #05080D; color: #FFFFFF; min-height: 50px; box-sizing: border-box" data-dc-input="40">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="b-spots" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Puestos <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">24</span></label>
+<label for="b-spots" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Puestos <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">24</span></label>
 <input id="b-spots" class="b-range" type="range" min="6" max="60" step="1" value="24" data-dc-input="41">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="b-rent" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Renta promedio a la semana <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">$700</span></label>
+<label for="b-rent" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Renta promedio a la semana <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">$700</span></label>
 <input id="b-rent" class="b-range" type="range" min="200" max="3000" step="50" value="700" data-dc-input="42">
 </div>
 <button type="button" class="b-btn" aria-disabled="false" style="font: inherit; border: none; font-weight: 700; font-size: 18px; padding: 18px 22px; border-radius: 16px; min-height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #B4441A; color: #FFFFFF; cursor: pointer;" data-dc-click="43">
@@ -1596,17 +1596,17 @@ Armar mi bazar
 </ul>
 </div>
 
-<div style="flex: 999 1 520px; min-width: 0; background: #F7F1E8; color: #1E1A16; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column">
+<div style="flex: 999 1 520px; min-width: 0; background: #F7F1E8; color: #05080D; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column">
 <div style="background: #EFE7DA; padding: 12px 16px; display: flex; align-items: center; gap: 14px">
 <span aria-hidden="true" style="display: flex; gap: 6px"><span style="width: 11px; height: 11px; border-radius: 50%; background: #E0A090"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #E8CD8C"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #A6CDA0"></span></span>
-<span style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #1E1A16; font-weight: 600; display: flex; align-items: center; gap: 2px; overflow: hidden; white-space: nowrap; min-height: 18px">
+<span style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #05080D; font-weight: 600; display: flex; align-items: center; gap: 2px; overflow: hidden; white-space: nowrap; min-height: 18px">
 <span style="color: #A89C8C; font-weight: 500">tubazar.neuri.tech</span>
 <span></span>
 </span>
 </div>
 <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px; flex: 1">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em">Bazar Las Palmas</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em">Bazar Las Palmas</span>
 <span style="font-size: 14px; font-weight: 600; color: #5E554C">0 de 24 puestos</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px">
@@ -1663,11 +1663,11 @@ Armar mi bazar
 <div style="margin-top: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
 <div style="background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; color: #5E554C; font-weight: 600">Renta por cobrar a la semana</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #0E6B6B">$0</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #0E6B6B">$0</span>
 </div>
 <div style="background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; color: #5E554C; font-weight: 600">Al mes, con el bazar lleno</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">$0</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">$0</span>
 </div>
 </div>
 </div>
@@ -1676,7 +1676,7 @@ Armar mi bazar
 
 <div style="border-top: 1px solid #3A332C; padding-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
 <div style="flex: 999 1 420px; display: flex; flex-direction: column; gap: 8px">
-<span class="" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05">¿Te lo dejamos así de listo?</span>
+<span class="" style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05">¿Te lo dejamos así de listo?</span>
 <span style="font-size: 18px; color: #CFC4B4">Vamos a tu bazar, cargamos tus puestos y tu inventario, y cobras tu primera venta con nosotros.</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -1687,9 +1687,9 @@ Armar mi bazar
 </div>
 </section>
 
-<footer style="background: #1E1A16; color: #CFC4B4">
+<footer style="background: #05080D; color: #CFC4B4">
 <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 15px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #FFFFFF">neuri<span style="color: #F3B38F">.bazar</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #FFFFFF">neuri<span style="color: #F3B38F">.bazar</span></span>
 <span>© 2026 Neuri LLC · <a href="mailto:hola@neuri.tech" style="color: inherit">hola@neuri.tech</a> · <a href="/en/" lang="en" hreflang="en" style="color: inherit">English</a></span>
 </div>
 </footer>
@@ -1697,14 +1697,14 @@ Armar mi bazar
 
 </div>
 <template data-dc-part="dc-a">
-<div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #1E1A16; background: #F7F1E8; min-height: 100vh">
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #05080D; background: #F7F1E8; min-height: 100vh">
 
 <header style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
 <a href="#inicio" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
 <span style="width: 34px; height: 34px; border-radius: 10px; background: {{accent}}; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"></path><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"></path><path d="M5 13v7h14v-7"></path></svg>
 </span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">neuri<span style="color: {{accent}}">.bazar</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">neuri<span style="color: {{accent}}">.bazar</span></span>
 </a>
 <nav aria-label="Principal" style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
 <a class="hide-sm" href="#simula" style="text-decoration: none; font-weight: 500">Pruébalo</a>
@@ -1712,18 +1712,18 @@ Armar mi bazar
 <a class="hide-sm" href="#funciones" style="text-decoration: none; font-weight: 500">Funciones</a>
 <a class="hide-sm" href="#precios" style="text-decoration: none; font-weight: 500">Precios</a>
 <a class="hide-sm" href="/en/" lang="en" hreflang="en" style="text-decoration: none; font-weight: 500">English</a>
-<a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #1E1A16; color: #FFFFFF; font-weight: 600; padding: 12px 18px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Agenda una demo</a>
+<a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #05080D; color: #FFFFFF; font-weight: 600; padding: 12px 18px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Agenda una demo</a>
 </nav>
 </header>
 
 <section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
 <div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <span class="b-rise" style="align-self: flex-start; background: #F3DCCD; color: #8A3313; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Para mercaditos, bazares y antique malls</span>
-<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Tu bazar en orden. Tus vendedores, siempre enterados.</h1>
+<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Tu bazar en orden. Tus vendedores, siempre enterados.</h1>
 <p class="b-rise b-rise-3" style="margin: 0; font-size: 20px; line-height: 1.5; color: #4E463E; max-width: 560px">Puestos, rentas, inventario y caja en un solo lugar. La renta se cobra sola, cada venta llega directo al saldo del vendedor y él lo ve en Mi Puesto.</p>
 <div class="b-rise b-rise-4" style="display: flex; flex-wrap: wrap; gap: 12px">
 <a class="b-btn" href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box">Agenda una demo</a>
-<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #1E1A16; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
+<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #05080D; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Pruébalo</a>
 </div>
 <p style="margin: 0; font-size: 15px; color: #5E554C">Español e inglés · Pesos y dólares · Desde $499 MXN al mes</p>
@@ -1737,24 +1737,24 @@ Armar mi bazar
 </div>
 <template sc-if value="{{notif}}" hint-placeholder-val="{{ true }}">
 <div class="b-chip b-pop" aria-hidden="true" style="bottom: 70px; left: -34px">
-<span class="b-ico" style="background: #1E1A16"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
+<span class="b-ico" style="background: #05080D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 1px"><span>Doña Rosa · Puesto 12</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">Vendiste la lámpara · +$450 a tu saldo</span></span>
 </div>
 <div class="b-chip b-pop" aria-hidden="true" style="bottom: 8px; left: 10px; animation-delay: .35s">
-<span class="b-ico" style="background: #1E1A16"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
+<span class="b-ico" style="background: #05080D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 1px"><span>Lupita · Puesto 7</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">Vendiste la vajilla · +$950 a tu saldo</span></span>
 </div>
 </template>
 
-<div class="b-tilt" role="img" aria-label="Caja de neuri.bazar: se escanean dos artículos de distintos vendedores, se cobra el total y cada vendedor recibe el aviso de su venta." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(30,26,22,.45); overflow: hidden">
-<div style="background: #1E1A16; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
+<div class="b-tilt" role="img" aria-label="Caja de neuri.bazar: se escanean dos artículos de distintos vendedores, se cobra el total y cada vendedor recibe el aviso de su venta." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(5,8,13,.45); overflow: hidden">
+<div style="background: #05080D; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
 <span style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px"><span class="b-live"></span>Caja 1 · Bazar Las Palmas</span>
 <span style="font-size: 13px; color: #CFC4B4">Cajero: Ana</span>
 </div>
 <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
 <div style="position: relative; height: 70px; border-radius: 14px; background: #F7F1E8; border: 1.5px dashed #D9CCB8; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden">
 <span class="b-scan"></span>
-<span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span>
+<span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span>
 </div>
 <div style="min-height: 132px; display: flex; flex-direction: column; gap: 10px">
 <template sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
@@ -1775,7 +1775,7 @@ Armar mi bazar
 </div>
 <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DBC9; padding-top: 14px">
 <span style="font-weight: 600; color: #5E554C">Total</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">{{heroTotal}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">{{heroTotal}}</span>
 </div>
 <div style="position: relative">
 <template sc-if value="{{unpaid}}" hint-placeholder-val="{{ true }}">
@@ -1799,11 +1799,11 @@ Armar mi bazar
 </div>
 </section>
 
-<section id="simula" aria-label="Alta de un vendedor nuevo" style="background: #1E1A16; color: #FFFFFF; position: relative; overflow: hidden">
+<section id="simula" aria-label="Alta de un vendedor nuevo" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px"><span class="b-live"></span>Pruébalo</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Renta un puesto a un vendedor nuevo en dos minutos.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Renta un puesto a un vendedor nuevo en dos minutos.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Eliges el puesto, a quién de tu lista de espera y su renta. Neuri le manda el contrato, lo firma desde su celular y queda dado de alta.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: stretch">
@@ -1826,7 +1826,7 @@ Armar mi bazar
 <template sc-if value="{{sp.taken}}" hint-placeholder-val="{{ true }}">
 <div class="{{sp.cls}}" style="{{sp.style}}">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Puesto {{sp.id}}</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: {{sp.dot}}; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">{{sp.who}}</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: {{sp.dot}}; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">{{sp.who}}</span>
 </div>
 </template>
 </template>
@@ -1839,7 +1839,7 @@ Armar mi bazar
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px">
 <template sc-for list="{{waits}}" as="w" hint-placeholder-count="3">
 <button type="button" aria-pressed="{{w.pressed}}" onClick="{{w.pick}}" style="{{w.style}}">
-<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{w.ini}}</span>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{w.ini}}</span>
 <span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700">{{w.name}}</span><span style="font-size: 12.5px; color: #CFC4B4">{{w.giro}}</span></span>
 </button>
 </template>
@@ -1853,7 +1853,7 @@ Armar mi bazar
 <div style="background: #2B2520; border: 1px solid #3A332C; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A89C8C">3 · Renta y avisos</span>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="renta" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Renta fija a la semana <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{rentText}}</span></label>
+<label for="renta" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Renta fija a la semana <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{rentText}}</span></label>
 <input id="renta" class="b-range" type="range" min="300" max="2000" step="50" value="{{rent}}" onChange="{{onRent}}">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
@@ -1879,9 +1879,9 @@ Armar mi bazar
 
 <div style="flex: 1 1 340px; display: flex; justify-content: center; align-items: flex-start">
 <div style="width: 340px; max-width: 100%; background: #0F0D0B; border-radius: 44px; padding: 12px; box-shadow: 0 40px 80px -24px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); position: sticky; top: 24px">
-<div style="background: #ECE5DA; border-radius: 34px; overflow: hidden; color: #1E1A16; display: flex; flex-direction: column">
+<div style="background: #ECE5DA; border-radius: 34px; overflow: hidden; color: #05080D; display: flex; flex-direction: column">
 <div style="background: #0E6B6B; color: #FFFFFF; padding: 18px; display: flex; align-items: center; gap: 12px">
-<span style="width: 38px; height: 38px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 700; display: flex; align-items: center; justify-content: center">{{pIni}}</span>
+<span style="width: 38px; height: 38px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 700; display: flex; align-items: center; justify-content: center">{{pIni}}</span>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-weight: 600; font-size: 15px">Celular de {{pName}}</span>
 <span style="font-size: 12px; color: #CDE5E4">WhatsApp · neuri.bazar</span>
@@ -1905,7 +1905,7 @@ Armar mi bazar
 </template>
 <template sc-if value="{{showSig}}" hint-placeholder-val="{{ false }}">
 <div style="border-top: 1px dashed #D9CCB8; padding-top: 6px; display: flex; flex-direction: column; gap: 2px">
-<svg aria-hidden="true" width="200" height="54" viewBox="0 0 200 54" fill="none" stroke="#1E1A16" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="b-sign" d="M8 38c10-22 18-30 22-24s-6 26 2 24 12-30 20-28-4 30 6 28 10-18 18-16 2 14 10 12 14-20 24-14 4 16 14 14 22-12 30-10 16 4 26 2"></path></svg>
+<svg aria-hidden="true" width="200" height="54" viewBox="0 0 200 54" fill="none" stroke="#05080D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="b-sign" d="M8 38c10-22 18-30 22-24s-6 26 2 24 12-30 20-28-4 30 6 28 10-18 18-16 2 14 10 12 14-20 24-14 4 16 14 14 22-12 30-10 16 4 26 2"></path></svg>
 <span style="font-size: 12px; color: #5E554C">{{sigText}}</span>
 </div>
 </template>
@@ -1913,12 +1913,12 @@ Armar mi bazar
 </template>
 <template sc-if value="{{phSigned}}" hint-placeholder-val="{{ false }}">
 <div class="b-pop b-f2" style="align-self: flex-start; background: #FFFFFF; padding: 10px 12px; border-radius: 14px 14px 14px 4px; max-width: 90%; flex-shrink: 0">{{pWelcome}}, {{pName}}! Ya tienes el Puesto {{cSpot}}. Esto es tu Mi Puesto:</div>
-<div class="b-pop b-f4" style="align-self: stretch; background: #1E1A16; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0">
+<div class="b-pop b-f4" style="align-self: stretch; background: #05080D; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0">
 <span style="font-weight: 800; font-size: 15px">Qué hacer ahora</span>
-<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">1</span>Sube tus piezas con foto y precio. El bazar las aprueba.</span>
-<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">2</span>Tu primera renta de {{rentText}} se descuenta el lunes de tu saldo.</span>
-<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">3</span>Te avisamos de tus ventas {{cNotifyLower}}.</span>
-<span style="align-self: flex-start; background: #F3B38F; color: #1E1A16; font-weight: 700; padding: 9px 14px; border-radius: 999px; font-size: 13px">Abrir Mi Puesto</span>
+<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #05080D; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">1</span>Sube tus piezas con foto y precio. El bazar las aprueba.</span>
+<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #05080D; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">2</span>Tu primera renta de {{rentText}} se descuenta el lunes de tu saldo.</span>
+<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #05080D; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">3</span>Te avisamos de tus ventas {{cNotifyLower}}.</span>
+<span style="align-self: flex-start; background: #F3B38F; color: #05080D; font-weight: 700; padding: 9px 14px; border-radius: 999px; font-size: 13px">Abrir Mi Puesto</span>
 </div>
 </template>
 </div>
@@ -1927,10 +1927,10 @@ Armar mi bazar
 </div>
 </div>
 
-<div style="background: #F7F1E8; color: #1E1A16; border-radius: 26px; padding: 30px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
+<div style="background: #F7F1E8; color: #05080D; border-radius: 26px; padding: 30px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
 <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5E554C">Su estado de cuenta, cada semana, solo</span>
-<label for="ventas-sem" style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 16px">Si vende a la semana <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: #B4441A">{{salesText}}</span></label>
+<label for="ventas-sem" style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 16px">Si vende a la semana <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 26px; color: #B4441A">{{salesText}}</span></label>
 <input id="ventas-sem" class="b-range-l" type="range" min="0" max="15000" step="250" value="{{weekSales}}" onChange="{{onSales}}">
 <span style="font-size: 14px; color: #5E554C">Se calcula con la renta que elegiste arriba. Todo lo que vende es suyo.</span>
 </div>
@@ -1941,7 +1941,7 @@ Armar mi bazar
 <span class="b-bar" style="display: block; height: 100%; width: {{payW}}%; background: #0E6B6B"></span>
 <span class="b-bar" style="display: block; height: 100%; width: {{rentW}}%; background: #D9B88F"></span>
 </span>
-<span style="display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #1E1A16; padding-top: 10px"><span style="font-weight: 800">{{payLabel}}</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: {{payColor}}">{{payText}}</span></span>
+<span style="display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #05080D; padding-top: 10px"><span style="font-weight: 800">{{payLabel}}</span><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 26px; color: {{payColor}}">{{payText}}</span></span>
 <template sc-if value="{{payNeg}}" hint-placeholder-val="{{ false }}">
 <span style="font-size: 13.5px; color: #5E554C">No le alcanzó para la renta. La diferencia pasa sola a su siguiente pago.</span>
 </template>
@@ -1954,7 +1954,7 @@ Armar mi bazar
 <section id="ahorro" aria-label="Calculadora de tiempo ahorrado" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px 0; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
 <span style="align-self: flex-start; background: #DCEDEC; color: #0B5555; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Calculadora</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">¿Cuántas horas al mes te regresa neuri.bazar?</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">¿Cuántas horas al mes te regresa neuri.bazar?</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Pon los números de tu bazar. El cálculo usa tus propios estimados; ajústalos si trabajas distinto.</p>
 </div>
 
@@ -1962,7 +1962,7 @@ Armar mi bazar
 <div style="flex: 999 1 460px; min-width: 0; background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 26px">
 <template sc-for list="{{mainSliders}}" as="sl" hint-placeholder-count="4">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-{{sl.key}}" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">{{sl.label}}<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">{{sl.display}}</span></label>
+<label for="c-{{sl.key}}" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">{{sl.label}}<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">{{sl.display}}</span></label>
 <input id="c-{{sl.key}}" class="b-range-l" type="range" min="{{sl.min}}" max="{{sl.max}}" step="{{sl.step}}" value="{{sl.value}}" onChange="{{sl.onChange}}">
 </div>
 </template>
@@ -1972,7 +1972,7 @@ Armar mi bazar
 <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 18px">
 <template sc-for list="{{assumeSliders}}" as="sl" hint-placeholder-count="3">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-{{sl.key}}" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">{{sl.label}}<span style="font-weight: 700; font-size: 17px; color: #1E1A16">{{sl.display}}</span></label>
+<label for="c-{{sl.key}}" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">{{sl.label}}<span style="font-weight: 700; font-size: 17px; color: #05080D">{{sl.display}}</span></label>
 <input id="c-{{sl.key}}" class="b-range-l" type="range" min="{{sl.min}}" max="{{sl.max}}" step="{{sl.step}}" value="{{sl.value}}" onChange="{{sl.onChange}}">
 </div>
 </template>
@@ -1980,11 +1980,11 @@ Armar mi bazar
 </details>
 </div>
 
-<div aria-live="polite" style="flex: 1 1 380px; background: #1E1A16; color: #FFFFFF; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 22px; position: relative; overflow: hidden">
+<div aria-live="polite" style="flex: 1 1 380px; background: #05080D; color: #FFFFFF; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 22px; position: relative; overflow: hidden">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A89C8C">Te ahorras cada mes</span>
 <p style="margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(72px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.05em; color: #F3B38F">{{hoursShown}}</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 28px">horas</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(72px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.05em; color: #F3B38F">{{hoursShown}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 700; font-size: 28px">horas</span>
 </p>
 <p style="margin: 0; font-size: 18px; color: #CFC4B4">Casi {{daysEq}} de trabajo de 8 horas.</p>
 <div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #3A332C; padding-top: 20px">
@@ -1997,7 +1997,7 @@ Armar mi bazar
 </div>
 <div style="margin-top: auto; background: #2B2520; border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 15px; color: #CFC4B4">Con tu hora a {{rateText}}, ese tiempo vale</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">{{valueText}} <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">al mes</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">{{valueText}} <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">al mes</span></span>
 <span style="font-size: 15px; color: #F3B38F; font-weight: 600">{{planLine}}</span>
 </div>
 </div>
@@ -2008,8 +2008,8 @@ Armar mi bazar
 <section id="vendedores" aria-label="Mi Puesto, para tus vendedores" style="background: #EADFCD; border-top: 1px solid #DCCDB4; border-bottom: 1px solid #DCCDB4; margin-top: 104px; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 780px">
-<span style="align-self: flex-start; background: #1E1A16; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Mi Puesto · para tus vendedores</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Tus vendedores también lo van a querer.</h2>
+<span style="align-self: flex-start; background: #05080D; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Mi Puesto · para tus vendedores</span>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Tus vendedores también lo van a querer.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Un bazar con vendedores contentos se llena solo. Cada uno tiene su Mi Puesto en el celular: ve su dinero claro, sube sus piezas y decide sus promociones. Sin bajar ninguna app y sin preguntarte «¿cuánto llevo?».</p>
 </div>
 
@@ -2025,19 +2025,19 @@ Armar mi bazar
 </div>
 
 <div style="flex: 1 1 320px; display: flex; justify-content: center">
-<div class="b-tilt" style="width: 320px; background: #0F0D0B; border-radius: 42px; padding: 11px; box-shadow: 0 50px 90px -40px rgba(30,26,22,.7), 0 0 0 1px rgba(0,0,0,.2)">
-<div style="height: 620px; border-radius: 32px; overflow: hidden; background: #F7F1E8; color: #1E1A16; display: flex; flex-direction: column">
+<div class="b-tilt" style="width: 320px; background: #0F0D0B; border-radius: 42px; padding: 11px; box-shadow: 0 50px 90px -40px rgba(5,8,13,.7), 0 0 0 1px rgba(0,0,0,.2)">
+<div style="height: 620px; border-radius: 32px; overflow: hidden; background: #F7F1E8; color: #05080D; display: flex; flex-direction: column">
 <div style="background: #0E6B6B; color: #FFFFFF; padding: 18px 16px 16px; display: flex; align-items: center; gap: 12px">
-<span style="width: 40px; height: 40px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; display: flex; align-items: center; justify-content: center">DR</span>
+<span style="width: 40px; height: 40px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; display: flex; align-items: center; justify-content: center">DR</span>
 <span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-weight: 700; font-size: 15px">Mi Puesto · Doña Rosa</span><span style="font-size: 12px; color: #CDE5E4">Puesto 12 · Bazar Las Palmas</span></span>
 </div>
 
 <div aria-live="polite" style="flex: 1; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; position: relative">
 
 <template sc-if value="{{vHoy}}" hint-placeholder-val="{{ true }}">
-<div class="b-pop" style="background: #1E1A16; color: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+<div class="b-pop" style="background: #05080D; color: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 12.5px; color: #CFC4B4">Tu saldo</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em">$1,230</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em">$1,230</span>
 <span style="font-size: 12.5px; color: #8FE0B4; font-weight: 600">Se te paga el viernes</span>
 </div>
 <span style="font-weight: 800; font-size: 14px; margin-top: 4px">Qué hacer ahora</span>
@@ -2080,20 +2080,20 @@ Armar mi bazar
 <span class="b-pop b-f3" style="display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #EFE6D8"><span>Renta del Puesto 12</span><span style="font-weight: 700; color: #8A3313">−$700</span></span>
 <span class="b-pop b-f4" style="display: flex; justify-content: space-between; padding: 12px 0; font-weight: 800; font-size: 15px"><span>Saldo</span><span>$1,230</span></span>
 </div>
-<div class="b-pop b-f5" style="background: #1E1A16; color: #FFFFFF; border-radius: 14px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 13px">Pago por transferencia</span><span style="font-weight: 700; color: #8FE0B4">Viernes</span></div>
+<div class="b-pop b-f5" style="background: #05080D; color: #FFFFFF; border-radius: 14px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 13px">Pago por transferencia</span><span style="font-weight: 700; color: #8FE0B4">Viernes</span></div>
 <span style="margin-top: auto; font-size: 12px; color: #5E554C; text-align: center">Cada domingo le llega su estado de cuenta por WhatsApp.</span>
 </template>
 
 <template sc-if value="{{vPromos}}" hint-placeholder-val="{{ false }}">
 <span style="font-weight: 800; font-size: 14px">Promociones</span>
 <div class="b-pop" style="background: #FFFFFF; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-<div style="background: #B4441A; color: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; opacity: .9">El bazar propone</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">25% de descuento</span><span style="font-size: 13px">Este sábado y domingo, en piezas de más de 30 días</span></div>
+<div style="background: #B4441A; color: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; opacity: .9">El bazar propone</span><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">25% de descuento</span><span style="font-size: 13px">Este sábado y domingo, en piezas de más de 30 días</span></div>
 <div style="padding: 14px; display: flex; flex-direction: column; gap: 10px">
 <span style="display: flex; justify-content: space-between"><span style="color: #5E554C">Tus piezas que entran</span><span style="font-weight: 700">6</span></span>
 <template sc-if value="{{promoOpen}}" hint-placeholder-val="{{ true }}">
 <span style="display: flex; gap: 8px">
 <button type="button" onClick="{{promoYes}}" style="flex: 1; font: inherit; cursor: pointer; border: none; background: #0E6B6B; color: #FFFFFF; font-weight: 700; padding: 12px; border-radius: 12px; min-height: 44px">Entrar</button>
-<button type="button" onClick="{{promoNo}}" style="flex: 1; font: inherit; cursor: pointer; border: 1.5px solid #D9CCB8; background: #FFFFFF; color: #1E1A16; font-weight: 700; padding: 12px; border-radius: 12px; min-height: 44px">No, gracias</button>
+<button type="button" onClick="{{promoNo}}" style="flex: 1; font: inherit; cursor: pointer; border: 1.5px solid #D9CCB8; background: #FFFFFF; color: #05080D; font-weight: 700; padding: 12px; border-radius: 12px; min-height: 44px">No, gracias</button>
 </span>
 </template>
 <template sc-if value="{{promoAnswered}}" hint-placeholder-val="{{ false }}">
@@ -2129,7 +2129,7 @@ Armar mi bazar
 
 <section id="funciones" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Todo lo que tu bazar necesita, nada que sobre.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Todo lo que tu bazar necesita, nada que sobre.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">Lo hicimos corriendo nuestro propio bazar, no en una oficina.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
@@ -2168,7 +2168,7 @@ Armar mi bazar
 <h3 style="margin: 0; font-size: 19px; font-weight: 700">Puestos y contratos</h3>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #4E463E">Mapa de puestos, lista de espera y contrato de renta firmado desde el celular.</p>
 </div>
-<div class="b-card" style="background: #1E1A16; color: #FFFFFF; border: 1px solid #1E1A16; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+<div class="b-card" style="background: #05080D; color: #FFFFFF; border: 1px solid #05080D; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
 <span class="b-ico" style="background: #3A332C; width: 44px; height: 44px; border-radius: 12px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></span>
 <h3 style="margin: 0; font-size: 19px; font-weight: 700">Tu bazar en internet</h3>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #CFC4B4">Un sitio público con todo tu inventario, actualizado solo. Próximamente en Plus.</p>
@@ -2181,7 +2181,7 @@ Armar mi bazar
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; background: rgba(243,179,143,0.18); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Próximamente en Plus</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">De una foto a vendido, sin capturar nada.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">De una foto a vendido, sin capturar nada.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CDE5E4">Tomas la foto, Neuri arma la ficha y la publica en tu sitio. Tus clientes apartan desde su casa y, cuando la cobras, el sitio se actualiza solo.</p>
 </div>
 
@@ -2199,10 +2199,10 @@ Armar mi bazar
 <div style="flex: 0 0 290px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9FCFCC">Tu celular · neuri.bazar</span>
 <div style="width: 290px; background: #0F0D0B; border-radius: 40px; padding: 10px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08)">
-<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; color: #1E1A16">
+<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; color: #05080D">
 
 <template sc-if value="{{opCam}}" hint-placeholder-val="{{ true }}">
-<div style="position: absolute; inset: 0; background: #1E1A16; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 20px 30px">
+<div style="position: absolute; inset: 0; background: #05080D; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 20px 30px">
 <span style="color: #FFFFFF; font-weight: 600; font-size: 14px">Nueva pieza</span>
 <div style="position: relative; width: 210px; height: 260px; border-radius: 18px; background: #F5E6B8; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="{{iconMirror}}"></path></svg>
@@ -2221,7 +2221,7 @@ Armar mi bazar
 <div style="position: absolute; inset: 0; background: #F7F1E8; display: flex; flex-direction: column; gap: 10px; padding: 20px 16px; font-size: 13px">
 <div style="display: flex; align-items: center; gap: 10px">
 <span style="width: 58px; height: 58px; border-radius: 12px; background: #F5E6B8; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="{{iconMirror}}"></path></svg></span>
-<span class="b-pop b-f1" style="background: #1E1A16; color: #FFFFFF; font-weight: 700; font-size: 12px; padding: 7px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Neuri llenó la ficha</span>
+<span class="b-pop b-f1" style="background: #05080D; color: #FFFFFF; font-weight: 700; font-size: 12px; padding: 7px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Neuri llenó la ficha</span>
 </div>
 <div class="b-pop b-f2" style="background: #FFFFFF; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #5E554C; font-weight: 600">Nombre</span><span style="font-weight: 700">Espejo con marco dorado</span></div>
 <div class="b-pop b-f3" style="background: #FFFFFF; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #5E554C; font-weight: 600">Descripción</span><span style="line-height: 1.4">Espejo ovalado, marco de madera tallada con acabado dorado. Ideal para recibidor.</span></div>
@@ -2229,7 +2229,7 @@ Armar mi bazar
 <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #5E554C; font-weight: 600">Categoría</span><span style="font-weight: 700">Decoración</span></div>
 <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #5E554C; font-weight: 600">Puesto</span><span style="font-weight: 700">12 · Doña Rosa</span></div>
 </div>
-<div class="b-pop b-f5" style="background: #FFFFFF; border: 2px solid #0E6B6B; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #0E6B6B; font-weight: 700">Precio sugerido</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px">$1,100</span><span style="font-size: 11.5px; color: #4E463E">Según piezas parecidas que ya vendiste</span></div>
+<div class="b-pop b-f5" style="background: #FFFFFF; border: 2px solid #0E6B6B; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #0E6B6B; font-weight: 700">Precio sugerido</span><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 22px">$1,100</span><span style="font-size: 11.5px; color: #4E463E">Según piezas parecidas que ya vendiste</span></div>
 <span class="b-pop b-f6" style="margin-top: auto; background: {{accent}}; color: #FFFFFF; text-align: center; font-weight: 700; font-size: 15px; padding: 14px; border-radius: 14px">Publicar</span>
 </div>
 </template>
@@ -2237,7 +2237,7 @@ Armar mi bazar
 <template sc-if value="{{opPub}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; inset: 0; background: #F7F1E8; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; text-align: center">
 <span class="b-pop" style="width: 84px; height: 84px; border-radius: 50%; background: #0E6B6B; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
-<span class="b-pop b-f1" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Publicado en tu sitio</span>
+<span class="b-pop b-f1" style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Publicado en tu sitio</span>
 <span class="b-pop b-f2" style="font-size: 14px; color: #4E463E">Espejo con marco dorado · $1,100</span>
 <span class="b-pop b-f3" style="font-size: 13px; font-weight: 600; color: #0E6B6B; background: #DCEDEC; padding: 7px 12px; border-radius: 999px">laspalmas.neuri.tech</span>
 </div>
@@ -2245,7 +2245,7 @@ Armar mi bazar
 
 <template sc-if value="{{opApart}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; inset: 0; background: #2B2520; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 40px 14px">
-<span style="color: #FFFFFF; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: 56px; letter-spacing: -0.03em">4:12</span>
+<span style="color: #FFFFFF; font-family: 'Geist', system-ui, sans-serif; font-weight: 500; font-size: 56px; letter-spacing: -0.03em">4:12</span>
 <span style="color: #CFC4B4; font-size: 13px; margin-bottom: 26px">sábado</span>
 <div class="b-pop b-f1" style="align-self: stretch; background: rgba(247,241,232,.96); border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px">
 <span style="display: flex; justify-content: space-between; font-size: 11.5px; font-weight: 700; color: #5E554C"><span>NEURI.BAZAR</span><span>ahora</span></span>
@@ -2283,10 +2283,10 @@ Armar mi bazar
 <div style="flex: 0 0 290px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9FCFCC">El celular de tu cliente</span>
 <div style="width: 290px; background: #0F0D0B; border-radius: 40px; padding: 10px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08)">
-<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; background: #FFFFFF; color: #1E1A16; display: flex; flex-direction: column">
+<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; background: #FFFFFF; color: #05080D; display: flex; flex-direction: column">
 <div style="padding: 16px 16px 12px; border-bottom: 1px solid #EFE6D8; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 11px; color: #5E554C; text-align: center">laspalmas.neuri.tech</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Bazar Las Palmas</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Bazar Las Palmas</span>
 <span style="display: flex; align-items: center; gap: 8px; background: #F7F1E8; border-radius: 999px; padding: 8px 12px; font-size: 12.5px; color: #5E554C"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Buscar en el bazar</span>
 </div>
 
@@ -2302,14 +2302,14 @@ Armar mi bazar
 </template>
 <template sc-for list="{{cuItems}}" as="ci" hint-placeholder-count="4">
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="{{ci.tile}}"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="{{ci.icon}}"></path></svg></span>
+<span style="{{ci.tile}}"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="{{ci.icon}}"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">{{ci.name}}</span><span style="font-size: 11.5px; color: #5E554C">{{ci.stall}}</span><span style="font-weight: 800; font-size: 13.5px">{{ci.price}}</span></span>
 </div>
 </template>
 <template sc-if value="{{cuSmart}}" hint-placeholder-val="{{ false }}">
-<div class="b-pop b-f2" style="margin-top: auto; background: #1E1A16; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+<div class="b-pop b-f2" style="margin-top: auto; background: #05080D; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px">
 <span style="line-height: 1.4"><strong>El espejo ya se vendió.</strong> ¿Te avisamos cuando llegue uno parecido?</span>
-<span style="align-self: flex-start; background: #F3B38F; color: #1E1A16; font-weight: 700; padding: 8px 14px; border-radius: 999px">Avísame</span>
+<span style="align-self: flex-start; background: #F3B38F; color: #05080D; font-weight: 700; padding: 8px 14px; border-radius: 999px">Avísame</span>
 </div>
 </template>
 </div>
@@ -2319,7 +2319,7 @@ Armar mi bazar
 <div style="padding: 14px; display: flex; flex-direction: column; gap: 10px; flex: 1">
 <div class="b-pop" style="height: 170px; border-radius: 16px; background: #F5E6B8; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="{{iconMirror}}"></path></svg></div>
 <span style="font-weight: 800; font-size: 18px">Espejo con marco dorado</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px">$1,100</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px">$1,100</span>
 <span style="font-size: 12.5px; line-height: 1.45; color: #4E463E">Espejo ovalado, marco de madera tallada con acabado dorado. Puesto 12.</span>
 <span class="b-pop b-f2" style="margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 8px; background: #0E6B6B; color: #FFFFFF; font-weight: 700; padding: 14px; border-radius: 14px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Apartado hasta las 6 pm</span>
 <span style="font-size: 12px; color: #5E554C; text-align: center">Pagas y recoges en el bazar</span>
@@ -2333,7 +2333,7 @@ Armar mi bazar
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 28px">
 <div aria-live="polite" style="flex: 999 1 420px; display: flex; flex-direction: column; gap: 8px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">{{capTitle}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">{{capTitle}}</span>
 <span style="font-size: 17px; line-height: 1.5; color: #CDE5E4; max-width: 640px">{{capText}}</span>
 </div>
 <div style="display: flex; gap: 10px">
@@ -2342,7 +2342,7 @@ Armar mi bazar
 <template sc-if value="{{storyAuto}}" hint-placeholder-val="{{ true }}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg></template>
 <template sc-if value="{{storyPaused}}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></template>
 </button>
-<button type="button" class="b-btn" onClick="{{storyNext}}" style="font: inherit; cursor: pointer; height: 50px; padding: 0 22px; border-radius: 999px; border: none; background: #F7F1E8; color: #1E1A16; font-weight: 700; display: flex; align-items: center; gap: 8px">{{nextLabel}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+<button type="button" class="b-btn" onClick="{{storyNext}}" style="font: inherit; cursor: pointer; height: 50px; padding: 0 22px; border-radius: 999px; border: none; background: #F7F1E8; color: #05080D; font-weight: 700; display: flex; align-items: center; gap: 8px">{{nextLabel}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 </div>
 <p style="margin: 0; font-size: 14px; color: #9FCFCC">Bazar, piezas y clientes de ejemplo. Tu sitio usa tus fotos, tus precios y tu dirección.</p>
@@ -2351,7 +2351,7 @@ Armar mi bazar
 
 <section id="cambiarte" aria-label="Por qué cambiarte" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Hecho para bazares, no para cualquier tienda.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Hecho para bazares, no para cualquier tienda.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E; line-height: 1.5">Un punto de venta común cobra, pero no sabe de puestos, rentas ni vendedores. neuri.bazar sí.</p>
 </div>
 
@@ -2362,7 +2362,7 @@ Armar mi bazar
 <th scope="col" style="padding: 18px 20px; font-weight: 600; color: #5E554C; width: 40%">Lo que necesita un bazar</th>
 <th scope="col" style="padding: 18px 16px; font-weight: 700">Libreta o Excel</th>
 <th scope="col" style="padding: 18px 16px; font-weight: 700">Punto de venta común</th>
-<th scope="col" style="padding: 18px 16px; font-weight: 800; background: #1E1A16; color: #FFFFFF; border-radius: 0 21px 0 0">neuri.bazar</th>
+<th scope="col" style="padding: 18px 16px; font-weight: 800; background: #05080D; color: #FFFFFF; border-radius: 0 21px 0 0">neuri.bazar</th>
 </tr>
 </thead>
 <tbody>
@@ -2378,15 +2378,15 @@ Armar mi bazar
 </table>
 </div>
 
-<div style="background: #1E1A16; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px">
+<div style="background: #05080D; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 700px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F3B38F">Cambiarte no te cuesta trabajo</span>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">Te lo dejamos cargado y funcionando.</h3>
+<h3 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">Te lo dejamos cargado y funcionando.</h3>
 </div>
 <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">1</span><span style="font-weight: 700; font-size: 18px">Nos mandas lo que ya tienes</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Tu Excel, tu libreta en fotos o el archivo que saca tu sistema actual.</span></li>
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">2</span><span style="font-weight: 700; font-size: 18px">Nosotros lo cargamos</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Puestos, rentas, vendedores e inventario, listos en tu cuenta.</span></li>
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">3</span><span style="font-weight: 700; font-size: 18px">Tus vendedores reciben su link</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">A cada uno le llega su Mi Puesto por WhatsApp. Tú abres caja y vendes.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">1</span><span style="font-weight: 700; font-size: 18px">Nos mandas lo que ya tienes</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Tu Excel, tu libreta en fotos o el archivo que saca tu sistema actual.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">2</span><span style="font-weight: 700; font-size: 18px">Nosotros lo cargamos</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Puestos, rentas, vendedores e inventario, listos en tu cuenta.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">3</span><span style="font-weight: 700; font-size: 18px">Tus vendedores reciben su link</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">A cada uno le llega su Mi Puesto por WhatsApp. Tú abres caja y vendes.</span></li>
 </ol>
 <div style="display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 15.5px; color: #E8DFD2">
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8FE0B4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Pagas mes a mes</span>
@@ -2399,27 +2399,27 @@ Armar mi bazar
 <section id="precios" style="background: #FFFFFF; border-top: 1px solid #E6DBC9; border-bottom: 1px solid #E6DBC9">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Un precio fijo al mes. Sin comisiones por venta.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Un precio fijo al mes. Sin comisiones por venta.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">En Estados Unidos: US$79, US$119 y US$149 al mes.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
 <div style="background: #F7F1E8; border: 1px solid #E6DBC9; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Básico</h3>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$499</span><span style="color: #5E554C">MXN / mes</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$499</span><span style="color: #5E554C">MXN / mes</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #4E463E">Para empezar con un bazar chico.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Hasta 30 vendedores · 1 caja</li>
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Inventario, caja y cortes</li>
 <li style="display: flex; gap: 10px; color: #5E554C"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Mi Puesto para cada vendedor</li>
 </ul>
-<a href="#prueba" data-trial data-plan="Básico" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #1E1A16; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #1E1A16; min-height: 48px; box-sizing: border-box">Probar gratis</a>
+<a href="#prueba" data-trial data-plan="Básico" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #05080D; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #05080D; min-height: 48px; box-sizing: border-box">Probar gratis</a>
 </div>
-<div style="background: #1E1A16; color: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(30,26,22,.6)">
+<div style="background: #05080D; color: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(5,8,13,.6)">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Pro</h3>
-<span style="background: #F3B38F; color: #1E1A16; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 999px">Recomendado</span>
+<span style="background: #F3B38F; color: #05080D; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 999px">Recomendado</span>
 </div>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$899</span><span style="color: #CFC4B4">MXN / mes</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$899</span><span style="color: #CFC4B4">MXN / mes</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #CFC4B4">Para el bazar que ya está lleno.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Hasta 75 vendedores</li>
@@ -2430,14 +2430,14 @@ Armar mi bazar
 </div>
 <div style="background: #F7F1E8; border: 1px solid #E6DBC9; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Plus</h3>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$1,499</span><span style="color: #5E554C">MXN / mes</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$1,499</span><span style="color: #5E554C">MXN / mes</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #4E463E">Para vender también por internet.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Todo lo de Pro</li>
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Tu sitio con tu inventario (próximamente)</li>
 <li style="display: flex; gap: 10px; color: #5E554C"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Vendedores y cajas sin límite</li>
 </ul>
-<a href="#prueba" data-trial data-plan="Plus" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #1E1A16; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #1E1A16; min-height: 48px; box-sizing: border-box">Probar gratis</a>
+<a href="#prueba" data-trial data-plan="Plus" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #05080D; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #05080D; min-height: 48px; box-sizing: border-box">Probar gratis</a>
 </div>
 </div>
 </div>
@@ -2445,7 +2445,7 @@ Armar mi bazar
 
 </template>
 <template data-dc-part="dc-b"><section id="preguntas" style="max-width: 820px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 28px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Preguntas frecuentes</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Preguntas frecuentes</h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E6DBC9">
 <details style="border-bottom: 1px solid #E6DBC9; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">¿Mis vendedores tienen que bajar una app?<span class="b-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #B4441A">+</span></summary>
@@ -2470,13 +2470,13 @@ Armar mi bazar
 </div>
 </section>
 
-<section id="demo" aria-label="Arma tu bazar" style="background: #1E1A16; color: #FFFFFF; position: relative; overflow: hidden">
+<section id="demo" aria-label="Arma tu bazar" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div class="b-dots" aria-hidden="true" style="inset: 0; opacity: 0.35"></div>
 <div class="b-orb" aria-hidden="true"></div>
 <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 44px; position: relative; z-index: 1">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Último paso</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Arma tu bazar en 10 segundos.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Arma tu bazar en 10 segundos.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Dinos cómo se llama, cuántos puestos tiene y cuánto cobras de renta. Neuri lo arma frente a ti.</p>
 </div>
 
@@ -2484,14 +2484,14 @@ Armar mi bazar
 <div style="flex: 1 1 340px; background: #2B2520; border: 1px solid #3A332C; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 22px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <label for="b-name" style="font-weight: 600; font-size: 15px">Nombre de tu bazar</label>
-<input id="b-name" type="text" value="{{bName}}" onChange="{{onBName}}" maxlength="40" autocomplete="off" style="font: inherit; font-size: 17px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #4A4239; background: #1E1A16; color: #FFFFFF; min-height: 50px; box-sizing: border-box">
+<input id="b-name" type="text" value="{{bName}}" onChange="{{onBName}}" maxlength="40" autocomplete="off" style="font: inherit; font-size: 17px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #4A4239; background: #05080D; color: #FFFFFF; min-height: 50px; box-sizing: border-box">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="b-spots" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Puestos <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{bSpots}}</span></label>
+<label for="b-spots" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Puestos <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{bSpots}}</span></label>
 <input id="b-spots" class="b-range" type="range" min="6" max="60" step="1" value="{{bSpots}}" onChange="{{onBSpots}}">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="b-rent" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Renta promedio a la semana <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{bRentText}}</span></label>
+<label for="b-rent" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Renta promedio a la semana <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{bRentText}}</span></label>
 <input id="b-rent" class="b-range" type="range" min="200" max="3000" step="50" value="{{bRent}}" onChange="{{onBRent}}">
 </div>
 <button type="button" class="b-btn" onClick="{{buildBazar}}" aria-disabled="{{buildDisabled}}" style="{{buildStyle}}">
@@ -2510,17 +2510,17 @@ Armar mi bazar
 </ul>
 </div>
 
-<div style="flex: 999 1 520px; min-width: 0; background: #F7F1E8; color: #1E1A16; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column">
+<div style="flex: 999 1 520px; min-width: 0; background: #F7F1E8; color: #05080D; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column">
 <div style="background: #EFE7DA; padding: 12px 16px; display: flex; align-items: center; gap: 14px">
 <span aria-hidden="true" style="display: flex; gap: 6px"><span style="width: 11px; height: 11px; border-radius: 50%; background: #E0A090"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #E8CD8C"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #A6CDA0"></span></span>
-<span style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #1E1A16; font-weight: 600; display: flex; align-items: center; gap: 2px; overflow: hidden; white-space: nowrap; min-height: 18px">
+<span style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #05080D; font-weight: 600; display: flex; align-items: center; gap: 2px; overflow: hidden; white-space: nowrap; min-height: 18px">
 <template sc-if value="{{urlEmpty}}" hint-placeholder-val="{{ true }}"><span style="color: #A89C8C; font-weight: 500">tubazar.neuri.tech</span></template>
 <span>{{typedUrl}}</span><template sc-if value="{{typingUrl}}" hint-placeholder-val="{{ false }}"><span class="b-caret" style="display: inline-block; width: 2px; height: 16px; background: #B4441A"></span></template>
 </span>
 </div>
 <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px; flex: 1">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em">{{bNameShown}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em">{{bNameShown}}</span>
 <span style="font-size: 14px; font-weight: 600; color: #5E554C">{{built}} de {{bSpots}} puestos</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px">
@@ -2531,11 +2531,11 @@ Armar mi bazar
 <div style="margin-top: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
 <div style="background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; color: #5E554C; font-weight: 600">Renta por cobrar a la semana</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #0E6B6B">{{weeklyText}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #0E6B6B">{{weeklyText}}</span>
 </div>
 <div style="background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; color: #5E554C; font-weight: 600">Al mes, con el bazar lleno</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">{{monthlyText}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">{{monthlyText}}</span>
 </div>
 </div>
 </div>
@@ -2544,7 +2544,7 @@ Armar mi bazar
 
 <div style="border-top: 1px solid #3A332C; padding-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
 <div style="flex: 999 1 420px; display: flex; flex-direction: column; gap: 8px">
-<span class="{{ctaCls}}" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05">{{ctaTitle}}</span>
+<span class="{{ctaCls}}" style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05">{{ctaTitle}}</span>
 <span style="font-size: 18px; color: #CFC4B4">Vamos a tu bazar, cargamos tus puestos y tu inventario, y cobras tu primera venta con nosotros.</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -2557,16 +2557,16 @@ Armar mi bazar
 </div>
 </section>
 
-<footer style="background: #1E1A16; color: #CFC4B4">
+<footer style="background: #05080D; color: #CFC4B4">
 <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 15px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #FFFFFF">neuri<span style="color: #F3B38F">.bazar</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #FFFFFF">neuri<span style="color: #F3B38F">.bazar</span></span>
 <span>© 2026 Neuri LLC · <a href="mailto:hola@neuri.tech" style="color: inherit">hola@neuri.tech</a> · <a href="/en/" lang="en" hreflang="en" style="color: inherit">English</a></span>
 </div>
 </footer>
 
 </div>
 </template>
-<script type="application/json" id="dc-props">{"accent":{"editor":"color","default":"#B4441A","options":["#B4441A","#0E6B6B","#1E1A16","#7A3FB0"]},"$preview":{"width":1440,"height":11000}}</script>
+<script type="application/json" id="dc-props">{"accent":{"editor":"color","default":"#B4441A","options":["#B4441A","#0E6B6B","#05080D","#7A3FB0"]},"$preview":{"width":1440,"height":11000}}</script>
 <script src="/assets/dc-lite.js"></script>
 <script>
 
@@ -2806,7 +2806,7 @@ class Component extends DCLogic {
     var st = this.state;
     var accent = this.props.accent ?? '#B4441A';
     var base = 'font: inherit; cursor: pointer; font-weight: 600; font-size: 15px; padding: 11px 16px; border-radius: 999px; min-height: 44px; ';
-    var chip = function (on) { return base + (on ? 'background: #F7F1E8; color: #1E1A16; border: 1.5px solid #F7F1E8;' : 'background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.28);'); };
+    var chip = function (on) { return base + (on ? 'background: #F7F1E8; color: #05080D; border: 1.5px solid #F7F1E8;' : 'background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.28);'); };
     var locked = st.sent;
     var curSpot = st.sp != null ? this.spotDef(st.sp) : null;
     var curW = st.wv != null ? this.waitDefs[st.wv] : null;
@@ -2851,7 +2851,7 @@ class Component extends DCLogic {
       cellList.push({
         n: ci + 1,
         cls: onC ? 'b-cell' : '',
-        style: 'aspect-ratio: 1 / 1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; ' + (onC ? ((ci % 5 === 2) ? 'background: #0E6B6B; color: #FFFFFF;' : 'background: #F3B38F; color: #1E1A16;') : 'border: 1.5px dashed #D9CCB8; color: #C9BBA5;')
+        style: 'aspect-ratio: 1 / 1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; ' + (onC ? ((ci % 5 === 2) ? 'background: #0E6B6B; color: #FFFFFF;' : 'background: #F3B38F; color: #05080D;') : 'border: 1.5px dashed #D9CCB8; color: #C9BBA5;')
       });
     }
     var checkDefs = [
@@ -2861,7 +2861,7 @@ class Component extends DCLogic {
       'Renta semanal programada para cada puesto'
     ];
     var blockInputs = function () { return self.state.bPhase === 'building'; };
-    var vtBase = 'font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; ';
+    var vtBase = 'font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; ';
     var chipFor = function (s) {
       var b = 'flex-shrink: 0; font-size: 11px; font-weight: 700; padding: 5px 9px; border-radius: 999px; ';
       if (s === 'ok') return b + 'background: #DCEDEC; color: #0B4A4A;';
@@ -2876,7 +2876,7 @@ class Component extends DCLogic {
         { need: 'Estado de cuenta por vendedor', a: 'A mano', aColor: meh, b: 'No', bColor: no, c: 'Automático' },
         { need: 'Portal para vendedores', a: 'No', aColor: no, b: 'No', bColor: no, c: 'Mi Puesto' },
         { need: 'Mapa de puestos, lista de espera y contratos', a: 'No', aColor: no, b: 'No', bColor: no, c: 'Incluido' },
-        { need: 'Caja con escáner e inventario', a: 'No', aColor: no, b: 'Sí', bColor: '#1E1A16', c: 'Incluido' },
+        { need: 'Caja con escáner e inventario', a: 'No', aColor: no, b: 'Sí', bColor: '#05080D', c: 'Incluido' },
         { need: 'Avisos a vendedores por WhatsApp', a: 'No', aColor: no, b: 'No', bColor: no, c: 'Incluido' },
         { need: 'Español e inglés, pesos y dólares', a: '—', aColor: no, b: 'Depende', bColor: meh, c: 'Los dos' }
       ],
@@ -2884,7 +2884,7 @@ class Component extends DCLogic {
         var on = st.vTab === i;
         return {
           title: d.title, desc: d.desc, short: d.short, icon: d.icon, selected: on ? 'true' : 'false',
-          style: vtBase + (on ? 'background: #FFFFFF; border: 2px solid #1E1A16; box-shadow: 0 16px 30px -20px rgba(30,26,22,.5);' : 'background: rgba(255,255,255,0.35); border: 2px solid transparent;'),
+          style: vtBase + (on ? 'background: #FFFFFF; border: 2px solid #05080D; box-shadow: 0 16px 30px -20px rgba(5,8,13,.5);' : 'background: rgba(255,255,255,0.35); border: 2px solid transparent;'),
           icoStyle: 'width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; ' + (on ? 'background: #B4441A; color: #FFFFFF;' : 'background: #F7F1E8; color: #5E554C;'),
           barCls: on && st.vAuto ? 'b-prog' : '',
           barStyle: 'display: block; height: 100%; background: #B4441A; width: 0;',
@@ -2943,7 +2943,7 @@ class Component extends DCLogic {
         var done = i < sy;
         return {
           num: String(i + 1), label: d.label, selected: on ? 'true' : 'false',
-          style: stepBase + (on ? 'background: #F7F1E8; color: #1E1A16; border: 1.5px solid #F7F1E8;' : 'background: rgba(255,255,255,0.04); color: ' + (done ? '#FFFFFF' : '#9FCFCC') + '; border: 1.5px solid rgba(255,255,255,0.16);'),
+          style: stepBase + (on ? 'background: #F7F1E8; color: #05080D; border: 1.5px solid #F7F1E8;' : 'background: rgba(255,255,255,0.04); color: ' + (done ? '#FFFFFF' : '#9FCFCC') + '; border: 1.5px solid rgba(255,255,255,0.16);'),
           numStyle: 'width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 800; ' + (on ? 'background: ' + accent + '; color: #FFFFFF;' : (done ? 'background: #0E6B6B; color: #FFFFFF;' : 'background: rgba(255,255,255,0.12); color: #CDE5E4;')),
           barCls: on && st.storyAuto ? 'b-prog' : '',
           barStyle: 'display: block; height: 100%; background: ' + accent + '; width: ' + (on ? (st.storyAuto ? '0' : '100%') : '0') + ';',

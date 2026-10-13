@@ -11,12 +11,12 @@
 <link rel="alternate" hreflang="en" href="https://neuri.tech/en/">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap">
 <style>
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 #dc-a,#dc-b,.legacy{overflow-x:clip}
-body{font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+body{font-family:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
 img,svg{max-width:100%}
 :focus-visible{outline:3px solid currentColor;outline-offset:3px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -32,7 +32,7 @@ input[type=range].b-range-l::-moz-range-track{height:8px;border-radius:999px;bac
 input[type=range].n-range::-webkit-slider-thumb,input[type=range].b-range::-webkit-slider-thumb,input[type=range].b-range-l::-webkit-slider-thumb{margin-top:-9px}
 
 body{margin:0;background:#F7F1E8}
-a{color:#1E1A16}a:hover{color:#B4441A}
+a{color:#05080D}a:hover{color:#B4441A}
 details summary{list-style:none;cursor:pointer}
 details summary::-webkit-details-marker{display:none}
 details[open] .b-plus{transform:rotate(45deg)}
@@ -50,7 +50,7 @@ details[open] .b-plus{transform:rotate(45deg)}
 .b-rise-2{animation-delay:.12s}.b-rise-3{animation-delay:.24s}.b-rise-4{animation-delay:.36s}
 .b-scan{position:absolute;left:10px;right:10px;height:2px;background:#B4441A;box-shadow:0 0 12px 2px rgba(180,68,26,.55);animation:bScan 2.2s ease-in-out infinite}
 .b-tilt{animation:bTilt 7s ease-in-out infinite}
-.b-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #E6DBC9;border-radius:16px;padding:10px 14px 10px 10px;box-shadow:0 18px 40px -18px rgba(30,26,22,.4);font-size:14px;font-weight:600;white-space:nowrap}
+.b-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #E6DBC9;border-radius:16px;padding:10px 14px 10px 10px;box-shadow:0 18px 40px -18px rgba(5,8,13,.4);font-size:14px;font-weight:600;white-space:nowrap}
 .b-bob{animation:bBob 5.5s ease-in-out infinite}.b-bob-2{animation-delay:-2s}
 .b-ico{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .b-live{width:8px;height:8px;border-radius:50%;background:#B4441A;animation:bPulse 1.6s infinite}
@@ -60,17 +60,17 @@ details[open] .b-plus{transform:rotate(45deg)}
 .b-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .b-marquee:hover .b-track{animation-play-state:paused}
 .b-tag{flex-shrink:0;padding:14px 22px;border-radius:999px;font-size:17px;font-weight:600;background:#FFFFFF;border:1px solid #E6DBC9;display:inline-flex;align-items:center;gap:10px}
-.b-tag-dark{background:#1E1A16;color:#FFFFFF;border-color:#1E1A16}
+.b-tag-dark{background:#05080D;color:#FFFFFF;border-color:#05080D}
 .b-btn{transition:transform .18s,box-shadow .18s,background .18s}
 .b-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(180,68,26,.6)}
 .b-bar{transition:width .5s cubic-bezier(.2,.8,.2,1)}
 .b-card{transition:transform .2s,border-color .2s,box-shadow .2s}
-.b-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px rgba(30,26,22,.35)}
+.b-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px rgba(5,8,13,.35)}
 input[type=range].b-range{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;background:#3A332C;outline-offset:4px}
 input[type=range].b-range::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#F7F1E8;border:4px solid #B4441A;cursor:pointer}
 input[type=range].b-range::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#F7F1E8;border:4px solid #B4441A;cursor:pointer}
 input[type=range].b-range-l{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;background:#E6DBC9;outline-offset:4px}
-input[type=range].b-range-l::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#FFFFFF;border:4px solid #B4441A;cursor:pointer;box-shadow:0 2px 6px rgba(30,26,22,.25)}
+input[type=range].b-range-l::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#FFFFFF;border:4px solid #B4441A;cursor:pointer;box-shadow:0 2px 6px rgba(5,8,13,.25)}
 input[type=range].b-range-l::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#FFFFFF;border:4px solid #B4441A;cursor:pointer}
 @keyframes bToast{0%{opacity:0;transform:translateY(-14px) scale(.96)}100%{opacity:1;transform:none}}
 @keyframes bFlash{0%{background:#8FE0B4;color:#0B4A4A}100%{background:rgba(255,255,255,.1);color:#FFFFFF}}
@@ -528,24 +528,24 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 }.legacy .av-tel-top{background:var(--anil)}
 .legacy .av-tel-top small{color:var(--sobre-anil)}
 
-.legacy{--anil:#1E1A16;--anil-2:#2B2520;--anil-3:#3A332C;--etiqueta:#F3B38F;--etiqueta-2:#B4441A;--papel:#FFFFFF;--neblina:#EFE6D8;--linea:#E6DBC9;--gris:#5E554C;--sobre-anil:#CFC4B4;--rosa:#B4441A;--verde-agua:#0E6B6B;--naranja:#8A3313;
-  --display:"Bricolage Grotesque",system-ui,sans-serif;--texto:"Instrument Sans",system-ui,sans-serif;background:#F7F1E8;color:#1E1A16;font-family:var(--texto)}
+.legacy{--anil:#05080D;--anil-2:#2B2520;--anil-3:#3A332C;--etiqueta:#F3B38F;--etiqueta-2:#B4441A;--papel:#FFFFFF;--neblina:#EFE6D8;--linea:#E6DBC9;--gris:#5E554C;--sobre-anil:#CFC4B4;--rosa:#B4441A;--verde-agua:#0E6B6B;--naranja:#8A3313;
+  --display:"Geist",system-ui,sans-serif;--texto:"Geist",system-ui,sans-serif;background:#F7F1E8;color:#05080D;font-family:var(--texto)}
 .legacy h1,.legacy h2,.legacy h3{font-stretch:100%;font-weight:800;letter-spacing:-.03em}
-.legacy .oscuro{background:#1E1A16}
+.legacy .oscuro{background:#05080D}
 .legacy .btn-etiqueta:hover{background:#F7C6A9}
 
 </style>
 </head>
 <body>
 <div id="dc-a">
-<div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #1E1A16; background: #F7F1E8; min-height: 100vh">
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #05080D; background: #F7F1E8; min-height: 100vh">
 
 <header style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
 <a href="#inicio" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
 <span style="width: 34px; height: 34px; border-radius: 10px; background: #B4441A; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"></path><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"></path><path d="M5 13v7h14v-7"></path></svg>
 </span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">neuri <span style="color: #B4441A">bazar</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">neuri<span style="color: #B4441A">.bazar</span></span>
 </a>
 <nav aria-label="Main" style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
 <a class="hide-sm" href="#simula" style="text-decoration: none; font-weight: 500">Try it</a>
@@ -553,18 +553,18 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 <a class="hide-sm" href="#funciones" style="text-decoration: none; font-weight: 500">Features</a>
 <a class="hide-sm" href="#precios" style="text-decoration: none; font-weight: 500">Pricing</a>
 <a class="hide-sm" href="/bazar/" lang="es" hreflang="es" style="text-decoration: none; font-weight: 500">Español</a>
-<a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #1E1A16; color: #FFFFFF; font-weight: 600; padding: 12px 18px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Book a demo</a>
+<a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #05080D; color: #FFFFFF; font-weight: 600; padding: 12px 18px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Book a demo</a>
 </nav>
 </header>
 
 <section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
 <div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <span class="b-rise" style="align-self: flex-start; background: #F3DCCD; color: #8A3313; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">For antique malls, flea markets and vendor malls</span>
-<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Your mall, in order. Your vendors, always in the loop.</h1>
+<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Your mall, in order. Your vendors, always in the loop.</h1>
 <p class="b-rise b-rise-3" style="margin: 0; font-size: 20px; line-height: 1.5; color: #4E463E; max-width: 560px">Booths, rent, inventory and checkout in one place. Rent collects itself, every sale goes straight to the vendor's balance, and they see it in My Booth.</p>
 <div class="b-rise b-rise-4" style="display: flex; flex-wrap: wrap; gap: 12px">
 <a class="b-btn" href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #B4441A; color: #FFFFFF; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box">Book a demo</a>
-<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #1E1A16; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
+<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #05080D; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Try it</a>
 </div>
 <p style="margin: 0; font-size: 15px; color: #5E554C">English and Spanish · Dollars and pesos · From $79/month</p>
@@ -578,15 +578,15 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </div>
 
 
-<div class="b-tilt" role="img" aria-label="neuri.bazar register: two items from different vendors are scanned, the total is charged, and each vendor gets an alert about their sale." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(30,26,22,.45); overflow: hidden">
-<div style="background: #1E1A16; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
+<div class="b-tilt" role="img" aria-label="neuri.bazar register: two items from different vendors are scanned, the total is charged, and each vendor gets an alert about their sale." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(5,8,13,.45); overflow: hidden">
+<div style="background: #05080D; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
 <span style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px"><span class="b-live"></span>Register 1 · Desert Rose Antiques</span>
 <span style="font-size: 13px; color: #CFC4B4">Cashier: Anna</span>
 </div>
 <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
 <div style="position: relative; height: 70px; border-radius: 14px; background: #F7F1E8; border: 1.5px dashed #D9CCB8; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden">
 <span class="b-scan"></span>
-<span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span>
+<span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span>
 </div>
 <div style="min-height: 132px; display: flex; flex-direction: column; gap: 10px">
 
@@ -597,7 +597,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </div>
 <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DBC9; padding-top: 14px">
 <span style="font-weight: 600; color: #5E554C">Total</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">$0</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">$0</span>
 </div>
 <div style="position: relative">
 
@@ -619,11 +619,11 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </div>
 </section>
 
-<section id="simula" aria-label="Onboarding a new vendor" style="background: #1E1A16; color: #FFFFFF; position: relative; overflow: hidden">
+<section id="simula" aria-label="Onboarding a new vendor" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px"><span class="b-live"></span>Try it</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Rent a booth to a new vendor in two minutes.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Rent a booth to a new vendor in two minutes.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Pick the booth, pick someone from your waitlist and set their rent. Neuri sends the agreement, they sign it on their phone, and they're all set.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: stretch">
@@ -640,7 +640,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 1</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">TM</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">TM</span>
 </div>
 
 
@@ -648,7 +648,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 2</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">JP</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">JP</span>
 </div>
 
 
@@ -665,7 +665,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 4</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">CA</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">CA</span>
 </div>
 
 
@@ -673,7 +673,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 5</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">PL</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">PL</span>
 </div>
 
 
@@ -681,7 +681,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 6</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">RG</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">RG</span>
 </div>
 
 
@@ -689,7 +689,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 7</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">LI</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">LI</span>
 </div>
 
 
@@ -706,7 +706,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 9</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">AN</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">AN</span>
 </div>
 
 
@@ -714,7 +714,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 10</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">SL</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">SL</span>
 </div>
 
 
@@ -731,7 +731,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <div class="" style="min-height: 92px; border-radius: 14px; padding: 10px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #CFC4B4; background: #4A4239; border: 2px solid #4A4239;">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth 12</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">RS</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: #CFC4B4; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">RS</span>
 </div>
 
 
@@ -744,17 +744,17 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px">
 
 <button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; color: #FFFFFF; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; min-height: 60px; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.14);" data-dc-click="3">
-<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">MA</span>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">MA</span>
 <span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700">Mary</span><span style="font-size: 12.5px; color: #CFC4B4">Vintage clothing</span></span>
 </button>
 
 <button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; color: #FFFFFF; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; min-height: 60px; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.14);" data-dc-click="4">
-<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">TO</span>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">TO</span>
 <span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700">Tony</span><span style="font-size: 12.5px; color: #CFC4B4">Records and vinyl</span></span>
 </button>
 
 <button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; color: #FFFFFF; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; min-height: 60px; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.14);" data-dc-click="5">
-<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">SO</span>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">SO</span>
 <span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700">Sophie</span><span style="font-size: 12.5px; color: #CFC4B4">Plants and pottery</span></span>
 </button>
 
@@ -766,7 +766,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 <div style="background: #2B2520; border: 1px solid #3A332C; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A89C8C">3 · Rent and alerts</span>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="renta" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Fixed weekly booth rent <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">$75</span></label>
+<label for="renta" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Fixed weekly booth rent <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">$75</span></label>
 <input id="renta" class="b-range" type="range" min="20" max="300" step="5" value="75" data-dc-input="6">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
@@ -777,7 +777,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 <button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 15px; padding: 11px 16px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.28);" data-dc-click="8">Daily summary</button>
 
-<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 15px; padding: 11px 16px; border-radius: 999px; min-height: 44px; background: #F7F1E8; color: #1E1A16; border: 1.5px solid #F7F1E8;" data-dc-click="9">Weekly summary</button>
+<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 15px; padding: 11px 16px; border-radius: 999px; min-height: 44px; background: #F7F1E8; color: #05080D; border: 1.5px solid #F7F1E8;" data-dc-click="9">Weekly summary</button>
 
 </div>
 </div>
@@ -794,9 +794,9 @@ Pick an open booth
 
 <div style="flex: 1 1 340px; display: flex; justify-content: center; align-items: flex-start">
 <div style="width: 340px; max-width: 100%; background: #0F0D0B; border-radius: 44px; padding: 12px; box-shadow: 0 40px 80px -24px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); position: sticky; top: 24px">
-<div style="background: #ECE5DA; border-radius: 34px; overflow: hidden; color: #1E1A16; display: flex; flex-direction: column">
+<div style="background: #ECE5DA; border-radius: 34px; overflow: hidden; color: #05080D; display: flex; flex-direction: column">
 <div style="background: #0E6B6B; color: #FFFFFF; padding: 18px; display: flex; align-items: center; gap: 12px">
-<span style="width: 38px; height: 38px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 700; display: flex; align-items: center; justify-content: center">?</span>
+<span style="width: 38px; height: 38px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 700; display: flex; align-items: center; justify-content: center">?</span>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-weight: 600; font-size: 15px">Your vendor's phone</span>
 <span style="font-size: 12px; color: #CDE5E4">WhatsApp · neuri.bazar</span>
@@ -814,10 +814,10 @@ Pick an open booth
 </div>
 </div>
 
-<div style="background: #F7F1E8; color: #1E1A16; border-radius: 26px; padding: 30px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
+<div style="background: #F7F1E8; color: #05080D; border-radius: 26px; padding: 30px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
 <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5E554C">Their weekly statement, done for you</span>
-<label for="ventas-sem" style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 16px">If they sell this much a week <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: #B4441A">$400</span></label>
+<label for="ventas-sem" style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 16px">If they sell this much a week <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 26px; color: #B4441A">$400</span></label>
 <input id="ventas-sem" class="b-range-l" type="range" min="0" max="1500" step="25" value="400" data-dc-input="11">
 <span style="font-size: 14px; color: #5E554C">Uses the rent you picked above. Everything they sell is theirs.</span>
 </div>
@@ -828,7 +828,7 @@ Pick an open booth
 <span class="b-bar" style="display: block; height: 100%; width: 81%; background: #0E6B6B"></span>
 <span class="b-bar" style="display: block; height: 100%; width: 19%; background: #D9B88F"></span>
 </span>
-<span style="display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #1E1A16; padding-top: 10px"><span style="font-weight: 800">You pay them</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: #0E6B6B">$325</span></span>
+<span style="display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #05080D; padding-top: 10px"><span style="font-weight: 800">You pay them</span><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 26px; color: #0E6B6B">$325</span></span>
 
 </div>
 </div>
@@ -839,7 +839,7 @@ Pick an open booth
 <section id="ahorro" aria-label="Time-saved calculator" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px 0; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
 <span style="align-self: flex-start; background: #DCEDEC; color: #0B5555; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Calculator</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">How many hours a month does neuri.bazar give you back?</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">How many hours a month does neuri.bazar give you back?</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Plug in your mall's numbers. The math runs on your own estimates, so adjust them if you work differently.</p>
 </div>
 
@@ -847,22 +847,22 @@ Pick an open booth
 <div style="flex: 999 1 460px; min-width: 0; background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 26px">
 
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-vendors" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Vendors in your mall<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">30</span></label>
+<label for="c-vendors" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Vendors in your mall<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">30</span></label>
 <input id="c-vendors" class="b-range-l" type="range" min="5" max="150" step="1" value="30" data-dc-input="12">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-sales" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Sales on a typical open day<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">40</span></label>
+<label for="c-sales" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Sales on a typical open day<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">40</span></label>
 <input id="c-sales" class="b-range-l" type="range" min="5" max="300" step="5" value="40" data-dc-input="13">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-days" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Days you're open each week<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">3 days</span></label>
+<label for="c-days" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">Days you're open each week<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">3 days</span></label>
 <input id="c-days" class="b-range-l" type="range" min="1" max="7" step="1" value="3" data-dc-input="14">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-rate" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">What your time is worth<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">$25/hr</span></label>
+<label for="c-rate" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">What your time is worth<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">$25/hr</span></label>
 <input id="c-rate" class="b-range-l" type="range" min="15" max="150" step="5" value="25" data-dc-input="15">
 </div>
 
@@ -872,32 +872,32 @@ Pick an open booth
 <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 18px">
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minSale" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Logging each sale and whose it is<span style="font-weight: 700; font-size: 17px; color: #1E1A16">1 min</span></label>
+<label for="c-minSale" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Logging each sale and whose it is<span style="font-weight: 700; font-size: 17px; color: #05080D">1 min</span></label>
 <input id="c-minSale" class="b-range-l" type="range" min="0.5" max="5" step="0.5" value="1" data-dc-input="16">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minCorte" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Doing each vendor's weekly statement<span style="font-weight: 700; font-size: 17px; color: #1E1A16">15 min</span></label>
+<label for="c-minCorte" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Doing each vendor's weekly statement<span style="font-weight: 700; font-size: 17px; color: #05080D">15 min</span></label>
 <input id="c-minCorte" class="b-range-l" type="range" min="5" max="60" step="5" value="15" data-dc-input="17">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minMsg" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Answering “did my stuff sell yet?”<span style="font-weight: 700; font-size: 17px; color: #1E1A16">3 min</span></label>
+<label for="c-minMsg" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Answering “did my stuff sell yet?”<span style="font-weight: 700; font-size: 17px; color: #05080D">3 min</span></label>
 <input id="c-minMsg" class="b-range-l" type="range" min="1" max="10" step="1" value="3" data-dc-input="18">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minPay" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Working out and recording each vendor's weekly payout<span style="font-weight: 700; font-size: 17px; color: #1E1A16">10 min</span></label>
+<label for="c-minPay" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Working out and recording each vendor's weekly payout<span style="font-weight: 700; font-size: 17px; color: #05080D">10 min</span></label>
 <input id="c-minPay" class="b-range-l" type="range" min="2" max="30" step="1" value="10" data-dc-input="19">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minRent" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Collecting booth rent and writing a receipt<span style="font-weight: 700; font-size: 17px; color: #1E1A16">5 min</span></label>
+<label for="c-minRent" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Collecting booth rent and writing a receipt<span style="font-weight: 700; font-size: 17px; color: #05080D">5 min</span></label>
 <input id="c-minRent" class="b-range-l" type="range" min="1" max="20" step="1" value="5" data-dc-input="20">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-minCaja" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Balancing the register at closing<span style="font-weight: 700; font-size: 17px; color: #1E1A16">20 min</span></label>
+<label for="c-minCaja" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">Balancing the register at closing<span style="font-weight: 700; font-size: 17px; color: #05080D">20 min</span></label>
 <input id="c-minCaja" class="b-range-l" type="range" min="5" max="60" step="5" value="20" data-dc-input="21">
 </div>
 
@@ -905,11 +905,11 @@ Pick an open booth
 </details>
 </div>
 
-<div aria-live="polite" style="flex: 1 1 380px; background: #1E1A16; color: #FFFFFF; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 22px; position: relative; overflow: hidden">
+<div aria-live="polite" style="flex: 1 1 380px; background: #05080D; color: #FFFFFF; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 22px; position: relative; overflow: hidden">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A89C8C">You save every month</span>
 <p style="margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(72px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.05em; color: #F3B38F">0</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 28px">hours</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(72px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.05em; color: #F3B38F">0</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 700; font-size: 28px">hours</span>
 </p>
 <p style="margin: 0; font-size: 18px; color: #CFC4B4">That's almost 11 days of 8-hour workdays.</p>
 <div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #3A332C; padding-top: 20px">
@@ -947,7 +947,7 @@ Pick an open booth
 </div>
 <div style="margin-top: auto; background: #2B2520; border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 15px; color: #CFC4B4">If your time is worth $25/hr, that's worth</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">$2,258 <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">a month</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">$2,258 <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">a month</span></span>
 <span style="font-size: 15px; color: #F3B38F; font-weight: 600">That's 19.0x what Pro costs ($119/month).</span>
 </div>
 </div>
@@ -958,39 +958,39 @@ Pick an open booth
 <section id="vendedores" aria-label="My Booth, for your vendors" style="background: #EADFCD; border-top: 1px solid #DCCDB4; border-bottom: 1px solid #DCCDB4; margin-top: 104px; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 780px">
-<span style="align-self: flex-start; background: #1E1A16; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">My Booth · for your vendors</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Your vendors are going to love it too.</h2>
+<span style="align-self: flex-start; background: #05080D; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">My Booth · for your vendors</span>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Your vendors are going to love it too.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">A mall with happy vendors fills itself. Each one gets My Booth on their phone: they see their money clearly, add their items and choose their own promotions. No app to download, and no more “how much have I made?” texts to you.</p>
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
 <div role="tablist" aria-label="My Booth screens" style="flex: 999 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
 
-<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: #FFFFFF; border: 2px solid #1E1A16; box-shadow: 0 16px 30px -20px rgba(30,26,22,.5);" data-dc-click="22">
+<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: #FFFFFF; border: 2px solid #05080D; box-shadow: 0 16px 30px -20px rgba(5,8,13,.5);" data-dc-click="22">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #B4441A; color: #FFFFFF;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">What to do now</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">When they open it, they see their balance and the one thing that needs their attention.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="b-prog" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="23">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="23">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #F7F1E8; color: #5E554C;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">Their sales, live</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">Every sale shows up the moment you ring it up.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="24">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="24">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #F7F1E8; color: #5E554C;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h4l2-3h4l2 3h4v12H4zM8 13a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">They add their own items</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">Photo and price from their phone. You approve them before they go on sale.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="25">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="25">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #F7F1E8; color: #5E554C;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M17 7H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">Their money, explained</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">Sales, rent and payout, line by line.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="26">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; background: rgba(255,255,255,0.35); border: 2px solid transparent;" data-dc-click="26">
 <span style="width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #F7F1E8; color: #5E554C;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8zM7.5 7.5h.01"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 700; font-size: 17px">They choose their promotions</span><span style="font-size: 14.5px; line-height: 1.45; color: #5E554C">You suggest a discount and each vendor decides whether to join.</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%"><span class="" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
@@ -999,19 +999,19 @@ Pick an open booth
 </div>
 
 <div style="flex: 1 1 320px; display: flex; justify-content: center">
-<div class="b-tilt" style="width: 320px; background: #0F0D0B; border-radius: 42px; padding: 11px; box-shadow: 0 50px 90px -40px rgba(30,26,22,.7), 0 0 0 1px rgba(0,0,0,.2)">
-<div style="height: 620px; border-radius: 32px; overflow: hidden; background: #F7F1E8; color: #1E1A16; display: flex; flex-direction: column">
+<div class="b-tilt" style="width: 320px; background: #0F0D0B; border-radius: 42px; padding: 11px; box-shadow: 0 50px 90px -40px rgba(5,8,13,.7), 0 0 0 1px rgba(0,0,0,.2)">
+<div style="height: 620px; border-radius: 32px; overflow: hidden; background: #F7F1E8; color: #05080D; display: flex; flex-direction: column">
 <div style="background: #0E6B6B; color: #FFFFFF; padding: 18px 16px 16px; display: flex; align-items: center; gap: 12px">
-<span style="width: 40px; height: 40px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; display: flex; align-items: center; justify-content: center">RS</span>
+<span style="width: 40px; height: 40px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; display: flex; align-items: center; justify-content: center">RS</span>
 <span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-weight: 700; font-size: 15px">My Booth · Rosa</span><span style="font-size: 12px; color: #CDE5E4">Booth 12 · Desert Rose Antiques</span></span>
 </div>
 
 <div aria-live="polite" style="flex: 1; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; position: relative">
 
 
-<div class="b-pop" style="background: #1E1A16; color: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+<div class="b-pop" style="background: #05080D; color: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 12.5px; color: #CFC4B4">Your balance</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em">$133</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em">$133</span>
 <span style="font-size: 12.5px; color: #8FE0B4; font-weight: 600">Paid out on Friday</span>
 </div>
 <span style="font-weight: 800; font-size: 14px; margin-top: 4px">What to do now</span>
@@ -1073,7 +1073,7 @@ Pick an open booth
 
 <section id="funciones" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Everything your mall needs. Nothing it doesn't.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Everything your mall needs. Nothing it doesn't.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">We built it while running our own market, not from an office.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
@@ -1112,7 +1112,7 @@ Pick an open booth
 <h3 style="margin: 0; font-size: 19px; font-weight: 700">Booths and agreements</h3>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #4E463E">Booth map, waitlist and rental agreements signed from a phone.</p>
 </div>
-<div class="b-card" style="background: #1E1A16; color: #FFFFFF; border: 1px solid #1E1A16; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+<div class="b-card" style="background: #05080D; color: #FFFFFF; border: 1px solid #05080D; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
 <span class="b-ico" style="background: #3A332C; width: 44px; height: 44px; border-radius: 12px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></span>
 <h3 style="margin: 0; font-size: 19px; font-weight: 700">Your mall online</h3>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #CFC4B4">A public website with your whole inventory that keeps itself up to date. Coming soon on Plus.</p>
@@ -1125,13 +1125,13 @@ Pick an open booth
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; background: rgba(243,179,143,0.18); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Coming soon on Plus</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">From photo to sold, with zero data entry.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">From photo to sold, with zero data entry.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CDE5E4">You snap a photo, Neuri writes the listing and posts it to your site. Shoppers put items on hold from home, and when you ring it up, the site updates itself.</p>
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px" role="tablist" aria-label="Demo steps">
 
-<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; padding: 12px 16px 14px; border-radius: 14px; font-size: 15px; font-weight: 600; min-height: 48px; background: #F7F1E8; color: #1E1A16; border: 1.5px solid #F7F1E8;" data-dc-click="32">
+<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; position: relative; overflow: hidden; padding: 12px 16px 14px; border-radius: 14px; font-size: 15px; font-weight: 600; min-height: 48px; background: #F7F1E8; color: #05080D; border: 1.5px solid #F7F1E8;" data-dc-click="32">
 <span style="display: flex; align-items: center; gap: 10px"><span style="width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 800; background: #B4441A; color: #FFFFFF;">1</span><span>Photo</span></span>
 <span style="position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: rgba(255,255,255,0.08)"><span class="b-prog" style="display: block; height: 100%; background: #B4441A; width: 0;"></span></span>
 </button>
@@ -1163,10 +1163,10 @@ Pick an open booth
 <div style="flex: 0 0 290px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9FCFCC">Your phone · neuri.bazar</span>
 <div style="width: 290px; background: #0F0D0B; border-radius: 40px; padding: 10px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08)">
-<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; color: #1E1A16">
+<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; color: #05080D">
 
 
-<div style="position: absolute; inset: 0; background: #1E1A16; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 20px 30px">
+<div style="position: absolute; inset: 0; background: #05080D; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 20px 30px">
 <span style="color: #FFFFFF; font-weight: 600; font-size: 14px">New item</span>
 <div style="position: relative; width: 210px; height: 260px; border-radius: 18px; background: #F5E6B8; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 0 7 4 7 9s-3 9-7 9-7-4-7-9 3-9 7-9zM12 20v2M9 22h6"></path></svg>
@@ -1203,10 +1203,10 @@ Pick an open booth
 <div style="flex: 0 0 290px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9FCFCC">Your shopper's phone</span>
 <div style="width: 290px; background: #0F0D0B; border-radius: 40px; padding: 10px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08)">
-<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; background: #FFFFFF; color: #1E1A16; display: flex; flex-direction: column">
+<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; background: #FFFFFF; color: #05080D; display: flex; flex-direction: column">
 <div style="padding: 16px 16px 12px; border-bottom: 1px solid #EFE6D8; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 11px; color: #5E554C; text-align: center">desertrose.neuri.tech</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Desert Rose Antiques</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Desert Rose Antiques</span>
 <span style="display: flex; align-items: center; gap: 8px; background: #F7F1E8; border-radius: 999px; padding: 8px 12px; font-size: 12.5px; color: #5E554C"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Search the mall</span>
 </div>
 
@@ -1216,22 +1216,22 @@ Pick an open booth
 
 
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="width: 56px; height: 56px; border-radius: 12px; background: #F3DCCD; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l3 7H6zM12 10v8M8 21h8M12 18v3"></path></svg></span>
+<span style="width: 56px; height: 56px; border-radius: 12px; background: #F3DCCD; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l3 7H6zM12 10v8M8 21h8M12 18v3"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">Vintage brass lamp</span><span style="font-size: 11.5px; color: #5E554C">Booth 12</span><span style="font-weight: 800; font-size: 13.5px">$45</span></span>
 </div>
 
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="width: 56px; height: 56px; border-radius: 12px; background: #E6E0F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h4l2-3h4l2 3h4v12H4zM8 13a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path></svg></span>
+<span style="width: 56px; height: 56px; border-radius: 12px; background: #E6E0F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h4l2-3h4l2 3h4v12H4zM8 13a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">Film camera</span><span style="font-size: 11.5px; color: #5E554C">Booth 9</span><span style="font-weight: 800; font-size: 13.5px">$120</span></span>
 </div>
 
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="width: 56px; height: 56px; border-radius: 12px; background: #DCEDEC; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18v12H3zM7 4l10 4M12 14a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M6 12h3M6 16h3"></path></svg></span>
+<span style="width: 56px; height: 56px; border-radius: 12px; background: #DCEDEC; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18v12H3zM7 4l10 4M12 14a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M6 12h3M6 16h3"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">Tube radio</span><span style="font-size: 11.5px; color: #5E554C">Booth 11</span><span style="font-weight: 800; font-size: 13.5px">$165</span></span>
 </div>
 
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="width: 56px; height: 56px; border-radius: 12px; background: #D8E6D2; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3c0 3-4 5-4 10a6 6 0 0 0 12 0c0-5-4-7-4-10"></path></svg></span>
+<span style="width: 56px; height: 56px; border-radius: 12px; background: #D8E6D2; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3c0 3-4 5-4 10a6 6 0 0 0 12 0c0-5-4-7-4-10"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">Clay vase</span><span style="font-size: 11.5px; color: #5E554C">Booth 3</span><span style="font-weight: 800; font-size: 13.5px">$32</span></span>
 </div>
 
@@ -1248,7 +1248,7 @@ Pick an open booth
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 28px">
 <div aria-live="polite" style="flex: 999 1 420px; display: flex; flex-direction: column; gap: 8px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">1. You snap a photo</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">1. You snap a photo</span>
 <span style="font-size: 17px; line-height: 1.5; color: #CDE5E4; max-width: 640px">Right there at the booth, from your phone. No typing anything in by hand.</span>
 </div>
 <div style="display: flex; gap: 10px">
@@ -1257,7 +1257,7 @@ Pick an open booth
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
 
 </button>
-<button type="button" class="b-btn" style="font: inherit; cursor: pointer; height: 50px; padding: 0 22px; border-radius: 999px; border: none; background: #F7F1E8; color: #1E1A16; font-weight: 700; display: flex; align-items: center; gap: 8px" data-dc-click="39">Next<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+<button type="button" class="b-btn" style="font: inherit; cursor: pointer; height: 50px; padding: 0 22px; border-radius: 999px; border: none; background: #F7F1E8; color: #05080D; font-weight: 700; display: flex; align-items: center; gap: 8px" data-dc-click="39">Next<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 </div>
 <p style="margin: 0; font-size: 14px; color: #9FCFCC">Sample mall, items and shoppers. Your site uses your photos, your prices and your address.</p>
@@ -1266,7 +1266,7 @@ Pick an open booth
 
 <section id="cambiarte" aria-label="Why switch" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Built for vendor malls, not just any store.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Built for vendor malls, not just any store.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E; line-height: 1.5">A regular POS can ring up a sale, but it knows nothing about booths, rent or vendors. neuri.bazar does.</p>
 </div>
 
@@ -1277,7 +1277,7 @@ Pick an open booth
 <th scope="col" style="padding: 18px 20px; font-weight: 600; color: #5E554C; width: 40%">What a mall needs</th>
 <th scope="col" style="padding: 18px 16px; font-weight: 700">Notebook or spreadsheet</th>
 <th scope="col" style="padding: 18px 16px; font-weight: 700">Regular POS</th>
-<th scope="col" style="padding: 18px 16px; font-weight: 800; background: #1E1A16; color: #FFFFFF; border-radius: 0 21px 0 0">neuri.bazar</th>
+<th scope="col" style="padding: 18px 16px; font-weight: 800; background: #05080D; color: #FFFFFF; border-radius: 0 21px 0 0">neuri.bazar</th>
 </tr>
 </thead>
 <tbody>
@@ -1313,7 +1313,7 @@ Pick an open booth
 <tr style="border-top: 1px solid #EFE6D8">
 <th scope="row" style="padding: 15px 20px; text-align: left; font-weight: 600">Checkout with scanner and inventory</th>
 <td style="padding: 15px 16px; color: #8C8073">No</td>
-<td style="padding: 15px 16px; color: #1E1A16">Yes</td>
+<td style="padding: 15px 16px; color: #05080D">Yes</td>
 <td style="padding: 15px 16px; background: #F7F1E8; font-weight: 700; color: #0E6B6B"><span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Included</span></td>
 </tr>
 
@@ -1335,15 +1335,15 @@ Pick an open booth
 </table>
 </div>
 
-<div style="background: #1E1A16; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px">
+<div style="background: #05080D; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 700px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F3B38F">Switching is painless</span>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">We load it up and hand it to you ready to go.</h3>
+<h3 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">We load it up and hand it to you ready to go.</h3>
 </div>
 <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">1</span><span style="font-weight: 700; font-size: 18px">Send us what you already have</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Your spreadsheet, photos of your ledger, or an export from your current system.</span></li>
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">2</span><span style="font-weight: 700; font-size: 18px">We load it for you</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Booths, rent, vendors and inventory, ready in your account.</span></li>
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">3</span><span style="font-weight: 700; font-size: 18px">Your vendors get their link</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Each one gets their My Booth link by email. You open the register and start selling.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">1</span><span style="font-weight: 700; font-size: 18px">Send us what you already have</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Your spreadsheet, photos of your ledger, or an export from your current system.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">2</span><span style="font-weight: 700; font-size: 18px">We load it for you</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Booths, rent, vendors and inventory, ready in your account.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">3</span><span style="font-weight: 700; font-size: 18px">Your vendors get their link</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Each one gets their My Booth link by email. You open the register and start selling.</span></li>
 </ol>
 <div style="display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 15.5px; color: #E8DFD2">
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8FE0B4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Month to month</span>
@@ -1356,27 +1356,27 @@ Pick an open booth
 <section id="precios" style="background: #FFFFFF; border-top: 1px solid #E6DBC9; border-bottom: 1px solid #E6DBC9">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">One flat monthly price. No fee on sales.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">One flat monthly price. No fee on sales.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">In Mexico: MX$499, MX$899 and MX$1,499 per month.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
 <div style="background: #F7F1E8; border: 1px solid #E6DBC9; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Basic</h3>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$79</span><span style="color: #5E554C">/ month</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$79</span><span style="color: #5E554C">/ month</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #4E463E">For getting started with a smaller mall.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Up to 30 vendors · 1 register</li>
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Inventory, checkout and weekly statements</li>
 <li style="display: flex; gap: 10px; color: #5E554C"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>My Booth link for every vendor</li>
 </ul>
-<a href="#prueba" data-trial="" data-plan="Básico" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #1E1A16; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #1E1A16; min-height: 48px; box-sizing: border-box">Start free trial</a>
+<a href="#prueba" data-trial="" data-plan="Básico" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #05080D; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #05080D; min-height: 48px; box-sizing: border-box">Start free trial</a>
 </div>
-<div style="background: #1E1A16; color: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(30,26,22,.6)">
+<div style="background: #05080D; color: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(5,8,13,.6)">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Pro</h3>
-<span style="background: #F3B38F; color: #1E1A16; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 999px">Recommended</span>
+<span style="background: #F3B38F; color: #05080D; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 999px">Recommended</span>
 </div>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$119</span><span style="color: #CFC4B4">/ month</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$119</span><span style="color: #CFC4B4">/ month</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #CFC4B4">For the mall that's already full.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Up to 75 vendors</li>
@@ -1387,14 +1387,14 @@ Pick an open booth
 </div>
 <div style="background: #F7F1E8; border: 1px solid #E6DBC9; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Plus</h3>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$149</span><span style="color: #5E554C">/ month</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$149</span><span style="color: #5E554C">/ month</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #4E463E">For selling online too.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Everything in Pro</li>
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Public website with your whole inventory</li>
 <li style="display: flex; gap: 10px; color: #5E554C"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Unlimited vendors and registers</li>
 </ul>
-<a href="#prueba" data-trial="" data-plan="Plus" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #1E1A16; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #1E1A16; min-height: 48px; box-sizing: border-box">Start free trial</a>
+<a href="#prueba" data-trial="" data-plan="Plus" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #05080D; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #05080D; min-height: 48px; box-sizing: border-box">Start free trial</a>
 </div>
 </div>
 </div>
@@ -1512,7 +1512,7 @@ Pick an open booth
 </section>
 </div>
 <div id="dc-b"><section id="preguntas" style="max-width: 820px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 28px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Common questions</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Common questions</h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E6DBC9">
 <details style="border-bottom: 1px solid #E6DBC9; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">Do my vendors have to download an app?<span class="b-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #B4441A">+</span></summary>
@@ -1537,13 +1537,13 @@ Pick an open booth
 </div>
 </section>
 
-<section id="demo" aria-label="Build your mall" style="background: #1E1A16; color: #FFFFFF; position: relative; overflow: hidden">
+<section id="demo" aria-label="Build your mall" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div class="b-dots" aria-hidden="true" style="inset: 0; opacity: 0.35"></div>
 <div class="b-orb" aria-hidden="true"></div>
 <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 44px; position: relative; z-index: 1">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>One last thing</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Build your mall in 10 seconds.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Build your mall in 10 seconds.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Tell us its name, how many booths it has and what you charge for rent. Neuri builds it right in front of you.</p>
 </div>
 
@@ -1551,14 +1551,14 @@ Pick an open booth
 <div style="flex: 1 1 340px; background: #2B2520; border: 1px solid #3A332C; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 22px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <label for="b-name" style="font-weight: 600; font-size: 15px">Your mall's name</label>
-<input id="b-name" type="text" value="Desert Rose Antiques" maxlength="40" autocomplete="off" style="font: inherit; font-size: 17px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #4A4239; background: #1E1A16; color: #FFFFFF; min-height: 50px; box-sizing: border-box" data-dc-input="40">
+<input id="b-name" type="text" value="Desert Rose Antiques" maxlength="40" autocomplete="off" style="font: inherit; font-size: 17px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #4A4239; background: #05080D; color: #FFFFFF; min-height: 50px; box-sizing: border-box" data-dc-input="40">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="b-spots" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Booths <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">24</span></label>
+<label for="b-spots" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Booths <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">24</span></label>
 <input id="b-spots" class="b-range" type="range" min="6" max="60" step="1" value="24" data-dc-input="41">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="b-rent" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Average weekly booth rent <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">$75</span></label>
+<label for="b-rent" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Average weekly booth rent <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">$75</span></label>
 <input id="b-rent" class="b-range" type="range" min="20" max="400" step="5" value="75" data-dc-input="42">
 </div>
 <button type="button" class="b-btn" aria-disabled="false" style="font: inherit; border: none; font-weight: 700; font-size: 18px; padding: 18px 22px; border-radius: 16px; min-height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #B4441A; color: #FFFFFF; cursor: pointer;" data-dc-click="43">
@@ -1598,17 +1598,17 @@ Build my mall
 </ul>
 </div>
 
-<div style="flex: 999 1 520px; min-width: 0; background: #F7F1E8; color: #1E1A16; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column">
+<div style="flex: 999 1 520px; min-width: 0; background: #F7F1E8; color: #05080D; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column">
 <div style="background: #EFE7DA; padding: 12px 16px; display: flex; align-items: center; gap: 14px">
 <span aria-hidden="true" style="display: flex; gap: 6px"><span style="width: 11px; height: 11px; border-radius: 50%; background: #E0A090"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #E8CD8C"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #A6CDA0"></span></span>
-<span style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #1E1A16; font-weight: 600; display: flex; align-items: center; gap: 2px; overflow: hidden; white-space: nowrap; min-height: 18px">
+<span style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #05080D; font-weight: 600; display: flex; align-items: center; gap: 2px; overflow: hidden; white-space: nowrap; min-height: 18px">
 <span style="color: #A89C8C; font-weight: 500">yourmall.neuri.tech</span>
 <span></span>
 </span>
 </div>
 <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px; flex: 1">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em">Desert Rose Antiques</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em">Desert Rose Antiques</span>
 <span style="font-size: 14px; font-weight: 600; color: #5E554C">0 of 24 booths</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px">
@@ -1665,11 +1665,11 @@ Build my mall
 <div style="margin-top: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
 <div style="background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; color: #5E554C; font-weight: 600">Weekly rent to collect</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #0E6B6B">$0</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #0E6B6B">$0</span>
 </div>
 <div style="background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; color: #5E554C; font-weight: 600">Per month, fully rented</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">$0</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">$0</span>
 </div>
 </div>
 </div>
@@ -1678,7 +1678,7 @@ Build my mall
 
 <div style="border-top: 1px solid #3A332C; padding-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
 <div style="flex: 999 1 420px; display: flex; flex-direction: column; gap: 8px">
-<span class="" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05">Want yours this ready to go?</span>
+<span class="" style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05">Want yours this ready to go?</span>
 <span style="font-size: 18px; color: #CFC4B4">We come to your mall, load your booths and inventory, and ring up your first sale with you.</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -1689,9 +1689,9 @@ Build my mall
 </div>
 </section>
 
-<footer style="background: #1E1A16; color: #CFC4B4">
+<footer style="background: #05080D; color: #CFC4B4">
 <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 15px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #FFFFFF">neuri<span style="color: #F3B38F">.bazar</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #FFFFFF">neuri<span style="color: #F3B38F">.bazar</span></span>
 <span>© 2026 Neuri LLC · <a href="mailto:hola@neuri.tech" style="color: inherit">hola@neuri.tech</a> · <a href="/bazar/" lang="es" hreflang="es" style="color: inherit">Español</a></span>
 </div>
 </footer>
@@ -1699,14 +1699,14 @@ Build my mall
 
 </div>
 <template data-dc-part="dc-a">
-<div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #1E1A16; background: #F7F1E8; min-height: 100vh">
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #05080D; background: #F7F1E8; min-height: 100vh">
 
 <header style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
 <a href="#inicio" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
 <span style="width: 34px; height: 34px; border-radius: 10px; background: {{accent}}; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"></path><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"></path><path d="M5 13v7h14v-7"></path></svg>
 </span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">neuri<span style="color: {{accent}}">.bazar</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">neuri<span style="color: {{accent}}">.bazar</span></span>
 </a>
 <nav aria-label="Main" style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
 <a class="hide-sm" href="#simula" style="text-decoration: none; font-weight: 500">Try it</a>
@@ -1714,18 +1714,18 @@ Build my mall
 <a class="hide-sm" href="#funciones" style="text-decoration: none; font-weight: 500">Features</a>
 <a class="hide-sm" href="#precios" style="text-decoration: none; font-weight: 500">Pricing</a>
 <a class="hide-sm" href="/bazar/" lang="es" hreflang="es" style="text-decoration: none; font-weight: 500">Español</a>
-<a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #1E1A16; color: #FFFFFF; font-weight: 600; padding: 12px 18px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Book a demo</a>
+<a href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: #05080D; color: #FFFFFF; font-weight: 600; padding: 12px 18px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Book a demo</a>
 </nav>
 </header>
 
 <section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
 <div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <span class="b-rise" style="align-self: flex-start; background: #F3DCCD; color: #8A3313; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">For antique malls, flea markets and vendor malls</span>
-<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Your mall, in order. Your vendors, always in the loop.</h1>
+<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Your mall, in order. Your vendors, always in the loop.</h1>
 <p class="b-rise b-rise-3" style="margin: 0; font-size: 20px; line-height: 1.5; color: #4E463E; max-width: 560px">Booths, rent, inventory and checkout in one place. Rent collects itself, every sale goes straight to the vendor's balance, and they see it in My Booth.</p>
 <div class="b-rise b-rise-4" style="display: flex; flex-wrap: wrap; gap: 12px">
 <a class="b-btn" href="https://calendly.com/diazalfaroricardo/demo-neuri-bazar" style="text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box">Book a demo</a>
-<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #1E1A16; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
+<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #05080D; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Try it</a>
 </div>
 <p style="margin: 0; font-size: 15px; color: #5E554C">English and Spanish · Dollars and pesos · From $79/month</p>
@@ -1739,24 +1739,24 @@ Build my mall
 </div>
 <template sc-if value="{{notif}}" hint-placeholder-val="{{ true }}">
 <div class="b-chip b-pop" aria-hidden="true" style="bottom: 70px; left: -34px">
-<span class="b-ico" style="background: #1E1A16"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
+<span class="b-ico" style="background: #05080D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 1px"><span>Rosa · Booth 12</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">Your lamp sold · +$45 to your balance</span></span>
 </div>
 <div class="b-chip b-pop" aria-hidden="true" style="bottom: 8px; left: 10px; animation-delay: .35s">
-<span class="b-ico" style="background: #1E1A16"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
+<span class="b-ico" style="background: #05080D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
 <span style="display: flex; flex-direction: column; gap: 1px"><span>Linda · Booth 7</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">Your dinnerware sold · +$95 to your balance</span></span>
 </div>
 </template>
 
-<div class="b-tilt" role="img" aria-label="neuri.bazar register: two items from different vendors are scanned, the total is charged, and each vendor gets an alert about their sale." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(30,26,22,.45); overflow: hidden">
-<div style="background: #1E1A16; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
+<div class="b-tilt" role="img" aria-label="neuri.bazar register: two items from different vendors are scanned, the total is charged, and each vendor gets an alert about their sale." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(5,8,13,.45); overflow: hidden">
+<div style="background: #05080D; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
 <span style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px"><span class="b-live"></span>Register 1 · Desert Rose Antiques</span>
 <span style="font-size: 13px; color: #CFC4B4">Cashier: Anna</span>
 </div>
 <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
 <div style="position: relative; height: 70px; border-radius: 14px; background: #F7F1E8; border: 1.5px dashed #D9CCB8; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden">
 <span class="b-scan"></span>
-<span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 3px; height: 34px; background: #1E1A16"></span><span style="width: 2px; height: 34px; background: #1E1A16"></span><span style="width: 1px; height: 34px; background: #1E1A16"></span><span style="width: 4px; height: 34px; background: #1E1A16"></span>
+<span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span>
 </div>
 <div style="min-height: 132px; display: flex; flex-direction: column; gap: 10px">
 <template sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
@@ -1777,7 +1777,7 @@ Build my mall
 </div>
 <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DBC9; padding-top: 14px">
 <span style="font-weight: 600; color: #5E554C">Total</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">{{heroTotal}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">{{heroTotal}}</span>
 </div>
 <div style="position: relative">
 <template sc-if value="{{unpaid}}" hint-placeholder-val="{{ true }}">
@@ -1801,11 +1801,11 @@ Build my mall
 </div>
 </section>
 
-<section id="simula" aria-label="Onboarding a new vendor" style="background: #1E1A16; color: #FFFFFF; position: relative; overflow: hidden">
+<section id="simula" aria-label="Onboarding a new vendor" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px"><span class="b-live"></span>Try it</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Rent a booth to a new vendor in two minutes.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Rent a booth to a new vendor in two minutes.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Pick the booth, pick someone from your waitlist and set their rent. Neuri sends the agreement, they sign it on their phone, and they're all set.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: stretch">
@@ -1828,7 +1828,7 @@ Build my mall
 <template sc-if value="{{sp.taken}}" hint-placeholder-val="{{ true }}">
 <div class="{{sp.cls}}" style="{{sp.style}}">
 <span style="font-weight: 700; font-size: 12px; opacity: .7">Booth {{sp.id}}</span>
-<span style="width: 30px; height: 30px; border-radius: 50%; background: {{sp.dot}}; color: #1E1A16; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">{{sp.who}}</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; background: {{sp.dot}}; color: #05080D; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center">{{sp.who}}</span>
 </div>
 </template>
 </template>
@@ -1841,7 +1841,7 @@ Build my mall
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px">
 <template sc-for list="{{waits}}" as="w" hint-placeholder-count="3">
 <button type="button" aria-pressed="{{w.pressed}}" onClick="{{w.pick}}" style="{{w.style}}">
-<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{w.ini}}</span>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{w.ini}}</span>
 <span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700">{{w.name}}</span><span style="font-size: 12.5px; color: #CFC4B4">{{w.giro}}</span></span>
 </button>
 </template>
@@ -1855,7 +1855,7 @@ Build my mall
 <div style="background: #2B2520; border: 1px solid #3A332C; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A89C8C">3 · Rent and alerts</span>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="renta" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Fixed weekly booth rent <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{rentText}}</span></label>
+<label for="renta" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Fixed weekly booth rent <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{rentText}}</span></label>
 <input id="renta" class="b-range" type="range" min="20" max="300" step="5" value="{{rent}}" onChange="{{onRent}}">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
@@ -1881,9 +1881,9 @@ Build my mall
 
 <div style="flex: 1 1 340px; display: flex; justify-content: center; align-items: flex-start">
 <div style="width: 340px; max-width: 100%; background: #0F0D0B; border-radius: 44px; padding: 12px; box-shadow: 0 40px 80px -24px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); position: sticky; top: 24px">
-<div style="background: #ECE5DA; border-radius: 34px; overflow: hidden; color: #1E1A16; display: flex; flex-direction: column">
+<div style="background: #ECE5DA; border-radius: 34px; overflow: hidden; color: #05080D; display: flex; flex-direction: column">
 <div style="background: #0E6B6B; color: #FFFFFF; padding: 18px; display: flex; align-items: center; gap: 12px">
-<span style="width: 38px; height: 38px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 700; display: flex; align-items: center; justify-content: center">{{pIni}}</span>
+<span style="width: 38px; height: 38px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 700; display: flex; align-items: center; justify-content: center">{{pIni}}</span>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-weight: 600; font-size: 15px">{{pName}}'s phone</span>
 <span style="font-size: 12px; color: #CDE5E4">WhatsApp · neuri.bazar</span>
@@ -1907,7 +1907,7 @@ Build my mall
 </template>
 <template sc-if value="{{showSig}}" hint-placeholder-val="{{ false }}">
 <div style="border-top: 1px dashed #D9CCB8; padding-top: 6px; display: flex; flex-direction: column; gap: 2px">
-<svg aria-hidden="true" width="200" height="54" viewBox="0 0 200 54" fill="none" stroke="#1E1A16" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="b-sign" d="M8 38c10-22 18-30 22-24s-6 26 2 24 12-30 20-28-4 30 6 28 10-18 18-16 2 14 10 12 14-20 24-14 4 16 14 14 22-12 30-10 16 4 26 2"></path></svg>
+<svg aria-hidden="true" width="200" height="54" viewBox="0 0 200 54" fill="none" stroke="#05080D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="b-sign" d="M8 38c10-22 18-30 22-24s-6 26 2 24 12-30 20-28-4 30 6 28 10-18 18-16 2 14 10 12 14-20 24-14 4 16 14 14 22-12 30-10 16 4 26 2"></path></svg>
 <span style="font-size: 12px; color: #5E554C">{{sigText}}</span>
 </div>
 </template>
@@ -1915,12 +1915,12 @@ Build my mall
 </template>
 <template sc-if value="{{phSigned}}" hint-placeholder-val="{{ false }}">
 <div class="b-pop b-f2" style="align-self: flex-start; background: #FFFFFF; padding: 10px 12px; border-radius: 14px 14px 14px 4px; max-width: 90%; flex-shrink: 0">{{pWelcome}}, {{pName}}! Booth {{cSpot}} is yours. Here's your My Booth:</div>
-<div class="b-pop b-f4" style="align-self: stretch; background: #1E1A16; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0">
+<div class="b-pop b-f4" style="align-self: stretch; background: #05080D; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0">
 <span style="font-weight: 800; font-size: 15px">What to do next</span>
-<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">1</span>Add your items with a photo and a price. The mall approves them.</span>
-<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">2</span>Your first {{rentText}} rent comes out of your balance on Monday.</span>
-<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">3</span>We'll tell you about your sales {{cNotifyLower}}.</span>
-<span style="align-self: flex-start; background: #F3B38F; color: #1E1A16; font-weight: 700; padding: 9px 14px; border-radius: 999px; font-size: 13px">Open My Booth</span>
+<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #05080D; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">1</span>Add your items with a photo and a price. The mall approves them.</span>
+<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #05080D; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">2</span>Your first {{rentText}} rent comes out of your balance on Monday.</span>
+<span style="display: flex; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #F3B38F; color: #05080D; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0">3</span>We'll tell you about your sales {{cNotifyLower}}.</span>
+<span style="align-self: flex-start; background: #F3B38F; color: #05080D; font-weight: 700; padding: 9px 14px; border-radius: 999px; font-size: 13px">Open My Booth</span>
 </div>
 </template>
 </div>
@@ -1929,10 +1929,10 @@ Build my mall
 </div>
 </div>
 
-<div style="background: #F7F1E8; color: #1E1A16; border-radius: 26px; padding: 30px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
+<div style="background: #F7F1E8; color: #05080D; border-radius: 26px; padding: 30px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
 <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5E554C">Their weekly statement, done for you</span>
-<label for="ventas-sem" style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 16px">If they sell this much a week <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: #B4441A">{{salesText}}</span></label>
+<label for="ventas-sem" style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 16px">If they sell this much a week <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 26px; color: #B4441A">{{salesText}}</span></label>
 <input id="ventas-sem" class="b-range-l" type="range" min="0" max="1500" step="25" value="{{weekSales}}" onChange="{{onSales}}">
 <span style="font-size: 14px; color: #5E554C">Uses the rent you picked above. Everything they sell is theirs.</span>
 </div>
@@ -1943,7 +1943,7 @@ Build my mall
 <span class="b-bar" style="display: block; height: 100%; width: {{payW}}%; background: #0E6B6B"></span>
 <span class="b-bar" style="display: block; height: 100%; width: {{rentW}}%; background: #D9B88F"></span>
 </span>
-<span style="display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #1E1A16; padding-top: 10px"><span style="font-weight: 800">{{payLabel}}</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: {{payColor}}">{{payText}}</span></span>
+<span style="display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #05080D; padding-top: 10px"><span style="font-weight: 800">{{payLabel}}</span><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 26px; color: {{payColor}}">{{payText}}</span></span>
 <template sc-if value="{{payNeg}}" hint-placeholder-val="{{ false }}">
 <span style="font-size: 13.5px; color: #5E554C">Sales didn't cover the rent this week. The difference carries over to their next payout automatically.</span>
 </template>
@@ -1956,7 +1956,7 @@ Build my mall
 <section id="ahorro" aria-label="Time-saved calculator" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px 0; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
 <span style="align-self: flex-start; background: #DCEDEC; color: #0B5555; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Calculator</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">How many hours a month does neuri.bazar give you back?</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">How many hours a month does neuri.bazar give you back?</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Plug in your mall's numbers. The math runs on your own estimates, so adjust them if you work differently.</p>
 </div>
 
@@ -1964,7 +1964,7 @@ Build my mall
 <div style="flex: 999 1 460px; min-width: 0; background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 26px">
 <template sc-for list="{{mainSliders}}" as="sl" hint-placeholder-count="4">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<label for="c-{{sl.key}}" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">{{sl.label}}<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">{{sl.display}}</span></label>
+<label for="c-{{sl.key}}" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 16px">{{sl.label}}<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; color: #B4441A">{{sl.display}}</span></label>
 <input id="c-{{sl.key}}" class="b-range-l" type="range" min="{{sl.min}}" max="{{sl.max}}" step="{{sl.step}}" value="{{sl.value}}" onChange="{{sl.onChange}}">
 </div>
 </template>
@@ -1974,7 +1974,7 @@ Build my mall
 <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 18px">
 <template sc-for list="{{assumeSliders}}" as="sl" hint-placeholder-count="3">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="c-{{sl.key}}" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">{{sl.label}}<span style="font-weight: 700; font-size: 17px; color: #1E1A16">{{sl.display}}</span></label>
+<label for="c-{{sl.key}}" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 500; font-size: 15px">{{sl.label}}<span style="font-weight: 700; font-size: 17px; color: #05080D">{{sl.display}}</span></label>
 <input id="c-{{sl.key}}" class="b-range-l" type="range" min="{{sl.min}}" max="{{sl.max}}" step="{{sl.step}}" value="{{sl.value}}" onChange="{{sl.onChange}}">
 </div>
 </template>
@@ -1982,11 +1982,11 @@ Build my mall
 </details>
 </div>
 
-<div aria-live="polite" style="flex: 1 1 380px; background: #1E1A16; color: #FFFFFF; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 22px; position: relative; overflow: hidden">
+<div aria-live="polite" style="flex: 1 1 380px; background: #05080D; color: #FFFFFF; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 22px; position: relative; overflow: hidden">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A89C8C">You save every month</span>
 <p style="margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(72px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.05em; color: #F3B38F">{{hoursShown}}</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 28px">hours</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(72px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.05em; color: #F3B38F">{{hoursShown}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 700; font-size: 28px">hours</span>
 </p>
 <p style="margin: 0; font-size: 18px; color: #CFC4B4">That's almost {{daysEq}} of 8-hour workdays.</p>
 <div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #3A332C; padding-top: 20px">
@@ -1999,7 +1999,7 @@ Build my mall
 </div>
 <div style="margin-top: auto; background: #2B2520; border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 15px; color: #CFC4B4">If your time is worth {{rateText}}, that's worth</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">{{valueText}} <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">a month</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">{{valueText}} <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">a month</span></span>
 <span style="font-size: 15px; color: #F3B38F; font-weight: 600">{{planLine}}</span>
 </div>
 </div>
@@ -2010,8 +2010,8 @@ Build my mall
 <section id="vendedores" aria-label="My Booth, for your vendors" style="background: #EADFCD; border-top: 1px solid #DCCDB4; border-bottom: 1px solid #DCCDB4; margin-top: 104px; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 780px">
-<span style="align-self: flex-start; background: #1E1A16; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">My Booth · for your vendors</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Your vendors are going to love it too.</h2>
+<span style="align-self: flex-start; background: #05080D; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">My Booth · for your vendors</span>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Your vendors are going to love it too.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">A mall with happy vendors fills itself. Each one gets My Booth on their phone: they see their money clearly, add their items and choose their own promotions. No app to download, and no more &ldquo;how much have I made?&rdquo; texts to you.</p>
 </div>
 
@@ -2027,19 +2027,19 @@ Build my mall
 </div>
 
 <div style="flex: 1 1 320px; display: flex; justify-content: center">
-<div class="b-tilt" style="width: 320px; background: #0F0D0B; border-radius: 42px; padding: 11px; box-shadow: 0 50px 90px -40px rgba(30,26,22,.7), 0 0 0 1px rgba(0,0,0,.2)">
-<div style="height: 620px; border-radius: 32px; overflow: hidden; background: #F7F1E8; color: #1E1A16; display: flex; flex-direction: column">
+<div class="b-tilt" style="width: 320px; background: #0F0D0B; border-radius: 42px; padding: 11px; box-shadow: 0 50px 90px -40px rgba(5,8,13,.7), 0 0 0 1px rgba(0,0,0,.2)">
+<div style="height: 620px; border-radius: 32px; overflow: hidden; background: #F7F1E8; color: #05080D; display: flex; flex-direction: column">
 <div style="background: #0E6B6B; color: #FFFFFF; padding: 18px 16px 16px; display: flex; align-items: center; gap: 12px">
-<span style="width: 40px; height: 40px; border-radius: 50%; background: #F3B38F; color: #1E1A16; font-weight: 800; display: flex; align-items: center; justify-content: center">RS</span>
+<span style="width: 40px; height: 40px; border-radius: 50%; background: #F3B38F; color: #05080D; font-weight: 800; display: flex; align-items: center; justify-content: center">RS</span>
 <span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-weight: 700; font-size: 15px">My Booth · Rosa</span><span style="font-size: 12px; color: #CDE5E4">Booth 12 · Desert Rose Antiques</span></span>
 </div>
 
 <div aria-live="polite" style="flex: 1; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; position: relative">
 
 <template sc-if value="{{vHoy}}" hint-placeholder-val="{{ true }}">
-<div class="b-pop" style="background: #1E1A16; color: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+<div class="b-pop" style="background: #05080D; color: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 12.5px; color: #CFC4B4">Your balance</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em">$133</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em">$133</span>
 <span style="font-size: 12.5px; color: #8FE0B4; font-weight: 600">Paid out on Friday</span>
 </div>
 <span style="font-weight: 800; font-size: 14px; margin-top: 4px">What to do now</span>
@@ -2082,20 +2082,20 @@ Build my mall
 <span class="b-pop b-f3" style="display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #EFE6D8"><span>Booth 12 rent</span><span style="font-weight: 700; color: #8A3313">−$60</span></span>
 <span class="b-pop b-f4" style="display: flex; justify-content: space-between; padding: 12px 0; font-weight: 800; font-size: 15px"><span>Balance</span><span>$133</span></span>
 </div>
-<div class="b-pop b-f5" style="background: #1E1A16; color: #FFFFFF; border-radius: 14px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 13px">Paid by direct deposit</span><span style="font-weight: 700; color: #8FE0B4">Friday</span></div>
+<div class="b-pop b-f5" style="background: #05080D; color: #FFFFFF; border-radius: 14px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 13px">Paid by direct deposit</span><span style="font-weight: 700; color: #8FE0B4">Friday</span></div>
 <span style="margin-top: auto; font-size: 12px; color: #5E554C; text-align: center">Every Sunday their weekly statement arrives by email.</span>
 </template>
 
 <template sc-if value="{{vPromos}}" hint-placeholder-val="{{ false }}">
 <span style="font-weight: 800; font-size: 14px">Promotions</span>
 <div class="b-pop" style="background: #FFFFFF; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-<div style="background: #B4441A; color: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; opacity: .9">The mall suggests</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">25% off</span><span style="font-size: 13px">This Saturday and Sunday, on items in the booth 30+ days</span></div>
+<div style="background: #B4441A; color: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; opacity: .9">The mall suggests</span><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">25% off</span><span style="font-size: 13px">This Saturday and Sunday, on items in the booth 30+ days</span></div>
 <div style="padding: 14px; display: flex; flex-direction: column; gap: 10px">
 <span style="display: flex; justify-content: space-between"><span style="color: #5E554C">Your items that qualify</span><span style="font-weight: 700">6</span></span>
 <template sc-if value="{{promoOpen}}" hint-placeholder-val="{{ true }}">
 <span style="display: flex; gap: 8px">
 <button type="button" onClick="{{promoYes}}" style="flex: 1; font: inherit; cursor: pointer; border: none; background: #0E6B6B; color: #FFFFFF; font-weight: 700; padding: 12px; border-radius: 12px; min-height: 44px">I'm in</button>
-<button type="button" onClick="{{promoNo}}" style="flex: 1; font: inherit; cursor: pointer; border: 1.5px solid #D9CCB8; background: #FFFFFF; color: #1E1A16; font-weight: 700; padding: 12px; border-radius: 12px; min-height: 44px">No, thanks</button>
+<button type="button" onClick="{{promoNo}}" style="flex: 1; font: inherit; cursor: pointer; border: 1.5px solid #D9CCB8; background: #FFFFFF; color: #05080D; font-weight: 700; padding: 12px; border-radius: 12px; min-height: 44px">No, thanks</button>
 </span>
 </template>
 <template sc-if value="{{promoAnswered}}" hint-placeholder-val="{{ false }}">
@@ -2131,7 +2131,7 @@ Build my mall
 
 <section id="funciones" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Everything your mall needs. Nothing it doesn't.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Everything your mall needs. Nothing it doesn't.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">We built it while running our own market, not from an office.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
@@ -2170,7 +2170,7 @@ Build my mall
 <h3 style="margin: 0; font-size: 19px; font-weight: 700">Booths and agreements</h3>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #4E463E">Booth map, waitlist and rental agreements signed from a phone.</p>
 </div>
-<div class="b-card" style="background: #1E1A16; color: #FFFFFF; border: 1px solid #1E1A16; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+<div class="b-card" style="background: #05080D; color: #FFFFFF; border: 1px solid #05080D; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
 <span class="b-ico" style="background: #3A332C; width: 44px; height: 44px; border-radius: 12px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></span>
 <h3 style="margin: 0; font-size: 19px; font-weight: 700">Your mall online</h3>
 <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #CFC4B4">A public website with your whole inventory that keeps itself up to date. Coming soon on Plus.</p>
@@ -2183,7 +2183,7 @@ Build my mall
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; background: rgba(243,179,143,0.18); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Coming soon on Plus</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">From photo to sold, with zero data entry.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">From photo to sold, with zero data entry.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CDE5E4">You snap a photo, Neuri writes the listing and posts it to your site. Shoppers put items on hold from home, and when you ring it up, the site updates itself.</p>
 </div>
 
@@ -2201,10 +2201,10 @@ Build my mall
 <div style="flex: 0 0 290px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9FCFCC">Your phone · neuri.bazar</span>
 <div style="width: 290px; background: #0F0D0B; border-radius: 40px; padding: 10px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08)">
-<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; color: #1E1A16">
+<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; color: #05080D">
 
 <template sc-if value="{{opCam}}" hint-placeholder-val="{{ true }}">
-<div style="position: absolute; inset: 0; background: #1E1A16; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 20px 30px">
+<div style="position: absolute; inset: 0; background: #05080D; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 26px 20px 30px">
 <span style="color: #FFFFFF; font-weight: 600; font-size: 14px">New item</span>
 <div style="position: relative; width: 210px; height: 260px; border-radius: 18px; background: #F5E6B8; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="{{iconMirror}}"></path></svg>
@@ -2223,7 +2223,7 @@ Build my mall
 <div style="position: absolute; inset: 0; background: #F7F1E8; display: flex; flex-direction: column; gap: 10px; padding: 20px 16px; font-size: 13px">
 <div style="display: flex; align-items: center; gap: 10px">
 <span style="width: 58px; height: 58px; border-radius: 12px; background: #F5E6B8; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="{{iconMirror}}"></path></svg></span>
-<span class="b-pop b-f1" style="background: #1E1A16; color: #FFFFFF; font-weight: 700; font-size: 12px; padding: 7px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Neuri filled in the listing</span>
+<span class="b-pop b-f1" style="background: #05080D; color: #FFFFFF; font-weight: 700; font-size: 12px; padding: 7px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Neuri filled in the listing</span>
 </div>
 <div class="b-pop b-f2" style="background: #FFFFFF; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #5E554C; font-weight: 600">Name</span><span style="font-weight: 700">Gilded mirror</span></div>
 <div class="b-pop b-f3" style="background: #FFFFFF; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #5E554C; font-weight: 600">Description</span><span style="line-height: 1.4">Oval mirror with a hand-carved wood frame and gold finish. Perfect for an entryway.</span></div>
@@ -2231,7 +2231,7 @@ Build my mall
 <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #5E554C; font-weight: 600">Category</span><span style="font-weight: 700">Home decor</span></div>
 <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #5E554C; font-weight: 600">Booth</span><span style="font-weight: 700">12 · Rosa</span></div>
 </div>
-<div class="b-pop b-f5" style="background: #FFFFFF; border: 2px solid #0E6B6B; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #0E6B6B; font-weight: 700">Suggested price</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px">$110</span><span style="font-size: 11.5px; color: #4E463E">Based on similar items you've already sold</span></div>
+<div class="b-pop b-f5" style="background: #FFFFFF; border: 2px solid #0E6B6B; border-radius: 12px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #0E6B6B; font-weight: 700">Suggested price</span><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 22px">$110</span><span style="font-size: 11.5px; color: #4E463E">Based on similar items you've already sold</span></div>
 <span class="b-pop b-f6" style="margin-top: auto; background: {{accent}}; color: #FFFFFF; text-align: center; font-weight: 700; font-size: 15px; padding: 14px; border-radius: 14px">Publish</span>
 </div>
 </template>
@@ -2239,7 +2239,7 @@ Build my mall
 <template sc-if value="{{opPub}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; inset: 0; background: #F7F1E8; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; text-align: center">
 <span class="b-pop" style="width: 84px; height: 84px; border-radius: 50%; background: #0E6B6B; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
-<span class="b-pop b-f1" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Live on your site</span>
+<span class="b-pop b-f1" style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Live on your site</span>
 <span class="b-pop b-f2" style="font-size: 14px; color: #4E463E">Gilded mirror · $110</span>
 <span class="b-pop b-f3" style="font-size: 13px; font-weight: 600; color: #0E6B6B; background: #DCEDEC; padding: 7px 12px; border-radius: 999px">desertrose.neuri.tech</span>
 </div>
@@ -2247,7 +2247,7 @@ Build my mall
 
 <template sc-if value="{{opApart}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; inset: 0; background: #2B2520; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 40px 14px">
-<span style="color: #FFFFFF; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: 56px; letter-spacing: -0.03em">4:12</span>
+<span style="color: #FFFFFF; font-family: 'Geist', system-ui, sans-serif; font-weight: 500; font-size: 56px; letter-spacing: -0.03em">4:12</span>
 <span style="color: #CFC4B4; font-size: 13px; margin-bottom: 26px">Saturday</span>
 <div class="b-pop b-f1" style="align-self: stretch; background: rgba(247,241,232,.96); border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px">
 <span style="display: flex; justify-content: space-between; font-size: 11.5px; font-weight: 700; color: #5E554C"><span>NEURI.BAZAR</span><span>now</span></span>
@@ -2285,10 +2285,10 @@ Build my mall
 <div style="flex: 0 0 290px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9FCFCC">Your shopper's phone</span>
 <div style="width: 290px; background: #0F0D0B; border-radius: 40px; padding: 10px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08)">
-<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; background: #FFFFFF; color: #1E1A16; display: flex; flex-direction: column">
+<div style="height: 560px; border-radius: 31px; overflow: hidden; position: relative; background: #FFFFFF; color: #05080D; display: flex; flex-direction: column">
 <div style="padding: 16px 16px 12px; border-bottom: 1px solid #EFE6D8; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 11px; color: #5E554C; text-align: center">desertrose.neuri.tech</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Desert Rose Antiques</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Desert Rose Antiques</span>
 <span style="display: flex; align-items: center; gap: 8px; background: #F7F1E8; border-radius: 999px; padding: 8px 12px; font-size: 12.5px; color: #5E554C"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Search the mall</span>
 </div>
 
@@ -2304,14 +2304,14 @@ Build my mall
 </template>
 <template sc-for list="{{cuItems}}" as="ci" hint-placeholder-count="4">
 <div style="display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 1px solid #EFE6D8">
-<span style="{{ci.tile}}"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E1A16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="{{ci.icon}}"></path></svg></span>
+<span style="{{ci.tile}}"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="{{ci.icon}}"></path></svg></span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 13.5px">{{ci.name}}</span><span style="font-size: 11.5px; color: #5E554C">{{ci.stall}}</span><span style="font-weight: 800; font-size: 13.5px">{{ci.price}}</span></span>
 </div>
 </template>
 <template sc-if value="{{cuSmart}}" hint-placeholder-val="{{ false }}">
-<div class="b-pop b-f2" style="margin-top: auto; background: #1E1A16; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+<div class="b-pop b-f2" style="margin-top: auto; background: #05080D; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px">
 <span style="line-height: 1.4"><strong>The mirror already sold.</strong> Want a heads-up when a similar one comes in?</span>
-<span style="align-self: flex-start; background: #F3B38F; color: #1E1A16; font-weight: 700; padding: 8px 14px; border-radius: 999px">Notify me</span>
+<span style="align-self: flex-start; background: #F3B38F; color: #05080D; font-weight: 700; padding: 8px 14px; border-radius: 999px">Notify me</span>
 </div>
 </template>
 </div>
@@ -2321,7 +2321,7 @@ Build my mall
 <div style="padding: 14px; display: flex; flex-direction: column; gap: 10px; flex: 1">
 <div class="b-pop" style="height: 170px; border-radius: 16px; background: #F5E6B8; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="{{iconMirror}}"></path></svg></div>
 <span style="font-weight: 800; font-size: 18px">Gilded mirror</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px">$110</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 24px">$110</span>
 <span style="font-size: 12.5px; line-height: 1.45; color: #4E463E">Oval mirror, hand-carved wood frame with a gold finish. Booth 12.</span>
 <span class="b-pop b-f2" style="margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 8px; background: #0E6B6B; color: #FFFFFF; font-weight: 700; padding: 14px; border-radius: 14px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>On hold until 6 pm</span>
 <span style="font-size: 12px; color: #5E554C; text-align: center">Pay and pick up at the mall</span>
@@ -2335,7 +2335,7 @@ Build my mall
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 28px">
 <div aria-live="polite" style="flex: 999 1 420px; display: flex; flex-direction: column; gap: 8px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">{{capTitle}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">{{capTitle}}</span>
 <span style="font-size: 17px; line-height: 1.5; color: #CDE5E4; max-width: 640px">{{capText}}</span>
 </div>
 <div style="display: flex; gap: 10px">
@@ -2344,7 +2344,7 @@ Build my mall
 <template sc-if value="{{storyAuto}}" hint-placeholder-val="{{ true }}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg></template>
 <template sc-if value="{{storyPaused}}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></template>
 </button>
-<button type="button" class="b-btn" onClick="{{storyNext}}" style="font: inherit; cursor: pointer; height: 50px; padding: 0 22px; border-radius: 999px; border: none; background: #F7F1E8; color: #1E1A16; font-weight: 700; display: flex; align-items: center; gap: 8px">{{nextLabel}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+<button type="button" class="b-btn" onClick="{{storyNext}}" style="font: inherit; cursor: pointer; height: 50px; padding: 0 22px; border-radius: 999px; border: none; background: #F7F1E8; color: #05080D; font-weight: 700; display: flex; align-items: center; gap: 8px">{{nextLabel}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 </div>
 <p style="margin: 0; font-size: 14px; color: #9FCFCC">Sample mall, items and shoppers. Your site uses your photos, your prices and your address.</p>
@@ -2353,7 +2353,7 @@ Build my mall
 
 <section id="cambiarte" aria-label="Why switch" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Built for vendor malls, not just any store.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Built for vendor malls, not just any store.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E; line-height: 1.5">A regular POS can ring up a sale, but it knows nothing about booths, rent or vendors. neuri.bazar does.</p>
 </div>
 
@@ -2364,7 +2364,7 @@ Build my mall
 <th scope="col" style="padding: 18px 20px; font-weight: 600; color: #5E554C; width: 40%">What a mall needs</th>
 <th scope="col" style="padding: 18px 16px; font-weight: 700">Notebook or spreadsheet</th>
 <th scope="col" style="padding: 18px 16px; font-weight: 700">Regular POS</th>
-<th scope="col" style="padding: 18px 16px; font-weight: 800; background: #1E1A16; color: #FFFFFF; border-radius: 0 21px 0 0">neuri.bazar</th>
+<th scope="col" style="padding: 18px 16px; font-weight: 800; background: #05080D; color: #FFFFFF; border-radius: 0 21px 0 0">neuri.bazar</th>
 </tr>
 </thead>
 <tbody>
@@ -2380,15 +2380,15 @@ Build my mall
 </table>
 </div>
 
-<div style="background: #1E1A16; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px">
+<div style="background: #05080D; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 700px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F3B38F">Switching is painless</span>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">We load it up and hand it to you ready to go.</h3>
+<h3 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">We load it up and hand it to you ready to go.</h3>
 </div>
 <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">1</span><span style="font-weight: 700; font-size: 18px">Send us what you already have</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Your spreadsheet, photos of your ledger, or an export from your current system.</span></li>
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">2</span><span style="font-weight: 700; font-size: 18px">We load it for you</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Booths, rent, vendors and inventory, ready in your account.</span></li>
-<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">3</span><span style="font-weight: 700; font-size: 18px">Your vendors get their link</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Each one gets their My Booth link by email. You open the register and start selling.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">1</span><span style="font-weight: 700; font-size: 18px">Send us what you already have</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Your spreadsheet, photos of your ledger, or an export from your current system.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">2</span><span style="font-weight: 700; font-size: 18px">We load it for you</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Booths, rent, vendors and inventory, ready in your account.</span></li>
+<li style="background: #2B2520; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; color: #F3B38F">3</span><span style="font-weight: 700; font-size: 18px">Your vendors get their link</span><span style="font-size: 15px; color: #CFC4B4; line-height: 1.5">Each one gets their My Booth link by email. You open the register and start selling.</span></li>
 </ol>
 <div style="display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 15.5px; color: #E8DFD2">
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8FE0B4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Month to month</span>
@@ -2401,27 +2401,27 @@ Build my mall
 <section id="precios" style="background: #FFFFFF; border-top: 1px solid #E6DBC9; border-bottom: 1px solid #E6DBC9">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">One flat monthly price. No fee on sales.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">One flat monthly price. No fee on sales.</h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">In Mexico: MX$499, MX$899 and MX$1,499 per month.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
 <div style="background: #F7F1E8; border: 1px solid #E6DBC9; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Basic</h3>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$79</span><span style="color: #5E554C">/ month</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$79</span><span style="color: #5E554C">/ month</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #4E463E">For getting started with a smaller mall.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Up to 30 vendors · 1 register</li>
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Inventory, checkout and weekly statements</li>
 <li style="display: flex; gap: 10px; color: #5E554C"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>My Booth link for every vendor</li>
 </ul>
-<a href="#prueba" data-trial data-plan="Básico" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #1E1A16; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #1E1A16; min-height: 48px; box-sizing: border-box">Start free trial</a>
+<a href="#prueba" data-trial data-plan="Básico" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #05080D; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #05080D; min-height: 48px; box-sizing: border-box">Start free trial</a>
 </div>
-<div style="background: #1E1A16; color: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(30,26,22,.6)">
+<div style="background: #05080D; color: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(5,8,13,.6)">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Pro</h3>
-<span style="background: #F3B38F; color: #1E1A16; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 999px">Recommended</span>
+<span style="background: #F3B38F; color: #05080D; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 999px">Recommended</span>
 </div>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$119</span><span style="color: #CFC4B4">/ month</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$119</span><span style="color: #CFC4B4">/ month</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #CFC4B4">For the mall that's already full.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Up to 75 vendors</li>
@@ -2432,14 +2432,14 @@ Build my mall
 </div>
 <div style="background: #F7F1E8; border: 1px solid #E6DBC9; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px">
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">Plus</h3>
-<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$149</span><span style="color: #5E554C">/ month</span></p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 6px"><span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 50px; letter-spacing: -0.03em">$149</span><span style="color: #5E554C">/ month</span></p>
 <p style="margin: 0; font-size: 15.5px; color: #4E463E">For selling online too.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px">
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Everything in Pro</li>
 <li style="display: flex; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Public website with your whole inventory</li>
 <li style="display: flex; gap: 10px; color: #5E554C"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Unlimited vendors and registers</li>
 </ul>
-<a href="#prueba" data-trial data-plan="Plus" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #1E1A16; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #1E1A16; min-height: 48px; box-sizing: border-box">Start free trial</a>
+<a href="#prueba" data-trial data-plan="Plus" style="margin-top: auto; text-decoration: none; text-align: center; background: #FFFFFF; color: #05080D; font-weight: 600; padding: 14px 20px; border-radius: 14px; border: 1.5px solid #05080D; min-height: 48px; box-sizing: border-box">Start free trial</a>
 </div>
 </div>
 </div>
@@ -2447,7 +2447,7 @@ Build my mall
 
 </template>
 <template data-dc-part="dc-b"><section id="preguntas" style="max-width: 820px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 28px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Common questions</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Common questions</h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E6DBC9">
 <details style="border-bottom: 1px solid #E6DBC9; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">Do my vendors have to download an app?<span class="b-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #B4441A">+</span></summary>
@@ -2472,13 +2472,13 @@ Build my mall
 </div>
 </section>
 
-<section id="demo" aria-label="Build your mall" style="background: #1E1A16; color: #FFFFFF; position: relative; overflow: hidden">
+<section id="demo" aria-label="Build your mall" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div class="b-dots" aria-hidden="true" style="inset: 0; opacity: 0.35"></div>
 <div class="b-orb" aria-hidden="true"></div>
 <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 44px; position: relative; z-index: 1">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>One last thing</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Build your mall in 10 seconds.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Build your mall in 10 seconds.</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Tell us its name, how many booths it has and what you charge for rent. Neuri builds it right in front of you.</p>
 </div>
 
@@ -2486,14 +2486,14 @@ Build my mall
 <div style="flex: 1 1 340px; background: #2B2520; border: 1px solid #3A332C; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 22px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <label for="b-name" style="font-weight: 600; font-size: 15px">Your mall's name</label>
-<input id="b-name" type="text" value="{{bName}}" onChange="{{onBName}}" maxlength="40" autocomplete="off" style="font: inherit; font-size: 17px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #4A4239; background: #1E1A16; color: #FFFFFF; min-height: 50px; box-sizing: border-box">
+<input id="b-name" type="text" value="{{bName}}" onChange="{{onBName}}" maxlength="40" autocomplete="off" style="font: inherit; font-size: 17px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #4A4239; background: #05080D; color: #FFFFFF; min-height: 50px; box-sizing: border-box">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="b-spots" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Booths <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{bSpots}}</span></label>
+<label for="b-spots" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Booths <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{bSpots}}</span></label>
 <input id="b-spots" class="b-range" type="range" min="6" max="60" step="1" value="{{bSpots}}" onChange="{{onBSpots}}">
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<label for="b-rent" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Average weekly booth rent <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{bRentText}}</span></label>
+<label for="b-rent" style="display: flex; justify-content: space-between; font-weight: 600; font-size: 15px">Average weekly booth rent <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #F3B38F">{{bRentText}}</span></label>
 <input id="b-rent" class="b-range" type="range" min="20" max="400" step="5" value="{{bRent}}" onChange="{{onBRent}}">
 </div>
 <button type="button" class="b-btn" onClick="{{buildBazar}}" aria-disabled="{{buildDisabled}}" style="{{buildStyle}}">
@@ -2512,17 +2512,17 @@ Build my mall
 </ul>
 </div>
 
-<div style="flex: 999 1 520px; min-width: 0; background: #F7F1E8; color: #1E1A16; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column">
+<div style="flex: 999 1 520px; min-width: 0; background: #F7F1E8; color: #05080D; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column">
 <div style="background: #EFE7DA; padding: 12px 16px; display: flex; align-items: center; gap: 14px">
 <span aria-hidden="true" style="display: flex; gap: 6px"><span style="width: 11px; height: 11px; border-radius: 50%; background: #E0A090"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #E8CD8C"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #A6CDA0"></span></span>
-<span style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #1E1A16; font-weight: 600; display: flex; align-items: center; gap: 2px; overflow: hidden; white-space: nowrap; min-height: 18px">
+<span style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #05080D; font-weight: 600; display: flex; align-items: center; gap: 2px; overflow: hidden; white-space: nowrap; min-height: 18px">
 <template sc-if value="{{urlEmpty}}" hint-placeholder-val="{{ true }}"><span style="color: #A89C8C; font-weight: 500">yourmall.neuri.tech</span></template>
 <span>{{typedUrl}}</span><template sc-if value="{{typingUrl}}" hint-placeholder-val="{{ false }}"><span class="b-caret" style="display: inline-block; width: 2px; height: 16px; background: #B4441A"></span></template>
 </span>
 </div>
 <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px; flex: 1">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em">{{bNameShown}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em">{{bNameShown}}</span>
 <span style="font-size: 14px; font-weight: 600; color: #5E554C">{{built}} of {{bSpots}} booths</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px">
@@ -2533,11 +2533,11 @@ Build my mall
 <div style="margin-top: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
 <div style="background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; color: #5E554C; font-weight: 600">Weekly rent to collect</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #0E6B6B">{{weeklyText}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #0E6B6B">{{weeklyText}}</span>
 </div>
 <div style="background: #FFFFFF; border: 1px solid #E6DBC9; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; color: #5E554C; font-weight: 600">Per month, fully rented</span>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">{{monthlyText}}</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">{{monthlyText}}</span>
 </div>
 </div>
 </div>
@@ -2546,7 +2546,7 @@ Build my mall
 
 <div style="border-top: 1px solid #3A332C; padding-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
 <div style="flex: 999 1 420px; display: flex; flex-direction: column; gap: 8px">
-<span class="{{ctaCls}}" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05">{{ctaTitle}}</span>
+<span class="{{ctaCls}}" style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05">{{ctaTitle}}</span>
 <span style="font-size: 18px; color: #CFC4B4">We come to your mall, load your booths and inventory, and ring up your first sale with you.</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -2559,16 +2559,16 @@ Build my mall
 </div>
 </section>
 
-<footer style="background: #1E1A16; color: #CFC4B4">
+<footer style="background: #05080D; color: #CFC4B4">
 <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 15px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #FFFFFF">neuri<span style="color: #F3B38F">.bazar</span></span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 20px; color: #FFFFFF">neuri<span style="color: #F3B38F">.bazar</span></span>
 <span>© 2026 Neuri LLC · <a href="mailto:hola@neuri.tech" style="color: inherit">hola@neuri.tech</a> · <a href="/bazar/" lang="es" hreflang="es" style="color: inherit">Español</a></span>
 </div>
 </footer>
 
 </div>
 </template>
-<script type="application/json" id="dc-props">{"accent":{"editor":"color","default":"#B4441A","options":["#B4441A","#0E6B6B","#1E1A16","#7A3FB0"]},"$preview":{"width":1440,"height":11000}}</script>
+<script type="application/json" id="dc-props">{"accent":{"editor":"color","default":"#B4441A","options":["#B4441A","#0E6B6B","#05080D","#7A3FB0"]},"$preview":{"width":1440,"height":11000}}</script>
 <script src="/assets/dc-lite.js"></script>
 <script>
 
@@ -2808,7 +2808,7 @@ class Component extends DCLogic {
     var st = this.state;
     var accent = this.props.accent ?? '#B4441A';
     var base = 'font: inherit; cursor: pointer; font-weight: 600; font-size: 15px; padding: 11px 16px; border-radius: 999px; min-height: 44px; ';
-    var chip = function (on) { return base + (on ? 'background: #F7F1E8; color: #1E1A16; border: 1.5px solid #F7F1E8;' : 'background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.28);'); };
+    var chip = function (on) { return base + (on ? 'background: #F7F1E8; color: #05080D; border: 1.5px solid #F7F1E8;' : 'background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.28);'); };
     var locked = st.sent;
     var curSpot = st.sp != null ? this.spotDef(st.sp) : null;
     var curW = st.wv != null ? this.waitDefs[st.wv] : null;
@@ -2853,7 +2853,7 @@ class Component extends DCLogic {
       cellList.push({
         n: ci + 1,
         cls: onC ? 'b-cell' : '',
-        style: 'aspect-ratio: 1 / 1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; ' + (onC ? ((ci % 5 === 2) ? 'background: #0E6B6B; color: #FFFFFF;' : 'background: #F3B38F; color: #1E1A16;') : 'border: 1.5px dashed #D9CCB8; color: #C9BBA5;')
+        style: 'aspect-ratio: 1 / 1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; ' + (onC ? ((ci % 5 === 2) ? 'background: #0E6B6B; color: #FFFFFF;' : 'background: #F3B38F; color: #05080D;') : 'border: 1.5px dashed #D9CCB8; color: #C9BBA5;')
       });
     }
     var checkDefs = [
@@ -2863,7 +2863,7 @@ class Component extends DCLogic {
       'Weekly rent scheduled for every booth'
     ];
     var blockInputs = function () { return self.state.bPhase === 'building'; };
-    var vtBase = 'font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #1E1A16; min-height: 60px; ';
+    var vtBase = 'font: inherit; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; color: #05080D; min-height: 60px; ';
     var chipFor = function (s) {
       var b = 'flex-shrink: 0; font-size: 11px; font-weight: 700; padding: 5px 9px; border-radius: 999px; ';
       if (s === 'ok') return b + 'background: #DCEDEC; color: #0B4A4A;';
@@ -2878,7 +2878,7 @@ class Component extends DCLogic {
         { need: 'A statement for each vendor', a: 'By hand', aColor: meh, b: 'No', bColor: no, c: 'Automatic' },
         { need: 'Vendor portal', a: 'No', aColor: no, b: 'No', bColor: no, c: 'My Booth' },
         { need: 'Booth map, waitlist and agreements', a: 'No', aColor: no, b: 'No', bColor: no, c: 'Included' },
-        { need: 'Checkout with scanner and inventory', a: 'No', aColor: no, b: 'Yes', bColor: '#1E1A16', c: 'Included' },
+        { need: 'Checkout with scanner and inventory', a: 'No', aColor: no, b: 'Yes', bColor: '#05080D', c: 'Included' },
         { need: 'Sales alerts to vendors', a: 'No', aColor: no, b: 'No', bColor: no, c: 'Included' },
         { need: 'English and Spanish, dollars and pesos', a: '—', aColor: no, b: 'Depends', bColor: meh, c: 'Both' }
       ],
@@ -2886,7 +2886,7 @@ class Component extends DCLogic {
         var on = st.vTab === i;
         return {
           title: d.title, desc: d.desc, short: d.short, icon: d.icon, selected: on ? 'true' : 'false',
-          style: vtBase + (on ? 'background: #FFFFFF; border: 2px solid #1E1A16; box-shadow: 0 16px 30px -20px rgba(30,26,22,.5);' : 'background: rgba(255,255,255,0.35); border: 2px solid transparent;'),
+          style: vtBase + (on ? 'background: #FFFFFF; border: 2px solid #05080D; box-shadow: 0 16px 30px -20px rgba(5,8,13,.5);' : 'background: rgba(255,255,255,0.35); border: 2px solid transparent;'),
           icoStyle: 'width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; ' + (on ? 'background: #B4441A; color: #FFFFFF;' : 'background: #F7F1E8; color: #5E554C;'),
           barCls: on && st.vAuto ? 'b-prog' : '',
           barStyle: 'display: block; height: 100%; background: #B4441A; width: 0;',
@@ -2945,7 +2945,7 @@ class Component extends DCLogic {
         var done = i < sy;
         return {
           num: String(i + 1), label: d.label, selected: on ? 'true' : 'false',
-          style: stepBase + (on ? 'background: #F7F1E8; color: #1E1A16; border: 1.5px solid #F7F1E8;' : 'background: rgba(255,255,255,0.04); color: ' + (done ? '#FFFFFF' : '#9FCFCC') + '; border: 1.5px solid rgba(255,255,255,0.16);'),
+          style: stepBase + (on ? 'background: #F7F1E8; color: #05080D; border: 1.5px solid #F7F1E8;' : 'background: rgba(255,255,255,0.04); color: ' + (done ? '#FFFFFF' : '#9FCFCC') + '; border: 1.5px solid rgba(255,255,255,0.16);'),
           numStyle: 'width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 800; ' + (on ? 'background: ' + accent + '; color: #FFFFFF;' : (done ? 'background: #0E6B6B; color: #FFFFFF;' : 'background: rgba(255,255,255,0.12); color: #CDE5E4;')),
           barCls: on && st.storyAuto ? 'b-prog' : '',
           barStyle: 'display: block; height: 100%; background: ' + accent + '; width: ' + (on ? (st.storyAuto ? '0' : '100%') : '0') + ';',

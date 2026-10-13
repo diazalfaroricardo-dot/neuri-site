@@ -370,7 +370,7 @@ input[type=range].n-range::-moz-range-thumb{width:20px;height:20px;border-radius
 .legacy .tipo > span small{display:block;font-weight:400;font-size:13.5px;color:var(--gris)}
 .legacy .tipo > span > span{min-width:0;overflow-wrap:break-word;hyphens:auto}
 #creadores a:focus-visible,#creators a:focus-visible{outline:3px solid #8FE0B4;outline-offset:3px}
-.giro-chip{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:999px;border:1.5px solid #D5D9D2;background:#FFFFFF;color:#05080D;font-weight:600;font-size:15px;text-decoration:none;box-sizing:border-box}.giro-chip:hover{border-color:#05080D}#citas,#comida,#mas,#creadores,#appointments,#food,#more,#creators,#demo{scroll-margin-top:12px}#citas a:focus-visible,#comida a:focus-visible,#appointments a:focus-visible,#food a:focus-visible{outline:3px solid #8FE0B4;outline-offset:3px}
+@media(max-width:860px){#demo-panel.scr>div:last-child{order:-1}}.n-stab:focus-visible{outline:3px solid #8FE0B4;outline-offset:3px}.giro-chip{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:999px;border:1.5px solid #D5D9D2;background:#FFFFFF;color:#05080D;font-weight:600;font-size:15px;text-decoration:none;box-sizing:border-box}.giro-chip:hover{border-color:#05080D}#citas,#comida,#mas,#creadores,#appointments,#food,#more,#creators,#demo{scroll-margin-top:12px}#citas a:focus-visible,#comida a:focus-visible,#appointments a:focus-visible,#food a:focus-visible{outline:3px solid #8FE0B4;outline-offset:3px}
 @media (max-width:600px){.giro-sec ul[aria-label] > li{display:grid !important;grid-template-columns:40px 1fr;column-gap:14px !important;row-gap:4px !important;padding:18px !important;border-radius:18px !important;align-items:center}.giro-sec ul[aria-label] > li > span{width:40px !important;height:40px !important;border-radius:12px !important}.giro-sec ul[aria-label] > li > h3{font-size:18px !important}.giro-sec ul[aria-label] > li > p{grid-column:1/-1}.giro-sec ul[aria-label]{gap:10px !important}}
 @media (max-width:400px){.legacy .tipo > span{font-size:15px;gap:8px;padding:10px}}
 .legacy .tipo.wide{grid-column:1/-1}
@@ -553,7 +553,7 @@ Quiero mi asistente
 <span style="font-weight: 500; color: #56635C">· Con la API oficial de Meta</span>
 </div>
 </section>
-<nav aria-label="Por tipo de negocio" style="font-family: 'Geist', system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 28px 24px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px"><span style="font-weight: 600; color: #3D4A44; margin-right: 4px">Mira qué hace para tu negocio:</span><a class="giro-chip" href="#demo" data-cta="chip-demo">Bazares y ropa</a><a class="giro-chip" href="#citas" data-cta="chip-citas">Citas</a><a class="giro-chip" href="#comida" data-cta="chip-comida">Comida y café</a><a class="giro-chip" href="#creadores" data-cta="chip-creadores">Creadores</a><a class="giro-chip" href="#mas" data-cta="chip-mas">Más que DMs</a></nav>
+<nav aria-label="Por tipo de negocio" style="font-family: 'Geist', system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 28px 24px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px"><span style="font-weight: 600; color: #3D4A44; margin-right: 4px">Mira qué hace para tu negocio:</span><a class="giro-chip" href="#demo" data-cta="chip-demo" data-scenario="bazar">Bazares y ropa</a><a class="giro-chip" href="#citas" data-cta="chip-citas">Citas</a><a class="giro-chip" href="#comida" data-cta="chip-comida">Comida y café</a><a class="giro-chip" href="#creadores" data-cta="chip-creadores">Creadores</a><a class="giro-chip" href="#mas" data-cta="chip-mas">Más que DMs</a></nav>
 
 <section aria-label="Preguntas que Neuri contesta" style="padding: 72px 0 0; display: flex; flex-direction: column; gap: 24px">
 <p style="margin: 0 auto; padding: 0 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #56635C; text-align: center">Las preguntas de siempre, contestadas solas</p>
@@ -650,59 +650,72 @@ Quiero mi asistente
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #C5D2CB">Elige tu tipo de negocio, cómo quieres que hable y qué debe resolver solo. Neuri lo arma y lo pruebas como se vería en Instagram y Messenger (y pronto en WhatsApp).</p>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px">
+<span id="demo-tabs-l" style="font-size: 15px; font-weight: 600; color: #C5D2CB">Prueba un ejemplo:</span>
+<div role="tablist" aria-labelledby="demo-tabs-l" style="display: flex; flex-wrap: wrap; gap: 8px">
+
+<button type="button" class="n-stab" role="tab" id="dtab-bazar" aria-selected="true" aria-controls="demo-panel" tabindex="0" style="font: inherit; cursor: pointer; font-weight: 700; font-size: 15px; padding: 10px 18px; border-radius: 999px; min-height: 44px; background: #8FE0B4; color: #05080D; border: 1.5px solid #8FE0B4;" data-dc-click="8" data-dc-keydown="9">Bazar y ropa</button>
+
+<button type="button" class="n-stab" role="tab" id="dtab-unas" aria-selected="false" aria-controls="demo-panel" tabindex="-1" style="font: inherit; cursor: pointer; font-weight: 700; font-size: 15px; padding: 10px 18px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.32);" data-dc-click="10" data-dc-keydown="11">Uñas</button>
+
+<button type="button" class="n-stab" role="tab" id="dtab-comida" aria-selected="false" aria-controls="demo-panel" tabindex="-1" style="font: inherit; cursor: pointer; font-weight: 700; font-size: 15px; padding: 10px 18px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.32);" data-dc-click="12" data-dc-keydown="13">Sushi y café</button>
+
+</div>
+</div>
+<div id="demo-panel" role="tabpanel" aria-labelledby="dtab-bazar" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start" class="">
 <div style="flex: 999 1 460px; min-width: 0; background: #1C2A24; border: 1px solid #2A3B33; border-radius: 26px; padding: 26px; display: flex; flex-direction: column; gap: 24px">
+
 
 <div style="display: flex; flex-direction: column; gap: 12px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA79A">1 · Tu tipo de negocio</span>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px">
 
-<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: #24372E; border: 2px solid #8FE0B4;" data-dc-click="8">
+<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: #24372E; border: 2px solid #8FE0B4;" data-dc-click="14">
 <span style="font-weight: 700; font-size: 15px">Vendo en Marketplace</span>
 <span style="font-size: 12.5px; opacity: .8">Muebles, ropa, de todo</span>
 </button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="9">
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="15">
 <span style="font-weight: 700; font-size: 15px">Salón de uñas</span>
 <span style="font-size: 12.5px; opacity: .8">Citas y precios</span>
 </button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="10">
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="16">
 <span style="font-weight: 700; font-size: 15px">Comida y antojitos</span>
 <span style="font-size: 12.5px; opacity: .8">Menú, pedidos, domicilio</span>
 </button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="11">
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="17">
 <span style="font-weight: 700; font-size: 15px">Tienda de ropa</span>
 <span style="font-size: 12.5px; opacity: .8">Tallas, apartados, envíos</span>
 </button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="12">
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="18">
 <span style="font-weight: 700; font-size: 15px">Bienes raíces</span>
 <span style="font-size: 12.5px; opacity: .8">Precios, visitas, crédito</span>
 </button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="13">
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; min-height: 60px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.12);" data-dc-click="19">
 <span style="font-weight: 700; font-size: 15px">Gimnasio o estudio</span>
 <span style="font-size: 12.5px; opacity: .8">Mensualidad, horarios, clases</span>
 </button>
 
 </div>
 <label for="bot-name" style="font-size: 14px; font-weight: 600; color: #C5D2CB; margin-top: 4px">Nombre de tu negocio</label>
-<input id="bot-name" type="text" value="Tienda de Mariana" maxlength="36" autocomplete="off" style="font: inherit; font-size: 16px; padding: 13px 15px; border-radius: 14px; border: 1.5px solid #2F4339; background: #05080D; color: #FFFFFF; min-height: 48px; box-sizing: border-box" data-dc-input="14">
+<input id="bot-name" type="text" value="Tienda de Mariana" maxlength="36" autocomplete="off" style="font: inherit; font-size: 16px; padding: 13px 15px; border-radius: 14px; border: 1.5px solid #2F4339; background: #05080D; color: #FFFFFF; min-height: 48px; box-sizing: border-box" data-dc-input="20">
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 12px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA79A">2 · Cómo quieres que conteste</span>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 
-<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; background: #8FE0B4; color: #05080D; border: 1.5px solid #8FE0B4;" data-dc-click="15">Amable y cercano</button>
+<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; background: #8FE0B4; color: #05080D; border: 1.5px solid #8FE0B4;" data-dc-click="21">Amable y cercano</button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.24);" data-dc-click="16">Breve y directo</button>
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.24);" data-dc-click="22">Breve y directo</button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.24);" data-dc-click="17">Formal</button>
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.24);" data-dc-click="23">Formal</button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.24);" data-dc-click="18">Con chispa</button>
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.24);" data-dc-click="24">Con chispa</button>
 
 </div>
 <p style="margin: 0; font-size: 14.5px; color: #C5D2CB; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 12px 14px; line-height: 1.45"><span style="color: #8FE0B4; font-weight: 700">Así suena:</span> «¡Hola! Soy el asistente de Tienda de Mariana. ¿En qué te ayudo?»</p>
@@ -712,22 +725,22 @@ Quiero mi asistente
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA79A">3 · Qué debe resolver solo</span>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px">
 
-<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; min-height: 48px; font-size: 15px; font-weight: 600; background: #24372E; border: 1.5px solid #8FE0B4;" data-dc-click="19">
+<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; min-height: 48px; font-size: 15px; font-weight: 600; background: #24372E; border: 1.5px solid #8FE0B4;" data-dc-click="25">
 <span style="width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #8FE0B4;"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
 <span>Precios y disponibilidad</span>
 </button>
 
-<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; min-height: 48px; font-size: 15px; font-weight: 600; background: #24372E; border: 1.5px solid #8FE0B4;" data-dc-click="20">
+<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; min-height: 48px; font-size: 15px; font-weight: 600; background: #24372E; border: 1.5px solid #8FE0B4;" data-dc-click="26">
 <span style="width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #8FE0B4;"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
 <span>Horarios y ubicación</span>
 </button>
 
-<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; min-height: 48px; font-size: 15px; font-weight: 600; background: #24372E; border: 1.5px solid #8FE0B4;" data-dc-click="21">
+<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; min-height: 48px; font-size: 15px; font-weight: 600; background: #24372E; border: 1.5px solid #8FE0B4;" data-dc-click="27">
 <span style="width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #8FE0B4;"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
 <span>Apartar o agendar citas</span>
 </button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; min-height: 48px; font-size: 15px; font-weight: 600; background: transparent; border: 1.5px solid rgba(255,255,255,0.18);" data-dc-click="22">
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; text-align: left; color: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; min-height: 48px; font-size: 15px; font-weight: 600; background: transparent; border: 1.5px solid rgba(255,255,255,0.18);" data-dc-click="28">
 <span style="width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.4);"></span>
 <span>Pagos y envíos</span>
 </button>
@@ -736,25 +749,27 @@ Quiero mi asistente
 <span style="font-size: 13.5px; color: #8FA79A">Lo que no marques, o lo que no sepa, te lo pasa a ti.</span>
 </div>
 
-<button type="button" class="n-btn" aria-disabled="false" style="font: inherit; border: none; font-weight: 700; font-size: 18px; padding: 18px 22px; border-radius: 16px; min-height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #8FE0B4; color: #05080D; cursor: pointer;" data-dc-click="23">
+<button type="button" class="n-btn" aria-disabled="false" style="font: inherit; border: none; font-weight: 700; font-size: 18px; padding: 18px 22px; border-radius: 16px; min-height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #8FE0B4; color: #05080D; cursor: pointer;" data-dc-click="29">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 3v4M17 5h4"></path></svg>
 Armar mi bot
 </button>
+
+
 
 </div>
 
 <div style="flex: 1 1 360px; display: flex; flex-direction: column; align-items: center; gap: 14px">
 <div role="tablist" aria-label="Canal" style="display: flex; gap: 6px; background: rgba(255,255,255,0.06); padding: 5px; border-radius: 999px">
 
-<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; background: #FFFFFF; color: #05080D;" data-dc-click="24">
+<button type="button" role="tab" aria-selected="true" style="font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; background: #FFFFFF; color: #05080D;" data-dc-click="30">
 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8zM17.5 6.5h.01"></path></svg>Instagram
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; background: transparent; color: #C5D2CB;" data-dc-click="25">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; background: transparent; color: #C5D2CB;" data-dc-click="31">
 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.4S17 3 12 3zM8 13l3-3 2 2 3-3"></path></svg>Messenger
 </button>
 
-<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; background: transparent; color: #C5D2CB;" data-dc-click="26">
+<button type="button" role="tab" aria-selected="false" style="font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; background: transparent; color: #C5D2CB;" data-dc-click="32">
 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>WhatsApp · pronto
 </button>
 
@@ -781,9 +796,9 @@ Armar mi bot
 
 </div>
 
-<form style="display: flex; gap: 8px; padding: 10px; background: #FFFFFF; border-top: 1px solid #ECECEC;" data-dc-submit="27">
+<form style="display: flex; gap: 8px; padding: 10px; background: #FFFFFF; border-top: 1px solid #ECECEC;" data-dc-submit="33">
 <label for="demo-input" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Escribe una pregunta</label>
-<input id="demo-input" type="text" value="" placeholder="Primero arma tu bot" autocomplete="off" style="flex: 1; min-width: 0; font: inherit; font-size: 15px; padding: 12px 14px; border-radius: 999px; border: 1px solid #D5D9D2; background: #FFFFFF; color: #05080D; min-height: 44px; box-sizing: border-box" data-dc-input="28">
+<input id="demo-input" type="text" value="" placeholder="Primero arma tu bot" autocomplete="off" style="flex: 1; min-width: 0; font: inherit; font-size: 15px; padding: 12px 14px; border-radius: 999px; border: 1px solid #D5D9D2; background: #FFFFFF; color: #05080D; min-height: 44px; box-sizing: border-box" data-dc-input="34">
 <button type="submit" aria-label="Enviar pregunta" style="width: 44px; height: 44px; border-radius: 50%; border: none; background: #3797F0; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7z"></path></svg>
 </button>
@@ -808,18 +823,18 @@ Armar mi bot
 <span style="font-weight: 700; display: inline-flex; align-items: center; gap: 10px"><span class="n-live"></span>Bandeja · Tienda de Mariana</span>
 <div style="display: flex; gap: 6px; flex-wrap: wrap">
 
-<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; font-size: 13.5px; font-weight: 700; padding: 8px 13px; border-radius: 999px; min-height: 44px; background: #05080D; color: #FFFFFF; border: 1.5px solid #05080D;" data-dc-click="29">Todas · 5</button>
+<button type="button" aria-pressed="true" style="font: inherit; cursor: pointer; font-size: 13.5px; font-weight: 700; padding: 8px 13px; border-radius: 999px; min-height: 44px; background: #05080D; color: #FFFFFF; border: 1.5px solid #05080D;" data-dc-click="35">Todas · 5</button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-size: 13.5px; font-weight: 700; padding: 8px 13px; border-radius: 999px; min-height: 44px; background: #FFFFFF; color: #3D4A44; border: 1.5px solid #D5D9D2;" data-dc-click="30">Te las pasó · 2</button>
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-size: 13.5px; font-weight: 700; padding: 8px 13px; border-radius: 999px; min-height: 44px; background: #FFFFFF; color: #3D4A44; border: 1.5px solid #D5D9D2;" data-dc-click="36">Te las pasó · 2</button>
 
-<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-size: 13.5px; font-weight: 700; padding: 8px 13px; border-radius: 999px; min-height: 44px; background: #FFFFFF; color: #3D4A44; border: 1.5px solid #D5D9D2;" data-dc-click="31">Apartados · 1</button>
+<button type="button" aria-pressed="false" style="font: inherit; cursor: pointer; font-size: 13.5px; font-weight: 700; padding: 8px 13px; border-radius: 999px; min-height: 44px; background: #FFFFFF; color: #3D4A44; border: 1.5px solid #D5D9D2;" data-dc-click="37">Apartados · 1</button>
 
 </div>
 </div>
 <div style="display: flex; flex-wrap: wrap">
 <div style="flex: 1 1 340px; min-width: 0; border-right: 1px solid #E1E3DC; display: flex; flex-direction: column">
 
-<button type="button" class="n-row" aria-pressed="true" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #F2F7F3; box-shadow: inset 3px 0 0 #0B5E3A;" data-dc-click="32">
+<button type="button" class="n-row" aria-pressed="true" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #F2F7F3; box-shadow: inset 3px 0 0 #0B5E3A;" data-dc-click="38">
 <span style="width: 38px; height: 38px; border-radius: 50%; background: #8FE0B4; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">JP</span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; text-align: left">
 <span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-weight: 700">Juan Pérez</span><span style="font-size: 12px; color: #56635C">11:52 pm</span></span>
@@ -828,7 +843,7 @@ Armar mi bot
 </span>
 </button>
 
-<button type="button" class="n-row" aria-pressed="false" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #FFFFFF;" data-dc-click="33">
+<button type="button" class="n-row" aria-pressed="false" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #FFFFFF;" data-dc-click="39">
 <span style="width: 38px; height: 38px; border-radius: 50%; background: #C9D6F5; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">CM</span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; text-align: left">
 <span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-weight: 700">Carla M.</span><span style="font-size: 12px; color: #56635C">10:31 pm</span></span>
@@ -837,7 +852,7 @@ Armar mi bot
 </span>
 </button>
 
-<button type="button" class="n-row" aria-pressed="false" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #FFFFFF;" data-dc-click="34">
+<button type="button" class="n-row" aria-pressed="false" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #FFFFFF;" data-dc-click="40">
 <span style="width: 38px; height: 38px; border-radius: 50%; background: #E3EFE7; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">LR</span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; text-align: left">
 <span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-weight: 700">Luis R.</span><span style="font-size: 12px; color: #56635C">9:14 pm</span></span>
@@ -846,7 +861,7 @@ Armar mi bot
 </span>
 </button>
 
-<button type="button" class="n-row" aria-pressed="false" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #FFFFFF;" data-dc-click="35">
+<button type="button" class="n-row" aria-pressed="false" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #FFFFFF;" data-dc-click="41">
 <span style="width: 38px; height: 38px; border-radius: 50%; background: #F5D9E8; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">AG</span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; text-align: left">
 <span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-weight: 700">Ana G.</span><span style="font-size: 12px; color: #56635C">8:40 pm</span></span>
@@ -855,7 +870,7 @@ Armar mi bot
 </span>
 </button>
 
-<button type="button" class="n-row" aria-pressed="false" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #FFFFFF;" data-dc-click="36">
+<button type="button" class="n-row" aria-pressed="false" style="font: inherit; cursor: pointer; width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border: none; border-bottom: 1px solid #EEF0EA; color: #05080D; background: #FFFFFF;" data-dc-click="42">
 <span style="width: 38px; height: 38px; border-radius: 50%; background: #FFE9A8; color: #05080D; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">PS</span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; text-align: left">
 <span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-weight: 700">Pedro S.</span><span style="font-size: 12px; color: #56635C">7:05 pm</span></span>
@@ -1046,14 +1061,14 @@ Armar mi bot
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 36px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px"><span style="align-self: flex-start; background: #E3EFE7; color: #0B5E3A; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Para negocios con citas</span><h2 id="citas-t" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4.5vw, 54px); letter-spacing: -0.035em; line-height: 1.03">«¿Tienes lugar el sábado?» Contestado y agendado.</h2><p style="margin: 0; font-size: 19px; line-height: 1.5; color: #3D4A44">Uñas, pestañas, barbería, masajes: neuri.bots ofrece tus horarios libres, agenda la cita y se la recuerda a tu cliente. Tú sigues trabajando.</p></div>
 <ul aria-label="Para negocios con citas" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px"><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Ofrece horarios libres</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Cuando preguntan si tienes lugar, ofrece 3 horarios libres de tu agenda y aparta el que elijan. Nunca da uno ocupado.</p></li><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Tus servicios y tu horario</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Pones cada servicio con su duración y precio, tu horario por día y tu descanso de mediodía.</p></li><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.7 21a2 2 0 0 1-3.4 0"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Recuerda la cita</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Le recuerda la cita a tu cliente un día antes y el mismo día, por el mismo chat.</p></li><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"></path><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><path d="M7 23l-4-4 4-4"></path><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Cambios y lista de espera</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Cambian o cancelan por chat. Si el día está lleno, los anota y les ofrece el lugar que se libere.</p></li><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Anticipo con tu link</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Si quieres, pide anticipo con tu propio link de pago. El dinero va directo a ti y tú marcas cuando llegó.</p></li></ul>
-<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; background: #05080D; color: #FFFFFF; border-radius: 24px; padding: 28px"><div style="flex: 1 1 420px; min-width: 0"><h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: #8FE0B4">Lo que debes saber</h3><ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.5; color: #E6ECE8"><li>Te avisamos por correo de cada cita nueva, cambiada o cancelada, y tú también apuntas citas a mano en Mi asistente.</li><li>Los recordatorios salen por Instagram o Messenger dentro de las 24 h que Meta permite tras el último mensaje de tu cliente. WhatsApp, próximamente.</li><li>La conexión directa con Meta está en revisión; mientras, armamos tu agenda y te avisamos por correo cuando abra.</li></ul></div><a class="n-btn" href="?giro=citas#alta" data-giro="citas" data-cta="giro-citas" style="text-decoration: none; text-align: center; background: #8FE0B4; color: #05080D; font-weight: 700; font-size: 17px; padding: 16px 22px; border-radius: 14px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; flex: 0 1 auto">Pedir mi asistente de citas</a></div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; background: #05080D; color: #FFFFFF; border-radius: 24px; padding: 28px"><div style="flex: 1 1 420px; min-width: 0"><h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: #8FE0B4">Lo que debes saber</h3><ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.5; color: #E6ECE8"><li>Te avisamos por correo de cada cita nueva, cambiada o cancelada, y tú también apuntas citas a mano en Mi asistente.</li><li>Los recordatorios salen por Instagram o Messenger dentro de las 24 h que Meta permite tras el último mensaje de tu cliente. WhatsApp, próximamente.</li><li>La conexión directa con Meta está en revisión; mientras, armamos tu agenda y te avisamos por correo cuando abra.</li></ul></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 0 1 auto"><a class="n-btn" href="?giro=citas#alta" data-giro="citas" data-cta="giro-citas" style="text-decoration: none; text-align: center; background: #8FE0B4; color: #05080D; font-weight: 700; font-size: 17px; padding: 16px 22px; border-radius: 14px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; flex: 0 1 auto">Pedir mi asistente de citas</a><a href="#demo" data-scenario="unas" data-cta="demo-citas" style="color: #8FE0B4; font-weight: 700; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 3px">Pruébalo en la demo</a></div></div>
 </div>
 </section>
 <section id="comida" class="giro-sec" aria-labelledby="comida-t" style="font-family: 'Geist', system-ui, sans-serif; color: #05080D; background: #FFFFFF; border-top: 1px solid #E1E3DC">
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 36px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px"><span style="align-self: flex-start; background: #E3EFE7; color: #0B5E3A; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Para comida y café</span><h2 id="comida-t" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4.5vw, 54px); letter-spacing: -0.035em; line-height: 1.03">Te piden por DM. Tú solo cocinas.</h2><p style="margin: 0; font-size: 19px; line-height: 1.5; color: #3D4A44">Sushi, café, antojitos: neuri.bots toma el pedido en el chat, suma el total y te lo pasa listo para preparar.</p></div>
 <ul aria-label="Para comida y café" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px"><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Tu menú, como lo tengas</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Desde tu hoja de Google o desde el editor de Mi asistente: platillo, precio, extras y si hay. Lo agotado no se ofrece.</p></li><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-4-.9L3 20l1.1-4.3A8.4 8.4 0 0 1 3 11.5 8.5 8.5 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">El pedido en el chat</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Agrega, quita, suma extras («con extra queso») y notas («sin picante»). Confirma con total y número de pedido.</p></li><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">A qué hora, o para otro día</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Para llevar o a domicilio, lo antes posible o a una hora, también para otro día de la semana. Respeta tu horario de cocina.</p></li><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 1 8-8"></path><path d="M12 12l4-4"></path><path d="M20 20h-4"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Sin que te saturen</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Pones un máximo de pedidos cada 15 minutos; si se llena, ofrece las siguientes horas libres.</p></li><li style="background: #FFFFFF; border: 1px solid #E1E3DC; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 12px"><span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #E3EFE7; color: #0B5E3A; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg></span><h3 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Aviso «listo» y pago</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A44">Marcas Listo y le llega «tu pedido está listo» por DM. Si quieres, comparte tu propio link de pago.</p></li></ul>
-<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; background: #05080D; color: #FFFFFF; border-radius: 24px; padding: 28px"><div style="flex: 1 1 420px; min-width: 0"><h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: #8FE0B4">Lo que debes saber</h3><ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.5; color: #E6ECE8"><li>Cada pedido te llega por correo y a «Pedidos de hoy» en Mi asistente: Preparando, Listo, Entregado.</li><li>El aviso «listo» sale por Instagram o Messenger dentro de las 24 h que Meta permite. WhatsApp, próximamente.</li><li>La conexión directa con Meta está en revisión; mientras, armamos tu menú y te avisamos por correo cuando abra.</li></ul></div><a class="n-btn" href="?giro=comida#alta" data-giro="comida" data-cta="giro-comida" style="text-decoration: none; text-align: center; background: #8FE0B4; color: #05080D; font-weight: 700; font-size: 17px; padding: 16px 22px; border-radius: 14px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; flex: 0 1 auto">Pedir mi asistente de comida</a></div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; background: #05080D; color: #FFFFFF; border-radius: 24px; padding: 28px"><div style="flex: 1 1 420px; min-width: 0"><h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: #8FE0B4">Lo que debes saber</h3><ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.5; color: #E6ECE8"><li>Cada pedido te llega por correo y a «Pedidos de hoy» en Mi asistente: Preparando, Listo, Entregado.</li><li>El aviso «listo» sale por Instagram o Messenger dentro de las 24 h que Meta permite. WhatsApp, próximamente.</li><li>La conexión directa con Meta está en revisión; mientras, armamos tu menú y te avisamos por correo cuando abra.</li></ul></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 0 1 auto"><a class="n-btn" href="?giro=comida#alta" data-giro="comida" data-cta="giro-comida" style="text-decoration: none; text-align: center; background: #8FE0B4; color: #05080D; font-weight: 700; font-size: 17px; padding: 16px 22px; border-radius: 14px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; flex: 0 1 auto">Pedir mi asistente de comida</a><a href="#demo" data-scenario="comida" data-cta="demo-comida" style="color: #8FE0B4; font-weight: 700; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 3px">Pruébalo en la demo</a></div></div>
 </div>
 </section>
 <section id="creadores" aria-labelledby="creadores-t" style="font-family: 'Geist', system-ui, sans-serif; color: #05080D; background: #F6F4EE; border-top: 1px solid #E1E3DC">
@@ -1348,7 +1363,7 @@ Ubicación de entrega
 <span style="font-weight: 500; color: #56635C">· Con la API oficial de Meta</span>
 </div>
 </section>
-<nav aria-label="Por tipo de negocio" style="font-family: 'Geist', system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 28px 24px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px"><span style="font-weight: 600; color: #3D4A44; margin-right: 4px">Mira qué hace para tu negocio:</span><a class="giro-chip" href="#demo" data-cta="chip-demo">Bazares y ropa</a><a class="giro-chip" href="#citas" data-cta="chip-citas">Citas</a><a class="giro-chip" href="#comida" data-cta="chip-comida">Comida y café</a><a class="giro-chip" href="#creadores" data-cta="chip-creadores">Creadores</a><a class="giro-chip" href="#mas" data-cta="chip-mas">Más que DMs</a></nav>
+<nav aria-label="Por tipo de negocio" style="font-family: 'Geist', system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 28px 24px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px"><span style="font-weight: 600; color: #3D4A44; margin-right: 4px">Mira qué hace para tu negocio:</span><a class="giro-chip" href="#demo" data-scenario="bazar" data-cta="chip-demo">Bazares y ropa</a><a class="giro-chip" href="#citas" data-cta="chip-citas">Citas</a><a class="giro-chip" href="#comida" data-cta="chip-comida">Comida y café</a><a class="giro-chip" href="#creadores" data-cta="chip-creadores">Creadores</a><a class="giro-chip" href="#mas" data-cta="chip-mas">Más que DMs</a></nav>
 
 <section aria-label="Preguntas que Neuri contesta" style="padding: 72px 0 0; display: flex; flex-direction: column; gap: 24px">
 <p style="margin: 0 auto; padding: 0 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #56635C; text-align: center">Las preguntas de siempre, contestadas solas</p>
@@ -1430,8 +1445,17 @@ Ubicación de entrega
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #C5D2CB">Elige tu tipo de negocio, cómo quieres que hable y qué debe resolver solo. Neuri lo arma y lo pruebas como se vería en Instagram y Messenger (y pronto en WhatsApp).</p>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px">
+<span id="demo-tabs-l" style="font-size: 15px; font-weight: 600; color: #C5D2CB">Prueba un ejemplo:</span>
+<div role="tablist" aria-labelledby="demo-tabs-l" style="display: flex; flex-wrap: wrap; gap: 8px">
+<template sc-for list="{{scenTabs}}" as="t" hint-placeholder-count="3">
+<button type="button" class="n-stab" role="tab" id="{{t.id}}" aria-selected="{{t.selected}}" aria-controls="demo-panel" tabindex="{{t.tabindex}}" onClick="{{t.pick}}" onKeyDown="{{t.key}}" style="{{t.style}}">{{t.label}}</button>
+</template>
+</div>
+</div>
+<div id="demo-panel" class="{{panelCls}}" role="tabpanel" aria-labelledby="{{scenTabId}}" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
 <div style="flex: 999 1 460px; min-width: 0; background: #1C2A24; border: 1px solid #2A3B33; border-radius: 26px; padding: 26px; display: flex; flex-direction: column; gap: 24px">
+<template sc-if value="{{isBuilder}}" hint-placeholder-val="{{ true }}">
 
 <div style="display: flex; flex-direction: column; gap: 12px">
 <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA79A">1 · Tu tipo de negocio</span>
@@ -1485,6 +1509,25 @@ Ubicación de entrega
 </li>
 </template>
 </ul>
+</template>
+</template>
+<template sc-if value="{{isScript}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8FE0B4">{{scKicker}}</span>
+<h3 style="margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15">{{scTitle}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #C5D2CB">{{scIntro}}</p>
+</div>
+<ol aria-label="{{scListLabel}}" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.4">
+<template sc-for list="{{scSteps}}" as="p" hint-placeholder-count="4">
+<li style="display: flex; align-items: center; gap: 12px; {{p.rowStyle}}">
+<template sc-if value="{{p.done}}" hint-placeholder-val="{{ false }}"><span class="n-pop" style="width: 22px; height: 22px; border-radius: 50%; background: #8FE0B4; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#05080D" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></template>
+<template sc-if value="{{p.pending}}" hint-placeholder-val="{{ true }}"><span style="width: 22px; height: 22px; border-radius: 50%; border: 2px solid #4A6357; box-sizing: border-box; flex-shrink: 0"></span></template>
+<span>{{p.text}}<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">{{p.sr}}</span></span>
+</li>
+</template>
+</ol>
+<p style="margin: 0; font-size: 15px; color: #C5D2CB; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 12px 14px; line-height: 1.45">{{scHint}}</p>
+<a class="n-btn" href="{{scHref}}" data-giro="{{scGiro}}" data-cta="{{scCta}}" style="text-decoration: none; text-align: center; background: #8FE0B4; color: #05080D; font-weight: 700; font-size: 17px; padding: 16px 22px; border-radius: 14px; min-height: 52px; box-sizing: border-box; display: flex; align-items: center; justify-content: center">{{scCtaLabel}}</a>
 </template>
 </div>
 
@@ -1758,7 +1801,8 @@ class Component extends DCLogic {
       skills: { precio: true, horario: true, apartar: true, pago: false },
       phase: 'setup', bChecks: 0, msgs: [], typing: false, draft: '',
       lcMsgs: 30, lcLate: 40, lcClose: 20, lcTicket: 600, lostAnim: 0,
-      ownFilter: 'all', ownSel: 1, ownNew: false
+      ownFilter: 'all', ownSel: 1, ownNew: false,
+      scen: 'bazar', sStep: 0, sProg: 0
     };
     this.lostAnimTimer = null;
     this.ownRowsDef = [
@@ -1837,7 +1881,112 @@ class Component extends DCLogic {
       apartar: ['apart', 'cita', 'agenda', 'reserv', 'mesa', 'lugar', 'visita', 'prueba'],
       pago: ['pago', 'pagar', 'tarjeta', 'efectivo', 'transfer', 'envio', 'envío', 'domicilio', 'credito', 'crédito', 'infonavit']
     };
+    this.initScen();
     this.intentSkill = { precio: 'precio', horario: 'horario', ubicacion: 'horario', apartar: 'apartar', pago: 'pago' };
+  }
+  initScen() {
+    var L = {
+      locale: 'es-MX', tabs: ['Bazar y ropa', 'Uñas', 'Sushi y café'], kicker: 'Ejemplo · ', title: 'Lo que hace Neuri en esta plática',
+      hint: 'Toca las respuestas en el celular o escríbelas tú.', restart: 'Volver a empezar', inputPh: 'Escribe o toca una opción…',
+      hash: '#alta', done: ' (hecho)', pending: ' (pendiente)', listLabel: 'Pasos de esta plática',
+      money: function (n) { return '$' + n.toLocaleString('en-US'); },
+      nails: { name: 'Uñas Caro', svc: 'gelish en manos', price: '$280',
+        intro: 'Una clienta pregunta si tienes lugar. Tú estás atendiendo; Neuri revisa tu agenda y la aparta.',
+        cta: 'Pedir mi asistente de citas', ask: 'Hola, ¿tienes lugar el sábado para gelish?',
+        offer: function (list) { return 'Para gelish en manos tengo estos horarios:\n' + list + '\nResponde con el número (1, 2 o 3).'; },
+        confirm: function (w) { return '¡Listo! Tu cita de gelish en manos quedó el ' + w + ' ($280). Si necesitas cambiarla o cancelarla, escríbeme "cancelar mi cita".'; },
+        deposit: 'Para apartar tu lugar, deja el anticipo de $100 aquí: pago.ejemplo/unascaro. Tu cita queda confirmada cuando el negocio lo vea.',
+        reminder: function (w) { return 'Un día antes le llega: «Te recuerdo tu cita de gelish en manos mañana, ' + w + ', en Uñas Caro.»'; },
+        tagOffer: 'Horarios libres de tu agenda', tagConfirm: 'Agendado por Neuri', tagDeposit: 'Solo si pones tu link de anticipo',
+        list: ['Ofrece 3 horarios libres de tu agenda', 'Aparta el que elige y confirma con precio', 'Pide anticipo con tu link, si lo pones', 'Le recuerda la cita un día antes y el mismo día'] },
+      food: { name: 'Sushi Kai', roll: 'Rollo California', rollPrice: 120, coffees: [['Americano', 45], ['Latte', 60]],
+        intro: 'Te piden por DM mientras cocinas. Neuri toma el pedido con tu menú y te lo pasa listo.',
+        cta: 'Pedir mi asistente de comida', ask: 'Quiero 2 rollos california y un café', which: '¿Cuál café?',
+        cart: function (lines, sub) { return 'Tu pedido:\n' + lines + '\nSubtotal: ' + sub + '\n¿Algo más?'; },
+        doneLabel: 'Es todo', time: '¿Para qué hora?\n1. Lo antes posible (como a las 2:20 pm)\nO dime la hora, por ejemplo "a las 3".',
+        asapLabel: '1 · Lo antes posible', asapKey: 'antes', at3: 'A las 3', ats: ['hoy a las 2:20 pm', 'hoy a las 3:00 pm'],
+        confirm: function (lines, total, at) { return '¡Listo! Tu pedido #12:\n' + lines + '\nTotal: ' + total + '\nPara llevar, listo ' + at + '. Te aviso por aquí cuando esté listo.'; },
+        ready: 'Cuando marcas Listo, le llega: «¡Tu pedido #12 está listo! Ya puedes pasar por él a Sushi Kai.»',
+        tagMenu: 'Con tu menú', tagCart: 'Sumado con tus precios', tagTime: 'Dentro de tu horario de cocina', tagConfirm: 'Te llega a Pedidos de hoy',
+        list: ['Entiende el pedido y pregunta lo que falta', 'Suma con tus precios', 'Pregunta para qué hora, dentro de tu horario', 'Confirma con total y número de pedido', 'Avisa «listo» cuando tú lo marcas'] }
+    };
+    this.scenL = L;
+    var sat = new Date(); sat.setHours(0, 0, 0, 0);
+    sat.setDate(sat.getDate() + (((6 - sat.getDay() + 7) % 7) || 7));
+    var at = function (h, m, o) { var d = new Date(sat.getTime()); d.setHours(h, m, 0, 0); try { return d.toLocaleString(L.locale, o); } catch (e) { return h + ':' + (m < 10 ? '0' : '') + m; } };
+    var slots = [[11, 0], [13, 30], [16, 0]].map(function (x) { return at(x[0], x[1], { weekday: 'long', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' }); });
+    var hours = [[11, 0], [13, 30], [16, 0]].map(function (x) { return at(x[0], x[1], { hour: 'numeric', minute: '2-digit' }); });
+    var N = L.nails, F = L.food, money = L.money;
+    var lines = function (ci) { var c = F.coffees[ci]; return '• 2 × ' + F.roll + ' — ' + money(2 * F.rollPrice) + '\n• 1 × ' + c[0] + ' — ' + money(c[1]); };
+    var total = function (ci) { return money(2 * F.rollPrice + F.coffees[ci][1]); };
+    this.scenDefs = {
+      unas: { name: N.name, giro: 'citas', intro: N.intro, cta: N.cta, list: N.list, steps: [
+        { prog: 1, opts: [{ label: N.ask }],
+          reply: function () { return [{ text: N.offer(slots.map(function (s, i) { return (i + 1) + '. ' + s; }).join('\n')), time: N.tagOffer }]; } },
+        { prog: 4, opts: slots.map(function (s, i) { return { label: (i + 1) + ' · ' + hours[i], say: String(i + 1), keys: [String(i + 1), hours[i].toLowerCase()] }; }),
+          reply: function (i) { return [{ text: N.confirm(slots[i]), time: N.tagConfirm }, { text: N.deposit, time: N.tagDeposit }, { note: true, text: N.reminder(slots[i]) }]; } }
+      ] },
+      comida: { name: F.name, giro: 'comida', intro: F.intro, cta: F.cta, list: F.list, steps: [
+        { prog: 1, opts: [{ label: F.ask }],
+          reply: function () { return [{ text: F.which + '\n' + F.coffees.map(function (c, i) { return (i + 1) + '. ' + c[0] + ' ' + money(c[1]); }).join('\n'), time: F.tagMenu }]; } },
+        { prog: 2, opts: F.coffees.map(function (c, i) { return { label: c[0], keys: [String(i + 1), c[0].toLowerCase()] }; }),
+          reply: function (i) { this.sCoffee = i; return [{ text: F.cart(lines(i), total(i)), time: F.tagCart }]; } },
+        { prog: 3, opts: [{ label: F.doneLabel }],
+          reply: function () { return [{ text: F.time, time: F.tagTime }]; } },
+        { prog: 5, opts: [{ label: F.asapLabel, say: '1', keys: ['1', F.asapKey] }, { label: F.at3, keys: ['3'] }],
+          reply: function (i) { var ci = this.sCoffee || 0; return [{ text: F.confirm(lines(ci), total(ci), F.ats[i]), time: F.tagConfirm }, { note: true, text: F.ready }]; } }
+      ] }
+    };
+  }
+  setScenario(k, focus) {
+    if (k !== 'bazar' && !this.scenDefs[k]) return;
+    this.demoTimers.forEach(function (t) { clearTimeout(t); clearInterval(t); });
+    this.demoTimers = [];
+    var changed = k !== this.state.scen;
+    var p = { scen: k, sStep: 0, sProg: 0, typing: false, draft: '', msgs: [] };
+    if (k === 'bazar') { p.phase = 'setup'; p.bChecks = 0; }
+    this.setState(p, focus ? function () { var el = document.getElementById('dtab-' + k); if (el) el.focus(); } : null);
+    if (changed) { try { if (window.nTrack) window.nTrack('demo_scenario', { value: k }); } catch (e) {} }
+  }
+  scenKey(e, k) {
+    var ks = ['bazar', 'unas', 'comida'], i = ks.indexOf(k), n = null;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = ks[(i + 1) % 3];
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = ks[(i + 2) % 3];
+    else if (e.key === 'Home') n = ks[0];
+    else if (e.key === 'End') n = ks[2];
+    if (n) { e.preventDefault(); this.setScenario(n, true); }
+  }
+  scriptAsk(text) {
+    var q = (text || '').trim();
+    var sc = this.scenDefs[this.state.scen], step = sc && sc.steps[this.state.sStep];
+    if (!q || !step || this.state.typing) return;
+    var low = q.toLowerCase(), idx = -1;
+    step.opts.forEach(function (o, i) {
+      (o.keys || []).forEach(function (k) { if (idx < 0 && (low === k || (k.length > 1 && low.indexOf(k) !== -1))) idx = i; });
+    });
+    this.scriptRun(idx < 0 ? 0 : idx, q);
+  }
+  scriptRun(i, said) {
+    var self = this, st = this.state, sc = this.scenDefs[st.scen], step = sc && sc.steps[st.sStep];
+    if (!step || st.typing) return;
+    var o = step.opts[i] || step.opts[0];
+    var out = step.reply.call(this, i).map(function (m) { return Object.assign({ id: self.nextId++, mine: false, time: '' }, m); });
+    var msgs = st.msgs.concat([{ id: this.nextId++, mine: true, text: said || o.say || o.label, time: '' }]).slice(-6);
+    var fin = { sStep: st.sStep + 1, sProg: step.prog };
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduce) { this.setState(Object.assign({ msgs: msgs.concat(out).slice(-6), typing: false, draft: '' }, fin)); return; }
+    this.setState({ msgs: msgs, typing: true, draft: '' });
+    var t = 0;
+    out.forEach(function (m, k) {
+      t += k === 0 ? 900 : 700;
+      self.demoTimers.push(setTimeout(function () {
+        var last = k === out.length - 1;
+        var p = { msgs: self.state.msgs.concat([m]).slice(-6), typing: !last };
+        if (last) Object.assign(p, fin);
+        self.setState(p);
+      }, t));
+    });
   }
   bizCur() { return this.bizDefs[this.state.biz]; }
   greeting(st) {
@@ -1889,6 +2038,7 @@ class Component extends DCLogic {
     this.demoTimers.push(setTimeout(function () { self.setState({ phase: 'ready', msgs: [greet] }); }, 2500));
   }
   ask(text, intent) {
+    if (this.state.scen !== 'bazar') { this.scriptAsk(text); return; }
     var self = this;
     var q = (text || '').trim();
     if (!q || this.state.typing || this.state.phase !== 'ready') return;
@@ -1962,7 +2112,9 @@ class Component extends DCLogic {
     var s = this.state.step;
     var typing = s === 2 || s === 5;
     var self = this;
-    var st = this.state;
+    var sc = this.state.scen !== 'bazar' ? this.scenDefs[this.state.scen] : null;
+    var st = sc ? Object.assign({}, this.state, { name: sc.name, phase: 'ready' }) : this.state;
+    var LL = this.scenL;
     var biz = this.bizCur();
     var ready = st.phase === 'ready';
     var building = st.phase === 'building';
@@ -1978,6 +2130,7 @@ class Component extends DCLogic {
     var ini = nm.split(/\s+/).filter(function (w) { return w.length > 2 || /^[A-ZÁÉÍÓÚ]/.test(w); }).slice(0, 2).map(function (w) { return w.charAt(0).toUpperCase(); }).join('') || 'TN';
     var enabledIntents = ['precio', 'apartar', 'horario', 'pago', 'ubicacion'].filter(function (i) { return st.skills[self.intentSkill[i]]; });
     var suggList = enabledIntents.slice(0, 3).map(function (i) { return { label: biz.ans[i].q, intent: i }; }).concat([{ label: biz.otro, intent: null }]);
+    if (sc) { var stp = sc.steps[st.sStep]; suggList = stp ? stp.opts.map(function (o, i) { return { label: o.label, act: function () { self.scriptRun(i); } }; }) : [{ label: LL.restart, act: function () { self.setScenario(st.scen); } }]; }
     var checkTexts = ['Entendiendo tu negocio: ' + biz.label.toLowerCase(), 'Escribiendo respuestas en tono ' + this.toneDefs[st.tone].toLowerCase(), 'Conectando Instagram y Messenger'];
     var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
     var lostT = this.lostTarget(st);
@@ -2003,6 +2156,17 @@ class Component extends DCLogic {
     var hasApart = rowsAll.filter(function (r) { return r.kind === 'apart'; }).length;
     var G = '#0B5E3A', R = '#9A3D12', N = '#3D4A44';
     return {
+      isBuilder: !sc, isScript: !!sc, panelCls: sc ? 'scr' : '',
+      scenTabs: ['bazar', 'unas', 'comida'].map(function (k, i) {
+        var on = self.state.scen === k;
+        return { id: 'dtab-' + k, label: LL.tabs[i], selected: on ? 'true' : 'false', tabindex: on ? '0' : '-1',
+          style: 'font: inherit; cursor: pointer; font-weight: 700; font-size: 15px; padding: 10px 18px; border-radius: 999px; min-height: 44px; ' + (on ? 'background: #8FE0B4; color: #05080D; border: 1.5px solid #8FE0B4;' : 'background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.32);'),
+          pick: function () { self.setScenario(k); }, key: function (e) { self.scenKey(e, k); } };
+      }),
+      scenTabId: 'dtab-' + this.state.scen,
+      scKicker: sc ? LL.kicker + sc.name : '', scTitle: LL.title, scIntro: sc ? sc.intro : '', scHint: LL.hint, scListLabel: LL.listLabel,
+      scHref: sc ? '?giro=' + sc.giro + LL.hash : '#', scGiro: sc ? sc.giro : '', scCta: sc ? 'demo-' + sc.giro : '', scCtaLabel: sc ? sc.cta : '',
+      scSteps: sc ? sc.list.map(function (t, i) { var d = st.sProg > i; return { text: t, done: d, pending: !d, sr: d ? LL.done : LL.pending, rowStyle: d ? 'color: #FFFFFF;' : 'color: #B4C4BB;' }; }) : [],
       lcSliders: sliders.map(function (s) {
         return Object.assign({}, s, { onChange: function (e) { var p = {}; p[s.field] = Number(e.target.value); self.setCalc(p); } });
       }),
@@ -2090,8 +2254,8 @@ class Component extends DCLogic {
       idleText: building ? 'Armando tu bot…' : 'Configura tu bot y dale «Armar mi bot».',
       msgs: st.msgs.map(function (m) {
         return { text: m.text, time: m.time,
-          wrap: 'align-self: ' + (m.mine ? 'flex-end' : 'flex-start') + '; display: flex; flex-direction: column; gap: 4px; max-width: 84%; flex-shrink: 0; align-items: ' + (m.mine ? 'flex-end' : 'flex-start') + ';',
-          bubble: (m.mine ? c.me : c.bot) + ' padding: 10px 12px; border-radius: ' + (m.mine ? '18px 18px 4px 18px' : '18px 18px 18px 4px') + ';',
+          wrap: 'align-self: ' + (m.note ? 'center' : m.mine ? 'flex-end' : 'flex-start') + '; display: flex; flex-direction: column; gap: 4px; max-width: 84%; flex-shrink: 0; align-items: ' + (m.mine ? 'flex-end' : 'flex-start') + ';',
+          bubble: m.note ? 'background: rgba(255,255,255,0.94); color: #3D4A44; border: 1.5px dashed #9FB3A8; padding: 9px 11px; border-radius: 12px; font-size: 13px; line-height: 1.4; white-space: pre-line;' : (m.mine ? c.me : c.bot) + ' white-space: pre-line; padding: 10px 12px; border-radius: ' + (m.mine ? '18px 18px 4px 18px' : '18px 18px 18px 4px') + ';',
           timeStyle: 'font-size: 11.5px; font-weight: 600; padding: 0 4px; color: ' + (st.ch === 'wa' ? '#0B5E3A' : '#6B7A72') + ';' };
       }),
       typing: st.typing,
@@ -2099,11 +2263,11 @@ class Component extends DCLogic {
       showSugg: ready,
       sugg: suggList.map(function (s) {
         return { label: s.label, style: 'font: inherit; cursor: pointer; white-space: nowrap; font-size: 13px; font-weight: 600; padding: 8px 12px; border-radius: 999px; min-height: 36px; background: #FFFFFF; color: ' + c.send + '; border: 1.5px solid ' + c.send + ';',
-          ask: function () { self.ask(s.label, s.intent === null ? null : s.intent); } };
+          ask: s.act || function () { self.ask(s.label, s.intent === null ? null : s.intent); } };
       }),
       formStyle: 'display: flex; gap: 8px; padding: 10px; background: ' + (st.ch === 'wa' ? '#F0EBE3' : '#FFFFFF') + '; border-top: 1px solid ' + (st.ch === 'wa' ? '#DDD5C8' : '#ECECEC') + ';',
       sendStyle: 'width: 44px; height: 44px; border-radius: 50%; border: none; background: ' + c.send + '; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0',
-      inputPh: ready ? 'Escríbele como cliente…' : 'Primero arma tu bot',
+      inputPh: sc ? LL.inputPh : ready ? 'Escríbele como cliente…' : 'Primero arma tu bot',
       draft: st.draft,
       onDraft: function (e) { self.setState({ draft: e.target.value }); },
       sendTyped: function (e) { if (e && e.preventDefault) e.preventDefault(); self.ask(self.state.draft); },
@@ -2120,7 +2284,11 @@ class Component extends DCLogic {
   }
 }
 
-DCMount(Component);
+window.__nDemo = DCMount(Component);
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('[data-scenario]');
+  if (a && window.__nDemo) window.__nDemo.setScenario(a.getAttribute('data-scenario'));
+});
 </script>
 <script>
   // Cuando el webhook de alta esté desplegado, poner su URL aquí; mientras, se usa el correo.

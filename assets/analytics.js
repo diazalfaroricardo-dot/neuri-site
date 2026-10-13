@@ -4,7 +4,7 @@
  * - Sin grabación de sesiones, respeta Do Not Track, no corre en localhost.
  * - Eventos propios SIN datos personales: nunca nombres, correos, teléfonos, @usuarios ni texto libre.
  *   cta_click {label, page} · signup_step {step, giro, product} · signup_submitted {giro, product}
- *   language_switch {from, to} · outbound_click {host}
+ *   language_switch {from, to} · outbound_click {host} · demo_scenario {value} (pestañas de la demo de neuri.bots)
  */
 (function () {
   var w = window, d = document, l = location;
@@ -62,6 +62,8 @@
   var path = l.pathname;
   var product = /^\/(bazar|en)\/?$/.test(path) ? 'bazar' : /^\/(sigue-disponible|en\/still-available)\//.test(path) ? 'bots' : path === '/' ? 'home' : 'other';
   function cap(name, props) { try { w.posthog.capture(name, props); } catch (e) {} }
+  // Para eventos propios desde las páginas (p. ej. demo_scenario {value}); sin datos personales.
+  w.nTrack = function (name, props) { cap(String(name).slice(0, 40), props); };
   function giro() { var g = d.querySelector('input[name=giro]:checked'); return g ? String(g.value).replace(/[^a-z_-]/gi, '').slice(0, 24) : undefined; }
   function label(el) {
     var t = el.getAttribute('data-cta') || el.getAttribute('aria-label') || el.textContent || '';

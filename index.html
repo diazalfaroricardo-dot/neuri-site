@@ -96,6 +96,11 @@
   footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </style>
+<style>/* A101: áreas táctiles ≥44 px sin cambiar el diseño */
+header a,footer a,nav a,a.logo,.btn,a[href^="mailto:"]{min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}
+input[type=range]{min-height:44px}
+p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
+</style>
 </head>
 <body>
 <header><div class="wrap"><nav>

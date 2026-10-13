@@ -391,6 +391,11 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
 {"@type":"Question","name":"What buyer data do you keep?","acceptedAnswer":{"@type":"Answer","text":"Only name and conversation, to answer and hold items. We never sell or share it."}},
 {"@type":"Question","name":"Is anyone using it yet?","acceptedAnswer":{"@type":"Answer","text":"Not yet: we're looking for our first 10 sellers. That's why setup and the first month are free for them, no card needed. In return, we ask for your honest feedback."}}
 ]}</script>
+<style>/* A101: áreas táctiles ≥44 px sin cambiar el diseño */
+header a,footer a,nav a,a.logo,.btn,a[href^="mailto:"]{min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}
+input[type=range],a.btn{min-height:44px!important}
+p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
+</style>
 </head>
 <body>
 <header><div class="wrap"><nav aria-label="Main">
@@ -1090,7 +1095,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
             miss.classList.add('on');
             go(first);
           } else {
-            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we'll let you know as soon as the direct connection with Meta opens and send you the link to connect your Instagram or Facebook Page (no other apps to install). Meanwhile, we build your assistant.</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
+            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we\'ll let you know as soon as the direct connection with Meta opens and send you the link to connect your Instagram or Facebook Page (no other apps to install). Meanwhile, we build your assistant.</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
           }
         })
         .catch(function(e){

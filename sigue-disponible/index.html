@@ -389,6 +389,11 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
 {"@type":"Question","name":"¿Qué datos guardan de mis compradores?","acceptedAnswer":{"@type":"Answer","text":"Solo nombre y conversación, para contestar y apartar. No los vendemos ni los compartimos."}},
 {"@type":"Question","name":"¿Ya lo usa alguien?","acceptedAnswer":{"@type":"Answer","text":"Todavía no: estamos buscando a los primeros 10 negocios. Por eso a ellos la instalación y el primer mes les salen gratis, sin tarjeta. A cambio te pedimos tu opinión."}}
 ]}</script>
+<style>/* A101: áreas táctiles ≥44 px sin cambiar el diseño */
+header a,footer a,nav a,a.logo,.btn,a[href^="mailto:"]{min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}
+input[type=range],a.btn{min-height:44px!important}
+p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
+</style>
 </head>
 <body>
 <header><div class="wrap"><nav aria-label="Principal">

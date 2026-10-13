@@ -4,159 +4,169 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Neuri — Bot que contesta tus mensajes y sistema para bazares</title>
-<meta name="description" content="Neuri hace dos cosas: ¿Sigue Disponible?, un asistente que contesta por ti los mensajes de Instagram y Messenger (WhatsApp, próximamente), y Neuri Bazar, la caja y las cuentas de los vendedores para bazares y tianguis.">
-<link rel="alternate" hreflang="en" href="https://neuri.tech/en/">
+<meta name="description" content="Neuri hace dos productos: ¿Sigue Disponible?, un asistente que contesta a tus compradores en Instagram y Messenger, y Neuri Bazar, la caja y las cuentas de tu bazar con renta fija por puesto.">
+<meta name="theme-color" content="#14201B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Crect width=%2240%22 height=%2240%22 rx=%2210%22 fill=%22%2314201B%22/%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%227%22 fill=%22%238FE0B4%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <style>
-  :root{--ink:#1E2A5A;--ink2:#2B3870;--green:#22B573;--yellow:#F6C744;--paper:#FFFFFF;--mist:#F3F5FA;--muted:#59637F;--line:#DCE3EE;--bubble:#DCF8C6}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Figtree,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px}
-  a{color:inherit}
-  :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-  h1,h2,h3,.logo,.tag b{font-family:"Bricolage Grotesque",Figtree,sans-serif}
-
-  nav{display:flex;align-items:center;gap:22px;height:68px}
-  .logo{font-weight:800;font-size:25px;letter-spacing:-.5px;text-decoration:none;margin-right:auto}
-  .logo span{color:var(--green)}
-  nav .links a{text-decoration:none;font-weight:600;font-size:15px;margin-left:20px}
-  nav .links a:hover{text-decoration:underline}
-  @media (max-width:640px){nav .links{display:none}}
-
-  .hero{padding:48px 0 36px}
-  h1{font-size:clamp(34px,5.6vw,64px);line-height:1.02;letter-spacing:-1.8px;font-weight:800;max-width:15em}
-  .lead{font-size:19px;color:var(--muted);max-width:36em;margin-top:18px}
-
-  .products{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:64px}
-  @media (max-width:860px){.products{grid-template-columns:1fr}}
-  .prod{border-radius:28px;padding:30px 30px 0;display:flex;flex-direction:column;overflow:hidden;position:relative}
-  .prod.sd{background:var(--ink);color:#fff}
-  .prod.bz{background:var(--mist);border:1px solid var(--line)}
-  .who{font-size:15px;font-weight:600;opacity:.8}
-  .prod h2{font-size:clamp(30px,3.4vw,40px);letter-spacing:-1px;line-height:1.05;margin:6px 0 10px;font-weight:800}
-  .prod .what{font-size:18px;max-width:30em}
-  .prod.sd .what{color:#D5DCF3}
-  .prod.bz .what{color:var(--muted)}
-  .prod ul{list-style:none;margin:16px 0 0;display:grid;gap:6px;font-size:16px}
-  .prod li{padding-left:24px;position:relative}
-  .prod li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--green)}
-  .row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
-  .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px}
-  .sd .btn.main{background:var(--green);color:#fff}
-  .bz .btn.main{background:var(--ink);color:#fff}
-  .btn.alt{text-decoration:underline;padding:13px 4px}
-
-  /* Etiqueta de precio, como las que cuelgan de las piezas en un bazar */
-  .tag{position:absolute;top:26px;right:24px;background:var(--yellow);color:var(--ink);padding:8px 14px 8px 22px;border-radius:6px 12px 12px 6px;transform:rotate(4deg);box-shadow:0 3px 0 rgba(30,42,90,.18);line-height:1.15;text-align:left}
-  .tag::before{content:"";position:absolute;left:8px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--paper)}
-  .tag small{display:block;font-size:12px;font-weight:600}
-  .tag b{font-size:22px;font-weight:800;letter-spacing:-.5px}
-  @media (max-width:520px){.tag{position:static;align-self:flex-start;transform:rotate(-2deg);margin-bottom:14px}}
-  .prod .who{max-width:calc(100% - 150px)}
-  @media (max-width:520px){.prod .who{max-width:none}}
-
-  .stage{margin-top:28px;display:flex;justify-content:center;align-items:flex-end;min-height:290px}
-  /* Chat de Instagram */
-  .phone{width:300px;max-width:100%;background:#fff;color:#1c1e21;border-radius:26px 26px 0 0;padding:14px 14px 18px;box-shadow:0 -6px 30px rgba(0,0,0,.25)}
-  .phone .top{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid #eee;margin-bottom:12px;font-size:14px}
-  .phone .av{width:34px;height:34px;border-radius:50%;background:#e4e6eb;display:grid;place-items:center;font-weight:700;color:#65676b}
-  .phone .top small{display:block;color:#65676b;font-size:12px}
-  .msg{max-width:84%;padding:8px 12px;border-radius:18px;font-size:14.5px;line-height:1.35;margin-bottom:8px;opacity:0;animation:pop .35s ease forwards}
-  .msg.in{background:#e4e6eb;border-bottom-left-radius:6px}
-  .msg.out{background:#0866ff;color:#fff;margin-left:auto;border-bottom-right-radius:6px}
-  .msg:nth-child(2){animation-delay:.4s}.msg:nth-child(3){animation-delay:1.4s}.msg:nth-child(4){animation-delay:2.4s}.msg:nth-child(5){animation-delay:3.3s}
-  .bot{font-size:11.5px;color:#65676b;text-align:right;margin-top:2px;opacity:0;animation:pop .35s ease 3.6s forwards}
-  @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.msg,.bot{animation:none;opacity:1}}
-  /* Captura real de la app */
-  .shot{width:300px;max-width:100%;border-radius:26px 26px 0 0;border:8px solid var(--ink);border-bottom:0;display:block;box-shadow:0 -6px 30px rgba(30,42,90,.18)}
-
-  .pick{background:var(--mist);padding:64px 0;border-top:1px solid var(--line)}
-  .pick h2{font-size:34px;letter-spacing:-.8px;font-weight:800}
-  .pick .sub{color:var(--muted);margin:6px 0 26px}
-  table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
-  th,td{text-align:left;padding:16px 18px;vertical-align:top;border-top:1px solid var(--line);font-size:16px}
-  thead th{border-top:0;background:var(--ink);color:#fff;font-family:"Bricolage Grotesque",sans-serif;font-size:18px}
-  tbody th{font-weight:600;color:var(--muted);width:24%}
-  @media (max-width:640px){
-    table,thead,tbody,tr,th,td{display:block}
-    thead{display:none}
-    tbody tr{border-top:1px solid var(--line);padding:12px 4px}
-    tbody th{border:0;width:auto;padding:4px 14px;color:var(--ink)}
-    tbody td{border:0;padding:2px 14px 2px 14px;font-size:15px}
-    tbody td::before{content:attr(data-p) ": ";font-weight:700}
-  }
-
-  .talk{padding:64px 0;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-  .talk h2{font-size:30px;letter-spacing:-.6px;font-weight:800}
-  .talk p{color:var(--muted);max-width:34em;margin-top:6px}
-  .talk .btn{background:var(--green);color:#fff}
-  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-</style>
-<style>/* A101: áreas táctiles ≥44 px sin cambiar el diseño */
-header a,footer a,nav a,a.logo,.btn,a[href^="mailto:"]{min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}
-input[type=range]{min-height:44px}
-p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
+:root{--ink:#14201B;--muted:#56635C;--line:#E1E3DC;--bg:#F6F4EE;--green:#0B5E3A;--mint:#8FE0B4;--mint-2:#E3EFE7;--bz-ink:#1E1A16;--bz:#B4441A;--peach:#F3B38F;--sand:#F7F1E8;--sand-line:#E6DBC9;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:17px;line-height:1.55;color:var(--ink);background:var(--bg);overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.03}
+header nav{display:flex;align-items:center;gap:22px;min-height:84px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:-.03em;margin-right:auto;min-height:44px}
+.logo i{width:34px;height:34px;border-radius:10px;background:var(--ink);display:inline-flex;align-items:center;justify-content:center}
+.logo i::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--mint)}
+header nav a:not(.logo){text-decoration:none;font-weight:500;min-height:44px;display:inline-flex;align-items:center}
+header nav a:not(.logo):hover{text-decoration:underline}
+@media(max-width:560px){header nav .hide-sm{display:none}}
+.hero{padding:56px 0 40px}
+.hero h1{font-size:clamp(40px,6.2vw,76px);max-width:15ch}
+.hero p{font-size:20px;color:#3D4A44;max-width:36em;margin-top:20px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding-bottom:96px}
+@media(max-width:900px){.products{grid-template-columns:minmax(0,1fr)}}
+.prod{border-radius:30px;padding:34px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.prod:hover{transform:translateY(-4px)}
+.prod.sd{background:var(--ink);color:#fff;box-shadow:0 40px 70px -40px rgba(11,94,58,.6)}
+.prod.bz{background:var(--sand);border:1px solid var(--sand-line);color:var(--bz-ink);box-shadow:0 40px 70px -40px rgba(180,68,26,.45)}
+.kicker{align-self:flex-start;font-size:14px;font-weight:700;padding:7px 13px;border-radius:999px}
+.sd .kicker{background:#24372E;color:var(--mint)}
+.bz .kicker{background:#F3DCCD;color:#8A3313}
+.prod h2{font-size:clamp(34px,4vw,48px)}
+.price{font-size:15px}
+.price b{font-family:var(--display);font-size:26px;letter-spacing:-.02em}
+.sd .price{color:#C5D2CB}.sd .price b{color:var(--mint)}
+.bz .price{color:#5E554C}.bz .price b{color:var(--bz)}
+.what{font-size:18px}
+.sd .what{color:#E3EFE7}.bz .what{color:#4E463E}
+.prod ul{list-style:none;display:grid;gap:9px}
+.prod li{padding-left:30px;position:relative;font-size:16px}
+.prod li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%}
+.sd li::before{background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314201B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/14px no-repeat}
+.bz li::before{background:var(--bz) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/14px no-repeat}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:14px 22px;border-radius:14px;font-weight:700;font-size:17px;text-decoration:none;transition:transform .18s,box-shadow .18s}
+.btn:hover{transform:translateY(-2px)}
+.sd .btn.main{background:var(--mint);color:var(--ink)}
+.sd .btn.alt{border:1.5px solid rgba(255,255,255,.3);color:#fff}
+.bz .btn.main{background:var(--bz);color:#fff}
+.bz .btn.alt{border:1.5px solid #CFC4B4;background:#fff}
+.stage{margin-top:auto;padding-top:20px;display:flex;justify-content:center}
+.phone{width:100%;max-width:330px;background:#fff;color:var(--ink);border:8px solid #0E1713;border-radius:30px;overflow:hidden;font-size:14.5px;line-height:1.4}
+.phone .top{display:flex;gap:10px;align-items:center;padding:13px 14px;border-bottom:1px solid #ECECEC}
+.phone .av{width:34px;height:34px;border-radius:50%;background:#F7B48C;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px}
+.phone .top small{display:block;color:#6B7A72;font-size:12px}
+.phone .chat{padding:14px;display:flex;flex-direction:column;gap:8px}
+.msg{padding:9px 12px;border-radius:18px;max-width:84%;opacity:0;animation:pop .45s cubic-bezier(.2,.9,.3,1.3) forwards}
+.msg.in{align-self:flex-end;background:#3797F0;color:#fff;border-bottom-right-radius:4px}
+.msg.out{align-self:flex-start;background:#EFEFEF;border-bottom-left-radius:4px}
+.msg:nth-child(1){animation-delay:.4s}.msg:nth-child(2){animation-delay:1.3s}.msg:nth-child(3){animation-delay:2.3s}.msg:nth-child(4){animation-delay:3.2s}
+.phone .bot{font-size:12px;font-weight:600;color:var(--green);padding:0 14px 14px;opacity:0;animation:pop .4s ease 3.8s forwards}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+.register{width:100%;max-width:360px;background:#fff;border:1px solid var(--sand-line);border-radius:22px;padding:18px;box-shadow:0 24px 40px -26px rgba(30,26,22,.4);transform:rotate(1.2deg)}
+.register h3{font-size:16px;letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center}
+.register h3 span{font-family:var(--body);font-weight:600;font-size:12px;color:#5E554C}
+.line{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;background:var(--sand);border-radius:12px;margin-top:8px;font-size:14.5px;opacity:0;animation:pop .45s ease forwards}
+.line small{display:block;color:#5E554C;font-size:12px}
+.line b{white-space:nowrap}
+.line:nth-of-type(1){animation-delay:.5s}.line:nth-of-type(2){animation-delay:1.3s}
+.split{margin-top:12px;border-top:1px dashed #CFC4B4;padding-top:10px;display:grid;gap:6px;font-size:13.5px;opacity:0;animation:pop .45s ease 2.2s forwards}
+.split div{display:flex;justify-content:space-between}
+.split .t{font-weight:700;color:#0E6B6B}
+.pick{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:96px 0}
+.pick h2,.talk h2{font-size:clamp(32px,4.4vw,52px)}
+.pick .sub{font-size:19px;color:#3D4A44;margin-top:14px;max-width:38em}
+.tbl{overflow-x:auto;margin-top:32px;border:1px solid var(--line);border-radius:22px}
+table{width:100%;min-width:680px;border-collapse:collapse;font-size:16px}
+th,td{padding:16px 18px;text-align:left;vertical-align:top;border-top:1px solid var(--line);line-height:1.4}
+thead th{border-top:0;font-size:15px}
+thead th.c1{background:var(--ink);color:#fff}
+thead th.c2{background:var(--bz);color:#fff}
+tbody th{font-weight:700;width:18%}
+.talk{padding:96px 0;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.talk p{font-size:19px;color:#3D4A44;margin-top:12px;max-width:34em}
+.talk .btn{background:var(--ink);color:#fff}
+footer{background:var(--ink);color:#C5D2CB;padding:28px 0;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer a{color:#fff;display:inline-flex;align-items:center;min-height:44px}
+footer span{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.msg,.line,.split,.phone .bot{opacity:1}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav>
-  <a class="logo" href="/">neuri<span>.</span></a>
-  <span class="links"><a href="/sigue-disponible/">¿Sigue Disponible?</a><a href="/bazar/">Neuri Bazar</a><a href="/en/">English</a></span>
+<header><div class="wrap"><nav aria-label="Principal">
+  <a class="logo" href="/"><i aria-hidden="true"></i>neuri</a>
+  <a class="hide-sm" href="/sigue-disponible/">¿Sigue Disponible?</a>
+  <a class="hide-sm" href="/bazar/">Neuri Bazar</a>
+  <a href="/en/still-available/" lang="en" hreflang="en">English</a>
 </nav></div></header>
-
 <main>
 <section class="hero"><div class="wrap">
-  <h1>Un bot que contesta tus mensajes de venta y un sistema para cobrar en tu bazar.</h1>
-  <p class="lead">Neuri hace dos productos para gente que vende en México y Estados Unidos. Elige el que va con tu negocio.</p>
+  <h1>Un bot que contesta tus ventas y un sistema para tu bazar.</h1>
+  <p>Neuri hace dos productos para gente que vende en México y Estados Unidos. Elige el que va con tu negocio.</p>
 </div></section>
 
 <div class="wrap products">
   <section class="prod sd" aria-labelledby="sd-h">
-    <div class="tag"><small>desde</small><b>$899</b><small>MXN al mes</small></div>
-    <p class="who">Si vendes por Instagram o Facebook</p>
+    <span class="kicker">Si vendes por Instagram o Facebook</span>
     <h2 id="sd-h">¿Sigue Disponible?</h2>
+    <p class="price">Desde <b>$899</b> MXN al mes · primeros 10: primer mes gratis</p>
     <p class="what">Un asistente que contesta por ti a cada comprador, a cualquier hora, con tus precios y tus reglas.</p>
     <ul>
-      <li>Dice si la pieza sigue, el precio, dónde estás y cómo pagar</li>
+      <li>Dice si la pieza sigue, el precio, dónde entregas y cómo pagar</li>
       <li>Aparta y agenda visitas, y te avisa</li>
       <li>Lo que no sabe te lo pasa a ti</li>
     </ul>
     <div class="row">
-      <a class="btn main" href="/sigue-disponible/#prueba">Pruébalo ahora</a>
+      <a class="btn main" href="/sigue-disponible/#demo">Arma tu bot</a>
       <a class="btn alt" href="/sigue-disponible/">Cómo funciona</a>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="phone">
-        <div class="top"><span class="av">A</span><div><b>Andrea M.</b><small>Ropero de madera · Instagram</small></div></div>
-        <div class="msg in">Hola, ¿sigue disponible?</div>
-        <div class="msg out">¡Hola Andrea! Sí sigue. Está en $1,800 y lo puedes ver en Guamúchil hoy de 4 a 7.</div>
-        <div class="msg in">¿Me lo apartas para mañana?</div>
-        <div class="msg out">Listo, apartado a tu nombre hasta mañana a las 7 pm. Te mando la ubicación.</div>
+        <div class="top"><span class="av">AM</span><div><b>Andrea M.</b><small>Ropero de madera · Instagram</small></div></div>
+        <div class="chat">
+          <div class="msg in">Hola, ¿sigue disponible?</div>
+          <div class="msg out">¡Hola Andrea! Sí sigue. Está en $1,800 y lo puedes recoger hoy de 4 a 7.</div>
+          <div class="msg in">¿Me lo apartas para mañana?</div>
+          <div class="msg out">Listo, apartado a tu nombre hasta mañana a las 7 pm.</div>
+        </div>
         <div class="bot">Contestado al instante por tu asistente</div>
       </div>
     </div>
   </section>
 
   <section class="prod bz" aria-labelledby="bz-h">
-    <div class="tag"><small>desde</small><b>$499</b><small>MXN al mes</small></div>
-    <p class="who">Si tienes un bazar, tianguis o tienda de consignación con vendedores</p>
+    <span class="kicker">Si tienes un bazar, tianguis o antique mall</span>
     <h2 id="bz-h">Neuri Bazar</h2>
-    <p class="what">La caja y las cuentas de tus vendedores en el celular: cobras, se calcula la comisión y cada vendedor ve lo que se le debe.</p>
+    <p class="price">Desde <b>$499</b> MXN al mes + IVA · 14 días gratis</p>
+    <p class="what">La caja y las cuentas de tu bazar en el celular: cobras, cada venta va al saldo de su vendedor y la renta de su puesto se descuenta sola.</p>
     <ul>
       <li>Caja con etiquetas y código de barras</li>
-      <li>Comisiones, renta de puesto y pagos sin hacer cuentas</li>
+      <li>Renta fija por puesto, sin comisiones ni cuentas a mano</li>
       <li>Cada vendedor ve sus ventas en su propio link</li>
     </ul>
     <div class="row">
-      <a class="btn main" href="/bazar/">Ver planes</a>
-      <a class="btn alt" href="/bazar/#como">Cómo funciona</a>
+      <a class="btn main" href="/bazar/#simula">Pruébalo</a>
+      <a class="btn alt" href="/bazar/">Cómo funciona</a>
     </div>
-    <div class="stage">
-      <img class="shot" src="/img/bazar-inicio.jpg" width="300" height="346" alt="Pantalla de inicio de Neuri Bazar: ventas de hoy $3,579, por pagar a vendedores $1,917.44 y 2 piezas por aprobar">
+    <div class="stage" aria-hidden="true">
+      <div class="register">
+        <h3>Caja 1 · Bazar Las Palmas <span>Sábado</span></h3>
+        <div class="line"><span>Lámpara de latón<small>Puesto 12 · Doña Rosa</small></span><b>$450</b></div>
+        <div class="line"><span>Vajilla de talavera<small>Puesto 7 · Lupita</small></span><b>$950</b></div>
+        <div class="split">
+          <div><span>Al saldo de Doña Rosa</span><span class="t">+$450</span></div>
+          <div><span>Al saldo de Lupita</span><span class="t">+$950</span></div>
+          <div><span>Rentas de la semana</span><span>se cobran el lunes</span></div>
+        </div>
+      </div>
     </div>
   </section>
 </div>
@@ -164,15 +174,17 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
 <section class="pick"><div class="wrap">
   <h2>¿Cuál necesito?</h2>
   <p class="sub">Si vendes tú, es ¿Sigue Disponible?. Si administras un lugar donde venden otros, es Neuri Bazar.</p>
+  <div class="tbl" role="region" aria-label="Comparación de productos" tabindex="0">
   <table>
-    <thead><tr><th scope="col"><span class="sr" style="position:absolute;left:-9999px">Pregunta</span></th><th scope="col">¿Sigue Disponible?</th><th scope="col">Neuri Bazar</th></tr></thead>
+    <thead><tr><th scope="col"><span style="position:absolute;left:-9999px">Pregunta</span></th><th scope="col" class="c1">¿Sigue Disponible?</th><th scope="col" class="c2">Neuri Bazar</th></tr></thead>
     <tbody>
-      <tr><th scope="row">Es para</th><td data-p="¿Sigue Disponible?">Quien vende muebles, ropa, autos o lo que sea por redes</td><td data-p="Neuri Bazar">Dueños de bazares y tiendas con varios vendedores</td></tr>
-      <tr><th scope="row">Te quita</th><td data-p="¿Sigue Disponible?">Contestar lo mismo 50 veces al día y perder ventas por tardar</td><td data-p="Neuri Bazar">Libretas, cuentas a mano y vendedores preguntando cuánto llevan</td></tr>
-      <tr><th scope="row">Precio</th><td data-p="¿Sigue Disponible?">$899 o $1,299 MXN al mes. Los primeros 10 negocios: instalación y primer mes gratis</td><td data-p="Neuri Bazar">$499, $899 o $1,499 MXN al mes + IVA. 14 días gratis</td></tr>
-      <tr><th scope="row">Listo en</th><td data-p="¿Sigue Disponible?">Llenas un formulario de 5 minutos; armamos tu asistente y te avisamos por correo en cuanto Meta abra la conexión directa. Tú lo apruebas</td><td data-p="Neuri Bazar">Subes tu lista de vendedores y empiezas a cobrar el mismo día</td></tr>
+      <tr><th scope="row">Es para</th><td>Quien vende muebles, ropa, autos o lo que sea por redes</td><td>Dueños de bazares, tianguis y malls que rentan puestos</td></tr>
+      <tr><th scope="row">Te quita</th><td>Contestar lo mismo 50 veces al día y perder ventas por tardar</td><td>Libretas, cuentas a mano y vendedores preguntando cuánto llevan</td></tr>
+      <tr><th scope="row">Precio</th><td>$899 o $1,299 MXN al mes. Primeros 10 negocios: instalación y primer mes gratis</td><td>$499, $899 o $1,499 MXN al mes + IVA. 14 días gratis</td></tr>
+      <tr><th scope="row">Listo en</th><td>Llenas un alta de 3 minutos; armamos tu asistente y tú lo apruebas antes de que conteste</td><td>Subes tu lista de vendedores y empiezas a cobrar el mismo día</td></tr>
     </tbody>
   </table>
+  </div>
 </div></section>
 
 <section><div class="wrap talk">
@@ -183,10 +195,9 @@ p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
   <a class="btn" href="mailto:hola@neuri.tech?subject=Quiero%20saber%20m%C3%A1s">Escribir a hola@neuri.tech</a>
 </div></section>
 </main>
-
 <footer><div class="wrap">
   <span>© 2026 Neuri LLC, Arizona, EE.UU.</span>
-  <span><a href="/sigue-disponible/">¿Sigue Disponible?</a> · <a href="/bazar/">Neuri Bazar</a> · <a href="/en/">English</a></span>
+  <span><a href="/sigue-disponible/">¿Sigue Disponible?</a> <a href="/bazar/">Neuri Bazar</a> <a href="/en/still-available/" lang="en">English</a></span>
 </div></footer>
 </body>
 </html>

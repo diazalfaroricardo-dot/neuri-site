@@ -49,6 +49,10 @@ const pages = [
   { name: "still-available", path: "/en/still-available/", product: true },
   { name: "privacy", path: "/en/still-available/privacy/" },
   { name: "sheet", path: "/en/still-available/sheet/" },
+  { name: "bazar-terminos", path: "/bazar/terminos/" },
+  { name: "bazar-privacidad", path: "/bazar/privacidad/" },
+  { name: "bazar-terms", path: "/en/bazar/terms/" },
+  { name: "bazar-privacy", path: "/en/bazar/privacy/" },
 ];
 
 // CHROME=ruta; si no, el Chromium de /opt/pw-browsers (si existe) o el que instaló Playwright.

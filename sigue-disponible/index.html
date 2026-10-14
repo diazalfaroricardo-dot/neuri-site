@@ -1138,11 +1138,11 @@ Armar mi bot
       <fieldset class="paso" data-step="3" style="border:0" hidden>
         <legend class="sr">Paso 3: Cómo atiendes</legend>
         <h3 tabindex="-1">¿Cómo atiendes a tus compradores?</h3>
-        <p class="why">Las formas de pago sí las necesitamos para prender tu asistente (si eres creador, no). Lo demás, si lo llenas ahora, tu asistente sale más rápido; si no, te lo preguntamos después.</p>
+        <p class="why" id="why3">Las formas de pago sí las necesitamos para prender tu asistente (si eres creador, no). Lo demás, si lo llenas ahora, tu asistente sale más rápido; si no, te lo preguntamos después.</p>
         <div class="fields">
-          <div class="f"><label for="horario">Horario de atención <span class="opt">(opcional)</span></label><input type="text" id="horario" name="horario" placeholder="Lunes a sábado, 10 a 7"></div>
-          <div class="f"><label for="entrega">Entrega o recolección <span class="opt">(opcional)</span></label><textarea id="entrega" name="entrega" aria-describedby="h-entrega" placeholder="Recogen en Guamúchil centro. Entrego en la ciudad por $150; fuera se cotiza."></textarea><p class="help" id="h-entrega">Zona, dónde recogen, si haces envíos y cuánto cuestan.</p></div>
-          <div class="f"><span class="lab" id="l-pagos">Formas de pago <span class="opt">(obligatorio; creadores, opcional)</span></span><div class="pills" id="pagosPills" role="group" aria-labelledby="l-pagos"></div><input type="hidden" id="pagos" name="pagos"></div>
+          <div class="f"><label for="horario">Horario de atención <span class="opt" data-req="citas comida otro">(opcional)</span></label><input type="text" id="horario" name="horario" placeholder="Lunes a sábado, 10 a 7"></div>
+          <div class="f"><label for="entrega">Entrega o recolección <span class="opt" data-req="citas comida otro">(opcional)</span></label><textarea id="entrega" name="entrega" aria-describedby="h-entrega" placeholder="Recogen en Guamúchil centro. Entrego en la ciudad por $150; fuera se cotiza."></textarea><p class="help" id="h-entrega">Zona, dónde recogen, si haces envíos y cuánto cuestan.</p></div>
+          <div class="f"><span class="lab" id="l-pagos">Formas de pago <span class="opt" data-req="bazar ropa citas comida otro">(obligatorio; creadores, opcional)</span></span><div class="pills" id="pagosPills" role="group" aria-labelledby="l-pagos"></div><input type="hidden" id="pagos" name="pagos"></div>
           <div class="f"><span class="lab" id="l-agenda">¿Quieres que agende visitas o entregas?</span><div class="pills" role="radiogroup" aria-labelledby="l-agenda">
             <label class="pill"><input type="radio" name="agenda" value="Sí"><span>Sí, que agende (plan Pro)</span></label>
             <label class="pill"><input type="radio" name="agenda" value="No" checked><span>No, solo que conteste</span></label></div></div>
@@ -2389,6 +2389,11 @@ document.addEventListener('click', function (e) {
     // A118: tipo de negocio (obligatorio) y sub-giro de citas (opcional, solo con «citas»)
     var subBox=document.getElementById('subgiroBox'),subSel=document.getElementById('subgiro');
     function giroValue(){var g=form.querySelector('input[name=giro]:checked');return g?g.value:'';}
+    // A134: marcas de obligatorio/opcional del paso 3 según el giro (lo mismo que exige /intake: requiredFor)
+    var WHY3={"bazar": "Las formas de pago sí las necesitamos para prender tu asistente. Horario y entrega, si los llenas ahora, tu asistente sale más rápido; si no, te los preguntamos después.", "ropa": "Las formas de pago sí las necesitamos para prender tu asistente. Horario y entrega, si los llenas ahora, tu asistente sale más rápido; si no, te los preguntamos después.", "citas": "Horario, dónde atiendes y formas de pago los necesitamos para prender tu asistente. Lo demás, si lo llenas ahora, sale más rápido.", "comida": "Horario, dónde atiendes y formas de pago los necesitamos para prender tu asistente. Lo demás, si lo llenas ahora, sale más rápido.", "otro": "Horario, dónde atiendes y formas de pago los necesitamos para prender tu asistente. Lo demás, si lo llenas ahora, sale más rápido.", "creador": "Si eres creador, nada de esto es obligatorio: si lo llenas ahora, tu asistente sale más rápido; si no, te lo preguntamos después."};
+    function reqMarks(){var g=giroValue();if(!g)return;form.querySelectorAll('[data-req]').forEach(function(s){s.textContent=s.dataset.req.split(' ').indexOf(g)>=0?"(obligatorio)":"(opcional)";});var w=document.getElementById('why3');if(w&&WHY3[g])w.textContent=WHY3[g];}
+    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',reqMarks);});
+    reqMarks();
     function giroLabel(){var g=form.querySelector('input[name=giro]:checked');return g?g.nextElementSibling.textContent.trim():'';}
     form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');var same={ropa:'ropa',comida:'comida'}[giroValue()];if(same&&!picked.length){var chip=vp.querySelectorAll('input')[ORDEN.indexOf(same)];if(chip&&!chip.checked){chip.checked=true;chip.dispatchEvent(new Event('change'));}}});});
     // A124: ?giro=creador (u otro giro) preselecciona la tarjeta; el link de «Para creadores» lo hace sin recargar

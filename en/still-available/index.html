@@ -1140,11 +1140,11 @@ Build my bot
       <fieldset class="paso" data-step="3" style="border:0" hidden>
         <legend class="sr">Step 3: How you handle buyers</legend>
         <h3 tabindex="-1">How do you handle your buyers?</h3>
-        <p class="why">We do need your payment methods to turn your assistant on (not if you're a creator). The rest: fill it in now and your assistant is ready sooner; otherwise we'll ask you by text.</p>
+        <p class="why" id="why3">We do need your payment methods to turn your assistant on (not if you're a creator). The rest: fill it in now and your assistant is ready sooner; otherwise we'll ask you by text.</p>
         <div class="fields">
-          <div class="f"><label for="horario">Business hours <span class="opt">(optional)</span></label><input type="text" id="horario" name="horario" placeholder="Mon–Sat, 10 am to 7 pm"></div>
-          <div class="f"><label for="entrega">Pickup or delivery <span class="opt">(optional)</span></label><textarea id="entrega" name="entrega" aria-describedby="h-entrega" placeholder="Pickup in Mesa near Main &amp; Dobson. I deliver in the East Valley for $40; Phoenix I quote."></textarea><p class="help" id="h-entrega">Area, pickup spot, whether you deliver or ship and what it costs.</p></div>
-          <div class="f"><span class="lab" id="l-pagos">Payment methods <span class="opt">(required; optional for creators)</span></span><div class="pills" id="pagosPills" role="group" aria-labelledby="l-pagos"></div><input type="hidden" id="pagos" name="pagos"></div>
+          <div class="f"><label for="horario">Business hours <span class="opt" data-req="citas comida otro">(optional)</span></label><input type="text" id="horario" name="horario" placeholder="Mon–Sat, 10 am to 7 pm"></div>
+          <div class="f"><label for="entrega">Pickup or delivery <span class="opt" data-req="citas comida otro">(optional)</span></label><textarea id="entrega" name="entrega" aria-describedby="h-entrega" placeholder="Pickup in Mesa near Main &amp; Dobson. I deliver in the East Valley for $40; Phoenix I quote."></textarea><p class="help" id="h-entrega">Area, pickup spot, whether you deliver or ship and what it costs.</p></div>
+          <div class="f"><span class="lab" id="l-pagos">Payment methods <span class="opt" data-req="bazar ropa citas comida otro">(required; optional for creators)</span></span><div class="pills" id="pagosPills" role="group" aria-labelledby="l-pagos"></div><input type="hidden" id="pagos" name="pagos"></div>
           <div class="f"><span class="lab" id="l-agenda">Should it book pickups, visits or deliveries?</span><div class="pills" role="radiogroup" aria-labelledby="l-agenda">
             <label class="pill"><input type="radio" name="agenda" value="Sí"><span>Yes, book them (Pro plan)</span></label>
             <label class="pill"><input type="radio" name="agenda" value="No" checked><span>No, just answer</span></label></div></div>
@@ -2391,6 +2391,11 @@ document.addEventListener('click', function (e) {
     // A118: tipo de negocio (obligatorio) y sub-giro de citas (opcional, solo con «citas»)
     var subBox=document.getElementById('subgiroBox'),subSel=document.getElementById('subgiro');
     function giroValue(){var g=form.querySelector('input[name=giro]:checked');return g?g.value:'';}
+    // A134: marcas de obligatorio/opcional del paso 3 según el giro (lo mismo que exige /intake: requiredFor)
+    var WHY3={"bazar": "We do need your payment methods to turn your assistant on. Hours and pickup: fill them in now and your assistant is ready sooner; otherwise we'll ask you later.", "ropa": "We do need your payment methods to turn your assistant on. Hours and pickup: fill them in now and your assistant is ready sooner; otherwise we'll ask you later.", "citas": "We need your hours, where you see clients and your payment methods to turn your assistant on. The rest: fill it in now and it's ready sooner.", "comida": "We need your hours, where you see clients and your payment methods to turn your assistant on. The rest: fill it in now and it's ready sooner.", "otro": "We need your hours, where you see clients and your payment methods to turn your assistant on. The rest: fill it in now and it's ready sooner.", "creador": "If you're a creator, none of this is required: fill it in now and your assistant is ready sooner; otherwise we'll ask you later."};
+    function reqMarks(){var g=giroValue();if(!g)return;form.querySelectorAll('[data-req]').forEach(function(s){s.textContent=s.dataset.req.split(' ').indexOf(g)>=0?"(required)":"(optional)";});var w=document.getElementById('why3');if(w&&WHY3[g])w.textContent=WHY3[g];}
+    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',reqMarks);});
+    reqMarks();
     function giroLabel(){var g=form.querySelector('input[name=giro]:checked');return g?g.nextElementSibling.textContent.trim():'';}
     form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');var same={ropa:'ropa',comida:'comida'}[giroValue()];if(same&&!picked.length){var chip=vp.querySelectorAll('input')[ORDEN.indexOf(same)];if(chip&&!chip.checked){chip.checked=true;chip.dispatchEvent(new Event('change'));}}});});
     // A124: ?giro=creador (u otro giro) preselecciona la tarjeta; el link de «Para creadores» lo hace sin recargar

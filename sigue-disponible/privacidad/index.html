@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aviso de privacidad · neuri.bots | Neuri</title><meta name="description" content="Qué datos de Instagram y Messenger usa neuri.bots, para qué, cuánto tiempo y cómo borrarlos.">
+<title>Aviso de privacidad · neuri.bots | Neuri</title><meta name="description" content="Borrador del aviso de privacidad de neuri.bots: datos de Instagram, Messenger, WhatsApp y Google Calendar, citas y pedidos, para qué, cuánto tiempo, derechos ARCO y cómo borrarlos.">
 <link rel="canonical" href="https://neuri.tech/sigue-disponible/privacidad/">
 <link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/privacidad/">
 <link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/privacy/">
@@ -8,7 +8,7 @@
 <meta property="og:site_name" content="Neuri">
 <meta property="og:locale" content="es_MX">
 <meta property="og:title" content="Aviso de privacidad · neuri.bots | Neuri">
-<meta property="og:description" content="Qué datos de Instagram y Messenger usa neuri.bots, para qué, cuánto tiempo y cómo borrarlos.">
+<meta property="og:description" content="Borrador del aviso de privacidad de neuri.bots: datos de Instagram, Messenger, WhatsApp y Google Calendar, citas y pedidos, para qué, cuánto tiempo, derechos ARCO y cómo borrarlos.">
 <meta property="og:url" content="https://neuri.tech/sigue-disponible/privacidad/">
 <meta property="og:image" content="https://neuri.tech/assets/og/bots-es.png">
 <meta property="og:image:width" content="1200">
@@ -16,7 +16,7 @@
 <meta property="og:image:alt" content="Aviso de privacidad · neuri.bots | Neuri">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aviso de privacidad · neuri.bots | Neuri">
-<meta name="twitter:description" content="Qué datos de Instagram y Messenger usa neuri.bots, para qué, cuánto tiempo y cómo borrarlos.">
+<meta name="twitter:description" content="Borrador del aviso de privacidad de neuri.bots: datos de Instagram, Messenger, WhatsApp y Google Calendar, citas y pedidos, para qué, cuánto tiempo, derechos ARCO y cómo borrarlos.">
 <meta name="twitter:image" content="https://neuri.tech/assets/og/bots-es.png">
 <script src="/assets/analytics.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
@@ -42,30 +42,132 @@ header a,footer a,nav a,a.logo,.btn,a[href^="mailto:"]{min-height:44px;display:i
 input[type=range]{min-height:44px}
 p>a:only-child{display:inline-block;min-height:24px;padding-block:2px}
 </style>
+<style>/* A147: aviso de borrador, marcas de pendiente y tabla de proveedores */
+.borrador{margin:18px 0 0;background:#FFF6D6;border:2px solid #1E2A5A;border-radius:14px;padding:14px 16px;font-size:15px}
+.borrador strong{display:block;font-size:17px}
+mark.ph{background:#FFE58A;padding:0 4px;border-radius:4px;color:#1E2A5A}
+h3{font-size:16px;margin:14px 0 4px}
+.tabla{overflow-x:auto;margin:8px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;background:#fff;border:1px solid #DCE3EE;border-radius:12px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid #DCE3EE;color:#33405F}
+th{color:#1E2A5A;background:#FAFBFD}
+section a:not([href^="mailto:"]){padding-block:4px}
+.cita{background:#fff;border-left:4px solid #22B573;border-radius:8px;padding:10px 12px;margin:8px 0}
+</style>
 </head><body><div class="wrap">
 <a class="logo" href="/sigue-disponible/">neuri<span>.</span></a>
-<h1>Aviso de privacidad de neuri.bots</h1><p class="lead">Última actualización: 13 de octubre de 2026. neuri.bots es un servicio de Neuri LLC (Phoenix, Arizona) que contesta por Instagram y Messenger, a nombre del negocio, las preguntas de compradores sobre si una pieza sigue a la venta.</p>
+<div class="borrador" role="note"><strong>Borrador pendiente de revisión legal</strong>Este texto todavía no lo revisa un abogado y puede cambiar. No es asesoría legal. Lo publicamos para ser transparentes sobre cómo funciona neuri.bots; la versión final sustituirá a esta.</div>
+<h1>Aviso de privacidad de neuri.bots</h1><p class="lead">Última actualización: 14 de octubre de 2026 (borrador). neuri.bots es un servicio de Neuri LLC (Phoenix, Arizona, EE. UU.) que contesta, a nombre de un negocio, los mensajes de sus clientes por Instagram, Messenger y WhatsApp: si una pieza sigue disponible, precios, apartados, citas y pedidos.</p>
 <section>
-<h2>Qué datos recibimos de Instagram y Messenger</h2>
-<ul><li>El texto de los mensajes que un comprador le manda al negocio y las respuestas que se le envían (guardamos hasta 1,000 caracteres por mensaje).</li>
-<li>El identificador del remitente que asigna Meta. Lo usamos para contestarle; en nuestro registro de mensajes se guarda como un código cifrado (hash), no el identificador original.</li>
+<h2 id="responsable">1. Quién es responsable</h2>
+<p>Este aviso se emite conforme a la <b>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</b> (LFPDPPP), publicada en el Diario Oficial de la Federación el 20 de marzo de 2025 y vigente desde el 21 de marzo de 2025, y considera también las leyes de EE. UU. que aplican a Neuri LLC.</p>
+<ul><li><b>Neuri LLC es responsable</b> de los datos de los negocios que se dan de alta (dueños) y de los visitantes de neuri.tech. Domicilio: <mark class="ph">[Domicilio postal de Neuri LLC — pendiente]</mark>, Phoenix, Arizona, EE. UU. Contacto de datos personales: <mark class="ph">[Nombre y correo del contacto legal — pendiente]</mark> y <a href="mailto:hola@neuri.tech">hola@neuri.tech</a>.</li>
+<li><b>Cada negocio es responsable</b> de los datos de sus clientes (las personas que le escriben). Para esos datos <b>Neuri actúa como encargado</b>: los trata solo para contestar a nombre del negocio y según su configuración. Si le escribiste a un negocio que usa neuri.bots, puedes ejercer tus derechos ante ese negocio o escribirnos y se lo hacemos llegar.</li></ul>
+
+<h2 id="datos">2. Qué datos tratamos</h2>
+<h3>De quien le escribe al negocio (Instagram, Messenger y WhatsApp)</h3>
+<ul><li>El texto de los mensajes que le mandas al negocio y las respuestas que se te envían (guardamos hasta 1,000 caracteres por mensaje).</li>
+<li>El identificador que asigna Meta (en Instagram y Messenger) o tu número de WhatsApp (wa_id). Lo usamos para contestarte; en nuestro registro de mensajes se guarda como un código cifrado de un solo sentido (hash), no el identificador ni el número.</li>
 <li>El nombre de perfil, solo si Meta lo incluye en el mensaje.</li>
-<li>Del negocio que conecta su cuenta: el identificador de su página de Facebook o cuenta de Instagram y el token de acceso que da Meta, guardado cifrado.</li></ul>
-<h2>Para qué los usamos</h2>
-<p>Únicamente para contestar, a nombre del negocio, preguntas sobre disponibilidad, precio, ubicación y citas de sus piezas, y para darle al negocio reportes de cuántos mensajes se atendieron. No vendemos estos datos ni los usamos para publicidad.</p>
-<h2>Cuánto tiempo los guardamos</h2>
-<p>El registro de mensajes se borra automáticamente a los 90 días. Si el negocio cancela y pide borrar sus datos, o si Meta nos avisa que un usuario pidió borrarlos, se borran antes (ver abajo).</p>
-<h2>Con quién se comparten</h2>
-<ul><li><b>Meta Platforms</b> (Instagram y Messenger), que entrega y envía los mensajes.</li>
-<li><b>Anthropic</b>, como procesador, cuando se usa su modelo Claude para redactar una respuesta; recibe el texto necesario para contestar.</li>
-<li><b>Nuestro proveedor de hosting</b> (Railway), donde corre el servicio y se guardan los datos.</li></ul>
-<p>No los compartimos con nadie más, salvo que la ley lo exija.</p>
-<h2>Cómo pedir que se borren tus datos</h2>
-<p>Puedes quitar la app desde la configuración de Facebook o Instagram (Configuración → Apps y sitios web); Meta nos manda la solicitud y borramos los mensajes ligados a tu cuenta y, si conectaste tu cuenta de negocio, la conexión y su token. Recibes un código de confirmación con una página para ver el estado. También puedes escribir a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> y lo hacemos a mano.</p>
-<h2>Visitas a neuri.tech</h2>
+<li>Si comentas una publicación o mencionas al negocio (por ejemplo, para recibir un link por mensaje privado): el texto del comentario o mención y su identificador.</li>
+<li>Si pides que ya no te escriban («stop», «alto», «ya no»): esa marca, para no volver a contestarte.</li></ul>
+<h3>Citas</h3>
+<p>Si agendas una cita por chat: el servicio, el día y la hora, el estado (confirmada, esperando anticipo o cancelada), la red por la que escribiste y, si te anotas en lista de espera, el día que querías. Si el dueño apunta una cita a mano, puede escribir tu nombre. El anticipo, si el negocio lo pide, lo pagas en el link de cobro del propio negocio: <b>Neuri no recibe ni ve datos de pago</b>.</p>
+<h3>Pedidos</h3>
+<p>Si haces un pedido por chat: los productos, cantidades, total, si es para llevar o a domicilio, la dirección de entrega que des, notas («sin picante»), la hora en que queda listo y su estado. El pago se hace con el negocio; Neuri no lo procesa.</p>
+<h3>Del negocio que usa neuri.bots (dueños)</h3>
+<ul><li>Datos del alta: tu nombre, correo, WhatsApp, nombre y giro del negocio, horario, dónde y cómo entregas, formas de pago, preguntas frecuentes y lo que el asistente debe contestar.</li>
+<li>Conexiones: el identificador de tu página de Facebook, cuenta de Instagram o número de WhatsApp Business y los tokens de acceso que da Meta, <b>guardados cifrados</b>.</li>
+<li>Si conectas Google Calendar: ver la sección 4.</li>
+<li>Si ligas una hoja de Google: el link publicado de tu hoja de catálogo o menú (la leemos como CSV) y, si lo pegas, el link de tu app web de Apps Script para mandarte pedidos y prospectos. Esa app corre en <b>tu</b> cuenta de Google; nosotros no tenemos acceso a tu Google Drive.</li>
+<li>Cobro del plan: Stripe guarda tu tarjeta; nosotros solo recibimos el estado de la suscripción y del pago.</li>
+<li>Soporte y bitácora: lo que nos pides desde Mi asistente y el registro de cambios hechos a tu cuenta.</li></ul>
+<p><b>Datos sensibles:</b> no pedimos ni buscamos datos sensibles. Te pedimos no mandarlos por chat; si llegan en un mensaje, solo se usan para contestar y se borran con el registro de mensajes.</p>
+
+<h2 id="finalidades">3. Para qué los usamos</h2>
+<h3>Finalidades necesarias para el servicio</h3>
+<ul><li>Contestar, a nombre del negocio, preguntas sobre disponibilidad, precio, ubicación, entrega y formas de pago; apartar piezas; agendar, cambiar o cancelar citas; tomar pedidos.</li>
+<li>Avisar al dueño (por correo y en Mi asistente) de apartados, citas, pedidos y conversaciones que debe atender en persona, y mandarle sus pedidos y prospectos a su hoja si la conectó.</li>
+<li>Enviar recordatorios de cita por el mismo canal, dentro de las reglas de Meta (en WhatsApp, fuera de la ventana de 24 horas, solo con plantillas aprobadas).</li>
+<li>Cobrar el plan, dar soporte, prevenir abusos y cumplir obligaciones legales.</li></ul>
+<h3>Finalidades no necesarias (puedes negarte)</h3>
+<ul><li>Mandar a los dueños reportes semanales y mensuales, la encuesta de satisfacción y el resumen de palabras clave. Cada correo trae un enlace para darte de baja; negarte no afecta el servicio.</li>
+<li>Medir de forma agregada cuántos mensajes se contestan y cuánto cuesta, para mejorar el producto.</li></ul>
+<p>No vendemos datos personales, no los usamos para publicidad ni para entrenar modelos de inteligencia artificial.</p>
+
+<h2 id="google">4. Google Calendar y la política de datos de usuario de Google</h2>
+<p>Si el dueño conecta su Google Calendar, pedimos un solo permiso: <code>https://www.googleapis.com/auth/calendar.events</code> (ver y editar eventos). Lo usamos solo para:</p>
+<ul><li><b>Leer lo ocupado:</b> de los eventos de hoy al último día que se puede agendar leemos únicamente su identificador, inicio y fin, <b>nunca el título, la descripción ni los invitados</b>. Guardamos solo esos bloques de inicio y fin, y se reemplazan cada vez que se vuelven a leer. Sirven para no ofrecer horarios en los que el dueño está ocupado.</li>
+<li><b>Escribir las citas:</b> creamos un evento por cada cita agendada por el asistente (servicio, nombre o código corto del cliente, y «Cita agendada por tu asistente de Neuri») y lo borramos si la cita se cancela.</li></ul>
+<p>El token de Google (refresh token) se guarda <b>cifrado</b>; el de acceso vive solo en memoria. No lo incluimos en la descarga de datos ni en registros. Puedes quitar el permiso cuando quieras desde Mi asistente o en <a href="https://myaccount.google.com/permissions" rel="noopener">tu cuenta de Google → Seguridad → Apps de terceros</a>.</p>
+<p class="cita" lang="en">neuri.bots' use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+<p>Es decir: el uso y la transferencia a cualquier otra app de la información recibida de las API de Google se apegará a la Política de Datos de Usuario de los Servicios de API de Google, incluidos los requisitos de Uso Limitado. En concreto: los datos de Google Calendar se usan solo para la agenda que ves en Mi asistente; <b>no se transfieren</b> a terceros (tampoco a Anthropic ni a ningún modelo de IA), salvo que sea necesario por seguridad, para cumplir la ley o en una fusión o venta del negocio; <b>no se usan para publicidad</b>, no se venden y no se usan para entrenar modelos de IA; y <b>ninguna persona los lee</b>, salvo con tu permiso, por seguridad (investigar un error o abuso) o por obligación legal.</p>
+
+<h2 id="ia">5. Respuestas con inteligencia artificial</h2>
+<p>Lo que las reglas fijas no resuelven lo redacta el modelo Claude de <b>Anthropic</b>, que actúa como nuestro proveedor: recibe el mensaje del cliente y los datos del negocio necesarios para contestar (catálogo, horario, políticas). Anthropic no usa estos datos para entrenar sus modelos conforme a sus términos comerciales. Por omisión, la primera respuesta a cada persona avisa que es un asistente automático, y puedes pedir hablar con alguien del negocio.</p>
+
+<h2 id="proveedores">6. Con quién se comparten (subencargados)</h2>
+<p>Usamos estos proveedores para dar el servicio. Tratan los datos solo para eso y bajo contrato. Están en EE. UU., por lo que hay <b>transferencia internacional</b> de datos a ese país; las comunicaciones a encargados no requieren tu consentimiento conforme a la LFPDPPP.</p>
+<div class="tabla"><table>
+<tr><th>Proveedor</th><th>Para qué</th><th>Dónde</th></tr>
+<tr><td>Meta Platforms</td><td>Instagram, Messenger y WhatsApp Cloud API: recibir y enviar los mensajes</td><td>EE. UU.</td></tr>
+<tr><td>Anthropic</td><td>Modelo Claude para redactar respuestas</td><td>EE. UU.</td></tr>
+<tr><td>Google</td><td>Google Calendar del dueño (si lo conecta); lectura de su hoja publicada</td><td>EE. UU.</td></tr>
+<tr><td>Railway</td><td>Servidores donde corre el servicio y se guardan los datos</td><td>EE. UU.</td></tr>
+<tr><td>Resend</td><td>Envío de correos a los dueños</td><td>EE. UU.</td></tr>
+<tr><td>Stripe</td><td>Cobro del plan a los dueños (tarjeta y facturación)</td><td>EE. UU.</td></tr>
+<tr><td>PostHog</td><td>Analítica anónima y sin cookies de neuri.tech (no de los chats)</td><td>EE. UU.</td></tr>
+</table></div>
+<p>Si el dueño conecta su propio asistente de IA (por ejemplo Claude o ChatGPT) a su cuenta, los datos que ese asistente consulta pasan a ese proveedor por decisión del dueño y bajo sus términos. Fuera de lo anterior, solo compartimos datos si una autoridad competente lo exige conforme a la ley.</p>
+
+<h2 id="conservacion">7. Cuánto tiempo los guardamos</h2>
+<ul><li><b>Registro de mensajes:</b> se borra automáticamente a los 90 días.</li>
+<li><b>Respuestas reutilizadas:</b> una respuesta general a una pregunta repetida se guarda máximo 24 horas, sin la pregunta en texto y sin datos personales.</li>
+<li><b>Pedido de «ya no me escriban»:</b> se respeta mientras exista el registro; si vuelves a escribir después de 30 días, o escribes «start», el asistente vuelve a contestar.</li>
+<li><b>Bloques ocupados de Google Calendar:</b> se reemplazan en cada lectura y se borran al desconectar.</li>
+<li><b>Citas y pedidos:</b> mientras el negocio tenga su cuenta (de los pedidos se guardan los últimos 500; de la lista de espera, los últimos 200), para que el dueño los consulte.</li>
+<li><b>Datos del negocio:</b> mientras tenga su cuenta. Si cancela, se guardan para que pueda volver, hasta que pida borrarlos (sección 8). <mark class="ph">[Pendiente: plazo de borrado automático tras cancelar]</mark></li>
+<li><b>Copias de seguridad:</b> 7 copias diarias de los datos de cuentas (sin el registro de mensajes), que se reemplazan solas.</li>
+<li>Lo que la ley nos obligue a conservar (por ejemplo, registros de facturación) se guarda solo por el plazo legal; lo que Stripe guarda de los cobros vive en Stripe.</li></ul>
+
+<h2 id="borrar">8. Cómo descargar o borrar tus datos</h2>
+<ul><li><b>Si le escribiste a un negocio por Instagram o Messenger:</b> quita la app desde la configuración de Facebook o Instagram (Configuración → Apps y sitios web). Meta nos manda la solicitud de borrado y borramos los mensajes ligados a tu cuenta en todos los negocios; recibes un código de confirmación con una página para ver el estado.</li>
+<li><b>Si escribiste por WhatsApp</b> (o prefieres no usar la opción de Meta): escribe a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> y lo hacemos a mano. Para que el asistente no te conteste más, basta escribir «stop».</li>
+<li><b>Si eres dueño de un negocio:</b> en Mi asistente puedes <b>descargar todos tus datos</b> en un archivo JSON (sin llaves ni tokens) y desconectar Google Calendar (Meta y WhatsApp se desconectan quitando la app desde Facebook, Instagram o WhatsApp Business, o escribiéndonos). Después de cancelar, puedes <b>borrar todo</b> desde Mi asistente: el alta, la configuración, el registro de mensajes, citas, pedidos y las conexiones con sus tokens. Solo queda una línea anónima (código cifrado, fechas y plan) para contabilidad.</li></ul>
+
+<h2 id="arco">9. Tus derechos ARCO y cómo ejercerlos</h2>
+<p>Puedes pedir <b>Acceso</b> a tus datos, su <b>Rectificación</b>, su <b>Cancelación</b> u <b>Oponerte</b> a su uso, además de <b>revocar tu consentimiento</b> o limitar el uso de tus datos (por ejemplo, dejar de recibir reportes por correo).</p>
+<ul><li><b>Cómo:</b> escribe a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> (o <mark class="ph">[correo del contacto legal — pendiente]</mark>) con tu nombre, un medio para responderte, qué pides y, si eres cliente de un negocio, cuál y por qué red le escribiste. Podemos pedirte acreditar tu identidad (o la de tu representante).</li>
+<li><b>Plazo:</b> te respondemos en un máximo de 20 días hábiles y, si procede, lo hacemos efectivo en los 15 días hábiles siguientes. <mark class="ph">[Confirmar plazos con la nueva LFPDPPP en la revisión legal]</mark></li>
+<li><b>Si eres cliente de un negocio:</b> el responsable es el negocio. Puedes pedírselo directamente o escribirnos y se lo pasamos de inmediato.</li></ul>
+<p><b>Autoridad:</b> desde el 21 de marzo de 2025, las funciones del extinto INAI en materia de datos personales en posesión de particulares corresponden a la <b>Secretaría Anticorrupción y Buen Gobierno</b>. Si consideras que tu derecho no fue atendido, puedes acudir a ella.</p>
+
+<h2 id="seguridad">10. Seguridad</h2>
+<p>Las conexiones van cifradas (HTTPS); los tokens de Meta, WhatsApp y Google se guardan cifrados; los identificadores de quienes escriben se guardan como hash en el registro de mensajes; los links de Mi asistente van firmados y vencen; y solo el equipo de Neuri entra al panel de administración, con bitácora. Si ocurre una vulneración que afecte de forma significativa tus derechos, te avisaremos sin demora.</p>
+
+<h2 id="eeuu">11. Si estás en EE. UU.</h2>
+<ul><li>No vendemos ni «compartimos» datos personales para publicidad dirigida.</li>
+<li>Si hay una vulneración de datos, avisaremos a las personas afectadas conforme a la ley de Arizona (A.R.S. § 18-552, dentro de 45 días) y a la de otros estados que aplique.</li>
+<li><b>Correos comerciales conforme a CAN-SPAM:</b> los reportes, la encuesta y los resúmenes identifican a Neuri LLC, incluyen nuestro domicilio postal y un enlace de baja de un clic, y atendemos la baja en máximo 10 días hábiles (en la práctica, al momento). Los correos de servicio (cobro, conexión, avisos de citas y pedidos) siguen llegando.</li>
+<li>neuri.bots es para negocios y no está dirigido a menores de 13 años; no recabamos a sabiendas sus datos.</li></ul>
+
+<h2 id="visitas">12. Visitas a neuri.tech</h2>
 <p>Para saber cuánta gente visita el sitio y qué páginas sirven, usamos PostHog (servidores en EE. UU.) en modo anónimo: no usamos cookies ni guardamos nada en tu navegador, no te identificamos con tu dirección IP (solo sirve para estimar el país), no grabamos tu pantalla y no lo usamos para publicidad. Contamos visitas, clics en botones y en qué paso del alta va alguien, sin tu nombre, correo, teléfono ni lo que escribes. Si tu navegador tiene activado «No rastrear», no se cuenta nada.</p>
-<h2>Contacto</h2>
-<p>Neuri LLC · Phoenix, Arizona, EE. UU. · <a href="mailto:hola@neuri.tech">hola@neuri.tech</a></p>
+
+<h2 id="cambios">13. Cambios a este aviso</h2>
+<p>Publicaremos cualquier cambio en esta página con su fecha y, si es importante, avisaremos por correo a los dueños. Si un cambio requiere nuevo consentimiento, lo pediremos.</p>
+
+<h2 id="contacto">14. Contacto</h2>
+<p>Neuri LLC · <mark class="ph">[Domicilio postal — pendiente]</mark>, Phoenix, Arizona, EE. UU. · Contacto legal: <mark class="ph">[nombre y correo — pendiente]</mark> · <a href="mailto:hola@neuri.tech">hola@neuri.tech</a></p>
+
+<h2 id="fuentes">15. Referencias</h2>
+<ul><li><a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy (Uso Limitado)</a></li>
+<li><a href="https://support.google.com/cloud/answer/13463817?hl=en" rel="noopener">Google Cloud: verificación de OAuth y texto de divulgación de Uso Limitado</a></li>
+<li><a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lfpdppp.htm" rel="noopener">LFPDPPP — texto vigente (Cámara de Diputados)</a></li>
+<li><a href="https://www.ey.com/es_mx/technical/tax/boletines-fiscales/nueva-ley-federal-proteccion-datos-personal-posesion-particulares" rel="noopener">EY México: nueva LFPDPPP y transferencia de funciones del INAI a la Secretaría Anticorrupción y Buen Gobierno</a></li>
+<li><a href="https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business" rel="noopener">FTC: CAN-SPAM Act, guía de cumplimiento</a></li>
+<li><a href="https://www.azleg.gov/ars/18/00552.htm" rel="noopener">A.R.S. § 18-552 (Arizona, aviso de vulneración de datos)</a></li></ul>
+<p>Borrador para revisión legal. No es asesoría legal.</p>
 </section>
 <footer><a href="/sigue-disponible/">neuri.bots</a> · un producto de <a href="/">Neuri LLC</a>. &nbsp; <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> &nbsp; <a href="/en/still-available/privacy/" hreflang="en">English</a></footer>
 </div></body></html>

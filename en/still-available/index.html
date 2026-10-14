@@ -1201,7 +1201,7 @@ Build my bot
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E1E3DC">
 <details style="border-bottom: 1px solid #E1E3DC; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">Could my account get blocked?<span class="faq-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #0B5E3A">+</span></summary>
-<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #3D4A44">Neuri connects through Meta’s official API, not tricks or shady apps. The direct connection with Instagram and Messenger is in Meta’s review; we’ll email you as soon as it opens.</p>
+<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #3D4A44">Neuri connects through Meta’s official API, not tricks or shady apps. <span data-meta-note data-open="The direct connection with Instagram and Messenger is open: you connect it in one click when you sign up.">The direct connection with Instagram and Messenger is in Meta’s review; we’ll email you as soon as it opens.</span></p>
 </details>
 
 <details style="border-bottom: 1px solid #E1E3DC; padding: 22px 0">
@@ -1753,7 +1753,7 @@ Pickup location
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E1E3DC">
 <details style="border-bottom: 1px solid #E1E3DC; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">Could my account get blocked?<span class="faq-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #0B5E3A">+</span></summary>
-<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #3D4A44">Neuri connects through Meta’s official API, not tricks or shady apps. The direct connection with Instagram and Messenger is in Meta’s review; we’ll email you as soon as it opens.</p>
+<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #3D4A44">Neuri connects through Meta’s official API, not tricks or shady apps. <span data-meta-note data-open="The direct connection with Instagram and Messenger is open: you connect it in one click when you sign up.">The direct connection with Instagram and Messenger is in Meta’s review; we’ll email you as soon as it opens.</span></p>
 </details>
 <template sc-for list="{{faqs}}" as="fq" hint-placeholder-count="6">
 <details style="border-bottom: 1px solid #E1E3DC; padding: 22px 0">
@@ -2482,7 +2482,7 @@ document.addEventListener('click', function (e) {
             miss.classList.add('on');
             go(first);
           } else {
-            done('<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we\'ll let you know as soon as the direct connection with Meta opens and send you the link to connect your Instagram or Facebook Page (no other apps to install). Meanwhile, we build your assistant.</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
+            done(r.connect==='open'&&r.connectUrl?'<p class="big">All set! Your sign-up is complete.</p><p>One step left: connect your Instagram or Facebook Page, in one click with no other apps to install.</p><p><a class="btn" href="'+r.connectUrl.replace(/"/g,'&quot;')+'">Connect my Instagram now</a></p><p style="color:var(--gris);font-size:15px">We also emailed you this link (it lasts a few days). Your assistant doesn\'t answer anyone until you test it and turn it on.</p>':'<p class="big">All set! Your sign-up is complete.</p><p>What happens next:</p><ol><li>Check your email: we\'ll let you know as soon as the direct connection with Meta opens and send you the link to connect your Instagram or Facebook Page (no other apps to install). Meanwhile, we build your assistant.</li><li>Once it\'s connected, we email you a link to test it yourself: it doesn\'t answer anyone until you turn it on.</li><li>When you turn it on, you get your My assistant link to pause it or update your details.</li></ol>');
           }
         })
         .catch(function(e){
@@ -2496,6 +2496,8 @@ document.addEventListener('click', function (e) {
     if(altaId){document.getElementById('resumeNote').hidden=false;window.addEventListener('load',function(){document.getElementById('signup').scrollIntoView();});}
     go(1,true);
   })();
+// A153: el aviso de Meta se actualiza solo con /estado del servidor (sin datos de clientes).
+(function(){if(!SD_ENDPOINT)return;fetch(SD_ENDPOINT+'/estado').then(function(r){return r.ok?r.json():null;}).then(function(e){if(!e||e.meta!=='open')return;document.querySelectorAll('[data-meta-note]').forEach(function(el){el.textContent=el.getAttribute('data-open');});}).catch(function(){});})();
 // A60: copiar la URL del conector
 (function(){var b=document.getElementById('iaCopy'),o=document.getElementById('iaOk'),u=document.getElementById('iaUrl');if(!b)return;
 function sel(){try{var r=document.createRange();r.selectNodeContents(u);var s=getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}}

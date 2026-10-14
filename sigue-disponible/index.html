@@ -1199,7 +1199,7 @@ Armar mi bot
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E1E3DC">
 <details style="border-bottom: 1px solid #E1E3DC; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">¿Me pueden bloquear la cuenta?<span class="faq-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #0B5E3A">+</span></summary>
-<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #3D4A44">Neuri se conecta con la API oficial de Meta, no con trucos ni apps piratas. La conexión directa con Instagram y Messenger está en revisión de Meta; te avisamos por correo en cuanto se abra.</p>
+<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #3D4A44">Neuri se conecta con la API oficial de Meta, no con trucos ni apps piratas. <span data-meta-note data-open="La conexión directa con Instagram y Messenger ya está abierta: la conectas con un clic al darte de alta.">La conexión directa con Instagram y Messenger está en revisión de Meta; te avisamos por correo en cuanto se abra.</span></p>
 </details>
 
 <details style="border-bottom: 1px solid #E1E3DC; padding: 22px 0">
@@ -1751,7 +1751,7 @@ Ubicación de entrega
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E1E3DC">
 <details style="border-bottom: 1px solid #E1E3DC; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">¿Me pueden bloquear la cuenta?<span class="faq-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #0B5E3A">+</span></summary>
-<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #3D4A44">Neuri se conecta con la API oficial de Meta, no con trucos ni apps piratas. La conexión directa con Instagram y Messenger está en revisión de Meta; te avisamos por correo en cuanto se abra.</p>
+<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #3D4A44">Neuri se conecta con la API oficial de Meta, no con trucos ni apps piratas. <span data-meta-note data-open="La conexión directa con Instagram y Messenger ya está abierta: la conectas con un clic al darte de alta.">La conexión directa con Instagram y Messenger está en revisión de Meta; te avisamos por correo en cuanto se abra.</span></p>
 </details>
 <template sc-for list="{{faqs}}" as="fq" hint-placeholder-count="6">
 <details style="border-bottom: 1px solid #E1E3DC; padding: 22px 0">
@@ -2480,7 +2480,7 @@ document.addEventListener('click', function (e) {
             miss.classList.add('on');
             go(first);
           } else {
-            done('<p class="big">¡Listo! Tu alta quedó completa.</p><p>Esto sigue:</p><ol><li>Revisa tu correo: te avisamos en cuanto la conexión directa con Meta esté abierta y te llega el link para conectar tu Instagram o tu página de Facebook (sin instalar otras apps). Mientras, armamos tu asistente.</li><li>Al conectarlo te llega otro correo para probarlo tú: no le contesta a nadie hasta que tú lo prendas.</li><li>Cuando lo prendas te llega tu link a Mi asistente para pausarlo o cambiar tus datos.</li></ol>');
+            done(r.connect==='open'&&r.connectUrl?'<p class="big">¡Listo! Tu alta quedó completa.</p><p>Falta un solo paso: conectar tu Instagram o tu página de Facebook, con un clic y sin instalar otras apps.</p><p><a class="btn" href="'+r.connectUrl.replace(/"/g,'&quot;')+'">Conectar mi Instagram ahora</a></p><p style="color:var(--gris);font-size:15px">También te mandamos este link por correo (dura unos días). Tu asistente no le contesta a nadie hasta que tú lo pruebes y lo prendas.</p>':'<p class="big">¡Listo! Tu alta quedó completa.</p><p>Esto sigue:</p><ol><li>Revisa tu correo: te avisamos en cuanto la conexión directa con Meta esté abierta y te llega el link para conectar tu Instagram o tu página de Facebook (sin instalar otras apps). Mientras, armamos tu asistente.</li><li>Al conectarlo te llega otro correo para probarlo tú: no le contesta a nadie hasta que tú lo prendas.</li><li>Cuando lo prendas te llega tu link a Mi asistente para pausarlo o cambiar tus datos.</li></ol>');
           }
         })
         .catch(function(e){
@@ -2494,6 +2494,8 @@ document.addEventListener('click', function (e) {
     if(altaId){document.getElementById('resumeNote').hidden=false;window.addEventListener('load',function(){document.getElementById('alta').scrollIntoView();});}
     go(1,true);
   })();
+// A153: el aviso de Meta se actualiza solo con /estado del servidor (sin datos de clientes).
+(function(){if(!SD_ENDPOINT)return;fetch(SD_ENDPOINT+'/estado').then(function(r){return r.ok?r.json():null;}).then(function(e){if(!e||e.meta!=='open')return;document.querySelectorAll('[data-meta-note]').forEach(function(el){el.textContent=el.getAttribute('data-open');});}).catch(function(){});})();
 // A60: copiar la URL del conector
 (function(){var b=document.getElementById('iaCopy'),o=document.getElementById('iaOk'),u=document.getElementById('iaUrl');if(!b)return;
 function sel(){try{var r=document.createRange();r.selectNodeContents(u);var s=getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}}

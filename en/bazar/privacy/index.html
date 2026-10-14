@@ -126,7 +126,7 @@ section a,.hermana a,.indice a{overflow-wrap:anywhere;padding-block:3px}
 <li><b>On neuri.tech</b> we use PostHog in anonymous mode: no cookies or browser storage, no session recording, no personal data, and nothing is counted if your browser sends "Do Not Track".</li></ul></section>
 
 <section id="security"><h2>9. Security</h2>
-<p>Each store is isolated in the database (row-level security), money history cannot be edited, access is role-based, sessions can be ended instantly, connections are encrypted (HTTPS), social media tokens are stored encrypted, bank accounts are shown masked and the daily backup is encrypted. If a breach significantly affects your rights, we will tell you without undue delay.</p></section>
+<p>Each store is isolated in the database (row-level security), money history cannot be edited, access is role-based, sessions can be ended instantly, connections are encrypted (HTTPS), social media tokens are stored encrypted, vendors' bank accounts are encrypted at the application level (AES-256, with a key kept outside the database) and shown masked (last 4 digits): the full number is only decrypted to build the bank payout file and when the store asks to see it to correct it, and it is not included in the data export and the daily backup is encrypted. If a breach significantly affects your rights, we will tell you without undue delay.</p></section>
 
 <section id="us"><h2>10. US and Arizona</h2>
 <ul><li>We do not sell or "share" personal information for targeted advertising.</li>

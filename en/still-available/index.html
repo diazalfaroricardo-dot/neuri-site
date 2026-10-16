@@ -1499,7 +1499,7 @@ Pickup location
 <div style="display: flex; flex-direction: column; gap: 8px">
 <label for="bot-prods" style="font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: #8FE0B4">4 · Your products (optional)</label>
 <input id="bot-prods" type="text" value="{{prodsVal}}" onChange="{{onProds}}" maxlength="160" autocomplete="off" placeholder="Red chair $45; Lamp $30" aria-describedby="bot-prods-h" style="font: inherit; font-size: 16px; padding: 13px 15px; border-radius: 14px; border: 1.5px solid #2F4339; background: #05080D; color: #FFFFFF; min-height: 48px; box-sizing: border-box">
-<span id="bot-prods-h" style="font-size: 14px; color: #C5D2CB">Up to 3, separated by semicolons. Ask «how much is the chair?» and it answers with yours. Nothing is saved.</span>
+<span id="bot-prods-h" style="font-size: 14px; color: #C5D2CB">Up to 3, separated by semicolons. Ask «how much is the chair?» and it answers with yours. Nothing is saved; if you sign up, we carry them into your form.</span>
 </div>
 <button type="button" class="n-btn" onClick="{{buildBot}}" aria-disabled="{{buildDisabled}}" style="{{buildStyle}}">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 3v4M17 5h4"></path></svg>
@@ -2244,9 +2244,9 @@ class Component extends DCLogic {
           pick: function () { var p = { biz: i }; if (!self.state.nameEdited) p.name = b.name; self.setCfg(p); } };
       }),
       bizName: st.name,
-      onName: function (e) { self.setCfg({ name: e.target.value, nameEdited: true }); },
+      onName: function (e) { window.__nbDemo = window.__nbDemo || {}; window.__nbDemo.name = e.target.value; self.setCfg({ name: e.target.value, nameEdited: true }); },
       prodsVal: st.prods,
-      onProds: function (e) { self.setCfg({ prods: e.target.value }); },
+      onProds: function (e) { window.__nbDemo = window.__nbDemo || {}; window.__nbDemo.prods = e.target.value; self.setCfg({ prods: e.target.value }); },
       toneList: this.toneDefs.map(function (t, i) { return { label: t, pressed: st.tone === i ? 'true' : 'false', style: chips(st.tone === i), pick: function () { self.setCfg({ tone: i }); } }; }),
       toneSample: this.greeting(st),
       skillList: this.skillDefs.map(function (k) {
@@ -2449,6 +2449,8 @@ document.addEventListener('click', function (e) {
     }
     function go(n,noFocus){
       step=n;
+      // A199: lo que escribió en el demo (nombre del negocio y productos) llega al alta si esos campos siguen vacíos
+      if(n===2&&window.__nbDemo){var dm=window.__nbDemo,fn=form.elements.negocio,fv=form.elements.vendes;if(fn&&!fn.value.trim()&&String(dm.name||'').trim())fn.value=String(dm.name).trim().slice(0,80);if(fv&&!fv.value.trim()&&String(dm.prods||'').trim())fv.value=String(dm.prods).trim().slice(0,160);}
       steps.forEach(function(s){s.hidden=+s.dataset.step!==n;});
       document.getElementById('pLabel').textContent='Step '+n+' of 4: '+NAMES[n];
       document.getElementById('pLeft').textContent=n===4?'Last one!':(4-n)+' to go';

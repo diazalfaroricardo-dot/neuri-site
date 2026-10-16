@@ -2371,6 +2371,7 @@ document.addEventListener('click', function (e) {
   var altaId = (new URLSearchParams(location.search).get('alta') || '').slice(0, 64);
   // Link de referido (?ref=…): se guarda para acreditar el mes gratis a los dos.
   var refCode = (new URLSearchParams(location.search).get('ref') || '').replace(/[^a-z0-9]/gi, '').slice(0, 16);
+  var srcCode = (new URLSearchParams(location.search).get('src') || new URLSearchParams(location.search).get('utm_source') || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40);
   (function(){
     var NAMES={1:'Tus datos',2:'Tu negocio',3:'Cómo atiendes',4:'Tu plan'};
     // /intake regresa lo que falta con nombre para personas («Formas de pago»): se traduce al campo para llevarla a ese paso
@@ -2472,6 +2473,7 @@ document.addEventListener('click', function (e) {
       if(!SD_ENDPOINT)return mailto(d);
       if(altaId)d.id=altaId;
       if(refCode)d.ref=refCode;
+      if(srcCode)d.origen=srcCode;
       bSend.disabled=true;bSend.textContent='Revisando tu alta…';
       fetch(SD_ENDPOINT+'/intake',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)})
         .then(function(r){if(r.status===429)return r.json().then(function(b){throw {limit:b.message};});if(!r.ok)throw new Error();return r.json();})

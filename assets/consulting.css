@@ -198,3 +198,4 @@ footer{padding:28px 0;font-size:13.5px;color:var(--dim)}footer .wrap{display:fle
 .eyebrow .soon{margin-left:6px;font-size:10.5px;letter-spacing:.06em;color:#fff;background:var(--terra);border-radius:4px;padding:3px 7px}
 footer a{color:inherit}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+@media(max-width:560px){header .wrap{gap:10px}.logo span{display:none}header .btn.sm{padding:0 14px;font-size:13.5px;white-space:nowrap;min-height:40px}}

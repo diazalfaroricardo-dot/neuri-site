@@ -799,7 +799,7 @@ Armar mi bot
 <form style="display: flex; gap: 8px; padding: 10px; background: #FFFFFF; border-top: 1px solid #ECECEC;" data-dc-submit="33">
 <label for="demo-input" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Escribe una pregunta</label>
 <input id="demo-input" type="text" value="" placeholder="Primero arma tu bot" autocomplete="off" style="flex: 1; min-width: 0; font: inherit; font-size: 15px; padding: 12px 14px; border-radius: 999px; border: 1px solid #D5D9D2; background: #FFFFFF; color: #05080D; min-height: 44px; box-sizing: border-box" data-dc-input="34">
-<button type="submit" aria-label="Enviar pregunta" style="width: 44px; height: 44px; border-radius: 50%; border: none; background: #3797F0; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+<button type="submit" aria-label="Enviar pregunta" style="width: 44px; height: 44px; border-radius: 50%; border: none; background: #1565D8; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7z"></path></svg>
 </button>
 </form>
@@ -946,7 +946,7 @@ Armar mi bot
 <h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Las otras opciones, y por qué esta sale mejor.</h2>
 <p style="margin: 0; font-size: 18px; color: #3D4A44; line-height: 1.5">Puedes seguir contestando tú, pagarle a alguien o armar un bot por tu cuenta. Así se comparan.</p>
 </div>
-<div style="overflow-x: auto; border-radius: 22px; border: 1px solid #E1E3DC; background: #FFFFFF">
+<div tabindex="0" role="region" aria-label="Tabla de comparación (desliza para ver más)" style="overflow-x: auto; border-radius: 22px; border: 1px solid #E1E3DC; background: #FFFFFF">
 <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15.5px">
 <thead>
 <tr style="text-align: left">
@@ -1321,7 +1321,7 @@ Quiero mi asistente
 </div>
 <div style="padding: 18px 14px 22px; display: flex; flex-direction: column; gap: 10px; font-size: 14.5px; line-height: 1.4; min-height: 400px; box-sizing: border-box">
 <template sc-if value="{{showM1}}" hint-placeholder-val="{{ true }}">
-<div class="n-pop" style="align-self: flex-end; background: #3797F0; color: #FFFFFF; padding: 10px 12px; border-radius: 18px 18px 4px 18px; max-width: 78%; transform-origin: bottom right">Hola, ¿sigue disponible el ropero blanco?</div>
+<div class="n-pop" style="align-self: flex-end; background: #1565D8; color: #FFFFFF; padding: 10px 12px; border-radius: 18px 18px 4px 18px; max-width: 78%; transform-origin: bottom right">Hola, ¿sigue disponible el ropero blanco?</div>
 </template>
 <template sc-if value="{{typing1}}" hint-placeholder-val="{{ false }}">
 <div class="n-pop" style="align-self: flex-start; background: #EFEFEF; padding: 13px 14px; border-radius: 18px 18px 18px 4px; display: flex; gap: 4px"><span class="n-dot"></span><span class="n-dot"></span><span class="n-dot"></span></div>
@@ -1331,7 +1331,7 @@ Quiero mi asistente
 <span class="n-pop" style="align-self: flex-start; font-size: 11.5px; color: #0B5E3A; font-weight: 600; padding-left: 4px; display: inline-flex; align-items: center; gap: 5px"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg>Respondido por Neuri</span>
 </template>
 <template sc-if value="{{showM2}}" hint-placeholder-val="{{ true }}">
-<div class="n-pop" style="align-self: flex-end; background: #3797F0; color: #FFFFFF; padding: 10px 12px; border-radius: 18px 18px 4px 18px; max-width: 78%; transform-origin: bottom right">Sí, apártamelo porfa</div>
+<div class="n-pop" style="align-self: flex-end; background: #1565D8; color: #FFFFFF; padding: 10px 12px; border-radius: 18px 18px 4px 18px; max-width: 78%; transform-origin: bottom right">Sí, apártamelo porfa</div>
 </template>
 <template sc-if value="{{typing2}}" hint-placeholder-val="{{ false }}">
 <div class="n-pop" style="align-self: flex-start; background: #EFEFEF; padding: 13px 14px; border-radius: 18px 18px 18px 4px; display: flex; gap: 4px"><span class="n-dot"></span><span class="n-dot"></span><span class="n-dot"></span></div>
@@ -1680,7 +1680,7 @@ Ubicación de entrega
 <h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Las otras opciones, y por qué esta sale mejor.</h2>
 <p style="margin: 0; font-size: 18px; color: #3D4A44; line-height: 1.5">Puedes seguir contestando tú, pagarle a alguien o armar un bot por tu cuenta. Así se comparan.</p>
 </div>
-<div style="overflow-x: auto; border-radius: 22px; border: 1px solid #E1E3DC; background: #FFFFFF">
+<div tabindex="0" role="region" aria-label="Tabla de comparación (desliza para ver más)" style="overflow-x: auto; border-radius: 22px; border: 1px solid #E1E3DC; background: #FFFFFF">
 <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15.5px">
 <thead>
 <tr style="text-align: left">
@@ -2124,7 +2124,7 @@ class Component extends DCLogic {
     var building = st.phase === 'building';
     var chips = function (on) { return 'font: inherit; cursor: pointer; font-weight: 600; font-size: 14.5px; padding: 10px 15px; border-radius: 999px; min-height: 44px; ' + (on ? 'background: #8FE0B4; color: #05080D; border: 1.5px solid #8FE0B4;' : 'background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.24);'); };
     var CH = {
-      ig: { label: 'Instagram', icon: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8zM17.5 6.5h.01', head: '#FFFFFF', headText: '#05080D', sub: '#6B7A72', body: '#FFFFFF', me: 'background: #3797F0; color: #FFFFFF;', bot: 'background: #EFEFEF; color: #05080D;', send: '#3797F0', border: 'border-bottom: 1px solid #ECECEC;' },
+      ig: { label: 'Instagram', icon: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8zM17.5 6.5h.01', head: '#FFFFFF', headText: '#05080D', sub: '#6B7A72', body: '#FFFFFF', me: 'background: #1565D8; color: #FFFFFF;', bot: 'background: #EFEFEF; color: #05080D;', send: '#1565D8', border: 'border-bottom: 1px solid #ECECEC;' },
       fb: { label: 'Messenger', icon: 'M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.4S17 3 12 3zM8 13l3-3 2 2 3-3', head: '#FFFFFF', headText: '#05080D', sub: '#6B7A72', body: '#FFFFFF', me: 'background: #0866FF; color: #FFFFFF;', bot: 'background: #F0F0F0; color: #05080D;', send: '#0866FF', border: 'border-bottom: 1px solid #ECECEC;' },
       wa: { label: 'WhatsApp', icon: 'M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z', head: '#0B5E3A', headText: '#FFFFFF', sub: '#CFE6D9', body: '#ECE5DA', me: 'background: #D9FDD3; color: #05080D;', bot: 'background: #FFFFFF; color: #05080D;', send: '#0B5E3A', border: '' }
     };

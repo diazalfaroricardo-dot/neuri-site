@@ -1818,7 +1818,7 @@ class Component extends DCLogic {
       var qr = (qp.get('productos') || qp.get('products') || '').trim().slice(0, 160);
       if (qn) { this.state.name = qn; this.state.nameEdited = true; }
       if (qr) this.state.prods = qr;
-      if (qn || qr) window.__nbDemo = { name: qn, prods: qr };
+      if (qn || qr) window.__nbDemo = { name: qn, prods: qr }; if (qr) this.prefilled = true;
     } catch (e) {}
     this.lostAnimTimer = null;
     this.ownRowsDef = [
@@ -2080,10 +2080,12 @@ class Component extends DCLogic {
     if (it === undefined) {
       it = null;
       var low = ' ' + q.toLowerCase() + ' ';
+      // A204: una palabra clave que es parte de SUS productos («mesa», «table») no cuenta como apartar/cita
+      var own = String(this.state.prods || '').toLowerCase();
       var order = ['apartar', 'pago', 'ubicacion', 'horario', 'precio'];
       for (var i = 0; i < order.length && !it; i++) {
         var ks = this.intentKeys[order[i]];
-        for (var k = 0; k < ks.length; k++) { if (low.indexOf(ks[k]) !== -1) { it = order[i]; break; } }
+        for (var k = 0; k < ks.length; k++) { if (low.indexOf(ks[k]) !== -1 && !(order[i] !== 'precio' && own && own.indexOf(ks[k].trim()) !== -1)) { it = order[i]; break; } }
       }
     }
     var reply = (it && this.state.skills[this.intentSkill[it]]) ? this.compose(it, q) : this.handoff();
@@ -2120,6 +2122,8 @@ class Component extends DCLogic {
   }
   componentDidMount() {
     var self = this;
+    // A203: link precargado con productos (QR de la tarjeta de visita) → el bot ya sale armado
+    if (this.prefilled) this.buildBot();
     var reduce = false;
     try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
     if (reduce) { this.setState({ step: 7, ownNew: true, lostAnim: this.lostTarget(this.state) }); return; }

@@ -1809,6 +1809,15 @@ class Component extends DCLogic {
       ownFilter: 'all', ownSel: 1, ownNew: false,
       scen: 'bazar', sStep: 0, sProg: 0
     };
+    // A200: demo precargado por link (?negocio=…&productos=… o ?business=…&products=…) para mandárselo al dueño tras la visita
+    try {
+      var qp = new URLSearchParams(location.search);
+      var qn = (qp.get('negocio') || qp.get('business') || '').trim().slice(0, 36);
+      var qr = (qp.get('productos') || qp.get('products') || '').trim().slice(0, 160);
+      if (qn) { this.state.name = qn; this.state.nameEdited = true; }
+      if (qr) this.state.prods = qr;
+      if (qn || qr) window.__nbDemo = { name: qn, prods: qr };
+    } catch (e) {}
     this.lostAnimTimer = null;
     this.ownRowsDef = [
       { id: 'sofia', name: 'Sofía L.', ini: 'SL', avatar: '#F7B48C', when: 'ahora', kind: 'apart', status: 'Apartó · hoy 6 pm',

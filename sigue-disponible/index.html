@@ -1825,6 +1825,7 @@ class Component extends DCLogic {
     var A = function (t, s, q) { return { t: t, s: s, q: q }; };
     this.bizDefs = [
       { label: 'Vendo en Marketplace', example: 'Muebles, ropa, de todo', name: 'Tienda de Mariana', owner: 'Mariana',
+        soloPrecio: A('El ropero blanco cuesta $1,800.', 'Ropero blanco: $1,800.', '¿Cuánto cuesta el ropero?'),
         ans: { precio: A('Sí, sigue disponible. El ropero blanco cuesta $1,800.', 'Disponible. Precio: $1,800.', '¿Sigue disponible el ropero?'),
           horario: A('Entrego de lunes a sábado, de 5 a 8 pm.', 'Entregas de lunes a sábado, 5 a 8 pm.', '¿A qué hora entregas?'),
           ubicacion: A('Entrego en Col. Centro y te mando la ubicación exacta.', 'Entrega en Col. Centro.', '¿Dónde lo recojo?'),
@@ -1998,8 +1999,11 @@ class Component extends DCLogic {
       '¡Qué onda! Aquí el asistente de ' + n + '. ¡Pregúntame lo que quieras!'
     ][st.tone];
   }
-  compose(intent) {
-    var a = this.bizCur().ans[intent];
+  compose(intent, q) {
+    var biz = this.bizCur();
+    var a = biz.ans[intent];
+    // «¿Cuánto cuesta?» sin preguntar disponibilidad: solo el precio (no repetir «sigue disponible»)
+    if (intent === 'precio' && biz.soloPrecio && !/disponible|sigue|todav|hay|still|availab|have/i.test(q || '')) a = biz.soloPrecio;
     var t = this.state.tone;
     if (t === 0) return '¡Claro! ' + a.t + ' ¿Te ayudo con algo más?';
     if (t === 1) return a.s;
@@ -2052,7 +2056,7 @@ class Component extends DCLogic {
         for (var k = 0; k < ks.length; k++) { if (low.indexOf(ks[k]) !== -1) { it = order[i]; break; } }
       }
     }
-    var reply = (it && this.state.skills[this.intentSkill[it]]) ? this.compose(it) : this.handoff();
+    var reply = (it && this.state.skills[this.intentSkill[it]]) ? this.compose(it, q) : this.handoff();
     var handed = !(it && this.state.skills[this.intentSkill[it]]);
     var msgs = this.state.msgs.concat([{ id: this.nextId++, mine: true, text: q, time: '' }]).slice(-6);
     this.setState({ msgs: msgs, typing: true, draft: '' });

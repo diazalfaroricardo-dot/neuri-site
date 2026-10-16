@@ -1827,6 +1827,7 @@ class Component extends DCLogic {
     var A = function (t, s, q) { return { t: t, s: s, q: q }; };
     this.bizDefs = [
       { label: 'I sell on Marketplace', example: 'Furniture, clothes, anything', name: 'Mariana’s Finds', owner: 'Mariana',
+        soloPrecio: A('The white dresser is $180.', 'White dresser: $180.', 'How much is the dresser?'),
         ans: { precio: A('Yes, it’s still available. The white dresser is $180.', 'Available. Price: $180.', 'Is the dresser still available?'),
           horario: A('Pickup is Monday to Saturday, 5 to 8 pm.', 'Pickup Mon–Sat, 5–8 pm.', 'What time is pickup?'),
           ubicacion: A('Pickup is near downtown, and I’ll send you the exact address.', 'Pickup near downtown.', 'Where do I pick it up?'),
@@ -2000,8 +2001,11 @@ class Component extends DCLogic {
       'Hey there! ' + n + ' assistant here. Ask me anything!'
     ][st.tone];
   }
-  compose(intent) {
-    var a = this.bizCur().ans[intent];
+  compose(intent, q) {
+    var biz = this.bizCur();
+    var a = biz.ans[intent];
+    // «¿Cuánto cuesta?» sin preguntar disponibilidad: solo el precio (no repetir «sigue disponible»)
+    if (intent === 'precio' && biz.soloPrecio && !/disponible|sigue|todav|hay|still|availab|have/i.test(q || '')) a = biz.soloPrecio;
     var t = this.state.tone;
     if (t === 0) return 'Sure! ' + a.t + ' Anything else I can help with?';
     if (t === 1) return a.s;
@@ -2054,7 +2058,7 @@ class Component extends DCLogic {
         for (var k = 0; k < ks.length; k++) { if (low.indexOf(ks[k]) !== -1) { it = order[i]; break; } }
       }
     }
-    var reply = (it && this.state.skills[this.intentSkill[it]]) ? this.compose(it) : this.handoff();
+    var reply = (it && this.state.skills[this.intentSkill[it]]) ? this.compose(it, q) : this.handoff();
     var handed = !(it && this.state.skills[this.intentSkill[it]]);
     var msgs = this.state.msgs.concat([{ id: this.nextId++, mine: true, text: q, time: '' }]).slice(-6);
     this.setState({ msgs: msgs, typing: true, draft: '' });

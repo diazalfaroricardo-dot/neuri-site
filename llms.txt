@@ -18,7 +18,7 @@ Point of sale for consignment bazaars, tianguis, antique malls, vendor malls and
 
 - Básico MXN 499 · Pro MXN 899 · Plus MXN 1,499 al mes
 - Basic US$79 · Pro US$119 · Plus US$149 per month
-- [neuri.bazar (español)](https://neuri.tech/bazar/) · [English](https://neuri.tech/en/)
+- [neuri.bazar (español)](https://neuri.tech/bazar/) · [English](https://neuri.tech/en/) · [Tour with real screens](https://neuri.tech/en/bazar/tour/)
 
 ## neuri.consulting
 

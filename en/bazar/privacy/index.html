@@ -50,7 +50,7 @@ section a,.hermana a,.indice a{overflow-wrap:anywhere;padding-block:3px}
 <header><a class="logo" href="/en/">neuri<span>.bazar</span></a><nav><a href="/bazar/privacidad/" hreflang="es" lang="es">Español</a></nav></header>
 <div class="borrador" role="note"><strong>Draft pending legal review · Borrador pendiente de revisión legal</strong>This text has not been reviewed by a lawyer yet and may change. It is not legal advice. We publish it to be transparent about how neuri.bazar works; the final version will replace this one.</div>
 <h1>Privacy Notice</h1>
-<p class="lead">Last updated: October 14, 2026 · Version 0.2 (draft)</p>
+<p class="lead">Last updated: October 15, 2026 · Version 0.3 (draft)</p>
 <p class="hermana">See also: <a href="/en/bazar/terms/">Terms of Service</a></p>
 <nav class="indice" aria-label="Contents"><b>Contents</b><ol>
 <li><a href="#controller">Controller and processor</a></li><li><a href="#data">Data we process</a></li><li><a href="#purposes">Why we use it</a></li><li><a href="#consent">Consent</a></li><li><a href="#subprocessors">Who we share it with</a></li><li><a href="#retention">How long we keep it</a></li><li><a href="#rights">Your rights</a></li><li><a href="#cookies">Cookies and analytics</a></li><li><a href="#security">Security</a></li><li><a href="#us">US and Arizona</a></li><li><a href="#changes">Changes</a></li><li><a href="#sources">References</a></li></ol></nav>
@@ -66,9 +66,15 @@ section a,.hermana a,.indice a{overflow-wrap:anywhere;padding-block:3px}
 <tr><td>Store owners and staff</td><td>Name, email, role, store membership, whether they signed in with Google or an email link, last sign-in, sessions (stored as hashes), manager PIN (hashed) and an audit log of the changes they make.</td></tr>
 <tr><td>Store vendors</td><td>Name, WhatsApp and/or email, chosen channel and messaging consent, booth, commission, rent, balance and ledger, items with photos and prices, statements, bank account for payouts (routing and account number, or CLABE), signed agreement (text, name, drawn signature, date, IP and browser at signing) and, if they save one, their card for rent (stored by Stripe; we only see the last 4 digits, plus the authorization text and date).</td></tr>
 <tr><td>Store customers</td><td>Only if they provide it: name, WhatsApp or email for a receipt or layaway, and what they bought or put on layaway.</td></tr>
-<tr><td>Booth applicants</td><td>Name, email, WhatsApp, what they sell and the booth size they want.</td></tr>
+<tr><td>Booth applicants</td><td>Name, email (confirmed with a link or with Google), optional WhatsApp, what they sell, the booth size they want and, if the store asks for it, a photo of their government ID (see below).</td></tr>
 <tr><td>Technical data</td><td>IP address for rate limiting (deleted the next day), server error log without emails or numbers (30 days) and a log of messages sent (recipient, template, status).</td></tr>
 <tr><td>neuri.tech visitors</td><td>Anonymous, cookieless visits and clicks (see section 8).</td></tr></table></div>
+<h3 id="id-photos">ID of booth applicants</h3>
+<ul><li><b>What.</b> If the store asks for it, a photo of the front and back of your government ID (in the US: driver's license, state ID or passport; in Mexico: INE, passport or license). We do not store the ID number separately or put it in the contract: the contract only shows the date the store reviewed it.</li>
+<li><b>Why.</b> To confirm who you are before renting you a booth and preparing your contract. It is not used for anything else, not shared with other vendors and never published.</li>
+<li><b>Who sees it.</b> Only the store's owner and managers, signed in. Every time someone opens it, it is recorded in the store's activity log.</li>
+<li><b>Consent.</b> Before uploading it you check a box authorizing the store to keep it only for this purpose. If you prefer not to upload it, you can bring it in person and the store reviews it there.</li>
+<li><b>Processor.</b> Neuri LLC stores the photos on the store's behalf on US servers (Neon and Railway) and does not use them for its own purposes. Deletion periods are in section 6.</li></ul>
 <p><b>Sensitive data:</b> we do not ask for or process sensitive data (ethnic origin, health, beliefs, sexual orientation, etc.). <b>Financial data:</b> we do process vendors' balances, payouts, bank account and card-charge authorization; they are entered by the store or by the vendor in My Booth.</p></section>
 
 <section id="purposes"><h2>3. Why we use it</h2>
@@ -111,6 +117,7 @@ section a,.hermana a,.indice a{overflow-wrap:anywhere;padding-block:3px}
 <ul><li>While the store has an account, we keep its data to provide the service.</li>
 <li><b>When the store is closed:</b> it is locked for 30 days (it can be restored or downloaded) and then <b>permanently deleted</b>; encrypted backups expire on their own within the following 30 days.</li>
 <li>Sign-in links: 20 minutes (24 hours for the signup link). My Booth link: expires after 90 days without use. IP for rate limiting: 1 day. Server errors and job logs: 30 days.</li>
+<li><b>Booth applications:</b> if you do not confirm your email, the whole application (photos included) is deleted after 7 days. Your ID photo is deleted automatically 90 days (or the period the store sets, 7 to 365) after your application is rejected or your rental ends; you can ask the store to delete it sooner (section 7).</li>
 <li>Anything the law requires us to keep (for example, billing records for our plan) is kept only for the legal period.</li></ul></section>
 
 <section id="rights"><h2>7. Your rights</h2>

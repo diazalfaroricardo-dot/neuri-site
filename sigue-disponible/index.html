@@ -1494,6 +1494,11 @@ Ubicación de entrega
 <span style="font-size: 13.5px; color: #8FA79A">Lo que no marques, o lo que no sepa, te lo pasa a ti.</span>
 </div>
 
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="bot-prods" style="font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: #8FE0B4">4 · Tus productos (opcional)</label>
+<input id="bot-prods" type="text" value="{{prodsVal}}" onChange="{{onProds}}" maxlength="160" autocomplete="off" placeholder="Silla roja $450; Lámpara $300" aria-describedby="bot-prods-h" style="font: inherit; font-size: 16px; padding: 13px 15px; border-radius: 14px; border: 1.5px solid #2F4339; background: #05080D; color: #FFFFFF; min-height: 48px; box-sizing: border-box">
+<span id="bot-prods-h" style="font-size: 14px; color: #C5D2CB">Hasta 3, separados por punto y coma. Pregúntale «¿cuánto la silla?» y contesta con los tuyos. No se guarda nada.</span>
+</div>
 <button type="button" class="n-btn" onClick="{{buildBot}}" aria-disabled="{{buildDisabled}}" style="{{buildStyle}}">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 3v4M17 5h4"></path></svg>
 {{buildLabel}}
@@ -1797,7 +1802,7 @@ class Component extends DCLogic {
     super(props);
     this.state = {
       step: 0,
-      biz: 0, tone: 0, ch: 'ig', name: 'Tienda de Mariana', nameEdited: false,
+      biz: 0, tone: 0, ch: 'ig', name: 'Tienda de Mariana', nameEdited: false, prods: '',
       skills: { precio: true, horario: true, apartar: true, pago: false },
       phase: 'setup', bChecks: 0, msgs: [], typing: false, draft: '',
       lcMsgs: 30, lcLate: 40, lcClose: 20, lcTicket: 600, lostAnim: 0,
@@ -1999,11 +2004,25 @@ class Component extends DCLogic {
       '¡Qué onda! Aquí el asistente de ' + n + '. ¡Pregúntame lo que quieras!'
     ][st.tone];
   }
+  ownProds(st) {
+    // A197: «Silla roja $450; Lámpara $300» → hasta 3 productos (solo en el navegador, no se guarda)
+    return String(st.prods || '').split(/[;\n]/).map(function (x) {
+      var m = x.trim().match(/^(.+?)[\s:–-]*\$\s*([\d][\d.,]*)\s*$/) || x.trim().match(/^(.+?)\s+([\d][\d.,]*)\s*$/);
+      return m ? { n: m[1].trim().slice(0, 40), p: '$' + m[2] } : null;
+    }).filter(Boolean).slice(0, 3);
+  }
   compose(intent, q) {
     var biz = this.bizCur();
     var a = biz.ans[intent];
-    // «¿Cuánto cuesta?» sin preguntar disponibilidad: solo el precio (no repetir «sigue disponible»)
-    if (intent === 'precio' && biz.soloPrecio && !/disponible|sigue|todav|hay|still|availab|have/i.test(q || '')) a = biz.soloPrecio;
+    var own = intent === 'precio' ? this.ownProds(this.state) : [];
+    if (own.length) {
+      var norm = function (x) { return String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+      var lq = norm(q), hit = null;
+      own.forEach(function (o) { if (!hit && norm(o.n).split(/\s+/).some(function (w) { return w.length > 2 && lq.indexOf(w) !== -1; })) hit = o; });
+      var asksAv = /disponible|sigue|todav|hay|still|availab|have/i.test(q || '');
+      if (hit) a = { t: hit.n + ' cuesta ' + hit.p + (asksAv ? ' y sí está disponible' : '') + '.', s: hit.n + ': ' + hit.p + '.' + (asksAv ? ' Disponible.' : '') };
+      else { var lst = own.map(function (o) { return o.n + ' ' + o.p; }).join(', '); a = { t: 'Tenemos: ' + lst + '. ¿Cuál te interesa?', s: lst + '.' }; }
+    } else if (intent === 'precio' && biz.soloPrecio && !/disponible|sigue|todav|hay|still|availab|have/i.test(q || '')) a = biz.soloPrecio;
     var t = this.state.tone;
     if (t === 0) return '¡Claro! ' + a.t + ' ¿Te ayudo con algo más?';
     if (t === 1) return a.s;
@@ -2224,6 +2243,8 @@ class Component extends DCLogic {
       }),
       bizName: st.name,
       onName: function (e) { self.setCfg({ name: e.target.value, nameEdited: true }); },
+      prodsVal: st.prods,
+      onProds: function (e) { self.setCfg({ prods: e.target.value }); },
       toneList: this.toneDefs.map(function (t, i) { return { label: t, pressed: st.tone === i ? 'true' : 'false', style: chips(st.tone === i), pick: function () { self.setCfg({ tone: i }); } }; }),
       toneSample: this.greeting(st),
       skillList: this.skillDefs.map(function (k) {

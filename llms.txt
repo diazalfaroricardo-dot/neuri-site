@@ -1,0 +1,33 @@
+# Neuri
+
+> Neuri (Neuri LLC, Phoenix, AZ) builds AI agents for small businesses in Mexico and the US, in Spanish and English. Three products: neuri.bots, neuri.bazar and neuri.consulting. Contact: hola@neuri.tech
+
+Neuri crea agentes de IA para negocios en México y Estados Unidos, en español e inglés: neuri.bots contesta tus DMs de Instagram y Messenger, neuri.bazar lleva la caja y los vendedores de tu bazar, y neuri.consulting te ayuda a poner la IA a trabajar.
+
+## neuri.bots
+
+Answers Instagram and Messenger DMs for small sellers from the seller's own sheet: "is this still available?", price and payment, holds items and DMs a link to people who comment. It does not make things up: unknown questions go to the owner. The direct Instagram/Messenger connection is pending Meta's approval; WhatsApp is on the way. Month to month, no contract; setup and first month free for the first 10 sellers.
+
+- Básico MXN 899/mes · Pro MXN 1,299/mes
+- Basic US$49/month · Pro US$69/month
+- [neuri.bots (español)](https://neuri.tech/sigue-disponible/) · [English](https://neuri.tech/en/still-available/)
+
+## neuri.bazar
+
+Point of sale for consignment bazaars, tianguis, antique malls, vendor malls and makers markets that rent booths: ring up sales on a phone; each vendor's sales, rent and payouts add up automatically. 14 days free.
+
+- Básico MXN 499 · Pro MXN 899 · Plus MXN 1,499 al mes
+- Basic US$79 · Pro US$119 · Plus US$149 per month
+- [neuri.bazar (español)](https://neuri.tech/bazar/) · [English](https://neuri.tech/en/)
+
+## neuri.consulting
+
+AI consulting for companies: a virtual AI diagnostic, then implementation of agents that prospect customers, automate operations and deliver reporting. Diagnostic from MXN 4,500 / US$249.
+
+- [Neuri Consulting (español)](https://neuri.tech/consultoria/) · [English](https://neuri.tech/en/ai-consulting/)
+- [Diagnostic site and pricing](https://consulting.neuri.tech/precios) · [llms.txt](https://consulting.neuri.tech/llms.txt)
+
+## Legal
+
+- [Privacidad neuri.bots](https://neuri.tech/sigue-disponible/privacidad/) · [Privacy](https://neuri.tech/en/still-available/privacy/)
+- [Privacidad neuri.bazar](https://neuri.tech/bazar/privacidad/) · [Términos](https://neuri.tech/bazar/terminos/) · [Privacy](https://neuri.tech/en/bazar/privacy/) · [Terms](https://neuri.tech/en/bazar/terms/)

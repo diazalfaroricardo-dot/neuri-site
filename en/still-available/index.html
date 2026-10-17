@@ -1501,6 +1501,9 @@ Pickup location
 <label for="bot-prods" style="font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: #8FE0B4">4 · Your products (optional)</label>
 <input id="bot-prods" type="text" value="{{prodsVal}}" onChange="{{onProds}}" maxlength="160" autocomplete="off" placeholder="Red chair $45; Lamp $30" aria-describedby="bot-prods-h" style="font: inherit; font-size: 16px; padding: 13px 15px; border-radius: 14px; border: 1.5px solid #2F4339; background: #05080D; color: #FFFFFF; min-height: 48px; box-sizing: border-box">
 <span id="bot-prods-h" style="font-size: 14px; color: #C5D2CB">Up to 3, separated by semicolons. Ask «how much is the chair?» and it answers with yours. Nothing is saved; if you sign up, we carry them into your form.</span>
+<template sc-if value="{{prodsOk}}" hint-placeholder-val="{{ false }}"><span role="status" style="font-size: 14px; color: #8FE0B4">✓ Got it: {{prodsTxt}}</span></template>
+<template sc-if value="{{prodsBad}}" hint-placeholder-val="{{ false }}"><span role="status" style="font-size: 14px; color: #F5C26B">No prices found. Write «Name $price», separated by semicolons.</span></template>
+<template sc-if value="{{prodsOk}}" hint-placeholder-val="{{ false }}"><a href="{{waShare}}" target="_blank" rel="noopener" data-a209 style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14.5px; font-weight: 700; color: #8FE0B4; text-decoration: underline; text-underline-offset: 3px">Keep it: send this demo to yourself on WhatsApp</a></template>
 </div>
 <button type="button" class="n-btn" onClick="{{buildBot}}" aria-disabled="{{buildDisabled}}" style="{{buildStyle}}">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 3v4M17 5h4"></path></svg>
@@ -2263,6 +2266,12 @@ class Component extends DCLogic {
       bizName: st.name,
       onName: function (e) { window.__nbDemo = window.__nbDemo || {}; window.__nbDemo.name = e.target.value; self.setCfg({ name: e.target.value, nameEdited: true }); },
       prodsVal: st.prods,
+      // A208: muestra lo que el bot entendió de «Tus productos»
+      prodsOk: self.ownProds(st).length > 0,
+      prodsBad: String(st.prods || '').trim().length > 2 && self.ownProds(st).length === 0,
+      // A209: el vendedor se manda su demo precargado (A200) por WhatsApp para retomarlo después
+      waShare: 'https://wa.me/?text=' + encodeURIComponent('My neuri.bots demo with my products: ' + 'https://neuri.tech/en/still-available/?business=' + encodeURIComponent(String(st.nameEdited ? st.name || '' : '').trim().slice(0, 36)) + '&products=' + encodeURIComponent(String(st.prods || '').trim().slice(0, 160)) + '&src=demo-wa'),
+      prodsTxt: self.ownProds(st).map(function (o) { return o.n + ' ' + o.p; }).join(' · '),
       onProds: function (e) { window.__nbDemo = window.__nbDemo || {}; window.__nbDemo.prods = e.target.value; self.setCfg({ prods: e.target.value }); },
       toneList: this.toneDefs.map(function (t, i) { return { label: t, pressed: st.tone === i ? 'true' : 'false', style: chips(st.tone === i), pick: function () { self.setCfg({ tone: i }); } }; }),
       toneSample: this.greeting(st),

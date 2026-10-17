@@ -51,6 +51,7 @@ C = {
     fName="Tu nombre", fBusiness="Nombre del negocio", fEmail="Correo", fWhatsapp="WhatsApp (opcional)", fSector="Giro",
     sectors=["Café / restaurante","Bazar / tianguis","Tienda","Servicios","Otro"], fNetworks="¿Qué redes usas?", submit="Apuntarme",
     privacy="Al apuntarte aceptas que te escribamos sobre el lanzamiento. Puedes darte de baja cuando quieras.",
+    privacy_link=(APP+"/privacidad","Lee el aviso de privacidad"),
     faq_eb="Preguntas", faq_h="Lo que nos preguntan.",
     faq=[("¿Ya puedo usar Neuri Marketing?","Todavía no. Lo estamos construyendo y probando con un negocio piloto. Mientras tanto, las herramientas gratis ya funcionan."),
          ("¿Cuánto va a costar?","Aún no publicamos precios. Quienes estén en la lista los conocerán primero."),
@@ -60,7 +61,7 @@ C = {
          ("¿Qué tiene que ver con neuri.bots?","neuri.bots contesta los mensajes de tus clientes; Neuri Marketing prepara lo que publicas. Están pensados para trabajar juntos.")],
     cl_h="Tu próximo mes de contenido, listo para aprobar.", cl_p="Apúntate a la lista y te avisamos en cuanto abramos.",
     ft_copy="© 2026 Neuri LLC · Phoenix, AZ · Neuri Marketing está en construcción.",
-    ft_nav=[("/","neuri.tech"),("/sigue-disponible/","neuri.bots"),("/bazar/","neuri.bazar"),("/consultoria/","neuri.consulting"),("mailto:hola@neuri.tech","hola@neuri.tech")],
+    ft_nav=[("/","neuri.tech"),("/sigue-disponible/","neuri.bots"),("/bazar/","neuri.bazar"),("/consultoria/","neuri.consulting"),("mailto:hola@neuri.tech","hola@neuri.tech"),(APP+"/privacidad","Privacidad"),(APP+"/terminos","Términos")],
   ),
   "en": dict(
     path="/en/marketing/", other="/marketing/", other_label="Español", other_lang="es", locale="en_US",
@@ -103,6 +104,7 @@ C = {
     fName="Your name", fBusiness="Business name", fEmail="Email", fWhatsapp="WhatsApp (optional)", fSector="Business type",
     sectors=["Café / restaurant","Market / bazaar","Shop","Services","Other"], fNetworks="Which networks do you use?", submit="Join",
     privacy="By joining you agree to hear from us about the launch. Unsubscribe anytime.",
+    privacy_link=(APP+"/privacidad?lang=en","Read our privacy notice"),
     faq_eb="Questions", faq_h="What people ask us.",
     faq=[("Can I use Neuri Marketing yet?","Not yet. We're building it and testing it with a pilot business. Meanwhile, the free tools already work."),
          ("How much will it cost?","We haven't published pricing yet. People on the list will see it first."),
@@ -112,7 +114,7 @@ C = {
          ("How does it relate to neuri.bots?","neuri.bots answers your customers' messages; Neuri Marketing prepares what you post. They're designed to work together.")],
     cl_h="Your next month of content, ready to approve.", cl_p="Join the list and we'll tell you as soon as we open.",
     ft_copy="© 2026 Neuri LLC · Phoenix, AZ · Neuri Marketing is under construction.",
-    ft_nav=[("/","neuri.tech"),("/en/still-available/","neuri.bots"),("/en/","neuri.bazar"),("/en/ai-consulting/","neuri.consulting"),("mailto:hola@neuri.tech","hola@neuri.tech")],
+    ft_nav=[("/","neuri.tech"),("/en/still-available/","neuri.bots"),("/en/","neuri.bazar"),("/en/ai-consulting/","neuri.consulting"),("mailto:hola@neuri.tech","hola@neuri.tech"),(APP+"/privacidad?lang=en","Privacy"),(APP+"/terminos?lang=en","Terms")],
   ),
 }
 NETWORKS = ["Instagram", "Facebook", "TikTok", "LinkedIn", "WhatsApp"]
@@ -224,7 +226,7 @@ def page(lang: str) -> str:
 <label>{e(c['fSector'])}<select name="sector">{sectors}</select></label></div>
 <fieldset><legend>{e(c['fNetworks'])}</legend><div class="nets">{nets}</div></fieldset>
 <button class="btn dark" type="submit" data-cta="marketing submit">{e(c['submit'])} <span aria-hidden="true">→</span></button>
-<p class="fine">{e(c['privacy'])}</p>
+<p class="fine">{e(c['privacy'])} <a href="{e(c['privacy_link'][0])}">{e(c['privacy_link'][1])}</a>.</p>
 </form></div>
 </div></section>
 

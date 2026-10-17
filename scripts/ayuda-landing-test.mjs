@@ -19,12 +19,12 @@ const casos = {
   "sigue-disponible/index.html": [
     ["¿Cuánto cuesta al mes?", 6], ["¿Me pueden banear Instagram?", 0], ["¿Hay contrato?", 5], ["¿lo puedo probar gratis?", 3],
     ["¿funciona con whatsapp?", 4], ["y si responde algo mal", 1], ["¿qué necesito para empezar?", 2], ["no me funciona, quién me ayuda", 7],
-    ["¿sirve para marketplace?", 8], ["¿me cobran cuando acabe el mes gratis?", 9],
+    ["¿sirve para marketplace?", 8], ["¿me cobran cuando acabe el mes gratis?", 10], ["¿para qué pago si instagram ya trae respuestas automáticas?", 9],
   ],
   "en/still-available/index.html": [
     ["How much does it cost per message?", 6], ["Will my account get banned?", 0], ["Is there a contract?", 5], ["Can I try it first?", 3],
     ["Does it work with WhatsApp?", 4], ["What if it answers wrong?", 1], ["What do I need to start?", 2], ["Who helps me if it breaks?", 7],
-    ["Does it work on Marketplace?", 8], ["Is anyone using it?", 10],
+    ["Does it work on Marketplace?", 8], ["Is anyone using it?", 11], ["Why pay if Instagram has built-in auto-replies?", 9],
   ],
 };
 let fail = 0;

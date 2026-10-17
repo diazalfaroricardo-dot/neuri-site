@@ -14,8 +14,9 @@
     "cobran cobro costo cuesta precio precios mensaje mensajes contacto contactos cuanto charge charges cost price pricing per message contact much",
     "ayuda soporte falla problema persona humano funciona help support broken breaks problem person human works",
     "marketplace facebook perfil personal",
+    "instagram nativa nativas nativo trae incluidas saludo ausencia built native included greeting away",
     "termina mes gratis tarjeta cargo cargos sorpresa pagar ends free month card charged surprise pay",
-    "usa clientes alguien negocios testimonios usando using anyone customers reviews sellers",
+    "usa clientes alguien negocios opiniones usando using anyone customers reviews sellers",
   ];
   function norm(s) {
     return String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9ñ ]+/g, " ");

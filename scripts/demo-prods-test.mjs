@@ -28,8 +28,15 @@ for (const [path, good, bad, ok] of [
     const href = await p.locator("a[data-a209]").getAttribute("href").catch(() => "");
     const dec = decodeURIComponent(href || "");
     const hb = await p.locator("a[data-a209]").boundingBox().catch(() => null);
-    const okWa = dec.startsWith("https://wa.me/?text=") && /(productos|products)=/.test(dec) && (hb?.height ?? 0) >= 44;
+    const okWa = dec.startsWith("https://wa.me/?text=") && /(productos|products)=/.test(dec) && !/(negocio|business)=&/.test(dec) && (hb?.height ?? 0) >= 44;
     if (!okWa) { fail++; console.log("A209 FALLA", dec, hb); } else console.log("A209", w, dec.slice(20, 160));
+    await p.locator("button[data-a212]").click();
+    const qrSvg = await p.locator("#nb-qr [data-qr] svg").count();
+    const qrUrl = await p.locator("#nb-qr").getAttribute("data-url");
+    const qb = await p.locator("#nb-qr [data-qr]").boundingBox().catch(() => null);
+    await p.keyboard.press("Escape");
+    const qrGone = (await p.locator("#nb-qr").count()) === 0;
+    if (!(qrSvg === 1 && /^https:\/\/neuri\.tech\/.+(productos|products)=.+src=demo-qr$/.test(qrUrl || "") && (qb?.width ?? 0) >= 180 && qrGone)) { fail++; console.log("A212 FALLA", qrSvg, qb, qrGone); } else console.log("A212", w, "QR OK");
     await inp.fill(bad); await inp.dispatchEvent("change");
     const t2 = await p.locator('[role=status]').filter({ hasText: /precios|prices/ }).count();
     await inp.fill(""); await inp.dispatchEvent("change");

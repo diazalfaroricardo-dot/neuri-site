@@ -1504,6 +1504,7 @@ Pickup location
 <template sc-if value="{{prodsOk}}" hint-placeholder-val="{{ false }}"><span role="status" style="font-size: 14px; color: #8FE0B4">✓ Got it: {{prodsTxt}}</span></template>
 <template sc-if value="{{prodsBad}}" hint-placeholder-val="{{ false }}"><span role="status" style="font-size: 14px; color: #F5C26B">No prices found. Write «Name $price», separated by semicolons.</span></template>
 <template sc-if value="{{prodsOk}}" hint-placeholder-val="{{ false }}"><a href="{{waShare}}" target="_blank" rel="noopener" data-a209 style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14.5px; font-weight: 700; color: #8FE0B4; text-decoration: underline; text-underline-offset: 3px">Keep it: send this demo to yourself on WhatsApp</a></template>
+<template sc-if value="{{prodsOk}}" hint-placeholder-val="{{ false }}"><button type="button" data-a212 style="display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none; font: inherit; font-size: 14.5px; font-weight: 700; color: #C5D2CB; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">On a laptop? Scan it with your phone</button></template>
 </div>
 <button type="button" class="n-btn" onClick="{{buildBot}}" aria-disabled="{{buildDisabled}}" style="{{buildStyle}}">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 3v4M17 5h4"></path></svg>
@@ -1801,6 +1802,7 @@ Get my assistant
 </template>
 <script type="application/json" id="dc-props">{"accent":{"editor":"color","default":"#0B5E3A","options":["#0B5E3A","#05080D","#1F4FD1","#B4441A"]},"$preview":{"width":1440,"height":8400}}</script>
 <script src="/assets/dc-lite.js"></script>
+<script src="/assets/qrcode.js" defer></script><script src="/assets/demo-qr.js" defer></script>
 <script>
 
 class Component extends DCLogic {
@@ -2270,7 +2272,7 @@ class Component extends DCLogic {
       prodsOk: self.ownProds(st).length > 0,
       prodsBad: String(st.prods || '').trim().length > 2 && self.ownProds(st).length === 0,
       // A209: el vendedor se manda su demo precargado (A200) por WhatsApp para retomarlo después
-      waShare: 'https://wa.me/?text=' + encodeURIComponent('My neuri.bots demo with my products: ' + 'https://neuri.tech/en/still-available/?business=' + encodeURIComponent(String(st.nameEdited ? st.name || '' : '').trim().slice(0, 36)) + '&products=' + encodeURIComponent(String(st.prods || '').trim().slice(0, 160)) + '&src=demo-wa'),
+      waShare: 'https://wa.me/?text=' + encodeURIComponent('My neuri.bots demo with my products: ' + 'https://neuri.tech/en/still-available/?' + ((st.nameEdited && String(st.name || '').trim()) ? 'business=' + encodeURIComponent(String(st.name).trim().slice(0, 36)) + '&' : '') + 'products=' + encodeURIComponent(String(st.prods || '').trim().slice(0, 160)) + '&src=demo-wa'),
       prodsTxt: self.ownProds(st).map(function (o) { return o.n + ' ' + o.p; }).join(' · '),
       onProds: function (e) { window.__nbDemo = window.__nbDemo || {}; window.__nbDemo.prods = e.target.value; self.setCfg({ prods: e.target.value }); },
       toneList: this.toneDefs.map(function (t, i) { return { label: t, pressed: st.tone === i ? 'true' : 'false', style: chips(st.tone === i), pick: function () { self.setCfg({ tone: i }); } }; }),

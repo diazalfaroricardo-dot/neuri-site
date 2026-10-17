@@ -53,6 +53,8 @@ const pages = [
   { name: "bazar-privacidad", path: "/bazar/privacidad/" },
   { name: "bazar-terms", path: "/en/bazar/terms/" },
   { name: "bazar-privacy", path: "/en/bazar/privacy/" },
+  { name: "bazar-borrar", path: "/bazar/borrar-mis-datos/" },
+  { name: "bazar-delete", path: "/en/bazar/delete-my-data/" },
   { name: "consultoria", path: "/consultoria/" },
   { name: "ai-consulting", path: "/en/ai-consulting/" },
   { name: "marketing", path: "/marketing/" },

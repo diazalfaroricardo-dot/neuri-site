@@ -17,7 +17,10 @@
     if (/bot|crawl|spider|slurp|lighthouse|facebookexternalhit/i.test(navigator.userAgent)) return;
 
     const API = window.__NEURI_VENDEDOR_API || "https://consulting.neuri.tech/api/vendedor";
-    const path = location.pathname.replace(/index\.html$/, "");
+    // En consulting.neuri.tech las rutas son /precios, /ejemplo…: se presentan como /consultoria/… para
+    // que el saludo, el color y la hoja de productos sean los de neuri.consulting.
+    const sub = /^consulting\./.test(location.hostname) ? "/consultoria" : "";
+    const path = sub + location.pathname.replace(/index\.html$/, "");
     const lang = (document.documentElement.lang || "es").slice(0, 2) === "en" ? "en" : "es";
     const es = lang === "es";
     const KEY = "neuri-vendedor";

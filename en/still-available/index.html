@@ -398,6 +398,8 @@ input[type=range].n-range::-moz-range-thumb{width:20px;height:20px;border-radius
 .legacy .pp input:focus-visible + span{outline:3px solid var(--cobalto);outline-offset:2px}
 .legacy .check{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;font-size:15.5px}
 .legacy .check input{width:22px;height:22px;margin-top:2px;accent-color:var(--rosa)}
+.legacy .privnote{font-size:13.5px;line-height:1.5;color:var(--muted,#5b5b66);margin:4px 0 0;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.035)}
+.legacy .privnote a{color:inherit;text-decoration:underline}
 .legacy .nav-wiz{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap}
 .legacy .nav-wiz .back{background:none;border:0;font-weight:700;text-decoration:underline;cursor:pointer;padding:12px 4px;color:var(--tinta)}
 .legacy .nav-wiz .btn{margin-left:auto}
@@ -1164,6 +1166,7 @@ Build my bot
           <div class="f"><span class="lab">Review your info</span><dl class="resumen" id="resumen"></dl></div>
           <label class="check"><input type="checkbox" id="consent" name="consent" required aria-describedby="e-consent"><span>I agree that neuri.bots (Neuri LLC) may use this information to set up my assistant and contact me by WhatsApp and email about my account. We never sell it or use it for ads. I accept the <a href="/en/still-available/terms/" target="_blank" rel="noopener">terms of service</a> and the <a href="/en/still-available/privacy/" target="_blank" rel="noopener">privacy notice</a>.</span></label>
           <p class="err" id="e-consent">We need your OK to use this information and set up your assistant.</p>
+          <p class="privnote" id="privnote"><b>Short privacy notice.</b> Controller: Neuri LLC (neuri.bots). We use your name, phone, email and business details only to set up and run your assistant and to contact you about your account. We never sell them or share them for ads. To access, correct or delete your data, object, or unsubscribe, email <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> or reply STOP. <a href="/en/still-available/privacy/" target="_blank" rel="noopener">Full notice</a>.</p>
         </div>
       </fieldset>
       <div class="hp" aria-hidden="true"><label for="website">Leave blank</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>

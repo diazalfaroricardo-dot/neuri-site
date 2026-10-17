@@ -398,6 +398,8 @@ input[type=range].n-range::-moz-range-thumb{width:20px;height:20px;border-radius
 .legacy .pp input:focus-visible + span{outline:3px solid var(--cobalto);outline-offset:2px}
 .legacy .check{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;font-size:15.5px}
 .legacy .check input{width:22px;height:22px;margin-top:2px;accent-color:var(--rosa)}
+.legacy .privnote{font-size:13.5px;line-height:1.5;color:var(--muted,#5b5b66);margin:4px 0 0;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.035)}
+.legacy .privnote a{color:inherit;text-decoration:underline}
 .legacy .nav-wiz{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap}
 .legacy .nav-wiz .back{background:none;border:0;font-weight:700;text-decoration:underline;cursor:pointer;padding:12px 4px;color:var(--tinta)}
 .legacy .nav-wiz .btn{margin-left:auto}
@@ -1162,6 +1164,7 @@ Armar mi bot
           <div class="f"><span class="lab">Revisa tus datos</span><dl class="resumen" id="resumen"></dl></div>
           <label class="check"><input type="checkbox" id="consent" name="consent" required aria-describedby="e-consent"><span>Acepto que neuri.bots (Neuri LLC) use estos datos para armar mi asistente y contactarme por WhatsApp y correo sobre mi cuenta. No los vendemos ni los usamos para publicidad. Acepto los <a href="/sigue-disponible/terminos/" target="_blank" rel="noopener">términos de servicio</a> y el <a href="/sigue-disponible/privacidad/" target="_blank" rel="noopener">aviso de privacidad</a>.</span></label>
           <p class="err" id="e-consent">Necesitamos tu permiso para usar estos datos y armar tu asistente.</p>
+          <p class="privnote" id="privnote"><b>Aviso de privacidad simplificado.</b> Responsable: Neuri LLC (neuri.bots). Usamos tu nombre, celular, correo y los datos de tu negocio solo para armar y operar tu asistente y avisarte sobre tu cuenta. No los vendemos ni los compartimos para publicidad. Para acceder, corregir o borrar tus datos, oponerte o darte de baja (derechos ARCO), escribe a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> o responde BAJA. <a href="/sigue-disponible/privacidad/" target="_blank" rel="noopener">Aviso completo</a>.</p>
         </div>
       </fieldset>
       <div class="hp" aria-hidden="true"><label for="website">No llenar</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>

@@ -20,4 +20,11 @@ for (const [p, q, overclaim] of pages) {
   if (bad) fail++;
   console.log(`${bad ? "FALLA" : "OK   "} ${p} · no promete contestar dentro de Marketplace`);
 }
-process.exit(fail ? 1 : 0);
+if (fail) process.exitCode = 1;
+// A252: el alta (paso 2, «¿Dónde vendes más?») avisa que Marketplace de perfil personal no se conecta.
+for (const p of ["sigue-disponible/index.html", "en/still-available/index.html"]) {
+  const html = readFileSync(p, "utf8");
+  const ok = /<p class="help" id="h-donde">[^<]*Marketplace[^<]*<\/p>/.test(html) && html.includes('aria-describedby="h-donde"');
+  console.log(`${ok ? "OK   " : "FALLA"} ${p} · aviso de Marketplace en el alta (A252)`);
+  if (!ok) process.exitCode = 1;
+}

@@ -1,4 +1,4 @@
-// A230: ?moneda=usd en el alta ES muestra y manda el plan en USD (vendedores de EE. UU., visitas en Phoenix); sin el parámetro queda en MXN.
+// A230/A233: ?moneda=usd en el alta ES muestra y manda el plan en USD (vendedores de EE. UU., visitas en Phoenix); sin el parámetro queda en MXN.
 // Uso: node scripts/usd-test.mjs [base]   (base por defecto https://neuri.tech; no envía ningún alta)
 import { chromium } from "playwright-core";
 const BASE = process.argv[2] || "https://neuri.tech";
@@ -26,10 +26,12 @@ for (const [w, q, want, usd] of cases) {
       checked: rs.find((r) => r.checked)?.value,
       note: !!document.getElementById("nb-usd"),
       sw: document.documentElement.scrollWidth,
+      mxnVisible: /MXN \/ mes|\$899\b|\$1,299\b/.test(document.body.innerText),
+      usdCards: (document.body.innerText.match(/USD \/ mes/g) || []).length,
     };
   });
   const ok = JSON.stringify(v.values) === JSON.stringify(want) && v.checked === want[1] && v.note === usd &&
-    (!usd || v.labels.every((l) => /USD/.test(l))) && v.sw <= w && errs.length === 0;
+    (!usd || (v.labels.every((l) => /USD/.test(l)) && !v.mxnVisible && v.usdCards >= 2)) && (usd || v.mxnVisible) && v.sw <= w && errs.length === 0;
   if (!ok) fail++;
   console.log(ok ? "OK  " : "FALLA", w, q, JSON.stringify(v), errs.join(" | "));
   await p.close();

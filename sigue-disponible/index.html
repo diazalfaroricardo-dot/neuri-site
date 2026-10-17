@@ -2435,6 +2435,19 @@ document.addEventListener('click', function (e) {
     });
     // Los botones de la sección de precios traen data-plan en MXN (la plantilla los vuelve a pintar): se traduce al hacer clic
     document.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('[data-plan]'); var m = a && M[a.dataset.plan]; if (!m) return; var r = document.querySelector('input[name=plan][value="' + m[0] + '"]'); if (r) r.checked = true; });
+    // A233: la sección de precios y los textos sueltos también en USD (la plantilla vuelve a pintar: se repite al cambiar el DOM)
+    var P = {'$899': '$49', '$1,299': '$69'};
+    var fix = function(){
+      document.querySelectorAll('span').forEach(function(sp){
+        var t = sp.textContent;
+        if (sp.children.length === 0 && P[t]) { sp.textContent = P[t]; var n = sp.nextElementSibling; if (n && /MXN/.test(n.textContent)) n.textContent = n.textContent.replace('MXN', 'USD'); }
+        else if (sp.children.length === 0 && t === 'El plan Básico cuesta $899 al mes.') sp.textContent = 'El plan Básico cuesta $49 USD al mes.';
+      });
+      var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), x;
+      while ((x = w.nextNode())) if (x.nodeValue.trim() === 'Desde $899 al mes') x.nodeValue = x.nodeValue.replace('$899', '$49 USD');
+    };
+    fix();
+    var pend = 0; new MutationObserver(function(){ if (!pend) pend = setTimeout(function(){ pend = 0; fix(); }, 50); }).observe(document.body, {childList: true, subtree: true});
     var why = document.querySelector('.paso[data-step="4"] .why');
     if (why) why.insertAdjacentHTML('beforeend', ' <span id="nb-usd">Precios en dólares (EE. UU.): Básico $49 USD/mes, Pro $69 USD/mes.</span>');
   })();

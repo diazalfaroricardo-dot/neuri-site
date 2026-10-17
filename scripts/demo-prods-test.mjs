@@ -1,4 +1,4 @@
-// A208/A209: «Tus productos» muestra lo que el bot entendió y el link para mandarse el demo por WhatsApp. Uso: node scripts/demo-prods-test.mjs
+// A208/A209: «Tus productos» muestra lo que el bot entendió y el link para mandarse el demo por WhatsApp. Uso: node scripts/demo-prods-test.mjs [--live]
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
 import { join, normalize, resolve } from "node:path";
@@ -12,6 +12,9 @@ const server = createServer((req, res) => {
   createReadStream(f).pipe(res);
 }).listen(0);
 const port = server.address().port;
+// A226: --live corre lo mismo contra https://neuri.tech (producción)
+const LIVE = process.argv.includes("--live");
+const BASE = LIVE ? "https://neuri.tech" : `http://localhost:${port}`;
 const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
 for (const [path, good, bad, ok] of [
@@ -21,7 +24,7 @@ for (const [path, good, bad, ok] of [
   for (const w of [390, 1280]) {
     const p = await b.newPage({ viewport: { width: w, height: 900 } });
     const errs = []; p.on("pageerror", (e) => errs.push(String(e)));
-    await p.goto(`http://localhost:${port}${path}`);
+    await p.goto(`${BASE}${path}`);
     const inp = p.locator("#bot-prods");
     await inp.fill(good); await inp.dispatchEvent("change");
     const t1 = await p.locator('[role=status]').filter({ hasText: ok }).innerText().catch(() => "");
@@ -38,7 +41,7 @@ for (const [path, good, bad, ok] of [
     await p.keyboard.press("Escape");
     const qrGone = (await p.locator("#nb-qr").count()) === 0;
     if (!(qrSvg === 1 && /^https:\/\/neuri\.tech\/.+(productos|products)=.+src=demo-qr$/.test(qrUrl || "") && (qb?.width ?? 0) >= 180 && qrGone)) { fail++; console.log("A212 FALLA", qrSvg, qb, qrGone); } else console.log("A212", w, "QR OK");
-    await p.context().grantPermissions(["clipboard-read", "clipboard-write"], { origin: `http://localhost:${port}` });
+    await p.context().grantPermissions(["clipboard-read", "clipboard-write"], { origin: BASE });
     await p.locator("button[data-a213]").click();
     // A225: writeText es asíncrono; esperar el «Copiado» antes de leer (antes se leía al instante y fallaba a veces a 390)
     await p.locator("#nb-copied").waitFor({ timeout: 4000 }).catch(() => {});

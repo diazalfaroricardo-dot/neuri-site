@@ -8,14 +8,19 @@ const cases = [
   [390, "?moneda=usd&src=visita-31oct", ["Básico ($49 USD)", "Pro ($69 USD)"], true],
   [1280, "?moneda=USD", ["Básico ($49 USD)", "Pro ($69 USD)"], true],
   [390, "?src=visita-31oct", ["Básico ($899)", "Pro ($1,299)"], false],
+  // A248: regresión de A247 — teléfono (UA móvil) a 1280 px: la plantilla repinta las tarjetas tarde
+  [1280, "?moneda=usd&src=visita-31oct", ["Básico ($49 USD)", "Pro ($69 USD)"], true, true],
 ];
 let fail = 0;
-for (const [w, q, want, usd] of cases) {
+for (const [w, q, want, usd, movil] of cases) {
   // zona de México: sin ?moneda la landing queda en MXN (en zona de EE. UU. sale USD sola, ver qr-idioma-test A235)
-  const p = await b.newPage({ viewport: { width: w, height: 844 }, timezoneId: "America/Mexico_City" });
+  const p = await b.newPage({ viewport: { width: w, height: 844 }, timezoneId: "America/Mexico_City", ...(movil ? { userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148" } : {}) });
   const errs = [];
   p.on("pageerror", (e) => errs.push(e.message));
   await p.goto(`${BASE}/sigue-disponible/${q}`, { waitUntil: "networkidle" });
+  // A248: las tarjetas ya deben decir USD a los 400 ms (antes del clic), como las vería un vendedor al abrir
+  await p.waitForTimeout(400);
+  const early = await p.evaluate(() => (document.body.innerText.match(/USD \/ mes/g) || []).length);
   // El botón «Pro» de la sección de precios debe elegir el radio Pro también con USD
   await p.locator('a[data-plan^="Pro"]:visible').first().click();
   await p.waitForTimeout(300);
@@ -32,9 +37,9 @@ for (const [w, q, want, usd] of cases) {
     };
   });
   const ok = JSON.stringify(v.values) === JSON.stringify(want) && v.checked === want[1] && v.note === usd &&
-    (!usd || (v.labels.every((l) => /USD/.test(l)) && !v.mxnVisible && v.usdCards >= 2)) && (usd || v.mxnVisible) && v.sw <= w && errs.length === 0;
+    (!usd || early >= 2) && (!usd || (v.labels.every((l) => /USD/.test(l)) && !v.mxnVisible && v.usdCards >= 2)) && (usd || v.mxnVisible) && v.sw <= w && errs.length === 0;
   if (!ok) fail++;
-  console.log(ok ? "OK  " : "FALLA", w, q, JSON.stringify(v), errs.join(" | "));
+  console.log(ok ? "OK  " : "FALLA", w, q, movil ? "móvil" : "", "early=" + early, JSON.stringify(v), errs.join(" | "));
   await p.close();
 }
 await b.close();

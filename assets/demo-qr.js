@@ -57,8 +57,25 @@
     e.preventDefault();
     var url = demoUrl().replace('src=demo-qr', 'src=demo-copy');
     if (!url) return;
-    var done = function () { var t = c.textContent; c.textContent = en ? 'Copied ✓' : '¡Copiado! ✓'; setTimeout(function () { c.textContent = t; }, 2000); };
-    try { navigator.clipboard.writeText(url).then(done, function () { window.prompt('', url); }); } catch (err) { window.prompt('', url); }
+    // A225: la plantilla dc vuelve a pintar el botón y borraba el «Copiado» → aviso propio fuera de la plantilla
+    var done = function () {
+      var t = document.getElementById('nb-copied');
+      if (!t) {
+        t = document.createElement('div'); t.id = 'nb-copied'; t.setAttribute('role', 'status'); t.setAttribute('aria-live', 'polite');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9999;background:#0E1A14;color:#fff;font:600 15px/1.3 system-ui,sans-serif;padding:12px 18px;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.25);max-width:calc(100vw - 32px)';
+        document.body.appendChild(t);
+      }
+      t.textContent = en ? 'Link copied ✓ — paste it in Instagram or Messenger' : '¡Link copiado! ✓ Pégalo en Instagram o Messenger';
+      clearTimeout(t._t); t._t = setTimeout(function () { t.remove(); }, 2500);
+    };
+    // A225: si el navegador niega el portapapeles, prueba execCommand antes de mostrar el link para copiarlo a mano
+    var legacy = function () {
+      var ta = document.createElement('textarea'); ta.value = url; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand('copy'); } catch (err) {}
+      ta.remove(); if (ok) done(); else window.prompt(en ? 'Copy this link:' : 'Copia este link:', url);
+    };
+    try { navigator.clipboard.writeText(url).then(done, legacy); } catch (err) { legacy(); }
   });
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-a212]');

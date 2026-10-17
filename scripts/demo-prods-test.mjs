@@ -40,9 +40,18 @@ for (const [path, good, bad, ok] of [
     if (!(qrSvg === 1 && /^https:\/\/neuri\.tech\/.+(productos|products)=.+src=demo-qr$/.test(qrUrl || "") && (qb?.width ?? 0) >= 180 && qrGone)) { fail++; console.log("A212 FALLA", qrSvg, qb, qrGone); } else console.log("A212", w, "QR OK");
     await p.context().grantPermissions(["clipboard-read", "clipboard-write"], { origin: `http://localhost:${port}` });
     await p.locator("button[data-a213]").click();
+    // A225: writeText es asíncrono; esperar el «Copiado» antes de leer (antes se leía al instante y fallaba a veces a 390)
+    await p.locator("#nb-copied").waitFor({ timeout: 4000 }).catch(() => {});
     const clip = await p.evaluate(() => navigator.clipboard.readText()).catch(() => "");
-    const cTxt = await p.locator("button[data-a213]").innerText();
-    if (!(/src=demo-copy$/.test(clip) && /Copiado|Copied/.test(cTxt))) { fail++; console.log("A213 FALLA", clip, cTxt); } else console.log("A213", w, "copia OK");
+    const cTxt = await p.locator("#nb-copied").innerText().catch(() => "");
+    const tb = await p.locator("#nb-copied").boundingBox().catch(() => null);
+    await p.locator("button[data-a213]").click(); // A225: doble clic deja un solo aviso y se va solo
+    const nToast = await p.locator("#nb-copied").count();
+    await p.waitForTimeout(2800);
+    const gone = (await p.locator("#nb-copied").count()) === 0;
+    const btn = (await p.locator("button[data-a213]").innerText()).trim();
+    if (!(nToast === 1 && gone && /^(Copiar link|Copy link)$/.test(btn) && tb && tb.x >= 0 && tb.x + tb.width <= w)) { fail++; console.log("A225 FALLA", { nToast, gone, btn, tb }); } else console.log("A225", w, "aviso OK");
+    if (!(/src=demo-copy$/.test(clip) && /copiado|copied/i.test(cTxt))) { fail++; console.log("A213 FALLA", clip, cTxt); } else console.log("A213", w, "copia OK");
     await inp.fill(bad); await inp.dispatchEvent("change");
     const t2 = await p.locator('[role=status]').filter({ hasText: /precios|prices/ }).count();
     await inp.fill(""); await inp.dispatchEvent("change");

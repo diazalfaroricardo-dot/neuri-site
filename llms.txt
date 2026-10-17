@@ -29,10 +29,10 @@ AI consulting for companies: a virtual AI diagnostic, then implementation of age
 
 ## neuri.marketing (coming soon)
 
-AI marketing hub for small businesses: brand kit, a 30-day content calendar, posts and reels drafted with the business's own photos, one-tap approval, then scheduling on Instagram and Facebook. Not available yet — waitlist open; no pricing published. Free tools that work today: 2026 guide, profile self-check, templates by business type, brand sheet.
+AI marketing hub for small businesses: brand kit, a 30-day content calendar, posts and reels drafted with the business's own photos, one-tap approval, then scheduling on Instagram and Facebook. Not available yet — waitlist open; no pricing published. Free tools that work today, no sign-up: 2026 guide, profile self-check, templates by business type, 24 reel ideas with 3-shot scripts, 17 ready-to-copy comment replies, brand sheet.
 
 - [neuri.marketing (español)](https://neuri.tech/marketing/) · [English](https://neuri.tech/en/marketing/)
-- [Free tools](https://neuri-marketing-production.up.railway.app/guia)
+- Free tools: [2026 guide](https://neuri-marketing-production.up.railway.app/guia) · [Profile self-check](https://neuri-marketing-production.up.railway.app/diagnostico) · [Templates by business type](https://neuri-marketing-production.up.railway.app/plantillas) · [Reel ideas](https://neuri-marketing-production.up.railway.app/ideas-reels) · [Comment replies](https://neuri-marketing-production.up.railway.app/respuestas) · [Brand sheet](https://neuri-marketing-production.up.railway.app/marca) (English: add ?lang=en)
 
 ## Legal
 

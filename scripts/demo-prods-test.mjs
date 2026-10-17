@@ -37,6 +37,11 @@ for (const [path, good, bad, ok] of [
     await p.keyboard.press("Escape");
     const qrGone = (await p.locator("#nb-qr").count()) === 0;
     if (!(qrSvg === 1 && /^https:\/\/neuri\.tech\/.+(productos|products)=.+src=demo-qr$/.test(qrUrl || "") && (qb?.width ?? 0) >= 180 && qrGone)) { fail++; console.log("A212 FALLA", qrSvg, qb, qrGone); } else console.log("A212", w, "QR OK");
+    await p.context().grantPermissions(["clipboard-read", "clipboard-write"], { origin: `http://localhost:${port}` });
+    await p.locator("button[data-a213]").click();
+    const clip = await p.evaluate(() => navigator.clipboard.readText()).catch(() => "");
+    const cTxt = await p.locator("button[data-a213]").innerText();
+    if (!(/src=demo-copy$/.test(clip) && /Copiado|Copied/.test(cTxt))) { fail++; console.log("A213 FALLA", clip, cTxt); } else console.log("A213", w, "copia OK");
     await inp.fill(bad); await inp.dispatchEvent("change");
     const t2 = await p.locator('[role=status]').filter({ hasText: /precios|prices/ }).count();
     await inp.fill(""); await inp.dispatchEvent("change");

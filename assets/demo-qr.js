@@ -38,6 +38,16 @@
     document.body.appendChild(d);
     d.querySelector('[data-close]').focus();
   }
+  // A213: «Copiar link» para mandarlo por Instagram/Messenger (src=demo-copy)
+  document.addEventListener('click', function (e) {
+    var c = e.target.closest && e.target.closest('[data-a213]');
+    if (!c) return;
+    e.preventDefault();
+    var url = demoUrl().replace('src=demo-qr', 'src=demo-copy');
+    if (!url) return;
+    var done = function () { var t = c.textContent; c.textContent = en ? 'Copied ✓' : '¡Copiado! ✓'; setTimeout(function () { c.textContent = t; }, 2000); };
+    try { navigator.clipboard.writeText(url).then(done, function () { window.prompt('', url); }); } catch (err) { window.prompt('', url); }
+  });
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-a212]');
     if (b) { e.preventDefault(); open(b); }

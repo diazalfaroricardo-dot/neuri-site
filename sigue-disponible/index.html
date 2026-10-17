@@ -2424,6 +2424,20 @@ document.addEventListener('click', function (e) {
   /* ---------- Planes: preseleccionar en el alta ---------- */
   document.querySelectorAll('[data-plan]').forEach(function(a){a.addEventListener('click',function(){var r=document.querySelector('input[name=plan][value="'+a.dataset.plan+'"]');if(r)r.checked=true;});});
 
+  /* A230: vendedores de EE. UU. que leen en español (visitas en Phoenix): ?moneda=usd muestra y manda el plan en USD; sd-setup cobra en USD si el plan dice USD (planswitch.ts) */
+  (function(){
+    if ((new URLSearchParams(location.search).get('moneda') || '').toLowerCase() !== 'usd') return;
+    var M = {'Básico ($899)': ['Básico ($49 USD)', 'Básico, $49 USD'], 'Pro ($1,299)': ['Pro ($69 USD)', 'Pro, $69 USD']};
+    document.querySelectorAll('input[name=plan]').forEach(function(r){
+      var m = M[r.value]; if (!m) return;
+      r.value = m[0];
+      var b = r.parentNode.querySelector('b'); if (b) b.textContent = m[1];
+    });
+    // Los botones de la sección de precios traen data-plan en MXN (la plantilla los vuelve a pintar): se traduce al hacer clic
+    document.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('[data-plan]'); var m = a && M[a.dataset.plan]; if (!m) return; var r = document.querySelector('input[name=plan][value="' + m[0] + '"]'); if (r) r.checked = true; });
+    var why = document.querySelector('.paso[data-step="4"] .why');
+    if (why) why.insertAdjacentHTML('beforeend', ' <span id="nb-usd">Precios en dólares (EE. UU.): Básico $49 USD/mes, Pro $69 USD/mes.</span>');
+  })();
   /* ---------- Alta: asistente de 4 pasos ---------- */
   var form = document.getElementById('f');
   // Si viene del correo de recordatorio (?alta=…), completa la misma alta en vez de crear otra.

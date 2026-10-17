@@ -9,6 +9,9 @@ const cases = [
   ["en", 390, "/en/still-available/", "products=Wood%20chair%20%2445%20USD&business=Test%20Bazaar&src=demo-qr", "Test Bazaar", "Wood chair $45 USD"],
   ["es", 1280, "/sigue-disponible/", "productos=Lampara%20%24300&src=demo-wa", "", "Lampara $300"],
   ["en", 1280, "/en/still-available/", "products=Lamp%20%2430&src=demo-copy", "", "Lamp $30"],
+  // A244: links del correo de seguimiento A242 (espacios con «+», lang fijo, moneda=usd).
+  ["es", 390, "/sigue-disponible/", "negocio=Muebles+Chuy&productos=Silla+%24450%3B+Mesa+%24900&src=seguimiento-correo&lang=es&moneda=usd", "Muebles Chuy", "Silla $450; Mesa $900"],
+  ["en", 390, "/en/still-available/", "business=Oak+Shop&products=Chair+%2445%3B+Table+%2490&src=seguimiento-correo&lang=en", "Oak Shop", "Chair $45; Table $90"],
 ];
 let fail = 0;
 for (const [lang, w, path, q, wantN, wantV] of cases) {

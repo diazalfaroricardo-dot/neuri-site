@@ -42,6 +42,11 @@
     try {
       want = localStorage.getItem(KEY);
     } catch (_) {}
+    // A234: un link que armó Neuri en este idioma (tarjeta/QR impresos, correos, referidos, demo precargado) se queda en
+    // ese idioma: a un vendedor que lee español en Phoenix la zona horaria lo mandaría al inglés.
+    const sp = new URLSearchParams(location.search);
+    const made = ["src", "negocio", "productos", "business", "products", "alta", "ref", "moneda", "giro", "utm_source", "utm_campaign"].some((k) => sp.has(k));
+    if ((want !== "es" && want !== "en") && made) return;
     if (want !== "es" && want !== "en") {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
       if (/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(tz)) want = "es";

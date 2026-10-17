@@ -11,7 +11,8 @@ const cases = [
 ];
 let fail = 0;
 for (const [w, q, want, usd] of cases) {
-  const p = await b.newPage({ viewport: { width: w, height: 844 } });
+  // zona de México: sin ?moneda la landing queda en MXN (en zona de EE. UU. sale USD sola, ver qr-idioma-test A235)
+  const p = await b.newPage({ viewport: { width: w, height: 844 }, timezoneId: "America/Mexico_City" });
   const errs = [];
   p.on("pageerror", (e) => errs.push(e.message));
   await p.goto(`${BASE}/sigue-disponible/${q}`, { waitUntil: "networkidle" });

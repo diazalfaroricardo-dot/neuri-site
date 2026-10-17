@@ -2426,7 +2426,10 @@ document.addEventListener('click', function (e) {
 
   /* A230: vendedores de EE. UU. que leen en español (visitas en Phoenix): ?moneda=usd muestra y manda el plan en USD; sd-setup cobra en USD si el plan dice USD (planswitch.ts) */
   (function(){
-    if ((new URLSearchParams(location.search).get('moneda') || '').toLowerCase() !== 'usd') return;
+    // A235: sin ?moneda, un teléfono con zona horaria de EE. UU. ve USD (quien lee en español en Phoenix); ?moneda=mxn lo regresa a pesos
+    var mon = (new URLSearchParams(location.search).get('moneda') || '').toLowerCase(), tzUS = false;
+    try { tzUS = /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone || ''); } catch (_) {}
+    if (!(mon === 'usd' || (mon !== 'mxn' && tzUS))) return;
     var M = {'Básico ($899)': ['Básico ($49 USD)', 'Básico, $49 USD'], 'Pro ($1,299)': ['Pro ($69 USD)', 'Pro, $69 USD']};
     document.querySelectorAll('input[name=plan]').forEach(function(r){
       var m = M[r.value]; if (!m) return;

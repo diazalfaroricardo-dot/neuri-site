@@ -31,6 +31,7 @@ for (const [path, good, bad, ok] of [
     const okWa = dec.startsWith("https://wa.me/?text=") && /(productos|products)=/.test(dec) && !/(negocio|business)=&/.test(dec) && (hb?.height ?? 0) >= 44;
     if (!okWa) { fail++; console.log("A209 FALLA", dec, hb); } else console.log("A209", w, dec.slice(20, 160));
     await p.locator("button[data-a212]").click();
+    await p.locator("#nb-qr [data-qr] svg").waitFor({ timeout: 8000 }).catch(() => {}); // A223: qrcode.js se baja al primer clic
     const qrSvg = await p.locator("#nb-qr [data-qr] svg").count();
     const qrUrl = await p.locator("#nb-qr").getAttribute("data-url");
     const qb = await p.locator("#nb-qr [data-qr]").boundingBox().catch(() => null);

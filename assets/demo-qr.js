@@ -1,5 +1,5 @@
 // A212: «Escanéalo con tu teléfono» — en la visita (laptop/tablet) el dueño escanea un QR y se lleva SU demo al celular.
-// Toma el mismo link del demo precargado que A209 (a[data-a209]) y cambia src=demo-wa → src=demo-qr. Requiere /assets/qrcode.js.
+// Toma el mismo link del demo precargado que A209 (a[data-a209]) y cambia src=demo-wa → src=demo-qr. Carga /assets/qrcode.js al primer clic (A223).
 (function () {
   var en = /^\/en\//.test(location.pathname);
   var T = en
@@ -20,9 +20,21 @@
     if (d) d.remove();
     if (last) { try { last.focus(); } catch (e) {} }
   }
+  // A223: qrcode.js (~12 KB) ya no se baja con la página; se pide solo al tocar el botón (casi nadie en celular).
+  var loading = false;
   function open(btn) {
     var url = demoUrl();
-    if (!url || typeof qrcode !== 'function') return;
+    if (!url) return;
+    if (typeof qrcode !== 'function') {
+      if (loading) return;
+      loading = true;
+      var sc = document.createElement('script');
+      sc.src = '/assets/qrcode.js';
+      sc.onload = function () { loading = false; open(btn); };
+      sc.onerror = function () { loading = false; };
+      document.head.appendChild(sc);
+      return;
+    }
     last = btn;
     close();
     var q = qrcode(0, 'M'); q.addData(url); q.make();

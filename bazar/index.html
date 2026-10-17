@@ -3141,7 +3141,9 @@ var APP_URL = 'https://bazar.neuri.tech';
   }
 
   if (APP_URL) {
-    $$('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=MX'; });
+    // 239: el alta lleva de dónde llegó (?src= de esta página, p. ej. el QR de una visita; si no, landing).
+    var src = (new URLSearchParams(location.search).get('src') || 'landing').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 40) || 'landing';
+    $$('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=MX&src=' + src; });
   }
 
   /* ---------- Asistente de prueba ---------- */

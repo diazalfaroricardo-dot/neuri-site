@@ -2019,8 +2019,11 @@ class Component extends DCLogic {
   ownProds(st) {
     // A197: «Silla roja $450; Lámpara $300» → hasta 3 productos (solo en el navegador, no se guarda)
     return String(st.prods || '').split(/[;\n]/).map(function (x) {
-      var m = x.trim().match(/^(.+?)[\s:–-]*\$\s*([\d][\d.,]*)\s*$/) || x.trim().match(/^(.+?)\s+([\d][\d.,]*)\s*$/);
-      return m ? { n: m[1].trim().slice(0, 40), p: '$' + m[2] } : null;
+      // A207: acepta moneda al final («$450 MXN», «45 dlls», «$1,200 pesos»)
+      var cur = /\s*(mxn|usd|pesos?|dlls?|d[oó]lares|dollars?)\.?\s*$/i, y = x.trim(), c = y.match(cur); y = y.replace(cur, '');
+      var m = y.match(/^(.+?)[\s:–-]*\$\s*([\d][\d.,]*)\s*$/) || y.match(/^(.+?)\s+([\d][\d.,]*)\s*$/);
+      var u = c ? c[1].toLowerCase() : '', cc = /^(mxn|pesos?)$/.test(u) ? ' MXN' : u ? ' USD' : '';
+      return m ? { n: m[1].trim().slice(0, 40), p: '$' + m[2] + cc } : null;
     }).filter(Boolean).slice(0, 3);
   }
   compose(intent, q) {

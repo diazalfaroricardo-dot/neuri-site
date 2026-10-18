@@ -2601,6 +2601,8 @@ document.addEventListener('click', function (e) {
       fetch(SD_ENDPOINT+'/intake',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)})
         .then(function(r){if(r.status===429)return r.json().then(function(b){throw {limit:b.message};});if(!r.ok)throw new Error();return r.json();})
         .then(function(r){
+          // B-B4: correo ya registrado → no se duplica; le llega su link de Mi asistente.
+          if(r.existing){done('<p class="big">Ese correo ya tiene un asistente.</p><p>Te acabamos de mandar a ese correo tu link a Mi asistente: ábrelo para entrar. Si en unos minutos no lo ves, revisa spam o promociones.</p><p><a class="btn" href="'+SD_ENDPOINT+'/entrar">Entrar a Mi asistente</a></p><p style="color:var(--gris);font-size:15px">¿Es otro negocio? Usa otro correo para darlo de alta.</p>');return;}
           if(r.id)altaId=r.id;
           var miss=document.getElementById('missing');
           if(r.missing&&r.missing.length){

@@ -170,5 +170,6 @@
 </main>
 <footer><div class="wrap"><span>© 2026 Neuri LLC · Phoenix, Arizona</span><span><a href="mailto:hola@neuri.tech">hola@neuri.tech</a> · <a href="https://consulting.neuri.tech/privacidad">Privacidad</a> · <a href="https://consulting.neuri.tech/terminos">Términos</a> · <a href="/">neuri.tech</a> · <a href="/en/ai-consulting/" hreflang="en" lang="en">English</a></span></div></footer>
 
+<script>/* B-F4: con sesión en consulting, «Entrar» pasa a «Mi portal» (solo sí/no, sin datos). */(function(){var a=document.querySelector('a[data-entrar]');if(!a||!window.fetch)return;fetch('https://consulting.neuri.tech/api/sesion',{credentials:'include'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.signedIn===true){a.href='https://consulting.neuri.tech/portal?lang=es';a.textContent='Mi portal';}}).catch(function(){});})();</script>
 </body>
 </html>

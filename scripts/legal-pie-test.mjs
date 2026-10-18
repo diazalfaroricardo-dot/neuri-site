@@ -22,5 +22,7 @@ for (const prod of ["neuri.bots", "neuri.bazar", "neuri.consulting", "neuri.mark
   if ((legal.match(new RegExp(`${prod.replace(".", "\\.")} — `, "g")) || []).length < 4) bad(`/legal/ sin privacidad y términos ES/EN de ${prod}`);
 }
 if (!legal.includes('<section lang="en"')) bad("/legal/ sin sección en inglés marcada con lang");
+// axe scrollable-region-focusable: todo contenedor con scroll horizontal de la portada es enfocable con teclado
+for (const m of home.matchAll(/<div([^>]*overflow-x: auto[^>]*)>/g)) if (!m[1].includes('tabindex="0"')) bad("portada: contenedor con overflow-x sin tabindex=0");
 if (!fail) console.log(`✓ portada: ${pies.length} pie(s) con /legal/, contacto e inglés correcto · /legal/: ${hrefs.length} links locales existen`);
 process.exit(fail ? 1 : 0);

@@ -41,4 +41,20 @@ for (const [where, html] of srcs) {
   if (viejos) bad(`${where}: queda el precio viejo $349`);
   if (!fail) console.log(`✓ ${where} marketing/index.html: ${Object.values(want).map((w) => `$${fmt(w[0])}/$${fmt(w[1])}/US$${w[2]}`).join(" · ")}`);
 }
+// EN (clientes de EE. UU. pagan en USD de lista; el precio de fundador es solo México).
+const en = [["local", readFileSync("en/marketing/index.html", "utf8")]];
+if (live) en.push(["live", await (await fetch("https://neuri.tech/en/marketing/")).text()]);
+for (const [where, html] of en) {
+  const cards = [...html.matchAll(/<div class="tool plan[^"]*"><span class="tag mono">(\w+)<\/span><span class="big">US\$(\d+)<\/span>([\s\S]*?)<\/ul>/g)];
+  if (cards.length !== 3) bad(`${where} EN: esperaba 3 planes, hay ${cards.length}`);
+  for (const [, name, usd, body] of cards) {
+    const w = want[name.toLowerCase()];
+    if (!w) { bad(`${where} EN: plan desconocido ${name}`); continue; }
+    if (Number(usd) !== w[2]) bad(`${where} EN ${name}: US$${usd} ≠ US$${w[2]}`);
+    if (name === "Inicio" && /inbox|\bAI\b/.test(body)) bad(`${where} EN Inicio promete bandeja o IA`);
+    if (name === "Crece" && /AI reels|raw video|collab/i.test(body)) bad(`${where} EN Crece promete algo de Pro`);
+  }
+  if (/founder/i.test(html)) bad(`${where} EN: el precio de fundador es solo para México`);
+  if (!fail) console.log(`✓ ${where} en/marketing/index.html: US$${want.inicio[2]}/${want.crece[2]}/${want.pro[2]}`);
+}
 process.exit(fail ? 1 : 0);

@@ -3145,7 +3145,8 @@ var APP_URL = 'https://bazar.neuri.tech';
   if (APP_URL) {
     // 239: el alta lleva de dónde llegó (?src= de esta página, p. ej. el QR de una visita; si no, landing).
     var src = (new URLSearchParams(location.search).get('src') || 'landing').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 40) || 'landing';
-    $$('[data-trial]').forEach(function (a) { a.href = APP_URL + '/?signup&country=MX&src=' + src; });
+    // B-B1: el plan del botón (data-plan) viaja al alta: Básico→basico, Pro→pro, Plus→plus.
+    $$('[data-trial]').forEach(function (a) { var pl = (a.dataset.plan || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/^basic$/, 'basico'); a.href = APP_URL + '/?signup&country=MX&src=' + src + (/^(basico|pro|plus)$/.test(pl) ? '&plan=' + pl : ''); });
   }
 
   /* ---------- Asistente de prueba ---------- */
@@ -3207,7 +3208,10 @@ var APP_URL = 'https://bazar.neuri.tech';
     if (!validar(paso)) return;
     if (paso < TOTAL) { ir(paso + 1); return; }
     var pais = radio('pais') || 'MX';
-    if (APP_URL) { window.location.href = APP_URL + '/?signup&country=' + pais; return; }
+    // B-B1: el plan de los vendedores elegidos (o del botón «Probar gratis») y el ?src= viajan al alta.
+    if (APP_URL) { var r = $('input[name=vendedores]:checked', form); var pl = ((r && r.dataset.plan) || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/^basic$/, 'basico');
+      var sr = (new URLSearchParams(location.search).get('src') || 'landing').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 40) || 'landing';
+      window.location.href = APP_URL + '/?signup&country=' + pais + '&src=' + sr + (/^(basico|pro|plus)$/.test(pl) ? '&plan=' + pl : ''); return; }
     var cuerpo = 'Nombre del bazar: ' + val('nombre') + '\nCiudad: ' + val('ciudad') + '\nPaís: ' + (pais === 'US' ? 'Estados Unidos' : 'México') +
       '\nNúmero de vendedores: ' + radio('vendedores') + '\nPlan: ' + plan() + '\nCorreo para entrar: ' + val('correo') + '\n';
     var url = 'mailto:hola@neuri.tech?subject=' + encodeURIComponent('Prueba gratis neuri.bazar') + '&body=' + encodeURIComponent(cuerpo);
@@ -3221,7 +3225,7 @@ var APP_URL = 'https://bazar.neuri.tech';
   $$('[data-plan]').forEach(function (a) {
     if (a.tagName !== 'A') return;
     a.addEventListener('click', function () {
-      var r = $('input[name=vendedores][data-plan="' + a.dataset.plan + '"]', form); if (r && !APP_URL) r.checked = true;
+      var r = $('input[name=vendedores][data-plan="' + a.dataset.plan + '"]', form); if (r) { r.checked = true; error('e-vend', ''); }
     });
   });
   // Al entrar al asistente desde un botón, poner el foco en el primer campo.

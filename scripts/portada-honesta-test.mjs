@@ -13,6 +13,11 @@ let fail = 0;
 const bad = (m) => { console.error(`✗ ${m}`); fail++; };
 if (/revisado por una persona(?! si)/i.test(home.replace(/\(si algo no cuadra, lo revisa una persona\)/g, "")))
   bad("la portada promete «revisado por una persona» y la entrega es automática con controles (K43)");
+// T12: la tarjeta de consulting decía «100 % · Revisado por persona» (sin «una»): el regex de arriba no la veía.
+if (/revisado por persona|100\s*%[^<]{0,80}revisad/i.test(home))
+  bad("la tarjeta de consulting promete «100 % revisado por persona» (K43: entrega automática con controles)");
+// T7: el precio de entrada de la consultoría se ve en la portada, igual que en /consultoria.
+if (!/\$4,500[\s\S]{0,200}diagnóstico desde/.test(home)) bad("la tarjeta de consulting no muestra el precio desde del diagnóstico");
 if (/Sistema en línea/i.test(home)) bad("«Sistema en línea» se lee como estado real del servicio");
 for (const m of home.matchAll(/([^>]{0,20})señales([^<]{0,20})\/ min/g))
   if (!/de ejemplo/.test(m[0])) bad(`«${m[0].trim()}» sin «de ejemplo»`);

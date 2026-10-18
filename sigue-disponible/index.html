@@ -2378,10 +2378,27 @@ class Component extends DCLogic {
   }
 }
 
-window.__nDemo = DCMount(Component);
+// A286: la demo ya viene pintada en el HTML; se monta al acercarse a la vista,
+// al primer toque/tecla o si llega con link precargado — no bloquea la carga en móvil.
+var __nBoot = function () {
+  if (window.__nDemo) return window.__nDemo;
+  window.__nDemo = DCMount(Component);
+  return window.__nDemo;
+};
+(function () {
+  if (location.search || location.hash) { __nBoot(); return; }
+  var evs = ['pointerdown', 'touchstart', 'keydown', 'focusin'];
+  var once = function () { evs.forEach(function (t) { removeEventListener(t, once, true); }); __nBoot(); };
+  evs.forEach(function (t) { addEventListener(t, once, { capture: true, passive: true }); });
+  var roots = [].map.call(document.querySelectorAll('template[data-dc-part]'), function (t) { return document.getElementById(t.getAttribute('data-dc-part')); }).filter(Boolean);
+  if ('IntersectionObserver' in window && roots.length) {
+    var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); __nBoot(); } }, { rootMargin: '300px 0px' });
+    roots.forEach(function (r) { io.observe(r); });
+  } else { __nBoot(); }
+})();
 document.addEventListener('click', function (e) {
   var a = e.target.closest && e.target.closest('[data-scenario]');
-  if (a && window.__nDemo) window.__nDemo.setScenario(a.getAttribute('data-scenario'));
+  if (a) __nBoot().setScenario(a.getAttribute('data-scenario'));
 });
 </script>
 <script>

@@ -247,7 +247,9 @@ var io=new IntersectionObserver(function(es){{es.forEach(function(en){{if(en.isI
 """
 
 
-for lang in ("es", "en"):
+# 18-oct-2026: la versión ES (/marketing/index.html) ahora es el rediseño escrito a mano; aprobado por Ricardo.
+# Este generador solo escribe EN hasta que EN también se migre. No regeneres ES con él.
+for lang in ("en",):
     out = ROOT / C[lang]["path"].strip("/") / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page(lang), encoding="utf-8")

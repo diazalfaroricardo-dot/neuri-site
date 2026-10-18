@@ -22,5 +22,11 @@ if (/Sistema en línea/i.test(home)) bad("«Sistema en línea» se lee como esta
 for (const m of home.matchAll(/([^>]{0,20})señales([^<]{0,20})\/ min/g))
   if (!/de ejemplo/.test(m[0])) bad(`«${m[0].trim()}» sin «de ejemplo»`);
 if (!/Actividad neural · simulación/.test(home)) bad("falta la etiqueta «simulación» de la animación");
+// T12b: lo mismo en las landings de consulting (ES/EN) y llms.txt: ninguna promete revisión humana de cada diagnóstico.
+for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.txt"]) {
+  const txt = readFileSync(join(root, f), "utf8").replace(/\(si algo no cuadra, lo revisa una persona\)|\(if something doesn.t add up, a person reviews it\)/gi, "");
+  if (/revisad[oa] por (una )?persona|100\s*%[^<]{0,80}revisad|(reviewed|checked) by a (real )?(person|human)|human[- ]reviewed|100\s*%[^<]{0,80}review/i.test(txt))
+    bad(`${f} promete revisión humana de cada diagnóstico (K43: entrega automática con controles)`);
+}
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
 process.exit(fail ? 1 : 0);

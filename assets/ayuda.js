@@ -15,6 +15,7 @@
     "ayuda soporte falla problema persona humano funciona help support broken breaks problem person human works",
     "marketplace facebook perfil personal",
     "instagram nativa nativas nativo trae incluidas saludo ausencia built native included greeting away",
+    "factura facturas cfdi recibo recibos comprobante fiscal impuestos receipt receipts invoice invoices tax",
     "termina mes gratis tarjeta cargo cargos sorpresa pagar ends free month card charged surprise pay",
     "usa clientes alguien negocios opiniones usando using anyone customers reviews sellers",
   ];

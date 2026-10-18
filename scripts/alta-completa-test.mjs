@@ -63,8 +63,22 @@ for (const [lang, w, path] of cases) {
     sw: document.documentElement.scrollWidth,
   }));
   if (sent?.id) ids.push(sent.id);
+  // A280: «Reenviar el correo» manda el mismo correo a /mi/link-nuevo y dice qué pasó (solo en mock).
+  let resendOk = true;
+  if (!LIVE) {
+    let rs = null;
+    await p.route("https://sd.neuri.tech/mi/link-nuevo**", async (r) => {
+      rs = JSON.parse(r.request().postData() || "{}");
+      await r.fulfill({ status: 200, contentType: "text/html", body: "ok" });
+    });
+    await p.locator("[data-resend-mail]").click();
+    await p.waitForFunction(() => /Listo|Done/.test(document.getElementById("resendMsg")?.textContent || ""), null, { timeout: 5000 }).catch(() => {});
+    const r2 = await p.evaluate(() => ({ msg: document.getElementById("resendMsg")?.textContent || "", dis: document.querySelector("[data-resend-mail]")?.disabled }));
+    resendOk = rs?.correo === "delivered@resend.dev" && /Listo|Done/.test(r2.msg) && r2.dis === true;
+    if (!resendOk) console.log("  reenviar:", JSON.stringify({ rs, ...r2 }));
+  }
   const ev = v.ev[0]?.[1] || {};
-  const good = v.ok && /Listo|All set/.test(v.big) && /resend|correo|emailed/i.test(v.mail) && ev.origen === "visita-31oct" && ev.meta && sent?.origen === "visita-31oct" && v.sw <= w && errs.length === 0;
+  const good = resendOk && v.ok && /Listo|All set/.test(v.big) && /resend|correo|emailed/i.test(v.mail) && ev.origen === "visita-31oct" && ev.meta && sent?.origen === "visita-31oct" && v.sw <= w && errs.length === 0;
   if (!good) fail++;
   console.log(good ? "OK  " : "FALLA", lang, w, LIVE ? "live" : "mock", JSON.stringify({ big: v.big, mail: v.mail.slice(0, 40), ev, origen: sent?.origen, sw: v.sw }), errs.join(" | "));
   await p.close();

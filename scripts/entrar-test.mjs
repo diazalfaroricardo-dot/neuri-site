@@ -23,7 +23,9 @@ const server = createServer((req, res) => {
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const base = LIVE ? "https://neuri.tech" : `http://127.0.0.1:${server.address().port}`;
 const CASES = [
-  { path: "/", text: "Entrar", menu: true, hrefs: ["https://bazar.neuri.tech/login?lang=es", "https://consulting.neuri.tech/entrar?lang=es"] },
+  { path: "/", text: "Entrar", menu: true, hrefs: ["https://bazar.neuri.tech/login?lang=es", "https://consulting.neuri.tech/entrar?lang=es", "https://sd.neuri.tech/entrar?lang=es"] },
+  { path: "/sigue-disponible/", text: "Entrar", hrefs: ["https://sd.neuri.tech/entrar?lang=es"] },
+  { path: "/en/still-available/", text: "Sign in", hrefs: ["https://sd.neuri.tech/entrar?lang=en"] },
   { path: "/bazar/", text: "Entrar", hrefs: ["https://bazar.neuri.tech/login?lang=es"] },
   { path: "/en/", text: "Sign in", hrefs: ["https://bazar.neuri.tech/login?lang=en"] },
   { path: "/consultoria/", text: "Entrar", hrefs: ["https://consulting.neuri.tech/entrar?lang=es"] },

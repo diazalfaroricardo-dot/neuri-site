@@ -97,7 +97,7 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 nav.main{display:flex;align-items:center;gap:4px}
 nav.main .lk{color:var(--ink-2);text-decoration:none;font:500 14.5px/1 var(--sans);min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border-radius:999px;transition:background .2s,color .2s}
 nav.main .lk:hover{background:var(--chip);color:var(--ink)}
-@media (max-width:880px){nav.main .lk{display:none}}
+@media (max-width:880px){nav.main .lk:not(.lk-entrar){display:none}}
 
 /* Héroe */
 .hero{position:relative;isolation:isolate;padding-block:clamp(56px,9vw,112px) 0;text-align:center}
@@ -546,6 +546,7 @@ footer.ft{position:relative;z-index:1;background:var(--bg);padding-block:80px 48
   <a class="logo" href="/" aria-label="Neuri, inicio"><svg width="28" height="28" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".25"/><circle cx="15" cy="15" r="5.5" fill="#FF5B45"/><g class="orb"><circle cx="25" cy="8" r="2.3" fill="#8FE0B4"/></g></svg><span>neuri<i>.</i>marketing</span></a>
   <nav class="main" aria-label="Principal">
     <a class="lk" href="#viralidad">Viralidad</a><a class="lk" href="#funciones">Funciones</a><a class="lk" href="#precios">Precios</a><a class="lk" href="#gratis">Gratis</a><a class="lk" href="/en/marketing/" hreflang="en" lang="en">English</a>
+    <a class="lk lk-entrar" href="https://neuri-marketing-production.up.railway.app/entrar?lang=es" data-entrar>Entrar</a>
     <a class="btn ink sm" href="#lista" data-cta="marketing header">Entrar a la lista <span class="arr" aria-hidden="true">→</span></a>
   </nav>
 </div></header>

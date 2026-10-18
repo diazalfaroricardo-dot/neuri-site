@@ -554,7 +554,11 @@ var __nBoot = function () {
   evs.forEach(function (t) { addEventListener(t, once, { capture: true, passive: true }); });
   var roots = [].map.call(document.querySelectorAll('template[data-dc-part]'), function (t) { return document.getElementById(t.getAttribute('data-dc-part')); }).filter(Boolean);
   if ('IntersectionObserver' in window && roots.length) {
-    var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); __nBoot(); } }, { rootMargin: '300px 0px' });
+    // A286: si la demo ya está a la vista al cargar (el hero), se monta en un rato libre DESPUÉS de cargar
+    // (load + 3 s, requestIdleCallback) para no trabar el primer toque; tocar/teclear la monta al momento.
+    var t0 = Date.now(), idle = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 1); })(function () { __nBoot(); }, { timeout: 2000 }); };
+    var later = function () { var w = 3000 - (Date.now() - t0); if (document.readyState === 'complete') setTimeout(idle, Math.max(0, w)); else addEventListener('load', function () { setTimeout(idle, 3000); }, { once: true }); };
+    var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); later(); } }, { rootMargin: '300px 0px' });
     roots.forEach(function (r) { io.observe(r); });
   } else { __nBoot(); }
 })();

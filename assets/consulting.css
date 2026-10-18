@@ -14,7 +14,7 @@ nav{display:flex;align-items:center;gap:4px}nav a{text-decoration:none;font-size
 .btn.pri{background:var(--ink);color:#fff}.btn.pri:hover{background:var(--green2)}
 .btn.pri .ar{transition:transform .2s}.btn.pri:hover .ar{transform:translateX(3px)}
 .btn.sec{border-color:var(--line2);background:var(--paper);color:var(--ink)}.btn.sec:hover{border-color:var(--ink)}
-.btn.sm{min-height:42px;padding:0 18px;font-size:14.5px}
+.btn.sm{min-height:44px;padding:0 18px;font-size:14.5px}
 @media(max-width:860px){nav .hide{display:none}}
 /* hero */
 .hero{position:relative;padding:72px 0 64px;border-bottom:1px solid var(--line);overflow:hidden}
@@ -115,7 +115,7 @@ h2{font-weight:600;font-size:clamp(34px,4.2vw,56px);line-height:1.04;letter-spac
 .cta .wrap{position:relative;display:grid;gap:40px;align-items:end}@media(min-width:960px){.cta .wrap{grid-template-columns:1.4fr 1fr}}
 .cta h2{font-size:clamp(40px,5.4vw,72px);color:#fff}.cta em.s{color:var(--mint)}
 .cta p{color:#A9BDB4;margin:0 0 26px}.cta .btn.pri{background:var(--mint);color:var(--night)}.cta .btn.sec{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
-footer{padding:28px 0;font-size:13.5px;color:var(--dim)}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{padding:28px 0;font-size:13.5px;color:var(--dim)}footer a{display:inline-flex;align-items:center;min-height:44px}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 /* extension */
 .ext{display:grid;gap:48px;align-items:center}@media(min-width:1000px){.ext{grid-template-columns:1fr 1.1fr}}
 .ext ul.pts{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
@@ -198,4 +198,4 @@ footer{padding:28px 0;font-size:13.5px;color:var(--dim)}footer .wrap{display:fle
 .eyebrow .soon{margin-left:6px;font-size:10.5px;letter-spacing:.06em;color:#fff;background:var(--terra);border-radius:4px;padding:3px 7px}
 footer a{color:inherit}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
-@media(max-width:560px){header .wrap{gap:10px}.logo span{display:none}header .btn.sm{padding:0 14px;font-size:13.5px;white-space:nowrap;min-height:40px}}
+@media(max-width:560px){header .wrap{gap:10px}.logo span{display:none}header .btn.sm{padding:0 14px;font-size:13.5px;white-space:nowrap;min-height:44px}}

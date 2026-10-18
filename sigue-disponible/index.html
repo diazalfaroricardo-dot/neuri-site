@@ -2386,7 +2386,7 @@ var __nBoot = function () {
   return window.__nDemo;
 };
 (function () {
-  if (location.search || location.hash) { __nBoot(); return; }
+  if (location.hash || /[?&](negocio|business|productos|products)=/.test(location.search)) { __nBoot(); return; }
   var evs = ['pointerdown', 'touchstart', 'keydown', 'focusin'];
   var once = function () { evs.forEach(function (t) { removeEventListener(t, once, true); }); __nBoot(); };
   evs.forEach(function (t) { addEventListener(t, once, { capture: true, passive: true }); });

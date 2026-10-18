@@ -1,4 +1,4 @@
-:root{--bg:#FBFAF7;--paper:#FFFFFF;--ink:#0A1A14;--sub:#4B5B54;--dim:#7A877F;--line:#E4E1DA;--line2:#D3CFC6;--green:#1F7A52;--green2:#145C3C;--mint:#8FE0B4;--terra:#B4532A;--peach:#F3B38F;--night:#0A1A14;--serif:"Instrument Serif",Georgia,serif;--mono:"Geist Mono",ui-monospace,monospace}
+:root{--bg:#FBFAF7;--paper:#FFFFFF;--ink:#0A1A14;--sub:#4B5B54;--dim:#5E6B64;--line:#E4E1DA;--line2:#D3CFC6;--green:#1F7A52;--green2:#145C3C;--mint:#8FE0B4;--terra:#B4532A;--peach:#F3B38F;--night:#0A1A14;--serif:"Instrument Serif",Georgia,serif;--mono:"Geist Mono",ui-monospace,monospace}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Geist,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -53,7 +53,7 @@ svg.wires path{fill:none;stroke:var(--green);stroke-width:1.2;stroke-dasharray:3
 .stack .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:14px 40px;padding-top:26px;padding-bottom:26px}
 .stack p{margin:0;font-size:13px;color:var(--dim);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
 .stack ul{display:flex;flex-wrap:wrap;gap:10px 34px;list-style:none;margin:0;padding:0}
-.stack li{font-weight:600;color:#8C968F;font-size:16px;letter-spacing:-.01em}
+.stack li{font-weight:600;color:#66726B;font-size:16px;letter-spacing:-.01em}
 /* sections */
 section.s{padding:112px 0;border-bottom:1px solid var(--line)}
 .sh{display:grid;gap:20px;margin-bottom:56px}@media(min-width:960px){.sh{grid-template-columns:1fr 1fr;align-items:end}}

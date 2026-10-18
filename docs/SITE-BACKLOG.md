@@ -8,7 +8,7 @@ Dueño de lo compartido: encabezado, menú «Entrar», pie legal, idioma, landin
 - T3 (B-N3, baja) — diagrama con scroll de «La red neural» enfocable y con nombre (e421238).
 
 ## Abierto (de la auditoría con ojos nuevos 18-oct 13:22)
-- T4 (B-N3, media) contraste AA en neuri.tech/consultoria a 390: 15 nodos (`.stack > .wrap > p`, `.wrap > ul li`). Criterio: axe AA 0 a 390/1280 ES/EN.
+- T4 HECHO 18-oct (--dim #5E6B64, logos de herramientas #66726B; axe AA 0 en /consultoria y /en/ai-consulting a 390/1280, local) (B-N3, media) contraste AA en neuri.tech/consultoria a 390: 15 nodos (`.stack > .wrap > p`, `.wrap > ul li`). Criterio: axe AA 0 a 390/1280 ES/EN.
 - T5 (B-P3, media) «Entrar → neuri.marketing» y los links legales de /marketing apuntan a neuri-marketing-production.up.railway.app; además la descripción de la portada dice «neuri.marketing (pronto)». Necesita dominio propio (marketing.neuri.tech) → 🔒 DNS/Railway de Ricardo si el build de Marketing no lo tiene; coordinar con «Neuri Marketing build», no tocar ~/neuri-marketing desde aquí.
 - T6 (B-A3, media) a 390 el encabezado de la portada se parte en 3 renglones y «Entrar ▾» queda centrado abajo (y≈166). Criterio: logo + «Entrar» en el primer renglón a 390, «Entrar» a la derecha.
 - T7 (B-A1/B-A8, baja) portada: «1,254 SEÑALES / MIN» / «SISTEMA EN LÍNEA» con etiqueta SIMULACIÓN se lee como métrica real; y en 5 s no se ve que existe la consultoría con precio. Revisar con ux-copy.

@@ -4,6 +4,7 @@
 // (aphnetworks.com/news/31470-still-available-facebook-marketplace-now-lets-meta-ai-respond).
 // Uso: node scripts/faq-marketplace-test.mjs [--live]
 import { readFileSync } from "node:fs";
+import { landingSource } from "./landing-src.mjs";
 const live = process.argv.includes("--live");
 const pages = [
   ["sigue-disponible/index.html", "¿Y la respuesta automática de Marketplace?", /contesta(mos)? (dentro de|en) Marketplace/i],
@@ -11,7 +12,7 @@ const pages = [
 ];
 let fail = 0;
 for (const [p, q, overclaim] of pages) {
-  const html = live ? await (await fetch(`https://neuri.tech/${p.replace("index.html", "")}`)).text() : readFileSync(p, "utf8");
+  const html = await landingSource(p, live);
   const n = html.split(q).length - 1;
   const ok = n === 3;
   if (!ok) fail++;
@@ -23,7 +24,7 @@ for (const [p, q, overclaim] of pages) {
 if (fail) process.exitCode = 1;
 // A252: el alta (paso 2, «¿Dónde vendes más?») avisa que Marketplace de perfil personal no se conecta.
 for (const p of ["sigue-disponible/index.html", "en/still-available/index.html"]) {
-  const html = readFileSync(p, "utf8");
+  const html = await landingSource(p);
   const ok = /<p class="help" id="h-donde">[^<]*Marketplace[^<]*<\/p>/.test(html) && html.includes('aria-describedby="h-donde"');
   console.log(`${ok ? "OK   " : "FALLA"} ${p} · aviso de Marketplace en el alta (A252)`);
   if (!ok) process.exitCode = 1;

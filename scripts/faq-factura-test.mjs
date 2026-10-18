@@ -2,6 +2,7 @@
 // honestamente qué hay (recibo de Stripe al empezar los cobros) y qué no (CFDI todavía no).
 // Uso: node scripts/faq-factura-test.mjs [--live]
 import { readFileSync } from "node:fs";
+import { landingSource } from "./landing-src.mjs";
 const live = process.argv.includes("--live");
 const pages = [
   ["sigue-disponible/index.html", "¿Me dan factura?", /Todavía no emitimos factura CFDI/],
@@ -10,7 +11,7 @@ const pages = [
 const overclaim = /(CFDI (incluida|disponible|automática)|we issue CFDI|deducible garantizado)/i;
 let fail = 0;
 for (const [p, q, honest] of pages) {
-  const html = live ? await (await fetch(`https://neuri.tech/${p.replace("index.html", "")}?t=${Date.now()}`)).text() : readFileSync(p, "utf8");
+  const html = await landingSource(p, live);
   const n = html.split(q).length - 1;
   if (n !== 3) fail++;
   console.log(`${n === 3 ? "OK   " : "FALLA"} ${p}${live ? " (en vivo)" : ""} · ${n}/3 copias`);

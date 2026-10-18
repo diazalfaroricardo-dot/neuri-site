@@ -5,6 +5,7 @@
 // respuestas distintas por pregunta y comentarios no.
 // Uso: node scripts/faq-instagram-nativo-test.mjs [--live]
 import { readFileSync } from "node:fs";
+import { landingSource } from "./landing-src.mjs";
 const live = process.argv.includes("--live");
 const pages = [
   ["sigue-disponible/index.html", "¿Por qué no uso las respuestas automáticas que ya trae Instagram?", /son gratis: si con eso te basta, úsalas/],
@@ -13,7 +14,7 @@ const pages = [
 const overclaim = /(garantiza|guaranteed|\d+\s?%|más ventas|more sales)/i;
 let fail = 0;
 for (const [p, q, honest] of pages) {
-  const html = live ? await (await fetch(`https://neuri.tech/${p.replace("index.html", "")}?t=${Date.now()}`)).text() : readFileSync(p, "utf8");
+  const html = await landingSource(p, live);
   const n = html.split(q).length - 1;
   const ok = n === 3;
   if (!ok) fail++;

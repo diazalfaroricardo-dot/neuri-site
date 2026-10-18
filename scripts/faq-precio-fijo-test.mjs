@@ -2,6 +2,7 @@
 // y el tope que promete (1,000 al día) es el mismo que usa el servidor (packages/sd-setup META_DAILY_CAP).
 // Uso: node scripts/faq-precio-fijo-test.mjs [--live]
 import { readFileSync, existsSync } from "node:fs";
+import { landingSource } from "./landing-src.mjs";
 import { homedir } from "node:os";
 const live = process.argv.includes("--live");
 const pages = [
@@ -10,7 +11,7 @@ const pages = [
 ];
 let fail = 0;
 for (const [p, q, cap] of pages) {
-  const html = live ? await (await fetch(`https://neuri.tech/${p.replace("index.html", "")}`)).text() : readFileSync(p, "utf8");
+  const html = await landingSource(p, live);
   const n = html.split(q).length - 1;
   const ok = n === 3 && html.includes(cap);
   if (!ok) fail++;

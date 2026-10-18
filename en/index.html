@@ -3241,5 +3241,6 @@ var sel=function(){var r=document.createRange();r.selectNodeContents(u);var s=wi
 var done=function(){o.textContent='Copied! Paste it into your AI assistant.';},bad=function(){sel();o.textContent='Couldn’t copy. Select the URL and copy it by hand.';};
 if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,bad);}else{bad();}});})();
 </script>
+<script>/* B-F4: con sesión en neuri.bazar, «Sign in» pasa a «My dashboard» (solo sí/no, sin datos; si falla queda igual). */(function(){var as=document.querySelectorAll('a[data-entrar][href^="https://bazar.neuri.tech/login"]');if(!as.length||!window.fetch)return;fetch('https://bazar.neuri.tech/api/sesion',{credentials:'include'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.signedIn===true){for(var i=0;i<as.length;i++){as[i].href='https://bazar.neuri.tech/?lang=en';as[i].textContent='My dashboard';}}}).catch(function(){});})();</script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+# neuri.tech (sitio paraguas) — backlog
+
+Dueño de lo compartido: encabezado, menú «Entrar», pie legal, idioma, landings, vendedor de IA y consistencia entre sitios (skill neuri-product-loop). IDs T#. Orden: S/L → B alta → J → B media → valor/esfuerzo → B baja.
+
+## Hecho
+- T1 (B-A9/B-K3, media) 18-oct 13:25 — pie de la portada con «Privacidad y términos» (/legal/ ES/EN con el aviso y los términos de cada producto) y hola@neuri.tech (4b58a06). Fuente: auditoría con ojos nuevos de consulting 18-oct 13:22. Prueba: scripts/legal-pie-test.mjs. En vivo 390/1280 axe 0.
+- T2 (B-A6, media) — «English» del pie mandaba a /en/ (landing de neuri.bazar) como si fuera neuri.tech en inglés; ahora «English: AI consulting» y «English: neuri.bazar» (4b58a06).
+- T3 (B-N3, baja) — diagrama con scroll de «La red neural» enfocable y con nombre (e421238).
+
+## Abierto (de la auditoría con ojos nuevos 18-oct 13:22)
+- T4 (B-N3, media) contraste AA en neuri.tech/consultoria a 390: 15 nodos (`.stack > .wrap > p`, `.wrap > ul li`). Criterio: axe AA 0 a 390/1280 ES/EN.
+- T5 (B-P3, media) «Entrar → neuri.marketing» y los links legales de /marketing apuntan a neuri-marketing-production.up.railway.app; además la descripción de la portada dice «neuri.marketing (pronto)». Necesita dominio propio (marketing.neuri.tech) → 🔒 DNS/Railway de Ricardo si el build de Marketing no lo tiene; coordinar con «Neuri Marketing build», no tocar ~/neuri-marketing desde aquí.
+- T6 (B-A3, media) a 390 el encabezado de la portada se parte en 3 renglones y «Entrar ▾» queda centrado abajo (y≈166). Criterio: logo + «Entrar» en el primer renglón a 390, «Entrar» a la derecha.
+- T7 (B-A1/B-A8, baja) portada: «1,254 SEÑALES / MIN» / «SISTEMA EN LÍNEA» con etiqueta SIMULACIÓN se lee como métrica real; y en 5 s no se ve que existe la consultoría con precio. Revisar con ux-copy.
+- T8 (B-P1, baja) neuri.tech/consultoria y consulting.neuri.tech duplican contenido con títulos distintos (canonical); título de /consultoria repite la marca.
+- T9 (B-N2, baja) áreas táctiles <44 px: «Solicitar diagnóstico» del encabezado de /consultoria (40 px), links del pie de /consultoria (18 px), «Terms»/«Tour» en /en/.
+- T10 crear `scripts/basicos.mjs` (Entrar, links rotos, 404, pie legal, títulos/og, HTTPS) para `pnpm basicos`-equivalente.
+- Nota: la auditoría reportó los links del menú «Entrar» «sin texto»; es falso positivo (el menú <details> estaba cerrado; los 4 tienen texto).

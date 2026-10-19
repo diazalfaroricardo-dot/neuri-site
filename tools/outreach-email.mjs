@@ -15,7 +15,7 @@
  */
 import { readFileSync } from "node:fs";
 
-const T = {
+export const T = {
   bots: { a: "#0B5E3A", bg: "#F6F4EE", ink: "#05080D", sub: "#56635C", line: "#E1E3DC", suf: ".bots",
     url: { es: "https://neuri.tech/sigue-disponible/", en: "https://neuri.tech/en/still-available/" },
     cta: { es: "Ver cómo contesta", en: "See it answer" },
@@ -34,8 +34,8 @@ const T = {
     chips: { es: ["Nada sale sin tu OK", "Tus fotos reales", "Instagram y Facebook"], en: ["Nothing posts without your OK", "Your real photos", "Instagram and Facebook"] } },
   personal: { a: "#05080D", bg: "#F4F6F7", ink: "#0B1118", sub: "#4F5A64", line: "#E2E7EB", suf: "" },
 };
-const POSTAL = "Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA";
-const FONT = "Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
+export const POSTAL = "Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA";
+export const FONT = "Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const utm = (u, p) => `${u}${u.includes("?") ? "&" : "?"}utm_source=outreach&utm_medium=email&utm_campaign=${p}`;

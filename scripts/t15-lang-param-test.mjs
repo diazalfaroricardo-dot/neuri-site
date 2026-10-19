@@ -12,6 +12,9 @@ const cases = [
   ["/sigue-disponible/?lang=en", "/en/still-available/", "en"],
   ["/en/still-available/?lang=es", "/sigue-disponible/", "es"],
   ["/bazar/?lang=es", "/bazar/", "es"],
+  ["/?lang=en", "/en/home/", "en"],
+  ["/en/home/?lang=es", "/", "es"],
+  ["/?lang=es", "/", "es"],
 ];
 for (const w of [390, 1280]) {
   for (const [from, to, lang] of cases) {

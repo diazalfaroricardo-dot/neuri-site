@@ -5,6 +5,8 @@
      (se guarda en localStorage y se respeta en todas las páginas).
    - ?lang=es|en en la URL también fija la elección. Buscadores y bots no se redirigen. */
 (() => {
+  // data-solo-param: la portada solo obedece ?lang explícito (no redirige por zona horaria).
+  const soloParam = document.currentScript?.hasAttribute("data-solo-param");
   try {
     const KEY = "neuri-lang";
     const alt = {};
@@ -38,6 +40,7 @@
       location.replace(alt[q].pathname + location.search + location.hash);
       return;
     }
+    if (soloParam) return;
     if (/bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit/i.test(navigator.userAgent) || navigator.webdriver) return;
 
     const here = location.pathname.replace(/index\.html$/, "");

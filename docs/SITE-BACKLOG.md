@@ -59,3 +59,4 @@ Resultado: 1 alta (T5 conocido, dominio railway de Marketing — build de Market
 - T28 (baja, B-O1/CLS) /en/marketing CLS móvil 0.086 tras T27 (antes ≈0); encontrar el elemento que se mueve (PerformanceObserver layout-shift a 390) y dejarlo ≈0 sin perder el 95.
 - T29 HECHO 19-oct (alta, B-K3) /legal/ «Este sitio (neuri.tech)» ES/EN + candado k3-sitio-terceros (49c5a9e).
 - T30 HECHO 19-oct (alta, B-M5) /consultoria sin scroll a 390 sin Google Fonts + candado bm5-caidos [--live] (371bab1).
+- T32 HECHO (media, B-A8 — encontrado al verificar T31 en vivo) el vendedor de IA decía en EN «you approve everything before it replies to anyone» de neuri.bots; la landing dice «nunca contesta antes de que tú lo actives». Hoja de apps/consulting/src/vendedor.ts corregida + prueba T32 en test/vendedor-nombre (neuri-bazar b71bd352).

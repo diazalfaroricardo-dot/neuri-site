@@ -72,6 +72,17 @@ for (const pg of pages) {
     const ctx = await browser.newContext({ viewport: { width, height: 900 } });
     const p = await ctx.newPage();
     const errs = [];
+    // T26: las landings preguntan a consulting.neuri.tech / sd.neuri.tech si hay sesión o vendedor de IA.
+    // Desde 127.0.0.1 su CORS (solo neuri.tech) las bloquea y Chrome lo reporta como error de la página.
+    // Respondemos 503 con CORS para el origen local: así además se prueba que la página aguanta el servicio caído (B-M5).
+    await p.route(/^https:\/\/(consulting|sd|bazar|marketing)\.neuri\.tech\/(api\/|estado)/, (route) =>
+      route.fulfill({
+        status: 503,
+        headers: { "access-control-allow-origin": base, "access-control-allow-credentials": "true" },
+        contentType: "application/json",
+        body: "{}",
+      }),
+    );
     p.on("console", (m) => {
       // Solo errores de este sitio: fuentes/analítica externas pueden fallar sin red.
       const u = m.location().url || "";

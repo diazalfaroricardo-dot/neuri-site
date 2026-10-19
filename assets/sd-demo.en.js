@@ -8,7 +8,7 @@ class Component extends DCLogic {
       biz: 0, tone: 0, ch: 'ig', name: 'Mariana’s Finds', nameEdited: false, prods: '',
       skills: { precio: true, horario: true, apartar: true, pago: false },
       phase: 'setup', bChecks: 0, msgs: [], typing: false, draft: '',
-      lcMsgs: 30, lcLate: 40, lcClose: 20, lcTicket: 60, lostAnim: 0,
+      lcMsgs: 30, lcLate: 40, lcClose: 20, lcTicket: 60, lostAnim: 4320, // B-A7: arranca en el valor real (antes $0 hasta montar la demo)
       ownFilter: 'all', ownSel: 1, ownNew: false,
       scen: 'bazar', sStep: 0, sProg: 0
     };

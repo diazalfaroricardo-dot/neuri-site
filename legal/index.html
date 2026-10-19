@@ -26,10 +26,24 @@ a.main{background:var(--acc);color:#04060A;border-color:var(--acc)}
 h2{font-size:15px;color:var(--sub);font-weight:600;margin:28px 0 10px}
 .mail{margin-top:24px}
 small{display:block;color:var(--sub);font-weight:400;font-size:14px}
+header.top{position:absolute;top:16px;left:16px;right:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:10}
+header.top a{border:0;justify-content:flex-start}
+header.top .logo{min-height:44px;padding:0 4px;font-weight:700;letter-spacing:-.02em;font-size:18px}
+body{padding-top:96px}
 </style>
 <meta property="og:image" content="https://neuri.tech/assets/og/neuri.png">
 </head>
 <body>
+<header class="top"><a class="logo" href="/" aria-label="Neuri, inicio">neuri</a>
+<nav aria-label="Entrar" style="display:block"><details data-entrar class="x-entrar" style="position: relative"><style>.x-entrar summary::-webkit-details-marker{display:none}.x-entrar [role=menu] a:hover,.x-entrar [role=menu] a:focus-visible{background:rgba(143,224,180,.12)}@media (max-width:560px){.x-entrar [role=menu]{position:fixed!important;left:16px;right:16px!important;top:76px!important;min-width:0!important}}</style>
+<summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px">Entrar <span aria-hidden="true">▾</span></summary>
+<div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">
+<a role="menuitem" href="https://bazar.neuri.tech/login?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bazar</a>
+<a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.consulting</a>
+<a role="menuitem" href="https://sd.neuri.tech/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bots</a>
+<a role="menuitem" href="https://neuri-marketing-production.up.railway.app/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.marketing</a>
+</div>
+</details></nav></header>
 <main>
 <div class="code">NEURI LLC · LEGAL</div>
 <h1>Privacidad, términos y contacto</h1>

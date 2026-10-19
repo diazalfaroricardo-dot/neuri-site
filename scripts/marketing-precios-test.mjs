@@ -45,7 +45,10 @@ for (const [where, html] of srcs) {
 const en = [["local", readFileSync("en/marketing/index.html", "utf8")]];
 if (live) en.push(["live", await (await fetch("https://neuri.tech/en/marketing/")).text()]);
 for (const [where, html] of en) {
-  const cards = [...html.matchAll(/<div class="tool plan[^"]*"><span class="tag mono">(\w+)<\/span><span class="big">US\$(\d+)<\/span>([\s\S]*?)<\/ul>/g)];
+  // T25: EN usa el mismo HTML que ES (generado por scripts/t25-marketing-en.mjs); planes Start/Grow/Pro.
+  const NOMBRE = { Start: "Inicio", Grow: "Crece", Pro: "Pro" };
+  const cards = [...html.matchAll(/<div class="plan[^"]*">(?:<span class="tagx">\w+<\/span>)?<div><h3>(\w+)<\/h3>[\s\S]*?<b>US\$(\d+)<\/b>([\s\S]*?)<\/ul>/g)]
+    .map(([m, n, usd, body]) => [m, NOMBRE[n] || n, usd, body]);
   if (cards.length !== 3) bad(`${where} EN: esperaba 3 planes, hay ${cards.length}`);
   for (const [, name, usd, body] of cards) {
     const w = want[name.toLowerCase()];

@@ -106,7 +106,7 @@ a{color:#E9EEF2}a:hover{color:#8FE0B4}
 .x-halo{transform-box:fill-box;transform-origin:center;animation:xHalo 1.8s ease-out infinite}
 details summary{list-style:none;cursor:pointer}
 details summary::-webkit-details-marker{display:none}
-@media (max-width:560px){.x-hide-xs{display:none !important}.x-topnav{gap:12px !important;flex-wrap:nowrap !important}header.x-tophead{padding-left:16px !important;padding-right:16px !important}}@media (max-width:900px){.x-hide-sm{display:none !important}}
+@media (max-width:560px){.x-hide-xs{display:none !important}.x-topnav{gap:12px !important;flex-wrap:nowrap !important}header.x-tophead{padding-left:16px !important;padding-right:16px !important}}@media (max-width:900px){.x-hide-sm{display:none !important}}@media (max-width:1440px){.x-hide-md{display:none !important}}
 @media (prefers-reduced-motion:reduce){.x-eeg,.x-fire,.x-flow,.x-halo,.x-stars,.x-aur-a,.x-aur-b,.x-grid,.x-spin,.x-spin-r,.x-spin-f,.x-core,.x-synapse,.x-caret,.x-live,.x-wa,.x-wb,.x-line,.x-rise,.x-scan,.x-marq{animation:none !important}.x-word{animation:none !important;opacity:1}}
 
 </style>
@@ -123,12 +123,20 @@ details summary::-webkit-details-marker{display:none}
 <nav class="x-topnav" aria-label="Principal" style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap">
 <a class="x-hide-sm x-mono" href="#sistemas" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Sistemas</a>
 <a class="x-hide-sm x-mono" href="#red" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Red neural</a>
-<a class="x-hide-sm x-mono" href="#consola" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consola</a>
+<a class="x-hide-sm x-hide-md x-mono" href="#consola" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consola</a>
 <a class="x-hide-sm x-mono" href="#principios" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Principios</a>
-<a class="x-hide-sm x-mono" href="#laboratorio" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Laboratorio</a>
+<a class="x-hide-sm x-hide-md x-mono" href="#laboratorio" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Laboratorio</a>
 <a class="x-mono x-hide-sm" href="/marketing/" style="text-decoration: none; font-size: 12.5px; color: #FF8A7A; min-height: 44px; display: inline-flex; align-items: center">Marketing</a>
 <a class="x-mono" href="/consultoria/" style="text-decoration: none; font-size: 12.5px; color: #8FE0B4; min-height: 44px; display: inline-flex; align-items: center">Consultoría IA</a>
 <a class="x-btn x-hide-xs" href="mailto:hola@neuri.tech" style="text-decoration: none; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Hablar con Neuri</a>
+<details data-idioma class="x-entrar" lang="en" style="position: relative"><summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px" aria-label="EN — English">EN <span aria-hidden="true">▾</span></summary>
+<div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">
+<a role="menuitem" hreflang="en" href="/en/still-available/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bots — Instagram &amp; Messenger replies</a>
+<a role="menuitem" hreflang="en" href="/en/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bazar — POS for vendor malls</a>
+<a role="menuitem" hreflang="en" href="/en/ai-consulting/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.consulting — AI consulting</a>
+<a role="menuitem" hreflang="en" href="/en/marketing/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.marketing</a>
+</div>
+</details>
 <details data-entrar class="x-entrar" style="position: relative"><style>.x-entrar summary::-webkit-details-marker{display:none}.x-entrar [role=menu] a:hover,.x-entrar [role=menu] a:focus-visible{background:rgba(143,224,180,.12)}@media (max-width:560px){.x-entrar [role=menu]{position:fixed!important;left:16px;right:16px!important;top:76px!important;min-width:0!important}}</style>
 <summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px">Entrar <span aria-hidden="true">▾</span></summary>
 <div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">
@@ -608,12 +616,20 @@ details summary::-webkit-details-marker{display:none}
 <nav class="x-topnav" aria-label="Principal" style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap">
 <a class="x-hide-sm x-mono" href="#sistemas" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Sistemas</a>
 <a class="x-hide-sm x-mono" href="#red" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Red neural</a>
-<a class="x-hide-sm x-mono" href="#consola" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consola</a>
+<a class="x-hide-sm x-hide-md x-mono" href="#consola" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consola</a>
 <a class="x-hide-sm x-mono" href="#principios" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Principios</a>
-<a class="x-hide-sm x-mono" href="#laboratorio" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Laboratorio</a>
+<a class="x-hide-sm x-hide-md x-mono" href="#laboratorio" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Laboratorio</a>
 <a class="x-mono x-hide-sm" href="/marketing/" style="text-decoration: none; font-size: 12.5px; color: #FF8A7A; min-height: 44px; display: inline-flex; align-items: center">Marketing</a>
 <a class="x-mono" href="/consultoria/" style="text-decoration: none; font-size: 12.5px; color: #8FE0B4; min-height: 44px; display: inline-flex; align-items: center">Consultoría IA</a>
 <a class="x-btn x-hide-xs" href="mailto:hola@neuri.tech" style="text-decoration: none; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Hablar con Neuri</a>
+<details data-idioma class="x-entrar" lang="en" style="position: relative"><summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px" aria-label="EN — English">EN <span aria-hidden="true">▾</span></summary>
+<div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">
+<a role="menuitem" hreflang="en" href="/en/still-available/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bots — Instagram &amp; Messenger replies</a>
+<a role="menuitem" hreflang="en" href="/en/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bazar — POS for vendor malls</a>
+<a role="menuitem" hreflang="en" href="/en/ai-consulting/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.consulting — AI consulting</a>
+<a role="menuitem" hreflang="en" href="/en/marketing/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.marketing</a>
+</div>
+</details>
 <details data-entrar class="x-entrar" style="position: relative"><style>.x-entrar summary::-webkit-details-marker{display:none}.x-entrar [role=menu] a:hover,.x-entrar [role=menu] a:focus-visible{background:rgba(143,224,180,.12)}@media (max-width:560px){.x-entrar [role=menu]{position:fixed!important;left:16px;right:16px!important;top:76px!important;min-width:0!important}}</style>
 <summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px">Entrar <span aria-hidden="true">▾</span></summary>
 <div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">

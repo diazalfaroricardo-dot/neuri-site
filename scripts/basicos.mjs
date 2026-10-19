@@ -31,7 +31,7 @@ for (const f of pages) {
   if (!/<title>[^<]{3,}<\/title>/i.test(h)) bad(rel, "sin <title>");
   if (!/<meta[^>]+name=["']description["']/i.test(h)) bad(rel, "sin meta description");
   if (!/<link[^>]+rel=["'](?:shortcut )?icon["']/i.test(h)) bad(rel, "sin favicon");
-  if (rel !== "404.html" && !/property=["']og:image["']/i.test(h)) bad(rel, "sin og:image");
+  if (!/property=["']og:image["']/i.test(h)) bad(rel, "sin og:image");
   for (const m of h.matchAll(/\b(?:src|href)=["'](http:\/\/[^"']+)["']/gi)) bad(rel, `contenido mixto ${m[1]}`);
   for (const m of h.matchAll(/\bhref=["'](\/[^"'#?]*)/g)) {
     const p = m[1];
@@ -39,7 +39,7 @@ for (const f of pages) {
     const t = join(ROOT, p);
     if (!(existsSync(t) && (statSync(t).isFile() || existsSync(join(t, "index.html")))) && !existsSync(`${t}.html`)) bad(rel, `link roto ${p}`);
   }
-  if (rel !== "404.html" && !/\/legal\/|privacidad|privacy/i.test(h)) bad(rel, "pie sin legal/privacidad");
+  if (!/\/legal\/|privacidad|privacy/i.test(h)) bad(rel, "pie sin legal/privacidad");
   if (LANDINGS.includes(rel)) {
     if (!/hola@neuri\.tech/.test(h)) bad(rel, "sin hola@neuri.tech");
     if (!/>\s*(Entrar|Sign in)\b/.test(h)) bad(rel, "sin «Entrar»/«Sign in»");

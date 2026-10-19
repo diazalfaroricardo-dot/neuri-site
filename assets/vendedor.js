@@ -72,13 +72,15 @@
     // bg = hoja · cv = fondo de la plática · ink/sub = texto · ln = líneas · tint = chips · dot = punto «en línea» ·
     // ttl = letra del título (consulting usa su serif).
     const TH = {
-      home: { a: "#8FE0B4", ai: "#B5EDCD", on: "#05080D", bg: "#0B1118", cv: "#05080D", ab: "#111922", ink: "#E9EEF2", sub: "#9AA6B2", ln: "rgba(233,238,242,.12)", tint: "rgba(143,224,180,.12)", dot: "#8FE0B4", ring: "#F3B38F" },
+      home: { a: "#8FE0B4", ai: "#B5EDCD", on: "#05080D", bg: "#0B1118", cv: "#05080D", ab: "#111922", ink: "#E9EEF2", sub: "#9AA6B2", ln: "rgba(233,238,242,.12)", tint: "rgba(143,224,180,.12)", dot: "#8FE0B4", ring: "#F3B38F", pl: ["#05080D", "#B4441A", "#C2341D"] },
       bots: { a: "#0B5E3A", ai: "#084A2D", on: "#FFFFFF", bg: "#FFFFFF", cv: "#F6F4EE", ab: "#FFFFFF", ink: "#05080D", sub: "#56635C", ln: "#E1E3DC", tint: "#E3EFE7", dot: "#0B5E3A", ring: "#8FE0B4" },
       bazar: { a: "#B4441A", ai: "#8A3313", on: "#FFFFFF", bg: "#FFFFFF", cv: "#F7F1E8", ab: "#FFFFFF", ink: "#05080D", sub: "#5E554C", ln: "#E6DBC9", tint: "#F6E7DA", dot: "#B4441A", ring: "#F3B38F" },
       consult: { a: "#1F7A52", ai: "#145C3C", on: "#FFFFFF", bg: "#FFFFFF", cv: "#FBFAF7", ab: "#FFFFFF", ink: "#0A1A14", sub: "#4B5B54", ln: "#E4E1DA", tint: "#EAF3EE", dot: "#1F7A52", ring: "#8FE0B4", ttl: '"Instrument Serif",Georgia,serif' },
       mkt: { a: "#C2341D", ai: "#9E2914", on: "#FFFFFF", bg: "#FFFFFF", cv: "#FFF8F2", ab: "#FFFFFF", ink: "#0B1118", sub: "#5B6670", ln: "#F0E4DA", tint: "#F4ECE4", dot: "#C2341D", ring: "#FFC857" },
     };
     const C = TH[prod.th] || TH.home;
+    // Los «planetas» que giran alrededor de Neuri: un color por producto (menta, durazno, sol).
+    const PL = ["#8FE0B4", "#F3B38F", "#FFC857"];
     const A = C.a;
 
     // Estado (sigue entre páginas en la misma pestaña).
@@ -138,12 +140,24 @@
     root.innerHTML = `<style>
 :host{all:initial}
 *{box-sizing:border-box;font-family:inherit;margin:0}
-.w{--a:${C.a};--ai:${C.ai};--on:${C.on};--bg:${C.bg};--cv:${C.cv};--ab:${C.ab};--ink:${C.ink};--sub:${C.sub};--ln:${C.ln};--tint:${C.tint};--dot:${C.dot};--ring:${C.ring};--f:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--ttl:${C.ttl || "var(--f)"};font-family:var(--f);color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.w{--p1:${(C.pl || PL)[0]};--p2:${(C.pl || PL)[1]};--p3:${(C.pl || PL)[2]};--a:${C.a};--ai:${C.ai};--on:${C.on};--bg:${C.bg};--cv:${C.cv};--ab:${C.ab};--ink:${C.ink};--sub:${C.sub};--ln:${C.ln};--tint:${C.tint};--dot:${C.dot};--ring:${C.ring};--f:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--ttl:${C.ttl || "var(--f)"};font-family:var(--f);color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .l{position:fixed;right:16px;bottom:calc(16px + var(--nv-lift,0px));display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 7px;border:0;border-radius:999px;background:var(--a);color:var(--on);font:600 15px/1 var(--f);letter-spacing:-.015em;box-shadow:0 18px 40px -14px color-mix(in srgb,var(--a) 70%,#000),0 2px 6px rgba(5,8,13,.16),inset 0 1px 0 rgba(255,255,255,.18);cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease,bottom .2s ease,background .2s ease}
 .l:hover{transform:translateY(-2px);background:var(--ai)}
 .l:focus-visible,.x:focus-visible,.s:focus-visible,.q:focus-visible,.c:focus-visible,.r:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
 .l .av{width:38px;height:38px;border-radius:50%;background:color-mix(in srgb,var(--on) 14%,transparent);display:grid;place-items:center;flex:none;position:relative}
 .av svg{display:block}
+.core{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--on);box-shadow:0 0 0 3px color-mix(in srgb,var(--on) 22%,transparent),0 0 12px color-mix(in srgb,var(--on) 45%,transparent)}
+.o{position:absolute;border-radius:50%;border:1px solid color-mix(in srgb,var(--on) 26%,transparent);animation:spin 14s linear infinite}
+.o1{inset:8px;animation-duration:6s}
+.o2{inset:1px;animation-duration:15s;animation-direction:reverse}
+.o i{position:absolute;left:50%;top:0;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--p1);box-shadow:0 0 0 1.5px var(--a),0 0 6px var(--p1)}
+.o2 i{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:var(--p2);box-shadow:0 0 0 1.5px var(--a),0 0 6px var(--p2)}
+.o2 i+i{top:100%;background:var(--p3);box-shadow:0 0 0 1.5px var(--a),0 0 6px var(--p3)}
+.w.busy .o1{animation-duration:1.4s}
+.w.busy .o2{animation-duration:3s}
+.l:hover .o1{animation-duration:2.4s}
+.l:hover .o2{animation-duration:6s}
+@keyframes spin{to{transform:rotate(360deg)}}
 .l .av::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--ring);opacity:0;animation:pulse 2.8s cubic-bezier(.22,1,.36,1) 1.2s 3}
 @keyframes pulse{0%{opacity:.7;transform:scale(.85)}100%{opacity:0;transform:scale(1.35)}}
 .l.mini{padding:0;width:52px;justify-content:center}
@@ -155,10 +169,10 @@
 @keyframes in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes dot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
-@media (prefers-reduced-motion:reduce){.p,.b,.c,.qs{animation:none}.l{transition:none}.l .av::after,.dots i{animation:none}}
+@media (prefers-reduced-motion:reduce){.p,.b,.c,.qs{animation:none}.l{transition:none}.l .av::after,.dots i,.o{animation:none}}
 @media (max-width:480px){.p{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0}}
 .h{display:flex;align-items:center;gap:12px;padding:14px 10px 14px 16px;background:var(--bg);color:var(--ink);border-bottom:1px solid var(--ln)}
-.h .av{width:40px;height:40px;border-radius:14px;background:var(--a);color:var(--on);display:grid;place-items:center;flex:none;position:relative}
+.h .av{width:40px;height:40px;border-radius:50%;background:var(--a);color:var(--on);display:grid;place-items:center;flex:none;position:relative}
 .h .av em{position:absolute;right:-2px;bottom:-2px;width:11px;height:11px;border-radius:50%;background:#8FE0B4;border:2px solid var(--bg)}
 .h b{display:block;font:600 16px/1.15 var(--ttl);letter-spacing:-.02em}
 .h b.sf{font:400 21px/1.05 var(--ttl);letter-spacing:-.01em}
@@ -194,9 +208,9 @@
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 <div class="w">
-<button class="l" type="button" aria-label="${T.launch} ${T.open}"><span class="av"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="3.6" fill="currentColor"/></svg></span><span class="tx">${T.launch}</span></button>
+<button class="l" type="button" aria-label="${T.launch} ${T.open}"><span class="av" aria-hidden="true"><span class="core"></span><span class="o o1"><i></i></span><span class="o o2"><i></i><i></i></span></span><span class="tx">${T.launch}</span></button>
 <section class="p" role="dialog" aria-modal="false" aria-label="${T.title}" hidden>
-<header class="h"><span class="av"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="3.6" fill="currentColor"/></svg><em></em></span><span class="sp"><b${C.ttl ? ' class="sf"' : ""}>${T.title}</b><small>${T.sub}</small></span>
+<header class="h"><span class="av" aria-hidden="true"><span class="core"></span><span class="o o1"><i></i></span><span class="o o2"><i></i><i></i></span></span><span class="sp"><b${C.ttl ? ' class="sf"' : ""}>${T.title}</b><small>${T.sub}</small></span>
 <button class="x" type="button" aria-label="${T.close}"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></header>
 <div class="m" aria-live="polite"></div>
 <form class="f"><label class="sr" for="nv-i">${T.ph}</label><textarea id="nv-i" class="i" rows="1" maxlength="1200" placeholder="${T.ph}"></textarea>
@@ -273,6 +287,7 @@
       text = (text || "").trim().slice(0, 1200);
       if (!text || busy) return;
       busy = true;
+      root.querySelector(".w").classList.add("busy");
       sendBtn.disabled = true;
       root.querySelector(".qs")?.remove();
       st.msgs.push({ role: "user", text });
@@ -304,6 +319,7 @@
       ctaLink(reply.cta);
       list.scrollTop = list.scrollHeight;
       busy = false;
+      root.querySelector(".w").classList.remove("busy");
       sendBtn.disabled = false;
       if (st.open && matchMedia("(hover:hover)").matches) input.focus();
     };

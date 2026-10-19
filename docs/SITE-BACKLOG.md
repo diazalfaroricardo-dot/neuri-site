@@ -26,3 +26,5 @@ Dueño de lo compartido: encabezado, menú «Entrar», pie legal, idioma, landin
 - [ ] (baja) neuri.tech con navegador en-US sale en español; detectar Accept-Language la primera vez (B-A6) y recordar la elección.
 - [ ] (baja) Portada «Cuatro misiones. Ya en órbita.» con neuri.marketing en lista de espera: decir «tres en órbita, una en construcción» o similar (B-A8).
 - [ ] (baja, 🔒 Ricardo) link de demo calendly.com/diazalfaroricardo/… con nombre personal; cambiar a un enlace con marca (p. ej. calendly.com/neuri) cuando él lo cree.
+- [ ] T15 (media, auditoría con ojos nuevos 18-oct 22:25, B-A6): https://neuri.tech/?lang=en y /bazar/?lang=en siguen en español (html lang=es); solo el link «English» → /en/ funciona. En bazar.neuri.tech ?lang=en sí sirve. Criterio: ?lang=en|es en cualquier página con par lleva a su par (lang.js) y se recuerda; prueba 390/1280.
+- [ ] T16 (baja, auditoría 18-oct): /bazar/ dice «Pesos y dólares» pero solo muestra precio en MXN; enseñar el precio en USD (el de pricing real) o en /en/. Criterio: precio USD visible sin registrarse.

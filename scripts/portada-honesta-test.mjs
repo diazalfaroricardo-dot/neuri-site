@@ -36,5 +36,7 @@ for (const b of bots) {
   if (!/Alta abierta/.test(b)) bad("la tarjeta de neuri.bots no dice «Alta abierta»");
   if (!/pendiente de Meta/.test(b)) bad("la tarjeta de neuri.bots no dice que Instagram/Messenger está pendiente de Meta");
 }
+// B-A8 (auditoría bazar 18-oct): neuri.marketing está en lista de espera → no decir que las cuatro ya están «en órbita».
+if (/Cuatro misiones\.\s*Ya en órbita/i.test(home)) bad("«Cuatro misiones. Ya en órbita.» y neuri.marketing sigue en lista de espera");
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
 process.exit(fail ? 1 : 0);

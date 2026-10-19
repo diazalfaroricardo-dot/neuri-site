@@ -1,5 +1,5 @@
 // B-A5/B-A6 (bazar): a 390 y 1280 px el cambio de idioma se ve en el encabezado de la landing
-// ES/EN, y el pie liga a los otros productos de Neuri con páginas que existen.
+// ES/EN, el logo regresa a neuri.tech (T18) y el pie liga a los otros productos de Neuri con páginas que existen.
 import { createRequire } from "node:module";
 import { readFileSync, existsSync } from "node:fs";
 const req = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`);
@@ -26,6 +26,8 @@ for (const [path, label, others] of [["/bazar/", "English", ["/consultoria/", "/
     ok(await hdr.isVisible(), `${path} ${w}px «${label}» visible en el encabezado`);
     const box = await hdr.boundingBox();
     ok(box && box.height >= 44, `${path} ${w}px «${label}» de 44 px`);
+    const logo = await p.locator("header a").first().getAttribute("href");
+    ok(logo === (path === "/en/" ? "/en/home/" : "/"), `${path} ${w}px el logo lleva a neuri.tech (${logo}) — T18`);
     const sw = await p.evaluate(() => document.documentElement.scrollWidth);
     ok(sw <= w, `${path} ${w}px sin scroll horizontal (${sw})`);
     const hrefs = await p.$$eval("footer a", (as) => as.filter((a) => a.offsetParent).map((a) => a.getAttribute("href")));

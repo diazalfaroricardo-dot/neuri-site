@@ -32,4 +32,4 @@ Dueño de lo compartido: encabezado, menú «Entrar», pie legal, idioma, landin
 - [x] T16 HECHO 18-oct 23:25 (build :05): el encabezado de /bazar/ dice «Desde $499 MXN o US$79 al mes» (Precios ya traía US$79/119/149); prueba scripts/t16-usd-bazar-test.mjs amarra los USD con /en/. — (baja, auditoría 18-oct): /bazar/ dice «Pesos y dólares» pero solo muestra precio en MXN; enseñar el precio en USD (el de pricing real) o en /en/. Criterio: precio USD visible sin registrarse.
 
 - T17 HECHO (media, B-A6; auditoría ojos nuevos bazar 18-oct 23:55) — neuri.tech/?lang=en se quedaba en español: la portada no cargaba lang.js. Ahora lo carga con data-solo-param (solo obedece ?lang explícito; no redirige por zona horaria) → /?lang=en lleva a /en/home/ y /en/home/?lang=es a /. Prueba t15-lang-param-test con 3 casos nuevos 390/1280.
-- T18 (baja) el logo de /bazar/ y /en/ lleva a #inicio de la misma landing, no a neuri.tech (B-A5).
+- T18 (baja) HECHO 19-oct 00:15 — el logo de /bazar/, /en/, /sigue-disponible/ y /en/still-available/ ya lleva a neuri.tech (/ o /en/home/), como consulting y marketing; candado en bazar-ba5-ba6-test (B-A5).

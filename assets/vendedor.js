@@ -148,17 +148,17 @@
 .h b{display:block;font:600 15px/1.2 var(--nv-font)}
 .h small{display:block;font:400 12px/1.3 var(--nv-font);opacity:.82;margin-top:2px}
 .h .sp{flex:1;min-width:0}
-.x{width:40px;height:40px;border:0;border-radius:12px;background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center}
+.x{width:44px;height:44px;border:0;border-radius:12px;background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center}
 .x:hover{background:rgba(255,255,255,.14)}
 .m{flex:1;overflow-y:auto;padding:18px 16px 8px;display:flex;flex-direction:column;gap:10px;background:#F6F7F8;overscroll-behavior:contain}
 .b{max-width:86%;padding:10px 13px;border-radius:16px;font:400 15px/1.45 var(--nv-font);white-space:pre-wrap;overflow-wrap:anywhere}
 .b.a{align-self:flex-start;background:#fff;border:1px solid #E6E8EB;border-bottom-left-radius:6px}
 .b.u{align-self:flex-end;background:${A};color:#fff;border-bottom-right-radius:6px}
 .b.t{color:#6B7280;font-style:italic}
-.c{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;margin:-2px 0 4px;border-radius:999px;background:#fff;border:1.5px solid ${A};color:${A};font:600 14px/1 var(--nv-font);text-decoration:none}
+.c{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;margin:-2px 0 4px;border-radius:999px;background:#fff;border:1.5px solid ${A};color:${A};font:600 14px/1 var(--nv-font);text-decoration:none}
 .c:hover{background:${A};color:#fff}
 .qs{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 6px}
-.q{min-height:36px;padding:0 13px;border-radius:999px;border:1px solid #D7DBE0;background:#fff;color:#14161A;font:500 13.5px/1 var(--nv-font);cursor:pointer}
+.q{min-height:44px;padding:0 13px;border-radius:999px;border:1px solid #D7DBE0;background:#fff;color:#14161A;font:500 13.5px/1 var(--nv-font);cursor:pointer}
 .q:hover{border-color:${A};color:${A}}
 .f{display:flex;gap:8px;padding:10px 12px 6px;border-top:1px solid #ECEEF0;background:#fff}
 .i{flex:1;min-width:0;min-height:44px;max-height:120px;padding:11px 14px;border:1px solid #D7DBE0;border-radius:14px;font:400 16px/1.35 var(--nv-font);color:#14161A;resize:none;background:#fff}
@@ -166,7 +166,7 @@
 .s{width:44px;height:44px;flex:none;border:0;border-radius:14px;background:${A};color:#fff;cursor:pointer;display:grid;place-items:center}
 .s:disabled{opacity:.45;cursor:default}
 .n{display:flex;justify-content:space-between;gap:10px;padding:2px 14px 12px;background:#fff;font:400 11.5px/1.4 var(--nv-font);color:#6B7280}
-.r{border:0;background:none;padding:0;color:#6B7280;font:inherit;text-decoration:underline;cursor:pointer;white-space:nowrap}
+.r{border:0;background:none;padding:0;min-height:44px;color:#6B7280;font:inherit;text-decoration:underline;cursor:pointer;white-space:nowrap}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 <div class="w">

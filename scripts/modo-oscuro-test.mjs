@@ -7,7 +7,7 @@ import { chromium } from "playwright-core";
 const AXE = process.env.AXE || join(homedir(), "neuri-bazar/node_modules/.pnpm/axe-core@4.10.3/node_modules/axe-core/axe.min.js");
 if (!existsSync(AXE)) { console.log("sin axe-core"); process.exit(1); }
 const axeSrc = readFileSync(AXE, "utf8");
-const paths = process.argv.slice(2).length ? process.argv.slice(2) : ["/", "/en/home/", "/bazar/", "/en/", "/consultoria/", "/en/ai-consulting/", "/sigue-disponible/", "/en/still-available/", "/marketing/", "/legal/"];
+const paths = process.argv.slice(2).length ? process.argv.slice(2) : ["/", "/en/home/", "/bazar/", "/en/", "/consultoria/", "/en/ai-consulting/", "/sigue-disponible/", "/en/still-available/", "/marketing/", "/legal/", "/sigue-disponible/hoja/", "/en/still-available/sheet/"];
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fails = 0;
 for (const width of [390, 1280]) for (const p of paths) {

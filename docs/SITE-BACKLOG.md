@@ -33,3 +33,12 @@ Dueño de lo compartido: encabezado, menú «Entrar», pie legal, idioma, landin
 
 - T17 HECHO (media, B-A6; auditoría ojos nuevos bazar 18-oct 23:55) — neuri.tech/?lang=en se quedaba en español: la portada no cargaba lang.js. Ahora lo carga con data-solo-param (solo obedece ?lang explícito; no redirige por zona horaria) → /?lang=en lleva a /en/home/ y /en/home/?lang=es a /. Prueba t15-lang-param-test con 3 casos nuevos 390/1280.
 - T18 (baja) HECHO 19-oct 00:15 — el logo de /bazar/, /en/, /sigue-disponible/ y /en/still-available/ ya lleva a neuri.tech (/ o /en/home/), como consulting y marketing; candado en bazar-ba5-ba6-test (B-A5).
+
+## Auditoría con ojos nuevos neuri.tech — 19-oct 00:37 (agente aparte, Playwright + axe en vivo, 11 URL × 390/1280, 61 links)
+Resultado: 1 alta (T5 conocido, dominio railway de Marketing — build de Marketing) · 3 medias · 6 bajas. axe 0 en 22 cargas, sin scroll horizontal, 0 links rotos, sin contenido mixto.
+- T19 HECHO (media, B-M1/B-P1) 404 sin pie/og:image y links EN de 19 px → pie con hola@, Privacidad/Términos, © Neuri LLC, og:image, links ≥44 px; basicos.mjs ya no exceptúa la 404 (falla con la versión anterior) (258f0f3; en vivo 404, axe 0 y sin toques <44 a 390/1280).
+- /legal/ sin logo: FALSO POSITIVO (tiene «Volver al inicio»). T20 (baja, B-A5) /legal/ sin menú «Entrar» ni encabezado común.
+- «AMAZON» + cifras en /consultoria: FALSO POSITIVO — la sección se titula «Quién está detrás» y el texto dice que es la trayectoria del fundador; cifras vagas aprobadas por Ricardo (16-oct). No se toca.
+- T21 (baja, B-A6) en /consultoria, /sigue-disponible, /marketing a 390 el idioma queda dentro del menú (sí está en el pie).
+- T22 (baja, B-N2) inputs de calculadora en /sigue-disponible (30 px) y /marketing (20 px), «Terms» 37–41 px de ancho en páginas EN, «Tour» 30 px en /en/.
+- Para el build de Marketing (no se toca aquí): «52 % desconfía de la IA que no se dice» en /marketing sin fuente (B-A8).

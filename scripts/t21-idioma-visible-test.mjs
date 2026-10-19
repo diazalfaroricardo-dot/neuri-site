@@ -24,6 +24,8 @@ const CASES = [
   { path: "/en/ai-consulting/", label: "ES", href: "/consultoria/" },
   { path: "/sigue-disponible/", label: "EN", href: "/en/still-available/" },
   { path: "/en/still-available/", label: "ES", href: "/sigue-disponible/" },
+  { path: "/marketing/", label: "EN", href: "/en/marketing/" },
+  { path: "/en/marketing/", label: "ES", href: "/marketing/" },
 ];
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fails = 0;

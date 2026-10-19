@@ -188,6 +188,7 @@ footer.ft a:hover{color:var(--ink)}
   .phone{transform:scale(.92) rotate(3deg)}
   .f-approve{left:-4px;width:222px}.f-cal{right:-4px;width:168px}
   .logo small,.logo .sep{display:none}
+  nav.main{gap:6px}nav.main .btn.sm{padding:0 12px}
   .wrap{padding:0 16px}
 }
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.t{opacity:1}.rv{opacity:1;transform:none}}

@@ -354,7 +354,7 @@ input[type=range].n-range::-moz-range-thumb{width:20px;height:20px;border-radius
 .legacy .f > label,.legacy .f > .lab{font-weight:700;font-size:16px}
 .legacy .f .help{font-size:14.5px;color:var(--gris)}
 .legacy .f .opt{font-weight:400;color:var(--gris);font-size:14.5px}
-.legacy .f input[type=text],.legacy .f input[type=tel],.legacy .f input[type=email],.legacy .f textarea,.legacy .f select{width:100%;padding:12px 14px;border:1.5px solid #9A7A8C;border-radius:12px;background:#fff;font-size:17px;min-height:50px}
+.legacy .f input[type=text],.legacy .f input[type=tel],.legacy .f input[type=email],.legacy .f textarea,.legacy .f select{width:100%;padding:12px 14px;border:1.5px solid #6B7A72;border-radius:12px;background:#fff;font-size:17px;min-height:50px}
 .legacy .f textarea{min-height:100px;resize:vertical}
 .legacy .f input:focus,.legacy .f textarea:focus,.legacy .f select:focus{border-color:var(--cobalto)}
 .legacy .f [aria-invalid="true"]{border-color:#C0123F;background:#FFF5F7}
@@ -367,7 +367,7 @@ input[type=range].n-range::-moz-range-thumb{width:20px;height:20px;border-radius
 }.legacy .tipos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .legacy .tipo{position:relative}
 .legacy .tipo input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.legacy .tipo > span{display:flex;align-items:center;gap:10px;height:100%;min-height:56px;padding:10px 12px;border:1.5px solid #9A7A8C;border-radius:14px;background:#fff;font-weight:700;font-size:15.5px;line-height:1.25}
+.legacy .tipo > span{display:flex;align-items:center;gap:10px;height:100%;min-height:56px;padding:10px 12px;border:1.5px solid #6B7A72;border-radius:14px;background:#fff;font-weight:700;font-size:15.5px;line-height:1.25}
 .legacy .tipo > span i{font-style:normal;font-size:22px;flex:none}
 .legacy .tipo > span small{display:block;font-weight:400;font-size:13.5px;color:var(--gris)}
 .legacy .tipo > span > span{min-width:0;overflow-wrap:break-word;hyphens:auto}
@@ -384,7 +384,7 @@ input[type=range].n-range::-moz-range-thumb{width:20px;height:20px;border-radius
 .legacy .pills{display:flex;flex-wrap:wrap;gap:8px}
 .legacy .pill{position:relative}
 .legacy .pill input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%;margin:0}
-.legacy .pill > span{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #9A7A8C;border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px;min-height:44px;background:#fff}
+.legacy .pill > span{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #6B7A72;border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px;min-height:44px;background:#fff}
 .legacy .pill > span > span{font-size:18px;line-height:1}
 .legacy .pill input:checked + span{background:var(--tinta);border-color:var(--tinta);color:#fff}
 .legacy .pill input:focus-visible + span{outline:3px solid var(--cobalto);outline-offset:2px}
@@ -392,7 +392,7 @@ input[type=range].n-range::-moz-range-thumb{width:20px;height:20px;border-radius
 @media(min-width:600px){.legacy .planpick{grid-template-columns:1fr 1fr}
 }.legacy .pp{position:relative}
 .legacy .pp input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.legacy .pp span{display:block;border:2px solid #9A7A8C;border-radius:16px;padding:14px;background:#fff}
+.legacy .pp span{display:block;border:2px solid #6B7A72;border-radius:16px;padding:14px;background:#fff}
 .legacy .pp span b{font-size:17px}
 .legacy .pp span em{font-style:normal;display:block;color:var(--gris);font-size:14.5px}
 .legacy .pp input:checked + span{border-color:var(--rosa);background:#FFF4F8;box-shadow:inset 0 0 0 1px var(--rosa)}
@@ -440,7 +440,7 @@ input[type=range].n-range::-moz-range-thumb{width:20px;height:20px;border-radius
 }.legacy .ia{display:grid;gap:28px;align-items:start}
 @media(min-width:860px){.legacy .ia{grid-template-columns:1fr 1.1fr;gap:48px}
 }.legacy .ia-url{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--muro);border:1.5px solid var(--linea);border-radius:16px;padding:10px 10px 10px 16px}
-.legacy .ia-url code{flex:1 1 auto;min-width:0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;font-weight:700;color:var(--tinta);overflow-wrap:anywhere}
+.legacy .ia-url code{flex:1 1 auto;min-width:0;font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:15px;font-weight:700;color:var(--tinta);overflow-wrap:anywhere}
 @media(min-width:420px){.legacy .ia-url code{font-size:17px}
 }.legacy .ia-url .btn{min-height:44px;padding:8px 20px;font-size:16px}
 .legacy .ia-ok{display:block;min-height:1.5em;margin-top:8px;font-size:15px;color:var(--ok);font-weight:700}
@@ -806,7 +806,7 @@ Build my bot
 <form style="display: flex; gap: 8px; padding: 10px; background: #FFFFFF; border-top: 1px solid #ECECEC;" data-dc-submit="33">
 <label for="demo-input" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Type a question</label>
 <input id="demo-input" type="text" value="" placeholder="Build your bot first" autocomplete="off" style="flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 12px 14px; border-radius: 999px; border: 1px solid #D5D9D2; background: #FFFFFF; color: #05080D; min-height: 44px; box-sizing: border-box" data-dc-input="34">
-<button type="submit" aria-label="Send question" style="width: 44px; height: 44px; border-radius: 50%; border: none; background: #1565D8; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+<button type="submit" aria-label="Send question" style="width: 44px; height: 44px; border-radius: 50%; border: none; background: #0B5E3A; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7z"></path></svg>
 </button>
 </form>
@@ -1089,7 +1089,7 @@ Build my bot
 <section id="signup" aria-labelledby="signup-t"><div class="wrap alta-grid">
   <div>
     <h2 id="signup-t">Get your assistant</h2>
-    <p class="sub" style="color:#4F3D55">4 steps, about 3 minutes. With this we can get it almost ready.</p>
+    <p class="sub" style="color:#56635C">4 steps, about 3 minutes. With this we can get it almost ready.</p>
     <ul class="promesas">
       <li>It doesn't answer anyone until you approve it</li>
       <li>We'll reach out within 24 hours</li>
@@ -1359,7 +1359,7 @@ Get my assistant
 </div>
 <div style="padding: 18px 14px 22px; display: flex; flex-direction: column; gap: 10px; font-size: 14.5px; line-height: 1.4; min-height: 400px; box-sizing: border-box">
 <template sc-if value="{{showM1}}" hint-placeholder-val="{{ true }}">
-<div class="n-pop" style="align-self: flex-end; background: #1565D8; color: #FFFFFF; padding: 10px 12px; border-radius: 18px 18px 4px 18px; max-width: 78%; transform-origin: bottom right">Hi, is the white dresser still available?</div>
+<div class="n-pop" style="align-self: flex-end; background: #0B5E3A; color: #FFFFFF; padding: 10px 12px; border-radius: 18px 18px 4px 18px; max-width: 78%; transform-origin: bottom right">Hi, is the white dresser still available?</div>
 </template>
 <template sc-if value="{{typing1}}" hint-placeholder-val="{{ false }}">
 <div class="n-pop" style="align-self: flex-start; background: #EFEFEF; padding: 13px 14px; border-radius: 18px 18px 18px 4px; display: flex; gap: 4px"><span class="n-dot"></span><span class="n-dot"></span><span class="n-dot"></span></div>
@@ -1369,7 +1369,7 @@ Get my assistant
 <span class="n-pop" style="align-self: flex-start; font-size: 11.5px; color: #0B5E3A; font-weight: 600; padding-left: 4px; display: inline-flex; align-items: center; gap: 5px"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg>Answered by Neuri</span>
 </template>
 <template sc-if value="{{showM2}}" hint-placeholder-val="{{ true }}">
-<div class="n-pop" style="align-self: flex-end; background: #1565D8; color: #FFFFFF; padding: 10px 12px; border-radius: 18px 18px 4px 18px; max-width: 78%; transform-origin: bottom right">Yes, please hold it</div>
+<div class="n-pop" style="align-self: flex-end; background: #0B5E3A; color: #FFFFFF; padding: 10px 12px; border-radius: 18px 18px 4px 18px; max-width: 78%; transform-origin: bottom right">Yes, please hold it</div>
 </template>
 <template sc-if value="{{typing2}}" hint-placeholder-val="{{ false }}">
 <div class="n-pop" style="align-self: flex-start; background: #EFEFEF; padding: 13px 14px; border-radius: 18px 18px 18px 4px; display: flex; gap: 4px"><span class="n-dot"></span><span class="n-dot"></span><span class="n-dot"></span></div>

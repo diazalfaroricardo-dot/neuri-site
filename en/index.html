@@ -142,7 +142,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
   --rosa:#C2255C; --verde-agua:#0B7480; --naranja:#AD4A06;
   --display:"Archivo","Archivo Narrow","Arial Narrow","Inter Display","Inter",system-ui,sans-serif;
   --texto:"Archivo","Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --ticket:"IBM Plex Mono","DejaVu Sans Mono",ui-monospace,Menlo,monospace;
+  --ticket:"Geist Mono",ui-monospace,Menlo,monospace;
 }
 .legacy *{box-sizing:border-box;margin:0;padding:0}
 .legacy{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -226,16 +226,16 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 .legacy .mesa-pie{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;font-size:14px;color:var(--sobre-anil);flex-wrap:wrap}
 .legacy .linkboton{background:none;border:0;color:var(--etiqueta);text-decoration:underline;cursor:pointer;font-weight:650;font-size:15px;padding:6px 0;min-height:44px}
 .legacy .caja-cuerpo{display:flex;flex-direction:column;gap:12px;margin-top:12px}
-.legacy .ticket{background:#fff;color:#1b1f2e;font-family:var(--ticket);font-size:13.5px;line-height:1.5;padding:16px 16px 22px;position:relative;
+.legacy .ticket{background:#fff;color:#05080D;font-family:var(--ticket);font-size:13.5px;line-height:1.5;padding:16px 16px 22px;position:relative;
   -webkit-mask:radial-gradient(circle 6px at 50% 100%,transparent 98%,#000) 0 0/14px 100% repeat-x;
           mask:radial-gradient(circle 6px at 50% 100%,transparent 98%,#000) 0 0/14px 100% repeat-x}
-.legacy .ticket .t-enc{text-align:center;border-bottom:1px dashed #9aa0b4;padding-bottom:8px;margin-bottom:8px}
+.legacy .ticket .t-enc{text-align:center;border-bottom:1px dashed #A89C8C;padding-bottom:8px;margin-bottom:8px}
 .legacy .ticket .t-enc b{display:block;font-size:14px}
 .legacy .ticket table{width:100%;border-collapse:collapse}
 .legacy .ticket td{padding:1px 0;vertical-align:top}
 .legacy .ticket td:last-child{text-align:right;white-space:nowrap;padding-left:8px}
-.legacy .ticket .t-tot td{border-top:1px dashed #9aa0b4;padding-top:6px;font-weight:600;font-size:15px}
-.legacy .ticket .t-vacio{color:#5d6378;text-align:center;padding:12px 0}
+.legacy .ticket .t-tot td{border-top:1px dashed #A89C8C;padding-top:6px;font-weight:600;font-size:15px}
+.legacy .ticket .t-vacio{color:#716658;text-align:center;padding:12px 0}
 .legacy .ticket.impreso{animation:imprime .9s steps(9,end)}
 @keyframes imprime{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}.legacy .ticket .t-sello{display:none;text-align:center;margin-top:8px;font-weight:600}
 .legacy .ticket.impreso .t-sello,.legacy .ticket.cobrado .t-sello{display:block}
@@ -469,7 +469,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 .legacy .ia-pide li{background:#fff;border:1.5px solid var(--linea);border-radius:999px;padding:6px 14px;font-size:15px;color:var(--anil)}
 .legacy .ia .ticket{font-size:15px;padding:20px 20px 28px;box-shadow:0 1px 0 var(--linea)}
 .legacy .ia .ticket ol{list-style:none;counter-reset:p}
-.legacy .ia .ticket li{counter-increment:p;display:grid;grid-template-columns:2.2em 1fr;padding:10px 0;border-bottom:1px dashed #9aa0b4}
+.legacy .ia .ticket li{counter-increment:p;display:grid;grid-template-columns:2.2em 1fr;padding:10px 0;border-bottom:1px dashed #A89C8C}
 .legacy .ia .ticket li::before{content:counter(p,decimal-leading-zero);font-weight:600;color:var(--gris)}
 .legacy .ia .ticket li:last-child{border-bottom:0}
 .legacy .ia .t-seg{margin-top:10px;padding-top:12px;border-top:2px solid var(--anil);font-weight:600;text-align:center}
@@ -1501,7 +1501,7 @@ Pick an open booth
         <h3 tabindex="-1" style="margin-top:14px" id="listo-titulo">You're almost open</h3>
         <p class="ayuda" id="listo-txt">Your email app opened with your details. Just hit Send and we'll send you your login.</p>
         <p class="ayuda">Didn't open? Email us at <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> with your store's name.</p>
-        <p class="ayuda">In the meantime, play with <a href="#caja">the demo register</a> again.</p>
+        <p class="ayuda">In the meantime, play with <a href="#simula">the demo register</a> again.</p>
       </div>
 
       <div class="asistente-botones" id="botones">

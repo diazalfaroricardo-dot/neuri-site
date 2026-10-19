@@ -74,12 +74,12 @@
     var box = document.createElement("form");
     box.id = "ayuda-box";
     box.setAttribute("role", "search");
-    box.style.cssText = "display:flex;flex-direction:column;gap:10px;background:#F4F6F1;border:1px solid #E1E3DC;border-radius:16px;padding:18px";
+    box.style.cssText = "display:flex;flex-direction:column;gap:10px;background:#EEF0EA;border:1px solid #E1E3DC;border-radius:16px;padding:18px";
     box.innerHTML =
       '<label for="ayuda-q" style="font-weight:700;font-size:17px">' + T.h + "</label>" +
-      '<div style="display:flex;gap:8px;flex-wrap:wrap"><input id="ayuda-q" name="q" type="search" autocomplete="off" placeholder="' + T.ph + '" style="flex:1 1 220px;min-height:48px;font-size:17px;padding:10px 14px;border:1px solid #8A948D;border-radius:12px;background:#fff;color:#0E1512">' +
-      '<button type="submit" style="min-height:48px;padding:0 20px;border:0;border-radius:12px;background:#0B5E3A;color:#fff;font-weight:700;font-size:16px;cursor:pointer">' + T.btn + "</button></div>" +
-      '<p id="ayuda-ex" style="margin:0;font-size:14px;color:#4A554F">' + T.ex + "</p>" +
+      '<div style="display:flex;gap:8px;flex-wrap:wrap"><input id="ayuda-q" name="q" type="search" autocomplete="off" placeholder="' + T.ph + '" style="flex:1 1 220px;min-height:48px;font-size:17px;padding:10px 14px;border:1px solid #6B7A72;border-radius:12px;background:#fff;color:#05080D;font:inherit;font-size:17px">' +
+      '<button type="submit" style="font:inherit;min-height:48px;padding:0 20px;border:0;border-radius:12px;background:#0B5E3A;color:#fff;font-weight:700;font-size:16px;cursor:pointer">' + T.btn + "</button></div>" +
+      '<p id="ayuda-ex" style="margin:0;font-size:14px;color:#3D4A44">' + T.ex + "</p>" +
       '<div id="ayuda-r" role="status" aria-live="polite" style="font-size:16px;line-height:1.5"></div>';
     h2.insertAdjacentElement("afterend", box);
     var inp = box.querySelector("#ayuda-q");
@@ -100,7 +100,7 @@
       var m = ayudaMatch(q, faqsFromPage());
       r.textContent = "";
       if (m) {
-        var p1 = document.createElement("p"); p1.style.margin = "0 0 4px"; p1.style.color = "#4A554F"; p1.style.fontSize = "14px"; p1.textContent = T.from;
+        var p1 = document.createElement("p"); p1.style.margin = "0 0 4px"; p1.style.color = "#3D4A44"; p1.style.fontSize = "14px"; p1.textContent = T.from;
         var p2 = document.createElement("p"); p2.style.margin = "0"; var b = document.createElement("b"); b.textContent = m.q + " "; p2.appendChild(b); p2.appendChild(document.createTextNode(m.a));
         r.appendChild(p1); r.appendChild(p2);
         sec.querySelectorAll("summary").forEach(function (s) { if (s.textContent.trim().indexOf(m.q) === 0 && s.parentElement) s.parentElement.open = true; });

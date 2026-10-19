@@ -249,6 +249,7 @@ def page(lang: str) -> str:
 var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){{els.forEach(function(x){{x.classList.add('on')}});return}}
 var io=new IntersectionObserver(function(es){{es.forEach(function(en){{if(en.isIntersecting){{en.target.classList.add('on');io.unobserve(en.target)}}}})}},{{threshold:0,rootMargin:'0px 0px -10% 0px'}});els.forEach(function(x){{io.observe(x)}});}})();
 </script>
+<script src="/assets/vendedor.js" defer></script>
 </body>
 </html>
 """

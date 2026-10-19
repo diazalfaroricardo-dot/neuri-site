@@ -54,10 +54,10 @@
       {
         re: /^\/(en\/)?marketing/,
         th: "mkt",
-        es: "¡Hola! Soy el asistente de Neuri (una IA). Neuri Marketing está en construcción; te cuento qué hará y qué puedes usar gratis hoy.",
-        en: "Hi! I'm Neuri's assistant (an AI). Neuri Marketing is still being built; I can tell you what it will do and what's free today.",
-        qes: ["¿Cuándo abre?", "¿Qué herramientas gratis hay?", "Tengo una cafetería"],
-        qen: ["When does it open?", "What free tools are there?", "I run a coffee shop"],
+        es: "¡Hola! Soy el asistente de Neuri (una IA). Neuri Marketing arma los posts y reels del mes con tu estilo y tú los apruebas desde el celular. ¿Te cuento cuál plan te queda y cómo apartar tu lugar?",
+        en: "Hi! I'm Neuri's assistant (an AI). Neuri Marketing prepares your month of posts and reels in your style, and you approve them from your phone. Want help picking a plan and saving your spot?",
+        qes: ["¿Cuánto cuesta?", "¿Publica sin que yo lo vea?", "Tengo una cafetería"],
+        qen: ["How much is it?", "Does it post without my OK?", "I run a coffee shop"],
       },
     ];
     const home = {

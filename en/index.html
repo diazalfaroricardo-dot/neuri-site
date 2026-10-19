@@ -3127,7 +3127,21 @@ class Component extends DCLogic {
   }
 }
 
-DCMount(Component);
+// T24: igual que A286 en bots — la demo pintada ya está en el HTML; el componente se monta
+// en un rato libre después de cargar (load + 3 s) o al primer toque/tecla, para no trabar el primer pintado.
+var __nBoot = function () {
+  if (window.__nDemo) return window.__nDemo;
+  window.__nDemo = DCMount(Component);
+  return window.__nDemo;
+};
+(function () {
+  if (location.hash) { __nBoot(); return; }
+  var evs = ['pointerdown', 'touchstart', 'keydown', 'focusin'];
+  var once = function () { evs.forEach(function (t) { removeEventListener(t, once, true); }); __nBoot(); };
+  evs.forEach(function (t) { addEventListener(t, once, { capture: true, passive: true }); });
+  var idle = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 1); })(function () { __nBoot(); }, { timeout: 2000 }); };
+  if (document.readyState === 'complete') setTimeout(idle, 3000); else addEventListener('load', function () { setTimeout(idle, 3000); }, { once: true });
+})();
 </script>
 <script>
 // Once the app is deployed, put its URL here (e.g. https://app.neuri.tech): the free-trial buttons

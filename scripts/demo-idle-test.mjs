@@ -1,3 +1,4 @@
+// T24: también /bazar/ y /en/ (landing de bazar) montan su demo igual.
 // A286 (B-O1): la demo de neuri.bots ya viene pintada en el HTML y NO se monta durante la carga
 // (no traba el primer toque en móvil); se monta sola en un rato libre después de load, y al momento si tocas.
 // Uso: node scripts/demo-idle-test.mjs [base]   (base por defecto https://neuri.tech)
@@ -7,7 +8,7 @@ const exe = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacO
 const b = await chromium.launch({ executablePath: exe });
 let fails = 0;
 const ok = (c, m) => { console.log((c ? "OK  " : "FALLA ") + m); if (!c) fails++; };
-for (const path of ["/sigue-disponible/", "/en/still-available/"]) {
+for (const path of ["/sigue-disponible/", "/en/still-available/", "/bazar/", "/en/"]) {
   for (const width of [390, 1280]) {
     const ctx = await b.newContext({ viewport: { width, height: 844 } });
     await ctx.addInitScript(() => { addEventListener("load", () => { window.__demoAtLoad = !!window.__nDemo; }); });

@@ -1,4 +1,4 @@
-// T21 (B-A6): a 390 px el cambio de idioma de la landing de consulting se ve en el encabezado
+// T21 (B-A6): a 390 px el cambio de idioma de las landings de consulting y neuri.bots se ve en el encabezado
 // (antes quedaba oculto con class="hide"), con área táctil ≥44 px, sin scroll horizontal
 // y sin que el encabezado se parta. Uso: node scripts/t21-idioma-visible-test.mjs [--live]
 import { createServer } from "node:http";
@@ -22,6 +22,8 @@ const base = LIVE ? "https://neuri.tech" : `http://127.0.0.1:${server.address().
 const CASES = [
   { path: "/consultoria/", label: "EN", href: "/en/ai-consulting/" },
   { path: "/en/ai-consulting/", label: "ES", href: "/consultoria/" },
+  { path: "/sigue-disponible/", label: "EN", href: "/en/still-available/" },
+  { path: "/en/still-available/", label: "ES", href: "/sigue-disponible/" },
 ];
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fails = 0;

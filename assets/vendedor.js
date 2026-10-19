@@ -29,7 +29,7 @@
     const P = [
       {
         re: /^\/(en\/)?(sigue-disponible|still-available)/,
-        a: "#0B5E3A",
+        th: "bots",
         es: "¡Hola! Soy el asistente de Neuri (una IA). ¿Te ayudo a ver si neuri.bots le sirve a tu negocio?",
         en: "Hi! I'm Neuri's assistant (an AI). Want help seeing if neuri.bots fits your business?",
         qes: ["¿Cuánto cuesta?", "¿Ya funciona con Instagram?", "Vendo en Marketplace"],
@@ -37,7 +37,7 @@
       },
       {
         re: /^\/(en\/)?bazar/,
-        a: "#B4441A",
+        th: "bazar",
         es: "¡Hola! Soy el asistente de Neuri (una IA). ¿Cuántos vendedores tiene tu bazar? Te digo qué plan te toca.",
         en: "Hi! I'm Neuri's assistant (an AI). How many vendors does your market have? I'll tell you which plan fits.",
         qes: ["Tengo unos 40 vendedores", "¿Cómo es la prueba gratis?", "Quiero ver una demo"],
@@ -45,7 +45,7 @@
       },
       {
         re: /^\/(consultoria|en\/ai-consulting)/,
-        a: "#1F7A52",
+        th: "consult",
         es: "Hola, soy el asistente de Neuri Consulting (una IA). Cuéntame qué hace tu empresa y te digo por dónde empezar con IA.",
         en: "Hi, I'm Neuri Consulting's assistant (an AI). Tell me what your company does and I'll suggest where to start with AI.",
         qes: ["¿Qué incluye el diagnóstico?", "Queremos automatizar ventas", "¿Cuánto cuesta?"],
@@ -53,7 +53,7 @@
       },
       {
         re: /^\/(en\/)?marketing/,
-        a: "#B8321C",
+        th: "mkt",
         es: "¡Hola! Soy el asistente de Neuri (una IA). Neuri Marketing está en construcción; te cuento qué hará y qué puedes usar gratis hoy.",
         en: "Hi! I'm Neuri's assistant (an AI). Neuri Marketing is still being built; I can tell you what it will do and what's free today.",
         qes: ["¿Cuándo abre?", "¿Qué herramientas gratis hay?", "Tengo una cafetería"],
@@ -61,14 +61,25 @@
       },
     ];
     const home = {
-      a: "#0E1726",
+      th: "home",
       es: "¡Hola! Soy el asistente de Neuri (una IA). Cuéntame qué negocio tienes y te digo qué te sirve, sin rodeos.",
       en: "Hi! I'm Neuri's assistant (an AI). Tell me about your business and I'll tell you what fits, straight up.",
       qes: ["Vendo por Instagram", "Tengo un bazar", "Quiero usar IA en mi empresa"],
       qen: ["I sell on Instagram", "I run a flea market", "I want AI in my company"],
     };
     const prod = P.find((p) => p.re.test(path)) || home;
-    const A = prod.a;
+    // Paleta de cada landing (mismos hex que sus :root). a = acento · ai = acento al pasar · on = texto sobre acento ·
+    // bg = hoja · cv = fondo de la plática · ink/sub = texto · ln = líneas · tint = chips · dot = punto «en línea» ·
+    // ttl = letra del título (consulting usa su serif).
+    const TH = {
+      home: { a: "#8FE0B4", ai: "#B5EDCD", on: "#05080D", bg: "#0B1118", cv: "#05080D", ab: "#111922", ink: "#E9EEF2", sub: "#9AA6B2", ln: "rgba(233,238,242,.12)", tint: "rgba(143,224,180,.12)", dot: "#8FE0B4", ring: "#F3B38F" },
+      bots: { a: "#0B5E3A", ai: "#084A2D", on: "#FFFFFF", bg: "#FFFFFF", cv: "#F6F4EE", ab: "#FFFFFF", ink: "#05080D", sub: "#56635C", ln: "#E1E3DC", tint: "#E3EFE7", dot: "#0B5E3A", ring: "#8FE0B4" },
+      bazar: { a: "#B4441A", ai: "#8A3313", on: "#FFFFFF", bg: "#FFFFFF", cv: "#F7F1E8", ab: "#FFFFFF", ink: "#05080D", sub: "#5E554C", ln: "#E6DBC9", tint: "#F6E7DA", dot: "#B4441A", ring: "#F3B38F" },
+      consult: { a: "#1F7A52", ai: "#145C3C", on: "#FFFFFF", bg: "#FFFFFF", cv: "#FBFAF7", ab: "#FFFFFF", ink: "#0A1A14", sub: "#4B5B54", ln: "#E4E1DA", tint: "#EAF3EE", dot: "#1F7A52", ring: "#8FE0B4", ttl: '"Instrument Serif",Georgia,serif' },
+      mkt: { a: "#C2341D", ai: "#9E2914", on: "#FFFFFF", bg: "#FFFFFF", cv: "#FFF8F2", ab: "#FFFFFF", ink: "#0B1118", sub: "#5B6670", ln: "#F0E4DA", tint: "#F4ECE4", dot: "#C2341D", ring: "#FFC857" },
+    };
+    const C = TH[prod.th] || TH.home;
+    const A = C.a;
 
     // Estado (sigue entre páginas en la misma pestaña).
     let st = { id: "", msgs: [], open: false };
@@ -96,7 +107,7 @@
       ? {
           launch: "¿Te ayudo a elegir?",
           title: "Asistente de Neuri",
-          sub: "IA · contesta solo con la información de Neuri",
+          sub: "IA · En línea · Solo info de Neuri",
           ph: "Escribe tu pregunta…",
           send: "Enviar",
           close: "Cerrar",
@@ -109,7 +120,7 @@
       : {
           launch: "Need help choosing?",
           title: "Neuri assistant",
-          sub: "AI · answers only with Neuri's information",
+          sub: "AI · Online · Neuri info only",
           ph: "Type your question…",
           send: "Send",
           close: "Close",
@@ -126,53 +137,66 @@
     const root = host.attachShadow({ mode: "open" });
     root.innerHTML = `<style>
 :host{all:initial}
-*{box-sizing:border-box;font-family:inherit}
-.w{font-family:var(--nv-font);color:#14161A;-webkit-font-smoothing:antialiased}
-.l{position:fixed;right:16px;bottom:calc(16px + var(--nv-lift,0px));display:flex;align-items:center;gap:10px;height:52px;padding:0 18px 0 8px;border:0;border-radius:999px;background:${A};color:#fff;font:600 15px/1 var(--nv-font);letter-spacing:-.01em;box-shadow:0 12px 30px -10px rgba(10,14,20,.55),0 2px 6px rgba(10,14,20,.18),inset 0 0 0 1px rgba(255,255,255,.22);cursor:pointer;transition:transform .2s ease,opacity .2s ease,bottom .2s ease}
-.l:hover{transform:translateY(-2px)}
-.l:focus-visible,.x:focus-visible,.s:focus-visible,.q:focus-visible,.c:focus-visible,.r:focus-visible{outline:3px solid #8FB8FF;outline-offset:2px}
-.l .av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none}
-.l .av i{width:10px;height:10px;border-radius:50%;background:#7CF3C3;box-shadow:0 0 0 4px rgba(124,243,195,.25)}
+*{box-sizing:border-box;font-family:inherit;margin:0}
+.w{--a:${C.a};--ai:${C.ai};--on:${C.on};--bg:${C.bg};--cv:${C.cv};--ab:${C.ab};--ink:${C.ink};--sub:${C.sub};--ln:${C.ln};--tint:${C.tint};--dot:${C.dot};--ring:${C.ring};--f:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--ttl:${C.ttl || "var(--f)"};font-family:var(--f);color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.l{position:fixed;right:16px;bottom:calc(16px + var(--nv-lift,0px));display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 7px;border:0;border-radius:999px;background:var(--a);color:var(--on);font:600 15px/1 var(--f);letter-spacing:-.015em;box-shadow:0 18px 40px -14px color-mix(in srgb,var(--a) 70%,#000),0 2px 6px rgba(5,8,13,.16),inset 0 1px 0 rgba(255,255,255,.18);cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease,bottom .2s ease,background .2s ease}
+.l:hover{transform:translateY(-2px);background:var(--ai)}
+.l:focus-visible,.x:focus-visible,.s:focus-visible,.q:focus-visible,.c:focus-visible,.r:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+.l .av{width:38px;height:38px;border-radius:50%;background:color-mix(in srgb,var(--on) 14%,transparent);display:grid;place-items:center;flex:none;position:relative}
+.av svg{display:block}
+.l .av::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--ring);opacity:0;animation:pulse 2.8s cubic-bezier(.22,1,.36,1) 1.2s 3}
+@keyframes pulse{0%{opacity:.7;transform:scale(.85)}100%{opacity:0;transform:scale(1.35)}}
 .l.mini{padding:0;width:52px;justify-content:center}
 .l.mini .tx{display:none}
 .l.mini .av{background:transparent}
 .l[hidden]{display:none}
-.p{position:fixed;right:16px;bottom:16px;width:min(380px,calc(100vw - 32px));height:min(580px,calc(100dvh - 32px));display:flex;flex-direction:column;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(10,14,20,.45),0 0 0 1px rgba(10,14,20,.08);transform-origin:bottom right;animation:in .22s ease}
+.p{position:fixed;right:16px;bottom:16px;width:min(392px,calc(100vw - 32px));height:min(600px,calc(100dvh - 32px));display:flex;flex-direction:column;background:var(--bg);color:var(--ink);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(5,8,13,.5),0 12px 28px -16px rgba(5,8,13,.22),0 0 0 1px var(--ln);transform-origin:bottom right;animation:in .32s cubic-bezier(.22,1,.36,1)}
 .p[hidden]{display:none}
-@keyframes in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.p{animation:none}.l{transition:none}}
+@keyframes in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes dot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.p,.b,.c,.qs{animation:none}.l{transition:none}.l .av::after,.dots i{animation:none}}
 @media (max-width:480px){.p{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0}}
-.h{display:flex;align-items:center;gap:12px;padding:14px 14px 14px 18px;background:${A};color:#fff}
-.h .av{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none}
-.h .av i{width:9px;height:9px;border-radius:50%;background:#7CF3C3}
-.h b{display:block;font:600 15px/1.2 var(--nv-font)}
-.h small{display:block;font:400 12px/1.3 var(--nv-font);opacity:.82;margin-top:2px}
+.h{display:flex;align-items:center;gap:12px;padding:14px 10px 14px 16px;background:var(--bg);color:var(--ink);border-bottom:1px solid var(--ln)}
+.h .av{width:40px;height:40px;border-radius:14px;background:var(--a);color:var(--on);display:grid;place-items:center;flex:none;position:relative}
+.h .av em{position:absolute;right:-2px;bottom:-2px;width:11px;height:11px;border-radius:50%;background:#8FE0B4;border:2px solid var(--bg)}
+.h b{display:block;font:600 16px/1.15 var(--ttl);letter-spacing:-.02em}
+.h b.sf{font:400 21px/1.05 var(--ttl);letter-spacing:-.01em}
+.h small{display:flex;align-items:center;gap:6px;font:500 10.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-top:4px}
 .h .sp{flex:1;min-width:0}
-.x{width:44px;height:44px;border:0;border-radius:12px;background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center}
-.x:hover{background:rgba(255,255,255,.14)}
-.m{flex:1;overflow-y:auto;padding:18px 16px 8px;display:flex;flex-direction:column;gap:10px;background:#F6F7F8;overscroll-behavior:contain}
-.b{max-width:86%;padding:10px 13px;border-radius:16px;font:400 15px/1.45 var(--nv-font);white-space:pre-wrap;overflow-wrap:anywhere}
-.b.a{align-self:flex-start;background:#fff;border:1px solid #E6E8EB;border-bottom-left-radius:6px}
-.b.u{align-self:flex-end;background:${A};color:#fff;border-bottom-right-radius:6px}
-.b.t{color:#6B7280;font-style:italic}
-.c{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;margin:-2px 0 4px;border-radius:999px;background:#fff;border:1.5px solid ${A};color:${A};font:600 14px/1 var(--nv-font);text-decoration:none}
-.c:hover{background:${A};color:#fff}
-.qs{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 6px}
-.q{min-height:44px;padding:0 13px;border-radius:999px;border:1px solid #D7DBE0;background:#fff;color:#14161A;font:500 13.5px/1 var(--nv-font);cursor:pointer}
-.q:hover{border-color:${A};color:${A}}
-.f{display:flex;gap:8px;padding:10px 12px 6px;border-top:1px solid #ECEEF0;background:#fff}
-.i{flex:1;min-width:0;min-height:44px;max-height:120px;padding:11px 14px;border:1px solid #D7DBE0;border-radius:14px;font:400 16px/1.35 var(--nv-font);color:#14161A;resize:none;background:#fff}
-.i:focus{outline:none;border-color:${A};box-shadow:0 0 0 3px color-mix(in srgb,${A} 18%,transparent)}
-.s{width:44px;height:44px;flex:none;border:0;border-radius:14px;background:${A};color:#fff;cursor:pointer;display:grid;place-items:center}
-.s:disabled{opacity:.45;cursor:default}
-.n{display:flex;justify-content:space-between;gap:10px;padding:2px 14px 12px;background:#fff;font:400 11.5px/1.4 var(--nv-font);color:#6B7280}
-.r{border:0;background:none;padding:0;min-height:44px;color:#6B7280;font:inherit;text-decoration:underline;cursor:pointer;white-space:nowrap}
+.x{width:44px;height:44px;border:0;border-radius:14px;background:transparent;color:var(--sub);cursor:pointer;display:grid;place-items:center;transition:background .15s ease,color .15s ease}
+.x:hover{background:var(--tint);color:var(--ink)}
+.m{flex:1;overflow-y:auto;padding:20px 16px 10px;display:flex;flex-direction:column;gap:10px;background:var(--cv);overscroll-behavior:contain;scrollbar-width:thin}
+.b{max-width:86%;padding:11px 14px;border-radius:18px;font:400 15px/1.5 var(--f);letter-spacing:-.005em;white-space:pre-wrap;overflow-wrap:anywhere;animation:up .28s cubic-bezier(.22,1,.36,1)}
+.b.a{align-self:flex-start;background:var(--ab);color:var(--ink);box-shadow:0 0 0 1px var(--ln),0 1px 2px rgba(5,8,13,.04);border-bottom-left-radius:6px}
+.b.u{align-self:flex-end;background:var(--a);color:var(--on);border-bottom-right-radius:6px}
+.b.t{padding:14px 16px}
+.dots{display:flex;gap:5px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--sub);animation:dot 1.2s ease-in-out infinite}
+.dots i:nth-child(2){animation-delay:.15s}
+.dots i:nth-child(3){animation-delay:.3s}
+.c{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;margin:0 0 4px;border-radius:999px;background:var(--a);border:0;color:var(--on);font:600 14px/1 var(--f);letter-spacing:-.01em;text-decoration:none;box-shadow:0 8px 20px -10px color-mix(in srgb,var(--a) 80%,#000);animation:up .28s cubic-bezier(.22,1,.36,1);transition:background .15s ease,transform .15s ease}
+.c:hover{background:var(--ai);transform:translateY(-1px)}
+.qs{display:flex;flex-wrap:wrap;gap:8px;padding:4px 0 6px;animation:up .32s cubic-bezier(.22,1,.36,1)}
+.q{min-height:44px;padding:0 15px;border-radius:999px;border:1px solid var(--ln);background:var(--ab);color:var(--ink);font:500 14px/1 var(--f);letter-spacing:-.01em;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}
+.q:hover{background:var(--tint);border-color:var(--a);color:var(--ink)}
+.f{display:flex;align-items:flex-end;gap:6px;margin:10px 12px 6px;padding:5px 5px 5px 6px;border:1px solid var(--ln);border-radius:20px;background:var(--ab);transition:border-color .15s ease,box-shadow .15s ease}
+.f:focus-within{border-color:var(--a);box-shadow:0 0 0 4px var(--tint)}
+.i{flex:1;min-width:0;min-height:44px;max-height:120px;padding:11px 10px;border:0;border-radius:14px;font:400 16px/1.35 var(--f);color:var(--ink);resize:none;background:transparent;outline:none}
+.i::placeholder{color:var(--sub);opacity:.85}
+.s{width:44px;height:44px;flex:none;border:0;border-radius:15px;background:var(--a);color:var(--on);cursor:pointer;display:grid;place-items:center;transition:background .15s ease,transform .15s ease}
+.s:hover{background:var(--ai)}
+.s:active{transform:scale(.94)}
+.s:disabled{opacity:.4;cursor:default}
+.n{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 16px 8px;background:var(--bg);font:400 11.5px/1.4 var(--f);color:var(--sub)}
+.r{border:0;background:none;padding:0 2px;min-height:44px;color:var(--sub);font:500 11.5px/1 var(--f);text-decoration:underline;text-underline-offset:3px;cursor:pointer;white-space:nowrap}
+.r:hover{color:var(--ink)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 <div class="w">
-<button class="l" type="button" aria-label="${T.launch} ${T.open}"><span class="av"><i></i></span><span class="tx">${T.launch}</span></button>
+<button class="l" type="button" aria-label="${T.launch} ${T.open}"><span class="av"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="3.6" fill="currentColor"/></svg></span><span class="tx">${T.launch}</span></button>
 <section class="p" role="dialog" aria-modal="false" aria-label="${T.title}" hidden>
-<header class="h"><span class="av"><i></i></span><span class="sp"><b>${T.title}</b><small>${T.sub}</small></span>
+<header class="h"><span class="av"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="3.6" fill="currentColor"/></svg><em></em></span><span class="sp"><b${C.ttl ? ' class="sf"' : ""}>${T.title}</b><small>${T.sub}</small></span>
 <button class="x" type="button" aria-label="${T.close}"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></header>
 <div class="m" aria-live="polite"></div>
 <form class="f"><label class="sr" for="nv-i">${T.ph}</label><textarea id="nv-i" class="i" rows="1" maxlength="1200" placeholder="${T.ph}"></textarea>
@@ -187,7 +211,6 @@
       form = $(".f"),
       input = $(".i"),
       sendBtn = $(".s");
-    host.style.setProperty("--nv-font", getComputedStyle(document.body).fontFamily || "system-ui, sans-serif");
 
     const bubble = (role, text) => {
       const d = document.createElement("div");
@@ -255,8 +278,9 @@
       st.msgs.push({ role: "user", text });
       save();
       bubble("user", text);
-      const typing = bubble("assistant", T.typing);
+      const typing = bubble("assistant", "");
       typing.classList.add("t");
+      typing.innerHTML = `<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sr">${T.typing}</span>`;
       list.scrollTop = list.scrollHeight;
       track("vendedor_message", { page: path, n: st.msgs.filter((m) => m.role === "user").length });
       let reply = { respuesta: T.err, cta: { texto: "hola@neuri.tech", url: "mailto:hola@neuri.tech" } };

@@ -32,6 +32,12 @@
     );
 
     if (!alt.es || !alt.en) return;
+    // T15: un ?lang=es|en explícito siempre lleva a su par (también en navegadores automatizados y vistas previas).
+    const here0 = location.pathname.replace(/index\.html$/, "");
+    if ((q === "es" || q === "en") && here0 !== alt[q].pathname && (here0 === alt.es.pathname || here0 === alt.en.pathname)) {
+      location.replace(alt[q].pathname + location.search + location.hash);
+      return;
+    }
     if (/bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit/i.test(navigator.userAgent) || navigator.webdriver) return;
 
     const here = location.pathname.replace(/index\.html$/, "");

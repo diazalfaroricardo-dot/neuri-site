@@ -23,7 +23,7 @@ const server = createServer((req, res) => {
 });
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const base = LIVE ? "https://neuri.tech" : `http://127.0.0.1:${server.address().port}`;
-const HREFS = ["/en/still-available/", "/en/", "/en/ai-consulting/", "/en/marketing/"];
+const HREFS = ["/en/home/", "/en/still-available/", "/en/", "/en/ai-consulting/", "/en/marketing/"];
 const AXE = process.env.AXE || join(homedir(), "neuri-bazar/node_modules/.pnpm/axe-core@4.10.3/node_modules/axe-core/axe.min.js");
 const axeSrc = existsSync(AXE) ? readFileSync(AXE, "utf8") : "";
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });

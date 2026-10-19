@@ -28,5 +28,13 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.
   if (/revisad[oa] por (una )?persona|100\s*%[^<]{0,80}revisad|(reviewed|checked) by a (real )?(person|human)|human[- ]reviewed|100\s*%[^<]{0,80}review/i.test(txt))
     bad(`${f} promete revisión humana de cada diagnóstico (K43: entrega automática con controles)`);
 }
+// T14: la tarjeta de neuri.bots dice el estado real — el alta está abierta y la conexión con Meta, pendiente.
+if (/Por abrir/i.test(home)) bad("la tarjeta de neuri.bots dice «Por abrir» y el alta ya está abierta en /sigue-disponible");
+const bots = (home.match(/MISIÓN 01 · AGENTE DE MENSAJES[\s\S]{0,1600}/g) || []);
+if (bots.length < 2) bad("no encontré las dos copias de la tarjeta de neuri.bots (HTML + datos)");
+for (const b of bots) {
+  if (!/Alta abierta/.test(b)) bad("la tarjeta de neuri.bots no dice «Alta abierta»");
+  if (!/pendiente de Meta/.test(b)) bad("la tarjeta de neuri.bots no dice que Instagram/Messenger está pendiente de Meta");
+}
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
 process.exit(fail ? 1 : 0);

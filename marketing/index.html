@@ -114,7 +114,7 @@ nav.main .lk-idioma{min-width:44px;justify-content:center;font-weight:600}
 .hero h1{margin-top:32px;font-size:clamp(52px,9.6vw,128px);line-height:.94;letter-spacing:-.058em;font-weight:600;max-width:12ch}
 .hero h1 .w{display:inline-block;animation:wordIn 1s var(--ease) both;animation-delay:calc(var(--d) * 70ms + 80ms)}
 @keyframes wordIn{from{opacity:0;transform:translateY(.35em);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
-.hero .lede{margin:28px auto 0;text-align:center;max-width:46ch;animation:fadeUp .9s var(--ease) .55s both}
+.hero .lede{margin:28px auto 0;text-align:center;max-width:46ch} /* T24: sin animación de entrada: es el LCP en móvil */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
 /* Resplandor */

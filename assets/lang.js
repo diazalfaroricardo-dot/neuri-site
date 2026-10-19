@@ -40,7 +40,45 @@
       location.replace(alt[q].pathname + location.search + location.hash);
       return;
     }
-    if (soloParam) return;
+    if (soloParam) {
+      // Auditoría bazar 18-oct (B-A6): la portada no redirige, pero a un navegador en inglés sin elección guardada
+      // le ofrece «View in English» arriba (se cierra y se recuerda; bots y pruebas automatizadas no lo ven).
+      let saved = null;
+      try {
+        saved = localStorage.getItem(KEY);
+      } catch (_) {}
+      const nl = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+      if (saved || q || !/^en\b/i.test(nl) || /bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit/i.test(navigator.userAgent) || navigator.webdriver) return;
+      const here1 = location.pathname.replace(/index\.html$/, "");
+      if (here1 !== alt.es.pathname) return;
+      const show = () => {
+        if (document.getElementById("neuri-lang-sug")) return;
+        const bar = document.createElement("div");
+        bar.id = "neuri-lang-sug";
+        bar.setAttribute("role", "region");
+        bar.setAttribute("aria-label", "Language");
+        bar.lang = "en";
+        bar.style.cssText = "display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:6px 16px;background:#0B0F14;color:#F2F5F7;font:500 14px/1.4 system-ui,sans-serif;border-bottom:1px solid #26303A";
+        const a = document.createElement("a");
+        a.href = alt.en.pathname + "?lang=en";
+        a.hreflang = "en";
+        a.textContent = "View this page in English →";
+        a.style.cssText = "color:#F2F5F7;text-decoration:underline;display:inline-flex;align-items:center;min-height:44px;padding:0 4px";
+        const x = document.createElement("button");
+        x.type = "button";
+        x.textContent = "Seguir en español";
+        x.style.cssText = "background:transparent;color:#C9D2D9;border:1px solid #3A4652;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;cursor:pointer";
+        x.addEventListener("click", () => {
+          store("es");
+          bar.remove();
+        });
+        bar.append(a, x);
+        document.body.prepend(bar);
+      };
+      if (document.body) show();
+      else document.addEventListener("DOMContentLoaded", show);
+      return;
+    }
     if (/bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit/i.test(navigator.userAgent) || navigator.webdriver) return;
 
     const here = location.pathname.replace(/index\.html$/, "");

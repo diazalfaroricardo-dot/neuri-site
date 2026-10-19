@@ -53,6 +53,8 @@ body{margin:0}img{max-width:100%}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 html{scroll-behavior:smooth;scroll-padding-top:88px;overflow-x:clip}
 .sec,.hero{overflow-x:clip}
+/* T27: las secciones fuera de pantalla no se calculan hasta acercarse (menos estilo/layout en móvil) */
+.sec{content-visibility:auto;contain-intrinsic-size:auto 900px}
 body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip;font-feature-settings:"ss01","cv11"}
 a{color:inherit}
 h1,h2,h3,h4,p{margin:0}

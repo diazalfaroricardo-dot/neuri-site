@@ -3,7 +3,12 @@
 Uso: python3 scripts/marketing-landing.py   (desde la raíz de neuri-site)
 Regla de Ricardo: sin claims falsos. Toda función del producto dice «Pronto»; solo las herramientas
 gratis (que ya existen en la app) se marcan como disponibles. Sin precios hasta que él los apruebe."""
-import html, json, pathlib
+import html, json, pathlib, sys
+
+# T25 (19-oct): /marketing/index.html se rediseñó a mano (Geist, «Viralidad», precios reales) y este
+# generador ya no lo representa: correrlo pisaría el rediseño con la versión vieja «sin precios».
+if "--forzar" not in sys.argv:
+    sys.exit("marketing-landing.py está retirado: /marketing se edita a mano y /en/marketing se arma desde ella (T25). Usa --forzar solo si sabes lo que haces.")
 
 APP = "https://neuri-marketing-production.up.railway.app"
 ROOT = pathlib.Path(__file__).resolve().parent.parent

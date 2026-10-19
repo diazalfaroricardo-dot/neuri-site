@@ -18,16 +18,20 @@ import { readFileSync } from "node:fs";
 const T = {
   bots: { a: "#0B5E3A", bg: "#F6F4EE", ink: "#05080D", sub: "#56635C", line: "#E1E3DC", suf: ".bots",
     url: { es: "https://neuri.tech/sigue-disponible/", en: "https://neuri.tech/en/still-available/" },
-    cta: { es: "Ver cómo contesta", en: "See it answer" } },
+    cta: { es: "Ver cómo contesta", en: "See it answer" },
+    chips: { es: ["Primer mes sin costo", "Yo lo configuro", "Instagram y Messenger"], en: ["First month free", "I set it up for you", "Instagram and Messenger"] } },
   bazar: { a: "#B4441A", bg: "#F7F1E8", ink: "#05080D", sub: "#5E554C", line: "#E6DBC9", suf: ".bazar",
     url: { es: "https://neuri.tech/bazar/recorrido/", en: "https://neuri.tech/en/bazar/tour/" },
-    cta: { es: "Ver el recorrido de 2 minutos", en: "Take the 2-minute tour" } },
+    cta: { es: "Ver el recorrido de 2 minutos", en: "Take the 2-minute tour" },
+    chips: { es: ["Prueba de 14 días", "Lo configuro con tus vendedores", "Español e inglés"], en: ["14-day trial", "Set up with your vendors", "English and Spanish"] } },
   consulting: { a: "#1F7A52", bg: "#F6F3EE", ink: "#0A1A14", sub: "#4B5B54", line: "#E4E1DA", suf: ".consulting",
     url: { es: "https://consulting.neuri.tech/ejemplo", en: "https://consulting.neuri.tech/ejemplo?lang=en" },
-    cta: { es: "Ver un reporte de ejemplo", en: "See a sample report" } },
+    cta: { es: "Ver un reporte de ejemplo", en: "See a sample report" },
+    chips: { es: ["Precio fijo", "Reporte por escrito", "Garantía de devolución"], en: ["Fixed price", "Written report", "Money-back guarantee"] } },
   marketing: { a: "#C2341D", bg: "#FFF8F2", ink: "#0B1118", sub: "#5B6670", line: "#F0E4DA", suf: ".marketing",
     url: { es: "https://neuri.tech/marketing/", en: "https://neuri.tech/en/marketing/" },
-    cta: { es: "Ver una semana de ejemplo", en: "See a sample week" } },
+    cta: { es: "Ver una semana de ejemplo", en: "See a sample week" },
+    chips: { es: ["Nada sale sin tu OK", "Tus fotos reales", "Instagram y Facebook"], en: ["Nothing posts without your OK", "Your real photos", "Instagram and Facebook"] } },
   personal: { a: "#05080D", bg: "#F4F6F7", ink: "#0B1118", sub: "#4F5A64", line: "#E2E7EB", suf: "" },
 };
 const POSTAL = "Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA";
@@ -63,8 +67,19 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
   const isProduct = product !== "personal" && T[product]?.url;
   const L = en ? "en" : "es";
   const href = isProduct ? utm(t.url[L], product) : "";
+  const hero = isProduct
+    ? `<tr><td style="padding:0;line-height:0;font-size:0"><a href="${esc(href)}" target="_blank" style="display:block;text-decoration:none"><img src="https://neuri.tech/assets/email/hero-${product}-${L}.gif" width="600" alt="${esc(en ? `neuri${t.suf} — real product demo` : `neuri${t.suf} — demo del producto real`)}" style="display:block;width:100%;max-width:600px;height:auto;border:0;border-radius:18px 18px 0 0"></a></td></tr>`
+    : "";
+  const chips = isProduct
+    ? `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 20px"><tr>${t.chips[L]
+        .map(
+          (c) =>
+            `<td style="padding:0 6px 6px 0"><span style="display:inline-block;padding:7px 12px;border-radius:999px;background:${t.bg};border:1px solid ${t.line};font-family:${FONT};font-size:13px;line-height:16px;font-weight:600;color:${t.ink};white-space:nowrap">&#10003;&nbsp;${esc(c)}</span></td>`,
+        )
+        .join("")}</tr></table>`
+    : "";
   const card = isProduct
-    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:8px 0 16px"><tr><td><a href="${esc(href)}" target="_blank" style="display:block;text-decoration:none"><img src="https://neuri.tech/assets/email/${product}-${L}.jpg" width="500" alt="${esc(en ? `neuri${t.suf} — what it looks like` : `neuri${t.suf} — así se ve`)}" style="display:block;width:100%;max-width:500px;height:auto;border:1px solid ${t.line};border-radius:14px"></a></td></tr></table><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 22px"><tr><td bgcolor="${t.a}" style="background:${t.a};border-radius:12px"><a href="${esc(href)}" target="_blank" style="display:inline-block;padding:14px 22px;font-family:${FONT};font-size:15px;line-height:20px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:12px">${esc(t.cta[L])}&nbsp;&nbsp;&rarr;</a></td></tr></table>`
+    ? `${chips}<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px"><tr><td bgcolor="${t.a}" style="background:${t.a};border-radius:12px;box-shadow:0 8px 20px -8px ${t.a}"><a href="${esc(href)}" target="_blank" style="display:inline-block;padding:15px 26px;font-family:${FONT};font-size:16px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:12px">${esc(t.cta[L])}&nbsp;&nbsp;&rarr;</a></td></tr></table>`
     : "";
   const role = product === "personal"
     ? en
@@ -76,7 +91,11 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
   const mark = `<td width="40" height="40" align="center" valign="middle" bgcolor="${t.a}" style="width:40px;height:40px;background:${t.a};border-radius:50%;font-family:${FONT};font-size:15px;font-weight:700;color:#FFFFFF;line-height:40px">RD</td>`;
   const sig = `${closing ? `<p style="${P};margin-bottom:12px">${esc(closing)}</p>` : ""}<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:6px 0 4px"><tr>${mark}<td style="padding:0 0 0 12px;font-family:${FONT}"><div style="font-size:15px;line-height:1.3;font-weight:700;color:${t.ink}">Ricardo Díaz</div><div style="font-size:13px;line-height:1.45;color:${t.sub}">${role}</div></td></tr></table>`;
   const foot = `${product === "personal" ? "" : `${esc(POSTAL)}<br>`}${esc(optOut)}`;
-  return `<!doctype html><html lang="${L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${esc(subject)}</title></head><body style="margin:0;padding:0;background:#FFFFFF"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="left" style="padding:8px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px"><tr><td style="padding:0 2px">${bodyHtml}${card}${sig}</td></tr>${foot.trim() ? `<tr><td style="padding:18px 2px 0;border-top:1px solid ${t.line};font-family:${FONT};font-size:12px;line-height:1.55;color:${t.sub}">${foot}</td></tr>` : ""}</table></td></tr></table></body></html>`;
+  const outerBg = isProduct ? t.bg : "#FFFFFF";
+  const inner = isProduct
+    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="max-width:600px;background:#FFFFFF;border:1px solid ${t.line};border-radius:18px;border-collapse:separate">${hero}<tr><td style="padding:28px 30px 22px">${bodyHtml}${card}${sig}</td></tr></table>`
+    : `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px"><tr><td style="padding:0 2px">${bodyHtml}${sig}</td></tr></table>`;
+  return `<!doctype html><html lang="${L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${esc(subject)}</title></head><body style="margin:0;padding:0;background:${outerBg}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${outerBg}" style="background:${outerBg}"><tr><td align="center" style="padding:${isProduct ? "24px 10px" : "8px 0"}">${inner}${foot.trim() ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px"><tr><td style="padding:16px 8px 0;font-family:${FONT};font-size:12px;line-height:1.55;color:${t.sub};text-align:${isProduct ? "center" : "left"}">${foot}</td></tr></table>` : ""}</td></tr></table></body></html>`;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

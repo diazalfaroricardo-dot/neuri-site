@@ -170,7 +170,7 @@
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 <div class="w">
-<button class="l" type="button" aria-label="${T.open}"><span class="av"><i></i></span><span class="tx">${T.launch}</span></button>
+<button class="l" type="button" aria-label="${T.launch} ${T.open}"><span class="av"><i></i></span><span class="tx">${T.launch}</span></button>
 <section class="p" role="dialog" aria-modal="false" aria-label="${T.title}" hidden>
 <header class="h"><span class="av"><i></i></span><span class="sp"><b>${T.title}</b><small>${T.sub}</small></span>
 <button class="x" type="button" aria-label="${T.close}"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></header>

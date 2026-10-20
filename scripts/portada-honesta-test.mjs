@@ -44,5 +44,12 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html"]) {
   for (const m of txt.matchAll(/<span>([^<]*(garant|money-back)[^<]*)<\/span>/gi))
     if (!/3 (oportunidades|actionable)/i.test(m[1])) bad(`${f}: «${m[1]}» sin la condición de la garantía (3 oportunidades accionables)`);
 }
+// T38 (B-A1, re-auditoría 19-oct): la portada ES dice en lenguaje llano lo mismo que /en/home/ y el atajo ⌘K no sale en pantallas táctiles.
+if ((home.match(/Neuri hace agentes de inteligencia artificial para negocios pequeños/g) || []).length < 2) bad("T38: la portada ES no explica en llano qué hace Neuri (HTML + plantilla)");
+if (/Tú piensas\. La red ejecuta\.|Ver sistemas en operación/.test(home)) bad("T38: copy abstracto de la portada ES");
+if ((home.match(/>Ver los productos</g) || []).length + (home.match(/>Ver los productos<svg/g) || []).length < 2) bad("T38: falta «Ver los productos» en el encabezado");
+for (const m of home.matchAll(/<span class="([^"]*)"[^>]*>⌘K<\/span>Abrir la consola/g))
+  if (!/x-kbd/.test(m[1])) bad("T38: el ⌘K del botón «Abrir la consola» no se oculta en táctil (.x-kbd)");
+if (!/@media \(hover:none\),\(pointer:coarse\)\{\.x-kbd\{display:none/.test(home)) bad("T38: falta la regla que oculta .x-kbd en táctil");
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
 process.exit(fail ? 1 : 0);

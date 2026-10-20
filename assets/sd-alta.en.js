@@ -207,6 +207,8 @@
         .catch(function(e){
           // A48: demasiadas altas (429): el mensaje del servidor y la opción de mandarla por correo; el formulario sigue lleno.
           if(e&&e.limit){var miss=document.getElementById('missing');miss.textContent=e.limit+' ';var b=document.createElement('button');b.type='button';b.className='btn ghost';b.style.marginTop='10px';b.textContent='Send my sign-up by email';b.addEventListener('click',function(){mailto(d);});miss.appendChild(b);miss.classList.add('on');miss.scrollIntoView({block:'center'});return;}
+          // B-M2: sin red no abrimos el correo (tampoco saldría): lo decimos, el formulario sigue lleno y avisamos al volver la red.
+          if(navigator.onLine===false){var mo=document.getElementById('missing');mo.textContent='No internet connection. Your sign-up is still here, nothing was lost: when you are back online tap «Get my assistant» again.';mo.setAttribute('data-offline','1');mo.classList.add('on');mo.scrollIntoView({block:'center'});window.addEventListener('online',function(){mo.textContent='You are back online: tap «Get my assistant» to send your sign-up.';},{once:true});return;}
           mailto(d);
         })
         .then(function(){bSend.disabled=false;bSend.textContent='Get my assistant';});

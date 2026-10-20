@@ -243,6 +243,8 @@
         .catch(function(e){
           // A48: demasiadas altas (429): el mensaje del servidor y la opción de mandarla por correo; el formulario sigue lleno.
           if(e&&e.limit){var miss=document.getElementById('missing');miss.textContent=e.limit+' ';var b=document.createElement('button');b.type='button';b.className='btn ghost';b.style.marginTop='10px';b.textContent='Mandar mi alta por correo';b.addEventListener('click',function(){mailto(d);});miss.appendChild(b);miss.classList.add('on');miss.scrollIntoView({block:'center'});return;}
+          // B-M2: sin red no abrimos el correo (tampoco saldría): lo decimos, el formulario sigue lleno y avisamos al volver la red.
+          if(navigator.onLine===false){var mo=document.getElementById('missing');mo.textContent='Sin conexión a internet. Tu alta sigue aquí, no se perdió nada: cuando vuelva la red toca «Pedir mi asistente» otra vez.';mo.setAttribute('data-offline','1');mo.classList.add('on');mo.scrollIntoView({block:'center'});window.addEventListener('online',function(){mo.textContent='Ya volvió la conexión: toca «Pedir mi asistente» para mandar tu alta.';},{once:true});return;}
           mailto(d);
         })
         .then(function(){bSend.disabled=false;bSend.textContent='Pedir mi asistente';});

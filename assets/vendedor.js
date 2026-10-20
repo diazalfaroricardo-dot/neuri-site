@@ -165,6 +165,7 @@
 .l.mini .av{background:transparent}
 .l[hidden]{display:none}
 .l.wait{opacity:0;visibility:hidden;pointer-events:none}
+.l.tapa{opacity:0;visibility:hidden;pointer-events:none}
 .p{position:fixed;right:16px;bottom:16px;width:min(392px,calc(100vw - 32px));height:min(600px,calc(100dvh - 32px));display:flex;flex-direction:column;background:var(--bg);color:var(--ink);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(5,8,13,.5),0 12px 28px -16px rgba(5,8,13,.22),0 0 0 1px var(--ln);transform-origin:bottom right;animation:in .32s cubic-bezier(.22,1,.36,1)}
 .p[hidden]{display:none}
 @keyframes in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
@@ -399,6 +400,10 @@
         };
         addEventListener("scroll", show, { passive: true });
       }
+      // T60 (B-A10/B-N2): con la demo (#demo) en pantalla el globo se esconde y no tapa el teléfono de muestra.
+      const demo = document.getElementById("demo");
+      if (demo && "IntersectionObserver" in window)
+        new IntersectionObserver(([e]) => launch.classList.toggle("tapa", e.isIntersecting && !st.open), { threshold: 0.15 }).observe(demo);
       if (st.msgs.length) launch.classList.add("mini");
       if (st.open) setOpen(true, false);
       // Ya vio la página un rato sin abrirlo: el globo se hace pequeño para no estorbar.

@@ -6,6 +6,8 @@
  *     letra cabe dentro de su caja.
  *  3. Ninguna página tiene scroll lateral a 360/390/1280 px (cabecera desalineada al entrar).
  *  4. Los menús de las páginas secundarias se ven como el de la portada (sin mayúsculas mono).
+ *  5. «Entrar»/«EN» quedan en el renglón del logo de 360 a 1920 px (antes, en Chrome de escritorio
+ *     a 1024/1536/1920, «Entrar» bajaba a un segundo renglón a la izquierda).
  * Uso: node scripts/t36-diseno-test.mjs [--live]   (CHROME=/ruta/a/chrome si no es Mac)
  */
 import { createReadStream, existsSync, statSync } from "node:fs";
@@ -33,7 +35,7 @@ const MENUS = ["/", "/en/home/", "/legal/", "/novedades/"];
 const fails = [];
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 
-for (const width of [360, 390, 1280]) {
+for (const width of [360, 390, 1024, 1280, 1440, 1536, 1920]) {
   const ctx = await browser.newContext({ viewport: { width, height: 900 }, locale: "es-MX", timezoneId: "America/Phoenix" });
   const page = await ctx.newPage();
   for (const path of PAGES) {
@@ -56,9 +58,12 @@ for (const width of [360, 390, 1280]) {
         const a = el.parentElement.querySelector("[role=menu] a");
         const r = el.parentElement.querySelector("[role=menu]").getBoundingClientRect();
         const cs = getComputedStyle(a);
-        return { tt: cs.textTransform, left: r.left, right: r.right, vw: document.documentElement.clientWidth };
+        const logo = document.querySelector('header a[href="#inicio"], header a[href="/"], header .logo, .nb-logo');
+        const sb = el.getBoundingClientRect(), lb = logo ? logo.getBoundingClientRect() : sb;
+        return { tt: cs.textTransform, left: r.left, right: r.right, vw: document.documentElement.clientWidth, dy: Math.abs((sb.top + sb.bottom) / 2 - (lb.top + lb.bottom) / 2) };
       });
       if (look.tt === "uppercase") fails.push(`${width}px ${path}: menú ${i + 1} con estilo de enlace mono en mayúsculas`);
+      if (look.dy > 12) fails.push(`${width}px ${path}: «${(await s.textContent()).trim()}» no está en el mismo renglón que el logo (${look.dy.toFixed(0)} px)`);
       if (look.left < 0 || look.right > look.vw + 1) fails.push(`${width}px ${path}: menú ${i + 1} se sale de la pantalla`);
       await s.click();
     }
@@ -94,4 +99,4 @@ for (const width of [360, 390, 1280]) {
 await browser.close();
 server.close();
 if (fails.length) { console.error("T36 FALLA\n- " + fails.join("\n- ")); process.exit(1); }
-console.log(`T36 OK (${LIVE ? "en vivo" : "local"}): menús abiertos, titular completo, sin scroll lateral en ${PAGES.length} páginas × 3 anchos`);
+console.log(`T36 OK (${LIVE ? "en vivo" : "local"}): menús abiertos, titular completo, sin scroll lateral en ${PAGES.length} páginas × 7 anchos`);

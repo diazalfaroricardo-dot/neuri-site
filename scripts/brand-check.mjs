@@ -73,7 +73,7 @@ if (isMain) {
   });
   await new Promise((r) => server.listen(0, "127.0.0.1", r));
   const base = `http://127.0.0.1:${server.address().port}`;
-  const exe = ["/opt/pw-browsers/chromium", "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"].find((x) => existsSync(x));
+  const exe = ["/opt/pw-browsers/chromium", "/opt/pw-browsers/chromium-1194/chrome-linux/chrome", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"].find((x) => existsSync(x));
   const browser = await chromium.launch({ executablePath: process.env.CHROME || exe });
   const filter = process.argv[2] || "";
   const fails = [];

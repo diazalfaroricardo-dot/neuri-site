@@ -38,5 +38,11 @@ for (const b of bots) {
 }
 // B-A8 (auditoría bazar 18-oct): neuri.marketing está en lista de espera → no decir que las cuatro ya están «en órbita».
 if (/Cuatro misiones\.\s*Ya en órbita/i.test(home)) bad("«Cuatro misiones. Ya en órbita.» y neuri.marketing sigue en lista de espera");
+// T39 (B-A8/B-C1): la garantía de las landings de consulting dice su condición (la misma de consulting.neuri.tech/precios).
+for (const f of ["consultoria/index.html", "en/ai-consulting/index.html"]) {
+  const txt = readFileSync(join(root, f), "utf8");
+  for (const m of txt.matchAll(/<span>([^<]*(garant|money-back)[^<]*)<\/span>/gi))
+    if (!/3 (oportunidades|actionable)/i.test(m[1])) bad(`${f}: «${m[1]}» sin la condición de la garantía (3 oportunidades accionables)`);
+}
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
 process.exit(fail ? 1 : 0);

@@ -79,4 +79,4 @@ Bien: axe AA 0 en 44, sin scroll horizontal, sin contenido mixto, 69 links inter
 - T44 (baja, B-N2/A10) el globo «¿Te ayudo a elegir?» tapa «Sin tarjeta · Sin contrato» en /sigue-disponible/ a 390.
 - ✓ HECHO 19-oct 20:3x (logo → /en/home/, candado en legal-pie-test) — T45 (baja) el logo de /en/ai-consulting/ va a «/» en vez de /en/home/.
 - ✓ HECHO 19-oct 20:2x (el único bloque fuera de lang="en" era el pie «Neuri LLC · Phoenix, Arizona»; candado t46-lang-bloques-test revisa todo lo que sigue a #en-h) — T46 (baja) /legal/ y /novedades/ mezclan ES/EN en una página lang=es (marcar los bloques con lang="en").
-- T47 (baja) «100M+ en ahorros al año» en la trayectoria de /consultoria/ no dice moneda.
+- T47 (baja) HECHO 19-oct 20:57 — «US$100M+» en /consultoria/ y /en/ai-consulting/ + candado scripts/t47-moneda-trayectoria-test.mjs (falla sin el cambio). Antes: «100M+ en ahorros al año» no decía moneda.

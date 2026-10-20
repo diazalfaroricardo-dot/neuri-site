@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap"></noscript>
 <style>
+/* T28: respaldo con el ancho de Geist (Arial ≈ ±1 %) para que el h1 no cambie de líneas al llegar la fuente (CLS); anchos del hero en em = 12ch/46ch de Geist, porque «ch» cambia con la fuente */
+@font-face{font-family:"Geist Fallback";src:local("Arial"),local("ArialMT"),local("Helvetica"),local("Liberation Sans");size-adjust:104%}
 /* Layout: lienzo limpio tipo Lovable. Un solo gran gesto de color (resplandor coral/lila/sol que respira detrás del cuadro de «cuéntanos de tu negocio»); todo lo demás es tipografía apretada, aire medido en múltiplos de 8 y movimiento con intención. */
 :root{
   --bg:#FFF8F2; --surface:#FFFFFF; --ink:#0B1118; --ink-2:#34404A; --muted:#5B6670; --line:rgba(11,17,24,.09); --line-2:rgba(11,17,24,.14);
@@ -30,7 +32,7 @@
   --glow-1:rgba(143,224,180,.62); --glow-2:rgba(255,91,69,.62); --glow-3:rgba(243,179,143,.7); --grain:.06;
   --shadow-lg:0 1px 0 rgba(255,255,255,.6) inset,0 40px 90px -40px rgba(11,17,24,.38),0 12px 30px -18px rgba(11,17,24,.18);
   --shadow-sm:0 1px 2px rgba(11,17,24,.06),0 8px 24px -12px rgba(11,17,24,.14);
-  --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --sans:"Geist","Geist Fallback",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.22,1,.36,1); --spring:cubic-bezier(.34,1.56,.64,1);
   interpolate-size:allow-keywords;
 }
@@ -114,10 +116,10 @@ nav.main .lk-idioma{min-width:44px;justify-content:center;font-weight:600}
 .badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--coral);position:relative}
 .badge .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--coral);animation:ping 2s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.9);opacity:0}}
-.hero h1{margin-top:32px;font-size:clamp(52px,9.6vw,128px);line-height:.94;letter-spacing:-.058em;font-weight:600;max-width:12ch}
+.hero h1{margin-top:32px;font-size:clamp(52px,9.6vw,128px);line-height:.94;letter-spacing:-.058em;font-weight:600;max-width:8.2em}
 .hero h1 .w{display:inline-block;animation:wordIn 1s var(--ease) both;animation-delay:calc(var(--d) * 70ms + 80ms)}
 @keyframes wordIn{from{opacity:0;transform:translateY(.35em);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
-.hero .lede{margin:28px auto 0;text-align:center;max-width:46ch} /* T24: sin animación de entrada: es el LCP en móvil */
+.hero .lede{margin:28px auto 0;text-align:center;max-width:30.5em} /* T24: sin animación de entrada: es el LCP en móvil */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
 /* Resplandor */

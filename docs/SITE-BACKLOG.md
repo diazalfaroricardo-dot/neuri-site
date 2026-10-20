@@ -73,10 +73,10 @@ Bien: axe AA 0 en 44, sin scroll horizontal, sin contenido mixto, 69 links inter
 - T38 HECHO 19-oct ~20:20 (build :05; solo copy y botones, sin rediseño): lead ES en llano igual al EN («Neuri hace agentes de inteligencia artificial para negocios pequeños…»), botón principal «Ver los productos», ⌘K oculto en táctil (hover:none/pointer:coarse); el H1 «Software que contesta mientras tú vives» se queda (es el mismo del EN); candado en portada-honesta-test (falla con el texto anterior). — Original: (media, B-A1) Portada ES abstracta y distinta a la EN: H1 «Software que contesta mientras tú vives» + «⌘K Abrir la consola» (atajo inútil en móvil) vs. EN «AI agents for small businesses» / «See the products» / «Talk to Neuri». Criterio: el ES dice lo mismo que el EN en lenguaje llano en 5 s (qué es + botón «Ver los productos»); el atajo ⌘K no aparece como botón en pantallas táctiles. Respetar el estilo de vitrina que pidió Ricardo (solo copy y botones, sin rediseño).
 - T39 ✓ HECHO 19-oct 20:00 (condición en la misma línea; sin liga para no meter un toque <44 px en el hero; candado en portada-honesta-test) — (media, B-A8/B-C1) «Garantía de devolución» / «Money-back guarantee» en /consultoria/ y /en/ai-consulting/ sin plazo ni condiciones. Criterio: junto a la garantía, plazo y condición en una línea (los mismos de consulting.neuri.tech/precios) con liga a /precios#faq; candado portada-honesta lo exige.
 - T40 (baja) ?lang=en no cambia /marketing/, /legal/, /novedades/ ni la 404 (el switch visible sí funciona).
-- T41 (baja, B-L3/B-A9) /sigue-disponible/ no dice Neuri LLC en el pie.
+- ✓ HECHO 19-oct 20:3x (pie «© 2026 Neuri LLC · Phoenix, AZ» ES/EN, candado en legal-pie-test) — T41 (baja, B-L3/B-A9) /sigue-disponible/ no dice Neuri LLC en el pie.
 - T42 (baja, B-A3) a 390 en /bazar/, /en/ y /sigue-disponible/ «Entrar» queda en una segunda fila a la izquierda, no arriba a la derecha.
 - T43 (baja, N3) Escape no cierra el menú «Entrar».
 - T44 (baja, B-N2/A10) el globo «¿Te ayudo a elegir?» tapa «Sin tarjeta · Sin contrato» en /sigue-disponible/ a 390.
-- T45 (baja) el logo de /en/ai-consulting/ va a «/» en vez de /en/home/.
+- ✓ HECHO 19-oct 20:3x (logo → /en/home/, candado en legal-pie-test) — T45 (baja) el logo de /en/ai-consulting/ va a «/» en vez de /en/home/.
 - T46 (baja) /legal/ y /novedades/ mezclan ES/EN en una página lang=es (marcar los bloques con lang="en").
 - T47 (baja) «100M+ en ahorros al año» en la trayectoria de /consultoria/ no dice moneda.

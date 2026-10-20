@@ -25,4 +25,13 @@ if (!legal.includes('<section lang="en"')) bad("/legal/ sin sección en inglés 
 // axe scrollable-region-focusable: todo contenedor con scroll horizontal de la portada es enfocable con teclado
 for (const m of home.matchAll(/<div([^>]*overflow-x: auto[^>]*)>/g)) if (!m[1].includes('tabindex="0"')) bad("portada: contenedor con overflow-x sin tabindex=0");
 if (!fail) console.log(`✓ portada: ${pies.length} pie(s) con /legal/, contacto e inglés correcto · /legal/: ${hrefs.length} links locales existen`);
+// T41: el pie de neuri.bots dice quién está detrás (Neuri LLC), ES y EN, visible y en la plantilla
+for (const p of ["sigue-disponible/index.html", "en/still-available/index.html"]) {
+  const pies = readFileSync(join(root, p), "utf8").split("<footer").slice(1).map((f) => f.split("</footer>")[0]);
+  if (!pies.length) bad(`${p} sin pie`);
+  for (const pie of pies) if (!pie.includes("Neuri LLC")) bad(`${p}: pie sin «Neuri LLC» (T41)`);
+}
+// T45: el logo de /en/ai-consulting/ regresa al inicio en inglés
+if (!readFileSync(join(root, "en/ai-consulting/index.html"), "utf8").includes('class="logo" href="/en/home/"')) bad("/en/ai-consulting/: el logo no va a /en/home/ (T45)");
+
 process.exit(fail ? 1 : 0);

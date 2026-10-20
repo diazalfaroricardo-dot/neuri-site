@@ -1,0 +1,7 @@
+# Neuri LLC — neuri.tech, bazar.neuri.tech, consulting.neuri.tech
+# Si encontraste un problema de seguridad, escríbenos. / If you found a security issue, email us.
+Contact: mailto:hola@neuri.tech
+Expires: 2027-10-19T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://neuri.tech/.well-known/security.txt
+Policy: https://neuri.tech/legal/#seguridad-h

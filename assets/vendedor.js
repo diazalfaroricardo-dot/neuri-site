@@ -401,9 +401,15 @@
         addEventListener("scroll", show, { passive: true });
       }
       // T60 (B-A10/B-N2): con la demo (#demo) en pantalla el globo se esconde y no tapa el teléfono de muestra.
-      const demo = document.getElementById("demo");
-      if (demo && "IntersectionObserver" in window)
-        new IntersectionObserver(([e]) => launch.classList.toggle("tapa", e.isIntersecting && !st.open), { threshold: 0.15 }).observe(demo);
+      // Se busca en cada movimiento porque la demo se pinta tarde (T24) y puede no existir al montar.
+      const tapa = () => {
+        const d = document.getElementById("demo");
+        const r = d && d.getBoundingClientRect();
+        launch.classList.toggle("tapa", !!r && !st.open && r.top < innerHeight - 70 && r.bottom > innerHeight - 70);
+      };
+      addEventListener("scroll", tapa, { passive: true });
+      addEventListener("resize", tapa);
+      tapa();
       if (st.msgs.length) launch.classList.add("mini");
       if (st.open) setOpen(true, false);
       // Ya vio la página un rato sin abrirlo: el globo se hace pequeño para no estorbar.

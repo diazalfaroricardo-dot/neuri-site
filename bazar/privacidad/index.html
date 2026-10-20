@@ -64,8 +64,9 @@ html[data-brand=consulting] .nb-word span{font-weight:500;color:var(--muted);fon
 .nb-nav a:hover{color:var(--acc)}
 .nb-nav .nb-lang{font-weight:600;min-width:44px;justify-content:center}
 .nb-nav .nb-in{font-weight:600}
-html[data-brand=home] .nb-nav a:not(.nb-cta){font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-html[data-brand=home] .nb-nav a:not(.nb-cta):hover{color:var(--acc)}
+html[data-brand=home] .nb-nav > a:not(.nb-cta){font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+html[data-brand=home] .nb-nav > a:not(.nb-cta):hover{color:var(--acc)}
+
 .nb-cta{background:var(--btn);color:var(--on-btn)!important;font-weight:600!important;padding:0 18px;border-radius:999px}
 .nb-cta:hover{background:var(--acc);color:var(--on-acc)!important}
 html[data-brand=home] .nb-cta{background:transparent;color:var(--ink)!important;border:1px solid rgba(233,238,242,.25)}
@@ -183,7 +184,7 @@ html[data-brand=home] .nb-foot .nb-word{color:var(--ink)}
 html[data-brand=home] .nb-menu summary{border-color:rgba(233,238,242,.28)}
 .nb-menu summary::-webkit-details-marker{display:none}
 .nb-menu [role=menu]{position:absolute;right:0;top:calc(100% + 8px);min-width:230px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px;z-index:20;box-shadow:0 12px 40px rgba(0,0,0,.45)}
-.nb-menu [role=menu] a{display:flex;min-height:44px;align-items:center;padding:0 12px;color:var(--ink);text-decoration:none;border-radius:10px;font-family:var(--font);font-size:15px;letter-spacing:0;text-transform:none}
+.nb-menu [role=menu] a{display:flex;min-height:44px;align-items:center;justify-content:flex-start;padding:0 12px;color:var(--ink);text-decoration:none;border-radius:10px;font-family:var(--font);font-size:15px;letter-spacing:0;text-transform:none}
 .nb-menu [role=menu] a:hover,.nb-menu [role=menu] a:focus-visible{background:var(--tint)}
 @media (max-width:560px){.nb-menu [role=menu]{position:fixed;left:16px;right:16px;top:76px;min-width:0}}
 

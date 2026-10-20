@@ -134,7 +134,7 @@ def footer(brand, lang, alt):
             ("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots"), ("/bazar/" if es else "/en/", "neuri.bazar"),
             ("/consultoria/" if es else "/en/ai-consulting/", "Consultoría IA" if es else "AI consulting"),
             ("/marketing/" if es else "/en/marketing/", "neuri.marketing"),
-            ("/legal/", "Privacidad y términos" if es else "Privacy & terms"), ("mailto:hola@neuri.tech", "hola@neuri.tech")]
+            ("/legal/" if es else "/en/legal/", "Privacidad y términos" if es else "Privacy & terms"), ("mailto:hola@neuri.tech", "hola@neuri.tech")]
     other = "en" if es else "es"
     alt_href = "/en/home/" if alt.startswith("#") else alt
     links.append((alt_href, "English" if es else "Español"))
@@ -221,7 +221,7 @@ def build(rel, cfg):
     out = (f'<!doctype html>\n<html lang="{lang}" data-brand="{brand}">\n<head>\n{head.strip()}\n{marca_head(brand, lang)}\n</head>\n<body>\n'
            f"{header(brand, lang, alt)}\n"
            f'<main id="contenido" class="nb-main"><div class="{wrap}">\n<!--contenido-->\n{content}\n<!--/contenido-->\n</div></main>\n'
-           f"{footer(brand, lang, alt)}\n</body>\n</html>\n")
+           f"{footer(brand, lang, alt)}\n<script src=\"/assets/menu-esc.js\" defer></script>\n</body>\n</html>\n")
     f.write_text(out, encoding="utf-8")
     print("ok", rel)
 

@@ -383,5 +383,6 @@ footer a{color:inherit}
 </main>
 <footer><div class="wrap"><span>© 2026 Neuri LLC · Phoenix, Arizona</span><span><a href="mailto:hola@neuri.tech">hola@neuri.tech</a> · <a href="https://consulting.neuri.tech/privacidad?lang=en">Privacy</a> · <a href="https://consulting.neuri.tech/terminos?lang=en">Terms</a> · <a href="/">neuri.tech</a> · <a href="/consultoria/" hreflang="es" lang="es">Español</a></span></div></footer>
 <script>/* B-F4: con sesión en consulting, «Entrar» pasa a «My portal» (solo sí/no, sin datos). */(function(){var a=document.querySelector('a[data-entrar]');if(!a||!window.fetch)return;fetch('https://consulting.neuri.tech/api/sesion',{credentials:'include'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.signedIn===true){a.href='https://consulting.neuri.tech/portal?lang=en';a.textContent='My portal';}}).catch(function(){});})();</script>
+<script src="/assets/menu-esc.js" defer></script>
 </body>
 </html>

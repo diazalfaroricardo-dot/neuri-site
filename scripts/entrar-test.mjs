@@ -59,6 +59,9 @@ for (const width of [390, 1280]) {
       if (!(await menu.isVisible())) bad(`${c.path}@${width}: el menú no abre con Enter`);
       const mb = await menu.boundingBox();
       if (mb && (mb.x < 0 || mb.x + mb.width > width)) bad(`${c.path}@${width}: el menú se sale de la pantalla`);
+      await page.keyboard.press("Escape");
+      if (await menu.isVisible()) bad(`${c.path}@${width}: Escape no cierra el menú (T43)`);
+      else if (!(await target.evaluate((s) => s === document.activeElement))) bad(`${c.path}@${width}: tras Escape el foco no regresa a «Entrar» (T43)`);
     }
     const hrefs = await page.locator("header [data-entrar] a, header a[data-entrar]").evaluateAll((as) => as.map((a) => a.href));
     for (const h of c.hrefs) if (!hrefs.includes(h)) bad(`${c.path}@${width}: falta destino ${h}`);

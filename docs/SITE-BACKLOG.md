@@ -75,7 +75,7 @@ Bien: axe AA 0 en 44, sin scroll horizontal, sin contenido mixto, 69 links inter
 - T40 (baja) ?lang=en no cambia /marketing/, /legal/, /novedades/ ni la 404 (el switch visible sí funciona).
 - ✓ HECHO 19-oct 20:3x (pie «© 2026 Neuri LLC · Phoenix, AZ» ES/EN, candado en legal-pie-test) — T41 (baja, B-L3/B-A9) /sigue-disponible/ no dice Neuri LLC en el pie.
 - T42 (baja, B-A3) a 390 en /bazar/, /en/ y /sigue-disponible/ «Entrar» queda en una segunda fila a la izquierda, no arriba a la derecha.
-- T43 (baja, N3) Escape no cierra el menú «Entrar».
+- ✓ HECHO 19-oct 20:2x (assets/menu-esc.js en 27 páginas; entrar-test revisa Escape y foco, falla sin el cambio) — T43 (baja, N3) Escape no cierra el menú «Entrar».
 - T44 (baja, B-N2/A10) el globo «¿Te ayudo a elegir?» tapa «Sin tarjeta · Sin contrato» en /sigue-disponible/ a 390.
 - ✓ HECHO 19-oct 20:3x (logo → /en/home/, candado en legal-pie-test) — T45 (baja) el logo de /en/ai-consulting/ va a «/» en vez de /en/home/.
 - T46 (baja) /legal/ y /novedades/ mezclan ES/EN en una página lang=es (marcar los bloques con lang="en").

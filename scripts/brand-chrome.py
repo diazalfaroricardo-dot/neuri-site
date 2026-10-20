@@ -72,7 +72,7 @@ def header(brand, lang, alt):
     es = lang == "es"
     home = landing(brand, lang)
     other = "en" if es else "es"
-    lang_link = a(alt, "EN" if es else "ES", "nb-lang", f' hreflang="{other}" lang="{other}" aria-label="{"English" if es else "Español"}" data-idioma')
+    lang_link = a(alt, "EN" if es else "ES", "nb-lang", f' hreflang="{other}" lang="{other}" aria-label="{"EN, English" if es else "ES, Español"}" data-idioma')
     if brand == "bots":
         word = 'neuri<span>.bots</span>'
         nav = [a(home + "#como-funciona", "Cómo funciona" if es else "How it works", "nb-hide-sm"),

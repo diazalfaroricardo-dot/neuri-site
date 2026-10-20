@@ -164,6 +164,7 @@
 .l.mini .tx{display:none}
 .l.mini .av{background:transparent}
 .l[hidden]{display:none}
+.l.wait{opacity:0;visibility:hidden;pointer-events:none}
 .p{position:fixed;right:16px;bottom:16px;width:min(392px,calc(100vw - 32px));height:min(600px,calc(100dvh - 32px));display:flex;flex-direction:column;background:var(--bg);color:var(--ink);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(5,8,13,.5),0 12px 28px -16px rgba(5,8,13,.22),0 0 0 1px var(--ln);transform-origin:bottom right;animation:in .32s cubic-bezier(.22,1,.36,1)}
 .p[hidden]{display:none}
 @keyframes in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
@@ -387,6 +388,17 @@
     const mount = () => {
       document.body.appendChild(host);
       lift();
+      // T44 (B-N2/A10): en celular el globo no tapa el hero (p. ej. «Sin tarjeta · Sin contrato»):
+      // empieza chico y aparece al bajar más allá de la primera pantalla.
+      if (matchMedia("(max-width:480px)").matches && !st.open && scrollY < innerHeight * 0.6) {
+        launch.classList.add("mini", "wait");
+        const show = () => {
+          if (scrollY < innerHeight * 0.6) return;
+          launch.classList.remove("wait");
+          removeEventListener("scroll", show);
+        };
+        addEventListener("scroll", show, { passive: true });
+      }
       if (st.msgs.length) launch.classList.add("mini");
       if (st.open) setOpen(true, false);
       // Ya vio la página un rato sin abrirlo: el globo se hace pequeño para no estorbar.

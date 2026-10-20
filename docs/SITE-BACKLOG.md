@@ -80,3 +80,9 @@ Bien: axe AA 0 en 44, sin scroll horizontal, sin contenido mixto, 69 links inter
 - ✓ HECHO 19-oct 20:3x (logo → /en/home/, candado en legal-pie-test) — T45 (baja) el logo de /en/ai-consulting/ va a «/» en vez de /en/home/.
 - ✓ HECHO 19-oct 20:2x (el único bloque fuera de lang="en" era el pie «Neuri LLC · Phoenix, Arizona»; candado t46-lang-bloques-test revisa todo lo que sigue a #en-h) — T46 (baja) /legal/ y /novedades/ mezclan ES/EN en una página lang=es (marcar los bloques con lang="en").
 - T47 (baja) HECHO 19-oct 20:57 — «US$100M+» en /consultoria/ y /en/ai-consulting/ + candado scripts/t47-moneda-trayectoria-test.mjs (falla sin el cambio). Antes: «100M+ en ahorros al año» no decía moneda.
+- Re-auditoría con ojos nuevos 19-oct 23:2x (agente aparte, Playwright en vivo, 13 URL × 390/1280 = 26; axe AA 0, 58 links + 8 logins 200, sin scroll horizontal ni contenido mixto, 404 propia): 0 altas, 2 medias, 3 bajas.
+- ✓ HECHO 19-oct 23:2x — T48 (media, B-A3) /marketing a 1280: «Entrar a la lista →» (lista de espera) junto a «Entrar» (login) → «Unirme a la lista →»; candado scripts/t48-entrar-unico-test.mjs («Entrar» solo para iniciar sesión; falla sin el cambio).
+- T49 (media, B-A4) /consultoria/ y /bazar/ ES mezclan «$» solo con «US$» en la misma página («$4,500», «$100», «US$100»; «$499» junto a «US$79»): todo monto en pesos debe decir MXN y en dólares US$. Ojo visitas del 31-oct (demo Cardón MXN).
+- T50 (baja, B-A6) /legal/ y /novedades/ ES tienen bloques EN extensos en la misma página (ancla #en-h); evaluar versión EN aparte.
+- T51 (baja) / ES a 390: «Ver los productos» queda en y≈700 de 844 y «Hablar con Neuri» solo existe en el encabezado de 1280.
+- T52 (baja, B-A8) /consultoria/: «100K+», «Más del 90 % de precisión» y logo Amazon son trayectoria del fundador; hacer más visible el rótulo «trayectoria del fundador».

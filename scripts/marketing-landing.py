@@ -19,7 +19,7 @@ C = {
     path="/marketing/", other="/en/marketing/", other_label="English", other_lang="en", locale="es_MX",
     title="Neuri Marketing — Tus redes con IA, aprobadas por ti | Neuri",
     desc="Próximamente: Neuri Marketing prepara los posts y reels del mes de tu negocio con tu estilo y tú los apruebas con un toque. Lista de espera abierta.",
-    skip="Saltar al contenido", nav=[("#como","Cómo funciona"),("#funciones","Funciones"),("#gratis","Gratis")], nav_cta="Entrar a la lista",
+    skip="Saltar al contenido", nav=[("#como","Cómo funciona"),("#funciones","Funciones"),("#gratis","Gratis")], nav_cta="Unirme a la lista",
     pill="Pronto · lista de espera abierta",
     h1a="Tus redes, al día.|Tú solo ", h1b="apruebas.",
     lead="Neuri Marketing parte del estilo de tu negocio, arma los posts y reels del mes y te los entrega listos. Tú revisas, apruebas con un toque y se publican. Lo estamos construyendo: apúntate y entras primero.",

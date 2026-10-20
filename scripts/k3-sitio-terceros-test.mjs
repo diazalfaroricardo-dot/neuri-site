@@ -42,7 +42,8 @@ for (const n of assets) {
 }
 
 const legal = readFileSync(join(root, "legal/index.html"), "utf8");
-const [es, en = ""] = legal.split('<section lang="en"');
+const es = legal; // T50: el inglés vive aparte en /en/legal/
+const en = readFileSync(join(root, "en/legal/index.html"), "utf8");
 const sitioEs = es.split('id="sitio-h"')[1] || "";
 const sitioEn = en.split('id="site-h"')[1] || "";
 if (!sitioEs) bad("/legal/ sin sección «Este sitio (neuri.tech)» (id=sitio-h)");

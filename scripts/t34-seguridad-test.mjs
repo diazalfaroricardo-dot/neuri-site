@@ -7,7 +7,7 @@ import { join } from "node:path";
 const root = new URL("..", import.meta.url).pathname;
 let fail = 0;
 const bad = (m) => { console.error(`✗ ${m}`); fail++; };
-const legal = readFileSync(join(root, "legal/index.html"), "utf8");
+const legal = readFileSync(join(root, "legal/index.html"), "utf8") + readFileSync(join(root, "en/legal/index.html"), "utf8"); // T50: ES + EN aparte
 for (const id of ["seguridad-h", "security-h"]) if (!legal.includes(`id="${id}"`)) bad(`/legal/ sin sección #${id}`);
 for (const t of ["HSTS", "Stripe", "hola@neuri.tech", "/.well-known/security.txt"]) if ((legal.split(t).length - 1) < 2) bad(`/legal/ sin «${t}» en ES y EN`);
 const sec = readFileSync(join(root, ".well-known/security.txt"), "utf8");

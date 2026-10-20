@@ -15,13 +15,14 @@ for (const pie of pies) {
     if (!pie.includes(`href="${href}"`)) bad(`pie de la portada sin ${href}`);
   if (pie.includes('href="/en/"')) bad("pie de la portada manda «English» a /en/ (landing de bazar)");
 }
-const legal = readFileSync(join(root, "legal/index.html"), "utf8");
+const legalEn = readFileSync(join(root, "en/legal/index.html"), "utf8"); // T50: inglés aparte
+const legal = readFileSync(join(root, "legal/index.html"), "utf8") + legalEn;
 const hrefs = [...legal.matchAll(/href="([^"]+)"/g)].map((m) => m[1]).filter((h) => h.startsWith("/") && !h.startsWith("//"));
-for (const h of hrefs) if (!existsSync(join(root, h.split("?")[0], h.endsWith("/") ? "index.html" : ""))) bad(`/legal/ liga a ${h}, que no existe`);
+for (const h of hrefs) if (!existsSync(join(root, h.split(/[?#]/)[0], h.split(/[?#]/)[0].endsWith("/") ? "index.html" : ""))) bad(`/legal/ liga a ${h}, que no existe`);
 for (const prod of ["neuri.bots", "neuri.bazar", "neuri.consulting", "neuri.marketing"]) {
   if ((legal.match(new RegExp(`${prod.replace(".", "\\.")} — `, "g")) || []).length < 4) bad(`/legal/ sin privacidad y términos ES/EN de ${prod}`);
 }
-if (!legal.includes('<section lang="en"')) bad("/legal/ sin sección en inglés marcada con lang");
+if (!/<html lang="en"/.test(legalEn)) bad("/en/legal/ sin lang=en");
 // axe scrollable-region-focusable: todo contenedor con scroll horizontal de la portada es enfocable con teclado
 for (const m of home.matchAll(/<div([^>]*overflow-x: auto[^>]*)>/g)) if (!m[1].includes('tabindex="0"')) bad("portada: contenedor con overflow-x sin tabindex=0");
 if (!fail) console.log(`✓ portada: ${pies.length} pie(s) con /legal/, contacto e inglés correcto · /legal/: ${hrefs.length} links locales existen`);

@@ -69,6 +69,13 @@
       parent.appendChild(el);
     }
   }
+  // Lo que el visitante abrió o escribió no lo decide la plantilla: un <details> abierto
+  // (menús EN / Entrar), el texto de un campo o el foco se conservan entre renders.
+  function keepUserState(from, to) {
+    if (from.nodeName === 'DETAILS') { if (from.open) to.setAttribute('open', ''); else to.removeAttribute('open'); }
+    if ((from.nodeName === 'INPUT' || from.nodeName === 'TEXTAREA' || from.nodeName === 'SELECT') && from === document.activeElement) return false;
+    return true;
+  }
   function DCLogic(props) { this.props = props || {}; this.state = {}; }
   DCLogic.prototype.setState = function (p, cb) {
     var s = typeof p === 'function' ? p(this.state, this.props) : p;
@@ -90,7 +97,7 @@
       parts.forEach(function (t, i) {
         var root = roots[i], next = root.cloneNode(false);
         renderInto(next, kids(t.content), scope, ctx);
-        window.morphdom(root, next, { childrenOnly: true });
+        window.morphdom(root, next, { childrenOnly: true, onBeforeElUpdated: keepUserState });
       });
       var q = cbs; cbs = []; q.forEach(function (f) { try { f(); } catch (e) { console.error(e); } });
     }

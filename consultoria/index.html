@@ -238,7 +238,11 @@ footer a{color:inherit}
 @media(max-width:560px){nav{gap:0}nav a[data-idioma]{padding:10px 4px}nav a[data-entrar]{padding:10px 8px}header .btn.sm{padding:0 10px}} /* T21: idioma visible a 390 */
 
 /* B-M5: sin Google Fonts la letra de respaldo es más ancha; las cifras no empujan la página a 390 */
-.kpi{min-width:0}.kpi b,.kpi span{overflow-wrap:anywhere}@media (max-width:560px){.kpi{padding:22px 16px}}</style>
+.kpi{min-width:0}.kpi b,.kpi span{overflow-wrap:anywhere}@media (max-width:560px){.kpi{padding:22px 16px}}
+
+/* Cabecera a 360 px: sin scroll lateral (logo + EN + Entrar + botón). */
+@media(max-width:400px){header .wrap{gap:8px}header .logo{flex-shrink:0}nav a.btn.sm .ex{display:none}nav a.btn.sm{padding-left:12px;padding-right:12px;white-space:nowrap}nav a[data-idioma]{padding:10px 2px}nav a[data-entrar]{padding:10px 4px}}
+.lbl-s{display:none}@media(max-width:400px){.lbl-l{display:none}.lbl-s{display:inline}}</style>
 <!-- consulting.css:fin -->
 <script src="/assets/consulting.js?v=k31" defer></script>
 </head>
@@ -246,7 +250,7 @@ footer a{color:inherit}
 <a class="skip" href="#main">Saltar al contenido</a>
 <header><div class="wrap">
 <a class="logo" href="/" aria-label="Neuri, inicio"><svg width="28" height="28" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="#1F7A52" stroke-width="1.5" opacity=".5"/><circle cx="15" cy="15" r="5" fill="#1F7A52"/><circle cx="26" cy="9" r="2" fill="#B4532A"/></svg>neuri<span>Consulting</span></a>
-<nav><a class="hide" href="#soluciones">Soluciones</a><a class="hide" href="#medicion">Diagnóstico</a><a class="hide" href="#modelo">Cómo trabajamos</a><a class="hide" href="https://consulting.neuri.tech/precios?lang=es">Precios</a><a href="/en/ai-consulting/" hreflang="en" lang="en" aria-label="English" data-idioma style="min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center">EN</a><a class="hide" href="#nosotros">Nosotros</a><a data-entrar href="https://consulting.neuri.tech/entrar?lang=es" style="min-height:44px;display:inline-flex;align-items:center;font-weight:600">Entrar</a><a class="btn pri sm" href="https://consulting.neuri.tech/precios?lang=es" data-cta="consulting header">Solicitar diagnóstico</a></nav>
+<nav><a class="hide" href="#soluciones">Soluciones</a><a class="hide" href="#medicion">Diagnóstico</a><a class="hide" href="#modelo">Cómo trabajamos</a><a class="hide" href="https://consulting.neuri.tech/precios?lang=es">Precios</a><a href="/en/ai-consulting/" hreflang="en" lang="en" aria-label="English" data-idioma style="min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center">EN</a><a class="hide" href="#nosotros">Nosotros</a><a data-entrar href="https://consulting.neuri.tech/entrar?lang=es" style="min-height:44px;display:inline-flex;align-items:center;font-weight:600">Entrar</a><a class="btn pri sm" href="https://consulting.neuri.tech/precios?lang=es" data-cta="consulting header" aria-label="Solicitar diagnóstico"><span class="lbl-l">Solicitar diagnóstico</span><span class="lbl-s" aria-hidden="true">Diagnóstico</span></a></nav>
 </div></header>
 
 <main id="main">

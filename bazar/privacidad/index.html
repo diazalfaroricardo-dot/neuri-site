@@ -106,6 +106,7 @@ mark.ph{background:var(--warn);color:var(--warn-ink);border:1px dashed var(--war
 .indice a{padding-block:3px}
 @media (max-width:560px){.indice ol{columns:1}}
 .tabla{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+.tabla:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:6px}
 .nb-wrap table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
 .nb-wrap th,.nb-wrap td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px 9px 0;color:var(--text)}
 .nb-wrap th{font-weight:700;color:var(--ink)}
@@ -243,7 +244,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <li><b>Cada bazar es responsable</b> de los datos de sus vendedores, clientes y solicitantes de puesto. Para esos datos <b>Neuri actúa como encargado</b>: los trata solo por cuenta del bazar y según sus instrucciones. Si eres vendedor o cliente de un bazar, el bazar debe darte su propio aviso; puedes ejercer tus derechos ante el bazar o escribirnos y se lo hacemos llegar.</li></ul></section>
 
 <section id="datos"><h2>2. Datos que tratamos</h2>
-<div class="tabla"><table>
+<div class="tabla" tabindex="0" role="region" aria-label="Tabla — desliza para ver todas las columnas"><table>
 <tr><th>De quién</th><th>Qué datos</th></tr>
 <tr><td>Dueños y personal del bazar</td><td>Nombre, correo, rol, bazar al que pertenecen, si entraron con Google o con link al correo, fecha de último acceso, sesiones (guardadas como código cifrado/hash), PIN de gerente (hash) y bitácora de cambios que hacen.</td></tr>
 <tr><td>Vendedores del bazar</td><td>Nombre, WhatsApp y/o correo, canal elegido y consentimiento para mensajes, puesto, comisión, renta, saldo y movimientos, piezas con fotos y precios, estados de cuenta, cuenta bancaria para pagos (CLABE o routing y cuenta), contrato firmado (texto, nombre, firma dibujada, fecha, IP y navegador al firmar) y, si la guarda, su tarjeta para la renta (la guarda Stripe; nosotros solo vemos los últimos 4 dígitos, la fecha y el texto de la autorización).</td></tr>
@@ -281,7 +282,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 
 <section id="proveedores"><h2>5. Con quién se comparten (subencargados)</h2>
 <p>Usamos estos proveedores para dar el servicio. Tratan los datos solo para eso, bajo contrato, y la mayoría están en EE. UU., por lo que hay <b>transferencia internacional</b> de datos a ese país. Las comunicaciones a nuestros encargados no requieren tu consentimiento conforme a la LFPDPPP.</p>
-<div class="tabla"><table>
+<div class="tabla" tabindex="0" role="region" aria-label="Tabla — desliza para ver todas las columnas"><table>
 <tr><th>Proveedor</th><th>Para qué</th><th>Dónde</th></tr>
 <tr><td>Railway</td><td>Servidores donde corre la aplicación</td><td>EE. UU.</td></tr>
 <tr><td>Neon</td><td>Base de datos (Postgres)</td><td>EE. UU.</td></tr>

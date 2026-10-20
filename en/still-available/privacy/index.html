@@ -117,6 +117,7 @@ mark.ph{background:var(--warn);color:var(--warn-ink);border:1px dashed var(--war
 .indice a{padding-block:3px}
 @media (max-width:560px){.indice ol{columns:1}}
 .tabla{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+.tabla:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:6px}
 .nb-wrap table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
 .nb-wrap th,.nb-wrap td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px 9px 0;color:var(--text)}
 .nb-wrap th{font-weight:700;color:var(--ink)}
@@ -303,7 +304,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <section>
 <h2 id="subprocessors">6. Who we share it with (subprocessors)</h2>
 <p>We use these providers to run the service. They handle the data only for that and under contract. They are in the US, so data is <b>transferred internationally</b> to that country; under the LFPDPPP, disclosures to processors don't require your consent.</p>
-<div class="tabla"><table>
+<div class="tabla" tabindex="0" role="region" aria-label="Table — scroll to see every column"><table>
 <tr><th>Provider</th><th>Purpose</th><th>Where</th></tr>
 <tr><td>Meta Platforms</td><td>Instagram, Messenger and WhatsApp Cloud API: receiving and sending messages</td><td>USA</td></tr>
 <tr><td>Anthropic</td><td>Claude model to draft replies</td><td>USA</td></tr>

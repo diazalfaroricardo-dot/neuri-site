@@ -117,6 +117,7 @@ mark.ph{background:var(--warn);color:var(--warn-ink);border:1px dashed var(--war
 .indice a{padding-block:3px}
 @media (max-width:560px){.indice ol{columns:1}}
 .tabla{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+.tabla:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:6px}
 .nb-wrap table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
 .nb-wrap th,.nb-wrap td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px 9px 0;color:var(--text)}
 .nb-wrap th{font-weight:700;color:var(--ink)}
@@ -303,7 +304,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <section>
 <h2 id="proveedores">6. Con quién se comparten (subencargados)</h2>
 <p>Usamos estos proveedores para dar el servicio. Tratan los datos solo para eso y bajo contrato. Están en EE. UU., por lo que hay <b>transferencia internacional</b> de datos a ese país; las comunicaciones a encargados no requieren tu consentimiento conforme a la LFPDPPP.</p>
-<div class="tabla"><table>
+<div class="tabla" tabindex="0" role="region" aria-label="Tabla — desliza para ver todas las columnas"><table>
 <tr><th>Proveedor</th><th>Para qué</th><th>Dónde</th></tr>
 <tr><td>Meta Platforms</td><td>Instagram, Messenger y WhatsApp Cloud API: recibir y enviar los mensajes</td><td>EE. UU.</td></tr>
 <tr><td>Anthropic</td><td>Modelo Claude para redactar respuestas</td><td>EE. UU.</td></tr>

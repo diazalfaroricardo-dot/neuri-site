@@ -37,6 +37,9 @@ try {
     const f = p.endsWith(".html") ? p : p + "index.html";
     const h = readFileSync(join(R, f), "utf8");
     if (!h.includes('src="/assets/menu-esc.js"')) { console.error("T58 ✗ sin menu-esc.js", f); fallas++; }
+    // B-N3 (T59): toda tabla con scroll horizontal se alcanza con teclado (axe scrollable-region-focusable)
+    const sinFoco = (h.match(/<div class="tabla"(?![^>]*tabindex="0")[^>]*>/g) || []).length;
+    if (sinFoco) { console.error(`T59 ✗ ${sinFoco} tabla(s) con scroll sin tabindex`, f); fallas++; }
     if (/^en\//.test(f) && /aria-label="Footer"[\s\S]*?href="\/legal\/">Privacy/.test(h)) { console.error("T58 ✗ pie EN liga a /legal/ en español", f); fallas++; }
   }
 } finally { rmSync(tmp, { recursive: true, force: true }); }

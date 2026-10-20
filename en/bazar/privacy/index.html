@@ -106,6 +106,7 @@ mark.ph{background:var(--warn);color:var(--warn-ink);border:1px dashed var(--war
 .indice a{padding-block:3px}
 @media (max-width:560px){.indice ol{columns:1}}
 .tabla{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+.tabla:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:6px}
 .nb-wrap table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
 .nb-wrap th,.nb-wrap td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px 9px 0;color:var(--text)}
 .nb-wrap th{font-weight:700;color:var(--ink)}
@@ -243,7 +244,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <li><b>Each store is the controller</b> for its vendors', customers' and booth applicants' data. For that data <b>Neuri acts as a processor / service provider</b>: we process it only on the store's behalf and instructions. If you are a vendor or customer of a store, the store should give you its own notice; you can exercise your rights with the store or write to us and we will pass it on.</li></ul></section>
 
 <section id="data"><h2>2. Data we process</h2>
-<div class="tabla"><table>
+<div class="tabla" tabindex="0" role="region" aria-label="Table — scroll to see every column"><table>
 <tr><th>Whose</th><th>What</th></tr>
 <tr><td>Store owners and staff</td><td>Name, email, role, store membership, whether they signed in with Google or an email link, last sign-in, sessions (stored as hashes), manager PIN (hashed) and an audit log of the changes they make.</td></tr>
 <tr><td>Store vendors</td><td>Name, WhatsApp and/or email, chosen channel and messaging consent, booth, commission, rent, balance and ledger, items with photos and prices, statements, bank account for payouts (routing and account number, or CLABE), signed agreement (text, name, drawn signature, date, IP and browser at signing) and, if they save one, their card for rent (stored by Stripe; we only see the last 4 digits, plus the authorization text and date).</td></tr>
@@ -281,7 +282,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 
 <section id="subprocessors"><h2>5. Who we share it with (subprocessors)</h2>
 <p>We use these providers to deliver the service. They process data only for that purpose, under contract. Most are in the United States, so data from Mexico is <b>transferred internationally</b> to the US.</p>
-<div class="tabla"><table>
+<div class="tabla" tabindex="0" role="region" aria-label="Table — scroll to see every column"><table>
 <tr><th>Provider</th><th>Purpose</th><th>Location</th></tr>
 <tr><td>Railway</td><td>Servers that run the application</td><td>US</td></tr>
 <tr><td>Neon</td><td>Database (Postgres)</td><td>US</td></tr>

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es" data-brand="home">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Novedades · What’s new | Neuri</title>
+<meta name="description" content="Lo que Neuri liberó en sus productos (neuri.bots, neuri.bazar, neuri.consulting y neuri.tech), con fecha. What Neuri shipped, with dates.">
+<script src="/assets/analytics.js" defer></script>
+<meta property="og:image" content="https://neuri.tech/assets/og/neuri.png">
+<!--marca-->
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#04060A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%2304060A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%238FE0B4%22/%3E%3Ccircle cx=%2223%22 cy=%229%22 r=%222%22 fill=%22%23E9EEF2%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap"></noscript>
+<style data-brand-css>
+/*
+ * Neuri — chrome de marca para páginas secundarias (legales, ayudas, recorridos, 404, /legal/).
+ * Fuente de verdad: las landings de cada producto. El tema sale de <html data-brand="...">:
+ *   home       → portada neuri.tech (oscuro #04060A + menta #8FE0B4)
+ *   bots       → /sigue-disponible/ (verde #0B5E3A sobre crema #F6F4EE)
+ *   bazar      → /bazar/ (terracota #B4441A sobre #F7F1E8)
+ *   consulting → /consultoria/ (verde #1F7A52 sobre #FBFAF7, Instrument Serif en títulos)
+ *   marketing  → /marketing/ (coral #C2341D sobre #FFF8F2, con modo oscuro como su landing)
+ * Fuente única: scripts/brand-chrome.py lo copia EN LÍNEA a cada página (córrelo tras editarlo);
+ * scripts/brand-check.mjs vigila paleta, tipografía y contraste de todo el sitio.
+ */
+:root{--font:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace;--serif:"Instrument Serif",Georgia,serif;--radius:16px}
+html[data-brand=bots]{color-scheme:light;--bg:#F6F4EE;--surface:#FFFFFF;--ink:#05080D;--text:#3D4A44;--muted:#56635C;--line:#E1E3DC;--acc:#0B5E3A;--link:#0B5E3A;--on-acc:#FFFFFF;--tint:#E3EFE7;--tint-ink:#0B5E3A;--warn:#FCE9DC;--warn-ink:#9A3D12;--ft-bg:#05080D;--ft-fg:#C5D2CB;--ft-acc:#8FE0B4;--btn:#05080D;--on-btn:#FFFFFF}
+html[data-brand=bazar]{color-scheme:light;--bg:#F7F1E8;--surface:#FFFFFF;--ink:#05080D;--text:#4E463E;--muted:#5E554C;--line:#E6DBC9;--acc:#B4441A;--link:#8A3313;--on-acc:#FFFFFF;--tint:#EFE6D8;--tint-ink:#8A3313;--warn:#F3DCCD;--warn-ink:#8A3313;--ft-bg:#05080D;--ft-fg:#CFC4B4;--ft-acc:#F3B38F;--btn:#05080D;--on-btn:#FFFFFF}
+html[data-brand=consulting]{color-scheme:light;--bg:#FBFAF7;--surface:#FFFFFF;--ink:#0A1A14;--text:#4B5B54;--muted:#5E6B64;--line:#E4E1DA;--acc:#1F7A52;--link:#145C3C;--on-acc:#FFFFFF;--tint:#E3EFE7;--tint-ink:#145C3C;--warn:#F3B38F;--warn-ink:#0A1A14;--ft-bg:#0A1A14;--ft-fg:#C5D2CB;--ft-acc:#8FE0B4;--btn:#0A1A14;--on-btn:#FFFFFF}
+html[data-brand=marketing]{color-scheme:light;--bg:#FFF8F2;--surface:#FFFFFF;--ink:#0B1118;--text:#34404A;--muted:#5B6670;--line:#EADFD5;--acc:#C2341D;--link:#C2341D;--on-acc:#FFFFFF;--tint:#F4ECE4;--tint-ink:#C2341D;--warn:#F4ECE4;--warn-ink:#0B1118;--ft-bg:#05080D;--ft-fg:#C9D2DA;--ft-acc:#FF8A7A;--btn:#0B1118;--on-btn:#FFFFFF}
+@media (prefers-color-scheme:dark){html[data-brand=marketing]:not([data-theme=light]){color-scheme:dark;--bg:#05080D;--surface:#111922;--ink:#FFF8F2;--text:#C9D2DA;--muted:#9AA6B2;--line:#16202A;--acc:#FF8B79;--link:#FF8B79;--on-acc:#05080D;--tint:#16202A;--tint-ink:#FF8B79;--warn:#16202A;--warn-ink:#FFF8F2;--btn:#FFF8F2;--on-btn:#05080D}}
+html[data-brand=home]{color-scheme:dark;--bg:#04060A;--surface:#0B1118;--ink:#E9EEF2;--text:#B7C2CC;--muted:#9AA6B2;--line:#1B2530;--acc:#8FE0B4;--link:#8FE0B4;--on-acc:#04060A;--tint:#0B1118;--tint-ink:#8FE0B4;--warn:#0B1118;--warn-ink:#F3B38F;--ft-bg:#04060A;--ft-fg:#9AA6B2;--ft-acc:#8FE0B4;--btn:#E9EEF2;--on-btn:#04060A}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+img,svg{max-width:100%}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:6px}
+.nb-skip{position:absolute;left:-9999px;top:8px;z-index:50;background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:10px;min-height:44px;display:inline-flex;align-items:center}
+.nb-skip:focus{left:12px}
+
+/* ── Encabezado: el mismo candado logo + nav que la landing ── */
+.nb-head{width:100%;max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+html[data-brand=home] .nb-head{max-width:1280px;padding:22px 28px}
+.nb-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);min-height:44px}
+.nb-tile{width:34px;height:34px;border-radius:10px;background:var(--acc);display:flex;align-items:center;justify-content:center;flex:none}
+.nb-word{font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--ink)}
+.nb-word span{color:var(--acc)}
+html[data-brand=home] .nb-word{font-weight:700;letter-spacing:-.04em}
+html[data-brand=consulting] .nb-word{font-weight:700;font-size:20px;letter-spacing:-.03em}
+html[data-brand=consulting] .nb-word span{font-weight:500;color:var(--muted);font-size:15px;letter-spacing:0;padding-left:10px;margin-left:6px;border-left:1px solid var(--line)}
+.nb-nav{display:flex;align-items:center;gap:6px 22px;flex-wrap:wrap}
+.nb-nav a{color:var(--ink);text-decoration:none;font-weight:500;min-height:44px;min-width:44px;justify-content:center;display:inline-flex;align-items:center}
+.nb-nav a:hover{color:var(--acc)}
+.nb-nav .nb-lang{font-weight:600;min-width:44px;justify-content:center}
+.nb-nav .nb-in{font-weight:600}
+html[data-brand=home] .nb-nav a:not(.nb-cta){font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+html[data-brand=home] .nb-nav a:not(.nb-cta):hover{color:var(--acc)}
+.nb-cta{background:var(--btn);color:var(--on-btn)!important;font-weight:600!important;padding:0 18px;border-radius:999px}
+.nb-cta:hover{background:var(--acc);color:var(--on-acc)!important}
+html[data-brand=home] .nb-cta{background:transparent;color:var(--ink)!important;border:1px solid rgba(233,238,242,.25)}
+html[data-brand=home] .nb-cta:hover{border-color:var(--acc);background:transparent;color:var(--ink)!important}
+@media (max-width:720px){.nb-hide-sm{display:none!important}.nb-head{padding:20px 24px}}
+
+/* ── Contenido ── */
+.nb-main{flex:1;width:100%}
+.nb-wrap{max-width:780px;margin:0 auto;padding:24px 24px 72px}
+.nb-wrap.wide{max-width:1040px}
+@media (max-width:560px){.nb-wrap{padding:16px 16px 56px}}
+.nb-eyebrow,.code{display:inline-flex;align-items:center;gap:10px;font:500 12.5px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tint-ink)}
+.nb-wrap h1{font-weight:800;font-size:clamp(34px,5.4vw,52px);line-height:1.04;letter-spacing:-.035em;margin:18px 0 12px;color:var(--ink);text-wrap:balance}
+html[data-brand=home] .nb-wrap h1{font-weight:700;letter-spacing:-.04em}
+html[data-brand=consulting] .nb-wrap h1{font-weight:600}
+.nb-wrap h2{font-size:21px;line-height:1.25;letter-spacing:-.015em;margin:0 0 8px;color:var(--ink);scroll-margin-top:16px}
+.nb-wrap h3{font-size:16.5px;margin:16px 0 4px;color:var(--ink)}
+.lead{color:var(--text);font-size:19px;line-height:1.55;margin:0 0 14px;max-width:62ch}
+.hermana{margin:0 0 18px;font-size:15px;color:var(--muted)}
+.nb-wrap p a,.nb-wrap li a,.hermana a{padding-block:4px}
+.nb-wrap p{margin:0 0 10px}
+.nb-wrap section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-top:14px}
+.nb-wrap section p,.nb-wrap section li{color:var(--text)}
+.nb-wrap section b,.nb-wrap section strong{color:var(--ink)}
+.nb-wrap section ul,.nb-wrap section ol{padding-left:22px;margin:6px 0 10px}
+.nb-wrap section li{padding:2px 0;margin:0}
+.nb-wrap section a{overflow-wrap:anywhere;padding-block:4px}
+/* Un h2 suelto (sin sección) en las páginas largas */
+.nb-wrap section>h2:first-child{margin-top:0}
+.nb-wrap>section>h2:not(:first-child){margin-top:28px}
+.borrador{margin:8px 0 6px;background:var(--warn);color:var(--ink);border-left:4px solid var(--warn-ink);border-radius:12px;padding:14px 16px;font-size:15px}
+.borrador strong{display:block;font-size:16px;color:var(--warn-ink);margin-bottom:2px}
+mark.ph{background:var(--warn);color:var(--warn-ink);border:1px dashed var(--warn-ink);border-radius:6px;padding:0 4px;font-weight:600}
+.indice{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin:12px 0 8px;font-size:15px}
+.indice ol{margin:6px 0 0;padding-left:22px;columns:2;column-gap:28px}
+.indice li{padding:3px 0}
+.indice a{padding-block:3px}
+@media (max-width:560px){.indice ol{columns:1}}
+.tabla{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+.nb-wrap table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+.nb-wrap th,.nb-wrap td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px 9px 0;color:var(--text)}
+.nb-wrap th{font-weight:700;color:var(--ink)}
+.cita{background:var(--tint);border-left:4px solid var(--acc);border-radius:10px;padding:10px 14px;margin:10px 0}
+.nota{font-size:14px;color:var(--muted)}
+.note{margin-top:22px;background:var(--tint);border-radius:14px;padding:16px;font-size:15.5px;color:var(--ink)}
+code{font-family:var(--mono);background:var(--tint);color:var(--ink);padding:2px 6px;border-radius:6px;font-size:13px;word-break:break-all}
+
+/* ── Pasos de ayuda (hoja de catálogo) ── */
+ol.nb-steps{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:14px}
+ol.nb-steps>li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+ol.nb-steps>li>b{font-size:17.5px;display:flex;gap:12px;align-items:flex-start;color:var(--ink)}
+ol.nb-steps>li>p{color:var(--text);margin:8px 0 0 42px}
+.n{display:inline-grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:var(--acc);color:var(--on-acc);font-weight:700;font-size:15px}
+.mock{margin:12px 0 0 42px;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:12px;font-size:14px;color:var(--ink)}
+@media (max-width:560px){ol.nb-steps>li>p,.mock{margin-left:0}}
+.mock .menu{display:flex;gap:16px;color:var(--muted)}
+.mock .menu .on{color:var(--ink);font-weight:700;border-bottom:2px solid var(--acc)}
+.mock .drop{margin-top:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px -12px rgba(5,8,13,.25);max-width:260px}
+.mock .drop div{padding:7px 12px}
+.mock .hl{background:var(--tint);font-weight:700}
+.mock.sel{display:flex;gap:8px;flex-wrap:wrap}
+.mock.sel span{border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--surface)}
+.mock.sel .hl{border-color:var(--acc)}
+.mock .btn{display:inline-flex;align-items:center;background:var(--acc);color:var(--on-acc);border-radius:999px;padding:6px 16px;font-weight:700}
+.mock .url{margin-top:8px}
+
+/* ── Recorrido (pantallas reales) ── */
+ol.pasos{list-style:none;padding:0;margin:28px 0 0;counter-reset:p}
+ol.pasos>li{counter-increment:p;margin-top:44px}
+.cab{display:flex;gap:12px;align-items:baseline}
+.cab::before{content:counter(p);flex:none;width:30px;height:30px;border-radius:50%;background:var(--acc);color:var(--on-acc);font-weight:700;font-size:15px;display:grid;place-items:center;transform:translateY(-2px)}
+.pasos h2{font-size:22px;margin:0}
+.pasos p{color:var(--text);margin:6px 0 14px 42px;max-width:640px}
+.pasos figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 18px 40px -24px rgba(5,8,13,.35)}
+.pasos figure img{display:block;width:100%;height:auto}
+@media (max-width:600px){.pasos p{margin-left:0}.pasos figure{max-width:390px;margin:0 auto}}
+.cta{margin-top:56px;background:var(--ft-bg);color:#FFFFFF;border-radius:20px;padding:28px 24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.cta h2{font-size:24px;color:#FFFFFF;margin:0}
+.cta p{color:var(--ft-fg);margin:4px 0 0}
+.cta p a{color:var(--ft-acc)}
+.nb-btn,.cta .btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;background:var(--acc);color:var(--on-acc);font-weight:600;text-decoration:none;padding:0 22px;border-radius:999px}
+.nb-btn:hover,.cta .btn:hover{filter:brightness(1.08)}
+
+/* ── Hubs (/legal/ y 404): tarjetas-link como la portada ── */
+.nb-hub{max-width:620px}
+.nb-hub>p,.nb-hub section>p{color:var(--muted);font-size:18px;line-height:1.5}
+.nb-hub nav{display:grid;gap:10px;margin:22px 0}
+.nb-hub nav a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:52px;padding:12px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:600}
+.nb-hub nav a:hover,.nb-hub nav a:focus-visible{border-color:var(--acc);outline:none}
+.nb-hub nav a.main{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
+.nb-hub section{background:transparent;border:0;padding:0;margin-top:32px}
+.nb-hub h2{font:500 12.5px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:32px 0 12px}
+.nb-hub .sitio{padding-left:20px;color:var(--muted)}
+.nb-hub .sitio li{margin:0 0 10px}
+.nb-hub .sitio b{color:var(--ink)}
+.nb-hub .en{font-size:15px;color:var(--muted)}
+.nb-hub .en a{color:var(--acc)}
+
+/* ── Pie: banda oscura como la landing, con domicilio legal ── */
+.nb-foot{background:var(--ft-bg);color:var(--ft-fg);margin-top:auto}
+html[data-brand=home] .nb-foot,html[data-brand=marketing] .nb-foot{border-top:1px solid var(--line)}
+.nb-foot-in{max-width:1200px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;font-size:15px}
+.nb-foot .nb-word{color:#FFFFFF;font-size:20px}
+.nb-foot .nb-word span{color:var(--ft-acc);border:0;font-size:inherit;font-weight:inherit;padding:0;margin:0}
+html[data-brand=home] .nb-foot .nb-word{color:var(--ink)}
+.nb-foot-links{display:flex;flex-wrap:wrap;gap:0 18px;align-items:center}
+.nb-foot a{color:var(--ft-fg);min-height:44px;min-width:44px;justify-content:center;display:inline-flex;align-items:center}
+.nb-foot a:hover{color:#FFFFFF}
+.nb-foot-legal{flex-basis:100%;font:500 12px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ft-fg);opacity:.85;border-top:1px solid rgba(255,255,255,.1);padding-top:16px}
+@media print{.nb-head nav,.nb-foot-links,.nb-skip{display:none}body{background:#FFFFFF}}
+
+/* Menú «Entrar» (portada y hubs) */
+.nb-menu{position:relative}
+.nb-menu summary{list-style:none;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--ink);padding:0 14px;border:1px solid var(--line);border-radius:999px}
+html[data-brand=home] .nb-menu summary{border-color:rgba(233,238,242,.28)}
+.nb-menu summary::-webkit-details-marker{display:none}
+.nb-menu [role=menu]{position:absolute;right:0;top:calc(100% + 8px);min-width:230px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px;z-index:20;box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.nb-menu [role=menu] a{display:flex;min-height:44px;align-items:center;padding:0 12px;color:var(--ink);text-decoration:none;border-radius:10px;font-family:var(--font);font-size:15px;letter-spacing:0;text-transform:none}
+.nb-menu [role=menu] a:hover,.nb-menu [role=menu] a:focus-visible{background:var(--tint)}
+@media (max-width:560px){.nb-menu [role=menu]{position:fixed;left:16px;right:16px;top:76px;min-width:0}}
+
+/* ── Portada en inglés (/en/home/): mismo lenguaje que la portada ES ── */
+.nb-home{max-width:1280px;padding:0 28px 96px}
+@media (max-width:560px){.nb-home{padding:0 16px 72px}}
+.nb-home .nb-hero{padding:56px 0 48px;max-width:900px}
+.nb-home h1{font-size:clamp(44px,8vw,96px);line-height:.98;letter-spacing:-.05em;margin:22px 0 22px}
+.nb-home .lead{font-size:clamp(18px,1.6vw,21px);max-width:60ch;color:var(--muted)}
+.nb-live{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(143,224,180,.18);flex:none}
+.nb-home .nb-hero .nb-eyebrow{border:1px solid rgba(143,224,180,.35);border-radius:14px;padding:9px 14px;font-size:11.5px}
+.nb-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.nb-btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(233,238,242,.25)}
+html[data-brand=home] .nb-btn:not(.ghost){background:var(--ink);color:var(--bg)}
+.nb-block{margin-top:72px}
+.nb-home h2{font-size:clamp(32px,4.6vw,56px);line-height:1.02;letter-spacing:-.04em;margin:14px 0 28px;font-weight:700}
+.nb-cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.nb-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .3s,transform .3s}
+.nb-card:hover{border-color:rgba(143,224,180,.55);transform:translateY(-4px)}
+@media (prefers-reduced-motion:reduce){.nb-card{transition:none}.nb-card:hover{transform:none}}
+.nb-card-k{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:0;font:500 11.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.nb-card-k b{color:var(--acc);font-weight:500}
+.nb-card-k b.soon{color:var(--warn-ink)}
+.nb-card h3{margin:0;font-size:26px;letter-spacing:-.03em}
+.nb-card p:not(.nb-card-k){margin:0;color:var(--muted)}
+.nb-go{margin-top:auto;display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;color:var(--acc);text-decoration:none}
+.nb-pr{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.nb-pr div{border-top:1px solid var(--line);padding-top:16px}
+.nb-pr b{display:block;margin-bottom:6px;font-size:19px}
+.nb-pr span{color:var(--muted)}
+html[data-brand=home] .nb-foot a{text-decoration:none}
+.nb-wrap.nb-home section{background:transparent;border:0;border-radius:0;padding:0;margin-top:0}
+.nb-wrap.nb-home section.nb-block{margin-top:72px}
+.nb-wrap.nb-home .nb-hero{padding:56px 0 48px}
+html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba(143,224,180,.10),transparent 70%),var(--bg)}
+</style>
+<script src="/assets/vendedor.js" defer></script>
+<!--/marca-->
+</head>
+<body>
+<a class="nb-skip" href="#contenido">Saltar al contenido</a>
+<header class="nb-head"><a class="nb-logo" href="/" aria-label="neuri, inicio"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"></circle><circle cx="15" cy="15" r="5" fill="#8FE0B4"></circle><circle cx="26" cy="9" r="2" fill="#E9EEF2"></circle></svg><span class="nb-word">neuri</span></a>
+<nav class="nb-nav" aria-label="Principal"><a class="nb-hide-sm" href="/sigue-disponible/">neuri.bots</a><a class="nb-hide-sm" href="/bazar/">neuri.bazar</a><a class="nb-hide-sm" href="/consultoria/">Consultoría IA</a><a class="nb-hide-sm" href="/marketing/">Marketing</a><a class="nb-lang" href="#en-h" hreflang="en" lang="en" aria-label="English" data-idioma>EN</a><details data-entrar class="nb-menu"><summary>Entrar <span aria-hidden="true">▾</span></summary><div role="menu"><a role="menuitem" href="https://bazar.neuri.tech/login?lang=es">neuri.bazar</a><a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=es">neuri.consulting</a><a role="menuitem" href="https://sd.neuri.tech/entrar?lang=es">neuri.bots</a><a role="menuitem" href="https://neuri-marketing-production.up.railway.app/entrar?lang=es">neuri.marketing</a></div></details></nav></header>
+<main id="contenido" class="nb-main"><div class="nb-wrap nb-hub">
+<!--contenido-->
+<div class="code">NEURI · NOVEDADES</div>
+<h1>Novedades</h1>
+<p>Neuri es nuevo y lo construimos todos los días. Aquí anotamos lo que ya está en vivo, con fecha, para que veas que el producto se mueve. Solo entra lo que puedes usar hoy.</p>
+<section aria-labelledby="n-1019">
+<h2 id="n-1019">19 de octubre de 2026</h2>
+<ul class="sitio">
+<li><b>neuri.tech</b>: nueva sección <a href="/legal/#seguridad-h">«Cómo cuidamos tu información»</a> y un <a href="/.well-known/security.txt">security.txt</a> para reportar fallas de seguridad.</li>
+<li><b>neuri.bots y neuri.bazar</b>: si te quedas sin internet al darte de alta, la página te avisa y no pierdes lo que escribiste.</li>
+</ul>
+</section>
+<section aria-labelledby="n-1018">
+<h2 id="n-1018">18 de octubre de 2026</h2>
+<ul class="sitio">
+<li><b>neuri.bots</b>: en Mi asistente puedes buscar un platillo en menús largos, cerrar sesión en todos tus dispositivos y cambiar tu correo con un link de verificación.</li>
+<li><b>neuri.consulting</b>: la política de uso de IA del diagnóstico trae un semáforo Verde/Ámbar/Rojo y reglas para lo que corre solo; <a href="https://consulting.neuri.tech/precios">Precios</a> explica el plan 30/60/90 con puntos de decisión.</li>
+</ul>
+</section>
+<nav aria-label="Más">
+<a href="/legal/">Privacidad, términos y contacto <span aria-hidden="true">→</span></a>
+<a class="main mail" href="mailto:hola@neuri.tech">¿Te falta algo? Escríbenos: hola@neuri.tech <span aria-hidden="true">→</span></a>
+<a href="/">Volver al inicio <span aria-hidden="true">→</span></a>
+</nav>
+<div lang="en">
+<h2 id="en-h">What’s new (English)</h2>
+<p>Neuri is new and we build it every day. This is what is already live, with dates. Only things you can use today make the list.</p>
+<h3>October 19, 2026</h3>
+<ul class="sitio">
+<li><b>neuri.tech</b>: new <a href="/legal/#security-h">“How we protect your information”</a> section and a <a href="/.well-known/security.txt">security.txt</a> to report security issues.</li>
+<li><b>neuri.bots and neuri.bazar</b>: if you lose your connection while signing up, the page tells you and keeps what you typed.</li>
+</ul>
+<h3>October 18, 2026</h3>
+<ul class="sitio">
+<li><b>neuri.bots</b>: in My assistant you can search a dish in long menus, sign out of all your devices and change your email with a verification link.</li>
+<li><b>neuri.consulting</b>: the diagnostic’s AI use policy now has a Green/Amber/Red traffic light and rules for what runs on its own; <a href="https://consulting.neuri.tech/precios?lang=en">Pricing</a> explains the 30/60/90 plan with decision points.</li>
+</ul>
+<nav aria-label="More">
+<a href="/en/home/" hreflang="en">Back to home <span aria-hidden="true">→</span></a>
+<a href="mailto:hola@neuri.tech">Missing something? Email hola@neuri.tech <span aria-hidden="true">→</span></a>
+</nav>
+</div>
+<p class="en">Neuri LLC · Phoenix, Arizona</p>
+<!--/contenido-->
+</div></main>
+<footer class="nb-foot"><div class="nb-foot-in"><span class="nb-word">neuri</span><nav class="nb-foot-links" aria-label="Pie"><a href="/sigue-disponible/">neuri.bots</a><a href="/bazar/">neuri.bazar</a><a href="/consultoria/">Consultoría IA</a><a href="/marketing/">neuri.marketing</a><a href="/legal/">Privacidad y términos</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/en/home/" hreflang="en" lang="en">English</a></nav><p class="nb-foot-legal">© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, EE. UU.</p></div></footer>
+</body>
+</html>

@@ -86,3 +86,12 @@ Bien: axe AA 0 en 44, sin scroll horizontal, sin contenido mixto, 69 links inter
 - T50 (baja, B-A6) /legal/ y /novedades/ ES tienen bloques EN extensos en la misma página (ancla #en-h); evaluar versión EN aparte.
 - T51 HECHO 20-oct (a ≤560 px el hero sube: «Ver los productos» 743→654 px y contacto visible «Hablar con Neuri · hola@neuri.tech» de 44 px solo en móvil; candado scripts/t51-hero-xs-test.mjs) — antes: (baja) / ES a 390: «Ver los productos» queda en y≈700 de 844 y «Hablar con Neuri» solo existe en el encabezado de 1280.
 - T52 HECHO 20-oct (rótulo visible «Trayectoria del fundador… no son resultados de clientes de Neuri» ES/EN antes de los KPI; candado scripts/t52-trayectoria-rotulo-test.mjs) — antes: (baja, B-A8) /consultoria/: «100K+», «Más del 90 % de precisión» y logo Amazon son trayectoria del fundador; hacer más visible el rótulo «trayectoria del fundador».
+
+### Re-auditoría corta con ojos nuevos 20-oct 00:36 (agente aparte, Playwright en vivo, 8 URL × 390/1280; axe AA 0, links rotos 0 de 47, sin scroll horizontal) — altas 0 · medias 1 (= T5 🔒) · bajas 6
+- T5 (media, 🔒 ya registrado) el «Entrar» de Neuri Marketing va a neuri-marketing-production.up.railway.app: falta dominio propio (Ricardo/DNS; build de Marketing).
+- T53 HECHO (baja, B-A4) calculadora de /sigue-disponible ES dice MXN (ticket, «Al mes se te van (MXN)», «$899 MXN al mes») + candado scripts/t53-calc-mxn-test.mjs [--live].
+- T54 HECHO (baja, B-N3) portada ES con «Saltar al contenido» → #inicio + candado scripts/t54-skip-portada-test.mjs [--live].
+- T55 (baja, B-A1/ux-copy) portada ES: segundo botón «⌘K Abrir la consola» es jerga y no hay ⌘K en móvil; h1 «Software que cobra mientras tú vives» puede leerse como «te cobra» (EN dice «answers»). Proponer copy llano igual a EN.
+- T56 (baja, B-A8) /consultoria y /en/ai-consulting: en el bloque de detalle «US$100M+» junto a Amazon sin el rótulo de T52 cerca.
+- T57 ESTACIONADO (baja, B-A5) logo de cada landing va a «/» (inicio Neuri) y no al inicio del producto — es el comportamiento pedido por B-A5; revisar solo si un usuario real se confunde.
+- (T37) /en/ = landing EN de bazar — sigue ESTACIONADO hasta después del 31-oct.

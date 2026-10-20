@@ -13,7 +13,7 @@ if (process.argv.includes("--live")) {
     const pg = await b.newPage({ viewport: { width: w, height: w > 500 ? 800 : 844 } });
     await pg.goto(url, { waitUntil: "networkidle" });
     await pg.waitForTimeout(2000);
-    await pg.evaluate(() => document.getElementById("demo")?.scrollIntoView({ block: "center" }));
+    await pg.evaluate(() => { const d = document.getElementById("demo"); if (d) scrollTo({ top: scrollY + d.getBoundingClientRect().top + 200, behavior: "instant" }); });
     await pg.waitForTimeout(900);
     const v = await pg.evaluate(() => { const h = document.getElementById("neuri-vendedor"); const l = h?.shadowRoot?.querySelector(".l"); return l ? getComputedStyle(l).visibility : "sin-globo"; });
     if (v === "visible") f.push(`${url} ${w}px globo visible sobre la demo`);

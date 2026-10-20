@@ -167,7 +167,7 @@ details summary::-webkit-details-marker{display:none}
 <p class="x-rise x-r3" style="margin: 0; font-size: 21px; line-height: 1.5; color: #B7C2CC; max-width: 34em; font-weight: 300">Neuri hace agentes de inteligencia artificial para negocios pequeños. Contestan a tus compradores, llevan la caja y las cuentas con tus precios y tus reglas, y te pasan lo que no tienen claro. En español e inglés, en pesos y en dólares.</p>
 <div class="x-rise x-r4" style="display: flex; gap: 12px; flex-wrap: wrap">
 <a class="x-btn" href="#sistemas" style="text-decoration: none; background: #E9EEF2; color: #04060A; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px">Ver los productos<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a class="x-btn" href="#consola" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px"><span class="x-mono x-kbd" style="font-size: 12px; border: 1px solid rgba(233,238,242,.3); border-radius: 6px; padding: 2px 6px">⌘K</span>Abrir la consola</a>
+<a class="x-btn" href="#consola" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px"><span class="x-mono x-kbd" style="font-size: 12px; border: 1px solid rgba(233,238,242,.3); border-radius: 6px; padding: 2px 6px">⌘K</span>Probar la demo</a>
 <a class="x-show-xs" data-hero-contacto href="mailto:hola@neuri.tech" style="color: #B7C2CC; font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; min-height: 44px; align-items: center">Hablar con Neuri · hola@neuri.tech</a>
 </div>
 </div>
@@ -662,7 +662,7 @@ details summary::-webkit-details-marker{display:none}
 <p class="x-rise x-r3" style="margin: 0; font-size: 21px; line-height: 1.5; color: #B7C2CC; max-width: 34em; font-weight: 300">Neuri hace agentes de inteligencia artificial para negocios pequeños. Contestan a tus compradores, llevan la caja y las cuentas con tus precios y tus reglas, y te pasan lo que no tienen claro. En español e inglés, en pesos y en dólares.</p>
 <div class="x-rise x-r4" style="display: flex; gap: 12px; flex-wrap: wrap">
 <a class="x-btn" href="#sistemas" style="text-decoration: none; background: #E9EEF2; color: #04060A; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px">Ver los productos<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a class="x-btn" href="#consola" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px"><span class="x-mono x-kbd" style="font-size: 12px; border: 1px solid rgba(233,238,242,.3); border-radius: 6px; padding: 2px 6px">⌘K</span>Abrir la consola</a>
+<a class="x-btn" href="#consola" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px"><span class="x-mono x-kbd" style="font-size: 12px; border: 1px solid rgba(233,238,242,.3); border-radius: 6px; padding: 2px 6px">⌘K</span>Probar la demo</a>
 <a class="x-show-xs" data-hero-contacto href="mailto:hola@neuri.tech" style="color: #B7C2CC; font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; min-height: 44px; align-items: center">Hablar con Neuri · hola@neuri.tech</a>
 </div>
 </div>
@@ -897,7 +897,7 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.state = { wi: 0, flip: false, clock: '', cmd: 0, shown: 0, running: false, auto: true, typed: 0, sig: 0, sigAuto: true, spikes: 1284 };
-    this.words = ['contesta', 'cobra', 'aparta', 'agenda', 'cuadra la caja'];
+    this.words = ['contesta', 'cobra la renta', 'aparta', 'agenda', 'cuadra la caja'];
     this.cmdDefs = [
       { key: 'contestar', label: 'Contestar a mis compradores', hint: 'neuri.bots', icon: '✦', iconBg: 'rgba(143,224,180,.12)', iconColor: '#8FE0B4', short: '↵',
         log: [['› Leyendo 14 mensajes nuevos de Instagram y Messenger', 0], ['› 11 resueltos con tu hoja: precio, entrega y pagos', 0], ['› 2 apartados confirmados · ropero blanco, mesa de centro', 1], ['› 1 regateo detectado → te lo pasé a ti', 2], ['✓ Listo en 2.8 s · no tocaste el celular', 1]] },

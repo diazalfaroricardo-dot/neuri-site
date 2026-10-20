@@ -48,8 +48,12 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html"]) {
 if ((home.match(/Neuri hace agentes de inteligencia artificial para negocios pequeños/g) || []).length < 2) bad("T38: la portada ES no explica en llano qué hace Neuri (HTML + plantilla)");
 if (/Tú piensas\. La red ejecuta\.|Ver sistemas en operación/.test(home)) bad("T38: copy abstracto de la portada ES");
 if ((home.match(/>Ver los productos</g) || []).length + (home.match(/>Ver los productos<svg/g) || []).length < 2) bad("T38: falta «Ver los productos» en el encabezado");
-for (const m of home.matchAll(/<span class="([^"]*)"[^>]*>⌘K<\/span>Abrir la consola/g))
-  if (!/x-kbd/.test(m[1])) bad("T38: el ⌘K del botón «Abrir la consola» no se oculta en táctil (.x-kbd)");
+for (const m of home.matchAll(/<span class="([^"]*)"[^>]*>⌘K<\/span>Probar la demo/g))
+  if (!/x-kbd/.test(m[1])) bad("T38: el ⌘K del botón «Probar la demo» no se oculta en táctil (.x-kbd)");
 if (!/@media \(hover:none\),\(pointer:coarse\)\{\.x-kbd\{display:none/.test(home)) bad("T38: falta la regla que oculta .x-kbd en táctil");
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
+// T55 (B-A1, re-auditoría 20-oct): botón llano sin «consola» y la palabra rotativa no se lee como «te cobra».
+if (/Abrir la consola/.test(home)) bad("T55: la portada ES aún dice «Abrir la consola» (jerga)");
+if ((home.match(/<\/span>Probar la demo<\/a>/g) || []).length < 2) bad("T55: falta «Probar la demo» en el botón (estático y plantilla)");
+if (/'cobra',/.test(home)) bad("T55: la palabra rotativa «cobra» sola se lee como «te cobra»; usar «cobra la renta»");
 process.exit(fail ? 1 : 0);

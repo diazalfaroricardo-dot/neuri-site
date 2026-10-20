@@ -91,7 +91,7 @@ Bien: axe AA 0 en 44, sin scroll horizontal, sin contenido mixto, 69 links inter
 - T5 (media, 🔒 ya registrado) el «Entrar» de Neuri Marketing va a neuri-marketing-production.up.railway.app: falta dominio propio (Ricardo/DNS; build de Marketing).
 - T53 HECHO (baja, B-A4) calculadora de /sigue-disponible ES dice MXN (ticket, «Al mes se te van (MXN)», «$899 MXN al mes») + candado scripts/t53-calc-mxn-test.mjs [--live].
 - T54 HECHO (baja, B-N3) portada ES con «Saltar al contenido» → #inicio + candado scripts/t54-skip-portada-test.mjs [--live].
-- T55 (baja, B-A1/ux-copy) portada ES: segundo botón «⌘K Abrir la consola» es jerga y no hay ⌘K en móvil; h1 «Software que cobra mientras tú vives» puede leerse como «te cobra» (EN dice «answers»). Proponer copy llano igual a EN.
+- T55 HECHO 20-oct (botón «Probar la demo» en vez de «⌘K Abrir la consola»; palabra rotativa «cobra la renta» en vez de «cobra»; candado en portada-honesta-test, falla sin el cambio) — antes: (baja, B-A1/ux-copy) portada ES: segundo botón «⌘K Abrir la consola» es jerga y no hay ⌘K en móvil; h1 «Software que cobra mientras tú vives» puede leerse como «te cobra» (EN dice «answers»). Proponer copy llano igual a EN.
 - T56 HECHO (baja, B-A8) rótulo propio antes de los logros + candado scripts/t56-trayec-detalle-test.mjs. Antes: /consultoria y /en/ai-consulting: en el bloque de detalle «US$100M+» junto a Amazon sin el rótulo de T52 cerca.
 - T57 ESTACIONADO (baja, B-A5) logo de cada landing va a «/» (inicio Neuri) y no al inicio del producto — es el comportamiento pedido por B-A5; revisar solo si un usuario real se confunde.
 - (T37) /en/ = landing EN de bazar — sigue ESTACIONADO hasta después del 31-oct.

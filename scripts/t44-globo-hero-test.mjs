@@ -8,8 +8,8 @@ if (!/max-width:480px\)"\)\.matches[^\n]*scrollY < innerHeight/.test(s)) f.push(
 if (!/launch\.classList\.remove\("wait"\)/.test(s)) f.push("el globo nunca reaparece al bajar");
 if (f.length) { console.error("t44:", f.join("; ")); process.exit(1); }
 if (process.argv.includes("--live")) {
-  const { chromium } = await import("playwright");
-  const b = await chromium.launch();
+  const { chromium } = await import("playwright-core");
+  const b = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
   for (const [url, txt] of [["https://neuri.tech/sigue-disponible/", "Sin contrato"], ["https://neuri.tech/en/still-available/", "No contract"]]) {
     const pg = await b.newPage({ viewport: { width: 390, height: 844 } });
     await pg.goto(url, { waitUntil: "networkidle" });

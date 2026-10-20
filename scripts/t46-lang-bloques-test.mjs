@@ -7,7 +7,7 @@ const { chromium } = req("./index.js");
 const root = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
-for (const p of ["novedades/index.html"] /* T50: /legal/ ya no mezcla idiomas */) {
+for (const p of [] /* T50: /legal/ y /novedades/ ya no mezclan idiomas; su inglés vive en /en/legal/ y /en/whats-new/ (t50, t50b) */) {
   const page = await b.newPage();
   await page.setContent(readFileSync(`${root}/${p}`, "utf8").replace(/<script[\s\S]*?<\/script>/g, ""));
   const malos = await page.evaluate(() => {

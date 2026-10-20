@@ -30,8 +30,8 @@ const server = createServer((req, res) => {
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const base = LIVE ? "https://neuri.tech" : `http://127.0.0.1:${server.address().port}`;
 
-const PAGES = ["/", "/en/home/", "/sigue-disponible/", "/en/still-available/", "/bazar/", "/en/", "/consultoria/", "/en/ai-consulting/", "/marketing/", "/en/marketing/", "/legal/", "/novedades/"];
-const MENUS = ["/", "/en/home/", "/legal/", "/novedades/"];
+const PAGES = ["/", "/en/home/", "/sigue-disponible/", "/en/still-available/", "/bazar/", "/en/", "/consultoria/", "/en/ai-consulting/", "/marketing/", "/en/marketing/", "/legal/", "/novedades/", "/en/legal/", "/en/whats-new/"];
+const MENUS = ["/", "/en/home/", "/legal/", "/novedades/", "/en/legal/", "/en/whats-new/"];
 const fails = [];
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 

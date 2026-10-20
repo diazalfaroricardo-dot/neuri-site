@@ -10,14 +10,15 @@ const bad = (m) => { console.error(`✗ ${m}`); fail++; };
 const html = readFileSync(join(root, "novedades/index.html"), "utf8");
 const MES = { enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5, julio: 6, agosto: 7, septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11 };
 const es = [...html.matchAll(/<h2 id="n-\d+">(\d{1,2}) de (\w+) de (\d{4})<\/h2>/g)].map((m) => new Date(+m[3], MES[m[2]], +m[1]).getTime());
-const en = [...html.matchAll(/<h3>(\w+ \d{1,2}, \d{4})<\/h3>/g)].map((m) => new Date(m[1]).getTime());
+const enHtml = readFileSync(join(root, "en/whats-new/index.html"), "utf8"); // T50: inglés aparte
+const en = [...enHtml.matchAll(/<h2 id="n-\d+">(\w+ \d{1,2}, \d{4})<\/h2>/g)].map((m) => new Date(m[1]).getTime());
 if (!es.length) bad("sin fechas en español");
 if (es.join() !== en.join()) bad("las fechas ES y EN no coinciden");
 const newest = Math.max(...es);
 if (newest > Date.now() + 864e5) bad("fecha en el futuro");
 if (Date.now() - newest > 30 * 864e5) bad("la novedad más reciente tiene más de 30 días: actualiza /novedades/");
-if (!html.includes('<div lang="en">')) bad("sin bloque en inglés");
-const body = html.split("<!--contenido-->")[1] || "";
+if (!enHtml.includes('<html lang="en"')) bad("sin /en/whats-new/ en inglés");
+const body = (html.split("<!--contenido-->")[1] || "") + (enHtml.split("<!--contenido-->")[1] || "");
 if (/pronto|próximamente|coming soon|soon/i.test(body)) bad("promete algo que no existe (pronto/soon)");
 for (const [, href] of body.matchAll(/href="(\/[^"#?]*)/g)) {
   const f = href.endsWith("/") ? join(root, href, "index.html") : join(root, href);

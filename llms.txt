@@ -37,6 +37,7 @@ AI marketing hub for small businesses: brand kit, a 30-day content calendar, pos
 
 ## Legal
 
-- [Novedades / What’s new](https://neuri.tech/novedades/): lo liberado, con fecha / what shipped, with dates
+- [Novedades](https://neuri.tech/novedades/): lo liberado, con fecha
+- [What’s new](https://neuri.tech/en/whats-new/): what shipped, with dates
 - [Privacidad neuri.bots](https://neuri.tech/sigue-disponible/privacidad/) · [Privacy](https://neuri.tech/en/still-available/privacy/)
 - [Privacidad neuri.bazar](https://neuri.tech/bazar/privacidad/) · [Términos](https://neuri.tech/bazar/terminos/) · [Privacy](https://neuri.tech/en/bazar/privacy/) · [Terms](https://neuri.tech/en/bazar/terms/)

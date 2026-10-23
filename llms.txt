@@ -1,8 +1,8 @@
 # Neuri
 
-> Neuri (Neuri LLC, Phoenix, AZ) builds AI agents for small businesses anywhere, in Spanish and English. Four products: neuri.bots, neuri.bazar, neuri.consulting and neuri.marketing (coming soon). Contact: hola@neuri.tech
+> Neuri (Neuri LLC, Phoenix, AZ) builds AI agents for small businesses anywhere, in Spanish and English. Four products: neuri.bots, neuri.bazar, neuri.consulting and Neuri Marketing (coming soon). Contact: hola@neuri.tech
 
-Neuri crea agentes de IA para negocios de cualquier país, en español e inglés: neuri.bots contesta tus DMs de Instagram y Messenger, neuri.bazar lleva la caja y los vendedores de tu bazar, y neuri.consulting te ayuda a poner la IA a trabajar.
+Neuri crea agentes de IA para negocios de cualquier país, en español e inglés: neuri.bots contesta tus DMs de Instagram y Messenger, neuri.bazar lleva la caja y los vendedores de tu bazar, neuri.consulting te ayuda a poner la IA a trabajar y Neuri Marketing (pronto) preparará tus posts para que solo los apruebes.
 
 ## neuri.bots
 
@@ -28,11 +28,14 @@ AI consulting for companies: a virtual AI diagnostic, then implementation of age
 - [Neuri Consulting (español)](https://neuri.tech/consultoria/) · [English](https://neuri.tech/en/ai-consulting/)
 - [Diagnostic site and pricing](https://consulting.neuri.tech/precios) · [llms.txt](https://consulting.neuri.tech/llms.txt)
 
-## neuri.marketing (coming soon)
+## Neuri Marketing (coming soon)
 
-AI marketing hub for small businesses: brand kit, a 30-day content calendar, posts and reels drafted with the business's own photos, one-tap approval, then scheduling on Instagram and Facebook. Not available yet — waitlist open; no pricing published. Free tools that work today, no sign-up: 2026 guide, profile self-check, templates by business type, 24 reel ideas with 3-shot scripts, 17 ready-to-copy comment replies, brand sheet.
+AI marketing hub for small businesses: brand kit, a 30-day content calendar, posts and reels drafted with the business's own photos, one-tap approval, then scheduling on Instagram and Facebook. Not available yet; waitlist open. Nothing is posted without the owner's approval. Free tools that work today, no sign-up: 2026 guide, profile score, templates by business type, reel ideas with 3-shot scripts, ready-to-copy comment replies, brand sheet.
 
-- [neuri.marketing (español)](https://neuri.tech/marketing/) · [English](https://neuri.tech/en/marketing/)
+- Inicio MXN 599 · Crece MXN 1,199 · Pro MXN 1,999 al mes, IVA incluido (founders' price for the first 10 paying businesses in Mexico: MXN 449 · 699 · 1,199, locked for 12 months)
+- Start US$49 · Grow US$99 · Pro US$169 per month
+
+- [Neuri Marketing (español)](https://neuri.tech/marketing/) · [English](https://neuri.tech/en/marketing/)
 - Free tools: [2026 guide](https://neuri-marketing-production.up.railway.app/guia) · [Profile self-check](https://neuri-marketing-production.up.railway.app/diagnostico) · [Templates by business type](https://neuri-marketing-production.up.railway.app/plantillas) · [Reel ideas](https://neuri-marketing-production.up.railway.app/ideas-reels) · [Comment replies](https://neuri-marketing-production.up.railway.app/respuestas) · [Brand sheet](https://neuri-marketing-production.up.railway.app/marca) (English: add ?lang=en)
 
 ## Legal

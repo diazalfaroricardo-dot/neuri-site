@@ -555,142 +555,6 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 </style>
 <style>/* T42: a 390 px «Entrar» queda arriba a la derecha junto al logo; el botón principal ya está en el hero. */@media (max-width:480px){body header:first-of-type{padding-left:16px!important;padding-right:16px!important;gap:8px!important}body header:first-of-type>nav{gap:12px!important;margin-left:auto}body header:first-of-type>nav>a[href^="#"]:not(.hide-sm){display:none!important}}</style>
-<style id="hero-cine">
-/* Hero cinematográfico (scripts/hero-cine.py). Animación solo CSS: morphdom no la reinicia. */
-#dc-a>div>header:first-of-type{background:#05080D;color:#F7F1E8;box-shadow:0 0 0 100vmax #05080D;clip-path:inset(0 -100vmax);position:relative;z-index:5}
-#dc-a>div>header:first-of-type a{color:#F7F1E8}
-#dc-a>div>header:first-of-type a[href="#prueba"]{background:#B4441A!important;color:#FFFFFF!important}
-#dc-a>div>header:first-of-type span[style*="#B4441A"]:not(:has(svg)){color:#F3B38F!important}
-.hc{position:relative;background:#05080D;color:#F7F1E8;overflow:hidden;isolation:isolate}
-.hc::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(55% 65% at 80% 38%,rgba(180,68,26,.42),transparent 72%),radial-gradient(40% 50% at 4% 105%,rgba(14,107,107,.38),transparent 70%),radial-gradient(30% 30% at 55% 0%,rgba(243,179,143,.10),transparent 70%)}
-.hc::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(247,241,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(247,241,232,.045) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000,transparent 75%)}
-.hc-in{max-width:1200px;margin:0 auto;padding:48px 24px 88px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center;min-height:min(760px,calc(100vh - 84px));box-sizing:border-box}
-.hc-tx{display:flex;flex-direction:column;gap:24px;min-width:0}
-.hc-eb{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:rgba(243,179,143,.10);border:1px solid rgba(243,179,143,.28);color:#F3B38F;font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px}
-.hc-eb i{width:8px;height:8px;border-radius:50%;background:#F3B38F;box-shadow:0 0 0 4px rgba(243,179,143,.18)}
-.hc h1{margin:0;font-family:'Geist',system-ui,sans-serif;font-weight:800;font-size:clamp(40px,4.7vw,68px);line-height:1;letter-spacing:-.045em;color:#F7F1E8}
-.hc h1 em{font-style:normal;color:#F3B38F;background:linear-gradient(100deg,#FFD3BA 0%,#E0A090 55%,#F3B38F 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hc-lead{margin:0;font-size:20px;line-height:1.5;color:#CFC4B4;max-width:540px}
-.hc-cta{display:flex;flex-wrap:wrap;gap:12px}
-.hc-cta a{text-decoration:none;font-weight:600;font-size:17px;padding:16px 24px;border-radius:14px;display:inline-flex;align-items:center;gap:8px;min-height:52px;box-sizing:border-box}
-.hc-cta .hc-p{background:#B4441A;color:#FFFFFF;box-shadow:0 14px 34px -12px rgba(180,68,26,.85)}
-.hc-cta .hc-p:hover{background:#C2341D}
-.hc-cta .hc-s{background:rgba(247,241,232,.06);color:#F7F1E8;border:1.5px solid rgba(247,241,232,.22)}
-.hc-cta .hc-s:hover{background:rgba(247,241,232,.12)}
-.hc-trust{margin:0;font-size:15px;color:#A89C8C}
-.hc-wrap{container-type:inline-size;width:100%;min-width:0}
-.hc-st{position:relative;font-size:16px;font-size:min(16px,2.6cqw);width:38em;height:40em;margin:0 auto}
-.hc-st *{box-sizing:border-box}
-.hc-tag{position:absolute;left:1em;top:0;display:flex;align-items:center;gap:.5em;font-size:.78em;color:#A89C8C;font-weight:500;letter-spacing:.02em}
-.hc-tag i{width:.55em;height:.55em;border-radius:50%;background:#F3B38F;animation:hcFloat 2s ease-in-out infinite}
-.hc-reg{position:absolute;left:1em;top:2.4em;width:21.5em;background:#FFFFFF;color:#05080D;border-radius:1.6em;overflow:hidden;z-index:1;box-shadow:0 3.5em 6em -2em rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.08);transform:perspective(90em) rotateY(9deg) rotateX(2deg)}
-.hc-rh{background:#05080D;color:#FFFFFF;padding:1em 1.2em;display:flex;justify-content:space-between;align-items:center;gap:.8em}
-.hc-rh b{font-size:.84em;font-weight:600;display:flex;align-items:center;gap:.55em;white-space:nowrap}
-.hc-rh b::before{content:"";width:.55em;height:.55em;border-radius:50%;background:#8FE0B4;box-shadow:0 0 0 .25em rgba(143,224,180,.25)}
-.hc-rh span{font-size:.74em;color:#CFC4B4;white-space:nowrap}
-.hc-rb{padding:1em 1.2em 1.2em}
-.hc-sc{position:relative;height:3.6em;border-radius:.9em;background:#F7F1E8;border:1.5px dashed #D9CCB8;display:flex;align-items:center;justify-content:center;gap:.18em;overflow:hidden}
-.hc-sc s{display:block;height:2.1em;background:#05080D;text-decoration:none}
-.hc-sc u{position:absolute;left:6%;right:6%;height:2px;background:#C2341D;box-shadow:0 0 .8em .15em rgba(194,52,29,.7);animation:hcScan 1.4s ease-in-out infinite}
-.hc-rows{height:11.6em;margin-top:.6em}
-.hc-row{display:grid;grid-template-columns:2.5em minmax(0,1fr) auto;gap:.75em;align-items:center;padding:.6em 0;border-bottom:1px solid #EFE6D8}
-.hc-ic{width:2.5em;height:2.5em;border-radius:.7em;display:flex;align-items:center;justify-content:center}
-.hc-ic svg{width:1.3em;height:1.3em}
-.hc-nm{display:flex;flex-direction:column;gap:.25em;min-width:0}
-.hc-nm b{font-size:.86em;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hc-nm span{align-self:flex-start;font-size:.68em;font-weight:600;padding:.2em .6em;border-radius:99em;background:#DCEDEC;color:#0B5555}
-.hc-row>em{font-style:normal;font-weight:700;font-size:.92em;font-variant-numeric:tabular-nums}
-.hc-tot{display:flex;justify-content:space-between;align-items:center;padding-top:.8em}
-.hc-tot>span{font-weight:600;color:#5E554C;font-size:.9em}
-.hc-tv{position:relative;height:2.3em;width:9em}
-.hc-tv b{position:absolute;right:0;top:0;font-weight:800;font-size:2em;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.15}
-.hc-btn{position:relative;height:3.3em;margin-top:.8em}
-.hc-btn b{position:absolute;inset:0;border-radius:.9em;display:flex;align-items:center;justify-content:center;gap:.5em;font-weight:700;color:#FFFFFF}
-.hc-btn svg{width:1.1em;height:1.1em}
-.hc-ch{background:#B4441A}
-.hc-pd{background:#0E6B6B}
-.hc-ph{position:absolute;left:21.6em;top:0;width:16em;height:33.5em;background:#0F0D0B;border-radius:2.7em;padding:.55em;z-index:2;box-shadow:0 4em 7em -2em rgba(0,0,0,.85),inset 0 0 0 1px rgba(255,255,255,.14),0 0 0 .14em #2B2520;transform:perspective(90em) rotateY(-11deg) rotateX(3deg)}
-.hc-scr{position:relative;height:100%;border-radius:2.2em;background:#F7F1E8;overflow:hidden;color:#05080D}
-.hc-isl{position:absolute;top:.6em;left:50%;width:5.2em;height:1.5em;margin-left:-2.6em;background:#000;border-radius:1em;z-index:6}
-.hc-sb{position:absolute;top:.75em;left:1.5em;right:1.3em;display:flex;justify-content:space-between;font-size:.7em;font-weight:700;color:#FFFFFF;z-index:5}
-.hc-ah{background:#0E6B6B;color:#FFFFFF;padding:3.1em 1.1em 1.2em}
-.hc-ah small{display:block;font-size:.66em;color:#CDE5E4;font-weight:500}
-.hc-ah strong{display:block;font-size:1.2em;margin-top:.35em;letter-spacing:-.02em}
-.hc-ah p{margin:.8em 0 0;font-size:.68em;color:#CDE5E4}
-.hc-bal{position:relative;height:2.6em;margin-top:.1em;border-radius:.6em}
-.hc-bal b{position:absolute;left:0;top:0;font-size:2.2em;font-weight:800;letter-spacing:-.035em;font-variant-numeric:tabular-nums;line-height:1.15}
-.hc-tabs{display:flex;gap:.4em;padding:.8em .8em .4em}
-.hc-tabs span{font-size:.62em;font-weight:600;white-space:nowrap;padding:.55em .8em;border-radius:99em;border:1px solid #D9CCB8}
-.hc-tabs span:first-child{background:#05080D;color:#FFFFFF;border-color:#05080D}
-.hc-ls{margin:.3em .8em;background:#FFFFFF;border-radius:1em;border:1px solid #E6DBC9;overflow:hidden}
-.hc-li{display:flex;justify-content:space-between;align-items:center;gap:.5em;padding:.7em .8em;border-bottom:1px solid #EFE7DA}
-.hc-li:last-child{border-bottom:0}
-.hc-li span{display:flex;flex-direction:column;gap:.2em;min-width:0}
-.hc-li b{font-size:.68em;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hc-li small{font-size:.6em;color:#6F6559}
-.hc-li em{font-style:normal;font-size:.72em;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
-.hc-li .up{color:#0B5E3A}.hc-li .dn{color:#8A3313}
-.hc-li.hc-new{background:#F6E7DA;max-height:4em;overflow:hidden}
-.hc-nt{position:absolute;top:2.6em;left:.55em;right:.55em;z-index:7;background:rgba(5,8,13,.94);color:#FFFFFF;border-radius:1.1em;padding:.75em .8em;display:flex;gap:.6em;align-items:flex-start;box-shadow:0 1em 2em -.5em rgba(0,0,0,.5)}
-.hc-nt i{flex-shrink:0;width:1.9em;height:1.9em;border-radius:.5em;background:#B4441A;display:flex;align-items:center;justify-content:center}
-.hc-nt i svg{width:1.05em;height:1.05em}
-.hc-nt span{display:flex;flex-direction:column;gap:.2em;min-width:0}
-.hc-nt small{font-size:.58em;color:#CFC4B4;display:flex;justify-content:space-between}
-.hc-nt b{font-size:.68em;font-weight:600;line-height:1.3}
-.hc-pay{position:absolute;display:flex;align-items:center;gap:.65em;background:#FFFFFF;color:#05080D;border-radius:1.1em;padding:.6em 1em .6em .6em;z-index:3;box-shadow:0 1.6em 3em -1em rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08)}
-.hc-pay i{width:2.3em;height:2.3em;border-radius:.7em;background:#0E6B6B;color:#FFFFFF;font-style:normal;font-weight:800;font-size:.85em;display:flex;align-items:center;justify-content:center}
-.hc-pay span{display:flex;flex-direction:column;gap:.15em}
-.hc-pay small{font-size:.66em;color:#5E554C;font-weight:600}
-.hc-pay b{font-size:.9em;color:#0B5E3A;font-variant-numeric:tabular-nums}
-.hc-p1{left:0;top:33.2em}.hc-p2{left:11.6em;top:34.4em}
-.hc-dot{position:absolute;left:0;top:0;width:1em;height:1em;margin:-.5em 0 0 -.5em;border-radius:50%;background:#F3B38F;box-shadow:0 0 1em .35em rgba(243,179,143,.85);z-index:8;opacity:0;pointer-events:none}
-.hc-bar{position:absolute;left:22em;right:0;top:35.6em;display:flex;flex-direction:column;gap:.7em}
-.hc-trk{height:2px;background:rgba(247,241,232,.14);border-radius:2px;overflow:hidden}
-.hc-trk i{display:block;height:100%;background:linear-gradient(90deg,#B4441A,#F3B38F);transform-origin:left}
-.hc-cs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.35em .8em}
-.hc-cs span{font-size:.72em;font-weight:600;color:#F7F1E8;display:flex;gap:.45em;white-space:nowrap}
-.hc-cs span::before{content:attr(data-n);color:#F3B38F;font-variant-numeric:tabular-nums}
-/* animaciones (el estado base es el final: con «reducir movimiento» se ve la venta completa) */
-.hc-r1{animation:hcR1 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-r2{animation:hcR2 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-r3{animation:hcR3 12s cubic-bezier(.2,.8,.2,1) infinite both}
-.hc-t0{opacity:0;animation:hcT0 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-t1{opacity:0;animation:hcT1 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-t2{opacity:0;animation:hcT2 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-t3{animation:hcT3 12s cubic-bezier(.2,.8,.2,1) infinite both}
-.hc-ch{opacity:0;animation:hcCh 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-pd{animation:hcPd 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-btn{animation:hcPress 12s cubic-bezier(.2,.8,.2,1) infinite both}
-.hc-d1{animation:hcF1 12s ease-in-out infinite both}.hc-d2{animation:hcF2 12s ease-in-out infinite both}.hc-d3{animation:hcF3 12s ease-in-out infinite both}
-.hc-p1{animation:hcP1 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-p2{animation:hcP2 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-nt{animation:hcN 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-new{animation:hcNew 12s cubic-bezier(.2,.8,.2,1) infinite both}
-.hc-b0{opacity:0;animation:hcB0 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-b1{animation:hcB1 12s cubic-bezier(.2,.8,.2,1) infinite both}.hc-bal{animation:hcGlow 12s cubic-bezier(.2,.8,.2,1) infinite both}
-.hc-trk i{animation:hcFill 12s linear infinite both}
-.hc-c1{animation:hcC1 12s linear infinite both}.hc-c2{animation:hcC2 12s linear infinite both}.hc-c3{animation:hcC3 12s linear infinite both}.hc-c4{animation:hcC4 12s linear infinite both}
-.hc-ph{animation:hcFloat 6s ease-in-out infinite}
-@keyframes hcR1{0%,8%{opacity:0;transform:translateY(.8em)}11%,93%{opacity:1;transform:none}97%,100%{opacity:0;transform:none}}
-@keyframes hcR2{0%,20%{opacity:0;transform:translateY(.8em)}23%,93%{opacity:1;transform:none}97%,100%{opacity:0;transform:none}}
-@keyframes hcR3{0%,32%{opacity:0;transform:translateY(.8em)}35%,93%{opacity:1;transform:none}97%,100%{opacity:0;transform:none}}
-@keyframes hcT0{0%,8%{opacity:1}8.6%,97%{opacity:0}100%{opacity:1}}
-@keyframes hcT1{0%,7.4%{opacity:0}8%,20%{opacity:1}20.6%,100%{opacity:0}}
-@keyframes hcT2{0%,19.4%{opacity:0}20%,32%{opacity:1}32.6%,100%{opacity:0}}
-@keyframes hcT3{0%,31.4%{opacity:0}32%,96%{opacity:1}96.6%,100%{opacity:0}}
-@keyframes hcCh{0%,45%{opacity:1}45.6%,97%{opacity:0}100%{opacity:1}}
-@keyframes hcPd{0%,44.4%{opacity:0}45%,96%{opacity:1}96.6%,100%{opacity:0}}
-@keyframes hcPress{0%,42%{transform:none}43%{transform:scale(.95)}44.5%,100%{transform:none}}
-@keyframes hcF1{0%,47%{opacity:0;transform:translate(11.5em,28.6em) scale(.3)}48.5%{opacity:1;transform:translate(11.5em,28.6em) scale(1)}56%{opacity:1;transform:translate(5em,34.6em) scale(.7)}58.5%,100%{opacity:0;transform:translate(5em,34.6em) scale(2.2)}}
-@keyframes hcF2{0%,47%{opacity:0;transform:translate(11.5em,28.6em) scale(.3)}48.5%{opacity:1;transform:translate(11.5em,28.6em) scale(1)}56%{opacity:1;transform:translate(16em,35.6em) scale(.7)}58.5%,100%{opacity:0;transform:translate(16em,35.6em) scale(2.2)}}
-@keyframes hcF3{0%,47%{opacity:0;transform:translate(11.5em,28.6em) scale(.3)}48.5%{opacity:1;transform:translate(11.5em,28.6em) scale(1)}56%{opacity:1;transform:translate(29em,6em) scale(.7)}58.5%,100%{opacity:0;transform:translate(29em,6em) scale(2.2)}}
-@keyframes hcP1{0%,56%{opacity:0;transform:translateY(1em) scale(.9)}59%,93%{opacity:1;transform:none}97%,100%{opacity:0;transform:none}}
-@keyframes hcP2{0%,58%{opacity:0;transform:translateY(1em) scale(.9)}61%,93%{opacity:1;transform:none}97%,100%{opacity:0;transform:none}}
-@keyframes hcN{0%,56%{opacity:0;transform:translateY(-7em)}59%,80%{opacity:1;transform:none}84%,100%{opacity:0;transform:none}}
-@keyframes hcNew{0%,61%{opacity:0;max-height:0;padding-top:0;padding-bottom:0;transform:translateX(2em)}64%,93%{opacity:1;max-height:4em;padding-top:.7em;padding-bottom:.7em;transform:none}97%,100%{opacity:0;max-height:4em}}
-@keyframes hcB0{0%,61%{opacity:1}61.6%,97%{opacity:0}100%{opacity:1}}
-@keyframes hcB1{0%,60.4%{opacity:0}61%,96%{opacity:1}96.6%,100%{opacity:0}}
-@keyframes hcGlow{0%,61%{box-shadow:0 0 0 0 rgba(243,179,143,0)}63%{box-shadow:0 0 0 .5em rgba(243,179,143,.45)}69%,100%{box-shadow:0 0 0 0 rgba(243,179,143,0)}}
-@keyframes hcFill{0%{transform:scaleX(0)}93%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
-@keyframes hcC1{0%,41.5%{color:#F7F1E8}42.0%,100%{color:rgba(247,241,232,.42)}}
-@keyframes hcC2{0%,41.5%{color:rgba(247,241,232,.42)}42.0%,47%{color:#F7F1E8}47.5%,100%{color:rgba(247,241,232,.42)}}
-@keyframes hcC3{0%,47%{color:rgba(247,241,232,.42)}47.5%,60%{color:#F7F1E8}60.5%,100%{color:rgba(247,241,232,.42)}}
-@keyframes hcC4{0%,60%{color:rgba(247,241,232,.42)}60.5%,96%{color:#F7F1E8}96.5%,100%{color:rgba(247,241,232,.42)}}
-@keyframes hcScan{0%,100%{top:12%}50%{top:82%}}
-@keyframes hcFloat{0%,100%{translate:0 0}50%{translate:0 -.5em}}
-@media (max-width:960px){.hc-in{grid-template-columns:minmax(0,1fr);gap:36px;padding:24px 16px 56px;min-height:0}.hc-lead{font-size:18px}}
-@media (max-width:480px){.hc-cta a{flex:1 1 auto;justify-content:center}}
-@media (prefers-reduced-motion:reduce){.hc *,.hc-ph{animation:none!important}.hc-dot{display:none}.hc-trk i{transform:none}}
-</style>
 </head>
 <body>
 <div id="dc-a">
@@ -715,41 +579,54 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </nav>
 </header>
 
-<section id="inicio" class="hc">
-<div class="hc-in">
-<div class="hc-tx">
-<span class="hc-eb b-rise"><i></i>Para mercaditos, bazares y antique malls</span>
-<h1 class="b-rise b-rise-2">Tu bazar, sin libreta. <em>Tus vendedores, sin dudas.</em></h1>
-<p class="hc-lead b-rise b-rise-3">Cada venta llega al saldo de su vendedor, la renta del puesto se descuenta sola y cada quien ve sus números en Mi Puesto, desde el celular. Nadie te vuelve a preguntar «¿ya se vendió lo mío?».</p>
-<div class="hc-cta b-rise b-rise-4">
-<a class="hc-p b-btn" href="#prueba">Prueba gratis 14 días</a>
-<a class="hc-s" href="#simula"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Pruébalo</a>
+<section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span class="b-rise" style="align-self: flex-start; background: #F3DCCD; color: #8A3313; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Para mercaditos, bazares y antique malls</span>
+<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Tu bazar, sin libreta. Tus vendedores, sin dudas.</h1>
+<p class="b-rise b-rise-3" style="margin: 0; font-size: 20px; line-height: 1.5; color: #4E463E; max-width: 560px">Cada venta llega al saldo de su vendedor, la renta del puesto se descuenta sola y cada quien ve sus números en Mi Puesto, desde el celular. Nadie te vuelve a preguntar «¿ya se vendió lo mío?».</p>
+<div class="b-rise b-rise-4" style="display: flex; flex-wrap: wrap; gap: 12px">
+<a class="b-btn" href="#prueba" style="text-decoration: none; background: #B4441A; color: #FFFFFF; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box">Prueba gratis 14 días</a>
+<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #05080D; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Pruébalo</a>
 </div>
-<p class="hc-trust">Español e inglés · Pesos y dólares · Desde $499 MXN o US$79 al mes</p>
+<p style="margin: 0; font-size: 15px; color: #5E554C">Español e inglés · Pesos y dólares · Desde $499 MXN o US$79 al mes</p>
 </div>
-<div class="hc-wrap">
-<div class="hc-st" role="img" aria-label="Venta de ejemplo en neuri.bazar: la caja escanea tres piezas de tres puestos distintos y cobra $1,400. Lo de cada puesto llega al saldo de su vendedor, y Rosa, del puesto 12, recibe un aviso por correo y ve subir su saldo en Mi Puesto desde el celular.">
-<span class="hc-tag"><i></i>Ejemplo en vivo · datos de ejemplo</span>
-<div class="hc-reg">
-<div class="hc-rh"><b>Caja 1 · Bazar Las Palmas</b><span>Cajera: Ana</span></div>
-<div class="hc-rb">
-<div class="hc-sc"><s style="width:0.188em"></s><s style="width:0.062em"></s><s style="width:0.250em"></s><s style="width:0.125em"></s><s style="width:0.062em"></s><s style="width:0.188em"></s><s style="width:0.062em"></s><s style="width:0.250em"></s><s style="width:0.125em"></s><s style="width:0.062em"></s><s style="width:0.188em"></s><s style="width:0.125em"></s><s style="width:0.062em"></s><s style="width:0.250em"></s><s style="width:0.062em"></s><s style="width:0.125em"></s><s style="width:0.188em"></s><s style="width:0.062em"></s><u></u></div>
-<div class="hc-rows"><div class="hc-row hc-r1"><span class="hc-ic" style="background:#F3DCCD"><svg viewBox="0 0 24 24" fill="none" stroke="#8A3313" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l3 8H5z"/><path d="M12 11v8"/><path d="M8 21h8"/></svg></span><span class="hc-nm"><b>Lámpara de latón</b><span>Puesto 7 · Jorge</span></span><em>$850.00</em></div><div class="hc-row hc-r2"><span class="hc-ic" style="background:#DCEDEC"><svg viewBox="0 0 24 24" fill="none" stroke="#0B5555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18a9 9 0 0 1-18 0z"/><path d="M9 6c0-1 1-2 3-2s3 1 3 2"/></svg></span><span class="hc-nm"><b>Tazón de vidrio prensado</b><span>Puesto 12 · Rosa</span></span><em>$220.00</em></div><div class="hc-row hc-r3"><span class="hc-ic" style="background:#F5E6B8"><svg viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 3 4-3 5 4-3 4-2-1v10H8V10l-2 1-3-4z"/></svg></span><span class="hc-nm"><b>Chamarra de mezclilla</b><span>Puesto 3 · Lupita</span></span><em>$330.00</em></div></div>
-<div class="hc-tot"><span>Total</span><span class="hc-tv"><b class="hc-t0">$0.00</b><b class="hc-t1">$850.00</b><b class="hc-t2">$1,070.00</b><b class="hc-t3">$1,400.00</b></span></div>
-<div class="hc-btn"><b class="hc-ch">Cobrar</b><b class="hc-pd"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Pagado · repartido por puesto</b></div>
+
+<div style="flex: 1 1 380px; display: flex; justify-content: center; position: relative; padding: 32px 0">
+<div class="b-dots" aria-hidden="true"></div>
+<div class="b-chip b-bob" aria-hidden="true" style="top: 0; right: -10px">
+<span class="b-ico" style="background: #DCEDEC"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span>Inventario al día</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">se descuenta en cada venta</span></span>
 </div>
+
+
+<div class="b-tilt" role="img" aria-label="Caja de neuri.bazar: se escanean dos artículos de distintos vendedores, se cobra el total y cada vendedor recibe el aviso de su venta." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(5,8,13,.45); overflow: hidden">
+<div style="background: #05080D; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
+<span style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px"><span class="b-live"></span>Caja 1 · Bazar Las Palmas</span>
+<span style="font-size: 13px; color: #CFC4B4">Cajero: Ana</span>
 </div>
-<div class="hc-ph"><div class="hc-scr">
-<span class="hc-isl"></span><span class="hc-sb"><span>9:41</span><span>●●● ▮</span></span>
-<div class="hc-nt"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span><small><span>neuri.bazar · correo</span><span>ahora</span></small><b>Vendiste Tazón de vidrio prensado · +$220.00 a tu saldo</b></span></div>
-<div class="hc-ah"><small>Las Palmas · Mi Puesto</small><strong>Hola, Rosa</strong><p>Te debemos</p>
-<div class="hc-bal"><b class="hc-b0">$4,125.00</b><b class="hc-b1">$4,345.00</b></div></div>
-<div class="hc-tabs"><span>Movimientos</span><span>Mis ventas</span><span>Mis piezas</span></div>
-<div class="hc-ls"><div class="hc-li hc-new"><span><b>Venta · Tazón de vidrio prensado</b><small>Hoy</small></span><em class="up">+$220.00</em></div><div class="hc-li"><span><b>Venta · Jarra de barro</b><small>Mar</small></span><em class="up">+$380.00</em></div><div class="hc-li"><span><b>Renta · automática</b><small>Lun</small></span><em class="dn">−$200.00</em></div><div class="hc-li"><span><b>Venta · Candeleros de latón</b><small>Sáb</small></span><em class="up">+$640.00</em></div></div>
-</div></div>
-<div class="hc-pay hc-p1"><i>7</i><span><small>Puesto 7 · Jorge</small><b>+$850.00</b></span></div><div class="hc-pay hc-p2"><i>3</i><span><small>Puesto 3 · Lupita</small><b>+$330.00</b></span></div>
-<span class="hc-dot hc-d1"></span><span class="hc-dot hc-d2"></span><span class="hc-dot hc-d3"></span>
-<div class="hc-bar"><div class="hc-trk"><i></i></div><div class="hc-cs"><span class="hc-c1" data-n="01">Escanea</span><span class="hc-c2" data-n="02">Cobra una vez</span><span class="hc-c3" data-n="03">Reparte por puesto</span><span class="hc-c4" data-n="04">Avisa al vendedor</span></div></div>
+<div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; height: 70px; border-radius: 14px; background: #F7F1E8; border: 1.5px dashed #D9CCB8; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden">
+<span class="b-scan"></span>
+<span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span>
+</div>
+<div style="min-height: 132px; display: flex; flex-direction: column; gap: 10px">
+
+<p style="margin: 0; color: #5E554C; font-size: 14px; text-align: center; padding-top: 44px">Escanea una etiqueta para empezar</p>
+
+
+
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DBC9; padding-top: 14px">
+<span style="font-weight: 600; color: #5E554C">Total</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">$0</span>
+</div>
+<div style="position: relative">
+
+<div style="background: #B4441A; color: #FFFFFF; text-align: center; font-weight: 700; padding: 16px; border-radius: 14px">Cobrar</div>
+
+
+</div>
 </div>
 </div>
 </div>
@@ -1865,41 +1742,75 @@ Armar mi bazar
 </nav>
 </header>
 
-<section id="inicio" class="hc">
-<div class="hc-in">
-<div class="hc-tx">
-<span class="hc-eb b-rise"><i></i>Para mercaditos, bazares y antique malls</span>
-<h1 class="b-rise b-rise-2">Tu bazar, sin libreta. <em>Tus vendedores, sin dudas.</em></h1>
-<p class="hc-lead b-rise b-rise-3">Cada venta llega al saldo de su vendedor, la renta del puesto se descuenta sola y cada quien ve sus números en Mi Puesto, desde el celular. Nadie te vuelve a preguntar «¿ya se vendió lo mío?».</p>
-<div class="hc-cta b-rise b-rise-4">
-<a class="hc-p b-btn" href="#prueba">Prueba gratis 14 días</a>
-<a class="hc-s" href="#simula"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Pruébalo</a>
+<section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span class="b-rise" style="align-self: flex-start; background: #F3DCCD; color: #8A3313; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Para mercaditos, bazares y antique malls</span>
+<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Tu bazar, sin libreta. Tus vendedores, sin dudas.</h1>
+<p class="b-rise b-rise-3" style="margin: 0; font-size: 20px; line-height: 1.5; color: #4E463E; max-width: 560px">Cada venta llega al saldo de su vendedor, la renta del puesto se descuenta sola y cada quien ve sus números en Mi Puesto, desde el celular. Nadie te vuelve a preguntar «¿ya se vendió lo mío?».</p>
+<div class="b-rise b-rise-4" style="display: flex; flex-wrap: wrap; gap: 12px">
+<a class="b-btn" href="#prueba" style="text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box">Prueba gratis 14 días</a>
+<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #05080D; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Pruébalo</a>
 </div>
-<p class="hc-trust">Español e inglés · Pesos y dólares · Desde $499 MXN o US$79 al mes</p>
+<p style="margin: 0; font-size: 15px; color: #5E554C">Español e inglés · Pesos y dólares · Desde $499 MXN o US$79 al mes</p>
 </div>
-<div class="hc-wrap">
-<div class="hc-st" role="img" aria-label="Venta de ejemplo en neuri.bazar: la caja escanea tres piezas de tres puestos distintos y cobra $1,400. Lo de cada puesto llega al saldo de su vendedor, y Rosa, del puesto 12, recibe un aviso por correo y ve subir su saldo en Mi Puesto desde el celular.">
-<span class="hc-tag"><i></i>Ejemplo en vivo · datos de ejemplo</span>
-<div class="hc-reg">
-<div class="hc-rh"><b>Caja 1 · Bazar Las Palmas</b><span>Cajera: Ana</span></div>
-<div class="hc-rb">
-<div class="hc-sc"><s style="width:0.188em"></s><s style="width:0.062em"></s><s style="width:0.250em"></s><s style="width:0.125em"></s><s style="width:0.062em"></s><s style="width:0.188em"></s><s style="width:0.062em"></s><s style="width:0.250em"></s><s style="width:0.125em"></s><s style="width:0.062em"></s><s style="width:0.188em"></s><s style="width:0.125em"></s><s style="width:0.062em"></s><s style="width:0.250em"></s><s style="width:0.062em"></s><s style="width:0.125em"></s><s style="width:0.188em"></s><s style="width:0.062em"></s><u></u></div>
-<div class="hc-rows"><div class="hc-row hc-r1"><span class="hc-ic" style="background:#F3DCCD"><svg viewBox="0 0 24 24" fill="none" stroke="#8A3313" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l3 8H5z"/><path d="M12 11v8"/><path d="M8 21h8"/></svg></span><span class="hc-nm"><b>Lámpara de latón</b><span>Puesto 7 · Jorge</span></span><em>$850.00</em></div><div class="hc-row hc-r2"><span class="hc-ic" style="background:#DCEDEC"><svg viewBox="0 0 24 24" fill="none" stroke="#0B5555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18a9 9 0 0 1-18 0z"/><path d="M9 6c0-1 1-2 3-2s3 1 3 2"/></svg></span><span class="hc-nm"><b>Tazón de vidrio prensado</b><span>Puesto 12 · Rosa</span></span><em>$220.00</em></div><div class="hc-row hc-r3"><span class="hc-ic" style="background:#F5E6B8"><svg viewBox="0 0 24 24" fill="none" stroke="#7A5A1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 3 4-3 5 4-3 4-2-1v10H8V10l-2 1-3-4z"/></svg></span><span class="hc-nm"><b>Chamarra de mezclilla</b><span>Puesto 3 · Lupita</span></span><em>$330.00</em></div></div>
-<div class="hc-tot"><span>Total</span><span class="hc-tv"><b class="hc-t0">$0.00</b><b class="hc-t1">$850.00</b><b class="hc-t2">$1,070.00</b><b class="hc-t3">$1,400.00</b></span></div>
-<div class="hc-btn"><b class="hc-ch">Cobrar</b><b class="hc-pd"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Pagado · repartido por puesto</b></div>
+
+<div style="flex: 1 1 380px; display: flex; justify-content: center; position: relative; padding: 32px 0">
+<div class="b-dots" aria-hidden="true"></div>
+<div class="b-chip b-bob" aria-hidden="true" style="top: 0; right: -10px">
+<span class="b-ico" style="background: #DCEDEC"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span>Inventario al día</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">se descuenta en cada venta</span></span>
 </div>
+<template sc-if value="{{notif}}" hint-placeholder-val="{{ true }}">
+<div class="b-chip b-pop" aria-hidden="true" style="bottom: 70px; left: -34px">
+<span class="b-ico" style="background: #05080D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span>Doña Rosa · Puesto 12</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">Vendiste la lámpara · +$450 a tu saldo</span></span>
 </div>
-<div class="hc-ph"><div class="hc-scr">
-<span class="hc-isl"></span><span class="hc-sb"><span>9:41</span><span>●●● ▮</span></span>
-<div class="hc-nt"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span><small><span>neuri.bazar · correo</span><span>ahora</span></small><b>Vendiste Tazón de vidrio prensado · +$220.00 a tu saldo</b></span></div>
-<div class="hc-ah"><small>Las Palmas · Mi Puesto</small><strong>Hola, Rosa</strong><p>Te debemos</p>
-<div class="hc-bal"><b class="hc-b0">$4,125.00</b><b class="hc-b1">$4,345.00</b></div></div>
-<div class="hc-tabs"><span>Movimientos</span><span>Mis ventas</span><span>Mis piezas</span></div>
-<div class="hc-ls"><div class="hc-li hc-new"><span><b>Venta · Tazón de vidrio prensado</b><small>Hoy</small></span><em class="up">+$220.00</em></div><div class="hc-li"><span><b>Venta · Jarra de barro</b><small>Mar</small></span><em class="up">+$380.00</em></div><div class="hc-li"><span><b>Renta · automática</b><small>Lun</small></span><em class="dn">−$200.00</em></div><div class="hc-li"><span><b>Venta · Candeleros de latón</b><small>Sáb</small></span><em class="up">+$640.00</em></div></div>
-</div></div>
-<div class="hc-pay hc-p1"><i>7</i><span><small>Puesto 7 · Jorge</small><b>+$850.00</b></span></div><div class="hc-pay hc-p2"><i>3</i><span><small>Puesto 3 · Lupita</small><b>+$330.00</b></span></div>
-<span class="hc-dot hc-d1"></span><span class="hc-dot hc-d2"></span><span class="hc-dot hc-d3"></span>
-<div class="hc-bar"><div class="hc-trk"><i></i></div><div class="hc-cs"><span class="hc-c1" data-n="01">Escanea</span><span class="hc-c2" data-n="02">Cobra una vez</span><span class="hc-c3" data-n="03">Reparte por puesto</span><span class="hc-c4" data-n="04">Avisa al vendedor</span></div></div>
+<div class="b-chip b-pop" aria-hidden="true" style="bottom: 8px; left: 10px; animation-delay: .35s">
+<span class="b-ico" style="background: #05080D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 1px"><span>Lupita · Puesto 7</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">Vendiste la vajilla · +$950 a tu saldo</span></span>
+</div>
+</template>
+
+<div class="b-tilt" role="img" aria-label="Caja de neuri.bazar: se escanean dos artículos de distintos vendedores, se cobra el total y cada vendedor recibe el aviso de su venta." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(5,8,13,.45); overflow: hidden">
+<div style="background: #05080D; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
+<span style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px"><span class="b-live"></span>Caja 1 · Bazar Las Palmas</span>
+<span style="font-size: 13px; color: #CFC4B4">Cajero: Ana</span>
+</div>
+<div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; height: 70px; border-radius: 14px; background: #F7F1E8; border: 1.5px dashed #D9CCB8; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden">
+<span class="b-scan"></span>
+<span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span>
+</div>
+<div style="min-height: 132px; display: flex; flex-direction: column; gap: 10px">
+<template sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; color: #5E554C; font-size: 14px; text-align: center; padding-top: 44px">Escanea una etiqueta para empezar</p>
+</template>
+<template sc-if value="{{h1}}" hint-placeholder-val="{{ true }}">
+<div class="b-pop" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: #F7F1E8">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Lámpara de latón vintage</span><span style="font-size: 12.5px; color: #5E554C">Puesto 12 · Doña Rosa</span></span>
+<span style="font-weight: 700">$450</span>
+</div>
+</template>
+<template sc-if value="{{h2}}" hint-placeholder-val="{{ true }}">
+<div class="b-pop" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: #F7F1E8">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Vajilla de talavera, 12 pz</span><span style="font-size: 12.5px; color: #5E554C">Puesto 7 · Lupita</span></span>
+<span style="font-weight: 700">$950</span>
+</div>
+</template>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DBC9; padding-top: 14px">
+<span style="font-weight: 600; color: #5E554C">Total</span>
+<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">{{heroTotal}}</span>
+</div>
+<div style="position: relative">
+<template sc-if value="{{unpaid}}" hint-placeholder-val="{{ true }}">
+<div style="background: {{accent}}; color: #FFFFFF; text-align: center; font-weight: 700; padding: 16px; border-radius: 14px">Cobrar</div>
+</template>
+<template sc-if value="{{paid}}" hint-placeholder-val="{{ false }}">
+<div class="b-pop" style="background: #0E6B6B; color: #FFFFFF; text-align: center; font-weight: 700; padding: 16px; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Cobrado · saldos actualizados</div>
+</template>
+</div>
 </div>
 </div>
 </div>

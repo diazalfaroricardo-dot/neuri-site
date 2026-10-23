@@ -32,14 +32,13 @@ for (const w of [390, 1280]) {
   await page.waitForTimeout(400);
   const m = await page.evaluate(() => {
     const vis = (el) => el && el.getClientRects().length > 0 && getComputedStyle(el).visibility !== "hidden";
-    const cta = [...document.querySelectorAll('a[href="#productos"]')].find((a) => vis(a) && /Encuentra tu herramienta/.test(a.textContent));
+    const cta = [...document.querySelectorAll('a[href="#sistemas"]')].find((a) => vis(a) && /Ver los productos/.test(a.textContent));
     const hablar = [...document.querySelectorAll("a[data-hero-contacto]")].find(vis);
     const r = cta?.getBoundingClientRect();
     const hr = hablar?.getBoundingClientRect();
     return {
       ctaBottom: r ? Math.round(r.bottom) : null,
       hablar: hablar ? { href: hablar.getAttribute("href"), h: Math.round(hr.height), bottom: Math.round(hr.bottom) } : null,
-      headMail: !!document.querySelector('header a[href^="mailto:"]'),
       scrollX: document.documentElement.scrollWidth > window.innerWidth + 1,
     };
   });
@@ -53,7 +52,7 @@ for (const w of [390, 1280]) {
       if (m.hablar.h < 44) ok.push(`toque ${m.hablar.h}px`);
       if (m.hablar.bottom > 844) ok.push(`contacto bajo el pliegue (${m.hablar.bottom})`);
     }
-  } else if (m.hablar && m.headMail) ok.push("contacto del hero duplicado a 1280 (ya está en el encabezado)");
+  } else if (m.hablar) ok.push("contacto del hero duplicado a 1280 (ya está en el encabezado)");
   if (m.scrollX) ok.push("scroll horizontal");
   console.log(`${ok.length ? "FALLA" : "OK"} ${w} ${JSON.stringify(m)} ${ok.join("; ")}`);
   if (ok.length) fallas++;

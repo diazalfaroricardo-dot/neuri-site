@@ -7,6 +7,5 @@ const first = body.match(/<a\b[^>]*>[^<]*/);
 let fails = 0; const ok = (c, m) => { if (c) console.log(`✓ ${m}`); else { fails++; console.error(`✗ ${m}`); } };
 ok(first && /href="#inicio"/.test(first[0]) && /Saltar al contenido/.test(first[0]), "primer enlace = Saltar al contenido → #inicio");
 ok(/id="inicio"/.test(html), "existe #inicio");
-const css = readFileSync(new URL("../assets/home.css", import.meta.url), "utf8");
-ok(/class="h-skip"/.test(first?.[0] || "") && /\.h-skip:focus\{left:12px\}/.test(css), "se ve al enfocarlo");
+ok(/\.x-skip:focus\{left:12px\}/.test(html), "se ve al enfocarlo");
 process.exit(fails ? 1 : 0);

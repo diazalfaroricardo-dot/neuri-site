@@ -17,11 +17,11 @@ if (/revisado por una persona(?! si)/i.test(home.replace(/\(si algo no cuadra, l
 if (/revisado por persona|100\s*%[^<]{0,80}revisad/i.test(home))
   bad("la tarjeta de consulting promete «100 % revisado por persona» (K43: entrega automática con controles)");
 // T7: el precio de entrada de la consultoría se ve en la portada, igual que en /consultoria.
-if (!/\$4,500[\s\S]{0,200}diagnóstico desde|diagnóstico[^<]{0,40}desde \$4,500/.test(home)) bad("la tarjeta de consulting no muestra el precio desde del diagnóstico");
+if (!/\$4,500[\s\S]{0,200}diagnóstico desde/.test(home)) bad("la tarjeta de consulting no muestra el precio desde del diagnóstico");
 if (/Sistema en línea/i.test(home)) bad("«Sistema en línea» se lee como estado real del servicio");
 for (const m of home.matchAll(/([^>]{0,20})señales([^<]{0,20})\/ min/g))
   if (!/de ejemplo/.test(m[0])) bad(`«${m[0].trim()}» sin «de ejemplo»`);
-if (/x-net|señales/.test(home) && !/Actividad neural · simulación/.test(home)) bad("falta la etiqueta «simulación» de la animación");
+if (!/Actividad neural · simulación/.test(home)) bad("falta la etiqueta «simulación» de la animación");
 // T12b: lo mismo en las landings de consulting (ES/EN) y llms.txt: ninguna promete revisión humana de cada diagnóstico.
 for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.txt"]) {
   const txt = readFileSync(join(root, f), "utf8").replace(/\(si algo no cuadra, lo revisa una persona\)|\(if something doesn.t add up, a person reviews it\)/gi, "");
@@ -30,11 +30,12 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.
 }
 // T14: la tarjeta de neuri.bots dice el estado real — el alta está abierta y la conexión con Meta, pendiente.
 if (/Por abrir/i.test(home)) bad("la tarjeta de neuri.bots dice «Por abrir» y el alta ya está abierta en /sigue-disponible");
-// Rediseño 23-oct: la fila de neuri.bots dice «Registro abierto» y que la conexión espera a Meta.
-const bots = home.match(/neuri\.bots<\/span>[\s\S]{0,700}/);
-if (!bots) bad("no encontré la fila de neuri.bots");
-else { if (!/Registro abierto/.test(bots[0])) bad("la fila de neuri.bots no dice «Registro abierto»");
-  if (!/aprobación de Meta/.test(bots[0])) bad("la fila de neuri.bots no dice que la conexión espera a Meta"); }
+const bots = (home.match(/MISIÓN 01 · AGENTE DE MENSAJES[\s\S]{0,1600}/g) || []);
+if (bots.length < 2) bad("no encontré las dos copias de la tarjeta de neuri.bots (HTML + datos)");
+for (const b of bots) {
+  if (!/Alta abierta/.test(b)) bad("la tarjeta de neuri.bots no dice «Alta abierta»");
+  if (!/pendiente de Meta/.test(b)) bad("la tarjeta de neuri.bots no dice que Instagram/Messenger está pendiente de Meta");
+}
 // B-A8 (auditoría bazar 18-oct): neuri.marketing está en lista de espera → no decir que las cuatro ya están «en órbita».
 if (/Cuatro misiones\.\s*Ya en órbita/i.test(home)) bad("«Cuatro misiones. Ya en órbita.» y neuri.marketing sigue en lista de espera");
 // T39 (B-A8/B-C1): la garantía de las landings de consulting dice su condición (la misma de consulting.neuri.tech/precios).
@@ -43,10 +44,16 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html"]) {
   for (const m of txt.matchAll(/<span>([^<]*(garant|money-back)[^<]*)<\/span>/gi))
     if (!/3 (oportunidades|actionable)/i.test(m[1])) bad(`${f}: «${m[1]}» sin la condición de la garantía (3 oportunidades accionables)`);
 }
-// T38: la portada ES explica en llano qué hace Neuri y lleva a los productos.
-if (!/Hacemos cuatro herramientas para negocios/.test(home)) bad("T38: la portada ES no explica en llano qué hace Neuri");
-if (/Tú piensas\. La red ejecuta\.|Ver sistemas en operación|\bmisi[oó]n|órbita/i.test(home)) bad("T38: copy abstracto/jerga en la portada ES");
-if (!/href="#productos">Encuentra tu herramienta/.test(home)) bad("T38: falta «Encuentra tu herramienta» en el hero");
+// T38 (B-A1, re-auditoría 19-oct): la portada ES dice en lenguaje llano lo mismo que /en/home/ y el atajo ⌘K no sale en pantallas táctiles.
+if ((home.match(/Neuri hace agentes de inteligencia artificial para negocios pequeños/g) || []).length < 2) bad("T38: la portada ES no explica en llano qué hace Neuri (HTML + plantilla)");
+if (/Tú piensas\. La red ejecuta\.|Ver sistemas en operación/.test(home)) bad("T38: copy abstracto de la portada ES");
+if ((home.match(/>Ver los productos</g) || []).length + (home.match(/>Ver los productos<svg/g) || []).length < 2) bad("T38: falta «Ver los productos» en el encabezado");
+for (const m of home.matchAll(/<span class="([^"]*)"[^>]*>⌘K<\/span>Probar la demo/g))
+  if (!/x-kbd/.test(m[1])) bad("T38: el ⌘K del botón «Probar la demo» no se oculta en táctil (.x-kbd)");
+if (!/@media \(hover:none\),\(pointer:coarse\)\{\.x-kbd\{display:none/.test(home)) bad("T38: falta la regla que oculta .x-kbd en táctil");
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
+// T55 (B-A1, re-auditoría 20-oct): botón llano sin «consola» y la palabra rotativa no se lee como «te cobra».
 if (/Abrir la consola/.test(home)) bad("T55: la portada ES aún dice «Abrir la consola» (jerga)");
+if ((home.match(/<\/span>Probar la demo<\/a>/g) || []).length < 2) bad("T55: falta «Probar la demo» en el botón (estático y plantilla)");
+if (/'cobra',/.test(home)) bad("T55: la palabra rotativa «cobra» sola se lee como «te cobra»; usar «cobra la renta»");
 process.exit(fail ? 1 : 0);

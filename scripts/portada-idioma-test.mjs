@@ -32,16 +32,12 @@ const bad = (m) => { fails++; console.log("✗", m); };
 for (const w of [390, 1280]) {
   const page = await browser.newPage({ viewport: { width: w, height: 800 }, reducedMotion: "reduce" });
   await page.goto(`${base}/`, { waitUntil: "domcontentloaded" });
-  const sum = page.locator("header details[data-idioma] summary").first();
-  if (!(await sum.isVisible())) { bad(`@${w}: «EN» no se ve`); await page.close(); continue; }
-  await sum.focus();
-  await page.keyboard.press("Enter");
-  const links = page.locator("header details[data-idioma] [role=menu] a");
-  const hrefs = await links.evaluateAll((as) => as.map((a) => a.getAttribute("href")));
-  if (JSON.stringify(hrefs) !== JSON.stringify(HREFS)) bad(`@${w}: links ${hrefs}`);
-  const box = await page.locator("header details[data-idioma] [role=menu]").first().boundingBox();
-  if (!box || box.x < 0 || box.x + box.width > w + 1) bad(`@${w}: el menú se sale de la pantalla`);
-  const nav = await page.locator("header nav.x-topnav").first().boundingBox();
+  const en = page.locator("header a[data-idioma]").first();
+  if (!(await en.isVisible())) { bad(`@${w}: «EN» no se ve`); await page.close(); continue; }
+  if ((await en.getAttribute("href")) !== "/en/home/") bad(`@${w}: EN no lleva a /en/home/`);
+  const toEn = await page.locator('#productos a[href], footer a[href^="/en/"]').evaluateAll((as) => as.map((a) => a.getAttribute("href")));
+  for (const h of ["/en/bazar/", "/en/ai-consulting/"]) if (!toEn.includes(h)) bad(`@${w}: el pie no enlaza ${h}`);
+  const nav = await page.locator("header nav.h-nav").first().boundingBox();
   if (w >= 1280 && nav && nav.height > 60) bad(`@${w}: el nav se parte (${Math.round(nav.height)} px)`);
   const sx = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   if (sx > 1) bad(`@${w}: scroll horizontal ${sx}px`);

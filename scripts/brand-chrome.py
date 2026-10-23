@@ -34,7 +34,6 @@ PAGES = {
     "legal/": ("home", "es", "/en/legal/", "hub"),
     "en/legal/": ("home", "en", "/legal/", "hub"),
     "404.html": ("home", "es", "/en/home/", "hub"),
-    "en/home/": ("home", "en", "/?lang=es", "home"),
 }
 
 ICON = {

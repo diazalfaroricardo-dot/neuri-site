@@ -1,269 +1,217 @@
 <!doctype html>
-<html lang="en" data-brand="home">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neuri — AI agents that run the busywork of your business</title>
-<meta name="description" content="Neuri builds AI agents for small businesses: Instagram and Messenger replies, a POS for vendor malls, AI consulting and social media you approve.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#04060A">
+<title>Neuri — Simple software for small businesses</title>
+<meta name="description" content="Neuri LLC builds four focused tools for small businesses: a register for vendor malls, replies for Instagram sellers, AI consulting and social media help. Find the one that fits you.">
 <link rel="canonical" href="https://neuri.tech/en/home/">
 <link rel="alternate" hreflang="es" href="https://neuri.tech/">
 <link rel="alternate" hreflang="en" href="https://neuri.tech/en/home/">
 <link rel="alternate" hreflang="x-default" href="https://neuri.tech/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Neuri"><meta property="og:locale" content="en_US">
-<meta property="og:title" content="Neuri — AI agents that run the busywork of your business"><meta property="og:description" content="Instagram and Messenger replies, a POS for vendor malls, AI consulting and social media you approve."><meta property="og:url" content="https://neuri.tech/en/home/">
+<meta property="og:title" content="Neuri — Simple software for small businesses"><meta property="og:description" content="Four focused tools for small businesses. Find the one that fits you."><meta property="og:url" content="https://neuri.tech/en/home/">
 <meta property="og:image" content="https://neuri.tech/assets/og/neuri.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script src="/assets/lang.js"></script>
 <script src="/assets/analytics.js" defer></script>
+<script src="/assets/vendedor.js" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://neuri.tech/#org", "name": "Neuri", "legalName": "Neuri LLC", "url": "https://neuri.tech/", "logo": "https://neuri.tech/assets/neuri-logo.png", "email": "hola@neuri.tech", "address": {"@type": "PostalAddress", "addressLocality": "Phoenix", "addressRegion": "AZ", "addressCountry": "US"}, "areaServed": "Worldwide"}, {"@type": "WebSite", "@id": "https://neuri.tech/en/home/#web", "name": "Neuri", "url": "https://neuri.tech/en/home/", "inLanguage": "en", "publisher": {"@id": "https://neuri.tech/#org"}}]}</script>
-<!--marca-->
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#04060A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%2304060A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%238FE0B4%22/%3E%3Ccircle cx=%2223%22 cy=%229%22 r=%222%22 fill=%22%23E9EEF2%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap"></noscript>
-<style data-brand-css>
-/*
- * Neuri — chrome de marca para páginas secundarias (legales, ayudas, recorridos, 404, /legal/).
- * Fuente de verdad: las landings de cada producto. El tema sale de <html data-brand="...">:
- *   home       → portada neuri.tech (oscuro #04060A + menta #8FE0B4)
- *   bots       → /sigue-disponible/ (verde #0B5E3A sobre crema #F6F4EE)
- *   bazar      → /bazar/ (terracota #B4441A sobre #F7F1E8)
- *   consulting → /consultoria/ (verde #1F7A52 sobre #FBFAF7, Instrument Serif en títulos)
- *   marketing  → /marketing/ (coral #C2341D sobre #FFF8F2, con modo oscuro como su landing)
- * Fuente única: scripts/brand-chrome.py lo copia EN LÍNEA a cada página (córrelo tras editarlo);
- * scripts/brand-check.mjs vigila paleta, tipografía y contraste de todo el sitio.
- */
-:root{--font:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace;--serif:"Instrument Serif",Georgia,serif;--radius:16px}
-html[data-brand=bots]{color-scheme:light;--bg:#F6F4EE;--surface:#FFFFFF;--ink:#05080D;--text:#3D4A44;--muted:#56635C;--line:#E1E3DC;--acc:#0B5E3A;--link:#0B5E3A;--on-acc:#FFFFFF;--tint:#E3EFE7;--tint-ink:#0B5E3A;--warn:#FCE9DC;--warn-ink:#9A3D12;--ft-bg:#05080D;--ft-fg:#C5D2CB;--ft-acc:#8FE0B4;--btn:#05080D;--on-btn:#FFFFFF}
-html[data-brand=bazar]{color-scheme:light;--bg:#F7F1E8;--surface:#FFFFFF;--ink:#05080D;--text:#4E463E;--muted:#5E554C;--line:#E6DBC9;--acc:#B4441A;--link:#8A3313;--on-acc:#FFFFFF;--tint:#EFE6D8;--tint-ink:#8A3313;--warn:#F3DCCD;--warn-ink:#8A3313;--ft-bg:#05080D;--ft-fg:#CFC4B4;--ft-acc:#F3B38F;--btn:#05080D;--on-btn:#FFFFFF}
-html[data-brand=consulting]{color-scheme:light;--bg:#FBFAF7;--surface:#FFFFFF;--ink:#0A1A14;--text:#4B5B54;--muted:#5E6B64;--line:#E4E1DA;--acc:#1F7A52;--link:#145C3C;--on-acc:#FFFFFF;--tint:#E3EFE7;--tint-ink:#145C3C;--warn:#F3B38F;--warn-ink:#0A1A14;--ft-bg:#0A1A14;--ft-fg:#C5D2CB;--ft-acc:#8FE0B4;--btn:#0A1A14;--on-btn:#FFFFFF}
-html[data-brand=marketing]{color-scheme:light;--bg:#FFF8F2;--surface:#FFFFFF;--ink:#0B1118;--text:#34404A;--muted:#5B6670;--line:#EADFD5;--acc:#C2341D;--link:#C2341D;--on-acc:#FFFFFF;--tint:#F4ECE4;--tint-ink:#C2341D;--warn:#F4ECE4;--warn-ink:#0B1118;--ft-bg:#05080D;--ft-fg:#C9D2DA;--ft-acc:#FF8A7A;--btn:#0B1118;--on-btn:#FFFFFF}
-@media (prefers-color-scheme:dark){html[data-brand=marketing]:not([data-theme=light]){color-scheme:dark;--bg:#05080D;--surface:#111922;--ink:#FFF8F2;--text:#C9D2DA;--muted:#9AA6B2;--line:#16202A;--acc:#FF8B79;--link:#FF8B79;--on-acc:#05080D;--tint:#16202A;--tint-ink:#FF8B79;--warn:#16202A;--warn-ink:#FFF8F2;--btn:#FFF8F2;--on-btn:#05080D}}
-html[data-brand=home]{color-scheme:dark;--bg:#04060A;--surface:#0B1118;--ink:#E9EEF2;--text:#B7C2CC;--muted:#9AA6B2;--line:#1B2530;--acc:#8FE0B4;--link:#8FE0B4;--on-acc:#04060A;--tint:#0B1118;--tint-ink:#8FE0B4;--warn:#0B1118;--warn-ink:#F3B38F;--ft-bg:#04060A;--ft-fg:#9AA6B2;--ft-acc:#8FE0B4;--btn:#E9EEF2;--on-btn:#04060A}
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500&amp;display=swap"></noscript>
+<!--home-css--><style>
+/* Neuri — portada (neuri.tech/ y /en/home/). Rediseño 23-oct-2026: enrutar + dar confianza.
+   Paleta home: #04060A fondo, #8FE0B4 menta, #F3B38F durazno (solo estados «pronto»). */
+:root{color-scheme:dark;--bg:#04060A;--surface:#0B1118;--raise:#111922;--ink:#E9EEF2;--text:#B7C2CC;--muted:#9AA6B2;--line:#1B2530;--line2:#1B2530;--edge:#4F5A64;--acc:#8FE0B4;--soft:#F3B38F;--font:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace}
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;background:var(--bg);scroll-behavior:smooth}
+html{background:var(--bg);-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
-img,svg{max-width:100%}
-a{color:var(--link)}
-:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:6px}
-.nb-skip{position:absolute;left:-9999px;top:8px;z-index:50;background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:10px;min-height:44px;display:inline-flex;align-items:center}
-.nb-skip:focus{left:12px}
+body{margin:0;background:radial-gradient(1100px 560px at 78% -8%,rgba(143,224,180,.09),transparent 68%),var(--bg);color:var(--ink);font:400 17px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:8px}
+.h-skip{position:absolute;left:-9999px;top:8px;z-index:60;background:var(--ink);color:var(--bg);font-weight:600;padding:10px 14px;border-radius:10px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}
+.h-skip:focus{left:12px}
+.h-in{max-width:1120px;margin:0 auto;padding:0 28px}
+@media (max-width:560px){.h-in{padding:0 16px}}
+.h-k{font:500 12px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0}
 
-/* ── Encabezado: el mismo candado logo + nav que la landing ── */
-.nb-head{width:100%;max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-html[data-brand=home] .nb-head{max-width:1280px;padding:22px 28px}
-.nb-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);min-height:44px}
-.nb-tile{width:34px;height:34px;border-radius:10px;background:var(--acc);display:flex;align-items:center;justify-content:center;flex:none}
-.nb-word{font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--ink)}
-.nb-word span{color:var(--acc)}
-html[data-brand=home] .nb-word{font-weight:700;letter-spacing:-.04em}
-html[data-brand=consulting] .nb-word{font-weight:700;font-size:20px;letter-spacing:-.03em}
-html[data-brand=consulting] .nb-word span{font-weight:500;color:var(--muted);font-size:15px;letter-spacing:0;padding-left:10px;margin-left:6px;border-left:1px solid var(--line)}
-.nb-nav{display:flex;align-items:center;gap:6px 22px;flex-wrap:wrap}
-.nb-nav a{color:var(--ink);text-decoration:none;font-weight:500;min-height:44px;min-width:44px;justify-content:center;display:inline-flex;align-items:center}
-.nb-nav a:hover{color:var(--acc)}
-.nb-nav .nb-lang{font-weight:600;min-width:44px;justify-content:center}
-.nb-nav .nb-in{font-weight:600}
-html[data-brand=home] .nb-nav > a:not(.nb-cta){font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-html[data-brand=home] .nb-nav > a:not(.nb-cta):hover{color:var(--acc)}
+/* Encabezado */
+.h-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px}
+.h-logo{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;min-height:44px;font-weight:700;font-size:22px;letter-spacing:-.04em}
+.h-nav{display:flex;align-items:center;gap:4px 22px}
+.h-nav>a{color:var(--muted);text-decoration:none;font-size:15px;min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center}
+.h-nav>a:hover{color:var(--ink)}
+.h-nav .h-lang{font:600 13px/1 var(--mono);letter-spacing:.06em;color:var(--ink)}
+@media (max-width:760px){.h-hide{display:none!important}.h-nav{gap:4px 10px}}
+.h-menu{position:relative}
+.h-menu summary{list-style:none;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--ink);padding:0 16px;border:1px solid var(--edge);border-radius:999px}
+.h-menu summary:hover{border-color:var(--acc)}
+.h-menu summary::-webkit-details-marker{display:none}
+.h-menu [role=menu]{position:absolute;right:0;top:calc(100% + 8px);min-width:240px;background:var(--raise);border:1px solid var(--line2);border-radius:14px;padding:8px;z-index:20;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.h-menu [role=menu] a{display:flex;flex-direction:column;justify-content:center;min-height:48px;padding:6px 12px;color:var(--ink);text-decoration:none;border-radius:10px;font-weight:600;font-size:15px}
+.h-menu [role=menu] a small{font-weight:400;font-size:12.5px;color:var(--muted)}
+.h-menu [role=menu] a:hover,.h-menu [role=menu] a:focus-visible{background:var(--line)}
+@media (max-width:560px){.h-menu [role=menu]{position:fixed;left:16px;right:16px;top:76px;min-width:0}}
 
-.nb-cta{background:var(--btn);color:var(--on-btn)!important;font-weight:600!important;padding:0 18px;border-radius:999px}
-.nb-cta:hover{background:var(--acc);color:var(--on-acc)!important}
-html[data-brand=home] .nb-cta{background:transparent;color:var(--ink)!important;border:1px solid rgba(233,238,242,.25)}
-html[data-brand=home] .nb-cta:hover{border-color:var(--acc);background:transparent;color:var(--ink)!important}
-@media (max-width:720px){.nb-hide-sm{display:none!important}.nb-head{padding:20px 24px}}
+/* Portada */
+.h-hero{padding:88px 0 96px}
+@media (max-width:560px){.h-hero{padding:48px 0 64px}}
+.h-hero h1{font-weight:600;font-size:clamp(40px,6.6vw,80px);line-height:1;letter-spacing:-.045em;margin:22px 0 26px;max-width:15ch;text-wrap:balance}
+.h-hero h1 em{font-style:normal;color:var(--acc)}
+.h-lead{font-size:clamp(18px,1.7vw,21px);line-height:1.55;color:var(--text);max-width:56ch;margin:0}
+.h-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.h-btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;background:var(--ink);color:var(--bg);transition:background .2s}
+.h-btn:hover{background:var(--acc)}
+.h-btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--edge)}
+.h-btn.ghost:hover{border-color:var(--acc);background:transparent}
+.h-facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:44px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14.5px}
+.h-facts li{display:flex;align-items:center;gap:10px}
+.h-facts li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);opacity:.8}
 
-/* ── Contenido ── */
-.nb-main{flex:1;width:100%}
-.nb-wrap{max-width:780px;margin:0 auto;padding:24px 24px 72px}
-.nb-wrap.wide{max-width:1040px}
-@media (max-width:560px){.nb-wrap{padding:16px 16px 56px}}
-.nb-eyebrow,.code{display:inline-flex;align-items:center;gap:10px;font:500 12.5px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tint-ink)}
-.nb-wrap h1{font-weight:800;font-size:clamp(34px,5.4vw,52px);line-height:1.04;letter-spacing:-.035em;margin:18px 0 12px;color:var(--ink);text-wrap:balance}
-html[data-brand=home] .nb-wrap h1{font-weight:700;letter-spacing:-.04em}
-html[data-brand=consulting] .nb-wrap h1{font-weight:600}
-.nb-wrap h2{font-size:21px;line-height:1.25;letter-spacing:-.015em;margin:0 0 8px;color:var(--ink);scroll-margin-top:16px}
-.nb-wrap h3{font-size:16.5px;margin:16px 0 4px;color:var(--ink)}
-.lead{color:var(--text);font-size:19px;line-height:1.55;margin:0 0 14px;max-width:62ch}
-.hermana{margin:0 0 18px;font-size:15px;color:var(--muted)}
-.nb-wrap p a,.nb-wrap li a,.hermana a{padding-block:4px}
-.nb-wrap p{margin:0 0 10px}
-.nb-wrap section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-top:14px}
-.nb-wrap section p,.nb-wrap section li{color:var(--text)}
-.nb-wrap section b,.nb-wrap section strong{color:var(--ink)}
-.nb-wrap section ul,.nb-wrap section ol{padding-left:22px;margin:6px 0 10px}
-.nb-wrap section li{padding:2px 0;margin:0}
-.nb-wrap section a{overflow-wrap:anywhere;padding-block:4px}
-/* Un h2 suelto (sin sección) en las páginas largas */
-.nb-wrap section>h2:first-child{margin-top:0}
-.nb-wrap>section>h2:not(:first-child){margin-top:28px}
-.borrador{margin:8px 0 6px;background:var(--warn);color:var(--ink);border-left:4px solid var(--warn-ink);border-radius:12px;padding:14px 16px;font-size:15px}
-.borrador strong{display:block;font-size:16px;color:var(--warn-ink);margin-bottom:2px}
-mark.ph{background:var(--warn);color:var(--warn-ink);border:1px dashed var(--warn-ink);border-radius:6px;padding:0 4px;font-weight:600}
-.indice{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin:12px 0 8px;font-size:15px}
-.indice ol{margin:6px 0 0;padding-left:22px;columns:2;column-gap:28px}
-.indice li{padding:3px 0}
-.indice a{padding-block:3px}
-@media (max-width:560px){.indice ol{columns:1}}
-.tabla{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
-.tabla:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:6px}
-.nb-wrap table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
-.nb-wrap th,.nb-wrap td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px 9px 0;color:var(--text)}
-.nb-wrap th{font-weight:700;color:var(--ink)}
-.cita{background:var(--tint);border-left:4px solid var(--acc);border-radius:10px;padding:10px 14px;margin:10px 0}
-.nota{font-size:14px;color:var(--muted)}
-.note{margin-top:22px;background:var(--tint);border-radius:14px;padding:16px;font-size:15.5px;color:var(--ink)}
-code{font-family:var(--mono);background:var(--tint);color:var(--ink);padding:2px 6px;border-radius:6px;font-size:13px;word-break:break-all}
+/* Bloques */
+.h-sec{padding:96px 0;border-top:1px solid var(--line)}
+@media (max-width:560px){.h-sec{padding:64px 0}}
+.h-sec h2,.h-end h2{font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.06;letter-spacing:-.035em;margin:16px 0 14px;max-width:22ch;text-wrap:balance}
+.h-sub{color:var(--text);max-width:58ch;margin:0}
 
-/* ── Pasos de ayuda (hoja de catálogo) ── */
-ol.nb-steps{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:14px}
-ol.nb-steps>li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-ol.nb-steps>li>b{font-size:17.5px;display:flex;gap:12px;align-items:flex-start;color:var(--ink)}
-ol.nb-steps>li>p{color:var(--text);margin:8px 0 0 42px}
-.n{display:inline-grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:var(--acc);color:var(--on-acc);font-weight:700;font-size:15px}
-.mock{margin:12px 0 0 42px;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:12px;font-size:14px;color:var(--ink)}
-@media (max-width:560px){ol.nb-steps>li>p,.mock{margin-left:0}}
-.mock .menu{display:flex;gap:16px;color:var(--muted)}
-.mock .menu .on{color:var(--ink);font-weight:700;border-bottom:2px solid var(--acc)}
-.mock .drop{margin-top:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px -12px rgba(5,8,13,.25);max-width:260px}
-.mock .drop div{padding:7px 12px}
-.mock .hl{background:var(--tint);font-weight:700}
-.mock.sel{display:flex;gap:8px;flex-wrap:wrap}
-.mock.sel span{border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--surface)}
-.mock.sel .hl{border-color:var(--acc)}
-.mock .btn{display:inline-flex;align-items:center;background:var(--acc);color:var(--on-acc);border-radius:999px;padding:6px 16px;font-weight:700}
-.mock .url{margin-top:8px}
+/* Directorio de productos: cada fila es un enlace */
+.h-dir{list-style:none;margin:48px 0 0;padding:0;border-top:1px solid var(--line2)}
+.h-dir li{border-bottom:1px solid var(--line2)}
+.h-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) 210px;gap:8px 40px;align-items:center;padding:30px 8px;text-decoration:none;color:inherit;border-radius:14px;transition:background .25s}
+.h-row:hover{background:#070A10}
+.h-row:hover .h-arrow{transform:translateX(4px);color:var(--acc)}
+.h-for{color:var(--muted);font-size:15px;line-height:1.45}
+.h-name{display:block;font-weight:600;font-size:clamp(22px,2.4vw,28px);letter-spacing:-.03em;color:var(--ink);margin-bottom:6px}
+.h-what{color:var(--text);font-size:16px;line-height:1.55}
+.h-state{display:flex;align-items:center;gap:18px;justify-self:end;white-space:nowrap}
+.h-pill{font:500 11.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px;border:1px solid var(--acc);color:var(--acc)}
+.h-pill.soon{border-color:var(--soft);color:var(--soft)}
+.h-arrow{font-size:22px;color:var(--muted);transition:transform .25s,color .25s}
+@media (prefers-reduced-motion:reduce){.h-row,.h-arrow{transition:none}.h-row:hover .h-arrow{transform:none}}
+@media (max-width:820px){.h-row{grid-template-columns:1fr;padding:26px 4px}.h-state{justify-self:start;margin-top:8px}.h-arrow{display:none}}
 
-/* ── Recorrido (pantallas reales) ── */
-ol.pasos{list-style:none;padding:0;margin:28px 0 0;counter-reset:p}
-ol.pasos>li{counter-increment:p;margin-top:44px}
-.cab{display:flex;gap:12px;align-items:baseline}
-.cab::before{content:counter(p);flex:none;width:30px;height:30px;border-radius:50%;background:var(--acc);color:var(--on-acc);font-weight:700;font-size:15px;display:grid;place-items:center;transform:translateY(-2px)}
-.pasos h2{font-size:22px;margin:0}
-.pasos p{color:var(--text);margin:6px 0 14px 42px;max-width:640px}
-.pasos figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 18px 40px -24px rgba(5,8,13,.35)}
-.pasos figure img{display:block;width:100%;height:auto}
-@media (max-width:600px){.pasos p{margin-left:0}.pasos figure{max-width:390px;margin:0 auto}}
-.cta{margin-top:56px;background:var(--ft-bg);color:#FFFFFF;border-radius:20px;padding:28px 24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
-.cta h2{font-size:24px;color:#FFFFFF;margin:0}
-.cta p{color:var(--ft-fg);margin:4px 0 0}
-.cta p a{color:var(--ft-acc)}
-.nb-btn,.cta .btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;background:var(--acc);color:var(--on-acc);font-weight:600;text-decoration:none;padding:0 22px;border-radius:999px}
-.nb-btn:hover,.cta .btn:hover{filter:brightness(1.08)}
+/* Quién está detrás */
+.h-who{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:start}
+@media (max-width:880px){.h-who{grid-template-columns:1fr;gap:36px}}
+.h-who p{color:var(--text);margin:0 0 14px;max-width:58ch}
+.h-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:20px;overflow:hidden;margin:0}
+.h-stats div{background:var(--surface);padding:24px 22px}
+.h-stats dt{font-weight:600;font-size:clamp(28px,3vw,36px);letter-spacing:-.04em;color:var(--ink);line-height:1}
+.h-stats dd{margin:10px 0 0;color:var(--muted);font-size:14.5px;line-height:1.45}
+.h-note{grid-column:1/-1;margin:12px 0 0;font-size:13px;color:var(--muted)}
 
-/* ── Hubs (/legal/ y 404): tarjetas-link como la portada ── */
-.nb-hub{max-width:620px}
-.nb-hub>p,.nb-hub section>p{color:var(--muted);font-size:18px;line-height:1.5}
-.nb-hub nav{display:grid;gap:10px;margin:22px 0}
-.nb-hub nav a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:52px;padding:12px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:600}
-.nb-hub nav a:hover,.nb-hub nav a:focus-visible{border-color:var(--acc);outline:none}
-.nb-hub nav a.main{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
-.nb-hub section{background:transparent;border:0;padding:0;margin-top:32px}
-.nb-hub h2{font:500 12.5px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:32px 0 12px}
-.nb-hub .sitio{padding-left:20px;color:var(--muted)}
-.nb-hub .sitio li{margin:0 0 10px}
-.nb-hub .sitio b{color:var(--ink)}
-.nb-hub .en{font-size:15px;color:var(--muted)}
-.nb-hub .en a{color:var(--acc)}
+/* Principios */
+.h-pr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:48px}
+@media (max-width:820px){.h-pr{grid-template-columns:1fr;gap:28px}}
+.h-pr div{border-top:1px solid var(--line2);padding-top:20px}
+.h-pr h3{margin:0 0 8px;font-size:19px;font-weight:600;letter-spacing:-.02em}
+.h-pr p{margin:0;color:var(--text);font-size:16px}
 
-/* ── Pie: banda oscura como la landing, con domicilio legal ── */
-.nb-foot{background:var(--ft-bg);color:var(--ft-fg);margin-top:auto}
-html[data-brand=home] .nb-foot,html[data-brand=marketing] .nb-foot{border-top:1px solid var(--line)}
-.nb-foot-in{max-width:1200px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;font-size:15px}
-.nb-foot .nb-word{color:#FFFFFF;font-size:20px}
-.nb-foot .nb-word span{color:var(--ft-acc);border:0;font-size:inherit;font-weight:inherit;padding:0;margin:0}
-html[data-brand=home] .nb-foot .nb-word{color:var(--ink)}
-.nb-foot-links{display:flex;flex-wrap:wrap;gap:0 18px;align-items:center}
-.nb-foot a{color:var(--ft-fg);min-height:44px;min-width:44px;justify-content:center;display:inline-flex;align-items:center}
-.nb-foot a:hover{color:#FFFFFF}
-.nb-foot-legal{flex-basis:100%;font:500 12px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ft-fg);opacity:.85;border-top:1px solid rgba(255,255,255,.1);padding-top:16px}
-@media print{.nb-head nav,.nb-foot-links,.nb-skip{display:none}body{background:#FFFFFF}}
+/* Contacto */
+.h-end{padding:110px 0;border-top:1px solid var(--line);text-align:center}
+.h-end h2{margin:16px auto 14px;max-width:18ch}
+.h-end .h-sub{margin:0 auto}
+.h-end .h-ctas{justify-content:center}
 
-/* Menú «Entrar» (portada y hubs) */
-.nb-menu{position:relative}
-.nb-menu summary{list-style:none;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--ink);padding:0 14px;border:1px solid var(--line);border-radius:999px}
-html[data-brand=home] .nb-menu summary{border-color:rgba(233,238,242,.28)}
-.nb-menu summary::-webkit-details-marker{display:none}
-.nb-menu [role=menu]{position:absolute;right:0;top:calc(100% + 8px);min-width:230px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px;z-index:20;box-shadow:0 12px 40px rgba(0,0,0,.45)}
-.nb-menu [role=menu] a{display:flex;min-height:44px;align-items:center;justify-content:flex-start;padding:0 12px;color:var(--ink);text-decoration:none;border-radius:10px;font-family:var(--font);font-size:15px;letter-spacing:0;text-transform:none}
-.nb-menu [role=menu] a:hover,.nb-menu [role=menu] a:focus-visible{background:var(--tint)}
-@media (max-width:560px){.nb-menu [role=menu]{position:fixed;left:16px;right:16px;top:76px;min-width:0}}
+/* Pie */
+.h-foot{border-top:1px solid var(--line);padding-top:32px;padding-bottom:32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;font-size:14.5px}
+.h-foot nav{display:flex;flex-wrap:wrap;gap:0 20px}
+.h-foot a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.h-foot a:hover{color:var(--ink)}
+.h-legal{flex-basis:100%;margin:0;padding-top:16px;border-top:1px solid var(--line);font:500 12px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 
-/* ── Portada en inglés (/en/home/): mismo lenguaje que la portada ES ── */
-.nb-home{max-width:1280px;padding:0 28px 96px}
-@media (max-width:560px){.nb-home{padding:0 16px 72px}}
-.nb-home .nb-hero{padding:56px 0 48px;max-width:900px}
-.nb-home h1{font-size:clamp(44px,8vw,96px);line-height:.98;letter-spacing:-.05em;margin:22px 0 22px}
-.nb-home .lead{font-size:clamp(18px,1.6vw,21px);max-width:60ch;color:var(--muted)}
-.nb-live{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(143,224,180,.18);flex:none}
-.nb-home .nb-hero .nb-eyebrow{border:1px solid rgba(143,224,180,.35);border-radius:14px;padding:9px 14px;font-size:11.5px}
-.nb-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.nb-btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(233,238,242,.25)}
-html[data-brand=home] .nb-btn:not(.ghost){background:var(--ink);color:var(--bg)}
-.nb-block{margin-top:72px}
-.nb-home h2{font-size:clamp(32px,4.6vw,56px);line-height:1.02;letter-spacing:-.04em;margin:14px 0 28px;font-weight:700}
-.nb-cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.nb-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .3s,transform .3s}
-.nb-card:hover{border-color:rgba(143,224,180,.55);transform:translateY(-4px)}
-@media (prefers-reduced-motion:reduce){.nb-card{transition:none}.nb-card:hover{transform:none}}
-.nb-card-k{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:0;font:500 11.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.nb-card-k b{color:var(--acc);font-weight:500}
-.nb-card-k b.soon{color:var(--warn-ink)}
-.nb-card h3{margin:0;font-size:26px;letter-spacing:-.03em}
-.nb-card p:not(.nb-card-k){margin:0;color:var(--muted)}
-.nb-go{margin-top:auto;display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;color:var(--acc);text-decoration:none}
-.nb-pr{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.nb-pr div{border-top:1px solid var(--line);padding-top:16px}
-.nb-pr b{display:block;margin-bottom:6px;font-size:19px}
-.nb-pr span{color:var(--muted)}
-html[data-brand=home] .nb-foot a{text-decoration:none}
-.nb-wrap.nb-home section{background:transparent;border:0;border-radius:0;padding:0;margin-top:0}
-.nb-wrap.nb-home section.nb-block{margin-top:72px}
-.nb-wrap.nb-home .nb-hero{padding:56px 0 48px}
-html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba(143,224,180,.10),transparent 70%),var(--bg)}
-</style>
-<script src="/assets/vendedor.js" defer></script>
-<!--/marca-->
+.h-pr a{display:inline-flex;align-items:center;min-height:44px}
+</style><!--/home-css-->
 </head>
 <body>
-<a class="nb-skip" href="#contenido">Skip to content</a>
-<header class="nb-head"><a class="nb-logo" href="/en/home/" aria-label="neuri, home"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"></circle><circle cx="15" cy="15" r="5" fill="#8FE0B4"></circle><circle cx="26" cy="9" r="2" fill="#E9EEF2"></circle></svg><span class="nb-word">neuri</span></a>
-<nav class="nb-nav" aria-label="Main"><a class="nb-hide-sm" href="/en/still-available/">neuri.bots</a><a class="nb-hide-sm" href="/en/">neuri.bazar</a><a class="nb-hide-sm" href="/en/ai-consulting/">AI consulting</a><a class="nb-hide-sm" href="/en/marketing/">Marketing</a><a class="nb-lang" href="/?lang=es" hreflang="es" lang="es" aria-label="ES, Español" data-idioma>ES</a><details data-entrar class="nb-menu"><summary>Sign in <span aria-hidden="true">▾</span></summary><div role="menu"><a role="menuitem" href="https://bazar.neuri.tech/login?lang=en">neuri.bazar</a><a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=en">neuri.consulting</a><a role="menuitem" href="https://sd.neuri.tech/en/entrar">neuri.bots</a><a role="menuitem" href="https://neuri-marketing-production.up.railway.app/entrar?lang=en">Neuri Marketing</a></div></details></nav></header>
-<main id="contenido" class="nb-main"><div class="nb-wrap nb-home">
-<!--contenido-->
-<section class="nb-hero">
-<p class="nb-eyebrow"><span class="nb-live" aria-hidden="true"></span>AI agents for small businesses · In English and Spanish</p>
-<h1>Software that answers while you live.</h1>
-<p class="lead">Neuri builds AI agents for small businesses. They answer your buyers at midnight, run the register and collect booth rent, always with your prices and your rules. Anything they're not sure about, they hand to you.</p>
-<p class="nb-ctas"><a class="nb-btn" href="#prod">See the products <span aria-hidden="true">→</span></a><a class="nb-btn ghost" href="mailto:hola@neuri.tech">Talk to Neuri</a></p>
+<a class="h-skip" href="#inicio">Skip to content</a>
+<header class="h-in h-head">
+<a class="h-logo" href="/en/home/" aria-label="neuri, home"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"></circle><circle cx="15" cy="15" r="5" fill="#8FE0B4"></circle><circle cx="26" cy="9" r="2" fill="#E9EEF2"></circle></svg>neuri</a>
+<nav class="h-nav" aria-label="Main">
+<a class="h-hide" href="#products">Products</a><a class="h-hide" href="#about">About</a><a class="h-hide" href="#contact">Contact</a>
+<a class="h-lang" href="/?lang=es" hreflang="es" lang="es" aria-label="ES, Español" data-idioma>ES</a>
+<details data-entrar class="h-menu"><summary>Sign in <span aria-hidden="true">▾</span></summary><div role="menu">
+<a role="menuitem" href="https://bazar.neuri.tech/login?lang=en">neuri.bazar<small>Register &amp; vendor books</small></a>
+<a role="menuitem" href="https://sd.neuri.tech/en/entrar">neuri.bots<small>Message replies</small></a>
+<a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=en">neuri.consulting<small>Your AI diagnosis</small></a>
+</div></details>
+</nav>
+</header>
+
+<main id="contenido">
+<section id="inicio" class="h-in h-hero" aria-labelledby="h1">
+<p class="h-k">Neuri LLC · Phoenix, Arizona</p>
+<h1 id="h1">Simple software that takes the <em>busywork</em> off your business.</h1>
+<p class="h-lead">We build four focused tools for small businesses. Each one does a single job well, with your prices and your rules, and hands you anything it isn't sure about. Pick the one that fits what you do.</p>
+<p class="h-ctas"><a class="h-btn" href="#products">Find your tool <span aria-hidden="true">↓</span></a><a class="h-btn ghost" data-hero-contacto href="mailto:hola@neuri.tech">Write to us</a></p>
+<ul class="h-facts" aria-label="About Neuri">
+<li>Registered US company</li><li>English and Spanish</li><li>We don't sell your data</li>
+</ul>
 </section>
-<section class="nb-block" aria-labelledby="prod">
-<p class="nb-eyebrow">02 · Systems in operation</p>
-<h2 id="prod">Our products</h2>
-<div class="nb-cards">
-<article class="nb-card"><p class="nb-card-k"><span>Mission 01 · Messages agent</span><b>Sign-up open</b></p><h3>neuri.bots</h3><p>Replies to your buyers on Instagram and Messenger with your prices and rules: is it still available, how much, where to pick up. Holds items, books visits and passes you the hard ones. Sign-up is open today; the Instagram and Messenger connection is pending Meta's approval.</p><a class="nb-go" href="/en/still-available/" hreflang="en">See neuri.bots <span aria-hidden="true">→</span></a></article>
-<article class="nb-card"><p class="nb-card-k"><span>Mission 02 · Operations agent</span><b>Live</b></p><h3>neuri.bazar</h3><p>The register and the books for vendor malls, flea markets and antique malls. Each sale goes to its vendor's balance, booth rent is charged automatically and the day closes without a notebook. From US$79 a month, no commission per sale.</p><a class="nb-go" href="/en/" hreflang="en">See neuri.bazar <span aria-hidden="true">→</span></a></article>
-<article class="nb-card"><p class="nb-card-k"><span>Mission 03 · AI consulting</span><b>Open</b></p><h3>neuri.consulting</h3><p>Shows where AI saves your business hours and helps you put it to work. Free AI Score, an online diagnosis with quality checks (a person reviews it if something doesn't add up), implementation and monthly support.</p><a class="nb-go" href="/en/ai-consulting/" hreflang="en">See neuri.consulting <span aria-hidden="true">→</span></a></article>
-<article class="nb-card"><p class="nb-card-k"><span>Mission 04 · Content agent</span><b class="soon">Waitlist</b></p><h3>Neuri Marketing</h3><p>Will draft your business's posts and reels for the month with your brand and your photos; you approve with one tap. While we finish it: the waitlist is open and 6 free tools already work.</p><a class="nb-go" href="/en/marketing/" hreflang="en">See Neuri Marketing <span aria-hidden="true">→</span></a></article>
+
+<section id="products" class="h-sec" aria-labelledby="h-prod">
+<div class="h-in">
+<p class="h-k">Products</p>
+<h2 id="h-prod">Start with what your business does.</h2>
+<p class="h-sub">Every tool has its own page with pricing, a demo and the details. No bundles, no long contracts.</p>
+<ul class="h-dir">
+<li><a class="h-row" href="/en/" hreflang="en"><span class="h-for">For flea markets, vendor malls and antique malls</span><span><span class="h-name">neuri.bazar</span><span class="h-what">The register and the books. Every sale lands in its vendor's balance and booth rent is charged automatically. From US$79 a month, no commission per sale.</span></span><span class="h-state"><span class="h-pill">Live</span><span class="h-arrow" aria-hidden="true">→</span></span></a></li>
+<li><a class="h-row" href="/en/still-available/" hreflang="en"><span class="h-for">For people who sell on Instagram and Facebook</span><span><span class="h-name">neuri.bots</span><span class="h-what">Answers "is it still available?", price and pickup questions with your rules, holds items and passes you the tricky ones. The Instagram connection is awaiting Meta's approval.</span></span><span class="h-state"><span class="h-pill soon">Sign-up open</span><span class="h-arrow" aria-hidden="true">→</span></span></a></li>
+<li><a class="h-row" href="/en/ai-consulting/" hreflang="en"><span class="h-for">For companies that want to know where AI saves them hours</span><span><span class="h-name">neuri.consulting</span><span class="h-what">Start with a free AI Score, then an online diagnosis from US$249 with a 30/60/90-day plan, implementation and monthly support.</span></span><span class="h-state"><span class="h-pill">Open</span><span class="h-arrow" aria-hidden="true">→</span></span></a></li>
+<li><a class="h-row" href="/en/marketing/" hreflang="en"><span class="h-for">For businesses that want their social posts handled</span><span><span class="h-name">Neuri Marketing</span><span class="h-what">Will draft your month of posts and reels with your brand and photos, for you to approve. Six free tools already work while we finish it.</span></span><span class="h-state"><span class="h-pill soon">Waitlist</span><span class="h-arrow" aria-hidden="true">→</span></span></a></li>
+</ul>
 </div>
 </section>
-<section class="nb-block" aria-labelledby="how">
-<p class="nb-eyebrow">03 · Principles</p>
-<h2 id="how">How we build</h2>
-<div class="nb-pr">
-<div><b>Autonomous</b><span>Each agent finishes the whole job: the item held, the day closed, not just a suggestion.</span></div>
-<div><b>Honest</b><span>It only answers with your information. If it doesn't know, it says so and passes the conversation to you.</span></div>
-<div><b>You're in charge</b><span>Nothing answers until you switch it on. You decide what it handles alone, pause it any time and take your data with you.</span></div>
+
+<section id="about" class="h-sec" aria-labelledby="h-about">
+<div class="h-in h-who">
+<div>
+<p class="h-k">Who's behind Neuri</p>
+<h2 id="h-about">Built by someone who has run operations at scale.</h2>
+<p>Neuri's founder spent ten years building central operations for one of the largest delivery fleets in the world, then launched an autonomous vehicle operation with Waymo, from zero to commercial service.</p>
+<p>The same way of working goes into every Neuri tool: measure first, automate the repetitive, set clear rules, and keep people in charge of what matters.</p>
+</div>
+<div>
+<dl class="h-stats">
+<div><dt>US$100M+</dt><dd>annual savings from automation and centralized processes</dd></div>
+<div><dt>100K+</dt><dd>vehicles in the fleet whose central operations he led</dd></div>
+<div><dt>0 → 1</dt><dd>autonomous vehicle operation launched with Waymo</dd></div>
+<div><dt>3</dt><dd>continents with teams: North America, Europe and India</dd></div>
+</dl>
+<p class="h-note">The founder's track record as an employee at Amazon and Moove, not results from Neuri clients.</p>
+</div>
 </div>
 </section>
-<!--/contenido-->
-</div></main>
-<footer class="nb-foot"><div class="nb-foot-in"><span class="nb-word">neuri</span><nav class="nb-foot-links" aria-label="Footer"><a href="/en/still-available/">neuri.bots</a><a href="/en/">neuri.bazar</a><a href="/en/ai-consulting/">AI consulting</a><a href="/en/marketing/">Neuri Marketing</a><a href="/en/legal/">Privacy & terms</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/?lang=es" hreflang="es" lang="es">Español</a></nav><p class="nb-foot-legal">© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA</p></div></footer>
+
+<section class="h-sec" aria-labelledby="h-how">
+<div class="h-in">
+<p class="h-k">How we build</p>
+<h2 id="h-how">Three rules every tool follows.</h2>
+<div class="h-pr">
+<div><h3>Honest</h3><p>It only answers with your information. If it doesn't know, it says so and passes it to you.</p></div>
+<div><h3>You're in charge</h3><p>Nothing runs until you switch it on. You decide what it handles alone and can pause it any time.</p></div>
+<div><h3>Your data stays yours</h3><p>We don't sell it, use it for ads or train AI models with it. <a href="/en/legal/">Read our privacy notice</a>.</p></div>
+</div>
+</div>
+</section>
+
+<section id="contact" class="h-in h-end" aria-labelledby="h-end">
+<p class="h-k">Contact</p>
+<h2 id="h-end">Not sure which one fits?</h2>
+<p class="h-sub">Tell us what takes up most of your time. The Neuri team replies in English or Spanish.</p>
+<p class="h-ctas"><a class="h-btn" href="mailto:hola@neuri.tech">hola@neuri.tech</a></p>
+</section>
+</main>
+
+<footer class="h-in h-foot">
+<span class="h-logo" style="font-size:20px">neuri</span>
+<nav aria-label="Footer"><a href="/en/">neuri.bazar</a><a href="/en/still-available/">neuri.bots</a><a href="/en/ai-consulting/">AI consulting</a><a href="/en/marketing/">Neuri Marketing</a><a href="/en/whats-new/">What's new</a><a href="/en/legal/">Privacy &amp; terms</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/?lang=es" hreflang="es" lang="es">Español</a></nav>
+<p class="h-legal">© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA</p>
+</footer>
 <script src="/assets/menu-esc.js" defer></script>
 </body>
 </html>

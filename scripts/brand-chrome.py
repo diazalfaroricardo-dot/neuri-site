@@ -31,6 +31,8 @@ PAGES = {
     "en/bazar/terms/": ("bazar", "en", "/bazar/terminos/", "doc"),
     "en/bazar/delete-my-data/": ("bazar", "en", "/bazar/borrar-mis-datos/", "doc"),
     "en/bazar/tour/": ("bazar", "en", "/bazar/recorrido/", "tour"),
+    "bazar/vs-quail/": ("bazar", "es", "/en/bazar/vs-quail/", "doc"),
+    "en/bazar/vs-quail/": ("bazar", "en", "/bazar/vs-quail/", "doc"),
     "legal/": ("home", "es", "/en/legal/", "hub"),
     "en/legal/": ("home", "en", "/legal/", "hub"),
     "404.html": ("home", "es", "/en/home/", "hub"),

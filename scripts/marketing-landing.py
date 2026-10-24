@@ -10,7 +10,7 @@ import html, json, pathlib, sys
 if "--forzar" not in sys.argv:
     sys.exit("marketing-landing.py está retirado: /marketing se edita a mano y /en/marketing se arma desde ella (T25). Usa --forzar solo si sabes lo que haces.")
 
-APP = "https://neuri-marketing-production.up.railway.app"
+APP = "https://marketing.neuri.tech"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 e = html.escape
 

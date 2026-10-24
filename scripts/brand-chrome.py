@@ -96,7 +96,7 @@ def header(brand, lang, alt):
                 (f"https://bazar.neuri.tech/login?lang={lang}", "neuri.bazar"),
                 (f"https://consulting.neuri.tech/entrar?lang={lang}", "neuri.consulting"),
                 (f"https://sd.neuri.tech/{'' if es else 'en/'}entrar" + ("?lang=es" if es else ""), "neuri.bots"),
-                (f"https://neuri-marketing-production.up.railway.app/entrar?lang={lang}", "Neuri Marketing")])
+                (f"https://marketing.neuri.tech/entrar?lang={lang}", "Neuri Marketing")])
         nav = [a("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots", "nb-hide-sm"),
                a("/bazar/" if es else "/en/", "neuri.bazar", "nb-hide-sm"),
                a("/consultoria/" if es else "/en/ai-consulting/", "Consultoría IA" if es else "AI consulting", "nb-hide-sm"),

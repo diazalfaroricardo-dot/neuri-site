@@ -36,10 +36,11 @@ AI marketing hub for small businesses: brand kit, a 30-day content calendar, pos
 - Start US$49 · Grow US$99 · Pro US$169 per month
 
 - [Neuri Marketing (español)](https://neuri.tech/marketing/) · [English](https://neuri.tech/en/marketing/)
-- Free tools: [2026 guide](https://neuri-marketing-production.up.railway.app/guia) · [Profile self-check](https://neuri-marketing-production.up.railway.app/diagnostico) · [Templates by business type](https://neuri-marketing-production.up.railway.app/plantillas) · [Reel ideas](https://neuri-marketing-production.up.railway.app/ideas-reels) · [Comment replies](https://neuri-marketing-production.up.railway.app/respuestas) · [Brand sheet](https://neuri-marketing-production.up.railway.app/marca) (English: add ?lang=en)
+- Free tools: [2026 guide](https://marketing.neuri.tech/guia) · [Profile self-check](https://marketing.neuri.tech/diagnostico) · [Templates by business type](https://marketing.neuri.tech/plantillas) · [Reel ideas](https://marketing.neuri.tech/ideas-reels) · [Comment replies](https://marketing.neuri.tech/respuestas) · [Brand sheet](https://marketing.neuri.tech/marca) (English: add ?lang=en)
 
 ## Legal
 
+- [Neuri home (English)](https://neuri.tech/en/home/) · [Privacidad, términos y contacto](https://neuri.tech/legal/) · [Privacy, terms and contact](https://neuri.tech/en/legal/)
 - [Novedades](https://neuri.tech/novedades/): lo liberado, con fecha
 - [What’s new](https://neuri.tech/en/whats-new/): what shipped, with dates
 - [Privacidad neuri.bots](https://neuri.tech/sigue-disponible/privacidad/) · [Privacy](https://neuri.tech/en/still-available/privacy/)

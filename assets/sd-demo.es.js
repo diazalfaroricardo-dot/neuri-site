@@ -376,7 +376,9 @@ class Component extends DCLogic {
     var checkTexts = ['Entendiendo tu negocio: ' + biz.label.toLowerCase(), 'Escribiendo respuestas en tono ' + this.toneDefs[st.tone].toLowerCase(), 'Conectando Instagram y Messenger'];
     var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
     var lostT = this.lostTarget(st);
-    var be = Math.max(1, Math.ceil(899 / st.lcTicket));
+    // QA #7: en zona de EE. UU. (o ?moneda=usd) la página muestra USD (A235 en sd-alta.es.js): la cuenta usa $49 USD
+    var nbUSD = (function () { try { var mo = (new URLSearchParams(location.search).get('moneda') || '').toLowerCase(); if (mo === 'usd') return true; if (mo === 'mxn') return false; return /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone || ''); } catch (_) { return false; } })();
+    var be = Math.max(1, Math.ceil((nbUSD ? 49 : 899) / st.lcTicket));
     var sliders = [
       { key: 'msgs', label: 'Mensajes que te llegan al día', min: 5, max: 200, step: 5, value: st.lcMsgs, display: st.lcMsgs, field: 'lcMsgs' },
       { key: 'late', label: 'De esos, ¿cuántos contestas tarde o nunca?', min: 10, max: 90, step: 5, value: st.lcLate, display: st.lcLate + '%', field: 'lcLate' },

@@ -95,6 +95,17 @@
       answer(box, sec, inp.value, true);
     });
   }
+  function precioTexto() {
+    if (en) return "Prices: Basic $49 USD a month, Pro $69 USD a month. Setup and the first month are free for the first 10 sellers.";
+    var usd = false;
+    try {
+      var mo = (new URLSearchParams(location.search).get("moneda") || "").toLowerCase();
+      usd = mo === "usd" || (mo !== "mxn" && /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone || ""));
+    } catch (e) {}
+    return usd
+      ? "Precios: Básico $49 USD al mes, Pro $69 USD al mes. La instalación y el primer mes son gratis para los primeros 10 negocios."
+      : "Precios: Básico $899 MXN al mes, Pro $1,299 MXN al mes. La instalación y el primer mes son gratis para los primeros 10 negocios.";
+  }
   function answer(box, sec, q, track) {
       var r = box.querySelector("#ayuda-r");
       var m = ayudaMatch(q, faqsFromPage());
@@ -103,6 +114,8 @@
         var p1 = document.createElement("p"); p1.style.margin = "0 0 4px"; p1.style.color = "#3D4A44"; p1.style.fontSize = "14px"; p1.textContent = T.from;
         var p2 = document.createElement("p"); p2.style.margin = "0"; var b = document.createElement("b"); b.textContent = m.q + " "; p2.appendChild(b); p2.appendChild(document.createTextNode(m.a));
         r.appendChild(p1); r.appendChild(p2);
+        // QA #9: la FAQ de cobro (posición 6, ver SYN) no trae cifras: se agregan los precios de la página
+        if (m.i === 6) { var p3 = document.createElement("p"); p3.id = "ayuda-precio"; p3.style.margin = "6px 0 0"; p3.style.fontWeight = "700"; p3.textContent = precioTexto(); r.appendChild(p3); }
         sec.querySelectorAll("summary").forEach(function (s) { if (s.textContent.trim().indexOf(m.q) === 0 && s.parentElement) s.parentElement.open = true; });
       } else {
         var p = document.createElement("p"); p.style.margin = "0"; p.textContent = T.none + " ";

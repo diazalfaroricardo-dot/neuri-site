@@ -90,10 +90,17 @@
       root.querySelectorAll('span').forEach(function(sp){
         var t = sp.textContent;
         if (sp.children.length === 0 && P[t]) { sp.textContent = P[t]; var n = sp.nextElementSibling; if (n && /MXN/.test(n.textContent)) n.textContent = n.textContent.replace('MXN', 'USD'); }
-        else if (sp.children.length === 0 && t === 'El plan Básico cuesta $899 al mes.') sp.textContent = 'El plan Básico cuesta $49 USD al mes.';
+        else if (sp.children.length === 0 && (t === 'El plan Básico cuesta $899 al mes.' || t === 'El plan Básico cuesta $899 MXN al mes.')) sp.textContent = 'El plan Básico cuesta $49 USD al mes.';
+        // QA #7: la calculadora y el título de precios no deben prometer pesos cuando la página está en USD
+        else if (sp.children.length === 0 && t === 'Al mes se te van (MXN)') sp.textContent = 'Al mes se te van (USD)';
       });
       var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), x;
-      while ((x = w.nextNode())) if (x.nodeValue.trim() === 'Desde $899 al mes') x.nodeValue = x.nodeValue.replace('$899', '$49 USD');
+      while ((x = w.nextNode())) {
+        var tv = x.nodeValue.trim();
+        if (tv === 'Desde $899 al mes') x.nodeValue = x.nodeValue.replace('$899', '$49 USD');
+        else if (tv === '¿Cuánto cuesta un bot de Instagram? Precios en pesos') x.nodeValue = x.nodeValue.replace('Precios en pesos', 'Precios en dólares');
+        else if (tv === 'Lo que vale una venta en promedio (MXN)') x.nodeValue = x.nodeValue.replace('(MXN)', '(USD)');
+      }
       root.querySelectorAll('template').forEach(function(tp){ if (tp.content) fixRoot(tp.content); });
     };
     var fix = function(){ fixRoot(document.body || document.documentElement); };

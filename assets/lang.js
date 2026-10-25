@@ -1,8 +1,8 @@
 /* Idioma por país (neuri.tech es sitio estático en GitHub Pages: no hay IP del visitante,
    así que el país se deduce de la zona horaria del dispositivo).
    - México → español; Estados Unidos → inglés; otro país → se queda la página que abrió.
-   - Si la persona elige idioma con el link «English»/«Español», esa elección manda
-     (se guarda en localStorage y se respeta en todas las páginas).
+   - Si la persona elige idioma con el link «English»/«Español», esa elección manda al navegar dentro del sitio
+     (se guarda en localStorage); una URL abierta directo o desde fuera se muestra en su idioma (QA #8).
    - ?lang=es|en en la URL también fija la elección. Buscadores y bots no se redirigen. */
 (() => {
   // data-solo-param: la portada solo obedece ?lang explícito (no redirige por zona horaria).
@@ -89,6 +89,13 @@
     try {
       want = localStorage.getItem(KEY);
     } catch (_) {}
+    // QA #8: la elección guardada solo manda al navegar dentro de neuri.tech. Si la persona abre directo una URL
+    // (link compartido, escrita a mano, desde Google), se respeta el idioma de esa URL; el botón EN/ES sigue a mano.
+    let interno = false;
+    try {
+      interno = !!document.referrer && new URL(document.referrer).origin === location.origin;
+    } catch (_) {}
+    if ((want === "es" || want === "en") && !interno) return;
     // A234: un link que armó Neuri en este idioma (tarjeta/QR impresos, correos, referidos, demo precargado) se queda en
     // ese idioma: a un vendedor que lee español en Phoenix la zona horaria lo mandaría al inglés.
     const sp = new URLSearchParams(location.search);

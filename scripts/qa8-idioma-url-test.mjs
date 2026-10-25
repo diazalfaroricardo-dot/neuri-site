@@ -1,5 +1,5 @@
 // QA #8: con un idioma guardado, abrir directo (o desde fuera) una URL con idioma explícito muestra ESE idioma;
-// navegando dentro de neuri.tech la elección guardada sigue mandando. 390 y 1280, zona Phoenix, como un teléfono real.
+// también navegando dentro de neuri.tech (2ª vuelta). 390 y 1280, zona Phoenix, como un teléfono real.
 import { createRequire } from "node:module";
 import { readFileSync, existsSync } from "node:fs";
 const req = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`);
@@ -14,8 +14,10 @@ const cases = [
   ["es", "/en/still-available/", null, "/en/still-available/", "en"],
   ["en", "/sigue-disponible/", "https://www.google.com/", "/sigue-disponible/", "es"],
   ["en", "/bazar/", null, "/bazar/", "es"],
-  ["en", "/sigue-disponible/", "https://neuri.tech/", "/en/still-available/", "en"],
-  ["es", "/en/still-available/", "https://neuri.tech/", "/sigue-disponible/", "es"],
+  // 2ª vuelta (25-oct): aun navegando dentro de neuri.tech, la URL con idioma manda.
+  ["en", "/sigue-disponible/", "https://neuri.tech/en/home/", "/sigue-disponible/", "es"],
+  ["es", "/en/still-available/", "https://neuri.tech/", "/en/still-available/", "en"],
+  ["en", "/bazar/", "https://neuri.tech/en/", "/bazar/", "es"],
 ];
 for (const w of [390, 1280]) {
   for (const [saved, from, ref, to, lang] of cases) {

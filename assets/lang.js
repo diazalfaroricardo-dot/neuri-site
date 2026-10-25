@@ -1,8 +1,9 @@
 /* Idioma por país (neuri.tech es sitio estático en GitHub Pages: no hay IP del visitante,
    así que el país se deduce de la zona horaria del dispositivo).
    - México → español; Estados Unidos → inglés; otro país → se queda la página que abrió.
-   - Si la persona elige idioma con el link «English»/«Español», esa elección manda al navegar dentro del sitio
-     (se guarda en localStorage); una URL abierta directo o desde fuera se muestra en su idioma (QA #8).
+   - Una URL con idioma se muestra siempre en ese idioma si la persona ya eligió uno con «English»/«Español»
+     (se guarda en localStorage y apaga la regla de zona horaria; QA #8). En EE. UU. el inglés automático
+     solo aplica si el teléfono está en inglés.
    - ?lang=es|en en la URL también fija la elección. Buscadores y bots no se redirigen. */
 (() => {
   // data-solo-param: la portada solo obedece ?lang explícito (no redirige por zona horaria).
@@ -85,27 +86,25 @@
     const cur = here === alt.en.pathname ? "en" : here === alt.es.pathname ? "es" : null;
     if (!cur) return;
 
-    let want = null;
+    // QA #8 (2ª vuelta, 25-oct): una URL con idioma (/sigue-disponible/ o /en/still-available/) se muestra SIEMPRE en
+    // ese idioma, venga de donde venga: los links internos ya apuntan al idioma correcto y el botón EN/ES lleva al par.
+    // La elección guardada solo evita que la zona horaria cambie el idioma (no redirige por sí sola).
+    let saved = null;
     try {
-      want = localStorage.getItem(KEY);
+      saved = localStorage.getItem(KEY);
     } catch (_) {}
-    // QA #8: la elección guardada solo manda al navegar dentro de neuri.tech. Si la persona abre directo una URL
-    // (link compartido, escrita a mano, desde Google), se respeta el idioma de esa URL; el botón EN/ES sigue a mano.
-    let interno = false;
-    try {
-      interno = !!document.referrer && new URL(document.referrer).origin === location.origin;
-    } catch (_) {}
-    if ((want === "es" || want === "en") && !interno) return;
+    if (saved === "es" || saved === "en") return;
     // A234: un link que armó Neuri en este idioma (tarjeta/QR impresos, correos, referidos, demo precargado) se queda en
     // ese idioma: a un vendedor que lee español en Phoenix la zona horaria lo mandaría al inglés.
     const sp = new URLSearchParams(location.search);
     const made = ["src", "negocio", "productos", "business", "products", "alta", "ref", "moneda", "giro", "utm_source", "utm_campaign"].some((k) => sp.has(k));
-    if ((want !== "es" && want !== "en") && made) return;
-    if (want !== "es" && want !== "en") {
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-      if (/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(tz)) want = "es";
-      else if (/^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(tz)) want = "en";
-    }
+    if (made) return;
+    let want = null;
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    const nl = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if (/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(tz)) want = "es";
+    // En EE. UU. solo pasa al inglés si el teléfono también está en inglés: quien lo tiene en español se queda en español.
+    else if (/^en\b/i.test(nl) && /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(tz)) want = "en";
     if (!want || want === cur) return;
     const to = alt[want];
     location.replace(to.pathname + location.search + location.hash);

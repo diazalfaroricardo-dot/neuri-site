@@ -18,13 +18,17 @@ const cases = [
   ["en", "/sigue-disponible/", "https://neuri.tech/en/home/", "/sigue-disponible/", "es"],
   ["es", "/en/still-available/", "https://neuri.tech/", "/en/still-available/", "en"],
   ["en", "/bazar/", "https://neuri.tech/en/", "/bazar/", "es"],
+  // 3ª vuelta: sin elección guardada, la zona horaria solo decide en la primera página de la sesión.
+  [null, "/sigue-disponible/", null, "/en/still-available/", "en"],
+  [null, "/sigue-disponible/", null, "/sigue-disponible/", "es", "/en/still-available/"],
+  [null, "/en/still-available/", null, "/en/still-available/", "en", "/en/still-available/"],
 ];
 for (const w of [390, 1280]) {
-  for (const [saved, from, ref, to, lang] of cases) {
-    const c = await b.newContext({ viewport: { width: w, height: 800 }, timezoneId: "America/Phoenix", userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148" });
+  for (const [saved, from, ref, to, lang, prev] of cases) {
+    const c = await b.newContext({ viewport: { width: w, height: 800 }, timezoneId: "America/Phoenix", locale: "en-US", userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148" });
     await c.addInitScript((v) => {
       Object.defineProperty(navigator, "webdriver", { get: () => false });
-      try { localStorage.setItem("neuri-lang", v); } catch (_) {}
+      if (v) try { localStorage.setItem("neuri-lang", v); } catch (_) {}
     }, saved);
     if (!live) {
       await c.route("https://neuri.tech/**", (r) => {
@@ -37,6 +41,7 @@ for (const w of [390, 1280]) {
       await c.route(/^(?!https:\/\/neuri\.tech).*/, (r) => (r.request().resourceType() === "document" ? r.continue() : r.abort()));
     }
     const p = await c.newPage();
+    if (prev) { await p.goto("https://neuri.tech" + prev, { waitUntil: "domcontentloaded" }); await p.waitForTimeout(live ? 1500 : 500); }
     await p.goto("https://neuri.tech" + from, { waitUntil: "domcontentloaded", ...(ref ? { referer: ref } : {}) });
     await p.waitForTimeout(live ? 1500 : 500);
     const got = new URL(p.url()).pathname;

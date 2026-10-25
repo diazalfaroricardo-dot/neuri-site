@@ -94,6 +94,12 @@
       saved = localStorage.getItem(KEY);
     } catch (_) {}
     if (saved === "es" || saved === "en") return;
+    // QA #8 (3ª vuelta): sin elección guardada, la zona horaria decide solo en la primera página de la sesión;
+    // después, la URL que se abre (/sigue-disponible/ o /en/still-available/) se queda en su idioma.
+    try {
+      if (sessionStorage.getItem("neuri-lang-auto")) return;
+      sessionStorage.setItem("neuri-lang-auto", "1");
+    } catch (_) {}
     // A234: un link que armó Neuri en este idioma (tarjeta/QR impresos, correos, referidos, demo precargado) se queda en
     // ese idioma: a un vendedor que lee español en Phoenix la zona horaria lo mandaría al inglés.
     const sp = new URLSearchParams(location.search);

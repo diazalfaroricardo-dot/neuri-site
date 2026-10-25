@@ -35,9 +35,14 @@ for (const [path, country, w, idx, want, src] of cases) {
     await p.locator("#siguiente").click().catch(() => {});
     await p.waitForTimeout(500);
   }
+  // El # no viaja en la petición: se lee de la URL de la página ya navegada.
+  if (dest) { await p.waitForURL(/bazar\.neuri\.tech/).catch(() => {}); dest = p.url(); }
   const u = dest ? new URL(dest) : null;
   const ok = u && u.searchParams.has("signup") && u.searchParams.get("country") === country &&
-    u.searchParams.get("plan") === want && u.searchParams.get("src") === (src || "landing") && errs.length === 0;
+    u.searchParams.get("plan") === want && u.searchParams.get("src") === (src || "landing") && errs.length === 0 &&
+    // QA #16: tienda y correo viajan en el # para que el alta no los vuelva a pedir.
+    new URLSearchParams(u.hash.slice(1)).get("name") === "Bazar QA" &&
+    new URLSearchParams(u.hash.slice(1)).get("email") === "qa@example.com";
   if (!ok) fail++;
   console.log(ok ? "OK  " : "FALLA", path, w, want, dest || "(sin navegación)", errs.join(" | "));
   await p.close();

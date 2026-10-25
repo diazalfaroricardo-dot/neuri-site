@@ -36,7 +36,8 @@ PAGES = {
     "legal/": ("home", "es", "/en/legal/", "hub"),
     "en/legal/": ("home", "en", "/legal/", "hub"),
     "404.html": ("home", "es", "/en/home/", "hub"),
-    "en/home/": ("home", "en", "/?lang=es", "home"),
+    # en/home/ ya no sale de aquí (25-oct-2026): es la portada EN con el diseño v2 (órbita + GSAP),
+    # gemela de index.html y con /assets/portada.js; editarla a mano junto con la ES.
 }
 
 ICON = {

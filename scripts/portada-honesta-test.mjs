@@ -31,7 +31,8 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.
 // T14: la tarjeta de neuri.bots dice el estado real — el alta está abierta y la conexión con Meta, pendiente.
 if (/Por abrir/i.test(home)) bad("la tarjeta de neuri.bots dice «Por abrir» y el alta ya está abierta en /sigue-disponible");
 const bots = (home.match(/MISIÓN 01 · AGENTE DE MENSAJES[\s\S]{0,1600}/g) || []);
-if (bots.length < 2) bad("no encontré las dos copias de la tarjeta de neuri.bots (HTML + datos)");
+// Diseño v2 (25-oct-2026): la portada ya no usa dc-lite con plantilla duplicada; el HTML es la única copia.
+if (bots.length < 1) bad("no encontré la tarjeta de neuri.bots");
 for (const b of bots) {
   if (!/Alta abierta/.test(b)) bad("la tarjeta de neuri.bots no dice «Alta abierta»");
   if (!/pendiente de Meta/.test(b)) bad("la tarjeta de neuri.bots no dice que Instagram/Messenger está pendiente de Meta");
@@ -45,7 +46,7 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html"]) {
     if (!/3 (oportunidades|actionable)/i.test(m[1])) bad(`${f}: «${m[1]}» sin la condición de la garantía (3 oportunidades accionables)`);
 }
 // T38 (B-A1, re-auditoría 19-oct): la portada ES dice en lenguaje llano lo mismo que /en/home/ y el atajo ⌘K no sale en pantallas táctiles.
-if ((home.match(/Neuri hace agentes de inteligencia artificial para negocios pequeños/g) || []).length < 2) bad("T38: la portada ES no explica en llano qué hace Neuri (HTML + plantilla)");
+if ((home.match(/Neuri hace agentes de inteligencia artificial para negocios pequeños/g) || []).length < 1) bad("T38: la portada ES no explica en llano qué hace Neuri");
 if (/Tú piensas\. La red ejecuta\.|Ver sistemas en operación/.test(home)) bad("T38: copy abstracto de la portada ES");
 if ((home.match(/>Ver los productos</g) || []).length + (home.match(/>Ver los productos<svg/g) || []).length < 2) bad("T38: falta «Ver los productos» en el encabezado");
 for (const m of home.matchAll(/<span class="([^"]*)"[^>]*>⌘K<\/span>Probar la demo/g))
@@ -54,6 +55,6 @@ if (!/@media \(hover:none\),\(pointer:coarse\)\{\.x-kbd\{display:none/.test(home
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
 // T55 (B-A1, re-auditoría 20-oct): botón llano sin «consola» y la palabra rotativa no se lee como «te cobra».
 if (/Abrir la consola/.test(home)) bad("T55: la portada ES aún dice «Abrir la consola» (jerga)");
-if ((home.match(/<\/span>Probar la demo<\/a>/g) || []).length < 2) bad("T55: falta «Probar la demo» en el botón (estático y plantilla)");
+if ((home.match(/<\/span>Probar la demo<\/a>/g) || []).length < 1) bad("T55: falta «Probar la demo» en el botón");
 if (/'cobra',/.test(home)) bad("T55: la palabra rotativa «cobra» sola se lee como «te cobra»; usar «cobra la renta»");
 process.exit(fail ? 1 : 0);

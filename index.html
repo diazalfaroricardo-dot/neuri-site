@@ -33,1036 +33,500 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap"></noscript>
+<script>(function(){var d=document.documentElement;if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("m","mi");setTimeout(function(){d.classList.remove("m")},3000)}})();</script>
 <style>
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:#04060A}
-body{overflow-x:hidden}
-#dc-a{overflow-x:clip}
-:focus-visible{outline:2px solid #8FE0B4;outline-offset:3px}
-#dc-a a,#dc-a button{min-height:44px}
-
-body{margin:0;background:#04060A}
-a{color:#E9EEF2}a:hover{color:#8FE0B4}
-::selection{background:#8FE0B4;color:#04060A}
-.x-mono{font-family:'Geist Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}
-@keyframes xDrift{0%{background-position:0 0,0 0,0 0}100%{background-position:0 -600px,0 -400px,0 -260px}}
-.x-stars{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.75;
-  background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 140px 80px,rgba(255,255,255,.7),transparent),radial-gradient(1.5px 1.5px at 90px 160px,rgba(143,224,180,.8),transparent);
-  background-size:220px 220px,300px 300px,420px 420px;animation:xDrift 90s linear infinite}
-.x-aurora{position:absolute;z-index:0;pointer-events:none;border-radius:50%;filter:blur(80px);opacity:.55}
-@keyframes xFloatA{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,40px)}}
-@keyframes xFloatB{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-50px)}}
-.x-aur-a{animation:xFloatA 18s ease-in-out infinite}
-.x-aur-b{animation:xFloatB 22s ease-in-out infinite}
-.x-grid{position:absolute;left:-20%;right:-20%;bottom:-2px;height:46%;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(143,224,180,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(143,224,180,.22) 1px,transparent 1px);
-  background-size:64px 64px;transform:perspective(520px) rotateX(62deg);transform-origin:bottom;
-  -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%);animation:xGrid 6s linear infinite}
-@keyframes xGrid{0%{background-position:0 0}100%{background-position:0 64px}}
-@keyframes xSpin{to{transform:rotate(360deg)}}
-@keyframes xSpinR{to{transform:rotate(-360deg)}}
-.x-spin{transform-origin:210px 210px;animation:xSpin 28s linear infinite}
-.x-spin-r{transform-origin:210px 210px;animation:xSpinR 40s linear infinite}
-.x-spin-f{transform-origin:210px 210px;animation:xSpin 12s linear infinite}
-@keyframes xPulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-.x-core{transform-origin:210px 210px;animation:xPulse 3.2s ease-in-out infinite}
-@keyframes xDash{to{stroke-dashoffset:-200}}
-.x-synapse{stroke-dasharray:6 14;animation:xDash 3s linear infinite}
-@keyframes xBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
-.x-caret{animation:xBlink 1s step-end infinite}
-@keyframes xLive{0%{box-shadow:0 0 0 0 rgba(143,224,180,.6)}100%{box-shadow:0 0 0 9px rgba(143,224,180,0)}}
-.x-live{width:8px;height:8px;border-radius:50%;background:#8FE0B4;animation:xLive 1.6s infinite;flex-shrink:0}
-@keyframes xWordA{0%{opacity:0;transform:translateY(.4em);filter:blur(6px)}100%{opacity:1;transform:none;filter:none}}
-@keyframes xWordB{0%{opacity:0;transform:translateY(.4em);filter:blur(6px)}100%{opacity:1;transform:none;filter:none}}
-.x-wa{display:inline-block;animation:xWordA .6s cubic-bezier(.2,.8,.2,1) both}
-.x-wb{display:inline-block;animation:xWordB .6s cubic-bezier(.2,.8,.2,1) both}
-/* El texto con degradado se pinta solo dentro de su caja; con letter-spacing negativo la última letra se salía y quedaba mocha. */
-.x-wa,.x-wb{padding-right:.14em;margin-right:-.1em}
-@keyframes xLine{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
-.x-line{animation:xLine .35s ease both}
-@keyframes xRise{0%{opacity:0;transform:translateY(28px)}100%{opacity:1;transform:none}}
-.x-rise{animation:xRise .9s cubic-bezier(.2,.8,.2,1) both}
-.x-r2{animation-delay:.12s}.x-r3{animation-delay:.24s}.x-r4{animation-delay:.36s}
-@keyframes xScan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
-.x-scan{position:absolute;left:0;right:0;top:0;height:100%;background:linear-gradient(to bottom,transparent,rgba(143,224,180,.08) 48%,rgba(143,224,180,.25) 50%,transparent 52%);animation:xScan 4.5s linear infinite;pointer-events:none}
-.x-card{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s}
-.x-card:hover{transform:translateY(-6px);border-color:rgba(143,224,180,.55)!important}
-.x-btn{transition:transform .2s,box-shadow .2s,background .2s}
-.x-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px #8FE0B4,0 12px 40px -8px rgba(143,224,180,.55)}
-.x-cmd{transition:background .2s,border-color .2s}
-.x-cmd:hover{background:rgba(255,255,255,.06)!important}
-.x-word{opacity:1}
-@supports (animation-timeline: view()){
-  @keyframes xLit{0%{opacity:.14}100%{opacity:1}}
-  .x-word{animation:xLit linear both;animation-timeline:view()}
+:root{
+  --space:#04060A;--space2:#05080D;--space3:#070A10;--panel:#0B1118;
+  --ink:#E9EEF2;--ink2:#B7C2CC;--sub:#9AA6B2;--dim:#9AA6B2;--faint:#7D8994;
+  --mint:#8FE0B4;--mint2:#B5ECCD;--core:#E9FFF4;--peach:#F3B38F;--coral:#FF8A7A;
+  --line:rgba(233,238,242,.08);--line2:rgba(233,238,242,.12);--line3:rgba(233,238,242,.25);
+  --sans:Geist,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Geist Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
 }
-@keyframes xMarq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.x-marq{display:flex;gap:56px;width:max-content;animation:xMarq 38s linear infinite}
-.x-marq-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-@keyframes xEeg{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.x-eeg{display:flex;width:max-content;animation:xEeg 14s linear infinite}
-@keyframes xFire{0%,100%{opacity:.35;r:6}50%{opacity:1;r:9}}
-.x-fire{animation:xFire 1.6s ease-in-out infinite}
-@keyframes xFlow{to{stroke-dashoffset:-60}}
-.x-flow{stroke-dasharray:4 8;animation:xFlow 1.1s linear infinite}
-@keyframes xHalo{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(2.6)}}
-.x-halo{transform-box:fill-box;transform-origin:center;animation:xHalo 1.8s ease-out infinite}
-details summary{list-style:none;cursor:pointer}
-details summary::-webkit-details-marker{display:none}
-@media (max-width:560px){.x-hide-xs{display:none !important}.x-topnav{gap:12px !important;flex-wrap:nowrap !important}header.x-tophead{padding-left:16px !important;padding-right:16px !important}}.x-topnav>*{white-space:nowrap;flex-shrink:0}@media (max-width:560px){header.x-tophead{gap:10px !important}.x-topnav{gap:8px !important}}@media (max-width:430px){.x-hide-xxs{display:none !important}}.x-show-xs{display:none !important}@media (max-width:560px){.x-show-xs{display:inline-flex !important}.x-hero-col{gap:18px !important}#x-h1{font-size:46px !important}}@media (max-width:900px){.x-hide-sm{display:none !important}}.x-hide-md{display:none !important}@media (max-width:1180px){.x-hide-lg{display:none !important}}.x-topnav{flex-wrap:nowrap !important}@media (hover:none),(pointer:coarse){.x-kbd{display:none !important}}
-@media (prefers-reduced-motion:reduce){.x-eeg,.x-fire,.x-flow,.x-halo,.x-stars,.x-aur-a,.x-aur-b,.x-grid,.x-spin,.x-spin-r,.x-spin-f,.x-core,.x-synapse,.x-caret,.x-live,.x-wa,.x-wb,.x-line,.x-rise,.x-scan,.x-marq{animation:none !important}.x-word{animation:none !important;opacity:1}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--space);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--space);color:var(--ink);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}a:hover{color:var(--mint)}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+::selection{background:var(--mint);color:var(--space)}
+/* Entrada del hero con CSS desde la primera pintura (.mi lo pone el script del <head>): no espera a GSAP, así el texto (LCP) se pinta de inmediato.
+   fill «backwards»: al terminar no pisa los transform/opacity que luego pone GSAP (palabra rotativa, botones magnéticos). */
+.m .orb{opacity:0}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes wup{from{transform:translateY(115%)}to{transform:none}}
+.mi .badge{animation:rise .6s var(--ease) backwards}
+.mi #x-h1 .wi{animation:wup 1.1s cubic-bezier(.16,1,.3,1) backwards;animation-delay:calc(.05s + var(--i) * .07s)}
+.mi .rot>span{animation:rise 1s .3s var(--ease) backwards,hue 6s ease-in-out infinite alternate}
+.mi .dock a{animation:rise .55s .5s var(--ease) backwards}.mi .dock a:nth-child(2){animation-delay:.57s}.mi .dock a:nth-child(3){animation-delay:.64s}.mi .dock a:nth-child(4){animation-delay:.71s}
+.mi .hero-p{animation:rise .9s .4s var(--ease) backwards}
+.mi .hero .ctas .btn{animation:rise .7s .5s var(--ease) backwards}.mi .hero .ctas .btn+.btn{animation-delay:.58s}
+.mono{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.page{overflow-x:clip}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .12em .1em 0;margin:0 -.12em -.1em 0}.wi{display:inline-block;will-change:transform}
 
+/* encabezado */
+.top{position:relative;z-index:6;max-width:1280px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{text-decoration:none;display:inline-flex;align-items:center;gap:12px;min-height:44px}
+.brand span{font-weight:700;font-size:22px;letter-spacing:-.04em}
+.nav{display:flex;align-items:center;gap:28px;flex-wrap:nowrap}
+.nav>*{white-space:nowrap;flex-shrink:0}
+.nav a.l{text-decoration:none;font-size:12.5px;color:var(--sub);min-height:44px;display:inline-flex;align-items:center}
+.nav a.l:hover{color:var(--ink)}
+.nav a.l.mk{color:var(--coral)}.nav a.l.cs{color:var(--mint)}
+.nav a.lang{text-decoration:none;font-weight:600;font-size:14px;color:var(--ink);min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;border:1px solid rgba(233,238,242,.28);border-radius:999px}
+.pill{text-decoration:none;font-weight:600;font-size:15px;padding:0 18px;border-radius:999px;border:1px solid var(--line3);min-height:44px;display:inline-flex;align-items:center;color:var(--ink);background:none;transition:box-shadow .2s,background .2s}
+.pill:hover{box-shadow:0 0 0 1px var(--mint),0 12px 40px -8px rgba(143,224,180,.55);color:var(--ink)}
+details.dd{position:relative}
+details.dd summary{list-style:none;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--ink);padding:0 14px;border:1px solid rgba(233,238,242,.28);border-radius:999px}
+details.dd summary::-webkit-details-marker{display:none}
+details.dd [role=menu]{position:absolute;right:0;top:calc(100% + 8px);min-width:230px;background:var(--panel);border:1px solid rgba(233,238,242,.18);border-radius:14px;padding:8px;z-index:20;box-shadow:0 12px 40px rgba(0,0,0,.45)}
+details.dd [role=menu] a{display:flex;min-height:44px;align-items:center;padding:0 12px;color:var(--ink);text-decoration:none;border-radius:10px;font-size:15px;white-space:nowrap}
+details.dd [role=menu] a:hover,details.dd [role=menu] a:focus-visible{background:rgba(143,224,180,.12)}
+.hide-md{display:none!important}
+@media(max-width:1180px){.hide-lg{display:none!important}}
+@media(max-width:900px){.hide-sm{display:none!important}}
+@media(max-width:560px){.hide-xs{display:none!important}.top{padding:16px;gap:10px}.nav{gap:8px}details.dd [role=menu]{position:fixed;left:16px;right:16px;top:76px;min-width:0}}
+@media(max-width:430px){.hide-xxs{display:none!important}}
+
+/* ambiente */
+.stars{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.75;background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 140px 80px,rgba(255,255,255,.7),transparent),radial-gradient(1.5px 1.5px at 90px 160px,rgba(143,224,180,.8),transparent);background-size:220px 220px,300px 300px,420px 420px;animation:drift 90s linear infinite}
+@keyframes drift{to{background-position:0 -600px,0 -400px,0 -260px}}
+.aur{position:absolute;z-index:0;pointer-events:none;border-radius:50%;filter:blur(80px);opacity:.55}
+.floor{position:absolute;left:-20%;right:-20%;bottom:-2px;height:46%;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(143,224,180,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(143,224,180,.22) 1px,transparent 1px);background-size:64px 64px;transform:perspective(520px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%);animation:floor 6s linear infinite}
+@keyframes floor{to{background-position:0 64px}}
+canvas.fx{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+
+/* hero */
+.hero{position:relative;padding:24px 28px 150px}
+.hero-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:48px}
+.hero-txt{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:26px}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;font-size:12px;color:var(--mint);border:1px solid rgba(143,224,180,.35);background:rgba(143,224,180,.06);padding:8px 14px;border-radius:999px}
+.live{width:8px;height:8px;border-radius:50%;background:var(--mint);animation:live 1.6s infinite;flex-shrink:0}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(143,224,180,.6)}100%{box-shadow:0 0 0 9px rgba(143,224,180,0)}}
+h1{margin:0;font-weight:700;font-size:clamp(52px,6.6vw,96px);line-height:.92;letter-spacing:-.06em}
+.rot{display:inline-grid;vertical-align:top;padding-bottom:.08em}
+/* El texto con degradado se pinta solo dentro de su caja; con letter-spacing negativo la última letra se salía (T36). */
+.rot>span{grid-area:1/1;white-space:nowrap;background:linear-gradient(92deg,#8FE0B4,#F3B38F 50%,#8FE0B4);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.14em;margin-right:-.1em;animation:hue 6s ease-in-out infinite alternate}
+@keyframes hue{to{background-position:100% 0}}
+.hero-p{margin:0;font-size:21px;line-height:1.5;color:var(--ink2);max-width:34em;font-weight:300}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{position:relative;text-decoration:none;font-weight:600;font-size:16px;padding:0 24px;border-radius:999px;min-height:52px;display:inline-flex;align-items:center;gap:10px;transition:box-shadow .2s,background .2s;will-change:transform}
+.btn:hover{box-shadow:0 0 0 1px var(--mint),0 12px 40px -8px rgba(143,224,180,.55)}
+.btn.solid{background:var(--ink);color:var(--space)}.btn.solid:hover{color:var(--space)}
+.btn.mint{background:var(--mint);color:var(--space)}.btn.mint:hover{color:var(--space)}
+.btn.ghost{color:var(--ink);border:1px solid var(--line3)}
+.btn svg{pointer-events:none}
+.x-kbd{font-family:var(--mono);font-size:12px;border:1px solid rgba(233,238,242,.3);border-radius:6px;padding:2px 6px;pointer-events:none}
+.show-xs{display:none!important}
+@media(max-width:560px){.show-xs{display:inline-flex!important}.hide-xs-cta{display:none!important}}
+@media (hover:none),(pointer:coarse){.x-kbd{display:none !important}}
+
+/* dock de productos (celular, primera pantalla) */
+.dock{display:none;grid-template-columns:1fr 1fr;gap:8px}
+.dock a{display:flex;align-items:center;gap:8px;min-height:44px;padding:7px 12px;border:1px solid var(--line2);border-radius:14px;background:rgba(255,255,255,.03);text-decoration:none;font-weight:600;font-size:14px;letter-spacing:-.01em;color:var(--ink)}
+.dock a i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c);flex:none}
+.dock a small{display:block;font:400 10px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-top:2px}
+
+/* órbita */
+.orb-col{flex:1 1 440px;min-width:0;display:flex;justify-content:center;position:relative}
+.orb{position:relative;width:min(480px,100%);aspect-ratio:1}
+.orb svg.coreart{position:absolute;inset:6%;width:88%;height:88%;overflow:visible}
+.spin{transform-origin:210px 210px;animation:spin 28s linear infinite}
+.spin-r{transform-origin:210px 210px;animation:spin 40s linear infinite reverse}
+.spin-f{transform-origin:210px 210px;animation:spin 12s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.corepulse{transform-origin:210px 210px;animation:cpulse 3.2s ease-in-out infinite}
+@keyframes cpulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.fire{animation:fire 1.6s ease-in-out infinite}
+@keyframes fire{0%,100%{opacity:.35;r:6}50%{opacity:1;r:9}}
+.syn{stroke-dasharray:6 14;animation:dash 3s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-200}}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(233,238,242,.14)}
+.planets{position:absolute;inset:0;z-index:2}
+.planet{position:absolute;left:50%;top:50%;width:0;height:0}
+.planet a{position:absolute;left:0;top:0;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:var(--ink);min-width:44px;min-height:44px;outline-offset:6px}
+.planet .ball{position:relative;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--c) 45%,color-mix(in srgb,var(--c) 40%,#04060A));box-shadow:0 0 18px 2px color-mix(in srgb,var(--c) 60%,transparent)}
+.planet .ball::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid var(--c);opacity:.5;animation:halo 2.4s ease-out infinite}
+@keyframes halo{0%{transform:scale(.7);opacity:.7}100%{transform:scale(2.2);opacity:0}}
+.planet .tag{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 11px;border-radius:12px;background:rgba(4,6,10,.85);border:1px solid var(--line2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s,background .25s}
+.planet .tag b{font-size:15px;letter-spacing:-.02em;font-weight:700;white-space:nowrap}
+.planet .tag small{font:400 9.5px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c);white-space:nowrap}
+.planet a:hover .tag,.planet a:focus-visible .tag{border-color:var(--c);background:rgba(4,6,10,.92)}
+.planet a:hover{color:var(--ink)}
+.float{position:absolute;opacity:.92;font-size:11px;color:var(--sub);background:rgba(4,6,10,.75);border:1px solid var(--line2);border-radius:12px;padding:10px 12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;flex-direction:column;gap:4px;z-index:1}
+.float b{font-weight:400;color:var(--ink);font-size:13px;letter-spacing:.02em;text-transform:none;font-family:var(--sans)}
+.clock{position:absolute;bottom:-6%;left:0;right:0;text-align:center;font-size:11px;color:var(--sub)}
+@media(max-width:560px){.hero{padding:12px 16px 90px}.hero-txt{gap:16px}h1{font-size:44px}.hero-p{font-size:17.5px}.dock{display:grid}.orb{width:100%}.planet .tag b{font-size:13px}.planet .tag{padding:5px 8px}.float{display:none}.badge{font-size:11px;padding:7px 12px}}
+
+/* EEG + marquesina */
+.eegband{position:relative;z-index:2;background:var(--space);padding:0 0 10px}
+.eegband .in{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:18px}
+.eegband .k{font-size:11px;color:var(--mint);white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.eegband .v{font-size:11px;color:var(--sub);white-space:nowrap;font-variant-numeric:tabular-nums}
+.mwrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.eeg{display:flex;width:max-content}
+.capband{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;background:var(--space3)}
+.marq{display:flex;gap:56px;width:max-content;font-size:13px;color:var(--sub)}
+.marq span{display:inline-flex;align-items:center;gap:14px;white-space:nowrap}
+.marq span i{font-style:normal;color:var(--mint)}
+.marq span:nth-child(3n) i{color:var(--peach)}
+
+/* secciones */
+.k-mono{margin:0;font-size:12px;color:var(--mint)}
+h2{margin:0;font-size:clamp(38px,5vw,68px);line-height:.98;letter-spacing:-.05em;font-weight:700}
+.s-p{margin:0;color:var(--sub);font-size:18px;line-height:1.5;font-weight:300}
+.man{max-width:1120px;margin:0 auto;padding:150px 28px}
+.man p.big{margin:28px 0 0;font-size:clamp(32px,4.6vw,60px);line-height:1.12;letter-spacing:-.035em;font-weight:500}
+.man .mw.hl{color:var(--mint)}.man .mw.hl2{color:var(--peach)}
+
+.sis{max-width:1280px;margin:0 auto;padding:40px 28px 140px}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.sh>div{display:flex;flex-direction:column;gap:16px;max-width:720px}
+.sh>p{max-width:26em;font-size:17px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:20px}
+.card{text-decoration:none;color:var(--ink);position:relative;overflow:hidden;border:1px solid var(--line2);border-radius:28px;padding:32px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));display:flex;flex-direction:column;gap:22px;min-height:420px;transition:border-color .3s,background .3s;--mx:50%;--my:0%}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx) var(--my),color-mix(in srgb,var(--c) 18%,transparent),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none}
+.card:hover{border-color:color-mix(in srgb,var(--c) 55%,transparent);color:var(--ink)}
+.card:hover::before{opacity:1}
+.scan{position:absolute;left:0;right:0;top:0;height:100%;background:linear-gradient(to bottom,transparent,color-mix(in srgb,var(--c) 8%,transparent) 48%,color-mix(in srgb,var(--c) 25%,transparent) 50%,transparent 52%);animation:scan 4.5s linear infinite;pointer-events:none}
+@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+.card>*{position:relative}
+.card .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.card .code{font-size:12px;color:var(--sub)}
+.card .st{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;color:var(--c);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);padding:6px 10px;border-radius:999px}
+.card .st i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+.card h3{margin:0 0 12px;font-size:clamp(34px,3.6vw,48px);letter-spacing:-.045em;font-weight:700;line-height:1}
+.card .d{margin:0;font-size:18px;color:var(--ink2);line-height:1.5;font-weight:300}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:auto}
+.stats div{border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(4,6,10,.5);display:flex;flex-direction:column;gap:6px;min-width:0}
+.stats b{font-size:clamp(18px,2vw,24px);font-weight:700;letter-spacing:-.03em;color:var(--c);overflow-wrap:anywhere}
+.stats>div>span{font-size:10.5px;color:var(--sub)}
+.card .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
+.card .go svg{transition:transform .25s var(--ease)}.card:hover .go svg{transform:translateX(5px)}
+
+.red{position:relative;padding:140px 28px;border-top:1px solid var(--line);background:radial-gradient(800px 420px at 50% 40%,rgba(143,224,180,.07),transparent),var(--space);overflow:hidden}
+.red .in{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.red .s-p{font-size:19px}
+.sigs{display:flex;gap:8px;flex-wrap:wrap}
+.sig{font:inherit;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;min-height:44px;color:var(--ink);border:1px solid rgba(233,238,242,.18);background:transparent;transition:border-color .25s,background .25s}
+.sig i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.sig[aria-pressed=true]{border-color:var(--c);background:rgba(255,255,255,.06)}
+.netbox{border:1px solid var(--line2);border-radius:28px;background:rgba(8,12,18,.7);padding:24px;overflow-x:auto}
+.netbox svg{min-width:640px;display:block;width:100%}
+.net line{transition:stroke .4s}
+.net .flow{stroke-dasharray:4 8;animation:nflow 1.1s linear infinite}
+@keyframes nflow{to{stroke-dashoffset:-60}}
+.net .h{transform-box:fill-box;transform-origin:center;animation:nhalo 1.8s ease-out infinite}
+@keyframes nhalo{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(2.6)}}
+.trace{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.trace div{border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.02)}
+.trace span:first-child{font-size:10.5px}
+.trace span:last-child{font-size:15.5px;color:var(--ink);line-height:1.4}
+.note{margin:0;font-size:11px;color:var(--faint)}
+
+.con{position:relative;padding:140px 28px;background:radial-gradient(900px 500px at 50% 0%,rgba(243,179,143,.08),transparent),var(--space2);border-top:1px solid var(--line)}
+.con .in{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+.con .s-p{font-size:19px}
+.term{border:1px solid rgba(233,238,242,.14);border-radius:24px;background:rgba(10,14,20,.85);box-shadow:0 40px 120px -40px rgba(143,224,180,.25);overflow:hidden}
+.term .bar{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.term .q{flex:1;font-size:17px;min-width:0}
+.caret{color:var(--mint);animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.term .k{font-size:11px;color:var(--sub);border:1px solid rgba(233,238,242,.15);border-radius:6px;padding:3px 7px}
+.term .body{display:flex;flex-wrap:wrap}
+.cmds{flex:1 1 340px;min-width:0;padding:10px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.cmd{font:inherit;cursor:pointer;color:var(--ink);display:flex;align-items:center;gap:14px;width:100%;padding:12px 14px;border-radius:14px;min-height:60px;border:1px solid transparent;background:transparent;transition:background .2s,border-color .2s;text-align:left}
+.cmd:hover{background:rgba(255,255,255,.06)}
+.cmd[aria-selected=true]{border-color:rgba(143,224,180,.4);background:rgba(143,224,180,.08)}
+.cmd .ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;background:var(--ib);color:var(--ic)}
+.cmd .t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.cmd .t b{font-size:15.5px;font-weight:500}.cmd .t small{font-size:10.5px;color:var(--sub)}
+.cmd .sc{font-size:11px;color:var(--sub)}
+.log{flex:999 1 420px;min-width:0;padding:22px 24px;font-family:var(--mono);font-size:14px;line-height:1.75;min-height:300px;display:flex;flex-direction:column;gap:4px}
+.log .ln{overflow-wrap:anywhere}
+.log .run{color:var(--sub)}
+.log .foot{margin-top:auto;padding-top:18px;color:var(--faint);font-size:11.5px}
+
+.pri{max-width:1280px;margin:0 auto;padding:140px 28px}
+.pri h2{margin:16px 0 56px;max-width:16ch}
+.prin{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:rgba(233,238,242,.1);border:1px solid rgba(233,238,242,.1);border-radius:24px;overflow:hidden}
+.prin>div{background:var(--space);padding:34px 30px;display:flex;flex-direction:column;gap:18px;min-height:280px;transition:background .3s}
+.prin>div:hover{background:#070A10}
+.prin .n{font-size:12px;color:var(--sub)}
+.prin h3{margin:0;font-size:28px;letter-spacing:-.035em;font-weight:600}
+.prin p{margin:0;color:var(--sub);font-size:16.5px;line-height:1.55;font-weight:300}
+
+.lab{position:relative;padding:140px 28px;border-top:1px solid var(--line);background:var(--space2);overflow:hidden}
+.lab .stars{opacity:.35}
+.lab .in{position:relative;max-width:1280px;margin:0 auto}
+.lab h2{margin:16px 0 18px}.lab .s-p{margin:0 0 60px;max-width:34em}
+.road{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:28px}
+.road .rail{position:absolute;left:0;right:0;top:13px;height:1px;background:linear-gradient(90deg,#8FE0B4,rgba(243,179,143,.6),rgba(233,238,242,.1));transform-origin:left}
+.road>div:not(.rail){position:relative;display:flex;flex-direction:column;gap:14px}
+.dot{width:27px;height:27px;border-radius:50%;border:1px solid var(--c);background:var(--space2);display:flex;align-items:center;justify-content:center}
+.dot i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.road .st{font-size:11.5px;color:var(--c)}
+.road h3{margin:0;font-size:22px;letter-spacing:-.03em;font-weight:600}
+.road p{margin:0;color:var(--sub);font-size:15.5px;line-height:1.55;font-weight:300}
+@media(max-width:900px){.road .rail{display:none}}
+
+.fin{position:relative;padding:170px 28px 150px;text-align:center;overflow:hidden}
+.fin .in{position:relative;z-index:2;max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:26px}
+.fin h2{font-size:clamp(44px,7vw,96px);line-height:.94;letter-spacing:-.06em}
+.fin p:not(.k-mono){margin:0;font-size:20px;color:var(--ink2);max-width:32em;font-weight:300;line-height:1.5}
+.fin .btn{font-size:17px;min-height:56px;padding:0 28px}
+.fin .ctas{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:28px;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer .c{font-size:11.5px;color:var(--sub)}
+footer nav{display:flex;gap:4px 22px;flex-wrap:wrap;font-size:14px}
+footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:560px){.man,.sis,.red,.con,.pri,.lab{padding-left:16px;padding-right:16px}.man{padding-top:100px;padding-bottom:100px}.red,.con,.pri,.lab{padding-top:100px;padding-bottom:100px}.card{padding:24px;border-radius:22px;min-height:0}.eegband .in{padding:0 16px}footer{padding:28px 16px 60px}.fin{padding:120px 16px 110px}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <style>.x-skip{position:absolute;left:-9999px;top:8px;z-index:60;background:#E9EEF2;color:#04060A;font:600 15px/1 system-ui,sans-serif;padding:10px 14px;border-radius:10px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}.x-skip:focus{left:12px}</style>
 <a class="x-skip" href="#inicio">Saltar al contenido</a>
-<div id="dc-a">
-<div style="background: #04060A; color: #E9EEF2; font-family: 'Geist', system-ui, sans-serif; min-height: 100%; overflow: hidden">
+<div class="page">
 
-<header class="x-tophead" style="position: relative; z-index: 5; max-width: 1280px; margin: 0 auto; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px">
-<a href="#inicio" aria-label="Neuri, inicio" style="text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px">
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"></circle><circle cx="15" cy="15" r="5" fill="#8FE0B4"></circle><circle cx="26" cy="9" r="2" fill="#E9EEF2"></circle></svg>
-<span style="font-weight: 700; font-size: 22px; letter-spacing: -0.04em">neuri</span>
-</a>
-<nav class="x-topnav" aria-label="Principal" style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap">
-<a class="x-hide-sm x-mono" href="#sistemas" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Sistemas</a>
-<a class="x-hide-sm x-hide-lg x-mono" href="#red" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Red neural</a>
-<a class="x-hide-sm x-hide-md x-mono" href="#consola" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consola</a>
-<a class="x-hide-sm x-hide-lg x-mono" href="#principios" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Principios</a>
-<a class="x-hide-sm x-hide-md x-mono" href="#laboratorio" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Laboratorio</a>
-<a class="x-mono x-hide-sm" href="/marketing/" style="text-decoration: none; font-size: 12.5px; color: #FF8A7A; min-height: 44px; display: inline-flex; align-items: center">Marketing</a>
-<a class="x-mono x-hide-xxs" href="/consultoria/" style="text-decoration: none; font-size: 12.5px; color: #8FE0B4; min-height: 44px; display: inline-flex; align-items: center">Consultoría IA</a>
-<a class="x-btn x-hide-xs" href="mailto:hola@neuri.tech" style="text-decoration: none; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Hablar con Neuri</a>
-<details data-idioma class="x-entrar" lang="en" style="position: relative"><summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px" aria-label="EN — English">EN <span aria-hidden="true">▾</span></summary>
-<div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">
-<a role="menuitem" hreflang="en" href="/en/home/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">Neuri — home (English)</a>
-<a role="menuitem" hreflang="en" href="/en/still-available/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bots — Instagram &amp; Messenger replies</a>
-<a role="menuitem" hreflang="en" href="/en/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bazar — POS for vendor malls</a>
-<a role="menuitem" hreflang="en" href="/en/ai-consulting/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.consulting — AI consulting</a>
-<a role="menuitem" hreflang="en" href="/en/marketing/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">Neuri Marketing</a>
-</div>
-</details>
-<details data-entrar class="x-entrar" style="position: relative"><style>.x-entrar summary::-webkit-details-marker{display:none}.x-entrar [role=menu] a:hover,.x-entrar [role=menu] a:focus-visible{background:rgba(143,224,180,.12)}@media (max-width:560px){.x-entrar [role=menu]{position:fixed!important;left:16px;right:16px!important;top:76px!important;min-width:0!important}}</style>
-<summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px">Entrar <span aria-hidden="true">▾</span></summary>
-<div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">
-<a role="menuitem" href="https://bazar.neuri.tech/login?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bazar</a>
-<a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.consulting</a>
-<a role="menuitem" href="https://sd.neuri.tech/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bots</a>
-<a role="menuitem" href="https://marketing.neuri.tech/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">Neuri Marketing</a>
-</div>
-</details>
-</nav>
+<header class="top">
+  <a class="brand" href="#inicio" aria-label="Neuri, inicio">
+    <svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"/><circle cx="15" cy="15" r="5" fill="#8FE0B4"/><g class="moon"><circle cx="26" cy="9" r="2" fill="#E9EEF2"/></g></svg>
+    <span>neuri</span>
+  </a>
+  <nav class="nav x-topnav" aria-label="Principal">
+    <a class="l mono hide-sm" href="#sistemas">Sistemas</a>
+    <a class="l mono hide-sm hide-lg" href="#red">Red neural</a>
+    <a class="l mono hide-md" href="#consola">Consola</a>
+    <a class="l mono hide-sm hide-lg" href="#principios">Principios</a>
+    <a class="l mono hide-md" href="#laboratorio">Laboratorio</a>
+    <a class="l mono mk hide-sm" href="/marketing/">Marketing</a>
+    <a class="l mono cs hide-xxs" href="/consultoria/">Consultoría IA</a>
+    <a class="pill hide-xs mag" href="mailto:hola@neuri.tech">Hablar con Neuri</a>
+    <details data-idioma class="dd" lang="en"><summary aria-label="EN — English">EN <span aria-hidden="true">▾</span></summary>
+      <div role="menu">
+        <a role="menuitem" hreflang="en" href="/en/home/">Neuri — home (English)</a>
+        <a role="menuitem" hreflang="en" href="/en/still-available/">neuri.bots — Instagram &amp; Messenger replies</a>
+        <a role="menuitem" hreflang="en" href="/en/">neuri.bazar — POS for vendor malls</a>
+        <a role="menuitem" hreflang="en" href="/en/ai-consulting/">neuri.consulting — AI consulting</a>
+        <a role="menuitem" hreflang="en" href="/en/marketing/">Neuri Marketing</a>
+      </div>
+    </details>
+    <details data-entrar class="dd"><summary>Entrar <span aria-hidden="true">▾</span></summary>
+      <div role="menu">
+        <a role="menuitem" href="https://bazar.neuri.tech/login?lang=es">neuri.bazar</a>
+        <a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=es">neuri.consulting</a>
+        <a role="menuitem" href="https://sd.neuri.tech/entrar?lang=es">neuri.bots</a>
+        <a role="menuitem" href="https://marketing.neuri.tech/entrar?lang=es">Neuri Marketing</a>
+      </div>
+    </details>
+  </nav>
 </header>
 
-<section id="inicio" aria-labelledby="x-h1" style="position: relative; padding: 40px 28px 150px">
-<div class="x-stars" aria-hidden="true"></div>
-<div class="x-aurora x-aur-a" aria-hidden="true" style="width: 620px; height: 620px; top: -140px; right: -120px; background: radial-gradient(closest-side, rgba(143,224,180,.55), rgba(56,189,248,.18), transparent)"></div>
-<div class="x-aurora x-aur-b" aria-hidden="true" style="width: 520px; height: 520px; top: 260px; left: -220px; background: radial-gradient(closest-side, rgba(243,179,143,.30), transparent)"></div>
-<div class="x-grid" aria-hidden="true"></div>
-<div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
-<div class="x-hero-col" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 26px">
-<span class="x-mono x-rise" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; color: #8FE0B4; border: 1px solid rgba(143,224,180,.35); background: rgba(143,224,180,.06); padding: 8px 14px; border-radius: 999px"><span class="x-live"></span>Agentes de IA para negocios pequeños · En español e inglés</span>
-<h1 id="x-h1" class="x-rise x-r2" style="margin: 0; font-weight: 700; font-size: clamp(52px, 8vw, 112px); line-height: 0.92; letter-spacing: -0.06em">Software que <span class="x-wa" style="background: linear-gradient(92deg, #8FE0B4, #67E8F9 55%, #F3B38F); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .08em">contesta</span><br>mientras tú vives.</h1>
-<p class="x-rise x-r3" style="margin: 0; font-size: 21px; line-height: 1.5; color: #B7C2CC; max-width: 34em; font-weight: 300">Neuri hace agentes de inteligencia artificial para negocios pequeños. Contestan a tus compradores a medianoche, llevan la caja y cobran la renta de cada puesto, siempre con tus precios y tus reglas. Lo que no tienen claro, te lo pasan a ti.</p>
-<div class="x-rise x-r4" style="display: flex; gap: 12px; flex-wrap: wrap">
-<a class="x-btn" href="#sistemas" style="text-decoration: none; background: #E9EEF2; color: #04060A; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px">Ver los productos<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a class="x-btn" href="#consola" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px"><span class="x-mono x-kbd" style="font-size: 12px; border: 1px solid rgba(233,238,242,.3); border-radius: 6px; padding: 2px 6px">⌘K</span>Probar la demo</a>
-<a class="x-show-xs" data-hero-contacto href="mailto:hola@neuri.tech" style="color: #B7C2CC; font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; min-height: 44px; align-items: center">Hablar con Neuri · hola@neuri.tech</a>
-</div>
-</div>
+<main>
+<section id="inicio" class="hero" aria-labelledby="x-h1">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="aur a1" aria-hidden="true" style="width:620px;height:620px;top:-140px;right:-120px;background:radial-gradient(closest-side,rgba(143,224,180,.55),rgba(143,224,180,.14),transparent)"></div>
+  <div class="aur a2" aria-hidden="true" style="width:520px;height:520px;top:260px;left:-220px;background:radial-gradient(closest-side,rgba(243,179,143,.30),transparent)"></div>
+  <div class="floor" aria-hidden="true"></div>
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <div class="hero-txt">
+      <span class="badge mono"><span class="live"></span>Agentes de IA para negocios pequeños · En español e inglés</span>
+      <h1 id="x-h1"><span class="sp"><span class="w"><span class="wi" style="--i:0">Software</span></span> <span class="w"><span class="wi" style="--i:1">que</span></span></span> <span class="rot"><span class="rw x-wa">contesta</span></span><br><span class="sp"><span class="w"><span class="wi" style="--i:2">mientras</span></span> <span class="w"><span class="wi" style="--i:3">tú</span></span> <span class="w"><span class="wi" style="--i:4">vives.</span></span></span></h1>
+      <nav class="dock" aria-label="Productos de Neuri">
+        <a href="/sigue-disponible/" style="--c:#8FE0B4"><i aria-hidden="true"></i><span>neuri.bots<small>Alta abierta</small></span></a>
+        <a href="/bazar/" style="--c:#F3B38F"><i aria-hidden="true"></i><span>neuri.bazar<small>En operación</small></span></a>
+        <a href="/consultoria/" style="--c:#B5ECCD"><i aria-hidden="true"></i><span>neuri.consulting<small>Abierto</small></span></a>
+        <a href="/marketing/" style="--c:#FF8A7A"><i aria-hidden="true"></i><span>Neuri Marketing<small>Lista de espera</small></span></a>
+      </nav>
+      <p class="hero-p">Neuri hace agentes de inteligencia artificial para negocios pequeños. Contestan a tus compradores a medianoche, llevan la caja y cobran la renta de cada puesto, siempre con tus precios y tus reglas. Lo que no tienen claro, te lo pasan a ti.</p>
+      <div class="ctas">
+        <a class="btn solid mag" href="#sistemas">Ver los productos<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost mag hide-xs-cta" href="#consola"><span class="x-kbd">⌘K</span>Probar la demo</a>
+        <a class="btn ghost show-xs" href="mailto:hola@neuri.tech" data-hero-contacto>Hablar con Neuri</a>
+      </div>
+    </div>
 
-<div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; position: relative">
-<div style="position: relative; width: 420px; max-width: 100%; aspect-ratio: 1">
-<svg viewBox="0 0 420 420" width="100%" height="100%" role="img" aria-label="Núcleo de Neuri: una red de neuronas que se encienden alrededor de un centro brillante, con anillos de agentes girando">
-<defs>
-<radialGradient id="xg-core" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E9FFF4"></stop><stop offset="35%" stop-color="#8FE0B4"></stop><stop offset="100%" stop-color="#8FE0B4" stop-opacity="0"></stop></radialGradient>
-<linearGradient id="xg-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8FE0B4"></stop><stop offset="100%" stop-color="#F3B38F" stop-opacity=".3"></stop></linearGradient>
-</defs>
-<circle cx="210" cy="210" r="200" fill="none" stroke="rgba(233,238,242,.08)"></circle>
-<g class="x-spin-r"><circle cx="210" cy="210" r="182" fill="none" stroke="url(#xg-ring)" stroke-width="1" stroke-dasharray="2 10"></circle><circle cx="392" cy="210" r="5" fill="#F3B38F"></circle><circle cx="28" cy="210" r="3" fill="#E9EEF2"></circle></g>
-<g class="x-spin"><circle cx="210" cy="210" r="140" fill="none" stroke="rgba(143,224,180,.45)" stroke-width="1"></circle><circle cx="210" cy="70" r="6" fill="#8FE0B4"></circle><circle cx="350" cy="210" r="3.5" fill="#67E8F9"></circle><circle cx="111" cy="309" r="4" fill="#E9EEF2"></circle></g>
-<g class="x-spin-f"><circle cx="210" cy="210" r="96" fill="none" stroke="rgba(103,232,249,.35)" stroke-width="1" stroke-dasharray="40 18"></circle><circle cx="306" cy="210" r="3" fill="#67E8F9"></circle></g>
-<path d="M120 120 L170 160 L210 130 L255 165 L300 120 M140 300 L180 255 L230 290 L275 250 L310 300 M95 210 L150 190 L170 160 M325 205 L275 250 M150 190 L180 255 M255 165 L300 210 L275 250 M210 130 L210 175 M230 290 L210 245" stroke="rgba(103,232,249,.28)" stroke-width="1" fill="none"></path>
-<g fill="#67E8F9"><circle class="x-fire" cx="120" cy="120" r="6" style="animation-delay:.1s"></circle><circle class="x-fire" cx="300" cy="120" r="6" style="animation-delay:.7s"></circle><circle class="x-fire" cx="140" cy="300" r="6" style="animation-delay:1.1s"></circle><circle class="x-fire" cx="310" cy="300" r="6" style="animation-delay:.4s"></circle><circle class="x-fire" cx="95" cy="210" r="6" style="animation-delay:1.4s"></circle><circle class="x-fire" cx="325" cy="205" r="6" style="animation-delay:.9s"></circle></g>
-<g fill="#E9EEF2" opacity=".7"><circle cx="170" cy="160" r="2.5"></circle><circle cx="255" cy="165" r="2.5"></circle><circle cx="180" cy="255" r="2.5"></circle><circle cx="275" cy="250" r="2.5"></circle><circle cx="150" cy="190" r="2.5"></circle><circle cx="230" cy="290" r="2.5"></circle></g>
-<path class="x-synapse" d="M210 210 L210 70 M210 210 L350 210 M210 210 L111 309 M210 210 L392 210" stroke="rgba(143,224,180,.5)" stroke-width="1" fill="none"></path>
-<circle class="x-core" cx="210" cy="210" r="64" fill="url(#xg-core)"></circle>
-<circle cx="210" cy="210" r="14" fill="#04060A" stroke="#E9FFF4" stroke-width="2"></circle>
-</svg>
-<div class="x-mono" style="position: absolute; top: 6%; left: -6%; font-size: 11px; color: #9AA6B2; background: rgba(4,6,10,.75); border: 1px solid rgba(233,238,242,.12); border-radius: 12px; padding: 10px 12px; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 4px">
-<span style="color: #8FE0B4">● Agente · mensajes</span><span style="color: #E9EEF2; font-size: 13px; letter-spacing: .02em; text-transform: none">Responde en segundos</span>
-</div>
-<div class="x-mono" style="position: absolute; bottom: 10%; right: -6%; font-size: 11px; color: #9AA6B2; background: rgba(4,6,10,.75); border: 1px solid rgba(233,238,242,.12); border-radius: 12px; padding: 10px 12px; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 4px">
-<span style="color: #F3B38F">● Agente · caja</span><span style="color: #E9EEF2; font-size: 13px; letter-spacing: .02em; text-transform: none">Cuadra el día solo</span>
-</div>
-<div class="x-mono" style="position: absolute; bottom: -2%; left: 4%; font-size: 11px; color: #9AA6B2">PHX --:--:-- · Demo con datos de ejemplo</div>
-</div>
-</div>
-</div>
+    <div class="orb-col">
+      <div class="orb">
+        <div class="ring" aria-hidden="true"></div>
+        <svg class="coreart" viewBox="0 0 420 420" role="img" aria-label="Núcleo de Neuri: una red de neuronas que se encienden alrededor de un centro brillante, con sus cuatro productos en órbita">
+          <defs>
+            <radialGradient id="g-core" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E9FFF4"/><stop offset="35%" stop-color="#8FE0B4"/><stop offset="100%" stop-color="#8FE0B4" stop-opacity="0"/></radialGradient>
+            <linearGradient id="g-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8FE0B4"/><stop offset="100%" stop-color="#F3B38F" stop-opacity=".3"/></linearGradient>
+          </defs>
+          <g class="paral">
+          <circle cx="210" cy="210" r="200" fill="none" stroke="rgba(233,238,242,.08)"/>
+          <g class="spin-r"><circle class="draw" cx="210" cy="210" r="182" fill="none" stroke="url(#g-ring)" stroke-width="1" stroke-dasharray="2 10"/><circle cx="392" cy="210" r="5" fill="#F3B38F"/><circle cx="28" cy="210" r="3" fill="#E9EEF2"/></g>
+          <g class="spin"><circle class="draw" cx="210" cy="210" r="140" fill="none" stroke="rgba(143,224,180,.45)" stroke-width="1"/><circle cx="210" cy="70" r="6" fill="#8FE0B4"/><circle cx="350" cy="210" r="3.5" fill="#F3B38F"/><circle cx="111" cy="309" r="4" fill="#E9EEF2"/></g>
+          <g class="spin-f"><circle class="draw" cx="210" cy="210" r="96" fill="none" stroke="rgba(243,179,143,.35)" stroke-width="1" stroke-dasharray="40 18"/><circle cx="306" cy="210" r="3" fill="#F3B38F"/></g>
+          <path class="mesh" d="M120 120 L170 160 L210 130 L255 165 L300 120 M140 300 L180 255 L230 290 L275 250 L310 300 M95 210 L150 190 L170 160 M325 205 L275 250 M150 190 L180 255 M255 165 L300 210 L275 250 M210 130 L210 175 M230 290 L210 245" stroke="rgba(143,224,180,.28)" stroke-width="1" fill="none"/>
+          <g class="neur"><circle class="fire" cx="120" cy="120" r="6" fill="#8FE0B4" style="animation-delay:.1s"/><circle class="fire" cx="300" cy="120" r="6" fill="#F3B38F" style="animation-delay:.7s"/><circle class="fire" cx="140" cy="300" r="6" fill="#F3B38F" style="animation-delay:1.1s"/><circle class="fire" cx="310" cy="300" r="6" fill="#8FE0B4" style="animation-delay:.4s"/><circle class="fire" cx="95" cy="210" r="6" fill="#8FE0B4" style="animation-delay:1.4s"/><circle class="fire" cx="325" cy="205" r="6" fill="#F3B38F" style="animation-delay:.9s"/></g>
+          <g fill="#E9EEF2" opacity=".7"><circle cx="170" cy="160" r="2.5"/><circle cx="255" cy="165" r="2.5"/><circle cx="180" cy="255" r="2.5"/><circle cx="275" cy="250" r="2.5"/><circle cx="150" cy="190" r="2.5"/><circle cx="230" cy="290" r="2.5"/></g>
+          <path class="syn" d="M210 210 L210 70 M210 210 L350 210 M210 210 L111 309 M210 210 L392 210" stroke="rgba(143,224,180,.5)" stroke-width="1" fill="none"/>
+          <circle class="corepulse coreg" cx="210" cy="210" r="64" fill="url(#g-core)"/>
+          <circle class="coredot" cx="210" cy="210" r="14" fill="#04060A" stroke="#E9FFF4" stroke-width="2"/>
+          </g>
+        </svg>
+        <div class="planets" id="planets">
+          <div class="planet" data-a="-90" style="--c:#8FE0B4"><a href="/sigue-disponible/"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.bots</b><small>Mensajes · Alta abierta</small></span></a></div>
+          <div class="planet" data-a="0" style="--c:#F3B38F"><a href="/bazar/"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.bazar</b><small>Operaciones · En operación</small></span></a></div>
+          <div class="planet" data-a="90" style="--c:#B5ECCD"><a href="/consultoria/"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.consulting</b><small>Consultoría · Abierto</small></span></a></div>
+          <div class="planet" data-a="180" style="--c:#FF8A7A"><a href="/marketing/"><span class="ball" aria-hidden="true"></span><span class="tag"><b>Neuri Marketing</b><small>Contenido · Lista de espera</small></span></a></div>
+        </div>
+        <div class="float mono" aria-hidden="true" style="top:2%;left:-4%"><span style="color:#8FE0B4">● Agente · mensajes</span><b>Responde en segundos</b></div>
+        <div class="float mono" aria-hidden="true" style="bottom:4%;right:-2%"><span style="color:#F3B38F">● Agente · caja</span><b>Cuadra el día solo</b></div>
+        <div class="clock mono">PHX <span id="clock">--:--:--</span> · Demo con datos de ejemplo</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section aria-label="Actividad de la red" style="position: relative; z-index: 2; background: #04060A; padding: 0 0 10px">
-<div style="max-width: 1280px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; gap: 18px">
-<span class="x-mono" style="font-size: 11px; color: #8FE0B4; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px"><span class="x-live"></span>Actividad neural · simulación</span>
-<div class="x-marq-wrap" aria-hidden="true" style="flex: 1; min-width: 0; height: 60px"><div class="x-eeg">
-<svg width="1200" height="60" viewBox="0 0 1200 60"><path d="M0,29.3 L6,31.2 L12,31.4 L18,30.1 L24,30.6 L30,31.2 L36,33.0 L42,32.1 L48,34.4 L54,34.3 L60,30 L63,9.150810754292078 L66,53.73765571799006 L69,30 L75,32.2 L81,32.5 L87,31.6 L93,32.9 L99,32.0 L105,29.4 L111,31.3 L117,29.2 L123,29.1 L129,29.8 L135,27.0 L141,27.6 L147,28.0 L153,28.6 L159,26.0 L165,24.7 L171,24.2 L177,27.1 L183,27.6 L189,27.1 L195,26.9 L201,28.4 L207,27.4 L213,26.2 L219,29.2 L225,30.5 L231,29.4 L237,28.6 L243,29.8 L249,30.0 L255,30.8 L261,32.4 L267,31.5 L273,33.8 L279,35.1 L285,33.1 L291,33.4 L297,35.8 L303,32.5 L309,32.4 L315,33.5 L321,30.7 L327,31.7 L333,33.5 L339,31.1 L345,30 L348,9.397198060347712 L351,56.679816944236435 L354,30 L360,30.3 L366,27.8 L372,26.1 L378,25.4 L384,25.6 L390,30 L393,4.00139969140814 L396,52.90758959367657 L399,30 L405,24.4 L411,24.1 L417,26.6 L423,25.4 L429,26.2 L435,28.5 L441,27.5 L447,26.5 L453,28.1 L459,30.7 L465,28.1 L471,30.8 L477,30 L480,7.168656645629839 L483,57.87100745631383 L486,30 L492,34.1 L498,32.2 L504,32.1 L510,33.9 L516,33.2 L522,35.2 L528,35.4 L534,35.1 L540,32.5 L546,30 L549,4.167622452532386 L552,53.67651123429418 L555,30 L561,31.1 L567,33.3 L573,32.6 L579,32.1 L585,28.5 L591,27.7 L597,28.8 L603,29.1 L609,27.9 L615,25.2 L621,28.1 L627,27.2 L633,24.8 L639,25.3 L645,27.9 L651,25.8 L657,27.3 L663,25.3 L669,28.8 L675,26.3 L681,30.2 L687,28.3 L693,30 L696,9.825341063426587 L699,55.898048018042985 L702,30 L708,31.2 L714,31.5 L720,33.6 L726,31.8 L732,32.2 L738,32.6 L744,32.3 L750,33.4 L756,34.3 L762,33.6 L768,33.8 L774,30 L777,6.64074947430966 L780,53.098647323633195 L783,30 L789,30.5 L795,30.6 L801,32.2 L807,30.0 L813,30.3 L819,27.9 L825,27.8 L831,29.3 L837,27.9 L843,28.8 L849,27.2 L855,26.5 L861,26.0 L867,25.9 L873,26.8 L879,27.8 L885,26.5 L891,27.9 L897,25.4 L903,25.6 L909,26.2 L915,29.6 L921,27.7 L927,30.3 L933,31.9 L939,29.9 L945,31.2 L951,34.1 L957,31.3 L963,33.2 L969,32.3 L975,30 L978,7.3243014868499685 L981,54.64274861081621 L984,30 L990,32.1 L996,34.4 L1002,32.0 L1008,34.6 L1014,31.5 L1020,30.8 L1026,31.2 L1032,31.2 L1038,32.1 L1044,28.8 L1050,29.9 L1056,30 L1059,8.12923342809129 L1062,54.55190224477434 L1065,30 L1071,25.8 L1077,27.6 L1083,25.0 L1089,24.6 L1095,25.9 L1101,26.2 L1107,25.1 L1113,26.2 L1119,24.8 L1125,24.8 L1131,26.2 L1137,28.5 L1143,28.0 L1149,30 L1152,5.502692537171365 L1155,52.09207670473012 L1158,30 L1164,31.1 L1170,29.6 L1176,33.2 L1182,33.3 L1188,32.5 L1194,32.6 L1200,34.2" fill="none" stroke="#67E8F9" stroke-width="1.4" opacity=".85"></path></svg>
-<svg width="1200" height="60" viewBox="0 0 1200 60"><path d="M0,29.3 L6,31.2 L12,31.4 L18,30.1 L24,30.6 L30,31.2 L36,33.0 L42,32.1 L48,34.4 L54,34.3 L60,30 L63,9.150810754292078 L66,53.73765571799006 L69,30 L75,32.2 L81,32.5 L87,31.6 L93,32.9 L99,32.0 L105,29.4 L111,31.3 L117,29.2 L123,29.1 L129,29.8 L135,27.0 L141,27.6 L147,28.0 L153,28.6 L159,26.0 L165,24.7 L171,24.2 L177,27.1 L183,27.6 L189,27.1 L195,26.9 L201,28.4 L207,27.4 L213,26.2 L219,29.2 L225,30.5 L231,29.4 L237,28.6 L243,29.8 L249,30.0 L255,30.8 L261,32.4 L267,31.5 L273,33.8 L279,35.1 L285,33.1 L291,33.4 L297,35.8 L303,32.5 L309,32.4 L315,33.5 L321,30.7 L327,31.7 L333,33.5 L339,31.1 L345,30 L348,9.397198060347712 L351,56.679816944236435 L354,30 L360,30.3 L366,27.8 L372,26.1 L378,25.4 L384,25.6 L390,30 L393,4.00139969140814 L396,52.90758959367657 L399,30 L405,24.4 L411,24.1 L417,26.6 L423,25.4 L429,26.2 L435,28.5 L441,27.5 L447,26.5 L453,28.1 L459,30.7 L465,28.1 L471,30.8 L477,30 L480,7.168656645629839 L483,57.87100745631383 L486,30 L492,34.1 L498,32.2 L504,32.1 L510,33.9 L516,33.2 L522,35.2 L528,35.4 L534,35.1 L540,32.5 L546,30 L549,4.167622452532386 L552,53.67651123429418 L555,30 L561,31.1 L567,33.3 L573,32.6 L579,32.1 L585,28.5 L591,27.7 L597,28.8 L603,29.1 L609,27.9 L615,25.2 L621,28.1 L627,27.2 L633,24.8 L639,25.3 L645,27.9 L651,25.8 L657,27.3 L663,25.3 L669,28.8 L675,26.3 L681,30.2 L687,28.3 L693,30 L696,9.825341063426587 L699,55.898048018042985 L702,30 L708,31.2 L714,31.5 L720,33.6 L726,31.8 L732,32.2 L738,32.6 L744,32.3 L750,33.4 L756,34.3 L762,33.6 L768,33.8 L774,30 L777,6.64074947430966 L780,53.098647323633195 L783,30 L789,30.5 L795,30.6 L801,32.2 L807,30.0 L813,30.3 L819,27.9 L825,27.8 L831,29.3 L837,27.9 L843,28.8 L849,27.2 L855,26.5 L861,26.0 L867,25.9 L873,26.8 L879,27.8 L885,26.5 L891,27.9 L897,25.4 L903,25.6 L909,26.2 L915,29.6 L921,27.7 L927,30.3 L933,31.9 L939,29.9 L945,31.2 L951,34.1 L957,31.3 L963,33.2 L969,32.3 L975,30 L978,7.3243014868499685 L981,54.64274861081621 L984,30 L990,32.1 L996,34.4 L1002,32.0 L1008,34.6 L1014,31.5 L1020,30.8 L1026,31.2 L1032,31.2 L1038,32.1 L1044,28.8 L1050,29.9 L1056,30 L1059,8.12923342809129 L1062,54.55190224477434 L1065,30 L1071,25.8 L1077,27.6 L1083,25.0 L1089,24.6 L1095,25.9 L1101,26.2 L1107,25.1 L1113,26.2 L1119,24.8 L1125,24.8 L1131,26.2 L1137,28.5 L1143,28.0 L1149,30 L1152,5.502692537171365 L1155,52.09207670473012 L1158,30 L1164,31.1 L1170,29.6 L1176,33.2 L1182,33.3 L1188,32.5 L1194,32.6 L1200,34.2" fill="none" stroke="#67E8F9" stroke-width="1.4" opacity=".85"></path></svg>
-</div></div>
-<span class="x-mono x-hide-sm" style="font-size: 11px; color: #6E7A86; white-space: nowrap">1,284 señales de ejemplo / min</span>
-</div>
+<section class="eegband" aria-label="Actividad de la red">
+  <div class="in">
+    <span class="k mono"><span class="live"></span>Actividad neural · simulación</span>
+    <div class="mwrap" aria-hidden="true" style="flex:1;min-width:0;height:60px"><div class="eeg" id="eeg"></div></div>
+    <span class="v mono hide-sm"><span id="spikes">1,284</span> señales de ejemplo / min</span>
+  </div>
 </section>
 
-<section aria-label="Lo que hacen los agentes" style="position: relative; z-index: 2; border-top: 1px solid rgba(233,238,242,.08); border-bottom: 1px solid rgba(233,238,242,.08); padding: 22px 0; background: #070A10">
-<div class="x-marq-wrap"><div class="x-marq x-mono" style="font-size: 13px; color: #6E7A86">
-<span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Contesta en segundos</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Aparta y agenda</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Cobra en caja</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Separa lo de cada vendedor</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Cobra rentas solo</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Te pasa lo difícil</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Nunca inventa precios</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Instagram · Messenger</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Español e inglés</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Pesos y dólares</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Contesta en segundos</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Aparta y agenda</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Cobra en caja</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Separa lo de cada vendedor</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Cobra rentas solo</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Te pasa lo difícil</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Nunca inventa precios</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Instagram · Messenger</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Español e inglés</span><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>Pesos y dólares</span>
-</div></div>
+<section class="capband" aria-label="Lo que hacen los agentes">
+  <div class="mwrap"><div class="marq mono" id="marq"></div></div>
 </section>
 
-<section aria-label="Manifiesto" style="max-width: 1120px; margin: 0 auto; padding: 150px 28px">
-<p class="x-mono" style="margin: 0 0 28px; font-size: 12px; color: #8FE0B4">01 · Manifiesto</p>
-<p style="margin: 0; font-size: clamp(32px, 4.6vw, 60px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 500">
-<span class="x-word" style="animation-range: entry 0% cover 25%;">Los </span><span class="x-word" style="animation-range: entry 1% cover 26%;">negocios </span><span class="x-word" style="animation-range: entry 2% cover 27%;">pequeños </span><span class="x-word" style="animation-range: entry 3% cover 28%;">no </span><span class="x-word" style="animation-range: entry 4% cover 29%;">necesitan </span><span class="x-word" style="animation-range: entry 5% cover 30%;">más </span><span class="x-word" style="animation-range: entry 6% cover 31%;">pantallas. </span><span class="x-word" style="animation-range: entry 7% cover 32%;">Necesitan </span><span class="x-word" style="animation-range: entry 8% cover 33%; color: #8FE0B4;">tiempo. </span><span class="x-word" style="animation-range: entry 9% cover 34%;">Por </span><span class="x-word" style="animation-range: entry 10% cover 35%;">eso </span><span class="x-word" style="animation-range: entry 11% cover 36%;">construimos </span><span class="x-word" style="animation-range: entry 12% cover 37%; color: #8FE0B4;">agentes </span><span class="x-word" style="animation-range: entry 13% cover 38%;">que </span><span class="x-word" style="animation-range: entry 14% cover 39%;">contestan, </span><span class="x-word" style="animation-range: entry 15% cover 40%;">cobran </span><span class="x-word" style="animation-range: entry 16% cover 41%;">y </span><span class="x-word" style="animation-range: entry 17% cover 42%;">llevan </span><span class="x-word" style="animation-range: entry 18% cover 43%;">las </span><span class="x-word" style="animation-range: entry 19% cover 44%;">cuentas </span><span class="x-word" style="animation-range: entry 20% cover 45%; color: #67E8F9;">solos, </span><span class="x-word" style="animation-range: entry 20% cover 45%;">con </span><span class="x-word" style="animation-range: entry 21% cover 46%;">las </span><span class="x-word" style="animation-range: entry 22% cover 47%;">reglas </span><span class="x-word" style="animation-range: entry 23% cover 48%;">de </span><span class="x-word" style="animation-range: entry 24% cover 49%;">cada </span><span class="x-word" style="animation-range: entry 25% cover 50%;">dueño, </span><span class="x-word" style="animation-range: entry 26% cover 51%;">para </span><span class="x-word" style="animation-range: entry 27% cover 52%;">que </span><span class="x-word" style="animation-range: entry 28% cover 53%;">la </span><span class="x-word" style="animation-range: entry 29% cover 54%; color: #E9EEF2;">gente </span><span class="x-word" style="animation-range: entry 30% cover 55%;">vuelva </span><span class="x-word" style="animation-range: entry 31% cover 56%;">a </span><span class="x-word" style="animation-range: entry 32% cover 57%;">hacer </span><span class="x-word" style="animation-range: entry 33% cover 58%;">lo </span><span class="x-word" style="animation-range: entry 34% cover 59%;">que </span><span class="x-word" style="animation-range: entry 35% cover 60%;">solo </span><span class="x-word" style="animation-range: entry 36% cover 61%;">la </span><span class="x-word" style="animation-range: entry 37% cover 62%; color: #E9EEF2;">gente </span><span class="x-word" style="animation-range: entry 38% cover 63%;">puede </span><span class="x-word" style="animation-range: entry 39% cover 64%;">hacer. </span>
-</p>
+<section class="man" aria-label="Manifiesto">
+  <p class="k-mono mono">01 · Manifiesto</p>
+  <p class="big" id="manifesto">Los negocios pequeños no necesitan más pantallas. Necesitan tiempo. Por eso construimos agentes que contestan, cobran y llevan las cuentas solos, con las reglas de cada dueño, para que la gente vuelva a hacer lo que solo la gente puede hacer.</p>
 </section>
 
-<section id="sistemas" aria-labelledby="x-sis" style="max-width: 1280px; margin: 0 auto; padding: 40px 28px 140px">
-<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 44px">
-<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
-<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">02 · Sistemas en operación</p>
-<h2 id="x-sis" style="margin: 0; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Cuatro misiones. Tres ya en órbita.</h2>
-</div>
-<p style="margin: 0; color: #9AA6B2; font-size: 17px; max-width: 26em; line-height: 1.5">Cada producto es un agente especializado en un trabajo que antes te robaba horas.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 20px">
-
-<a class="x-card" href="/sigue-disponible/" style="text-decoration: none; color: #E9EEF2; position: relative; overflow: hidden; border: 1px solid rgba(233,238,242,.12); border-radius: 28px; padding: 32px; background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); display: flex; flex-direction: column; gap: 22px; min-height: 420px">
-<div class="x-scan" aria-hidden="true"></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; position: relative">
-<span class="x-mono" style="font-size: 12px; color: #9AA6B2">MISIÓN 01 · AGENTE DE MENSAJES</span>
-<span class="x-mono" style="display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: #8FE0B4; border: 1px solid rgba(143,224,180,.4); padding: 6px 10px; border-radius: 999px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #8FE0B4"></span>Alta abierta</span>
-</div>
-<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
-<h3 style="margin: 0; font-size: clamp(34px, 3.6vw, 48px); letter-spacing: -0.045em; font-weight: 700; line-height: 1">neuri.bots</h3>
-<p style="margin: 0; font-size: 18px; color: #B7C2CC; line-height: 1.5; font-weight: 300">Contesta a tus compradores en Instagram y Messenger con tus precios y tus reglas: si sigue, cuánto cuesta, dónde se entrega. Aparta, agenda y te pasa lo difícil. Alta abierta hoy; la conexión con Instagram y Messenger está pendiente de Meta.</p>
-</div>
-<div style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: auto">
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #8FE0B4">Segundos</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Para contestar</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #8FE0B4">24/7</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Despierto</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #8FE0B4">0</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Precios inventados</span>
-</div>
-
-</div>
-<span style="position: relative; display: inline-flex; align-items: center; gap: 10px; font-weight: 600">Ver neuri.bots<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"></path></svg></span>
-</a>
-
-<a class="x-card" href="/bazar/" style="text-decoration: none; color: #E9EEF2; position: relative; overflow: hidden; border: 1px solid rgba(233,238,242,.12); border-radius: 28px; padding: 32px; background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); display: flex; flex-direction: column; gap: 22px; min-height: 420px">
-<div class="x-scan" aria-hidden="true"></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; position: relative">
-<span class="x-mono" style="font-size: 12px; color: #9AA6B2">MISIÓN 02 · AGENTE DE OPERACIONES</span>
-<span class="x-mono" style="display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: #F3B38F; border: 1px solid rgba(243,179,143,.45); padding: 6px 10px; border-radius: 999px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #F3B38F"></span>En operación</span>
-</div>
-<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
-<h3 style="margin: 0; font-size: clamp(34px, 3.6vw, 48px); letter-spacing: -0.045em; font-weight: 700; line-height: 1">neuri.bazar</h3>
-<p style="margin: 0; font-size: 18px; color: #B7C2CC; line-height: 1.5; font-weight: 300">La caja y las cuentas de bazares, tianguis y antique malls. Cada venta va al saldo de su vendedor, la renta del puesto se cobra sola y el día cuadra sin libreta.</p>
-</div>
-<div style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: auto">
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #F3B38F">Sola</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Renta de cada puesto</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #F3B38F">0</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Comisiones por venta</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #F3B38F">ES · EN</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Español e inglés</span>
-</div>
-
-</div>
-<span style="position: relative; display: inline-flex; align-items: center; gap: 10px; font-weight: 600">Ver neuri.bazar<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"></path></svg></span>
-</a>
-<a class="x-card" href="/consultoria/" style="text-decoration: none; color: #E9EEF2; position: relative; overflow: hidden; border: 1px solid rgba(233,238,242,.12); border-radius: 28px; padding: 32px; background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); display: flex; flex-direction: column; gap: 22px; min-height: 420px">
-<div class="x-scan" aria-hidden="true"></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; position: relative">
-<span class="x-mono" style="font-size: 12px; color: #9AA6B2">MISIÓN 03 · CONSULTORÍA DE IA</span>
-<span class="x-mono" style="display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: #7DD3FC; border: 1px solid rgba(125,211,252,.45); padding: 6px 10px; border-radius: 999px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #7DD3FC"></span>Abierto</span>
-</div>
-<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
-<h3 style="margin: 0; font-size: clamp(34px, 3.6vw, 48px); letter-spacing: -0.045em; font-weight: 700; line-height: 1">neuri.consulting</h3>
-<p style="margin: 0; font-size: 18px; color: #B7C2CC; line-height: 1.5; font-weight: 300">Te dice dónde la IA le ahorra horas a tu negocio y te ayuda a ponerla a trabajar. AI Score gratis, diagnóstico en línea con controles de calidad (si algo no cuadra, lo revisa una persona), implementación y soporte mensual.</p>
-</div>
-<div style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: auto">
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #7DD3FC">Gratis</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Tu AI Score</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #7DD3FC">Fijo</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Precio por etapa</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #7DD3FC">$4,500</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">MXN · diagnóstico desde</span>
-</div>
-
-</div>
-<span style="position: relative; display: inline-flex; align-items: center; gap: 10px; font-weight: 600">Ver neuri.consulting<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"></path></svg></span>
-</a>
-<a class="x-card" href="/marketing/" style="text-decoration: none; color: #E9EEF2; position: relative; overflow: hidden; border: 1px solid rgba(233,238,242,.12); border-radius: 28px; padding: 32px; background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); display: flex; flex-direction: column; gap: 22px; min-height: 420px">
-<div class="x-scan" aria-hidden="true"></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; position: relative">
-<span class="x-mono" style="font-size: 12px; color: #9AA6B2">MISIÓN 04 · AGENTE DE CONTENIDO</span>
-<span class="x-mono" style="display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: #FF8A7A; border: 1px solid rgba(255,138,122,.45); padding: 6px 10px; border-radius: 999px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #FF8A7A"></span>Lista de espera</span>
-</div>
-<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
-<h3 style="margin: 0; font-size: clamp(34px, 3.6vw, 48px); letter-spacing: -0.045em; font-weight: 700; line-height: 1">Neuri Marketing</h3>
-<p style="margin: 0; font-size: 18px; color: #B7C2CC; line-height: 1.5; font-weight: 300">Va a preparar los posts y reels del mes de tu negocio con tu marca y tus fotos; tú apruebas con un toque y se publican. Mientras lo terminamos: lista de espera abierta y 6 herramientas gratis que ya funcionan.</p>
-</div>
-<div style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: auto">
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #FF8A7A">1 toque</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">Para aprobar</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #FF8A7A">30 días</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">De calendario</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: #FF8A7A">Gratis</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">6 herramientas hoy</span>
-</div>
-
-</div>
-<span style="position: relative; display: inline-flex; align-items: center; gap: 10px; font-weight: 600">Ver Neuri Marketing<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"></path></svg></span>
-</a>
-
-</div>
+<section id="sistemas" class="sis" aria-labelledby="x-sis">
+  <div class="sh">
+    <div><p class="k-mono mono rv">02 · Sistemas en operación</p><h2 id="x-sis" data-split>Cuatro misiones. Tres ya en órbita.</h2></div>
+    <p class="s-p rv">Cada producto es un agente especializado en un trabajo que antes te robaba horas.</p>
+  </div>
+  <div class="cards stag">
+    <a class="card" href="/sigue-disponible/" style="--c:#8FE0B4"><div class="scan" aria-hidden="true"></div>
+      <div class="hd"><span class="code mono">MISIÓN 01 · AGENTE DE MENSAJES</span><span class="st mono"><i></i>Alta abierta</span></div>
+      <div><h3>neuri.bots</h3><p class="d">Contesta a tus compradores en Instagram y Messenger con tus precios y tus reglas: si sigue, cuánto cuesta, dónde se entrega. Aparta, agenda y te pasa lo difícil. Alta abierta hoy; la conexión con Instagram y Messenger está pendiente de Meta.</p></div>
+      <div class="stats"><div><b>Segundos</b><span class="mono">Para contestar</span></div><div><b>24/7</b><span class="mono">Despierto</span></div><div><b>0</b><span class="mono">Precios inventados</span></div></div>
+      <span class="go">Ver neuri.bots<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="card" href="/bazar/" style="--c:#F3B38F"><div class="scan" aria-hidden="true"></div>
+      <div class="hd"><span class="code mono">MISIÓN 02 · AGENTE DE OPERACIONES</span><span class="st mono"><i></i>En operación</span></div>
+      <div><h3>neuri.bazar</h3><p class="d">La caja y las cuentas de bazares, tianguis y antique malls. Cada venta va al saldo de su vendedor, la renta del puesto se cobra sola y el día cuadra sin libreta.</p></div>
+      <div class="stats"><div><b>Sola</b><span class="mono">Renta de cada puesto</span></div><div><b>0</b><span class="mono">Comisiones por venta</span></div><div><b>ES · EN</b><span class="mono">Español e inglés</span></div></div>
+      <span class="go">Ver neuri.bazar<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="card" href="/consultoria/" style="--c:#B5ECCD"><div class="scan" aria-hidden="true"></div>
+      <div class="hd"><span class="code mono">MISIÓN 03 · CONSULTORÍA DE IA</span><span class="st mono"><i></i>Abierto</span></div>
+      <div><h3>neuri.consulting</h3><p class="d">Te dice dónde la IA le ahorra horas a tu negocio y te ayuda a ponerla a trabajar. AI Score gratis, diagnóstico en línea con controles de calidad (si algo no cuadra, lo revisa una persona), implementación y soporte mensual.</p></div>
+      <div class="stats"><div><b>Gratis</b><span class="mono">Tu AI Score</span></div><div><b>Fijo</b><span class="mono">Precio por etapa</span></div><div><b>$4,500</b><span class="mono">MXN · diagnóstico desde</span></div></div>
+      <span class="go">Ver neuri.consulting<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="card" href="/marketing/" style="--c:#FF8A7A"><div class="scan" aria-hidden="true"></div>
+      <div class="hd"><span class="code mono">MISIÓN 04 · AGENTE DE CONTENIDO</span><span class="st mono"><i></i>Lista de espera</span></div>
+      <div><h3>Neuri Marketing</h3><p class="d">Va a preparar los posts y reels del mes de tu negocio con tu marca y tus fotos; tú apruebas con un toque y se publican. Mientras lo terminamos: lista de espera abierta y 6 herramientas gratis que ya funcionan.</p></div>
+      <div class="stats"><div><b>1 toque</b><span class="mono">Para aprobar</span></div><div><b><span data-count="30">30</span> días</b><span class="mono">De calendario</span></div><div><b>Gratis</b><span class="mono">6 herramientas hoy</span></div></div>
+      <span class="go">Ver Neuri Marketing<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
 </section>
 
-<section id="red" aria-labelledby="x-red" style="position: relative; padding: 140px 28px; border-top: 1px solid rgba(233,238,242,.08); background: radial-gradient(800px 420px at 50% 40%, rgba(103,232,249,.08), transparent), #04060A; overflow: hidden">
-<div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
-<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
-<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">03 · La red neural</p>
-<h2 id="x-red" style="margin: 0; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Así decide un agente antes de contestar.</h2>
-<p style="margin: 0; font-size: 19px; color: #9AA6B2; line-height: 1.5; font-weight: 300">Llega un mensaje o una venta. El agente lo cruza con tu hoja, tus precios y tus reglas, decide y actúa. Elige un caso y míralo pasar por la red.</p>
-</div>
-<div role="group" aria-label="Elegir señal" style="display: flex; gap: 8px; flex-wrap: wrap">
-
-<button type="button" class="x-mono" aria-pressed="true" style="font: inherit; font-family: Geist Mono, monospace; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; min-height: 44px; color: #E9EEF2; border: 1px solid #8FE0B4; background: rgba(255,255,255,.06);" data-dc-click="0"><span style="width: 8px; height: 8px; border-radius: 50%; background: #8FE0B4"></span>Mensaje en Instagram</button>
-
-<button type="button" class="x-mono" aria-pressed="false" style="font: inherit; font-family: Geist Mono, monospace; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; min-height: 44px; color: #E9EEF2; border: 1px solid rgba(233,238,242,.18); background: transparent;" data-dc-click="1"><span style="width: 8px; height: 8px; border-radius: 50%; background: #F3B38F"></span>Venta en caja</button>
-
-<button type="button" class="x-mono" aria-pressed="false" style="font: inherit; font-family: Geist Mono, monospace; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; min-height: 44px; color: #E9EEF2; border: 1px solid rgba(233,238,242,.18); background: transparent;" data-dc-click="2"><span style="width: 8px; height: 8px; border-radius: 50%; background: #67E8F9"></span>Pregunta difícil</button>
-
-</div>
-</div>
-<div tabindex="0" role="region" aria-label="Diagrama de la red: desliza para ver completo" style="border: 1px solid rgba(233,238,242,.12); border-radius: 28px; background: rgba(8,12,18,.7); padding: 24px; overflow-x: auto">
-<svg viewBox="0 0 1000 440" width="100%" style="min-width: 640px; display: block" role="img" aria-label="Red neural: la señal «Mensaje en Instagram» entra, cruza tu contexto y termina en respuesta">
-<line x1="90" y1="110" x2="360" y2="60" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.00s"></line><line x1="90" y1="110" x2="360" y2="140" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.00s"></line><line x1="90" y1="110" x2="360" y2="220" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.00s"></line><line x1="90" y1="110" x2="360" y2="300" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="110" x2="360" y2="380" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="220" x2="360" y2="60" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="220" x2="360" y2="140" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="220" x2="360" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="220" x2="360" y2="300" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="220" x2="360" y2="380" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="330" x2="360" y2="60" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="330" x2="360" y2="140" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="330" x2="360" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="330" x2="360" y2="300" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="90" y1="330" x2="360" y2="380" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="60" x2="640" y2="60" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="60" x2="640" y2="140" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.12s"></line><line x1="360" y1="60" x2="640" y2="220" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.12s"></line><line x1="360" y1="60" x2="640" y2="300" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="60" x2="640" y2="380" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="140" x2="640" y2="60" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="140" x2="640" y2="140" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.12s"></line><line x1="360" y1="140" x2="640" y2="220" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.12s"></line><line x1="360" y1="140" x2="640" y2="300" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="140" x2="640" y2="380" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="220" x2="640" y2="60" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="220" x2="640" y2="140" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.12s"></line><line x1="360" y1="220" x2="640" y2="220" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.12s"></line><line x1="360" y1="220" x2="640" y2="300" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="220" x2="640" y2="380" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="300" x2="640" y2="60" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="300" x2="640" y2="140" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="300" x2="640" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="300" x2="640" y2="300" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="300" x2="640" y2="380" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="380" x2="640" y2="60" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="380" x2="640" y2="140" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="380" x2="640" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="380" x2="640" y2="300" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="360" y1="380" x2="640" y2="380" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="60" x2="910" y2="110" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="60" x2="910" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="60" x2="910" y2="330" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="140" x2="910" y2="110" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.24s"></line><line x1="640" y1="140" x2="910" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="140" x2="910" y2="330" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="220" x2="910" y2="110" class="x-flow" stroke="#8FE0B4" stroke-width="2" style="animation-delay: 0.24s"></line><line x1="640" y1="220" x2="910" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="220" x2="910" y2="330" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="300" x2="910" y2="110" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="300" x2="910" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="300" x2="910" y2="330" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="380" x2="910" y2="110" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="380" x2="910" y2="220" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line><line x1="640" y1="380" x2="910" y2="330" class="" stroke="rgba(233,238,242,.10)" stroke-width="1" style=""></line>
-
-<circle class="x-halo" cx="90" cy="110" r="9" fill="none" stroke="#8FE0B4" stroke-width="1.5" style="animation-delay: 0.0s"></circle>
-<circle cx="90" cy="110" r="9" fill="#8FE0B4" stroke="#8FE0B4" stroke-width="1.5"></circle>
-
-
-<circle cx="90" cy="220" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-
-<circle cx="90" cy="330" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-<circle class="x-halo" cx="360" cy="60" r="9" fill="none" stroke="#8FE0B4" stroke-width="1.5" style="animation-delay: 0.3s"></circle>
-<circle cx="360" cy="60" r="9" fill="#8FE0B4" stroke="#8FE0B4" stroke-width="1.5"></circle>
-
-<circle class="x-halo" cx="360" cy="140" r="9" fill="none" stroke="#8FE0B4" stroke-width="1.5" style="animation-delay: 0.3s"></circle>
-<circle cx="360" cy="140" r="9" fill="#8FE0B4" stroke="#8FE0B4" stroke-width="1.5"></circle>
-
-<circle class="x-halo" cx="360" cy="220" r="9" fill="none" stroke="#8FE0B4" stroke-width="1.5" style="animation-delay: 0.3s"></circle>
-<circle cx="360" cy="220" r="9" fill="#8FE0B4" stroke="#8FE0B4" stroke-width="1.5"></circle>
-
-
-<circle cx="360" cy="300" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-
-<circle cx="360" cy="380" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-
-<circle cx="640" cy="60" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-<circle class="x-halo" cx="640" cy="140" r="9" fill="none" stroke="#8FE0B4" stroke-width="1.5" style="animation-delay: 0.6s"></circle>
-<circle cx="640" cy="140" r="9" fill="#8FE0B4" stroke="#8FE0B4" stroke-width="1.5"></circle>
-
-<circle class="x-halo" cx="640" cy="220" r="9" fill="none" stroke="#8FE0B4" stroke-width="1.5" style="animation-delay: 0.6s"></circle>
-<circle cx="640" cy="220" r="9" fill="#8FE0B4" stroke="#8FE0B4" stroke-width="1.5"></circle>
-
-
-<circle cx="640" cy="300" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-
-<circle cx="640" cy="380" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-<circle class="x-halo" cx="910" cy="110" r="9" fill="none" stroke="#8FE0B4" stroke-width="1.5" style="animation-delay: 0.9s"></circle>
-<circle cx="910" cy="110" r="9" fill="#8FE0B4" stroke="#8FE0B4" stroke-width="1.5"></circle>
-
-
-<circle cx="910" cy="220" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-
-<circle cx="910" cy="330" r="6" fill="#0B1118" stroke="rgba(233,238,242,.3)" stroke-width="1.5"></circle>
-
-<text x="70" y="114" text-anchor="end" fill="#8FE0B4" font-family="Geist Mono, monospace" font-size="11" letter-spacing="1">MENSAJE</text><text x="930" y="114" text-anchor="start" fill="#8FE0B4" font-family="Geist Mono, monospace" font-size="11" letter-spacing="1">RESPUESTA</text><text x="70" y="224" text-anchor="end" fill="#6E7A86" font-family="Geist Mono, monospace" font-size="11" letter-spacing="1">VENTA</text><text x="930" y="224" text-anchor="start" fill="#6E7A86" font-family="Geist Mono, monospace" font-size="11" letter-spacing="1">SALDO</text><text x="70" y="334" text-anchor="end" fill="#6E7A86" font-family="Geist Mono, monospace" font-size="11" letter-spacing="1">PREGUNTA</text><text x="930" y="334" text-anchor="start" fill="#6E7A86" font-family="Geist Mono, monospace" font-size="11" letter-spacing="1">A TI</text><text x="90" y="430" text-anchor="middle" fill="#4F5A64" font-family="Geist Mono, monospace" font-size="10" letter-spacing="1">ENTRADA</text><text x="360" y="430" text-anchor="middle" fill="#4F5A64" font-family="Geist Mono, monospace" font-size="10" letter-spacing="1">CONTEXTO</text><text x="640" y="430" text-anchor="middle" fill="#4F5A64" font-family="Geist Mono, monospace" font-size="10" letter-spacing="1">DECISIÓN</text><text x="910" y="430" text-anchor="middle" fill="#4F5A64" font-family="Geist Mono, monospace" font-size="10" letter-spacing="1">ACCIÓN</text>
-</svg>
-</div>
-<div aria-live="polite" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px">
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,.02)">
-<span class="x-mono" style="font-size: 10.5px; color: #8FE0B4">Entrada</span>
-<span style="font-size: 15.5px; color: #E9EEF2; line-height: 1.4">«¿Sigue disponible el ropero?»</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,.02)">
-<span class="x-mono" style="font-size: 10.5px; color: #8FE0B4">Contexto</span>
-<span style="font-size: 15.5px; color: #E9EEF2; line-height: 1.4">Tu hoja: ropero blanco, $1,800, disponible</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,.02)">
-<span class="x-mono" style="font-size: 10.5px; color: #8FE0B4">Decisión</span>
-<span style="font-size: 15.5px; color: #E9EEF2; line-height: 1.4">Contestar precio y ofrecer apartarlo</span>
-</div>
-
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,.02)">
-<span class="x-mono" style="font-size: 10.5px; color: #8FE0B4">Acción · neuri.bots</span>
-<span style="font-size: 15.5px; color: #E9EEF2; line-height: 1.4">Respuesta enviada en 2.8 s</span>
-</div>
-
-</div>
-<p class="x-mono" style="margin: 0; font-size: 11px; color: #4F5A64">Diagrama simplificado · datos de ejemplo</p>
-</div>
+<section id="red" class="red" aria-labelledby="x-red">
+  <div class="in">
+    <div class="sh" style="margin:0">
+      <div><p class="k-mono mono rv">03 · La red neural</p><h2 id="x-red" data-split>Así decide un agente antes de contestar.</h2><p class="s-p rv">Llega un mensaje o una venta. El agente lo cruza con tu hoja, tus precios y tus reglas, decide y actúa. Elige un caso y míralo pasar por la red.</p></div>
+      <div class="sigs" role="group" aria-label="Elegir señal" id="sigs"></div>
+    </div>
+    <div class="netbox rv" tabindex="0" role="region" aria-label="Diagrama de la red: desliza para ver completo">
+      <svg class="net" id="net" viewBox="0 0 1000 440" role="img" aria-label="Red neural"></svg>
+    </div>
+    <div class="trace" id="trace" aria-live="polite"></div>
+    <p class="note mono">Diagrama simplificado · datos de ejemplo</p>
+  </div>
 </section>
 
-<section id="consola" aria-labelledby="x-con" style="position: relative; padding: 140px 28px; background: radial-gradient(900px 500px at 50% 0%, rgba(103,232,249,.10), transparent), #05080D; border-top: 1px solid rgba(233,238,242,.08)">
-<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px">
-<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
-<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">04 · Consola</p>
-<h2 id="x-con" style="margin: 0; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Una orden. El agente hace el resto.</h2>
-<p style="margin: 0; font-size: 19px; color: #9AA6B2; line-height: 1.5; font-weight: 300">Elige una orden y mira lo que pasa por dentro. Es una simulación con datos de ejemplo de lo que ya hacen nuestros productos.</p>
-</div>
-<div style="border: 1px solid rgba(233,238,242,.14); border-radius: 24px; background: rgba(10,14,20,.85); box-shadow: 0 40px 120px -40px rgba(103,232,249,.25); overflow: hidden">
-<div style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(233,238,242,.08)">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA6B2" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-<span style="flex: 1; font-size: 17px; color: #E9EEF2"><span class="x-caret" style="color: #8FE0B4">▍</span></span>
-<span class="x-mono x-hide-sm" style="font-size: 11px; color: #6E7A86; border: 1px solid rgba(233,238,242,.15); border-radius: 6px; padding: 3px 7px">⌘K</span>
-</div>
-<div style="display: flex; flex-wrap: wrap">
-<div role="listbox" aria-label="Órdenes" style="flex: 1 1 340px; min-width: 0; padding: 10px; border-right: 1px solid rgba(233,238,242,.08); display: flex; flex-direction: column; gap: 4px">
-
-<button type="button" class="x-cmd" role="option" aria-selected="true" style="font: inherit; cursor: pointer; color: #E9EEF2; display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; border-radius: 14px; min-height: 60px; border: 1px solid rgba(143,224,180,.4); background: rgba(143,224,180,.08);" data-dc-click="3">
-<span style="width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(143,224,180,.12); color: #8FE0B4; font-size: 16px">✦</span>
-<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15.5px; font-weight: 500">Contestar a mis compradores</span><span class="x-mono" style="font-size: 10.5px; color: #6E7A86">neuri.bots</span></span>
-<span class="x-mono" style="font-size: 11px; color: #6E7A86">↵</span>
-</button>
-
-<button type="button" class="x-cmd" role="option" aria-selected="false" style="font: inherit; cursor: pointer; color: #E9EEF2; display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; border-radius: 14px; min-height: 60px; border: 1px solid transparent; background: transparent;" data-dc-click="4">
-<span style="width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(243,179,143,.14); color: #F3B38F; font-size: 16px">◈</span>
-<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15.5px; font-weight: 500">Cerrar el día del bazar</span><span class="x-mono" style="font-size: 10.5px; color: #6E7A86">neuri.bazar</span></span>
-<span class="x-mono" style="font-size: 11px; color: #6E7A86">⌘1</span>
-</button>
-
-<button type="button" class="x-cmd" role="option" aria-selected="false" style="font: inherit; cursor: pointer; color: #E9EEF2; display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; border-radius: 14px; min-height: 60px; border: 1px solid transparent; background: transparent;" data-dc-click="5">
-<span style="width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(103,232,249,.12); color: #67E8F9; font-size: 16px">⬡</span>
-<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15.5px; font-weight: 500">Rentar un puesto nuevo</span><span class="x-mono" style="font-size: 10.5px; color: #6E7A86">neuri.bazar</span></span>
-<span class="x-mono" style="font-size: 11px; color: #6E7A86">⌘2</span>
-</button>
-
-<button type="button" class="x-cmd" role="option" aria-selected="false" style="font: inherit; cursor: pointer; color: #E9EEF2; display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; border-radius: 14px; min-height: 60px; border: 1px solid transparent; background: transparent;" data-dc-click="6">
-<span style="width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(233,238,242,.08); color: #E9EEF2; font-size: 16px">◎</span>
-<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15.5px; font-weight: 500">Agendar una visita y recordarla</span><span class="x-mono" style="font-size: 10.5px; color: #6E7A86">neuri.bots · Pro</span></span>
-<span class="x-mono" style="font-size: 11px; color: #6E7A86">⌘3</span>
-</button>
-
-</div>
-<div aria-live="polite" style="flex: 999 1 420px; min-width: 0; padding: 22px 24px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; line-height: 1.75; min-height: 300px; display: flex; flex-direction: column; gap: 4px">
-<span style="color: #6E7A86">$ neuri run contestar</span>
-
-
-<span style="margin-top: auto; padding-top: 18px; color: #4F5A64; font-size: 11.5px">Simulación · datos de ejemplo</span>
-</div>
-</div>
-</div>
-</div>
+<section id="consola" class="con" aria-labelledby="x-con">
+  <div class="in">
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:760px"><p class="k-mono mono rv">04 · Consola</p><h2 id="x-con" data-split>Una orden. El agente hace el resto.</h2><p class="s-p rv">Elige una orden y mira lo que pasa por dentro. Es una simulación con datos de ejemplo de lo que ya hacen nuestros productos.</p></div>
+    <div class="term rv">
+      <div class="bar"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA6B2" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="q"><span id="query"></span><span class="caret" aria-hidden="true">▍</span></span><span class="k mono hide-sm" aria-hidden="true">⌘K</span></div>
+      <div class="body">
+        <div class="cmds" role="listbox" aria-label="Órdenes" id="cmds"></div>
+        <div class="log" aria-live="polite"><span class="run">$ neuri run <span id="runkey">contestar</span></span><div id="lines"></div><span class="foot">Simulación · datos de ejemplo</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="principios" aria-labelledby="x-pri" style="max-width: 1280px; margin: 0 auto; padding: 140px 28px">
-<p class="x-mono" style="margin: 0 0 16px; font-size: 12px; color: #8FE0B4">05 · Principios de diseño</p>
-<h2 id="x-pri" style="margin: 0 0 56px; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700; max-width: 16ch">Autónomo. Honesto. Bajo tu mando.</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1px; background: rgba(233,238,242,.1); border: 1px solid rgba(233,238,242,.1); border-radius: 24px; overflow: hidden">
-
-<div style="background: #04060A; padding: 34px 30px; display: flex; flex-direction: column; gap: 18px; min-height: 280px">
-<span class="x-mono" style="font-size: 12px; color: #6E7A86">01</span>
-<svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M22 4v6M22 34v6M4 22h6M34 22h6M22 14a8 8 0 1 0 0 16a8 8 0 1 0 0-16z"></path></svg>
-<h3 style="margin: 0; font-size: 28px; letter-spacing: -0.035em; font-weight: 600">Autónomo</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 16.5px; line-height: 1.55; font-weight: 300">Cada agente termina el trabajo completo: no te deja una sugerencia, te deja la venta apartada o el día cuadrado.</p>
-</div>
-
-<div style="background: #04060A; padding: 34px 30px; display: flex; flex-direction: column; gap: 18px; min-height: 280px">
-<span class="x-mono" style="font-size: 12px; color: #6E7A86">02</span>
-<svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M22 4l15 6v10c0 9-6.5 16.5-15 20c-8.5-3.5-15-11-15-20V10zM15 22l5 5l9-10"></path></svg>
-<h3 style="margin: 0; font-size: 28px; letter-spacing: -0.035em; font-weight: 600">Honesto</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 16.5px; line-height: 1.55; font-weight: 300">Contesta solo con tu información. Si no sabe algo, no inventa: te pasa la conversación y le avisa al cliente.</p>
-</div>
-
-<div style="background: #04060A; padding: 34px 30px; display: flex; flex-direction: column; gap: 18px; min-height: 280px">
-<span class="x-mono" style="font-size: 12px; color: #6E7A86">03</span>
-<svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M8 30h28M14 30V18M22 30V10M30 30V22M6 38h32"></path></svg>
-<h3 style="margin: 0; font-size: 28px; letter-spacing: -0.035em; font-weight: 600">Bajo tu mando</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 16.5px; line-height: 1.55; font-weight: 300">Nada contesta hasta que tú lo activas. Decides qué resuelve solo, lo pausas cuando quieras y tus datos se van contigo.</p>
-</div>
-
-</div>
+<section id="principios" class="pri" aria-labelledby="x-pri">
+  <p class="k-mono mono rv">05 · Principios de diseño</p>
+  <h2 id="x-pri" data-split>Autónomo. Honesto. Bajo tu mando.</h2>
+  <div class="prin stag">
+    <div><span class="n mono">01</span><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M22 4v6M22 34v6M4 22h6M34 22h6M22 14a8 8 0 1 0 0 16a8 8 0 1 0 0-16z"/></svg><h3>Autónomo</h3><p>Cada agente termina el trabajo completo: no te deja una sugerencia, te deja la venta apartada o el día cuadrado.</p></div>
+    <div><span class="n mono">02</span><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M22 4l15 6v10c0 9-6.5 16.5-15 20c-8.5-3.5-15-11-15-20V10zM15 22l5 5l9-10"/></svg><h3>Honesto</h3><p>Contesta solo con tu información. Si no sabe algo, no inventa: te pasa la conversación y le avisa al cliente.</p></div>
+    <div><span class="n mono">03</span><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M8 30h28M14 30V18M22 30V10M30 30V22M6 38h32"/></svg><h3>Bajo tu mando</h3><p>Nada contesta hasta que tú lo activas. Decides qué resuelve solo, lo pausas cuando quieras y tus datos se van contigo.</p></div>
+  </div>
 </section>
 
-<section id="laboratorio" aria-labelledby="x-lab" style="position: relative; padding: 140px 28px; border-top: 1px solid rgba(233,238,242,.08); background: #05080D; overflow: hidden">
-<div class="x-stars" aria-hidden="true" style="opacity: .35"></div>
-<div style="position: relative; max-width: 1280px; margin: 0 auto">
-<p class="x-mono" style="margin: 0 0 16px; font-size: 12px; color: #8FE0B4">06 · Laboratorio</p>
-<h2 id="x-lab" style="margin: 0 0 18px; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Lo que viene en la siguiente órbita.</h2>
-<p style="margin: 0 0 60px; color: #9AA6B2; font-size: 18px; max-width: 34em; font-weight: 300; line-height: 1.5">Construimos en público. Esto es lo que ya funciona y lo que estamos terminando.</p>
-<div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 28px">
-<div aria-hidden="true" class="x-hide-sm" style="position: absolute; left: 0; right: 0; top: 13px; height: 1px; background: linear-gradient(90deg, #8FE0B4, rgba(243,179,143,.6), rgba(233,238,242,.1))"></div>
-
-<div style="position: relative; display: flex; flex-direction: column; gap: 14px">
-<span style="width: 27px; height: 27px; border-radius: 50%; border: 1px solid #F3B38F; background: #05080D; display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F3B38F"></span></span>
-<span class="x-mono" style="font-size: 11.5px; color: #F3B38F">Pendiente de Meta</span>
-<h3 style="margin: 0; font-size: 22px; letter-spacing: -0.03em; font-weight: 600">Instagram y Messenger</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 15.5px; line-height: 1.55; font-weight: 300">El agente de mensajes usa la API oficial de Meta. Solo falta que Meta apruebe la conexión.</p>
-</div>
-
-<div style="position: relative; display: flex; flex-direction: column; gap: 14px">
-<span style="width: 27px; height: 27px; border-radius: 50%; border: 1px solid #8FE0B4; background: #05080D; display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: #8FE0B4"></span></span>
-<span class="x-mono" style="font-size: 11.5px; color: #8FE0B4">Disponible</span>
-<h3 style="margin: 0; font-size: 22px; letter-spacing: -0.03em; font-weight: 600">Configúralo con tu IA</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 15.5px; line-height: 1.55; font-weight: 300">Conecta Neuri a Claude o ChatGPT y da de alta tu negocio platicando.</p>
-</div>
-
-<div style="position: relative; display: flex; flex-direction: column; gap: 14px">
-<span style="width: 27px; height: 27px; border-radius: 50%; border: 1px solid #F3B38F; background: #05080D; display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F3B38F"></span></span>
-<span class="x-mono" style="font-size: 11.5px; color: #F3B38F">En construcción</span>
-<h3 style="margin: 0; font-size: 22px; letter-spacing: -0.03em; font-weight: 600">WhatsApp oficial</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 15.5px; line-height: 1.55; font-weight: 300">Tu mismo número, contestado por tu agente, en la plataforma oficial de WhatsApp Business.</p>
-</div>
-
-<div style="position: relative; display: flex; flex-direction: column; gap: 14px">
-<span style="width: 27px; height: 27px; border-radius: 50%; border: 1px solid #8FE0B4; background: #05080D; display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: #8FE0B4"></span></span>
-<span class="x-mono" style="font-size: 11.5px; color: #8FE0B4">Disponible</span>
-<h3 style="margin: 0; font-size: 22px; letter-spacing: -0.03em; font-weight: 600">Tu bazar en internet</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 15.5px; line-height: 1.55; font-weight: 300">Un sitio con todo el inventario de tu bazar, que se actualiza solo con cada venta. En el plan Plus.</p>
-</div>
-
-</div>
-</div>
+<section id="laboratorio" class="lab" aria-labelledby="x-lab">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="in">
+    <p class="k-mono mono rv">06 · Laboratorio</p>
+    <h2 id="x-lab" data-split>Lo que viene en la siguiente órbita.</h2>
+    <p class="s-p rv">Construimos en público. Esto es lo que ya funciona y lo que estamos terminando.</p>
+    <div class="road" id="road">
+      <div class="rail" aria-hidden="true"></div>
+      <div style="--c:#F3B38F"><span class="dot" aria-hidden="true"><i></i></span><span class="st mono">Pendiente de Meta</span><h3>Instagram y Messenger</h3><p>El agente de mensajes usa la API oficial de Meta. Solo falta que Meta apruebe la conexión.</p></div>
+      <div style="--c:#8FE0B4"><span class="dot" aria-hidden="true"><i></i></span><span class="st mono">Disponible</span><h3>Configúralo con tu IA</h3><p>Conecta Neuri a Claude o ChatGPT y da de alta tu negocio platicando.</p></div>
+      <div style="--c:#F3B38F"><span class="dot" aria-hidden="true"><i></i></span><span class="st mono">En construcción</span><h3>WhatsApp oficial</h3><p>Tu mismo número, contestado por tu agente, en la plataforma oficial de WhatsApp Business.</p></div>
+      <div style="--c:#8FE0B4"><span class="dot" aria-hidden="true"><i></i></span><span class="st mono">Disponible</span><h3>Tu bazar en internet</h3><p>Un sitio con todo el inventario de tu bazar, que se actualiza solo con cada venta. En el plan Plus.</p></div>
+    </div>
+  </div>
 </section>
 
-<section aria-labelledby="x-fin" style="position: relative; padding: 170px 28px 150px; text-align: center; overflow: hidden">
-<div class="x-aurora x-aur-a" aria-hidden="true" style="width: 760px; height: 420px; left: 50%; top: 40%; margin-left: -380px; background: radial-gradient(closest-side, rgba(143,224,180,.35), rgba(243,179,143,.2), transparent)"></div>
-<div class="x-grid" aria-hidden="true" style="height: 60%"></div>
-<div style="position: relative; z-index: 2; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px">
-<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">07 · Siguiente paso</p>
-<h2 id="x-fin" style="margin: 0; font-size: clamp(44px, 7vw, 96px); line-height: 0.94; letter-spacing: -0.06em; font-weight: 700">Dinos qué te quita más horas.</h2>
-<p style="margin: 0; font-size: 20px; color: #B7C2CC; max-width: 32em; font-weight: 300; line-height: 1.5">Estamos abriendo con los primeros negocios. Escríbenos y te decimos qué agente te sirve, o si todavía no tenemos uno para ti.</p>
-<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
-<a class="x-btn" href="mailto:hola@neuri.tech" style="text-decoration: none; background: #8FE0B4; color: #04060A; font-weight: 600; font-size: 17px; padding: 18px 28px; border-radius: 999px; min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center">hola@neuri.tech</a>
-<a class="x-btn" href="#sistemas" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 17px; padding: 18px 28px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center">Ver los productos</a>
-</div>
-</div>
+<section class="fin" aria-labelledby="x-fin">
+  <div class="aur a3" aria-hidden="true" style="width:760px;height:420px;left:50%;top:40%;margin-left:-380px;background:radial-gradient(closest-side,rgba(143,224,180,.35),rgba(243,179,143,.2),transparent)"></div>
+  <div class="floor" aria-hidden="true" style="height:60%"></div>
+  <div class="in">
+    <p class="k-mono mono rv">07 · Siguiente paso</p>
+    <h2 id="x-fin" data-split>Dinos qué te quita más horas.</h2>
+    <p class="rv">Estamos abriendo con los primeros negocios. Escríbenos y te decimos qué agente te sirve, o si todavía no tenemos uno para ti.</p>
+    <div class="ctas rv"><a class="btn mint mag" href="mailto:hola@neuri.tech">hola@neuri.tech</a><a class="btn ghost mag" href="#sistemas">Ver los productos</a></div>
+  </div>
 </section>
+</main>
 
-<footer style="border-top: 1px solid rgba(233,238,242,.08); padding: 28px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
-<span class="x-mono" style="font-size: 11.5px; color: #6E7A86">© 2026 Neuri LLC · Phoenix, Arizona · Para negocios en todo el mundo</span>
-<span style="display: flex; gap: 22px; flex-wrap: wrap; font-size: 14px">
-<a href="/sigue-disponible/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">neuri.bots</a>
-<a href="/bazar/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">neuri.bazar</a>
-<a href="/consultoria/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consultoría IA</a>
-<a href="/marketing/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Neuri Marketing</a>
-<a href="/legal/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Privacidad y términos</a>
-<a href="mailto:hola@neuri.tech" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">hola@neuri.tech</a>
-<a href="/en/ai-consulting/" hreflang="en" lang="en" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">English: AI consulting</a>
-<a href="/en/bazar/" hreflang="en" lang="en" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">English: neuri.bazar</a>
-</span>
+<footer>
+  <span class="c mono">© 2026 Neuri LLC · Phoenix, Arizona · Para negocios en todo el mundo</span>
+  <nav aria-label="Pie de página">
+    <a href="/sigue-disponible/">neuri.bots</a><a href="/bazar/">neuri.bazar</a><a href="/consultoria/">Consultoría IA</a><a href="/marketing/">Neuri Marketing</a><a href="/legal/">Privacidad y términos</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/en/ai-consulting/" hreflang="en" lang="en">English: AI consulting</a><a href="/en/bazar/" hreflang="en" lang="en">English: neuri.bazar</a>
+  </nav>
 </footer>
 </div>
-</div>
-<template data-dc-part="dc-a">
-<div style="background: #04060A; color: #E9EEF2; font-family: 'Geist', system-ui, sans-serif; min-height: 100%; overflow: hidden">
 
-<header class="x-tophead" style="position: relative; z-index: 5; max-width: 1280px; margin: 0 auto; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px">
-<a href="#inicio" aria-label="Neuri, inicio" style="text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px">
-<svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"></circle><circle cx="15" cy="15" r="5" fill="#8FE0B4"></circle><circle cx="26" cy="9" r="2" fill="#E9EEF2"></circle></svg>
-<span style="font-weight: 700; font-size: 22px; letter-spacing: -0.04em">neuri</span>
-</a>
-<nav class="x-topnav" aria-label="Principal" style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap">
-<a class="x-hide-sm x-mono" href="#sistemas" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Sistemas</a>
-<a class="x-hide-sm x-hide-lg x-mono" href="#red" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Red neural</a>
-<a class="x-hide-sm x-hide-md x-mono" href="#consola" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consola</a>
-<a class="x-hide-sm x-hide-lg x-mono" href="#principios" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Principios</a>
-<a class="x-hide-sm x-hide-md x-mono" href="#laboratorio" style="text-decoration: none; font-size: 12.5px; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Laboratorio</a>
-<a class="x-mono x-hide-sm" href="/marketing/" style="text-decoration: none; font-size: 12.5px; color: #FF8A7A; min-height: 44px; display: inline-flex; align-items: center">Marketing</a>
-<a class="x-mono x-hide-xxs" href="/consultoria/" style="text-decoration: none; font-size: 12.5px; color: #8FE0B4; min-height: 44px; display: inline-flex; align-items: center">Consultoría IA</a>
-<a class="x-btn x-hide-xs" href="mailto:hola@neuri.tech" style="text-decoration: none; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Hablar con Neuri</a>
-<details data-idioma class="x-entrar" lang="en" style="position: relative"><summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px" aria-label="EN — English">EN <span aria-hidden="true">▾</span></summary>
-<div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">
-<a role="menuitem" hreflang="en" href="/en/home/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">Neuri — home (English)</a>
-<a role="menuitem" hreflang="en" href="/en/still-available/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bots — Instagram &amp; Messenger replies</a>
-<a role="menuitem" hreflang="en" href="/en/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bazar — POS for vendor malls</a>
-<a role="menuitem" hreflang="en" href="/en/ai-consulting/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.consulting — AI consulting</a>
-<a role="menuitem" hreflang="en" href="/en/marketing/" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">Neuri Marketing</a>
-</div>
-</details>
-<details data-entrar class="x-entrar" style="position: relative"><style>.x-entrar summary::-webkit-details-marker{display:none}.x-entrar [role=menu] a:hover,.x-entrar [role=menu] a:focus-visible{background:rgba(143,224,180,.12)}@media (max-width:560px){.x-entrar [role=menu]{position:fixed!important;left:16px;right:16px!important;top:76px!important;min-width:0!important}}</style>
-<summary style="list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #E9EEF2; padding: 0 14px; border: 1px solid rgba(233,238,242,.28); border-radius: 999px">Entrar <span aria-hidden="true">▾</span></summary>
-<div role="menu" style="position: absolute; right: 0; top: calc(100% + 8px); min-width: 230px; background: #0B1118; border: 1px solid rgba(233,238,242,.18); border-radius: 14px; padding: 8px; z-index: 20; box-shadow: 0 12px 40px rgba(0,0,0,.45)">
-<a role="menuitem" href="https://bazar.neuri.tech/login?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bazar</a>
-<a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.consulting</a>
-<a role="menuitem" href="https://sd.neuri.tech/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">neuri.bots</a>
-<a role="menuitem" href="https://marketing.neuri.tech/entrar?lang=es" style="display: flex; min-height: 44px; align-items: center; padding: 0 12px; color: #E9EEF2; text-decoration: none; border-radius: 10px">Neuri Marketing</a>
-</div>
-</details>
-</nav>
-</header>
-
-<section id="inicio" aria-labelledby="x-h1" style="position: relative; padding: 40px 28px 150px">
-<div class="x-stars" aria-hidden="true"></div>
-<div class="x-aurora x-aur-a" aria-hidden="true" style="width: 620px; height: 620px; top: -140px; right: -120px; background: radial-gradient(closest-side, rgba(143,224,180,.55), rgba(56,189,248,.18), transparent)"></div>
-<div class="x-aurora x-aur-b" aria-hidden="true" style="width: 520px; height: 520px; top: 260px; left: -220px; background: radial-gradient(closest-side, rgba(243,179,143,.30), transparent)"></div>
-<div class="x-grid" aria-hidden="true"></div>
-<div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
-<div class="x-hero-col" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 26px">
-<span class="x-mono x-rise" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; color: #8FE0B4; border: 1px solid rgba(143,224,180,.35); background: rgba(143,224,180,.06); padding: 8px 14px; border-radius: 999px"><span class="x-live"></span>Agentes de IA para negocios pequeños · En español e inglés</span>
-<h1 id="x-h1" class="x-rise x-r2" style="margin: 0; font-weight: 700; font-size: clamp(52px, 8vw, 112px); line-height: 0.92; letter-spacing: -0.06em">Software que <span class="{{wordCls}}" style="background: linear-gradient(92deg, #8FE0B4, #67E8F9 55%, #F3B38F); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .08em">{{word}}</span><br>mientras tú vives.</h1>
-<p class="x-rise x-r3" style="margin: 0; font-size: 21px; line-height: 1.5; color: #B7C2CC; max-width: 34em; font-weight: 300">Neuri hace agentes de inteligencia artificial para negocios pequeños. Contestan a tus compradores a medianoche, llevan la caja y cobran la renta de cada puesto, siempre con tus precios y tus reglas. Lo que no tienen claro, te lo pasan a ti.</p>
-<div class="x-rise x-r4" style="display: flex; gap: 12px; flex-wrap: wrap">
-<a class="x-btn" href="#sistemas" style="text-decoration: none; background: #E9EEF2; color: #04060A; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px">Ver los productos<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a class="x-btn" href="#consola" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px"><span class="x-mono x-kbd" style="font-size: 12px; border: 1px solid rgba(233,238,242,.3); border-radius: 6px; padding: 2px 6px">⌘K</span>Probar la demo</a>
-<a class="x-show-xs" data-hero-contacto href="mailto:hola@neuri.tech" style="color: #B7C2CC; font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; min-height: 44px; align-items: center">Hablar con Neuri · hola@neuri.tech</a>
-</div>
-</div>
-
-<div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; position: relative">
-<div style="position: relative; width: 420px; max-width: 100%; aspect-ratio: 1">
-<svg viewBox="0 0 420 420" width="100%" height="100%" role="img" aria-label="Núcleo de Neuri: una red de neuronas que se encienden alrededor de un centro brillante, con anillos de agentes girando">
-<defs>
-<radialGradient id="xg-core" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E9FFF4"></stop><stop offset="35%" stop-color="#8FE0B4"></stop><stop offset="100%" stop-color="#8FE0B4" stop-opacity="0"></stop></radialGradient>
-<linearGradient id="xg-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8FE0B4"></stop><stop offset="100%" stop-color="#F3B38F" stop-opacity=".3"></stop></linearGradient>
-</defs>
-<circle cx="210" cy="210" r="200" fill="none" stroke="rgba(233,238,242,.08)"></circle>
-<g class="x-spin-r"><circle cx="210" cy="210" r="182" fill="none" stroke="url(#xg-ring)" stroke-width="1" stroke-dasharray="2 10"></circle><circle cx="392" cy="210" r="5" fill="#F3B38F"></circle><circle cx="28" cy="210" r="3" fill="#E9EEF2"></circle></g>
-<g class="x-spin"><circle cx="210" cy="210" r="140" fill="none" stroke="rgba(143,224,180,.45)" stroke-width="1"></circle><circle cx="210" cy="70" r="6" fill="#8FE0B4"></circle><circle cx="350" cy="210" r="3.5" fill="#67E8F9"></circle><circle cx="111" cy="309" r="4" fill="#E9EEF2"></circle></g>
-<g class="x-spin-f"><circle cx="210" cy="210" r="96" fill="none" stroke="rgba(103,232,249,.35)" stroke-width="1" stroke-dasharray="40 18"></circle><circle cx="306" cy="210" r="3" fill="#67E8F9"></circle></g>
-<path d="M120 120 L170 160 L210 130 L255 165 L300 120 M140 300 L180 255 L230 290 L275 250 L310 300 M95 210 L150 190 L170 160 M325 205 L275 250 M150 190 L180 255 M255 165 L300 210 L275 250 M210 130 L210 175 M230 290 L210 245" stroke="rgba(103,232,249,.28)" stroke-width="1" fill="none"></path>
-<g fill="#67E8F9"><circle class="x-fire" cx="120" cy="120" r="6" style="animation-delay:.1s"></circle><circle class="x-fire" cx="300" cy="120" r="6" style="animation-delay:.7s"></circle><circle class="x-fire" cx="140" cy="300" r="6" style="animation-delay:1.1s"></circle><circle class="x-fire" cx="310" cy="300" r="6" style="animation-delay:.4s"></circle><circle class="x-fire" cx="95" cy="210" r="6" style="animation-delay:1.4s"></circle><circle class="x-fire" cx="325" cy="205" r="6" style="animation-delay:.9s"></circle></g>
-<g fill="#E9EEF2" opacity=".7"><circle cx="170" cy="160" r="2.5"></circle><circle cx="255" cy="165" r="2.5"></circle><circle cx="180" cy="255" r="2.5"></circle><circle cx="275" cy="250" r="2.5"></circle><circle cx="150" cy="190" r="2.5"></circle><circle cx="230" cy="290" r="2.5"></circle></g>
-<path class="x-synapse" d="M210 210 L210 70 M210 210 L350 210 M210 210 L111 309 M210 210 L392 210" stroke="rgba(143,224,180,.5)" stroke-width="1" fill="none"></path>
-<circle class="x-core" cx="210" cy="210" r="64" fill="url(#xg-core)"></circle>
-<circle cx="210" cy="210" r="14" fill="#04060A" stroke="#E9FFF4" stroke-width="2"></circle>
-</svg>
-<div class="x-mono" style="position: absolute; top: 6%; left: -6%; font-size: 11px; color: #9AA6B2; background: rgba(4,6,10,.75); border: 1px solid rgba(233,238,242,.12); border-radius: 12px; padding: 10px 12px; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 4px">
-<span style="color: #8FE0B4">● Agente · mensajes</span><span style="color: #E9EEF2; font-size: 13px; letter-spacing: .02em; text-transform: none">Responde en segundos</span>
-</div>
-<div class="x-mono" style="position: absolute; bottom: 10%; right: -6%; font-size: 11px; color: #9AA6B2; background: rgba(4,6,10,.75); border: 1px solid rgba(233,238,242,.12); border-radius: 12px; padding: 10px 12px; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 4px">
-<span style="color: #F3B38F">● Agente · caja</span><span style="color: #E9EEF2; font-size: 13px; letter-spacing: .02em; text-transform: none">Cuadra el día solo</span>
-</div>
-<div class="x-mono" style="position: absolute; bottom: -2%; left: 4%; font-size: 11px; color: #9AA6B2">PHX {{clock}} · Demo con datos de ejemplo</div>
-</div>
-</div>
-</div>
-</section>
-
-<section aria-label="Actividad de la red" style="position: relative; z-index: 2; background: #04060A; padding: 0 0 10px">
-<div style="max-width: 1280px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; gap: 18px">
-<span class="x-mono" style="font-size: 11px; color: #8FE0B4; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px"><span class="x-live"></span>Actividad neural · simulación</span>
-<div class="x-marq-wrap" aria-hidden="true" style="flex: 1; min-width: 0; height: 60px"><div class="x-eeg">
-<svg width="1200" height="60" viewBox="0 0 1200 60"><path d="M0,29.3 L6,31.2 L12,31.4 L18,30.1 L24,30.6 L30,31.2 L36,33.0 L42,32.1 L48,34.4 L54,34.3 L60,30 L63,9.150810754292078 L66,53.73765571799006 L69,30 L75,32.2 L81,32.5 L87,31.6 L93,32.9 L99,32.0 L105,29.4 L111,31.3 L117,29.2 L123,29.1 L129,29.8 L135,27.0 L141,27.6 L147,28.0 L153,28.6 L159,26.0 L165,24.7 L171,24.2 L177,27.1 L183,27.6 L189,27.1 L195,26.9 L201,28.4 L207,27.4 L213,26.2 L219,29.2 L225,30.5 L231,29.4 L237,28.6 L243,29.8 L249,30.0 L255,30.8 L261,32.4 L267,31.5 L273,33.8 L279,35.1 L285,33.1 L291,33.4 L297,35.8 L303,32.5 L309,32.4 L315,33.5 L321,30.7 L327,31.7 L333,33.5 L339,31.1 L345,30 L348,9.397198060347712 L351,56.679816944236435 L354,30 L360,30.3 L366,27.8 L372,26.1 L378,25.4 L384,25.6 L390,30 L393,4.00139969140814 L396,52.90758959367657 L399,30 L405,24.4 L411,24.1 L417,26.6 L423,25.4 L429,26.2 L435,28.5 L441,27.5 L447,26.5 L453,28.1 L459,30.7 L465,28.1 L471,30.8 L477,30 L480,7.168656645629839 L483,57.87100745631383 L486,30 L492,34.1 L498,32.2 L504,32.1 L510,33.9 L516,33.2 L522,35.2 L528,35.4 L534,35.1 L540,32.5 L546,30 L549,4.167622452532386 L552,53.67651123429418 L555,30 L561,31.1 L567,33.3 L573,32.6 L579,32.1 L585,28.5 L591,27.7 L597,28.8 L603,29.1 L609,27.9 L615,25.2 L621,28.1 L627,27.2 L633,24.8 L639,25.3 L645,27.9 L651,25.8 L657,27.3 L663,25.3 L669,28.8 L675,26.3 L681,30.2 L687,28.3 L693,30 L696,9.825341063426587 L699,55.898048018042985 L702,30 L708,31.2 L714,31.5 L720,33.6 L726,31.8 L732,32.2 L738,32.6 L744,32.3 L750,33.4 L756,34.3 L762,33.6 L768,33.8 L774,30 L777,6.64074947430966 L780,53.098647323633195 L783,30 L789,30.5 L795,30.6 L801,32.2 L807,30.0 L813,30.3 L819,27.9 L825,27.8 L831,29.3 L837,27.9 L843,28.8 L849,27.2 L855,26.5 L861,26.0 L867,25.9 L873,26.8 L879,27.8 L885,26.5 L891,27.9 L897,25.4 L903,25.6 L909,26.2 L915,29.6 L921,27.7 L927,30.3 L933,31.9 L939,29.9 L945,31.2 L951,34.1 L957,31.3 L963,33.2 L969,32.3 L975,30 L978,7.3243014868499685 L981,54.64274861081621 L984,30 L990,32.1 L996,34.4 L1002,32.0 L1008,34.6 L1014,31.5 L1020,30.8 L1026,31.2 L1032,31.2 L1038,32.1 L1044,28.8 L1050,29.9 L1056,30 L1059,8.12923342809129 L1062,54.55190224477434 L1065,30 L1071,25.8 L1077,27.6 L1083,25.0 L1089,24.6 L1095,25.9 L1101,26.2 L1107,25.1 L1113,26.2 L1119,24.8 L1125,24.8 L1131,26.2 L1137,28.5 L1143,28.0 L1149,30 L1152,5.502692537171365 L1155,52.09207670473012 L1158,30 L1164,31.1 L1170,29.6 L1176,33.2 L1182,33.3 L1188,32.5 L1194,32.6 L1200,34.2" fill="none" stroke="#67E8F9" stroke-width="1.4" opacity=".85"></path></svg>
-<svg width="1200" height="60" viewBox="0 0 1200 60"><path d="M0,29.3 L6,31.2 L12,31.4 L18,30.1 L24,30.6 L30,31.2 L36,33.0 L42,32.1 L48,34.4 L54,34.3 L60,30 L63,9.150810754292078 L66,53.73765571799006 L69,30 L75,32.2 L81,32.5 L87,31.6 L93,32.9 L99,32.0 L105,29.4 L111,31.3 L117,29.2 L123,29.1 L129,29.8 L135,27.0 L141,27.6 L147,28.0 L153,28.6 L159,26.0 L165,24.7 L171,24.2 L177,27.1 L183,27.6 L189,27.1 L195,26.9 L201,28.4 L207,27.4 L213,26.2 L219,29.2 L225,30.5 L231,29.4 L237,28.6 L243,29.8 L249,30.0 L255,30.8 L261,32.4 L267,31.5 L273,33.8 L279,35.1 L285,33.1 L291,33.4 L297,35.8 L303,32.5 L309,32.4 L315,33.5 L321,30.7 L327,31.7 L333,33.5 L339,31.1 L345,30 L348,9.397198060347712 L351,56.679816944236435 L354,30 L360,30.3 L366,27.8 L372,26.1 L378,25.4 L384,25.6 L390,30 L393,4.00139969140814 L396,52.90758959367657 L399,30 L405,24.4 L411,24.1 L417,26.6 L423,25.4 L429,26.2 L435,28.5 L441,27.5 L447,26.5 L453,28.1 L459,30.7 L465,28.1 L471,30.8 L477,30 L480,7.168656645629839 L483,57.87100745631383 L486,30 L492,34.1 L498,32.2 L504,32.1 L510,33.9 L516,33.2 L522,35.2 L528,35.4 L534,35.1 L540,32.5 L546,30 L549,4.167622452532386 L552,53.67651123429418 L555,30 L561,31.1 L567,33.3 L573,32.6 L579,32.1 L585,28.5 L591,27.7 L597,28.8 L603,29.1 L609,27.9 L615,25.2 L621,28.1 L627,27.2 L633,24.8 L639,25.3 L645,27.9 L651,25.8 L657,27.3 L663,25.3 L669,28.8 L675,26.3 L681,30.2 L687,28.3 L693,30 L696,9.825341063426587 L699,55.898048018042985 L702,30 L708,31.2 L714,31.5 L720,33.6 L726,31.8 L732,32.2 L738,32.6 L744,32.3 L750,33.4 L756,34.3 L762,33.6 L768,33.8 L774,30 L777,6.64074947430966 L780,53.098647323633195 L783,30 L789,30.5 L795,30.6 L801,32.2 L807,30.0 L813,30.3 L819,27.9 L825,27.8 L831,29.3 L837,27.9 L843,28.8 L849,27.2 L855,26.5 L861,26.0 L867,25.9 L873,26.8 L879,27.8 L885,26.5 L891,27.9 L897,25.4 L903,25.6 L909,26.2 L915,29.6 L921,27.7 L927,30.3 L933,31.9 L939,29.9 L945,31.2 L951,34.1 L957,31.3 L963,33.2 L969,32.3 L975,30 L978,7.3243014868499685 L981,54.64274861081621 L984,30 L990,32.1 L996,34.4 L1002,32.0 L1008,34.6 L1014,31.5 L1020,30.8 L1026,31.2 L1032,31.2 L1038,32.1 L1044,28.8 L1050,29.9 L1056,30 L1059,8.12923342809129 L1062,54.55190224477434 L1065,30 L1071,25.8 L1077,27.6 L1083,25.0 L1089,24.6 L1095,25.9 L1101,26.2 L1107,25.1 L1113,26.2 L1119,24.8 L1125,24.8 L1131,26.2 L1137,28.5 L1143,28.0 L1149,30 L1152,5.502692537171365 L1155,52.09207670473012 L1158,30 L1164,31.1 L1170,29.6 L1176,33.2 L1182,33.3 L1188,32.5 L1194,32.6 L1200,34.2" fill="none" stroke="#67E8F9" stroke-width="1.4" opacity=".85"></path></svg>
-</div></div>
-<span class="x-mono x-hide-sm" style="font-size: 11px; color: #6E7A86; white-space: nowrap">{{spikes}} señales de ejemplo / min</span>
-</div>
-</section>
-
-<section aria-label="Lo que hacen los agentes" style="position: relative; z-index: 2; border-top: 1px solid rgba(233,238,242,.08); border-bottom: 1px solid rgba(233,238,242,.08); padding: 22px 0; background: #070A10">
-<div class="x-marq-wrap"><div class="x-marq x-mono" style="font-size: 13px; color: #6E7A86">
-<template sc-for list="{{marquee}}" as="m" hint-placeholder-count="10"><span style="display: inline-flex; align-items: center; gap: 14px; white-space: nowrap"><span style="color: #8FE0B4">◆</span>{{m.t}}</span></template>
-</div></div>
-</section>
-
-<section aria-label="Manifiesto" style="max-width: 1120px; margin: 0 auto; padding: 150px 28px">
-<p class="x-mono" style="margin: 0 0 28px; font-size: 12px; color: #8FE0B4">01 · Manifiesto</p>
-<p style="margin: 0; font-size: clamp(32px, 4.6vw, 60px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 500">
-<template sc-for list="{{manifesto}}" as="w" hint-placeholder-count="30"><span class="x-word" style="{{w.style}}">{{w.t}} </span></template>
-</p>
-</section>
-
-<section id="sistemas" aria-labelledby="x-sis" style="max-width: 1280px; margin: 0 auto; padding: 40px 28px 140px">
-<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 44px">
-<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
-<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">02 · Sistemas en operación</p>
-<h2 id="x-sis" style="margin: 0; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Cuatro misiones. Tres ya en órbita.</h2>
-</div>
-<p style="margin: 0; color: #9AA6B2; font-size: 17px; max-width: 26em; line-height: 1.5">Cada producto es un agente especializado en un trabajo que antes te robaba horas.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 20px">
-<template sc-for list="{{missions}}" as="ms" hint-placeholder-count="2">
-<a class="x-card" href="{{ms.href}}" style="text-decoration: none; color: #E9EEF2; position: relative; overflow: hidden; border: 1px solid rgba(233,238,242,.12); border-radius: 28px; padding: 32px; background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); display: flex; flex-direction: column; gap: 22px; min-height: 420px">
-<div class="x-scan" aria-hidden="true"></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; position: relative">
-<span class="x-mono" style="font-size: 12px; color: #9AA6B2">{{ms.code}}</span>
-<span class="x-mono" style="display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: {{ms.color}}; border: 1px solid {{ms.border}}; padding: 6px 10px; border-radius: 999px"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{ms.color}}"></span>{{ms.status}}</span>
-</div>
-<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
-<h3 style="margin: 0; font-size: clamp(34px, 3.6vw, 48px); letter-spacing: -0.045em; font-weight: 700; line-height: 1">{{ms.name}}</h3>
-<p style="margin: 0; font-size: 18px; color: #B7C2CC; line-height: 1.5; font-weight: 300">{{ms.desc}}</p>
-</div>
-<div style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: auto">
-<template sc-for list="{{ms.stats}}" as="s" hint-placeholder-count="3">
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 14px; background: rgba(4,6,10,.5); display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em; color: {{ms.color}}">{{s.v}}</span>
-<span class="x-mono" style="font-size: 10.5px; color: #7D8994; line-height: 1.4">{{s.k}}</span>
-</div>
-</template>
-</div>
-<span style="position: relative; display: inline-flex; align-items: center; gap: 10px; font-weight: 600">{{ms.cta}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"></path></svg></span>
-</a>
-</template>
-</div>
-</section>
-
-<section id="red" aria-labelledby="x-red" style="position: relative; padding: 140px 28px; border-top: 1px solid rgba(233,238,242,.08); background: radial-gradient(800px 420px at 50% 40%, rgba(103,232,249,.08), transparent), #04060A; overflow: hidden">
-<div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
-<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
-<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">03 · La red neural</p>
-<h2 id="x-red" style="margin: 0; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Así decide un agente antes de contestar.</h2>
-<p style="margin: 0; font-size: 19px; color: #9AA6B2; line-height: 1.5; font-weight: 300">Llega un mensaje o una venta. El agente lo cruza con tu hoja, tus precios y tus reglas, decide y actúa. Elige un caso y míralo pasar por la red.</p>
-</div>
-<div role="group" aria-label="Elegir señal" style="display: flex; gap: 8px; flex-wrap: wrap">
-<template sc-for list="{{signals}}" as="g" hint-placeholder-count="3">
-<button type="button" class="x-mono" aria-pressed="{{g.pressed}}" onClick="{{g.pick}}" style="{{g.style}}"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{g.color}}"></span>{{g.label}}</button>
-</template>
-</div>
-</div>
-<div tabindex="0" role="region" aria-label="Diagrama de la red: desliza para ver completo" style="border: 1px solid rgba(233,238,242,.12); border-radius: 28px; background: rgba(8,12,18,.7); padding: 24px; overflow-x: auto">
-<svg viewBox="0 0 1000 440" width="100%" style="min-width: 640px; display: block" role="img" aria-label="{{netAria}}">
-<template sc-for list="{{edges}}" as="e" hint-placeholder-count="20"><line x1="{{e.x1}}" y1="{{e.y1}}" x2="{{e.x2}}" y2="{{e.y2}}" class="{{e.cls}}" stroke="{{e.stroke}}" stroke-width="{{e.w}}" style="{{e.style}}"></line></template>
-<template sc-for list="{{nodes}}" as="n" hint-placeholder-count="16">
-<template sc-if value="{{n.on}}" hint-placeholder-val="{{ false }}"><circle class="x-halo" cx="{{n.x}}" cy="{{n.y}}" r="9" fill="none" stroke="{{n.color}}" stroke-width="1.5" style="{{n.delay}}"></circle></template>
-<circle cx="{{n.x}}" cy="{{n.y}}" r="{{n.r}}" fill="{{n.fill}}" stroke="{{n.stroke}}" stroke-width="1.5"></circle>
-</template>
-<template sc-for list="{{labels}}" as="t" hint-placeholder-count="10"><text x="{{t.x}}" y="{{t.y}}" text-anchor="{{t.anchor}}" fill="{{t.fill}}" font-family="Geist Mono, monospace" font-size="{{t.size}}" letter-spacing="1">{{t.t}}</text></template>
-</svg>
-</div>
-<div aria-live="polite" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px">
-<template sc-for list="{{trace}}" as="r" hint-placeholder-count="4">
-<div style="border: 1px solid rgba(233,238,242,.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,.02)">
-<span class="x-mono" style="font-size: 10.5px; color: {{r.color}}">{{r.k}}</span>
-<span style="font-size: 15.5px; color: #E9EEF2; line-height: 1.4">{{r.v}}</span>
-</div>
-</template>
-</div>
-<p class="x-mono" style="margin: 0; font-size: 11px; color: #4F5A64">Diagrama simplificado · datos de ejemplo</p>
-</div>
-</section>
-
-<section id="consola" aria-labelledby="x-con" style="position: relative; padding: 140px 28px; background: radial-gradient(900px 500px at 50% 0%, rgba(103,232,249,.10), transparent), #05080D; border-top: 1px solid rgba(233,238,242,.08)">
-<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px">
-<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
-<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">04 · Consola</p>
-<h2 id="x-con" style="margin: 0; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Una orden. El agente hace el resto.</h2>
-<p style="margin: 0; font-size: 19px; color: #9AA6B2; line-height: 1.5; font-weight: 300">Elige una orden y mira lo que pasa por dentro. Es una simulación con datos de ejemplo de lo que ya hacen nuestros productos.</p>
-</div>
-<div style="border: 1px solid rgba(233,238,242,.14); border-radius: 24px; background: rgba(10,14,20,.85); box-shadow: 0 40px 120px -40px rgba(103,232,249,.25); overflow: hidden">
-<div style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(233,238,242,.08)">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA6B2" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-<span style="flex: 1; font-size: 17px; color: #E9EEF2">{{query}}<span class="x-caret" style="color: #8FE0B4">▍</span></span>
-<span class="x-mono x-hide-sm" style="font-size: 11px; color: #6E7A86; border: 1px solid rgba(233,238,242,.15); border-radius: 6px; padding: 3px 7px">⌘K</span>
-</div>
-<div style="display: flex; flex-wrap: wrap">
-<div role="listbox" aria-label="Órdenes" style="flex: 1 1 340px; min-width: 0; padding: 10px; border-right: 1px solid rgba(233,238,242,.08); display: flex; flex-direction: column; gap: 4px">
-<template sc-for list="{{cmds}}" as="c" hint-placeholder-count="4">
-<button type="button" class="x-cmd" role="option" aria-selected="{{c.sel}}" onClick="{{c.run}}" style="{{c.style}}">
-<span style="width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: {{c.iconBg}}; color: {{c.iconColor}}; font-size: 16px">{{c.icon}}</span>
-<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15.5px; font-weight: 500">{{c.label}}</span><span class="x-mono" style="font-size: 10.5px; color: #6E7A86">{{c.hint}}</span></span>
-<span class="x-mono" style="font-size: 11px; color: #6E7A86">{{c.key}}</span>
-</button>
-</template>
-</div>
-<div aria-live="polite" style="flex: 999 1 420px; min-width: 0; padding: 22px 24px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; line-height: 1.75; min-height: 300px; display: flex; flex-direction: column; gap: 4px">
-<span style="color: #6E7A86">$ neuri run {{runKey}}</span>
-<template sc-for list="{{logLines}}" as="l" hint-placeholder-count="4"><span class="x-line" style="{{l.style}}">{{l.t}}</span></template>
-<template sc-if value="{{running}}" hint-placeholder-val="{{ false }}"><span style="color: #8FE0B4"><span class="x-caret">▍</span></span></template>
-<span style="margin-top: auto; padding-top: 18px; color: #4F5A64; font-size: 11.5px">Simulación · datos de ejemplo</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section id="principios" aria-labelledby="x-pri" style="max-width: 1280px; margin: 0 auto; padding: 140px 28px">
-<p class="x-mono" style="margin: 0 0 16px; font-size: 12px; color: #8FE0B4">05 · Principios de diseño</p>
-<h2 id="x-pri" style="margin: 0 0 56px; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700; max-width: 16ch">Autónomo. Honesto. Bajo tu mando.</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1px; background: rgba(233,238,242,.1); border: 1px solid rgba(233,238,242,.1); border-radius: 24px; overflow: hidden">
-<template sc-for list="{{principles}}" as="p" hint-placeholder-count="3">
-<div style="background: #04060A; padding: 34px 30px; display: flex; flex-direction: column; gap: 18px; min-height: 280px">
-<span class="x-mono" style="font-size: 12px; color: #6E7A86">{{p.n}}</span>
-<svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="{{p.icon}}"></path></svg>
-<h3 style="margin: 0; font-size: 28px; letter-spacing: -0.035em; font-weight: 600">{{p.t}}</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 16.5px; line-height: 1.55; font-weight: 300">{{p.d}}</p>
-</div>
-</template>
-</div>
-</section>
-
-<section id="laboratorio" aria-labelledby="x-lab" style="position: relative; padding: 140px 28px; border-top: 1px solid rgba(233,238,242,.08); background: #05080D; overflow: hidden">
-<div class="x-stars" aria-hidden="true" style="opacity: .35"></div>
-<div style="position: relative; max-width: 1280px; margin: 0 auto">
-<p class="x-mono" style="margin: 0 0 16px; font-size: 12px; color: #8FE0B4">06 · Laboratorio</p>
-<h2 id="x-lab" style="margin: 0 0 18px; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 700">Lo que viene en la siguiente órbita.</h2>
-<p style="margin: 0 0 60px; color: #9AA6B2; font-size: 18px; max-width: 34em; font-weight: 300; line-height: 1.5">Construimos en público. Esto es lo que ya funciona y lo que estamos terminando.</p>
-<div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 28px">
-<div aria-hidden="true" class="x-hide-sm" style="position: absolute; left: 0; right: 0; top: 13px; height: 1px; background: linear-gradient(90deg, #8FE0B4, rgba(243,179,143,.6), rgba(233,238,242,.1))"></div>
-<template sc-for list="{{roadmap}}" as="r" hint-placeholder-count="4">
-<div style="position: relative; display: flex; flex-direction: column; gap: 14px">
-<span style="width: 27px; height: 27px; border-radius: 50%; border: 1px solid {{r.color}}; background: #05080D; display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: {{r.color}}"></span></span>
-<span class="x-mono" style="font-size: 11.5px; color: {{r.color}}">{{r.status}}</span>
-<h3 style="margin: 0; font-size: 22px; letter-spacing: -0.03em; font-weight: 600">{{r.t}}</h3>
-<p style="margin: 0; color: #9AA6B2; font-size: 15.5px; line-height: 1.55; font-weight: 300">{{r.d}}</p>
-</div>
-</template>
-</div>
-</div>
-</section>
-
-<section aria-labelledby="x-fin" style="position: relative; padding: 170px 28px 150px; text-align: center; overflow: hidden">
-<div class="x-aurora x-aur-a" aria-hidden="true" style="width: 760px; height: 420px; left: 50%; top: 40%; margin-left: -380px; background: radial-gradient(closest-side, rgba(143,224,180,.35), rgba(243,179,143,.2), transparent)"></div>
-<div class="x-grid" aria-hidden="true" style="height: 60%"></div>
-<div style="position: relative; z-index: 2; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px">
-<p class="x-mono" style="margin: 0; font-size: 12px; color: #8FE0B4">07 · Siguiente paso</p>
-<h2 id="x-fin" style="margin: 0; font-size: clamp(44px, 7vw, 96px); line-height: 0.94; letter-spacing: -0.06em; font-weight: 700">Dinos qué te quita más horas.</h2>
-<p style="margin: 0; font-size: 20px; color: #B7C2CC; max-width: 32em; font-weight: 300; line-height: 1.5">Estamos abriendo con los primeros negocios. Escríbenos y te decimos qué agente te sirve, o si todavía no tenemos uno para ti.</p>
-<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
-<a class="x-btn" href="mailto:hola@neuri.tech" style="text-decoration: none; background: #8FE0B4; color: #04060A; font-weight: 600; font-size: 17px; padding: 18px 28px; border-radius: 999px; min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center">hola@neuri.tech</a>
-<a class="x-btn" href="#sistemas" style="text-decoration: none; color: #E9EEF2; font-weight: 600; font-size: 17px; padding: 18px 28px; border-radius: 999px; border: 1px solid rgba(233,238,242,.25); min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center">Ver los productos</a>
-</div>
-</div>
-</section>
-
-<footer style="border-top: 1px solid rgba(233,238,242,.08); padding: 28px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
-<span class="x-mono" style="font-size: 11.5px; color: #6E7A86">© 2026 Neuri LLC · Phoenix, Arizona · Para negocios en todo el mundo</span>
-<span style="display: flex; gap: 22px; flex-wrap: wrap; font-size: 14px">
-<a href="/sigue-disponible/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">neuri.bots</a>
-<a href="/bazar/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">neuri.bazar</a>
-<a href="/consultoria/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Consultoría IA</a>
-<a href="/marketing/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Neuri Marketing</a>
-<a href="/legal/" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">Privacidad y términos</a>
-<a href="mailto:hola@neuri.tech" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">hola@neuri.tech</a>
-<a href="/en/ai-consulting/" hreflang="en" lang="en" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">English: AI consulting</a>
-<a href="/en/bazar/" hreflang="en" lang="en" style="text-decoration: none; color: #9AA6B2; min-height: 44px; display: inline-flex; align-items: center">English: neuri.bazar</a>
-</span>
-</footer>
-</div>
-</template>
-<script type="application/json" id="dc-props">{"$preview":{"width":1440,"height":6200}}</script>
-<script src="/assets/dc-lite.js"></script>
-<script>
-
-class Component extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { wi: 0, flip: false, clock: '', cmd: 0, shown: 0, running: false, auto: true, typed: 0, sig: 0, sigAuto: true, spikes: 1284 };
-    this.words = ['contesta', 'cobra la renta', 'aparta', 'agenda', 'cuadra la caja'];
-    this.cmdDefs = [
-      { key: 'contestar', label: 'Contestar a mis compradores', hint: 'neuri.bots', icon: '✦', iconBg: 'rgba(143,224,180,.12)', iconColor: '#8FE0B4', short: '↵',
-        log: [['› Leyendo 14 mensajes nuevos de Instagram y Messenger', 0], ['› 11 resueltos con tu hoja: precio, entrega y pagos', 0], ['› 2 apartados confirmados · ropero blanco, mesa de centro', 1], ['› 1 regateo detectado → te lo pasé a ti', 2], ['✓ Listo en 2.8 s · no tocaste el celular', 1]] },
-      { key: 'cerrar-dia', label: 'Cerrar el día del bazar', hint: 'neuri.bazar', icon: '◈', iconBg: 'rgba(243,179,143,.14)', iconColor: '#F3B38F', short: '⌘1',
-        log: [['› 90 ventas de 30 vendedores, separadas al cobrar', 0], ['› Rentas de la semana descontadas de cada saldo', 0], ['› Corte de caja: esperado $18,420 · contado $18,420', 1], ['› 30 estados de cuenta listos para enviar', 0], ['✓ Día cerrado en 6 min', 1]] },
-      { key: 'rentar-puesto', label: 'Rentar un puesto nuevo', hint: 'neuri.bazar', icon: '⬡', iconBg: 'rgba(103,232,249,.12)', iconColor: '#67E8F9', short: '⌘2',
-        log: [['› Puesto 7 libre · renta fija $300 a la semana', 0], ['› Contrato enviado a Lupita por correo', 0], ['› Firmado desde su celular', 1], ['› Su link de Mi Puesto ya está activo', 0], ['✓ Vendedora dada de alta', 1]] },
-      { key: 'agendar', label: 'Agendar una visita y recordarla', hint: 'neuri.bots · Pro', icon: '◎', iconBg: 'rgba(233,238,242,.08)', iconColor: '#E9EEF2', short: '⌘3',
-        log: [['› Ana pregunta si puede ver la mesa el sábado', 0], ['› Visita agendada: sábado 11 am', 1], ['› Recordatorio programado 2 horas antes', 0], ['› Recordatorio enviado · Ana confirmó', 0], ['✓ Visita lista sin que escribieras nada', 1]] }
-    ];
-    this.timers = [];
-    this.runTimers = [];
-  }
-  tick() {
-    try {
-      this.setState({ clock: new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'America/Phoenix' }) });
-    } catch (e) {}
-  }
-  run(i, manual) {
-    var self = this;
-    this.runTimers.forEach(function (t) { clearTimeout(t); });
-    this.runTimers = [];
-    var reduce = false;
-    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-    var n = this.cmdDefs[i].log.length;
-    var next = { cmd: i, shown: 0, running: true, typed: 0 };
-    if (manual) next.auto = false;
-    if (reduce) { next.shown = n; next.running = false; next.typed = 999; this.setState(next); return; }
-    this.setState(next);
-    var label = this.cmdDefs[i].label;
-    for (var c = 1; c <= label.length; c++) {
-      (function (c) { self.runTimers.push(setTimeout(function () { self.setState({ typed: c }); }, c * 22)); })(c);
-    }
-    var base = label.length * 22 + 250;
-    for (var k = 1; k <= n; k++) {
-      (function (k) { self.runTimers.push(setTimeout(function () { self.setState({ shown: k, running: k < n }); }, base + k * 520)); })(k);
-    }
-    this.runTimers.push(setTimeout(function () {
-      if (self.state.auto) self.run((i + 1) % self.cmdDefs.length, false);
-    }, base + n * 520 + 3200));
-  }
-  componentDidMount() {
-    var self = this;
-    var reduce = false;
-    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-    this.tick();
-    this.timers.push(setInterval(function () { self.tick(); }, 1000));
-    if (!reduce) {
-      this.timers.push(setInterval(function () {
-        self.setState({ wi: (self.state.wi + 1) % self.words.length, flip: !self.state.flip });
-      }, 2400));
-    }
-    this.timers.push(setTimeout(function () { self.run(0, false); }, 900));
-    if (!reduce) {
-      this.timers.push(setInterval(function () { if (self.state.sigAuto) self.setState({ sig: (self.state.sig + 1) % 3 }); }, 5200));
-      this.timers.push(setInterval(function () { self.setState({ spikes: 1180 + Math.round(Math.random() * 220) }); }, 1500));
-    }
-  }
-  componentWillUnmount() {
-    this.timers.forEach(function (t) { clearInterval(t); clearTimeout(t); });
-    this.runTimers.forEach(function (t) { clearTimeout(t); });
-    this.timers = []; this.runTimers = [];
-  }
-  renderVals() {
-    var self = this;
-    var st = this.state;
-    var cur = this.cmdDefs[st.cmd];
-    var manifestoText = 'Los negocios pequeños no necesitan más pantallas. Necesitan tiempo. Por eso construimos agentes que contestan, cobran y llevan las cuentas solos, con las reglas de cada dueño, para que la gente vuelva a hacer lo que solo la gente puede hacer.';
-    var mw = manifestoText.split(' ');
-    var mColors = { 'agentes': '#8FE0B4', 'tiempo.': '#8FE0B4', 'solos,': '#67E8F9', 'gente': '#E9EEF2' };
-    var toneColor = ['#C5CED6', '#8FE0B4', '#FCA5A5'];
-    var SIG = [
-      { label: 'Mensaje en Instagram', color: '#8FE0B4', inp: 0, h1: [0, 1, 2], h2: [1, 2], out: 0,
-        trace: [['Entrada', '«¿Sigue disponible el ropero?»'], ['Contexto', 'Tu hoja: ropero blanco, $1,800, disponible'], ['Decisión', 'Contestar precio y ofrecer apartarlo'], ['Acción · neuri.bots', 'Respuesta enviada en 2.8 s']] },
-      { label: 'Venta en caja', color: '#F3B38F', inp: 1, h1: [2, 3], h2: [2, 3, 4], out: 1,
-        trace: [['Entrada', 'Lámpara de latón, $450, puesto 12'], ['Contexto', 'Puesto 12 es de Doña Rosa, renta fija'], ['Decisión', 'Toda la venta va a su saldo'], ['Acción · neuri.bazar', 'Saldo actualizado y visible en su link']] },
-      { label: 'Pregunta difícil', color: '#67E8F9', inp: 2, h1: [3, 4], h2: [0, 4], out: 2,
-        trace: [['Entrada', '«¿Me lo dejas en $1,200?»'], ['Contexto', 'Tu regla: los regateos los ves tú'], ['Decisión', 'No inventar: pasar la conversación'], ['Acción · neuri.bots', 'Te avisa a ti y le dice al cliente que contestas tú']] }
-    ];
-    var sg = SIG[st.sig];
-    var X = [90, 360, 640, 910], IY = [110, 220, 330], HY = [60, 140, 220, 300, 380];
-    var edges = [], nodes = [], i, j;
-    function edge(x1, y1, x2, y2, on, k) {
-      edges.push({ x1: x1, y1: y1, x2: x2, y2: y2, cls: on ? 'x-flow' : '', stroke: on ? sg.color : 'rgba(233,238,242,.10)', w: on ? 2 : 1, style: on ? 'animation-delay: ' + (k * 0.12).toFixed(2) + 's' : '' });
-    }
-    for (i = 0; i < 3; i++) for (j = 0; j < 5; j++) edge(X[0], IY[i], X[1], HY[j], i === sg.inp && sg.h1.indexOf(j) !== -1, 0);
-    for (i = 0; i < 5; i++) for (j = 0; j < 5; j++) edge(X[1], HY[i], X[2], HY[j], sg.h1.indexOf(i) !== -1 && sg.h2.indexOf(j) !== -1, 1);
-    for (i = 0; i < 5; i++) for (j = 0; j < 3; j++) edge(X[2], HY[i], X[3], IY[j], sg.h2.indexOf(i) !== -1 && j === sg.out, 2);
-    function node(x, y, on, k) { nodes.push({ x: x, y: y, on: on, r: on ? 9 : 6, fill: on ? sg.color : '#0B1118', stroke: on ? sg.color : 'rgba(233,238,242,.3)', color: sg.color, delay: 'animation-delay: ' + (k * 0.3).toFixed(1) + 's' }); }
-    for (i = 0; i < 3; i++) node(X[0], IY[i], i === sg.inp, 0);
-    for (i = 0; i < 5; i++) node(X[1], HY[i], sg.h1.indexOf(i) !== -1, 1);
-    for (i = 0; i < 5; i++) node(X[2], HY[i], sg.h2.indexOf(i) !== -1, 2);
-    for (i = 0; i < 3; i++) node(X[3], IY[i], i === sg.out, 3);
-    var inL = ['MENSAJE', 'VENTA', 'PREGUNTA'], outL = ['RESPUESTA', 'SALDO', 'A TI'];
-    var labels = [];
-    for (i = 0; i < 3; i++) {
-      labels.push({ x: X[0] - 20, y: IY[i] + 4, anchor: 'end', t: inL[i], size: 11, fill: i === sg.inp ? sg.color : '#6E7A86' });
-      labels.push({ x: X[3] + 20, y: IY[i] + 4, anchor: 'start', t: outL[i], size: 11, fill: i === sg.out ? sg.color : '#6E7A86' });
-    }
-    [['ENTRADA', X[0]], ['CONTEXTO', X[1]], ['DECISIÓN', X[2]], ['ACCIÓN', X[3]]].forEach(function (c) { labels.push({ x: c[1], y: 430, anchor: 'middle', t: c[0], size: 10, fill: '#4F5A64' }); });
-
-    return {
-      spikes: st.spikes.toLocaleString('en-US'),
-      signals: SIG.map(function (g, k) {
-        var on = st.sig === k;
-        return { label: g.label, color: g.color, pressed: on ? 'true' : 'false',
-          style: 'font: inherit; font-family: Geist Mono, monospace; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; min-height: 44px; color: #E9EEF2; border: 1px solid ' + (on ? g.color : 'rgba(233,238,242,.18)') + '; background: ' + (on ? 'rgba(255,255,255,.06)' : 'transparent') + ';',
-          pick: function () { self.setState({ sig: k, sigAuto: false }); } };
-      }),
-      edges: edges, nodes: nodes, labels: labels,
-      netAria: 'Red neural: la señal «' + sg.label + '» entra, cruza tu contexto y termina en ' + outL[sg.out].toLowerCase(),
-      trace: sg.trace.map(function (t) { return { k: t[0], v: t[1], color: sg.color }; }),
-      word: this.words[st.wi],
-      wordCls: st.flip ? 'x-wb' : 'x-wa',
-      clock: st.clock || '--:--:--',
-      marquee: ['Contesta en segundos', 'Aparta y agenda', 'Cobra en caja', 'Separa lo de cada vendedor', 'Cobra rentas solo', 'Te pasa lo difícil', 'Nunca inventa precios', 'Instagram · Messenger', 'Español e inglés', 'Pesos y dólares', 'Contesta en segundos', 'Aparta y agenda', 'Cobra en caja', 'Separa lo de cada vendedor', 'Cobra rentas solo', 'Te pasa lo difícil', 'Nunca inventa precios', 'Instagram · Messenger', 'Español e inglés', 'Pesos y dólares'].map(function (t) { return { t: t }; }),
-      manifesto: mw.map(function (w, i) {
-        var a = Math.round(i / mw.length * 40), b = a + 25;
-        return { t: w, style: 'animation-range: entry ' + a + '% cover ' + b + '%;' + (mColors[w] ? ' color: ' + mColors[w] + ';' : '') };
-      }),
-      missions: [
-        { code: 'MISIÓN 01 · AGENTE DE MENSAJES', name: 'neuri.bots', status: 'Alta abierta', color: '#8FE0B4', border: 'rgba(143,224,180,.4)',
-          desc: 'Contesta a tus compradores en Instagram y Messenger con tus precios y tus reglas: si sigue, cuánto cuesta, dónde se entrega. Aparta, agenda y te pasa lo difícil. Alta abierta hoy; la conexión con Instagram y Messenger está pendiente de Meta.',
-          stats: [{ v: 'Segundos', k: 'Para contestar' }, { v: '24/7', k: 'Despierto' }, { v: '0', k: 'Precios inventados' }],
-          cta: 'Ver neuri.bots', href: '/sigue-disponible/' },
-        { code: 'MISIÓN 02 · AGENTE DE OPERACIONES', name: 'neuri.bazar', status: 'En operación', color: '#F3B38F', border: 'rgba(243,179,143,.45)',
-          desc: 'La caja y las cuentas de bazares, tianguis y antique malls. Cada venta va al saldo de su vendedor, la renta del puesto se cobra sola y el día cuadra sin libreta.',
-          stats: [{ v: 'Sola', k: 'Renta de cada puesto' }, { v: '0', k: 'Comisiones por venta' }, { v: 'ES · EN', k: 'Español e inglés' }],
-          cta: 'Ver neuri.bazar', href: '/bazar/' },
-        { code: 'MISIÓN 03 · CONSULTORÍA DE IA', name: 'neuri.consulting', status: 'Abierto', color: '#7DD3FC', border: 'rgba(125,211,252,.45)',
-          desc: 'Te dice dónde la IA le ahorra horas a tu negocio y te ayuda a ponerla a trabajar. AI Score gratis, diagnóstico en línea con controles de calidad (si algo no cuadra, lo revisa una persona), implementación y soporte mensual.',
-          stats: [{ v: 'Gratis', k: 'Tu AI Score' }, { v: 'Fijo', k: 'Precio por etapa' }, { v: '$4,500', k: 'MXN · diagnóstico desde' }],
-          cta: 'Ver neuri.consulting', href: '/consultoria/' },
-        { code: 'MISIÓN 04 · AGENTE DE CONTENIDO', name: 'Neuri Marketing', status: 'Lista de espera', color: '#FF8A7A', border: 'rgba(255,138,122,.45)',
-          desc: 'Va a preparar los posts y reels del mes de tu negocio con tu marca y tus fotos; tú apruebas con un toque y se publican. Mientras lo terminamos: lista de espera abierta y 6 herramientas gratis que ya funcionan.',
-          stats: [{ v: '1 toque', k: 'Para aprobar' }, { v: '30 días', k: 'De calendario' }, { v: 'Gratis', k: '6 herramientas hoy' }],
-          cta: 'Ver Neuri Marketing', href: '/marketing/' }
-      ],
-      query: cur.label.slice(0, st.typed),
-      runKey: cur.key,
-      running: st.running,
-      cmds: this.cmdDefs.map(function (c, i) {
-        var on = st.cmd === i;
-        return { label: c.label, hint: c.hint, icon: c.icon, iconBg: c.iconBg, iconColor: c.iconColor, key: c.short, sel: on ? 'true' : 'false',
-          style: 'font: inherit; cursor: pointer; color: #E9EEF2; display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; border-radius: 14px; min-height: 60px; border: 1px solid ' + (on ? 'rgba(143,224,180,.4)' : 'transparent') + '; background: ' + (on ? 'rgba(143,224,180,.08)' : 'transparent') + ';',
-          run: function () { self.run(i, true); } };
-      }),
-      logLines: cur.log.slice(0, st.shown).map(function (l) { return { t: l[0], style: 'color: ' + toneColor[l[1]] + ';' }; }),
-      principles: [
-        { n: '01', t: 'Autónomo', d: 'Cada agente termina el trabajo completo: no te deja una sugerencia, te deja la venta apartada o el día cuadrado.', icon: 'M22 4v6M22 34v6M4 22h6M34 22h6M22 14a8 8 0 1 0 0 16a8 8 0 1 0 0-16z' },
-        { n: '02', t: 'Honesto', d: 'Contesta solo con tu información. Si no sabe algo, no inventa: te pasa la conversación y le avisa al cliente.', icon: 'M22 4l15 6v10c0 9-6.5 16.5-15 20c-8.5-3.5-15-11-15-20V10zM15 22l5 5l9-10' },
-        { n: '03', t: 'Bajo tu mando', d: 'Nada contesta hasta que tú lo activas. Decides qué resuelve solo, lo pausas cuando quieras y tus datos se van contigo.', icon: 'M8 30h28M14 30V18M22 30V10M30 30V22M6 38h32' }
-      ],
-      roadmap: [
-        { status: 'Pendiente de Meta', color: '#F3B38F', t: 'Instagram y Messenger', d: 'El agente de mensajes usa la API oficial de Meta. Solo falta que Meta apruebe la conexión.' },
-        { status: 'Disponible', color: '#8FE0B4', t: 'Configúralo con tu IA', d: 'Conecta Neuri a Claude o ChatGPT y da de alta tu negocio platicando.' },
-        { status: 'En construcción', color: '#F3B38F', t: 'WhatsApp oficial', d: 'Tu mismo número, contestado por tu agente, en la plataforma oficial de WhatsApp Business.' },
-        { status: 'Disponible', color: '#8FE0B4', t: 'Tu bazar en internet', d: 'Un sitio con todo el inventario de tu bazar, que se actualiza solo con cada venta. En el plan Plus.' }
-      ]
-    };
-  }
-}
-
-DCMount(Component);
-</script>
+<script type="application/json" id="portada-datos">{
+"locale":"es-MX",
+"words":["contesta","cobra la renta","aparta","agenda","cuadra la caja"],
+"marquee":["Contesta en segundos","Aparta y agenda","Cobra en caja","Separa lo de cada vendedor","Cobra rentas solo","Te pasa lo difícil","Nunca inventa precios","Instagram · Messenger","Español e inglés","Pesos y dólares"],
+"hl":{"agentes":"hl","tiempo.":"hl","solos,":"hl2","gente":"hl"},
+"netAria":"Red neural: la señal «{s}» entra, cruza tu contexto y termina en {o}",
+"inL":["MENSAJE","VENTA","PREGUNTA"],"outL":["RESPUESTA","SALDO","A TI"],"cols":["ENTRADA","CONTEXTO","DECISIÓN","ACCIÓN"],
+"sig":[
+ {"label":"Mensaje en Instagram","color":"#8FE0B4","inp":0,"h1":[0,1,2],"h2":[1,2],"out":0,"trace":[["Entrada","«¿Sigue disponible el ropero?»"],["Contexto","Tu hoja: ropero blanco, $1,800, disponible"],["Decisión","Contestar precio y ofrecer apartarlo"],["Acción · neuri.bots","Respuesta enviada en 2.8 s"]]},
+ {"label":"Venta en caja","color":"#F3B38F","inp":1,"h1":[2,3],"h2":[2,3,4],"out":1,"trace":[["Entrada","Lámpara de latón, $450, puesto 12"],["Contexto","Puesto 12 es de Doña Rosa, renta fija"],["Decisión","Toda la venta va a su saldo"],["Acción · neuri.bazar","Saldo actualizado y visible en su link"]]},
+ {"label":"Pregunta difícil","color":"#FF8A7A","inp":2,"h1":[3,4],"h2":[0,4],"out":2,"trace":[["Entrada","«¿Me lo dejas en $1,200?»"],["Contexto","Tu regla: los regateos los ves tú"],["Decisión","No inventar: pasar la conversación"],["Acción · neuri.bots","Te avisa a ti y le dice al cliente que contestas tú"]]}
+],
+"cmds":[
+ {"key":"contestar","label":"Contestar a mis compradores","hint":"neuri.bots","icon":"✦","ib":"rgba(143,224,180,.12)","ic":"#8FE0B4","short":"↵","log":[["› Leyendo 14 mensajes nuevos de Instagram y Messenger",0],["› 11 resueltos con tu hoja: precio, entrega y pagos",0],["› 2 apartados confirmados · ropero blanco, mesa de centro",1],["› 1 regateo detectado → te lo pasé a ti",2],["✓ Listo en 2.8 s · no tocaste el celular",1]]},
+ {"key":"cerrar-dia","label":"Cerrar el día del bazar","hint":"neuri.bazar","icon":"◈","ib":"rgba(243,179,143,.14)","ic":"#F3B38F","short":"⌘1","log":[["› 90 ventas de 30 vendedores, separadas al cobrar",0],["› Rentas de la semana descontadas de cada saldo",0],["› Corte de caja: esperado $18,420 · contado $18,420",1],["› 30 estados de cuenta listos para enviar",0],["✓ Día cerrado en 6 min",1]]},
+ {"key":"rentar-puesto","label":"Rentar un puesto nuevo","hint":"neuri.bazar","icon":"⬡","ib":"rgba(181,236,205,.12)","ic":"#B5ECCD","short":"⌘2","log":[["› Puesto 7 libre · renta fija $300 a la semana",0],["› Contrato enviado a Lupita por correo",0],["› Firmado desde su celular",1],["› Su link de Mi Puesto ya está activo",0],["✓ Vendedora dada de alta",1]]},
+ {"key":"agendar","label":"Agendar una visita y recordarla","hint":"neuri.bots · Pro","icon":"◎","ib":"rgba(233,238,242,.08)","ic":"#E9EEF2","short":"⌘3","log":[["› Ana pregunta si puede ver la mesa el sábado",0],["› Visita agendada: sábado 11 am",1],["› Recordatorio programado 2 horas antes",0],["› Recordatorio enviado · Ana confirmó",0],["✓ Visita lista sin que escribieras nada",1]]}
+]
+}</script>
+<script src="/assets/gsap/gsap.min.js" defer></script>
+<script src="/assets/gsap/ScrollTrigger.min.js" defer></script>
+<script src="/assets/portada.js" defer></script>
 <script src="/assets/menu-esc.js" defer></script>
 </body>
 </html>

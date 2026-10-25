@@ -16,7 +16,9 @@ for (const [html, js] of casos) {
   const ventas = Math.round(m * 30 * (l / 100) * (c / 100));
   const dinero = Math.round(m * 30 * (l / 100) * (c / 100) * t);
   const shown = `$${dinero.toLocaleString("en-US")}`;
-  const ok =
+  // v3 (25-oct): la landing ES ya no pinta la calculadora con la plantilla; la pinta assets/bots-v3.js con la misma fórmula
+  const v3 = h.includes('id="o-r"');
+  const ok = v3 ? h.includes(`id="o-r">${shown}<`) && h.includes(`id="o-v">${ventas}<`) && /m\*30\*\(l\/100\)\*\(cl\/100\)/.test(readFileSync("assets/bots-v3.js", "utf8")) :
     h.includes(`color: #F7B48C">${shown}</span>`) &&
     !h.includes('color: #F7B48C">$0</span>') &&
     h.includes(` ${ventas} `) &&

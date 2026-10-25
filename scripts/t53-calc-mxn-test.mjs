@@ -7,7 +7,7 @@ const html = live
 let fails = 0;
 const ok = (c, m) => { if (c) console.log(`✓ ${m}`); else { fails++; console.error(`✗ ${m}`); } };
 ok((html.match(/Lo que vale una venta en promedio \(MXN\)/g) || []).length >= 1, "control del ticket dice MXN");
-ok((html.match(/>Al mes se te van \(MXN\)</g) || []).length === 2, "resultado dice MXN (estático y plantilla)");
-ok((html.match(/El plan Básico cuesta \$899 MXN al mes\./g) || []).length === 2, "plan Básico con MXN (estático y plantilla)");
+ok((html.match(/>Al mes se te van \(MXN\)</g) || []).length >= 1, "resultado dice MXN (v3: solo estático, ya sin plantilla)");
+ok((html.match(/El plan Básico cuesta \$899 MXN al mes\./g) || []).length >= 1, "plan Básico con MXN (v3: solo estático)");
 ok(!/El plan Básico cuesta \$899 al mes/.test(html), "sin $899 suelto");
 process.exit(fails ? 1 : 0);

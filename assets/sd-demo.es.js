@@ -562,6 +562,8 @@ var __nBoot = function () {
     var later = function () { var w = 3000 - (Date.now() - t0); if (document.readyState === 'complete') setTimeout(idle, Math.max(0, w)); else addEventListener('load', function () { setTimeout(idle, 3000); }, { once: true }); };
     var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); later(); } }, { rootMargin: '300px 0px' });
     roots.forEach(function (r) { io.observe(r); });
+    // v3: la demo ya no está en el hero; se monta igual en un rato libre después de cargar (como antes) aunque no se vea
+    later();
   } else { __nBoot(); }
 })();
 document.addEventListener('click', function (e) {

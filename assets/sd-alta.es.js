@@ -105,7 +105,7 @@
     };
     var fix = function(){ fixRoot(document.body || document.documentElement); };
     fix();
-    new MutationObserver(fix).observe(document.documentElement, {childList: true, subtree: true, characterData: true});
+    new MutationObserver(function(ms){ for (var i=0;i<ms.length;i++){ var n=ms[i].target; n = n && n.nodeType===1 ? n : n && n.parentNode; if (!(n && n.closest && n.closest('.cons,.chat,.night'))) { fix(); return; } } }).observe(document.documentElement, {childList: true, subtree: true, characterData: true});
     // A235: en prod la plantilla a veces pinta precios después (red lenta): se repasa también al cargar y a 1 y 3 s
     window.addEventListener('load', fix); setTimeout(fix, 1000); setTimeout(fix, 3000);
     var nfix = 0, tfix = setInterval(function(){ fix(); if (++nfix >= 40) clearInterval(tfix); }, 250);

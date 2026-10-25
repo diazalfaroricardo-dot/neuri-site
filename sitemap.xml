@@ -188,4 +188,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/privacidad/"/>
   </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/citas/</loc>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/comida/</loc>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/creadores/</loc>
+  </url>
 </urlset>

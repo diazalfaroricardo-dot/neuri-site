@@ -71,12 +71,13 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
     ? `<tr><td style="padding:0;line-height:0;font-size:0"><a href="${esc(href)}" target="_blank" style="display:block;text-decoration:none"><img src="https://neuri.tech/assets/email/hero-${product}-${L}.gif" width="600" alt="${esc(en ? `neuri${t.suf} — real product demo` : `neuri${t.suf} — demo del producto real`)}" style="display:block;width:100%;max-width:600px;height:auto;border:0;border-radius:18px 18px 0 0"></a></td></tr>`
     : "";
   const chips = isProduct
-    ? `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 20px"><tr>${t.chips[L]
+    ? // Chips inline-block (no celdas de tabla): en celular bajan a otra línea en vez de ensanchar el correo.
+      `<div style="margin:4px 0 14px;font-size:0;line-height:0">${t.chips[L]
         .map(
           (c) =>
-            `<td style="padding:0 6px 6px 0"><span style="display:inline-block;padding:7px 12px;border-radius:999px;background:${t.bg};border:1px solid ${t.line};font-family:${FONT};font-size:13px;line-height:16px;font-weight:600;color:${t.ink};white-space:nowrap">&#10003;&nbsp;${esc(c)}</span></td>`,
+            `<span style="display:inline-block;margin:0 6px 6px 0;padding:7px 12px;border-radius:999px;background:${t.bg};border:1px solid ${t.line};font-family:${FONT};font-size:13px;line-height:16px;font-weight:600;color:${t.ink};white-space:nowrap">&#10003;&nbsp;${esc(c)}</span>`,
         )
-        .join("")}</tr></table>`
+        .join("")}</div>`
     : "";
   const card = isProduct
     ? `${chips}<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px"><tr><td bgcolor="${t.a}" style="background:${t.a};border-radius:12px;box-shadow:0 8px 20px -8px ${t.a}"><a href="${esc(href)}" target="_blank" style="display:inline-block;padding:15px 26px;font-family:${FONT};font-size:16px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:12px">${esc(t.cta[L])}&nbsp;&nbsp;&rarr;</a></td></tr></table>`

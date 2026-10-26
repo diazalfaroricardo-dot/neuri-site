@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://neuri.tech/bazar/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/"/>
@@ -10,13 +10,15 @@
   </url>
   <url>
     <loc>https://neuri.tech/bazar/recorrido/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/recorrido/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/tour/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/bazar/recorrido/"/>
   </url>
   <url>
     <loc>https://neuri.tech/bazar/vs-quail/</loc>
+    <lastmod>2026-10-24</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/vs-quail/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/vs-quail/"/>
@@ -40,13 +42,15 @@
   </url>
   <url>
     <loc>https://neuri.tech/en/bazar/tour/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/tour/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/recorrido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/tour/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/bazar/recorrido/"/>
   </url>
   <url>
     <loc>https://neuri.tech/en/bazar/vs-quail/</loc>
+    <lastmod>2026-10-24</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/vs-quail/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/vs-quail/"/>
@@ -54,7 +58,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/en/home/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/home/"/>
@@ -62,7 +66,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/en/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/"/>
@@ -94,15 +98,39 @@
   </url>
   <url>
     <loc>https://neuri.tech/en/marketing/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/marketing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/marketing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/marketing/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/en/still-available/appointments/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/citas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/appointments/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/citas/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/en/still-available/creators/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/creadores/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/creators/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/creadores/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/en/still-available/food/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/comida/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/food/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/comida/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/en/still-available/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/"/>
@@ -126,7 +154,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/home/"/>
@@ -158,7 +186,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/marketing/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/marketing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/marketing/"/>
@@ -166,15 +194,39 @@
   </url>
   <url>
     <loc>https://neuri.tech/novedades/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/novedades/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/whats-new/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/novedades/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/sigue-disponible/citas/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/citas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/appointments/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/citas/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/comida/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/comida/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/food/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/comida/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/creadores/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/creadores/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/creators/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/creadores/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/sigue-disponible/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/"/>
@@ -187,23 +239,5 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/privacidad/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/privacidad/"/>
-  </url>
-  <url>
-    <loc>https://neuri.tech/sigue-disponible/citas/</loc>
-  </url>
-  <url>
-    <loc>https://neuri.tech/sigue-disponible/comida/</loc>
-  </url>
-  <url>
-    <loc>https://neuri.tech/sigue-disponible/creadores/</loc>
-  </url>
-  <url>
-    <loc>https://neuri.tech/en/still-available/appointments/</loc>
-  </url>
-  <url>
-    <loc>https://neuri.tech/en/still-available/food/</loc>
-  </url>
-  <url>
-    <loc>https://neuri.tech/en/still-available/creators/</loc>
   </url>
 </urlset>

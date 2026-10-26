@@ -8,6 +8,8 @@
  */
 (function () {
   var w = window, d = document, l = location;
+  // Consentimiento/retargeting (apagado por defecto en assets/consent.js; ver docs/RETARGETING.md).
+  (function () { var c = d.createElement('script'); c.src = '/assets/consent.js'; c.defer = true; (d.head || d.documentElement).appendChild(c); })();
   var dnt = navigator.doNotTrack === '1' || w.doNotTrack === '1' || navigator.msDoNotTrack === '1';
   var local = /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(l.hostname) || l.protocol === 'file:';
   if (dnt || (local && !w.__NEURI_ANALYTICS_FORCE)) return;
@@ -63,7 +65,11 @@
 
   var path = l.pathname;
   var product = /^\/(bazar|en)\/?$/.test(path) ? 'bazar' : /^\/(sigue-disponible|en\/still-available)\//.test(path) ? 'bots' : path === '/' ? 'home' : 'other';
-  function cap(name, props) { try { w.posthog.capture(name, props); } catch (e) {} }
+  function cap(name, props) {
+    try { w.posthog.capture(name, props); } catch (e) {}
+    // Meta Pixel solo si la persona aceptó (consent.js); sin datos personales.
+    if (name === 'signup_submitted' && w.neuriAdsTrack) w.neuriAdsTrack('Lead', { content_category: props && props.product });
+  }
   // Para eventos propios desde las páginas (p. ej. demo_scenario {value}); sin datos personales.
   w.nTrack = function (name, props) { cap(String(name).slice(0, 40), props); };
   function giro() { var g = d.querySelector('input[name=giro]:checked'); return g ? String(g.value).replace(/[^a-z_-]/gi, '').slice(0, 24) : undefined; }

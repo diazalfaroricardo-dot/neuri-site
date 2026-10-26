@@ -1,4 +1,5 @@
 document.documentElement.classList.add('js');
+var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
 (function(){
   var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var spark = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>';
@@ -35,11 +36,17 @@ document.documentElement.classList.add('js');
     ]
   };
 
+  if(NEURI_EN) CHATS = {
+    bazar: [['in','Hi, is the white dresser still available?'],['out','Hi! Yes, it’s still available. It’s $180 and you can pick it up today from 5 to 8 pm. Want me to hold it?'],['in','Yes, please hold it 🙏'],['out','Done, it’s on hold under your name until 8 pm. We take cash and Zelle.'],['sys','Hold logged · White dresser']],
+    citas: [['in','Any openings Saturday for nails?'],['out','Sure! Saturday I have 10:00, 12:30 and 4:00. Which works for you?'],['in','12:30 please'],['out','Booked: Saturday 12:30, acrylic nails. I’ll remind you the day before 💅'],['sys','New appointment · Sat 12:30']],
+    comida: [['in','Can I get 2 California rolls and a tea?'],['out','You got it! 2 California ($17 each) + tea ($3.50) = $37.50. Pick up at 7:30?'],['in','Yes, 7:30'],['out','Got it for 7:30. I’ll message you here when it’s ready.'],['sys','Order in “Today’s orders”']],
+    creador: [['in','LINK'],['out','Thanks for commenting! Here’s the workout you asked for 👉 yourlink.com/workout'],['in','Do you have a discount code?'],['out','Yes: use ANA15 for 15% off in the shop. Enjoy!'],['sys','Link sent · word LINK']]
+  };
   function bubble(m){
     var d=document.createElement('div');
     d.className='msg '+m[0];
     if(m[0]==='sys'){d.innerHTML=spark+' '+m[1];}
-    else{d.textContent=m[1]; if(m[0]==='out'){var t=document.createElement('span');t.className='tag';t.innerHTML=spark+' Respondido por Neuri';d.appendChild(t);}}
+    else{d.textContent=m[1]; if(m[0]==='out'){var t=document.createElement('span');t.className='tag';t.innerHTML=spark+(NEURI_EN?' Answered by Neuri':' Respondido por Neuri');d.appendChild(t);}}
     return d;
   }
   function typing(side){var t=document.createElement('div');t.className='typing '+(side==='in'?'in':'');t.innerHTML='<i></i><i></i><i></i>';return t;}
@@ -106,16 +113,16 @@ document.documentElement.classList.add('js');
     function calc(){
       var m=+f('lc-msgs').value, l=+f('lc-late').value, cl=+f('lc-close').value, t=+f('lc-ticket').value;
       ['lc-msgs','lc-late','lc-close','lc-ticket'].forEach(function(id){var e=f(id);e.style.setProperty('--f',((e.value-e.min)/(e.max-e.min)*100)+'%');});
-      f('o-m').textContent=m; f('o-l').textContent=l+'%'; f('o-c').textContent=(cl/10)+' de 10'; f('o-t').textContent='$'+fmt.format(t);
+      f('o-m').textContent=m; f('o-l').textContent=l+'%'; f('o-c').textContent=NEURI_EN?cl+'%':(cl/10)+' de 10'; f('o-t').textContent='$'+fmt.format(t);
       var ventas=m*30*(l/100)*(cl/100);
       f('o-r').textContent='$'+fmt.format(Math.round(ventas*t));
       f('o-v').textContent=fmt.format(Math.round(ventas));
-      var be=Math.max(1,Math.ceil((usd?49:899)/t)); f('o-be').textContent='Se paga con '+be+(be===1?' venta.':' ventas.');
+      if(NEURI_EN) usd=true; var be=Math.max(1,Math.ceil((usd?49:899)/t)); f('o-be').textContent=NEURI_EN?('Win back '+be+(be===1?' sale':' sales')+' a month and it pays for itself.'):('Se paga con '+be+(be===1?' venta.':' ventas.'));
     }
     c.addEventListener('input',calc); calc();
   }
   // Sub-páginas (sin el alta): en zona de EE. UU. o ?moneda=usd, precios en USD como la landing
-  (function(){ if(document.getElementById('f')) return; var mo=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase(), us=false; try{ us=/^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||''); }catch(_){}
+  (function(){ if(NEURI_EN||document.getElementById('f')) return; var mo=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase(), us=false; try{ us=/^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||''); }catch(_){}
     if(!(mo==='usd'||(mo!=='mxn'&&us))) return; var P={'$899':'$49','$1,299':'$69'};
     document.querySelectorAll('.pn').forEach(function(s){ if(P[s.textContent]){ s.textContent=P[s.textContent]; var n=s.nextElementSibling; if(n) n.textContent=n.textContent.replace('MXN','USD'); } });
     document.querySelectorAll('.kw').forEach(function(k){ k.textContent=k.textContent.replace('Precios en pesos','Precios en dólares'); });
@@ -123,9 +130,9 @@ document.documentElement.classList.add('js');
   })();
 
   // Ligas viejas a secciones que ahora tienen su página
-  var hmap={citas:'/sigue-disponible/citas/',comida:'/sigue-disponible/comida/',creadores:'/sigue-disponible/creadores/'};
+  var hmap=NEURI_EN?{appointments:'/en/still-available/appointments/',food:'/en/still-available/food/',creators:'/en/still-available/creators/'}:{citas:'/sigue-disponible/citas/',comida:'/sigue-disponible/comida/',creadores:'/sigue-disponible/creadores/'};
   var hh=location.hash.slice(1); if(hmap[hh]) location.replace(hmap[hh]+location.search);
-  if(hh==='mas') location.replace('#giros');
+  if(hh==='mas'||hh==='more') location.replace('#giros');
 })();
 
 /* ===== Centro de mando (hero v2) ===== */
@@ -163,6 +170,27 @@ document.documentElement.classList.add('js');
     ]
   };
 
+  if(NEURI_EN){
+    ST={ok:'Answered',ap:'On hold',ti:'Passed to you',ci:'Booked',pe:'Order logged',li:'Link sent'};
+    FEEDS={
+      bazar:[['ig','Laura M.','LM','#F2C14E','2:14 am','Is the white dresser still available?','Yes, it’s still available. It’s $180 and you can pick it up today from 5 to 8 pm. Want me to hold it?','ok','2.1'],
+        ['ms','Diego R.','DR','#F7B48C','2:31 am','What’s your lowest? I’ll give you $120','Mariana decides on price. I’ll pass her your offer and she’ll reply in the morning.','ti','1.7'],
+        ['ig','Sofia P.','SP','#8FE0B4','9:02 am','Please hold it, I’ll come by at 6','Done, it’s on hold under your name until 8 pm. We take cash and Zelle.','ap','2.4'],
+        ['ms','Paul G.','PG','#C5D2CB','9:15 am','Do you ship to Tucson?','Yes. Shipping to Tucson is $15 and takes 2 business days.','ok','1.9']],
+      citas:[['ig','Karla S.','KS','#F7B48C','11:40 pm','Any openings Saturday for nails?','Saturday I have 10:00, 12:30 and 4:00. Which works for you?','ok','1.8'],
+        ['ig','Karla S.','KS','#F7B48C','11:41 pm','12:30 please','Booked: Saturday 12:30, acrylic nails. I’ll remind you the day before.','ci','2.0'],
+        ['ms','Ana T.','AT','#8FE0B4','8:05 am','I need to move my Thursday appointment','Sure. Thursday I have 3:00 or 5:30, or Friday at 11:00. Which do you prefer?','ok','2.2'],
+        ['ig','Rachel L.','RL','#F2C14E','8:20 am','Any discount if 3 of us come?','Fer decides that. I’ll pass her your message and she’ll reply today.','ti','1.6']],
+      comida:[['ig','Luis A.','LA','#8FE0B4','6:58 pm','2 California rolls and a tea','2 California ($17 each) + tea ($3.50) = $37.50. Pick up at 7:30?','pe','2.3'],
+        ['ms','Marta V.','MV','#F2C14E','7:02 pm','Anything without seafood?','Yes: the chicken Philadelphia roll and the veggie fried rice. Want me to add one?','ok','1.9'],
+        ['ig','Ivan C.','IC','#F7B48C','7:10 pm','Is my order ready?','It’s ready! See you at the counter.','ok','1.4'],
+        ['ms','Vera Group','VG','#C5D2CB','7:15 pm','Do you take orders for 40 people?','An order that size goes straight to Kaori. I already passed her your message.','ti','1.7']],
+      creador:[['ig','@fitmaria','FM','#8FE0B4','10:12 am','LINK','Thanks for commenting! Here’s the workout you asked for: yourlink.com/workout','li','1.2'],
+        ['ig','@javi.run','JR','#F2C14E','10:13 am','LINK','Here you go! yourlink.com/workout · Use ANA15 for 15% off in the shop.','li','1.1'],
+        ['ms','Nova Brand','NB','#F7B48C','10:30 am','What do you charge for a reel?','Here’s Ana’s media kit with rates. Ana will reach out to close it.','ti','2.0'],
+        ['ig','@lu.gym','LG','#C5D2CB','10:41 am','Is the code still valid?','Yes, ANA15 is valid through the end of the month.','ok','1.5']]
+    };
+  }
   function thread(m){
     var t=document.createElement('div'); t.className='th';
     t.innerHTML='<div class="th-in"><span class="av" style="background:'+m[3]+'">'+m[2]+'</span><div style="min-width:0"><div class="th-who">'+(m[0]==='ig'?IG:MS)+'<b></b>· '+(m[0]==='ig'?'Instagram':'Messenger')+'</div><p class="th-txt"></p></div><span class="th-t">'+m[4]+'</span></div><div class="th-out"><div><div class="rep"></div><div class="rep-meta"></div></div></div>';
@@ -172,7 +200,7 @@ document.documentElement.classList.add('js');
   function finish(t,m){
     t.querySelector('.rep').textContent=m[6];
     t.querySelector('.th-out').classList.add('open');
-    t.querySelector('.rep-meta').innerHTML='<span class="pl '+CLS[m[7]]+'">'+ST[m[7]]+'</span><span class="ms">en '+m[8]+' s</span>';
+    t.querySelector('.rep-meta').innerHTML='<span class="pl '+CLS[m[7]]+'">'+ST[m[7]]+'</span><span class="ms">'+(NEURI_EN?'in ':'en ')+m[8]+' s</span>';
   }
 
   document.querySelectorAll('.cons[data-feed]').forEach(function(c){
@@ -193,11 +221,11 @@ document.documentElement.classList.add('js');
       setTimeout(function(){ row.classList.add('scan'); if(core){core.classList.remove('hit'); void core.offsetWidth; core.classList.add('hit');} c.dispatchEvent(new CustomEvent('neuri-pulse')); },450);
       setTimeout(function(){
         var out=t.querySelector('.th-out'), rep=t.querySelector('.rep');
-        var th=document.createElement('div'); th.className='thinking'; th.innerHTML='<i></i><i></i><i></i> Neuri está escribiendo'; rep.replaceWith(th);
+        var th=document.createElement('div'); th.className='thinking'; th.innerHTML='<i></i><i></i><i></i> '+(NEURI_EN?'Neuri is typing':'Neuri está escribiendo'); rep.replaceWith(th);
         out.classList.add('open');
         setTimeout(function(){
           th.replaceWith(rep); var txt=m[6], k=0; rep.innerHTML='<span></span><i class="cur"></i>'; var sp=rep.firstChild;
-          var iv=setInterval(function(){ k+=2; sp.textContent=txt.slice(0,k); if(k>=txt.length){clearInterval(iv); rep.textContent=txt; t.querySelector('.rep-meta').innerHTML='<span class="pl '+CLS[m[7]]+'">'+ST[m[7]]+'</span><span class="ms">en '+m[8]+' s</span>'; bump(m[7]); setTimeout(step,1900);} },22);
+          var iv=setInterval(function(){ k+=2; sp.textContent=txt.slice(0,k); if(k>=txt.length){clearInterval(iv); rep.textContent=txt; t.querySelector('.rep-meta').innerHTML='<span class="pl '+CLS[m[7]]+'">'+ST[m[7]]+'</span><span class="ms">'+(NEURI_EN?'in ':'en ')+m[8]+' s</span>'; bump(m[7]); setTimeout(step,1900);} },22);
         },850);
       },1300);
     }

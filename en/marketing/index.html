@@ -1001,6 +1001,8 @@ header.top .btn{white-space:nowrap;flex-shrink:0}header.top .lk{white-space:nowr
 
   // Origen del visitante (?src=) en la lista de espera
   var src=new URLSearchParams(location.search).get('src'),jf=document.querySelector('[data-form]');if(jf&&src&&/^[a-z0-9_-]{1,40}$/.test(src))jf.action='https://marketing.neuri.tech/lista?src='+src;
+  // MK160: «Hecho con Neuri» llega con ?ref=<negocio>; lo pasamos al alta para atribuir el referido (sin cookies).
+  var ref=new URLSearchParams(location.search).get('ref');if(ref&&/^[a-z0-9-]{2,40}$/.test(ref))document.querySelectorAll('a[href^="https://marketing.neuri.tech/empezar"]').forEach(function(a){var u=new URL(a.href);u.searchParams.set('ref',ref);a.href=u.toString()});
 })();
 </script>
 <script src="/assets/vendedor.js" defer></script>

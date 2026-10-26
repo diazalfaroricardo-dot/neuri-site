@@ -21,6 +21,8 @@ for (const f of ["marketing/index.html", "en/marketing/index.html"]) {
   for (const p of ["inicio", "crece", "pro"])
     yes(f, new RegExp(`href="https://marketing\\.neuri\\.tech/empezar\\?lang=(es|en)&amp;plan=${p}"`), `botón del plan ${p}`);
 }
+for (const f of ["marketing/index.html", "en/marketing/index.html"])
+  yes(f, /searchParams\.set\('ref',ref\)/, "?ref de «Hecho con Neuri» pasa a /empezar (MK160)");
 no("index.html", /Neuri Marketing \(pronto\)|Neuri Marketing<small>Lista de espera|Contenido · Lista de espera/, "tarjeta de Marketing en neuri.tech con lista de espera");
 no("llms.txt", /Not available yet; waitlist open|IVA incluido/, "llms.txt viejo");
 

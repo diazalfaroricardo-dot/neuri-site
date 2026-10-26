@@ -555,6 +555,108 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 
 </style>
 <style>/* T42: a 390 px «Entrar» queda arriba a la derecha junto al logo; el botón principal ya está en el hero. */@media (max-width:480px){body header:first-of-type{padding-left:16px!important;padding-right:16px!important;gap:8px!important}body header:first-of-type>nav{gap:12px!important;margin-left:auto}body header:first-of-type>nav>a[href^="#"]:not(.hide-sm){display:none!important}}</style>
+<script>(function(){var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('m');setTimeout(function(){if(!window.gsap)d.classList.remove('m')},3500)}})();</script>
+<style>
+:root{
+  --ink:#05080D;--ink2:#0F141D;--ink3:#2B2520;--cream:#F7F1E8;--sand:#EADFCD;--paper:#FFFFFF;--line:#E6DBC9;--line2:#D9CCB8;
+  --peach:#F3B38F;--peach-l:#F3DCCD;--terra:#B4441A;--terra-d:#8A3313;--teal:#0E6B6B;--teal-l:#DCEDEC;--mint:#8FE0B4;
+  --gray:#5E554C;--on-ink:#CFC4B4;--ease:cubic-bezier(.2,.8,.2,1);
+}
+html{background:var(--cream)}
+.gx-prog{position:fixed;left:0;top:0;height:3px;width:100%;z-index:9998;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--terra),var(--peach));pointer-events:none}
+.gw{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .1em .12em 0;margin:0 -.1em -.12em 0}
+.gwi{display:inline-block;will-change:transform}
+.gx-spot{position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:screen;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--sx,50%) var(--sy,50%),rgba(243,179,143,.16),transparent 62%)}
+html.m #inicio .b-rise{animation:none!important;visibility:hidden}
+html.m #inicio > div:nth-child(2){visibility:hidden}
+
+/* ticker móvil (hero) */
+.gx-tick{display:none}
+@media (max-width:860px){
+  .gx-tick{display:flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border-radius:16px;padding:12px 14px;box-shadow:0 24px 40px -24px rgba(5,8,13,.55);overflow:hidden;position:relative;min-height:62px}
+}
+.gx-tick-l{flex:none;font:600 10px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--peach);display:inline-flex;align-items:center;gap:6px}
+.gx-tick-l::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--terra);box-shadow:0 0 0 0 rgba(180,68,26,.6);animation:bPulse 1.6s infinite}
+.gx-tick-w{position:relative;flex:1;min-width:0;height:38px}
+.gx-tick-i{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:2px;font-size:14px;line-height:1.25}
+.gx-tick-i b{font-weight:650}
+.gx-tick-i small{color:var(--on-ink);font-size:12.5px}
+.gx-tick-i:not(:first-child){visibility:hidden}
+
+/* sección flujo */
+.fx{background:var(--cream);padding:104px 24px 96px;position:relative;overflow:hidden}
+.fx-in{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.fx-eyebrow{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--peach);font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px}
+.fx-dot{width:8px;height:8px;border-radius:50%;background:var(--terra);animation:bPulse 1.6s infinite}
+.fx-h2{margin:0;font-family:Geist,system-ui,sans-serif;font-weight:800;font-size:clamp(32px,4.4vw,56px);line-height:1.04;letter-spacing:-.035em;max-width:820px;color:var(--ink)}
+.fx-lede{margin:0;font-size:19px;line-height:1.55;color:#4E463E;max-width:640px}
+.fx-stage{position:relative;margin-top:18px;background:var(--ink);border-radius:32px;padding:40px;display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:56px;align-items:start;color:#fff;overflow:hidden;isolation:isolate;box-shadow:0 60px 120px -60px rgba(5,8,13,.65)}
+.fx-stage::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(243,179,143,.13) 1px,transparent 1.2px);background-size:22px 22px;mask-image:radial-gradient(ellipse at 60% 40%,#000 30%,transparent 75%)}
+.fx-glow{position:absolute;z-index:-1;width:560px;height:560px;border-radius:50%;right:-120px;top:-200px;background:radial-gradient(circle,rgba(180,68,26,.42),transparent 62%);filter:blur(10px)}
+.fx-wires{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
+.fx-w{fill:none;stroke:rgba(243,179,143,.55);stroke-width:1.6;stroke-dasharray:4 6}
+.fx-coin{fill:var(--peach);filter:drop-shadow(0 0 8px rgba(243,179,143,.9));opacity:0}
+.fx-col{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;min-width:0}
+.fx-step{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--on-ink)}
+.fx-step b{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(243,179,143,.14);color:var(--peach);font-size:13px;flex:none}
+.fx-card{background:var(--cream);color:var(--ink);border-radius:20px;border:1px solid var(--line)}
+.fx-caja{overflow:hidden;background:var(--paper)}
+.fx-caja-top{background:#0B1018;color:#fff;padding:13px 16px;display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fx-caja-top>span:first-child{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.fx-live{width:8px;height:8px;border-radius:50%;background:var(--terra);animation:bPulse 1.6s infinite}
+.fx-mut{color:var(--gray);font-size:13px;font-weight:500}
+.fx-caja-top .fx-mut{color:var(--on-ink)}
+.fx-caja-body{padding:14px;display:flex;flex-direction:column;gap:10px}
+.fx-line{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--cream);border-radius:12px;padding:11px 13px}
+.fx-line span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.fx-line b{font-weight:700;font-size:15px}
+.fx-line small{color:var(--gray);font-size:12.5px}
+.fx-total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:12px;margin-top:2px}
+.fx-total>span{color:var(--gray);font-weight:600}
+.fx-total b{font-weight:800;font-size:32px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.fx-pay{position:relative;height:50px;border-radius:13px;overflow:hidden;font-weight:700;color:#fff}
+.fx-pay>span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:13px}
+.fx-pay-a{background:var(--terra)}
+.fx-pay-b{background:var(--teal);font-size:14.5px}
+.fx-v{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:14px 16px;background:var(--paper)}
+.fx-av{width:40px;height:40px;border-radius:50%;background:var(--peach);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.fx-av2{background:var(--teal-l);color:var(--teal)}
+.fx-vn{display:flex;flex-direction:column;gap:1px;min-width:0}
+.fx-vn b{font-weight:700}
+.fx-vn small,.fx-bal small{color:var(--gray);font-size:12.5px}
+.fx-bal{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.fx-bal b{font-weight:800;font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.fx-plus{position:absolute;right:14px;top:-12px;background:var(--teal);color:#fff;font-weight:700;font-size:12.5px;padding:4px 9px;border-radius:999px;opacity:0}
+.fx-mail{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--on-ink);padding:4px 2px}
+.fx-edo{padding:18px;background:var(--paper);display:flex;flex-direction:column;gap:12px}
+.fx-edo-h{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px}
+.fx-row{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:15px}
+.fx-row b{font-weight:700;font-variant-numeric:tabular-nums}
+.fx-rent span:first-child,.fx-rent b{color:var(--terra)}
+.fx-stamp{position:absolute;left:56%;top:-4px;border:2px solid var(--terra);color:var(--terra);font:700 11px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:4px 7px;border-radius:6px;transform:rotate(-8deg);background:var(--paper);opacity:0}
+.fx-bar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--line)}
+.fx-bar-a{flex:0 0 77.5%;background:var(--teal)}
+.fx-bar-b{flex:0 0 22.5%;background:var(--peach)}
+.fx-pagas{border-top:1px solid var(--ink);padding-top:12px}
+.fx-pagas span{font-weight:700}
+.fx-pagas b{font-size:28px;font-weight:800;color:var(--teal);letter-spacing:-.02em}
+.fx-steps{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.fx-steps li{font-weight:600;font-size:14px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--line2);color:var(--gray);background:var(--paper);transition:background .3s,color .3s,border-color .3s}
+.fx-steps li.on{background:var(--ink);color:var(--peach);border-color:var(--ink)}
+.fx-note{margin:0;font-size:13.5px;color:var(--gray)}
+@media (max-width:980px){
+  .fx-stage{grid-template-columns:1fr;gap:40px;padding:24px}
+  .fx-glow{width:380px;height:380px;right:-160px;top:-120px}
+}
+@media (max-width:480px){
+  .fx{padding:72px 16px 72px}
+  .fx-stage{padding:18px;border-radius:24px}
+  .fx-total b{font-size:28px}
+  .fx-caja-top{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){.fx-dot,.fx-live,.gx-tick-l::before{animation:none}}
+
+</style>
 </head>
 <body>
 <div id="dc-a">
@@ -579,58 +681,290 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </nav>
 </header>
 
-<section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
-<div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
-<span class="b-rise" style="align-self: flex-start; background: #F3DCCD; color: #8A3313; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Para mercaditos, bazares y antique malls</span>
-<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Tu bazar, sin libreta. Tus vendedores, sin dudas.</h1>
-<p class="b-rise b-rise-3" style="margin: 0; font-size: 20px; line-height: 1.5; color: #4E463E; max-width: 560px">Cada venta llega al saldo de su vendedor, la renta del puesto se descuenta sola y cada quien ve sus números en Mi Puesto, desde el celular. Nadie te vuelve a preguntar «¿ya se vendió lo mío?».</p>
-<div class="b-rise b-rise-4" style="display: flex; flex-wrap: wrap; gap: 12px">
-<a class="b-btn" href="#prueba" style="text-decoration: none; background: #B4441A; color: #FFFFFF; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box">Prueba gratis 14 días</a>
-<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #05080D; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Pruébalo</a>
-</div>
-<p style="margin: 0; font-size: 15px; color: #5E554C">Español e inglés · Pesos y dólares · Desde $499 MXN o US$79 al mes</p>
-</div>
+<style data-keep>
+/* ===== HERO v3 neuri.bazar — escenario oscuro con caja viva ===== */
+.hx{--ink:#05080D;--ink2:#0B1018;--paper:#F7F1E8;--terra:#B4441A;--terra2:#D9622F;--peach:#F3B38F;--teal:#0E6B6B;--mint:#8FE0B4;--mute:#B9AE9F;
+  position:relative;margin:4px 12px 0;border-radius:36px;background:var(--ink);color:var(--paper);overflow:hidden;isolation:isolate}
+@media(max-width:560px){.hx{margin:0 8px;border-radius:26px}}
+.hx-aur{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:-2}
+.hx-a1{width:640px;height:640px;right:-160px;top:-220px;background:radial-gradient(closest-side,rgba(180,68,26,.75),rgba(180,68,26,0))}
+.hx-a2{width:560px;height:560px;left:-220px;bottom:-260px;background:radial-gradient(closest-side,rgba(14,107,107,.7),rgba(14,107,107,0))}
+.hx-a3{width:380px;height:380px;left:42%;top:30%;background:radial-gradient(closest-side,rgba(243,179,143,.28),rgba(243,179,143,0))}
+.hx-floor{position:absolute;left:-30%;right:-30%;bottom:-2px;height:42%;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(243,179,143,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(243,179,143,.16) 1px,transparent 1px);background-size:60px 60px;
+  transform:perspective(520px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(to top,#000 5%,transparent 80%);mask-image:linear-gradient(to top,#000 5%,transparent 80%);animation:hxFloor 5s linear infinite}
+@keyframes hxFloor{to{background-position:0 60px}}
+.hx-grain{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:radial-gradient(rgba(247,241,232,.08) 1px,transparent 1px);background-size:22px 22px}
+/* hang tags flotantes */
+.hx-tag{position:absolute;z-index:0;pointer-events:none;display:flex;align-items:center;gap:7px;padding:8px 12px 8px 22px;background:var(--paper);color:var(--ink);font:700 14px/1 Geist,system-ui,sans-serif;letter-spacing:-.01em;
+  clip-path:polygon(14px 0,100% 0,100% 100%,14px 100%,0 50%);border-radius:4px;box-shadow:0 14px 30px -14px rgba(0,0,0,.7);transform-origin:0 50%;opacity:.9}
+.hx-tag::before{content:"";position:absolute;left:9px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--ink)}
+.hx-tag small{font:500 10px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#5E554C}
+.hx-tag.dark{background:var(--terra);color:#fff}.hx-tag.dark small{color:#FFFFFF}.hx-tag.dark::before{background:var(--ink)}
+@media(max-width:900px){.hx-tag.t3,.hx-tag.t4,.hx-tag.t5{display:none}}
+@media(max-width:600px){.hx-tag{display:none}}
 
-<div style="flex: 1 1 380px; display: flex; justify-content: center; position: relative; padding: 32px 0">
-<div class="b-dots" aria-hidden="true"></div>
-<div class="b-chip b-bob" aria-hidden="true" style="top: 0; right: -10px">
-<span class="b-ico" style="background: #DCEDEC"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span>
-<span style="display: flex; flex-direction: column; gap: 1px"><span>Inventario al día</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">se descuenta en cada venta</span></span>
-</div>
+.hx-in{max-width:1240px;margin:0 auto;padding:72px 40px 84px;display:grid;gap:40px;align-items:center}
+@media(min-width:1000px){.hx-in{grid-template-columns:1fr 1.02fr;gap:24px;padding:80px 48px 96px}}
+@media(max-width:560px){.hx-in{padding:44px 20px 40px;gap:28px}}
+.hx-txt{display:flex;flex-direction:column;gap:22px;min-width:0;position:relative;z-index:2}
+.hx-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font:600 13.5px/1 Geist,system-ui,sans-serif;color:var(--peach);padding:9px 14px;border-radius:999px;border:1px solid rgba(243,179,143,.35);background:rgba(243,179,143,.08)}
+.hx-badge i{width:8px;height:8px;border-radius:50%;background:var(--terra2);animation:hxPulse 1.6s infinite}
+@keyframes hxPulse{0%{box-shadow:0 0 0 0 rgba(217,98,47,.7)}100%{box-shadow:0 0 0 10px rgba(217,98,47,0)}}
+.hx h1{margin:0;font-family:Geist,system-ui,sans-serif;font-weight:800;letter-spacing:-.045em;line-height:.94;font-size:clamp(46px,6.6vw,92px);color:var(--paper)}
+.hx h1 .l{display:block}
+.hx-rot{display:block;position:relative;height:1.04em;margin:.02em 0 .06em}
+.hx-rot>span{position:absolute;left:0;top:0;white-space:nowrap;background:linear-gradient(95deg,#F3B38F,#D9622F 45%,#F3B38F 90%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.1em;animation:hxHue 5s ease-in-out infinite alternate}
+@keyframes hxHue{to{background-position:100% 0}}
+.hx-rot svg{position:absolute;left:0;bottom:-.14em;width:4.6em;height:.28em;overflow:visible}
+.hx-rot svg path{fill:none;stroke:var(--terra2);stroke-width:5;stroke-linecap:round}
+.hx h1 .l2{font-size:.56em;letter-spacing:-.035em;line-height:1.05;color:#E6DCCD;margin-top:.12em}
+.hx h1 .l2 b{font-weight:800;color:var(--mint)}
+.hx-p{margin:0;font-size:clamp(17px,1.5vw,19.5px);line-height:1.55;color:#CFC4B4;max-width:34em}
+.hx-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hx-btn{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 26px;border-radius:16px;font:650 17px/1 Geist,system-ui,sans-serif;text-decoration:none;will-change:transform;transition:box-shadow .25s,background .25s}
+.hx-btn.pri{background:var(--terra);color:#fff;box-shadow:0 18px 40px -16px rgba(217,98,47,.9),inset 0 1px 0 rgba(255,255,255,.18)}
+.hx-btn.pri:hover{background:#C24E21;box-shadow:0 22px 50px -14px rgba(217,98,47,1),0 0 0 1px rgba(243,179,143,.5)}
+.hx-btn.pri::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.32) 50%,transparent 65%);background-size:250% 100%;animation:hxSheen 3.6s linear infinite;pointer-events:none}
+@keyframes hxSheen{from{background-position:150% 0}to{background-position:-100% 0}}
+.hx-btn.sec{color:var(--paper);border:1.5px solid rgba(247,241,232,.28);background:rgba(247,241,232,.04)}
+.hx-btn.sec:hover{border-color:var(--paper)}
+.hx-btn .lbl{display:inline-flex;align-items:center;gap:10px;pointer-events:none}
+.hx-fine{margin:0;font-size:14.5px;color:var(--mute);display:flex;flex-wrap:wrap;gap:6px 18px}
+.hx-fine span{display:inline-flex;align-items:center;gap:8px}.hx-fine span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--peach)}
 
+/* escena */
+.hx-wrap{position:relative;min-width:0;width:100%}
+.hx-scene{position:relative;width:580px;height:520px;transform-origin:0 0;transform-style:preserve-3d}
+.hx-label{position:absolute;left:0;top:0;font:500 10.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--peach);border:1px solid rgba(243,179,143,.35);border-radius:999px;padding:6px 10px;background:rgba(5,8,13,.6)}
+.hx-pos{position:absolute;left:0;top:40px;width:296px;background:#fff;color:var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.06);will-change:transform}
+.hx-pos-top{background:var(--ink2);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font:600 14px/1 Geist,system-ui,sans-serif}
+.hx-pos-top span{display:inline-flex;align-items:center;gap:8px}.hx-pos-top small{font-size:12px;color:#CFC4B4;font-weight:500}
+.hx-live{width:8px;height:8px;border-radius:50%;background:var(--terra2);animation:hxPulse 1.6s infinite}
+.hx-pos-b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px}
+.hx-scan{position:relative;height:62px;border-radius:14px;background:var(--paper);border:1.5px dashed #D9CCB8;display:flex;align-items:center;justify-content:center;gap:3px;overflow:hidden}
+.hx-scan b{display:block;height:30px;background:var(--ink)}
+.hx-laser{position:absolute;left:8%;right:8%;top:50%;height:2px;background:var(--terra2);box-shadow:0 0 12px 3px rgba(217,98,47,.75);border-radius:2px}
+.hx-rows{min-height:118px;display:flex;flex-direction:column;gap:8px}
+.hx-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper);border-radius:12px;padding:10px 12px}
+.hx-row b{display:block;font:650 14px/1.25 Geist,system-ui,sans-serif}.hx-row small{display:block;font-size:12px;color:#6B6157;margin-top:2px}
+.hx-row em{font-style:normal;font:700 15px/1 Geist,system-ui,sans-serif;white-space:nowrap}
+.hx-tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #E6DBC9;padding-top:12px}
+.hx-tot span{font-weight:600;color:#6B6157}.hx-tot b{font:800 32px/1 Geist,system-ui,sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hx-cobrar{position:relative;overflow:hidden;background:var(--terra);color:#fff;text-align:center;font:700 16px/1 Geist,system-ui,sans-serif;padding:16px;border-radius:14px}
+.hx-cobrar i{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0)}
+.hx-ok{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--teal);opacity:0}
+.hx-v{position:absolute;right:0;width:232px;background:rgba(14,18,26,.86);border:1px solid rgba(247,241,232,.12);border-radius:20px;padding:14px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9);will-change:transform}
+.hx-v1{top:26px}.hx-v2{top:206px}
+.hx-v-h{display:flex;align-items:center;gap:10px}
+.hx-av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:700 13px/1 Geist,system-ui,sans-serif;flex:none}
+.hx-v1 .hx-av{background:var(--peach);color:var(--ink)}.hx-v2 .hx-av{background:#CFE7E3;color:var(--teal)}
+.hx-v-h b{display:block;font:650 15px/1.2 Geist,system-ui,sans-serif}.hx-v-h small{font-size:12px;color:var(--mute)}
+.hx-bal{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px}
+.hx-bal span{font-size:12px;color:var(--mute)}
+.hx-bal b{font:800 28px/1 Geist,system-ui,sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#fff}
+.hx-plus{position:absolute;right:12px;top:-13px;font:700 13px/1 Geist,system-ui,sans-serif;padding:6px 10px;border-radius:999px;background:var(--teal);color:#fff;opacity:0;box-shadow:0 8px 20px -8px rgba(14,107,107,.9)}
+.hx-stamp{position:absolute;right:14px;top:44px;font:800 11px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.08em;color:var(--peach);border:2px solid var(--peach);border-radius:6px;padding:5px 7px;transform:rotate(-10deg);opacity:0}
+.hx-pay{margin-top:10px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed rgba(247,241,232,.18);padding-top:10px;opacity:0}
+.hx-pay span{font-size:12.5px;color:#E6DCCD}.hx-pay b{font:800 20px/1 Geist,system-ui,sans-serif;color:var(--mint);font-variant-numeric:tabular-nums}
+.hx-coin{position:absolute;left:0;top:0;width:30px;height:30px;margin:-15px;border-radius:50%;display:grid;place-items:center;font:800 15px/1 Geist,system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 35% 30%,#FFE6D5,#F3B38F 55%,#D9622F);box-shadow:0 0 18px 2px rgba(243,179,143,.65);opacity:0;z-index:5}
+.hx-notif{position:absolute;right:26px;bottom:6px;display:flex;align-items:center;gap:12px;width:300px;padding:12px 14px;border-radius:18px;background:rgba(247,241,232,.97);color:var(--ink);box-shadow:0 30px 60px -24px rgba(0,0,0,.9);opacity:0;z-index:4}
+.hx-notif .ic{width:36px;height:36px;border-radius:10px;background:var(--terra);display:grid;place-items:center;flex:none}
+.hx-notif b{display:block;font:650 14px/1.25 Geist,system-ui,sans-serif}.hx-notif small{display:block;font-size:12px;color:#6B6157;margin-top:2px}
+.hx-wire{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.hx-wire path{fill:none;stroke:rgba(243,179,143,.35);stroke-width:1.5;stroke-dasharray:4 7;animation:hxDash 1.4s linear infinite}
+@keyframes hxDash{to{stroke-dashoffset:-22}}
+.hx-foot{position:absolute;left:0;bottom:0;font:500 10.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.06em;color:#8C8173}
+html.m .hx [data-hx]{visibility:hidden}
+.hx .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.hx-stamp,.hx-pay{opacity:1}}
+@media(prefers-reduced-motion:reduce){.hx *,.hx *::before,.hx *::after{animation:none!important}}
+</style>
 
-<div class="b-tilt" role="img" aria-label="Caja de neuri.bazar: se escanean dos artículos de distintos vendedores, se cobra el total y cada vendedor recibe el aviso de su venta." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(5,8,13,.45); overflow: hidden">
-<div style="background: #05080D; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
-<span style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px"><span class="b-live"></span>Caja 1 · Bazar Las Palmas</span>
-<span style="font-size: 13px; color: #CFC4B4">Cajero: Ana</span>
-</div>
-<div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
-<div style="position: relative; height: 70px; border-radius: 14px; background: #F7F1E8; border: 1.5px dashed #D9CCB8; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden">
-<span class="b-scan"></span>
-<span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span>
-</div>
-<div style="min-height: 132px; display: flex; flex-direction: column; gap: 10px">
+<section id="inicio" class="hx" data-own data-keep aria-labelledby="hx-h1">
+  <div class="hx-aur hx-a1" aria-hidden="true"></div>
+  <div class="hx-aur hx-a2" aria-hidden="true"></div>
+  <div class="hx-aur hx-a3" aria-hidden="true"></div>
+  <div class="hx-grain" aria-hidden="true"></div>
+  <div class="hx-floor" aria-hidden="true"></div>
+  <span class="hx-tag t1" aria-hidden="true" style="left:3%;bottom:3%">$180<small>Puesto 03</small></span>
+  <span class="hx-tag dark t2" aria-hidden="true" style="right:6%;top:6%">$1,200<small>Renta</small></span>
+  <span class="hx-tag t3" aria-hidden="true" style="left:36%;bottom:2%">$95<small>Puesto 21</small></span>
+  <span class="hx-tag t4" aria-hidden="true" style="right:4%;bottom:2.5%">$640<small>Puesto 09</small></span>
+  <span class="hx-tag dark t5" aria-hidden="true" style="left:44%;top:5%">$320<small>Puesto 15</small></span>
 
-<p style="margin: 0; color: #5E554C; font-size: 14px; text-align: center; padding-top: 44px">Escanea una etiqueta para empezar</p>
+  <div class="hx-in">
+    <div class="hx-txt">
+      <span class="hx-badge" data-hx><i></i>Para mercaditos, bazares y antique malls</span>
+      <h1 id="hx-h1" data-hx>
+        <span class="l" data-split>Tu bazar,</span>
+        <span class="hx-rot" aria-hidden="true"><span class="hx-rw">sin libreta.</span><svg viewBox="0 0 230 14" preserveAspectRatio="none"><path d="M3 9 C 40 2, 70 13, 110 7 S 180 3, 227 8"/></svg></span>
+        <span class="sr">sin libreta.</span>
+        <span class="l l2" data-split>Tus vendedores, <b>sin dudas.</b></span>
+      </h1>
+      <p class="hx-p" data-hx>Cada venta llega al saldo de su vendedor, la renta del puesto se descuenta sola y cada quien ve sus números en Mi Puesto, desde el celular. Nadie te vuelve a preguntar «¿ya se vendió lo mío?».</p>
+      <div class="hx-ctas b-rise-4" data-hx>
+        <a class="hx-btn pri" href="#prueba"><span class="lbl">Prueba gratis 14 días <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="hx-btn sec" href="#simula"><span class="lbl"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Pruébalo</span></a>
+      </div>
+      <p class="hx-fine" data-hx><span>Español e inglés</span><span>Pesos y dólares</span><span>Desde $499 MXN o US$79 al mes</span></p>
+    </div>
 
-
-
-</div>
-<div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DBC9; padding-top: 14px">
-<span style="font-weight: 600; color: #5E554C">Total</span>
-<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">$0</span>
-</div>
-<div style="position: relative">
-
-<div style="background: #B4441A; color: #FFFFFF; text-align: center; font-weight: 700; padding: 16px; border-radius: 14px">Cobrar</div>
-
-
-</div>
-</div>
-</div>
-</div>
+    <div class="hx-wrap" id="hx-wrap">
+      <div class="hx-scene" id="hx-scene" data-hx role="img" aria-label="Ejemplo animado: en la caja se escanean dos artículos de distintos vendedores, se cobra $1,400 y cada venta llega al saldo de su vendedor; el lunes se descuenta la renta y el estado de cuenta dice cuánto se le paga.">
+        <span class="hx-label">Ejemplo · Bazar Las Palmas</span>
+        <svg class="hx-wire" viewBox="0 0 580 520" aria-hidden="true"><path d="M296 380 C 330 380, 320 90, 348 90"/><path d="M296 380 C 330 380, 320 268, 348 268"/></svg>
+        <div class="hx-pos" id="hx-pos">
+          <div class="hx-pos-top"><span><i class="hx-live"></i>Caja 1 · Las Palmas</span><small>Cajero: Ana</small></div>
+          <div class="hx-pos-b">
+            <div class="hx-scan"><span class="hx-laser"></span><b style="width:3px"></b><b style="width:1px"></b><b style="width:4px"></b><b style="width:2px"></b><b style="width:1px"></b><b style="width:3px"></b><b style="width:1px"></b><b style="width:4px"></b><b style="width:2px"></b><b style="width:1px"></b><b style="width:3px"></b><b style="width:2px"></b><b style="width:1px"></b><b style="width:4px"></b></div>
+            <div class="hx-rows">
+              <div class="hx-row r1"><span><b>Lámpara de latón vintage</b><small>Puesto 12 · Doña Rosa</small></span><em>$450</em></div>
+              <div class="hx-row r2"><span><b>Vajilla de talavera, 12 pz</b><small>Puesto 7 · Lupita</small></span><em>$950</em></div>
+            </div>
+            <div class="hx-tot"><span>Total</span><b id="hx-total">$1,400</b></div>
+            <div class="hx-cobrar" id="hx-cobrar">Cobrar<i></i><span class="hx-ok">✓ Cobrado · saldos al día</span></div>
+          </div>
+        </div>
+        <div class="hx-v hx-v1" id="hx-v1">
+          <span class="hx-plus">+$450</span>
+          <div class="hx-v-h"><span class="hx-av">DR</span><span><b>Doña Rosa</b><small>Puesto 12</small></span></div>
+          <div class="hx-bal"><span>Saldo</span><b id="hx-b1">$1,230</b></div>
+        </div>
+        <div class="hx-v hx-v2" id="hx-v2">
+          <span class="hx-plus">+$950</span>
+          <span class="hx-stamp">LUNES · RENTA −$900</span>
+          <div class="hx-v-h"><span class="hx-av">LU</span><span><b>Lupita</b><small>Puesto 7</small></span></div>
+          <div class="hx-bal"><span>Saldo</span><b id="hx-b2">$4,000</b></div>
+          <div class="hx-pay"><span>Le pagas</span><b>$3,100</b></div>
+        </div>
+        <span class="hx-coin c1">$</span><span class="hx-coin c2">$</span><span class="hx-coin c3">$</span><span class="hx-coin c4">$</span>
+        <div class="hx-notif" id="hx-notif"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><span><b>Mi Puesto · ¡Se vendió tu lámpara!</b><small>+$450 a tu saldo · Doña Rosa</small></span></div>
+        <span class="hx-foot">Datos de ejemplo · montos en MXN</span>
+      </div>
+    </div>
+  </div>
 </section>
+
+<script data-keep>
+(function(){
+  var scene=document.getElementById('hx-scene'),wrap=document.getElementById('hx-wrap');
+  if(!scene) return;
+  /* escala la escena al ancho disponible (sin scroll lateral) */
+  function fit(){var s=Math.min(1,wrap.clientWidth/580);scene.style.transform='scale('+s+')';wrap.style.height=(520*s)+'px';}
+  fit();addEventListener('resize',fit);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(){
+    if(!window.gsap||reduce){document.querySelectorAll('.hx [data-hx]').forEach(function(e){e.style.visibility='visible'});return;}
+    var g=gsap,$=function(s){return scene.querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+    var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
+    function split(el){var out=[];(function walk(n){Array.prototype.slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.style.cssText='display:inline-block;overflow:hidden;vertical-align:top;padding:0 .08em .1em 0;margin:0 -.08em -.1em 0';var i=document.createElement('span');i.style.display='inline-block';i.textContent=p;w.appendChild(i);f.appendChild(w);out.push(i)});c.parentNode.replaceChild(f,c)}else if(c.nodeType===1)walk(c)})})(el);return out}
+    var words=[];$$('.hx h1 [data-split]').forEach(function(e){words=words.concat(split(e))});
+    var rw=document.querySelector('.hx-rw'),squig=document.querySelector('.hx-rot path'),SL=squig.getTotalLength();
+    g.set(squig,{strokeDasharray:SL,strokeDashoffset:SL});
+
+    /* ---- entrada ---- */
+    var intro=g.timeline({defaults:{ease:'power4.out'},delay:.05});
+    intro.set('.hx [data-hx]',{visibility:'visible'})
+      .from('.hx-badge',{y:16,autoAlpha:0,scale:.9,duration:.6,ease:'back.out(2)'},0)
+      .from(words.slice(0,2),{yPercent:115,rotate:6,duration:1.05,stagger:.07},.12)
+      .from(rw,{yPercent:70,autoAlpha:0,filter:'blur(14px)',duration:1.1},.32)
+      .to(squig,{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},.85)
+      .from(words.slice(2),{yPercent:115,duration:.9,stagger:.05},.55)
+      .from('.hx-p',{y:20,autoAlpha:0,duration:.8},.75)
+      .from('.hx-ctas .hx-btn',{y:22,autoAlpha:0,scale:.94,duration:.7,stagger:.09,ease:'back.out(1.8)'},.9)
+      .from('.hx-fine span',{y:10,autoAlpha:0,duration:.5,stagger:.07},1.05)
+      .from('.hx-tag',{autoAlpha:0,y:30,rotate:-25,duration:1.1,stagger:.08,ease:'back.out(1.6)'},.4)
+      .from(scene,{autoAlpha:0,y:60,rotationY:-18,rotationX:10,transformPerspective:1200,duration:1.4,ease:'expo.out'},.25)
+      .from('.hx-v',{autoAlpha:0,x:40,duration:.9,stagger:.12,ease:'expo.out'},.7)
+      .from('.hx-wire path',{autoAlpha:0,duration:.6},1.1);
+
+    /* ---- palabra que rota ---- */
+    var list=['sin libreta.','sin Excel.','sin papeles.','sin cuentas.'],wi=0;
+    g.delayedCall(3.4,function cyc(){wi=(wi+1)%list.length;
+      g.timeline().to(rw,{yPercent:-60,autoAlpha:0,filter:'blur(10px)',duration:.4,ease:'power2.in'}).to(squig,{strokeDashoffset:SL,duration:.3},0)
+        .add(function(){rw.textContent=list[wi]})
+        .fromTo(rw,{yPercent:60,filter:'blur(10px)'},{yPercent:0,autoAlpha:1,filter:'blur(0px)',duration:.6,ease:'power3.out'})
+        .to(squig,{strokeDashoffset:0,duration:.7,ease:'power2.inOut'},'-=.3');
+      g.delayedCall(2.8,cyc);});
+
+    /* ---- ambiente ---- */
+    g.to('.hx-a1',{x:-90,y:60,scale:1.15,duration:9,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    g.to('.hx-a2',{x:80,y:-50,scale:1.1,duration:11,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    g.to('.hx-a3',{x:-60,y:40,duration:7,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    $$('.hx-tag').forEach(function(t,i){g.to(t,{rotate:(i%2?7:-7),y:(i%2?-14:12),duration:2.6+i*.4,repeat:-1,yoyo:true,ease:'sine.inOut',delay:1.4+i*.2})});
+
+    /* ---- la caja en vivo (loop) ---- */
+    function pos(el){var x=0,y=0,n=el;while(n&&n!==scene){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent}return{x:x,y:y,w:el.offsetWidth,h:el.offsetHeight}}
+    var tot=document.getElementById('hx-total'),b1=document.getElementById('hx-b1'),b2=document.getElementById('hx-b2');
+    var st={t:0,a:780,b:3050};
+    function draw(){tot.textContent=fmt(st.t);b1.textContent=fmt(st.a);b2.textContent=fmt(st.b)}
+    var cob=document.getElementById('hx-cobrar'),v1=document.getElementById('hx-v1'),v2=document.getElementById('hx-v2');
+    function coinPath(c,targ,delay,tl){var s=pos(cob),t=pos(targ),sx=s.x+s.w/2,sy=s.y+s.h/2,tx=t.x+40,ty=t.y+t.h/2;
+      tl.set(c,{x:sx,y:sy,autoAlpha:0,scale:.4},delay)
+        .to(c,{autoAlpha:1,scale:1,duration:.15},delay)
+        .to(c,{keyframes:[{x:sx+(tx-sx)*.45,y:Math.min(sy,ty)-70,duration:.32,ease:'sine.out'},{x:tx,y:ty,duration:.32,ease:'sine.in'}]},delay)
+        .to(c,{autoAlpha:0,scale:1.8,duration:.2},delay+.62);}
+    var L=g.timeline({repeat:-1,repeatDelay:1.2,delay:1.6,onRepeat:function(){}});
+    L.add(function(){st.t=0;st.a=780;st.b=3050;draw()})
+     .set(['.hx-row','.hx-plus','.hx-stamp','.hx-pay','.hx-notif','.hx-ok'],{autoAlpha:0})
+     .set('.hx-laser',{autoAlpha:1,yPercent:0})
+     /* escaneo 1 */
+     .fromTo('.hx-laser',{y:-22},{y:22,duration:.45,repeat:1,yoyo:true,ease:'sine.inOut'})
+     .fromTo('.hx-row.r1',{autoAlpha:0,y:-16,scale:.96},{autoAlpha:1,y:0,scale:1,duration:.45,ease:'back.out(2)'})
+     .to(st,{t:450,duration:.5,onUpdate:draw},'<')
+     /* escaneo 2 */
+     .fromTo('.hx-laser',{y:-22},{y:22,duration:.45,repeat:1,yoyo:true,ease:'sine.inOut'},'+=.35')
+     .fromTo('.hx-row.r2',{autoAlpha:0,y:-16,scale:.96},{autoAlpha:1,y:0,scale:1,duration:.45,ease:'back.out(2)'})
+     .to(st,{t:1400,duration:.6,onUpdate:draw},'<')
+     .to('.hx-laser',{autoAlpha:0,duration:.2})
+     /* cobrar */
+     .to(cob,{scale:.95,duration:.12,ease:'power2.in'},'+=.35')
+     .fromTo('.hx-cobrar i',{scale:0,autoAlpha:1},{scale:16,autoAlpha:0,duration:.6,ease:'power2.out'})
+     .to(cob,{scale:1,duration:.35,ease:'back.out(3)'},'<')
+     .to('.hx-ok',{autoAlpha:1,duration:.25},'<.1')
+     .addLabel('pay');
+    coinPath(scene.querySelector('.c1'),v1,'pay+=.05',L);
+    coinPath(scene.querySelector('.c3'),v1,'pay+=.18',L);
+    coinPath(scene.querySelector('.c2'),v2,'pay+=.12',L);
+    coinPath(scene.querySelector('.c4'),v2,'pay+=.26',L);
+    L.to(st,{a:1230,duration:.7,ease:'power3.out',onUpdate:draw},'pay+=.65')
+     .to(st,{b:4000,duration:.7,ease:'power3.out',onUpdate:draw},'pay+=.75')
+     .fromTo(v1,{scale:1},{scale:1.05,duration:.18,yoyo:true,repeat:1,ease:'power2.out'},'pay+=.62')
+     .fromTo(v2,{scale:1},{scale:1.05,duration:.18,yoyo:true,repeat:1,ease:'power2.out'},'pay+=.72')
+     .fromTo('.hx-v1 .hx-plus',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.35,ease:'back.out(3)'},'pay+=.62')
+     .fromTo('.hx-v2 .hx-plus',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.35,ease:'back.out(3)'},'pay+=.72')
+     .fromTo('#hx-notif',{autoAlpha:0,y:30,scale:.92},{autoAlpha:1,y:0,scale:1,duration:.6,ease:'back.out(1.8)'},'pay+=1')
+     /* lunes: renta */
+     .to('.hx-plus',{autoAlpha:0,duration:.3},'+=1.4')
+     .fromTo('.hx-stamp',{autoAlpha:0,scale:2.2,rotate:-24},{autoAlpha:1,scale:1,rotate:-10,duration:.4,ease:'back.out(2.4)'})
+     .to(v2,{x:-4,duration:.05,repeat:5,yoyo:true},'<.3')
+     .to(st,{b:3100,duration:.8,ease:'power3.inOut',onUpdate:draw},'<')
+     .fromTo('.hx-pay',{autoAlpha:0,y:10},{autoAlpha:1,y:0,duration:.5,ease:'power3.out'},'-=.2')
+     .to('#hx-notif',{autoAlpha:0,y:20,duration:.4},'+=2.2')
+     .to(['.hx-row','.hx-stamp','.hx-pay','.hx-ok'],{autoAlpha:0,duration:.4},'+=.2');
+
+    /* ---- paralaje con el cursor ---- */
+    if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+      var hx=document.querySelector('.hx'),pos3=document.getElementById('hx-pos');
+      var rx=g.quickTo(pos3,'rotationX',{duration:.9,ease:'power3'}),ry=g.quickTo(pos3,'rotationY',{duration:.9,ease:'power3'});
+      var qv=$$('.hx-v').map(function(v){return[g.quickTo(v,'x',{duration:1,ease:'power3'}),g.quickTo(v,'y',{duration:1,ease:'power3'})]});
+      var qt=$$('.hx-tag').map(function(t){return[g.quickTo(t,'x',{duration:1.4,ease:'power3'})]});
+      g.set(pos3,{transformPerspective:1000});
+      hx.addEventListener('pointermove',function(e){var r=hx.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+        ry(px*14);rx(-py*10);qv.forEach(function(q,i){q[0](px*(i?-18:-10));q[1](py*(i?-14:-8))});qt.forEach(function(q,i){q[0](px*(20+i*8))});});
+      hx.addEventListener('pointerleave',function(){rx(0);ry(0);qv.forEach(function(q){q[0](0);q[1](0)})});
+      $$('.hx-btn').forEach(function(b){var x=g.quickTo(b,'x',{duration:.5,ease:'power3'}),y=g.quickTo(b,'y',{duration:.5,ease:'power3'});
+        b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();x((e.clientX-r.left-r.width/2)*.3);y((e.clientY-r.top-r.height/2)*.4)});
+        b.addEventListener('pointerleave',function(){g.to(b,{x:0,y:0,duration:.9,ease:'elastic.out(1,.4)'})})});
+    }
+    /* el escenario se aleja al bajar */
+    if(window.ScrollTrigger){g.registerPlugin(ScrollTrigger);g.to(wrap,{yPercent:-8,ease:'none',scrollTrigger:{trigger:'.hx',start:'top top',end:'bottom top',scrub:true}});}
+  }
+  if(document.readyState==='complete')go();else addEventListener('load',go);
+})();
+</script>
+
 
 <section aria-label="Para quién es" style="background: #FFFFFF; border-top: 1px solid #E6DBC9; border-bottom: 1px solid #E6DBC9; padding: 22px 0">
 <div class="b-marquee">
@@ -641,11 +975,66 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 </div>
 </section>
 
+<section id="flujo" data-own aria-labelledby="t-flujo" class="fx">
+<div class="fx-in">
+<span class="fx-eyebrow"><span class="fx-dot"></span>Así se mueve el dinero</span>
+<h2 id="t-flujo" class="fx-h2">Cobras una vez. Las cuentas se hacen solas.</h2>
+<p class="fx-lede">Cada pieza sabe de qué puesto es: al cobrar, el dinero va al saldo de su vendedor. Y cada semana la renta se descuenta y su estado de cuenta le llega solo.</p>
+
+<div class="fx-stage" role="img" aria-label="Ejemplo: se cobran dos piezas de dos vendedores por $1,400; $450 van al saldo de Doña Rosa y $950 al de Lupita; el lunes, al estado de cuenta de Lupita se le descuentan $900 de renta y le pagas $3,100.">
+<div class="fx-glow" aria-hidden="true"></div>
+<svg class="fx-wires" aria-hidden="true"><path class="fx-w fx-w1"/><path class="fx-w fx-w2"/><path class="fx-w fx-w3"/><circle class="fx-coin fx-c1" r="5"/><circle class="fx-coin fx-c2" r="5"/><circle class="fx-coin fx-c3" r="5"/></svg>
+
+<div class="fx-col fx-col1" aria-hidden="true">
+<span class="fx-step"><b>1</b>Cobras en la caja</span>
+<div class="fx-card fx-caja">
+<div class="fx-caja-top"><span><span class="fx-live"></span>Caja 1 · Bazar Las Palmas</span><span class="fx-mut">Cajero: Ana</span></div>
+<div class="fx-caja-body">
+<div class="fx-line fx-l1"><span><b>Lámpara de latón vintage</b><small>Puesto 12 · Doña Rosa</small></span><b>$450</b></div>
+<div class="fx-line fx-l2"><span><b>Vajilla de talavera, 12 pz</b><small>Puesto 7 · Lupita</small></span><b>$950</b></div>
+<div class="fx-total"><span>Total</span><b>$<span class="fx-n" data-n="1400">1,400</span></b></div>
+<div class="fx-pay"><span class="fx-pay-a">Cobrar</span><span class="fx-pay-b">Cobrado · saldos actualizados</span></div>
+</div>
+</div>
+</div>
+
+<div class="fx-col fx-col2" aria-hidden="true">
+<span class="fx-step"><b>2</b>Va al saldo de su vendedor</span>
+<div class="fx-card fx-v fx-v1">
+<span class="fx-av">DR</span><span class="fx-vn"><b>Doña Rosa</b><small>Puesto 12</small></span>
+<span class="fx-bal"><small>Saldo</small><b>$<span class="fx-n" data-from="780" data-n="1230">1,230</span></b></span>
+<span class="fx-plus fx-p1">+$450</span>
+</div>
+<div class="fx-card fx-v fx-v2">
+<span class="fx-av fx-av2">LU</span><span class="fx-vn"><b>Lupita</b><small>Puesto 7</small></span>
+<span class="fx-bal"><small>Saldo</small><b>$<span class="fx-n" data-from="3050" data-n="4000">4,000</span></b></span>
+<span class="fx-plus fx-p2">+$950</span>
+</div>
+<div class="fx-mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>Aviso por correo a cada vendedor</div>
+</div>
+
+<div class="fx-col fx-col3" aria-hidden="true">
+<span class="fx-step"><b>3</b>El lunes sale su estado de cuenta</span>
+<div class="fx-card fx-edo">
+<div class="fx-edo-h"><b>Lupita · Puesto 7</b><span class="fx-mut">Semana</span></div>
+<div class="fx-row"><span>Ventas de la semana</span><b>$<span class="fx-n" data-n="4000">4,000</span></b></div>
+<div class="fx-row fx-rent"><span>Renta del puesto</span><b>− $<span class="fx-n" data-from="0" data-n="900">900</span></b><span class="fx-stamp">Renta</span></div>
+<div class="fx-bar"><span class="fx-bar-a"></span><span class="fx-bar-b"></span></div>
+<div class="fx-row fx-pagas"><span>Le pagas</span><b>$<span class="fx-n" data-from="4000" data-n="3100">3,100</span></b></div>
+</div>
+</div>
+</div>
+
+<ol class="fx-steps" aria-hidden="true"><li class="on">Cobras</li><li>Saldo del vendedor</li><li>Renta y estado de cuenta</li></ol>
+<p class="fx-note">Bazar, piezas y vendedores de ejemplo. Montos en pesos mexicanos (MXN).</p>
+</div>
+</section>
+
 <section id="simula" aria-label="Alta de un vendedor nuevo" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px"><span class="b-live"></span>Pruébalo</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Cómo rentar puestos de tu bazar en dos minutos</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02"><span class="gw"><span class="gwi">Cómo</span></span> <span class="gw"><span class="gwi">rentar</span></span> <span class="gw"><span class="gwi">puestos</span></span> <span class="gw"><span class="gwi">de</span></span> <span class="gw"><span class="gwi">tu</span></span> <span class="gw"><span class="gwi">bazar</span></span> <span class="gw"><span class="gwi">en</span></span> <span class="gw"><span class="gwi">dos</span></span> <span class="gw"><span class="gwi">minutos</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Eliges el puesto, a quién de tu lista de espera y su renta. Neuri le manda el contrato, lo firma desde su celular y queda dado de alta.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: stretch">
@@ -861,7 +1250,7 @@ Elige un puesto libre
 <section id="ahorro" aria-label="Calculadora de tiempo ahorrado" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px 0; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
 <span style="align-self: flex-start; background: #DCEDEC; color: #0B5555; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Calculadora</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">¿Cuántas horas al mes te regresa neuri.bazar?</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03"><span class="gw"><span class="gwi">¿Cuántas</span></span> <span class="gw"><span class="gwi">horas</span></span> <span class="gw"><span class="gwi">al</span></span> <span class="gw"><span class="gwi">mes</span></span> <span class="gw"><span class="gwi">te</span></span> <span class="gw"><span class="gwi">regresa</span></span> <span class="gw"><span class="gwi">neuri.bazar?</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Pon los números de tu bazar. El cálculo usa tus propios estimados; ajústalos si trabajas distinto.</p>
 </div>
 
@@ -970,7 +1359,7 @@ Elige un puesto libre
 <div style="margin-top: auto; background: #2B2520; border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 15px; color: #CFC4B4">Con tu hora a $100 MXN, ese tiempo vale</span>
 <span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em">$9,030 MXN <span style="font-size: 17px; font-weight: 600; color: #CFC4B4">al mes</span></span>
-<span style="font-size: 15px; color: #F3B38F; font-weight: 600">Es 10.0 veces lo que cuesta Pro ($899 MXN).</span>
+<span style="font-size: 15px; color: #F3B38F; font-weight: 600">Es 10 veces lo que cuesta Pro ($899 MXN).</span>
 </div>
 </div>
 </div>
@@ -981,7 +1370,7 @@ Elige un puesto libre
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 780px">
 <span style="align-self: flex-start; background: #05080D; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Mi Puesto · para tus vendedores</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Tus vendedores también lo van a querer.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02"><span class="gw"><span class="gwi">Tus</span></span> <span class="gw"><span class="gwi">vendedores</span></span> <span class="gw"><span class="gwi">también</span></span> <span class="gw"><span class="gwi">lo</span></span> <span class="gw"><span class="gwi">van</span></span> <span class="gw"><span class="gwi">a</span></span> <span class="gw"><span class="gwi">querer.</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Un bazar con vendedores contentos se llena solo. Cada uno tiene su Mi Puesto en el celular: ve su dinero claro, sube sus piezas y decide sus promociones. Sin bajar ninguna app y sin preguntarte «¿cuánto llevo?».</p>
 </div>
 
@@ -1095,7 +1484,7 @@ Elige un puesto libre
 
 <section id="funciones" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Software para administrar un bazar o tianguis</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em"><span class="gw"><span class="gwi">Software</span></span> <span class="gw"><span class="gwi">para</span></span> <span class="gw"><span class="gwi">administrar</span></span> <span class="gw"><span class="gwi">un</span></span> <span class="gw"><span class="gwi">bazar</span></span> <span class="gw"><span class="gwi">o</span></span> <span class="gw"><span class="gwi">tianguis</span></span></h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">Nació en nuestro propio bazar, no en una oficina.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
@@ -1147,7 +1536,7 @@ Elige un puesto libre
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; background: rgba(243,179,143,0.18); color: #FFD3BA; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Incluido en Plus</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Página web con el inventario de tu bazar</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02"><span class="gw"><span class="gwi">Página</span></span> <span class="gw"><span class="gwi">web</span></span> <span class="gw"><span class="gwi">con</span></span> <span class="gw"><span class="gwi">el</span></span> <span class="gw"><span class="gwi">inventario</span></span> <span class="gw"><span class="gwi">de</span></span> <span class="gw"><span class="gwi">tu</span></span> <span class="gw"><span class="gwi">bazar</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CDE5E4">Tomas la foto, le pones precio y aparece en tu sitio. Tus clientes la ven desde su casa y, cuando la cobras, el sitio se actualiza solo.</p>
 </div>
 
@@ -1288,7 +1677,7 @@ Elige un puesto libre
 
 <section id="cambiarte" aria-label="Por qué cambiarte" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Punto de venta para bazares con vendedores por puesto</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em"><span class="gw"><span class="gwi">Punto</span></span> <span class="gw"><span class="gwi">de</span></span> <span class="gw"><span class="gwi">venta</span></span> <span class="gw"><span class="gwi">para</span></span> <span class="gw"><span class="gwi">bazares</span></span> <span class="gw"><span class="gwi">con</span></span> <span class="gw"><span class="gwi">vendedores</span></span> <span class="gw"><span class="gwi">por</span></span> <span class="gw"><span class="gwi">puesto</span></span></h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E; line-height: 1.5">Un punto de venta común cobra, pero no sabe de puestos, rentas ni vendedores. neuri.bazar sí.</p>
 </div>
 
@@ -1378,7 +1767,7 @@ Elige un puesto libre
 <section id="precios" style="background: #FFFFFF; border-top: 1px solid #E6DBC9; border-bottom: 1px solid #E6DBC9">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">¿Cuánto cuesta un sistema para bazar? Precio fijo, sin comisiones</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em"><span class="gw"><span class="gwi">¿Cuánto</span></span> <span class="gw"><span class="gwi">cuesta</span></span> <span class="gw"><span class="gwi">un</span></span> <span class="gw"><span class="gwi">sistema</span></span> <span class="gw"><span class="gwi">para</span></span> <span class="gw"><span class="gwi">bazar?</span></span> <span class="gw"><span class="gwi">Precio</span></span> <span class="gw"><span class="gwi">fijo,</span></span> <span class="gw"><span class="gwi">sin</span></span> <span class="gw"><span class="gwi">comisiones</span></span></h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">En Estados Unidos: US$79, US$119 y US$149 al mes. ¿Comparando opciones? Mira <a href="/bazar/vs-quail/" style="color: inherit; text-decoration: underline; text-underline-offset: 3px">neuri.bazar vs Quail</a>.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
@@ -1427,7 +1816,7 @@ Elige un puesto libre
 <section class="oscuro" id="prueba" aria-labelledby="t-prueba">
   <div class="wrap prueba-grid">
     <div class="prueba-lado">
-      <h2 id="t-prueba">Abre tu bazar en Neuri en 4 pasos</h2>
+      <h2 id="t-prueba"><span class="gw"><span class="gwi">Abre</span></span> <span class="gw"><span class="gwi">tu</span></span> <span class="gw"><span class="gwi">bazar</span></span> <span class="gw"><span class="gwi">en</span></span> <span class="gw"><span class="gwi">Neuri</span></span> <span class="gw"><span class="gwi">en</span></span> <span class="gw"><span class="gwi">4</span></span> <span class="gw"><span class="gwi">pasos</span></span></h2>
       <p class="entrada">Te toma un minuto. Con esto dejamos tu bazar listo para que empieces a cobrar.</p>
       <ul>
         <li><b>14 días gratis.</b> Sin tarjeta. Te avisamos antes de que termine.</li>
@@ -1512,7 +1901,7 @@ Elige un puesto libre
 <section id="ia" aria-labelledby="t-ia">
   <div class="wrap ia">
     <div>
-      <h2 id="t-ia">Configúralo con tu asistente de IA</h2>
+      <h2 id="t-ia"><span class="gw"><span class="gwi">Configúralo</span></span> <span class="gw"><span class="gwi">con</span></span> <span class="gw"><span class="gwi">tu</span></span> <span class="gw"><span class="gwi">asistente</span></span> <span class="gw"><span class="gwi">de</span></span> <span class="gw"><span class="gwi">IA</span></span></h2>
       <p class="entrada">Si usas Claude o ChatGPT, tu asistente puede dar de alta a tus vendedores, cargar tu inventario y dejar tu tienda lista. Tú le platicas; él lo hace en tu neuri.bazar, con tu permiso.</p>
       <p class="sr" id="ia-lab">URL del conector</p>
       <div class="ia-tag" role="group" aria-labelledby="ia-lab">
@@ -1534,7 +1923,7 @@ Elige un puesto libre
 </section>
 </div>
 <div id="dc-b"><section id="preguntas" style="max-width: 820px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 28px">
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Preguntas frecuentes</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em"><span class="gw"><span class="gwi">Preguntas</span></span> <span class="gw"><span class="gwi">frecuentes</span></span></h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E6DBC9">
 <details style="border-bottom: 1px solid #E6DBC9; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">¿Mis vendedores tienen que bajar una app?<span class="b-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #B4441A">+</span></summary>
@@ -1565,7 +1954,7 @@ Elige un puesto libre
 <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 44px; position: relative; z-index: 1">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Último paso</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Arma tu bazar en 10 segundos.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98"><span class="gw"><span class="gwi">Arma</span></span> <span class="gw"><span class="gwi">tu</span></span> <span class="gw"><span class="gwi">bazar</span></span> <span class="gw"><span class="gwi">en</span></span> <span class="gw"><span class="gwi">10</span></span> <span class="gw"><span class="gwi">segundos.</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Dinos cómo se llama, cuántos puestos tiene y cuánto cobras de renta. Neuri lo arma frente a ti.</p>
 </div>
 
@@ -1742,79 +2131,290 @@ Armar mi bazar
 </nav>
 </header>
 
-<section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
-<div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
-<span class="b-rise" style="align-self: flex-start; background: #F3DCCD; color: #8A3313; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Para mercaditos, bazares y antique malls</span>
-<h1 class="b-rise b-rise-2" style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.035em">Tu bazar, sin libreta. Tus vendedores, sin dudas.</h1>
-<p class="b-rise b-rise-3" style="margin: 0; font-size: 20px; line-height: 1.5; color: #4E463E; max-width: 560px">Cada venta llega al saldo de su vendedor, la renta del puesto se descuenta sola y cada quien ve sus números en Mi Puesto, desde el celular. Nadie te vuelve a preguntar «¿ya se vendió lo mío?».</p>
-<div class="b-rise b-rise-4" style="display: flex; flex-wrap: wrap; gap: 12px">
-<a class="b-btn" href="#prueba" style="text-decoration: none; background: {{accent}}; color: #FFFFFF; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box">Prueba gratis 14 días</a>
-<a href="#simula" style="text-decoration: none; background: #FFFFFF; color: #05080D; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 14px; border: 1.5px solid #D9CCB8; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; box-sizing: border-box">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>Pruébalo</a>
-</div>
-<p style="margin: 0; font-size: 15px; color: #5E554C">Español e inglés · Pesos y dólares · Desde $499 MXN o US$79 al mes</p>
-</div>
+<style data-keep>
+/* ===== HERO v3 neuri.bazar — escenario oscuro con caja viva ===== */
+.hx{--ink:#05080D;--ink2:#0B1018;--paper:#F7F1E8;--terra:#B4441A;--terra2:#D9622F;--peach:#F3B38F;--teal:#0E6B6B;--mint:#8FE0B4;--mute:#B9AE9F;
+  position:relative;margin:4px 12px 0;border-radius:36px;background:var(--ink);color:var(--paper);overflow:hidden;isolation:isolate}
+@media(max-width:560px){.hx{margin:0 8px;border-radius:26px}}
+.hx-aur{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:-2}
+.hx-a1{width:640px;height:640px;right:-160px;top:-220px;background:radial-gradient(closest-side,rgba(180,68,26,.75),rgba(180,68,26,0))}
+.hx-a2{width:560px;height:560px;left:-220px;bottom:-260px;background:radial-gradient(closest-side,rgba(14,107,107,.7),rgba(14,107,107,0))}
+.hx-a3{width:380px;height:380px;left:42%;top:30%;background:radial-gradient(closest-side,rgba(243,179,143,.28),rgba(243,179,143,0))}
+.hx-floor{position:absolute;left:-30%;right:-30%;bottom:-2px;height:42%;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(243,179,143,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(243,179,143,.16) 1px,transparent 1px);background-size:60px 60px;
+  transform:perspective(520px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(to top,#000 5%,transparent 80%);mask-image:linear-gradient(to top,#000 5%,transparent 80%);animation:hxFloor 5s linear infinite}
+@keyframes hxFloor{to{background-position:0 60px}}
+.hx-grain{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:radial-gradient(rgba(247,241,232,.08) 1px,transparent 1px);background-size:22px 22px}
+/* hang tags flotantes */
+.hx-tag{position:absolute;z-index:0;pointer-events:none;display:flex;align-items:center;gap:7px;padding:8px 12px 8px 22px;background:var(--paper);color:var(--ink);font:700 14px/1 Geist,system-ui,sans-serif;letter-spacing:-.01em;
+  clip-path:polygon(14px 0,100% 0,100% 100%,14px 100%,0 50%);border-radius:4px;box-shadow:0 14px 30px -14px rgba(0,0,0,.7);transform-origin:0 50%;opacity:.9}
+.hx-tag::before{content:"";position:absolute;left:9px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--ink)}
+.hx-tag small{font:500 10px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#5E554C}
+.hx-tag.dark{background:var(--terra);color:#fff}.hx-tag.dark small{color:#FFFFFF}.hx-tag.dark::before{background:var(--ink)}
+@media(max-width:900px){.hx-tag.t3,.hx-tag.t4,.hx-tag.t5{display:none}}
+@media(max-width:600px){.hx-tag{display:none}}
 
-<div style="flex: 1 1 380px; display: flex; justify-content: center; position: relative; padding: 32px 0">
-<div class="b-dots" aria-hidden="true"></div>
-<div class="b-chip b-bob" aria-hidden="true" style="top: 0; right: -10px">
-<span class="b-ico" style="background: #DCEDEC"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E6B6B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span>
-<span style="display: flex; flex-direction: column; gap: 1px"><span>Inventario al día</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">se descuenta en cada venta</span></span>
-</div>
-<template sc-if value="{{notif}}" hint-placeholder-val="{{ true }}">
-<div class="b-chip b-pop" aria-hidden="true" style="bottom: 70px; left: -34px">
-<span class="b-ico" style="background: #05080D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
-<span style="display: flex; flex-direction: column; gap: 1px"><span>Doña Rosa · Puesto 12</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">Vendiste la lámpara · +$450 a tu saldo</span></span>
-</div>
-<div class="b-chip b-pop" aria-hidden="true" style="bottom: 8px; left: 10px; animation-delay: .35s">
-<span class="b-ico" style="background: #05080D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F3B38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>
-<span style="display: flex; flex-direction: column; gap: 1px"><span>Lupita · Puesto 7</span><span style="font-size: 12px; font-weight: 500; color: #5E554C">Vendiste la vajilla · +$950 a tu saldo</span></span>
-</div>
-</template>
+.hx-in{max-width:1240px;margin:0 auto;padding:72px 40px 84px;display:grid;gap:40px;align-items:center}
+@media(min-width:1000px){.hx-in{grid-template-columns:1fr 1.02fr;gap:24px;padding:80px 48px 96px}}
+@media(max-width:560px){.hx-in{padding:44px 20px 40px;gap:28px}}
+.hx-txt{display:flex;flex-direction:column;gap:22px;min-width:0;position:relative;z-index:2}
+.hx-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font:600 13.5px/1 Geist,system-ui,sans-serif;color:var(--peach);padding:9px 14px;border-radius:999px;border:1px solid rgba(243,179,143,.35);background:rgba(243,179,143,.08)}
+.hx-badge i{width:8px;height:8px;border-radius:50%;background:var(--terra2);animation:hxPulse 1.6s infinite}
+@keyframes hxPulse{0%{box-shadow:0 0 0 0 rgba(217,98,47,.7)}100%{box-shadow:0 0 0 10px rgba(217,98,47,0)}}
+.hx h1{margin:0;font-family:Geist,system-ui,sans-serif;font-weight:800;letter-spacing:-.045em;line-height:.94;font-size:clamp(46px,6.6vw,92px);color:var(--paper)}
+.hx h1 .l{display:block}
+.hx-rot{display:block;position:relative;height:1.04em;margin:.02em 0 .06em}
+.hx-rot>span{position:absolute;left:0;top:0;white-space:nowrap;background:linear-gradient(95deg,#F3B38F,#D9622F 45%,#F3B38F 90%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.1em;animation:hxHue 5s ease-in-out infinite alternate}
+@keyframes hxHue{to{background-position:100% 0}}
+.hx-rot svg{position:absolute;left:0;bottom:-.14em;width:4.6em;height:.28em;overflow:visible}
+.hx-rot svg path{fill:none;stroke:var(--terra2);stroke-width:5;stroke-linecap:round}
+.hx h1 .l2{font-size:.56em;letter-spacing:-.035em;line-height:1.05;color:#E6DCCD;margin-top:.12em}
+.hx h1 .l2 b{font-weight:800;color:var(--mint)}
+.hx-p{margin:0;font-size:clamp(17px,1.5vw,19.5px);line-height:1.55;color:#CFC4B4;max-width:34em}
+.hx-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hx-btn{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 26px;border-radius:16px;font:650 17px/1 Geist,system-ui,sans-serif;text-decoration:none;will-change:transform;transition:box-shadow .25s,background .25s}
+.hx-btn.pri{background:var(--terra);color:#fff;box-shadow:0 18px 40px -16px rgba(217,98,47,.9),inset 0 1px 0 rgba(255,255,255,.18)}
+.hx-btn.pri:hover{background:#C24E21;box-shadow:0 22px 50px -14px rgba(217,98,47,1),0 0 0 1px rgba(243,179,143,.5)}
+.hx-btn.pri::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.32) 50%,transparent 65%);background-size:250% 100%;animation:hxSheen 3.6s linear infinite;pointer-events:none}
+@keyframes hxSheen{from{background-position:150% 0}to{background-position:-100% 0}}
+.hx-btn.sec{color:var(--paper);border:1.5px solid rgba(247,241,232,.28);background:rgba(247,241,232,.04)}
+.hx-btn.sec:hover{border-color:var(--paper)}
+.hx-btn .lbl{display:inline-flex;align-items:center;gap:10px;pointer-events:none}
+.hx-fine{margin:0;font-size:14.5px;color:var(--mute);display:flex;flex-wrap:wrap;gap:6px 18px}
+.hx-fine span{display:inline-flex;align-items:center;gap:8px}.hx-fine span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--peach)}
 
-<div class="b-tilt" role="img" aria-label="Caja de neuri.bazar: se escanean dos artículos de distintos vendedores, se cobra el total y cada vendedor recibe el aviso de su venta." style="position: relative; z-index: 1; width: 380px; max-width: 100%; background: #FFFFFF; border-radius: 28px; border: 1px solid #E6DBC9; box-shadow: 0 40px 70px -30px rgba(5,8,13,.45); overflow: hidden">
-<div style="background: #05080D; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center">
-<span style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px"><span class="b-live"></span>Caja 1 · Bazar Las Palmas</span>
-<span style="font-size: 13px; color: #CFC4B4">Cajero: Ana</span>
-</div>
-<div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
-<div style="position: relative; height: 70px; border-radius: 14px; background: #F7F1E8; border: 1.5px dashed #D9CCB8; display: flex; align-items: center; justify-content: center; gap: 3px; overflow: hidden">
-<span class="b-scan"></span>
-<span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 3px; height: 34px; background: #05080D"></span><span style="width: 2px; height: 34px; background: #05080D"></span><span style="width: 1px; height: 34px; background: #05080D"></span><span style="width: 4px; height: 34px; background: #05080D"></span>
-</div>
-<div style="min-height: 132px; display: flex; flex-direction: column; gap: 10px">
-<template sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
-<p style="margin: 0; color: #5E554C; font-size: 14px; text-align: center; padding-top: 44px">Escanea una etiqueta para empezar</p>
-</template>
-<template sc-if value="{{h1}}" hint-placeholder-val="{{ true }}">
-<div class="b-pop" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: #F7F1E8">
-<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Lámpara de latón vintage</span><span style="font-size: 12.5px; color: #5E554C">Puesto 12 · Doña Rosa</span></span>
-<span style="font-weight: 700">$450</span>
-</div>
-</template>
-<template sc-if value="{{h2}}" hint-placeholder-val="{{ true }}">
-<div class="b-pop" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: #F7F1E8">
-<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Vajilla de talavera, 12 pz</span><span style="font-size: 12.5px; color: #5E554C">Puesto 7 · Lupita</span></span>
-<span style="font-weight: 700">$950</span>
-</div>
-</template>
-</div>
-<div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DBC9; padding-top: 14px">
-<span style="font-weight: 600; color: #5E554C">Total</span>
-<span style="font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em">{{heroTotal}}</span>
-</div>
-<div style="position: relative">
-<template sc-if value="{{unpaid}}" hint-placeholder-val="{{ true }}">
-<div style="background: {{accent}}; color: #FFFFFF; text-align: center; font-weight: 700; padding: 16px; border-radius: 14px">Cobrar</div>
-</template>
-<template sc-if value="{{paid}}" hint-placeholder-val="{{ false }}">
-<div class="b-pop" style="background: #0E6B6B; color: #FFFFFF; text-align: center; font-weight: 700; padding: 16px; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Cobrado · saldos actualizados</div>
-</template>
-</div>
-</div>
-</div>
-</div>
+/* escena */
+.hx-wrap{position:relative;min-width:0;width:100%}
+.hx-scene{position:relative;width:580px;height:520px;transform-origin:0 0;transform-style:preserve-3d}
+.hx-label{position:absolute;left:0;top:0;font:500 10.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--peach);border:1px solid rgba(243,179,143,.35);border-radius:999px;padding:6px 10px;background:rgba(5,8,13,.6)}
+.hx-pos{position:absolute;left:0;top:40px;width:296px;background:#fff;color:var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.06);will-change:transform}
+.hx-pos-top{background:var(--ink2);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font:600 14px/1 Geist,system-ui,sans-serif}
+.hx-pos-top span{display:inline-flex;align-items:center;gap:8px}.hx-pos-top small{font-size:12px;color:#CFC4B4;font-weight:500}
+.hx-live{width:8px;height:8px;border-radius:50%;background:var(--terra2);animation:hxPulse 1.6s infinite}
+.hx-pos-b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px}
+.hx-scan{position:relative;height:62px;border-radius:14px;background:var(--paper);border:1.5px dashed #D9CCB8;display:flex;align-items:center;justify-content:center;gap:3px;overflow:hidden}
+.hx-scan b{display:block;height:30px;background:var(--ink)}
+.hx-laser{position:absolute;left:8%;right:8%;top:50%;height:2px;background:var(--terra2);box-shadow:0 0 12px 3px rgba(217,98,47,.75);border-radius:2px}
+.hx-rows{min-height:118px;display:flex;flex-direction:column;gap:8px}
+.hx-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper);border-radius:12px;padding:10px 12px}
+.hx-row b{display:block;font:650 14px/1.25 Geist,system-ui,sans-serif}.hx-row small{display:block;font-size:12px;color:#6B6157;margin-top:2px}
+.hx-row em{font-style:normal;font:700 15px/1 Geist,system-ui,sans-serif;white-space:nowrap}
+.hx-tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #E6DBC9;padding-top:12px}
+.hx-tot span{font-weight:600;color:#6B6157}.hx-tot b{font:800 32px/1 Geist,system-ui,sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hx-cobrar{position:relative;overflow:hidden;background:var(--terra);color:#fff;text-align:center;font:700 16px/1 Geist,system-ui,sans-serif;padding:16px;border-radius:14px}
+.hx-cobrar i{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0)}
+.hx-ok{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--teal);opacity:0}
+.hx-v{position:absolute;right:0;width:232px;background:rgba(14,18,26,.86);border:1px solid rgba(247,241,232,.12);border-radius:20px;padding:14px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9);will-change:transform}
+.hx-v1{top:26px}.hx-v2{top:206px}
+.hx-v-h{display:flex;align-items:center;gap:10px}
+.hx-av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:700 13px/1 Geist,system-ui,sans-serif;flex:none}
+.hx-v1 .hx-av{background:var(--peach);color:var(--ink)}.hx-v2 .hx-av{background:#CFE7E3;color:var(--teal)}
+.hx-v-h b{display:block;font:650 15px/1.2 Geist,system-ui,sans-serif}.hx-v-h small{font-size:12px;color:var(--mute)}
+.hx-bal{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px}
+.hx-bal span{font-size:12px;color:var(--mute)}
+.hx-bal b{font:800 28px/1 Geist,system-ui,sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#fff}
+.hx-plus{position:absolute;right:12px;top:-13px;font:700 13px/1 Geist,system-ui,sans-serif;padding:6px 10px;border-radius:999px;background:var(--teal);color:#fff;opacity:0;box-shadow:0 8px 20px -8px rgba(14,107,107,.9)}
+.hx-stamp{position:absolute;right:14px;top:44px;font:800 11px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.08em;color:var(--peach);border:2px solid var(--peach);border-radius:6px;padding:5px 7px;transform:rotate(-10deg);opacity:0}
+.hx-pay{margin-top:10px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed rgba(247,241,232,.18);padding-top:10px;opacity:0}
+.hx-pay span{font-size:12.5px;color:#E6DCCD}.hx-pay b{font:800 20px/1 Geist,system-ui,sans-serif;color:var(--mint);font-variant-numeric:tabular-nums}
+.hx-coin{position:absolute;left:0;top:0;width:30px;height:30px;margin:-15px;border-radius:50%;display:grid;place-items:center;font:800 15px/1 Geist,system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 35% 30%,#FFE6D5,#F3B38F 55%,#D9622F);box-shadow:0 0 18px 2px rgba(243,179,143,.65);opacity:0;z-index:5}
+.hx-notif{position:absolute;right:26px;bottom:6px;display:flex;align-items:center;gap:12px;width:300px;padding:12px 14px;border-radius:18px;background:rgba(247,241,232,.97);color:var(--ink);box-shadow:0 30px 60px -24px rgba(0,0,0,.9);opacity:0;z-index:4}
+.hx-notif .ic{width:36px;height:36px;border-radius:10px;background:var(--terra);display:grid;place-items:center;flex:none}
+.hx-notif b{display:block;font:650 14px/1.25 Geist,system-ui,sans-serif}.hx-notif small{display:block;font-size:12px;color:#6B6157;margin-top:2px}
+.hx-wire{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.hx-wire path{fill:none;stroke:rgba(243,179,143,.35);stroke-width:1.5;stroke-dasharray:4 7;animation:hxDash 1.4s linear infinite}
+@keyframes hxDash{to{stroke-dashoffset:-22}}
+.hx-foot{position:absolute;left:0;bottom:0;font:500 10.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.06em;color:#8C8173}
+html.m .hx [data-hx]{visibility:hidden}
+.hx .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.hx-stamp,.hx-pay{opacity:1}}
+@media(prefers-reduced-motion:reduce){.hx *,.hx *::before,.hx *::after{animation:none!important}}
+</style>
+
+<section id="inicio" class="hx" data-own data-keep aria-labelledby="hx-h1">
+  <div class="hx-aur hx-a1" aria-hidden="true"></div>
+  <div class="hx-aur hx-a2" aria-hidden="true"></div>
+  <div class="hx-aur hx-a3" aria-hidden="true"></div>
+  <div class="hx-grain" aria-hidden="true"></div>
+  <div class="hx-floor" aria-hidden="true"></div>
+  <span class="hx-tag t1" aria-hidden="true" style="left:3%;bottom:3%">$180<small>Puesto 03</small></span>
+  <span class="hx-tag dark t2" aria-hidden="true" style="right:6%;top:6%">$1,200<small>Renta</small></span>
+  <span class="hx-tag t3" aria-hidden="true" style="left:36%;bottom:2%">$95<small>Puesto 21</small></span>
+  <span class="hx-tag t4" aria-hidden="true" style="right:4%;bottom:2.5%">$640<small>Puesto 09</small></span>
+  <span class="hx-tag dark t5" aria-hidden="true" style="left:44%;top:5%">$320<small>Puesto 15</small></span>
+
+  <div class="hx-in">
+    <div class="hx-txt">
+      <span class="hx-badge" data-hx><i></i>Para mercaditos, bazares y antique malls</span>
+      <h1 id="hx-h1" data-hx>
+        <span class="l" data-split>Tu bazar,</span>
+        <span class="hx-rot" aria-hidden="true"><span class="hx-rw">sin libreta.</span><svg viewBox="0 0 230 14" preserveAspectRatio="none"><path d="M3 9 C 40 2, 70 13, 110 7 S 180 3, 227 8"/></svg></span>
+        <span class="sr">sin libreta.</span>
+        <span class="l l2" data-split>Tus vendedores, <b>sin dudas.</b></span>
+      </h1>
+      <p class="hx-p" data-hx>Cada venta llega al saldo de su vendedor, la renta del puesto se descuenta sola y cada quien ve sus números en Mi Puesto, desde el celular. Nadie te vuelve a preguntar «¿ya se vendió lo mío?».</p>
+      <div class="hx-ctas b-rise-4" data-hx>
+        <a class="hx-btn pri" href="#prueba"><span class="lbl">Prueba gratis 14 días <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="hx-btn sec" href="#simula"><span class="lbl"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Pruébalo</span></a>
+      </div>
+      <p class="hx-fine" data-hx><span>Español e inglés</span><span>Pesos y dólares</span><span>Desde $499 MXN o US$79 al mes</span></p>
+    </div>
+
+    <div class="hx-wrap" id="hx-wrap">
+      <div class="hx-scene" id="hx-scene" data-hx role="img" aria-label="Ejemplo animado: en la caja se escanean dos artículos de distintos vendedores, se cobra $1,400 y cada venta llega al saldo de su vendedor; el lunes se descuenta la renta y el estado de cuenta dice cuánto se le paga.">
+        <span class="hx-label">Ejemplo · Bazar Las Palmas</span>
+        <svg class="hx-wire" viewBox="0 0 580 520" aria-hidden="true"><path d="M296 380 C 330 380, 320 90, 348 90"/><path d="M296 380 C 330 380, 320 268, 348 268"/></svg>
+        <div class="hx-pos" id="hx-pos">
+          <div class="hx-pos-top"><span><i class="hx-live"></i>Caja 1 · Las Palmas</span><small>Cajero: Ana</small></div>
+          <div class="hx-pos-b">
+            <div class="hx-scan"><span class="hx-laser"></span><b style="width:3px"></b><b style="width:1px"></b><b style="width:4px"></b><b style="width:2px"></b><b style="width:1px"></b><b style="width:3px"></b><b style="width:1px"></b><b style="width:4px"></b><b style="width:2px"></b><b style="width:1px"></b><b style="width:3px"></b><b style="width:2px"></b><b style="width:1px"></b><b style="width:4px"></b></div>
+            <div class="hx-rows">
+              <div class="hx-row r1"><span><b>Lámpara de latón vintage</b><small>Puesto 12 · Doña Rosa</small></span><em>$450</em></div>
+              <div class="hx-row r2"><span><b>Vajilla de talavera, 12 pz</b><small>Puesto 7 · Lupita</small></span><em>$950</em></div>
+            </div>
+            <div class="hx-tot"><span>Total</span><b id="hx-total">$1,400</b></div>
+            <div class="hx-cobrar" id="hx-cobrar">Cobrar<i></i><span class="hx-ok">✓ Cobrado · saldos al día</span></div>
+          </div>
+        </div>
+        <div class="hx-v hx-v1" id="hx-v1">
+          <span class="hx-plus">+$450</span>
+          <div class="hx-v-h"><span class="hx-av">DR</span><span><b>Doña Rosa</b><small>Puesto 12</small></span></div>
+          <div class="hx-bal"><span>Saldo</span><b id="hx-b1">$1,230</b></div>
+        </div>
+        <div class="hx-v hx-v2" id="hx-v2">
+          <span class="hx-plus">+$950</span>
+          <span class="hx-stamp">LUNES · RENTA −$900</span>
+          <div class="hx-v-h"><span class="hx-av">LU</span><span><b>Lupita</b><small>Puesto 7</small></span></div>
+          <div class="hx-bal"><span>Saldo</span><b id="hx-b2">$4,000</b></div>
+          <div class="hx-pay"><span>Le pagas</span><b>$3,100</b></div>
+        </div>
+        <span class="hx-coin c1">$</span><span class="hx-coin c2">$</span><span class="hx-coin c3">$</span><span class="hx-coin c4">$</span>
+        <div class="hx-notif" id="hx-notif"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><span><b>Mi Puesto · ¡Se vendió tu lámpara!</b><small>+$450 a tu saldo · Doña Rosa</small></span></div>
+        <span class="hx-foot">Datos de ejemplo · montos en MXN</span>
+      </div>
+    </div>
+  </div>
 </section>
+
+<script data-keep>
+(function(){
+  var scene=document.getElementById('hx-scene'),wrap=document.getElementById('hx-wrap');
+  if(!scene) return;
+  /* escala la escena al ancho disponible (sin scroll lateral) */
+  function fit(){var s=Math.min(1,wrap.clientWidth/580);scene.style.transform='scale('+s+')';wrap.style.height=(520*s)+'px';}
+  fit();addEventListener('resize',fit);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(){
+    if(!window.gsap||reduce){document.querySelectorAll('.hx [data-hx]').forEach(function(e){e.style.visibility='visible'});return;}
+    var g=gsap,$=function(s){return scene.querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+    var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
+    function split(el){var out=[];(function walk(n){Array.prototype.slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.style.cssText='display:inline-block;overflow:hidden;vertical-align:top;padding:0 .08em .1em 0;margin:0 -.08em -.1em 0';var i=document.createElement('span');i.style.display='inline-block';i.textContent=p;w.appendChild(i);f.appendChild(w);out.push(i)});c.parentNode.replaceChild(f,c)}else if(c.nodeType===1)walk(c)})})(el);return out}
+    var words=[];$$('.hx h1 [data-split]').forEach(function(e){words=words.concat(split(e))});
+    var rw=document.querySelector('.hx-rw'),squig=document.querySelector('.hx-rot path'),SL=squig.getTotalLength();
+    g.set(squig,{strokeDasharray:SL,strokeDashoffset:SL});
+
+    /* ---- entrada ---- */
+    var intro=g.timeline({defaults:{ease:'power4.out'},delay:.05});
+    intro.set('.hx [data-hx]',{visibility:'visible'})
+      .from('.hx-badge',{y:16,autoAlpha:0,scale:.9,duration:.6,ease:'back.out(2)'},0)
+      .from(words.slice(0,2),{yPercent:115,rotate:6,duration:1.05,stagger:.07},.12)
+      .from(rw,{yPercent:70,autoAlpha:0,filter:'blur(14px)',duration:1.1},.32)
+      .to(squig,{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},.85)
+      .from(words.slice(2),{yPercent:115,duration:.9,stagger:.05},.55)
+      .from('.hx-p',{y:20,autoAlpha:0,duration:.8},.75)
+      .from('.hx-ctas .hx-btn',{y:22,autoAlpha:0,scale:.94,duration:.7,stagger:.09,ease:'back.out(1.8)'},.9)
+      .from('.hx-fine span',{y:10,autoAlpha:0,duration:.5,stagger:.07},1.05)
+      .from('.hx-tag',{autoAlpha:0,y:30,rotate:-25,duration:1.1,stagger:.08,ease:'back.out(1.6)'},.4)
+      .from(scene,{autoAlpha:0,y:60,rotationY:-18,rotationX:10,transformPerspective:1200,duration:1.4,ease:'expo.out'},.25)
+      .from('.hx-v',{autoAlpha:0,x:40,duration:.9,stagger:.12,ease:'expo.out'},.7)
+      .from('.hx-wire path',{autoAlpha:0,duration:.6},1.1);
+
+    /* ---- palabra que rota ---- */
+    var list=['sin libreta.','sin Excel.','sin papeles.','sin cuentas.'],wi=0;
+    g.delayedCall(3.4,function cyc(){wi=(wi+1)%list.length;
+      g.timeline().to(rw,{yPercent:-60,autoAlpha:0,filter:'blur(10px)',duration:.4,ease:'power2.in'}).to(squig,{strokeDashoffset:SL,duration:.3},0)
+        .add(function(){rw.textContent=list[wi]})
+        .fromTo(rw,{yPercent:60,filter:'blur(10px)'},{yPercent:0,autoAlpha:1,filter:'blur(0px)',duration:.6,ease:'power3.out'})
+        .to(squig,{strokeDashoffset:0,duration:.7,ease:'power2.inOut'},'-=.3');
+      g.delayedCall(2.8,cyc);});
+
+    /* ---- ambiente ---- */
+    g.to('.hx-a1',{x:-90,y:60,scale:1.15,duration:9,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    g.to('.hx-a2',{x:80,y:-50,scale:1.1,duration:11,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    g.to('.hx-a3',{x:-60,y:40,duration:7,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    $$('.hx-tag').forEach(function(t,i){g.to(t,{rotate:(i%2?7:-7),y:(i%2?-14:12),duration:2.6+i*.4,repeat:-1,yoyo:true,ease:'sine.inOut',delay:1.4+i*.2})});
+
+    /* ---- la caja en vivo (loop) ---- */
+    function pos(el){var x=0,y=0,n=el;while(n&&n!==scene){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent}return{x:x,y:y,w:el.offsetWidth,h:el.offsetHeight}}
+    var tot=document.getElementById('hx-total'),b1=document.getElementById('hx-b1'),b2=document.getElementById('hx-b2');
+    var st={t:0,a:780,b:3050};
+    function draw(){tot.textContent=fmt(st.t);b1.textContent=fmt(st.a);b2.textContent=fmt(st.b)}
+    var cob=document.getElementById('hx-cobrar'),v1=document.getElementById('hx-v1'),v2=document.getElementById('hx-v2');
+    function coinPath(c,targ,delay,tl){var s=pos(cob),t=pos(targ),sx=s.x+s.w/2,sy=s.y+s.h/2,tx=t.x+40,ty=t.y+t.h/2;
+      tl.set(c,{x:sx,y:sy,autoAlpha:0,scale:.4},delay)
+        .to(c,{autoAlpha:1,scale:1,duration:.15},delay)
+        .to(c,{keyframes:[{x:sx+(tx-sx)*.45,y:Math.min(sy,ty)-70,duration:.32,ease:'sine.out'},{x:tx,y:ty,duration:.32,ease:'sine.in'}]},delay)
+        .to(c,{autoAlpha:0,scale:1.8,duration:.2},delay+.62);}
+    var L=g.timeline({repeat:-1,repeatDelay:1.2,delay:1.6,onRepeat:function(){}});
+    L.add(function(){st.t=0;st.a=780;st.b=3050;draw()})
+     .set(['.hx-row','.hx-plus','.hx-stamp','.hx-pay','.hx-notif','.hx-ok'],{autoAlpha:0})
+     .set('.hx-laser',{autoAlpha:1,yPercent:0})
+     /* escaneo 1 */
+     .fromTo('.hx-laser',{y:-22},{y:22,duration:.45,repeat:1,yoyo:true,ease:'sine.inOut'})
+     .fromTo('.hx-row.r1',{autoAlpha:0,y:-16,scale:.96},{autoAlpha:1,y:0,scale:1,duration:.45,ease:'back.out(2)'})
+     .to(st,{t:450,duration:.5,onUpdate:draw},'<')
+     /* escaneo 2 */
+     .fromTo('.hx-laser',{y:-22},{y:22,duration:.45,repeat:1,yoyo:true,ease:'sine.inOut'},'+=.35')
+     .fromTo('.hx-row.r2',{autoAlpha:0,y:-16,scale:.96},{autoAlpha:1,y:0,scale:1,duration:.45,ease:'back.out(2)'})
+     .to(st,{t:1400,duration:.6,onUpdate:draw},'<')
+     .to('.hx-laser',{autoAlpha:0,duration:.2})
+     /* cobrar */
+     .to(cob,{scale:.95,duration:.12,ease:'power2.in'},'+=.35')
+     .fromTo('.hx-cobrar i',{scale:0,autoAlpha:1},{scale:16,autoAlpha:0,duration:.6,ease:'power2.out'})
+     .to(cob,{scale:1,duration:.35,ease:'back.out(3)'},'<')
+     .to('.hx-ok',{autoAlpha:1,duration:.25},'<.1')
+     .addLabel('pay');
+    coinPath(scene.querySelector('.c1'),v1,'pay+=.05',L);
+    coinPath(scene.querySelector('.c3'),v1,'pay+=.18',L);
+    coinPath(scene.querySelector('.c2'),v2,'pay+=.12',L);
+    coinPath(scene.querySelector('.c4'),v2,'pay+=.26',L);
+    L.to(st,{a:1230,duration:.7,ease:'power3.out',onUpdate:draw},'pay+=.65')
+     .to(st,{b:4000,duration:.7,ease:'power3.out',onUpdate:draw},'pay+=.75')
+     .fromTo(v1,{scale:1},{scale:1.05,duration:.18,yoyo:true,repeat:1,ease:'power2.out'},'pay+=.62')
+     .fromTo(v2,{scale:1},{scale:1.05,duration:.18,yoyo:true,repeat:1,ease:'power2.out'},'pay+=.72')
+     .fromTo('.hx-v1 .hx-plus',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.35,ease:'back.out(3)'},'pay+=.62')
+     .fromTo('.hx-v2 .hx-plus',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.35,ease:'back.out(3)'},'pay+=.72')
+     .fromTo('#hx-notif',{autoAlpha:0,y:30,scale:.92},{autoAlpha:1,y:0,scale:1,duration:.6,ease:'back.out(1.8)'},'pay+=1')
+     /* lunes: renta */
+     .to('.hx-plus',{autoAlpha:0,duration:.3},'+=1.4')
+     .fromTo('.hx-stamp',{autoAlpha:0,scale:2.2,rotate:-24},{autoAlpha:1,scale:1,rotate:-10,duration:.4,ease:'back.out(2.4)'})
+     .to(v2,{x:-4,duration:.05,repeat:5,yoyo:true},'<.3')
+     .to(st,{b:3100,duration:.8,ease:'power3.inOut',onUpdate:draw},'<')
+     .fromTo('.hx-pay',{autoAlpha:0,y:10},{autoAlpha:1,y:0,duration:.5,ease:'power3.out'},'-=.2')
+     .to('#hx-notif',{autoAlpha:0,y:20,duration:.4},'+=2.2')
+     .to(['.hx-row','.hx-stamp','.hx-pay','.hx-ok'],{autoAlpha:0,duration:.4},'+=.2');
+
+    /* ---- paralaje con el cursor ---- */
+    if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+      var hx=document.querySelector('.hx'),pos3=document.getElementById('hx-pos');
+      var rx=g.quickTo(pos3,'rotationX',{duration:.9,ease:'power3'}),ry=g.quickTo(pos3,'rotationY',{duration:.9,ease:'power3'});
+      var qv=$$('.hx-v').map(function(v){return[g.quickTo(v,'x',{duration:1,ease:'power3'}),g.quickTo(v,'y',{duration:1,ease:'power3'})]});
+      var qt=$$('.hx-tag').map(function(t){return[g.quickTo(t,'x',{duration:1.4,ease:'power3'})]});
+      g.set(pos3,{transformPerspective:1000});
+      hx.addEventListener('pointermove',function(e){var r=hx.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+        ry(px*14);rx(-py*10);qv.forEach(function(q,i){q[0](px*(i?-18:-10));q[1](py*(i?-14:-8))});qt.forEach(function(q,i){q[0](px*(20+i*8))});});
+      hx.addEventListener('pointerleave',function(){rx(0);ry(0);qv.forEach(function(q){q[0](0);q[1](0)})});
+      $$('.hx-btn').forEach(function(b){var x=g.quickTo(b,'x',{duration:.5,ease:'power3'}),y=g.quickTo(b,'y',{duration:.5,ease:'power3'});
+        b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();x((e.clientX-r.left-r.width/2)*.3);y((e.clientY-r.top-r.height/2)*.4)});
+        b.addEventListener('pointerleave',function(){g.to(b,{x:0,y:0,duration:.9,ease:'elastic.out(1,.4)'})})});
+    }
+    /* el escenario se aleja al bajar */
+    if(window.ScrollTrigger){g.registerPlugin(ScrollTrigger);g.to(wrap,{yPercent:-8,ease:'none',scrollTrigger:{trigger:'.hx',start:'top top',end:'bottom top',scrub:true}});}
+  }
+  if(document.readyState==='complete')go();else addEventListener('load',go);
+})();
+</script>
+
 
 <section aria-label="Para quién es" style="background: #FFFFFF; border-top: 1px solid #E6DBC9; border-bottom: 1px solid #E6DBC9; padding: 22px 0">
 <div class="b-marquee">
@@ -1825,11 +2425,66 @@ Armar mi bazar
 </div>
 </section>
 
+<section id="flujo" data-own aria-labelledby="t-flujo" class="fx">
+<div class="fx-in">
+<span class="fx-eyebrow"><span class="fx-dot"></span>Así se mueve el dinero</span>
+<h2 id="t-flujo" class="fx-h2">Cobras una vez. Las cuentas se hacen solas.</h2>
+<p class="fx-lede">Cada pieza sabe de qué puesto es: al cobrar, el dinero va al saldo de su vendedor. Y cada semana la renta se descuenta y su estado de cuenta le llega solo.</p>
+
+<div class="fx-stage" role="img" aria-label="Ejemplo: se cobran dos piezas de dos vendedores por $1,400; $450 van al saldo de Doña Rosa y $950 al de Lupita; el lunes, al estado de cuenta de Lupita se le descuentan $900 de renta y le pagas $3,100.">
+<div class="fx-glow" aria-hidden="true"></div>
+<svg class="fx-wires" aria-hidden="true"><path class="fx-w fx-w1"/><path class="fx-w fx-w2"/><path class="fx-w fx-w3"/><circle class="fx-coin fx-c1" r="5"/><circle class="fx-coin fx-c2" r="5"/><circle class="fx-coin fx-c3" r="5"/></svg>
+
+<div class="fx-col fx-col1" aria-hidden="true">
+<span class="fx-step"><b>1</b>Cobras en la caja</span>
+<div class="fx-card fx-caja">
+<div class="fx-caja-top"><span><span class="fx-live"></span>Caja 1 · Bazar Las Palmas</span><span class="fx-mut">Cajero: Ana</span></div>
+<div class="fx-caja-body">
+<div class="fx-line fx-l1"><span><b>Lámpara de latón vintage</b><small>Puesto 12 · Doña Rosa</small></span><b>$450</b></div>
+<div class="fx-line fx-l2"><span><b>Vajilla de talavera, 12 pz</b><small>Puesto 7 · Lupita</small></span><b>$950</b></div>
+<div class="fx-total"><span>Total</span><b>$<span class="fx-n" data-n="1400">1,400</span></b></div>
+<div class="fx-pay"><span class="fx-pay-a">Cobrar</span><span class="fx-pay-b">Cobrado · saldos actualizados</span></div>
+</div>
+</div>
+</div>
+
+<div class="fx-col fx-col2" aria-hidden="true">
+<span class="fx-step"><b>2</b>Va al saldo de su vendedor</span>
+<div class="fx-card fx-v fx-v1">
+<span class="fx-av">DR</span><span class="fx-vn"><b>Doña Rosa</b><small>Puesto 12</small></span>
+<span class="fx-bal"><small>Saldo</small><b>$<span class="fx-n" data-from="780" data-n="1230">1,230</span></b></span>
+<span class="fx-plus fx-p1">+$450</span>
+</div>
+<div class="fx-card fx-v fx-v2">
+<span class="fx-av fx-av2">LU</span><span class="fx-vn"><b>Lupita</b><small>Puesto 7</small></span>
+<span class="fx-bal"><small>Saldo</small><b>$<span class="fx-n" data-from="3050" data-n="4000">4,000</span></b></span>
+<span class="fx-plus fx-p2">+$950</span>
+</div>
+<div class="fx-mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>Aviso por correo a cada vendedor</div>
+</div>
+
+<div class="fx-col fx-col3" aria-hidden="true">
+<span class="fx-step"><b>3</b>El lunes sale su estado de cuenta</span>
+<div class="fx-card fx-edo">
+<div class="fx-edo-h"><b>Lupita · Puesto 7</b><span class="fx-mut">Semana</span></div>
+<div class="fx-row"><span>Ventas de la semana</span><b>$<span class="fx-n" data-n="4000">4,000</span></b></div>
+<div class="fx-row fx-rent"><span>Renta del puesto</span><b>− $<span class="fx-n" data-from="0" data-n="900">900</span></b><span class="fx-stamp">Renta</span></div>
+<div class="fx-bar"><span class="fx-bar-a"></span><span class="fx-bar-b"></span></div>
+<div class="fx-row fx-pagas"><span>Le pagas</span><b>$<span class="fx-n" data-from="4000" data-n="3100">3,100</span></b></div>
+</div>
+</div>
+</div>
+
+<ol class="fx-steps" aria-hidden="true"><li class="on">Cobras</li><li>Saldo del vendedor</li><li>Renta y estado de cuenta</li></ol>
+<p class="fx-note">Bazar, piezas y vendedores de ejemplo. Montos en pesos mexicanos (MXN).</p>
+</div>
+</section>
+
 <section id="simula" aria-label="Alta de un vendedor nuevo" style="background: #05080D; color: #FFFFFF; position: relative; overflow: hidden">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px"><span class="b-live"></span>Pruébalo</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Cómo rentar puestos de tu bazar en dos minutos</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02"><span class="gw"><span class="gwi">Cómo</span></span> <span class="gw"><span class="gwi">rentar</span></span> <span class="gw"><span class="gwi">puestos</span></span> <span class="gw"><span class="gwi">de</span></span> <span class="gw"><span class="gwi">tu</span></span> <span class="gw"><span class="gwi">bazar</span></span> <span class="gw"><span class="gwi">en</span></span> <span class="gw"><span class="gwi">dos</span></span> <span class="gw"><span class="gwi">minutos</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Eliges el puesto, a quién de tu lista de espera y su renta. Neuri le manda el contrato, lo firma desde su celular y queda dado de alta.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: stretch">
@@ -1980,7 +2635,7 @@ Armar mi bazar
 <section id="ahorro" aria-label="Calculadora de tiempo ahorrado" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px 0; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
 <span style="align-self: flex-start; background: #DCEDEC; color: #0B5555; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Calculadora</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03">¿Cuántas horas al mes te regresa neuri.bazar?</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.035em; line-height: 1.03"><span class="gw"><span class="gwi">¿Cuántas</span></span> <span class="gw"><span class="gwi">horas</span></span> <span class="gw"><span class="gwi">al</span></span> <span class="gw"><span class="gwi">mes</span></span> <span class="gw"><span class="gwi">te</span></span> <span class="gw"><span class="gwi">regresa</span></span> <span class="gw"><span class="gwi">neuri.bazar?</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Pon los números de tu bazar. El cálculo usa tus propios estimados; ajústalos si trabajas distinto.</p>
 </div>
 
@@ -2035,7 +2690,7 @@ Armar mi bazar
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 780px">
 <span style="align-self: flex-start; background: #05080D; color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Mi Puesto · para tus vendedores</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Tus vendedores también lo van a querer.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02"><span class="gw"><span class="gwi">Tus</span></span> <span class="gw"><span class="gwi">vendedores</span></span> <span class="gw"><span class="gwi">también</span></span> <span class="gw"><span class="gwi">lo</span></span> <span class="gw"><span class="gwi">van</span></span> <span class="gw"><span class="gwi">a</span></span> <span class="gw"><span class="gwi">querer.</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #4E463E">Un bazar con vendedores contentos se llena solo. Cada uno tiene su Mi Puesto en el celular: ve su dinero claro, sube sus piezas y decide sus promociones. Sin bajar ninguna app y sin preguntarte «¿cuánto llevo?».</p>
 </div>
 
@@ -2155,7 +2810,7 @@ Armar mi bazar
 
 <section id="funciones" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Software para administrar un bazar o tianguis</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em"><span class="gw"><span class="gwi">Software</span></span> <span class="gw"><span class="gwi">para</span></span> <span class="gw"><span class="gwi">administrar</span></span> <span class="gw"><span class="gwi">un</span></span> <span class="gw"><span class="gwi">bazar</span></span> <span class="gw"><span class="gwi">o</span></span> <span class="gw"><span class="gwi">tianguis</span></span></h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">Nació en nuestro propio bazar, no en una oficina.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
@@ -2207,7 +2862,7 @@ Armar mi bazar
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; background: rgba(243,179,143,0.18); color: #FFD3BA; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px">Incluido en Plus</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02">Página web con el inventario de tu bazar</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.035em; line-height: 1.02"><span class="gw"><span class="gwi">Página</span></span> <span class="gw"><span class="gwi">web</span></span> <span class="gw"><span class="gwi">con</span></span> <span class="gw"><span class="gwi">el</span></span> <span class="gw"><span class="gwi">inventario</span></span> <span class="gw"><span class="gwi">de</span></span> <span class="gw"><span class="gwi">tu</span></span> <span class="gw"><span class="gwi">bazar</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CDE5E4">Tomas la foto, le pones precio y aparece en tu sitio. Tus clientes la ven desde su casa y, cuando la cobras, el sitio se actualiza solo.</p>
 </div>
 
@@ -2377,7 +3032,7 @@ Armar mi bazar
 
 <section id="cambiarte" aria-label="Por qué cambiarte" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Punto de venta para bazares con vendedores por puesto</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em"><span class="gw"><span class="gwi">Punto</span></span> <span class="gw"><span class="gwi">de</span></span> <span class="gw"><span class="gwi">venta</span></span> <span class="gw"><span class="gwi">para</span></span> <span class="gw"><span class="gwi">bazares</span></span> <span class="gw"><span class="gwi">con</span></span> <span class="gw"><span class="gwi">vendedores</span></span> <span class="gw"><span class="gwi">por</span></span> <span class="gw"><span class="gwi">puesto</span></span></h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E; line-height: 1.5">Un punto de venta común cobra, pero no sabe de puestos, rentas ni vendedores. neuri.bazar sí.</p>
 </div>
 
@@ -2425,7 +3080,7 @@ Armar mi bazar
 <section id="precios" style="background: #FFFFFF; border-top: 1px solid #E6DBC9; border-bottom: 1px solid #E6DBC9">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">¿Cuánto cuesta un sistema para bazar? Precio fijo, sin comisiones</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em"><span class="gw"><span class="gwi">¿Cuánto</span></span> <span class="gw"><span class="gwi">cuesta</span></span> <span class="gw"><span class="gwi">un</span></span> <span class="gw"><span class="gwi">sistema</span></span> <span class="gw"><span class="gwi">para</span></span> <span class="gw"><span class="gwi">bazar?</span></span> <span class="gw"><span class="gwi">Precio</span></span> <span class="gw"><span class="gwi">fijo,</span></span> <span class="gw"><span class="gwi">sin</span></span> <span class="gw"><span class="gwi">comisiones</span></span></h2>
 <p style="margin: 0; font-size: 18px; color: #4E463E">En Estados Unidos: US$79, US$119 y US$149 al mes. ¿Comparando opciones? Mira <a href="/bazar/vs-quail/" style="color: inherit; text-decoration: underline; text-underline-offset: 3px">neuri.bazar vs Quail</a>.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
@@ -2471,7 +3126,7 @@ Armar mi bazar
 
 </template>
 <template data-dc-part="dc-b"><section id="preguntas" style="max-width: 820px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 28px">
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em">Preguntas frecuentes</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em"><span class="gw"><span class="gwi">Preguntas</span></span> <span class="gw"><span class="gwi">frecuentes</span></span></h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E6DBC9">
 <details style="border-bottom: 1px solid #E6DBC9; padding: 22px 0">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 600; min-height: 44px">¿Mis vendedores tienen que bajar una app?<span class="b-plus" aria-hidden="true" style="font-size: 28px; font-weight: 400; color: #B4441A">+</span></summary>
@@ -2502,7 +3157,7 @@ Armar mi bazar
 <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 44px; position: relative; z-index: 1">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(243,179,143,0.14); color: #F3B38F; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Último paso</span>
-<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98">Arma tu bazar en 10 segundos.</h2>
+<h2 style="margin: 0; font-family: 'Geist', system-ui, sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 76px); letter-spacing: -0.04em; line-height: 0.98"><span class="gw"><span class="gwi">Arma</span></span> <span class="gw"><span class="gwi">tu</span></span> <span class="gw"><span class="gwi">bazar</span></span> <span class="gw"><span class="gwi">en</span></span> <span class="gw"><span class="gwi">10</span></span> <span class="gw"><span class="gwi">segundos.</span></span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #CFC4B4">Dinos cómo se llama, cuántos puestos tiene y cuánto cobras de renta. Neuri lo arma frente a ti.</p>
 </div>
 
@@ -2594,6 +3249,14 @@ Armar mi bazar
 </template>
 <script type="application/json" id="dc-props">{"accent":{"editor":"color","default":"#B4441A","options":["#B4441A","#0E6B6B","#05080D","#7A3FB0"]},"$preview":{"width":1440,"height":11000}}</script>
 <script src="/assets/dc-lite.js"></script>
+<script>
+(function(){var m=window.morphdom;if(!m)return;var K=['transform','opacity','visibility','translate','rotate','scale','boxShadow','willChange','transformOrigin','transitionProperty'];
+window.morphdom=function(a,b,o){o=o||{};var f0=o.onBeforeElUpdated;
+o.onBeforeElUpdated=function(f,t){if(f.hasAttribute&&f.hasAttribute('data-own'))return false;
+if(f._gx){for(var i=0;i<K.length;i++){var v=f.style[K[i]];if(v)t.style[K[i]]=v;}}return f0?f0(f,t):true;};
+var d0=o.onBeforeNodeDiscarded;o.onBeforeNodeDiscarded=function(n){if(n.nodeType===1&&n.hasAttribute('data-keep'))return false;return d0?d0(n):true;};
+return m(a,b,o);};})();
+</script>
 <script>
 
 class Component extends DCLogic {
@@ -2999,7 +3662,7 @@ class Component extends DCLogic {
       cuSmart: sy === 4,
       cuCount: sy >= 2 && sy < 4 ? 5 : 4,
       mirrorCls: sy === 2 ? 'b-cardin' : (mirrorSold ? 'b-wcard' : ''),
-      mirrorStyle: 'position: relative; display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 2px solid ' + (mirrorSold ? '#EFE6D8' : '#0E6B6B') + '; background: ' + (mirrorSold ? '#FFFFFF' : '#F2F8F7') + ';' + (mirrorSold ? ' opacity: 0.6; filter: grayscale(0.6);' : ''),
+      mirrorStyle: 'position: relative; display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; border: 2px solid ' + (mirrorSold ? '#EFE6D8' : '#0E6B6B') + '; background: ' + (mirrorSold ? '#FFFFFF' : '#F2F8F7') + ';' + (mirrorSold ? ' filter: grayscale(0.6);' : ''),
       mirrorPriceStyle: 'font-weight: 800; font-size: 13.5px;' + (mirrorSold ? ' text-decoration: line-through;' : ''),
       mirrorTag: mirrorSold ? 'Vendido' : (mirrorHeld ? 'Apartado' : 'Nuevo'),
       mirrorTagStyle: 'flex-shrink: 0; font-size: 11px; font-weight: 700; padding: 5px 9px; border-radius: 999px; color: #FFFFFF; background: ' + (mirrorSold ? '#B4441A' : '#0E6B6B') + ';',
@@ -3032,7 +3695,7 @@ class Component extends DCLogic {
       ],
       rateText: this.money(c.rate),
       valueText: this.money(value),
-      planLine: mult >= 1.2 ? 'Es ' + mult.toFixed(1) + ' veces lo que cuesta ' + planName + ' (' + this.money(planPrice) + ' MXN).' : planName + ' cuesta ' + this.money(planPrice) + ' MXN al mes.',
+      planLine: mult >= 1.2 ? 'Es ' + (Math.round(mult * 10) / 10).toLocaleString('es-MX') + ' veces lo que cuesta ' + planName + ' (' + this.money(planPrice) + ' MXN).' : planName + ' cuesta ' + this.money(planPrice) + ' MXN al mes.',
       accent: accent,
       empty: s === 0,
       h1: s >= 1,
@@ -3259,5 +3922,253 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 </script>
 <script>/* B-F4: con sesión en neuri.bazar, «Entrar» pasa a «Mi panel» (solo sí/no, sin datos; si falla queda igual). */(function(){var as=document.querySelectorAll('a[data-entrar][href^="https://bazar.neuri.tech/login"]');if(!as.length||!window.fetch)return;fetch('https://bazar.neuri.tech/api/sesion',{credentials:'include'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.signedIn===true){for(var i=0;i<as.length;i++){as[i].href='https://bazar.neuri.tech/?lang=es';as[i].textContent='Mi panel';}}}).catch(function(){});})();</script>
 <script src="/assets/menu-esc.js" defer></script>
+<div class="gx-prog" aria-hidden="true"></div>
+<script src="/assets/gsap/gsap.min.js" defer></script>
+<script src="/assets/gsap/ScrollTrigger.min.js" defer></script>
+<script>
+/* Motion v3 — neuri.bazar. GSAP 3.12.5 + ScrollTrigger (self-hosted /assets/gsap/). */
+(function () {
+  'use strict';
+  var d = document.documentElement;
+  function start() {
+    if (!window.gsap || !window.ScrollTrigger) { d.classList.remove('m'); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    var $ = function (s, r) { return (r || document).querySelector(s); };
+    var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+    var BAN = /^(all|transform|opacity|visibility|box-shadow|translate|scale|rotate)$/;
+    var own = function (els) { (els.length != null ? els : [els]).forEach(function (e) {
+      if (!e || e._gx) return; e._gx = 1;
+      var tp = getComputedStyle(e).transitionProperty || '';
+      if (/all|transform|opacity|box-shadow/.test(tp)) {
+        var keep = tp === 'all' ? ['color', 'background-color', 'border-color'] : tp.split(',').map(function (x) { return x.trim(); }).filter(function (x) { return !BAN.test(x); });
+        e.style.transitionProperty = keep.length ? keep.join(', ') : 'none';
+      }
+    }); return els; };
+    var vis = function (e) { return e && e.offsetParent !== null; };
+    var fmt = function (n) { return Math.round(n).toLocaleString('en-US'); };
+    var mm = gsap.matchMedia();
+
+    mm.add({ motion: '(prefers-reduced-motion: no-preference)', desk: '(min-width: 981px)', fine: '(pointer: fine)' }, function (ctx) {
+      var c = ctx.conditions;
+      if (!c.motion) { d.classList.remove('m'); return; }
+
+      /* ---------- 1. Hero: entrada coreografiada ---------- */
+      var hero = $('#inicio:not(.hx)');
+      if (hero) {
+        var col = hero.children[0], art = hero.children[1];
+        var badge = $('.b-rise', col), h1w = $$('h1 .gwi', col), p = $$('p', col), ctas = $$('.b-rise-4 > a', col), tick = $('#gx-tick');
+        own([badge, art].concat(p, ctas, $$('h1', col), $$('.b-rise', col)));
+        gsap.set($$('.b-rise', col).concat([art]), { visibility: 'visible' });
+        var tl = gsap.timeline({ defaults: { ease: 'power4.out' }, onComplete: function () { d.classList.remove('m'); } });
+        tl.from(badge, { y: 18, autoAlpha: 0, scale: .9, duration: .6, ease: 'back.out(2)' })
+          .from(h1w, { yPercent: 115, rotate: 5, duration: 1.05, stagger: .055 }, '-=.3')
+          .from(p, { y: 22, autoAlpha: 0, duration: .8, stagger: .12 }, '-=.75')
+          .from(ctas, { y: 26, autoAlpha: 0, scale: .94, duration: .7, stagger: .09, ease: 'back.out(1.8)' }, '-=.6')
+          .from(art, { y: 70, rotationY: -22, rotationX: 8, scale: .9, autoAlpha: 0, transformPerspective: 1100, duration: 1.4, ease: 'expo.out' }, .35);
+        if (tick) tl.from(tick, { y: 24, autoAlpha: 0, duration: .7, ease: 'back.out(1.6)' }, '-=1');
+
+        /* paralaje 3D de la caja con el cursor */
+        if (c.fine && art) {
+          var rx = gsap.quickTo(art, 'rotationX', { duration: .9, ease: 'power3' }),
+              ry = gsap.quickTo(art, 'rotationY', { duration: .9, ease: 'power3' });
+          gsap.set(art, { transformPerspective: 1100 });
+          hero.addEventListener('pointermove', function (e) {
+            if (tl.isActive()) return;
+            var r = hero.getBoundingClientRect();
+            ry(((e.clientX - r.left) / r.width - .5) * 12);
+            rx(-((e.clientY - r.top) / r.height - .5) * 8);
+          });
+          hero.addEventListener('pointerleave', function () { rx(0); ry(0); });
+        }
+        /* el hero se aleja suave al hacer scroll */
+        gsap.to(art, { yPercent: -10, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+      } else { d.classList.remove('m'); }
+
+      /* ---------- 2. Ticker móvil del hero ---------- */
+      var items = $$('#gx-tick .gx-tick-i');
+      if (items.length > 1 && vis($('#gx-tick'))) {
+        gsap.set(items, { autoAlpha: 0, yPercent: 60 }); gsap.set(items[0], { autoAlpha: 1, yPercent: 0 });
+        var tt = gsap.timeline({ repeat: -1, delay: 2.2 });
+        items.forEach(function (it, i) {
+          var nx = items[(i + 1) % items.length];
+          tt.to(it, { autoAlpha: 0, yPercent: -60, duration: .5, ease: 'power3.in' }, '+=2.4')
+            .fromTo(nx, { autoAlpha: 0, yPercent: 60 }, { autoAlpha: 1, yPercent: 0, duration: .6, ease: 'power3.out' }, '<.25');
+        });
+      }
+
+      /* ---------- 3. Botones magnéticos ---------- */
+      if (c.fine) {
+        $$('#inicio .b-rise-4 > a, header nav a[href="#prueba"], .fx-eyebrow').forEach(function (b) {
+          own(b);
+          var qx = gsap.quickTo(b, 'x', { duration: .5, ease: 'power3' }), qy = gsap.quickTo(b, 'y', { duration: .5, ease: 'power3' });
+          b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(); qx((e.clientX - r.left - r.width / 2) * .25); qy((e.clientY - r.top - r.height / 2) * .35); });
+          b.addEventListener('pointerleave', function () { qx(0); qy(0); });
+        });
+      }
+
+      /* ---------- 4. Marquesina: acelera y se inclina con la velocidad del scroll ---------- */
+      var track = $('.b-track'), marq = $('.b-marquee');
+      if (track && marq && track.getAnimations) {
+        own(marq);
+        var anim = track.getAnimations()[0], sk = gsap.quickTo(marq, 'skewX', { duration: .6, ease: 'power3' });
+        ScrollTrigger.create({ trigger: marq, start: 'top bottom', end: 'bottom top', onUpdate: function (s) {
+          var v = s.getVelocity(); if (anim) anim.playbackRate = 1 + Math.min(Math.abs(v) / 500, 5);
+          sk(gsap.utils.clamp(-7, 7, v / -260));
+        } });
+        gsap.ticker.add(function () { if (anim && anim.playbackRate > 1) anim.playbackRate = Math.max(1, anim.playbackRate * .94); });
+      }
+
+      /* ---------- 5. Títulos H2 por palabra ---------- */
+      $$('h2').forEach(function (h) {
+        if (!vis(h) || h.closest('#inicio')) return;
+        var w = $$('.gwi', h); if (!w.length) return;
+        own(w);
+        gsap.from(w, { yPercent: 112, rotate: 4, duration: 1, ease: 'power4.out', stagger: .045, scrollTrigger: { trigger: h, start: 'top 86%', once: true } });
+      });
+
+      /* ---------- 6. Tarjetas y bloques en cascada ---------- */
+      var picked = [];
+      ['#simula', '#ahorro', '#vendedores', '#funciones', '#en-linea', '#cambiarte', '#precios', '#prueba', '#ia', '#demo'].forEach(function (id) {
+        var sec = $(id); if (!sec) return;
+        var cand = $$('div, li, details, table', sec).filter(function (e) {
+          if (!vis(e) || e.closest('#flujo')) return false;
+          var cs = getComputedStyle(e), r = e.getBoundingClientRect();
+          var bg = cs.backgroundColor !== 'rgba(0, 0, 0, 0)' && cs.backgroundColor !== 'transparent';
+          return (bg || cs.borderTopWidth !== '0px') && parseFloat(cs.borderTopLeftRadius) >= 12 && r.height > 56 && r.width > 120;
+        });
+        var top = cand.filter(function (e) { return !cand.some(function (o) { return o !== e && o.contains(e); }); }).slice(0, 14);
+        top = top.filter(function (e) { return e.getBoundingClientRect().top > innerHeight * .9; });
+        if (top.length) picked.push(top);
+      });
+      picked.forEach(function (group) {
+        own(group);
+        gsap.set(group, { autoAlpha: 0, y: 46, scale: .975 });
+        ScrollTrigger.batch(group, { start: 'top 90%', once: true, onEnter: function (b) { gsap.to(b, { autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: 'expo.out', stagger: .09, overwrite: true }); } });
+      });
+
+      /* tabla comparativa: filas y palomitas */
+      var rows = $$('#cambiarte tr').filter(vis);
+      if (rows.length) {
+        own(rows);
+        gsap.from(rows, { x: -24, autoAlpha: 0, duration: .7, ease: 'power3.out', stagger: .06, scrollTrigger: { trigger: rows[0], start: 'top 85%', once: true } });
+      }
+
+      /* calculadora: el número grande entra con rebote */
+      var big = $$('#ahorro span, #ahorro div').filter(function (e) { return vis(e) && parseFloat(getComputedStyle(e).fontSize) >= 72; })[0];
+      if (big) { own(big); gsap.from(big, { scale: .55, autoAlpha: 0, transformOrigin: '0% 80%', duration: 1.1, ease: 'back.out(1.9)', scrollTrigger: { trigger: big, start: 'top 85%', once: true } }); }
+
+      /* precios: el plan recomendado respira con un halo durazno */
+      var pro = $$('#precios div').filter(function (e) { return vis(e) && getComputedStyle(e).backgroundColor === 'rgb(5, 8, 13)'; })[0];
+      if (pro) { own(pro); gsap.to(pro, { boxShadow: '0 40px 90px -30px rgba(180,68,26,.75), 0 0 0 1px rgba(243,179,143,.45)', duration: 1.8, yoyo: true, repeat: -1, ease: 'sine.inOut' }); }
+
+      /* ---------- 7. Luz que sigue al cursor en las secciones oscuras ---------- */
+      if (c.fine) {
+        ['#simula', '#en-linea', '#demo'].forEach(function (id) {
+          var sec = $(id); if (!sec) return;
+          var sp = document.createElement('div'); sp.className = 'gx-spot'; sp.setAttribute('data-keep', ''); sp.setAttribute('aria-hidden', 'true');
+          sec.appendChild(sp);
+          sec.addEventListener('pointermove', function (e) { var r = sec.getBoundingClientRect(); sp.style.setProperty('--sx', (e.clientX - r.left) + 'px'); sp.style.setProperty('--sy', (e.clientY - r.top) + 'px'); sp.style.opacity = 1; });
+          sec.addEventListener('pointerleave', function () { sp.style.opacity = 0; });
+        });
+      }
+
+      /* ---------- 8. Barra de progreso ---------- */
+      var bar = $('.gx-prog');
+      if (bar) gsap.to(bar, { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .3 } });
+
+      /* ---------- 9. Escena «Así se mueve el dinero» ---------- */
+      flow(c);
+    });
+
+    function flow(c) {
+      var st = $('#flujo .fx-stage'); if (!st) return;
+      var svg = $('.fx-wires', st), w = $$('.fx-w', st), coins = $$('.fx-coin', st);
+      var L1 = $('.fx-l1', st), L2 = $('.fx-l2', st), V1 = $('.fx-v1', st), V2 = $('.fx-v2', st), E = $('.fx-edo', st);
+      var steps = $$('#flujo .fx-steps li');
+      function pt(el, side) {
+        var r = el.getBoundingClientRect(), s = st.getBoundingClientRect();
+        var x = side === 'r' ? r.right : side === 'l' ? r.left : r.left + r.width / 2;
+        var y = side === 'b' ? r.bottom : side === 't' ? r.top : r.top + r.height / 2;
+        return { x: x - s.left, y: y - s.top };
+      }
+      function curve(a, b, horiz) {
+        if (horiz) { var mx = (a.x + b.x) / 2; return 'M' + a.x + ',' + a.y + ' C' + mx + ',' + a.y + ' ' + mx + ',' + b.y + ' ' + b.x + ',' + b.y; }
+        var my = (a.y + b.y) / 2; return 'M' + a.x + ',' + a.y + ' C' + a.x + ',' + my + ' ' + b.x + ',' + my + ' ' + b.x + ',' + b.y;
+      }
+      function layout() {
+        var horiz = innerWidth > 980;
+        var pairs = horiz ? [[L1, 'r', V1, 'l'], [L2, 'r', V2, 'l'], [V2, 'r', E, 'l']] : [[L1, 'b', V1, 't'], [L2, 'b', V2, 't'], [V2, 'b', E, 't']];
+        if (!horiz) { pairs[0][0] = $('.fx-caja', st); pairs[1][0] = $('.fx-caja', st); pairs[0][3] = 't'; }
+        pairs.forEach(function (p, i) {
+          var a = pt(p[0], p[1]), b = pt(p[2], p[3]);
+          if (!horiz && i < 2) { a.x += (i ? 40 : -40); b.x += (i ? 40 : -40); }
+          w[i].setAttribute('d', curve(a, b, horiz));
+        });
+      }
+      layout(); window.addEventListener('resize', layout);
+      function along(i, o) { var p = w[i], len = p.getTotalLength(), q = p.getPointAtLength(len * o.t); coins[i].setAttribute('cx', q.x); coins[i].setAttribute('cy', q.y); }
+      function count(el, from, to, dur, pos, tl, ease) {
+        var o = { v: from };
+        tl.fromTo(o, { v: from }, { v: to, duration: dur, ease: ease || 'power2.out', onUpdate: function () { el.textContent = fmt(o.v); } }, pos);
+      }
+      var n = function (s) { return $(s + ' .fx-n', st); };
+      var tot = n('.fx-total'), b1 = n('.fx-v1'), b2 = n('.fx-v2'), rent = n('.fx-rent'), pay = n('.fx-pagas');
+      var on = function (i) { return function () { steps.forEach(function (s, k) { s.classList.toggle('on', k === i); }); }; };
+
+      var tl = gsap.timeline({ paused: true, repeat: -1, repeatDelay: 1.8, defaults: { ease: 'power3.out' } });
+      tl.add(function () { w.forEach(function (p) { p.style.strokeDashoffset = 0; }); })
+        .call(on(0))
+        .set([L1, L2], { autoAlpha: 0, x: -24 })
+        .set('.fx-pay-b', { yPercent: 100 })
+        .set([$('.fx-p1', st), $('.fx-p2', st), $('.fx-stamp', st)], { autoAlpha: 0 })
+        .set(w, { strokeOpacity: .15 })
+        .set('.fx-bar-b', { scaleX: 0, transformOrigin: '100% 50%' })
+        .add(function () { tot.textContent = '0'; b1.textContent = fmt(780); b2.textContent = fmt(3050); rent.textContent = '0'; pay.textContent = fmt(4000); })
+        .to(L1, { autoAlpha: 1, x: 0, duration: .55, ease: 'back.out(1.7)' }, '+=.4');
+      count(tot, 0, 450, .5, '<', tl);
+      tl.to(L2, { autoAlpha: 1, x: 0, duration: .55, ease: 'back.out(1.7)' }, '+=.45');
+      count(tot, 450, 1400, .6, '<', tl);
+      tl.to('.fx-pay-a', { scale: .96, duration: .12, yoyo: true, repeat: 1, ease: 'power1.inOut' }, '+=.5')
+        .to('.fx-pay-b', { yPercent: 0, duration: .45, ease: 'expo.out' })
+        .call(on(1));
+      [0, 1].forEach(function (i) {
+        var o = { t: 0 }, pos = i ? '<.25' : '<';
+        tl.to(w[i], { strokeOpacity: 1, duration: .3 }, pos)
+          .fromTo(coins[i], { opacity: 0 }, { opacity: 1, duration: .15 }, '<')
+          .fromTo(o, { t: 0 }, { t: 1, duration: .9, ease: 'power2.inOut', onUpdate: function () { along(i, o); } }, '<')
+          .to(coins[i], { opacity: 0, duration: .15 }, '>-.05');
+      });
+      tl.fromTo($('.fx-p1', st), { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: .4, ease: 'back.out(2)' }, '-=.85')
+        .fromTo(V1, { scale: 1 }, { scale: 1.035, duration: .18, yoyo: true, repeat: 1 }, '<');
+      count(b1, 780, 1230, .7, '<', tl);
+      tl.fromTo($('.fx-p2', st), { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: .4, ease: 'back.out(2)' }, '-=.45')
+        .fromTo(V2, { scale: 1 }, { scale: 1.035, duration: .18, yoyo: true, repeat: 1 }, '<');
+      count(b2, 3050, 4000, .7, '<', tl);
+      tl.call(on(2), null, '+=.7');
+      var o3 = { t: 0 };
+      tl.to(w[2], { strokeOpacity: 1, duration: .3 }, '<')
+        .fromTo(coins[2], { opacity: 0 }, { opacity: 1, duration: .15 }, '<')
+        .fromTo(o3, { t: 0 }, { t: 1, duration: .9, ease: 'power2.inOut', onUpdate: function () { along(2, o3); } }, '<')
+        .to(coins[2], { opacity: 0, duration: .15 }, '>-.05')
+        .fromTo($('.fx-stamp', st), { autoAlpha: 0, scale: 1.8, rotate: -16 }, { autoAlpha: 1, scale: 1, rotate: -8, duration: .5, ease: 'back.out(2.2)' });
+      count(rent, 0, 900, .9, '<', tl, 'steps(9)');
+      tl.to('.fx-bar-b', { scaleX: 1, duration: .9, ease: 'power2.out' }, '<');
+      count(pay, 4000, 3100, .9, '<', tl, 'steps(9)');
+      tl.fromTo($('.fx-pagas b', st), { scale: 1 }, { scale: 1.08, transformOrigin: '100% 50%', duration: .22, yoyo: true, repeat: 1 }, '>')
+        .to({}, { duration: 2.4 })
+        .to([L1, L2, $('.fx-p1', st), $('.fx-p2', st), $('.fx-stamp', st)], { autoAlpha: 0, duration: .4, ease: 'power2.in' })
+        .to(w, { strokeOpacity: .15, duration: .4 }, '<');
+
+      ScrollTrigger.create({ trigger: st, start: 'top 75%', end: 'bottom 15%', onToggle: function (s) { s.isActive ? tl.play() : tl.pause(); } });
+      gsap.from(st, { y: 80, scale: .96, autoAlpha: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: st, start: 'top 88%', once: true } });
+      gsap.from($$('.fx-col', st), { y: 40, autoAlpha: 0, duration: 1, stagger: .12, ease: 'expo.out', scrollTrigger: { trigger: st, start: 'top 80%', once: true } });
+      if (c.desk) gsap.to('.fx-glow', { xPercent: -30, yPercent: 30, ease: 'none', scrollTrigger: { trigger: '#flujo', start: 'top bottom', end: 'bottom top', scrub: true } });
+      gsap.from($$('#flujo .fx-steps li'), { y: 14, autoAlpha: 0, duration: .6, stagger: .08, ease: 'back.out(1.7)', scrollTrigger: { trigger: '#flujo .fx-steps', start: 'top 92%', once: true } });
+    }
+  }
+  if (document.readyState === 'complete') setTimeout(start, 60); else window.addEventListener('load', function () { setTimeout(start, 60); });
+})();
+
+</script>
 </body>
 </html>

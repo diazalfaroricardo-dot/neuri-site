@@ -17,7 +17,7 @@ const pairs = JSON.parse(readFileSync(join(root, 'scripts/t25/marketing-en.json'
 
 // Cambios estructurales: idioma, canónica, og, y links a los pares en inglés.
 const estructura = [
-  ['<html lang="es">', '<html lang="en">'],
+  ['<html lang="es"', '<html lang="en"'],
   ['<link rel="canonical" href="https://neuri.tech/marketing/">', '<link rel="canonical" href="https://neuri.tech/en/marketing/">'],
   ['<meta property="og:locale" content="es_MX">', '<meta property="og:locale" content="en_US">'],
   ['<meta property="og:url" content="https://neuri.tech/marketing/">', '<meta property="og:url" content="https://neuri.tech/en/marketing/">'],

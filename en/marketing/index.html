@@ -118,8 +118,11 @@ nav.main .lk-idioma{min-width:44px;justify-content:center;font-weight:600}
 .badge .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--coral);animation:ping 2s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.9);opacity:0}}
 .hero h1{margin-top:32px;font-size:clamp(52px,9.6vw,128px);line-height:.94;letter-spacing:-.058em;font-weight:600;max-width:8.2em}
-.hero h1 .w{display:inline-block;animation:wordIn 1s var(--ease) both;animation-delay:calc(var(--d) * 70ms + 80ms)}
-@keyframes wordIn{from{opacity:0;transform:translateY(.35em);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
+/* Entrada del h1 en CSS puro: arranca en el primer pintado (no espera a GSAP, que carga con defer) y sube nítida con máscara; sin blur ni 3D para que el texto no se rasterice borroso */
+.hero h1 .w{display:inline-block;animation:wordIn .95s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--d) * 65ms + 60ms)}
+@keyframes wordIn{from{opacity:0;transform:translateY(.5em);clip-path:inset(0 -.12em 100% -.12em)}40%{opacity:1}to{opacity:1;transform:none;clip-path:inset(-.35em -.12em -.45em -.12em)}}
+.badge{animation:badgeIn .7s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes badgeIn{from{opacity:0;transform:translateY(-12px) scale(.94)}to{opacity:1;transform:none}}
 .hero .lede{margin:28px auto 0;text-align:center;max-width:30.5em} /* T24: sin animación de entrada: es el LCP en móvil */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
@@ -564,10 +567,13 @@ header.top .btn{white-space:nowrap;flex-shrink:0}header.top .lk{white-space:nowr
 body{background:var(--bg)}
 html,body{overflow-x:clip}
 
-/* «apruebas»: brand gradient that flows (coral → peach → mint) + swash + glint */
-.hero h1 .grad{position:relative;background:linear-gradient(100deg,#FF8A7A 0%,#F3B38F 20%,#8FE0B4 40%,#F3B38F 60%,#FF8A7A 80%,#F3B38F 100%);background-size:300% 100%;background-position:0% 50%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:none;padding-bottom:.06em}
+/* «apruebas»: degradado de marca que fluye (coral ↔ durazno; la menta queda en el subrayado: mezclada con durazno se veía caqui) + brillo dentro de la letra */
+.hero h1 .grad{position:relative;background-image:linear-gradient(100deg,transparent 40%,rgba(255,250,245,.85) 50%,transparent 60%),linear-gradient(100deg,#FF8A7A 0%,#F3B38F 25%,#FF8A7A 50%,#F3B38F 75%,#FF8A7A 100%);background-size:250% 100%,300% 100%;background-position:var(--sx,160%) 50%,var(--gx,0%) 50%;background-repeat:no-repeat,repeat;-webkit-background-clip:text;background-clip:text;color:transparent;animation:none;padding-bottom:.06em}
+.hero h1 .grad{animation:wordIn 1.05s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--d) * 65ms + 60ms)}
+.hero h1 .grad .swash path{stroke-dasharray:1;stroke-dashoffset:1;animation:swashIn .9s cubic-bezier(.65,0,.35,1) .95s forwards}
+@keyframes swashIn{to{stroke-dashoffset:0}}
 .hero h1 .grad .swash{position:absolute;left:2%;right:6%;bottom:-.16em;width:92%;height:.24em;overflow:visible;pointer-events:none}
-.hero h1 .grad .glint{position:absolute;inset:-6% -4%;pointer-events:none;background:linear-gradient(100deg,transparent 40%,rgba(255,248,242,.55) 50%,transparent 60%);mix-blend-mode:overlay;opacity:0;-webkit-mask:linear-gradient(#000,#000);border-radius:.2em}
+.hero h1 .grad .glint{display:none} /* el brillo ahora va dentro del texto (capa --sx); la caja suelta se veía como un rectángulo gris */
 
 /* one honest status per section */
 .secstat{display:inline-flex;align-items:flex-start;gap:12px;margin:22px 0 0;padding:10px 16px 10px 12px;border-radius:16px;font:500 13.5px/1.45 var(--sans);color:var(--ink-2);background:color-mix(in srgb,var(--mint) 8%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--mint) 30%,transparent);text-align:left;max-width:640px}
@@ -604,15 +610,17 @@ header.top .btn .l-short{display:none}
 .okring{position:absolute;right:14px;bottom:10px;width:22px;height:22px;border-radius:50%;border:2px solid var(--mint);pointer-events:none;opacity:0}
 
 /* GSAP owns these entrances when html.m (motion OK + GSAP loaded) */
-html.m .hero h1 .w,html.m .prompt,html.m .hint,html.m .week,html.m .toast,html.m .glow i,html.m .track{animation:none}
+html.m .prompt,html.m .hint,html.m .week,html.m .toast,html.m .glow i,html.m .track{animation:none}
 html.m .rv,html.m .rv-s{animation:none!important}
-html.m .badge,html.m .hero h1,html.m .prompt,html.m .week,html.m .trust{opacity:0}
+html.m .prompt,html.m .week,html.m .trust{opacity:0}
 html.m .rv,html.m .rv-s{opacity:0}
 html.m .toast{opacity:0}
 
 @media (prefers-reduced-motion:reduce){
   .hero h1 .grad{background-position:0% 50%;background-size:100% 100%;background-image:linear-gradient(100deg,#FF8A7A,#F3B38F)}
   .hero h1 .grad .glint{display:none}
+  .hero h1 .w,.hero h1 .grad,.badge{animation:none}
+  .hero h1 .grad .swash path{animation:none;stroke-dashoffset:0}
 }
 /* ScrollTrigger needs real section heights (content-visibility:auto reports 900px placeholders) */
 html.m .sec{content-visibility:visible}
@@ -634,7 +642,7 @@ html.m .sec{content-visibility:visible}
   <div class="glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><div class="grain"></div></div>
   <div class="wrap">
     <a class="badge" href="https://marketing.neuri.tech/empezar?lang=en"><b>Early access</b><span class="pulse" aria-hidden="true"></span>Create your account today</a>
-    <h1><span class="w" style="--d:0">Your</span> <span class="w" style="--d:1">socials,</span> <span class="w" style="--d:2">always</span> <span class="w" style="--d:3">current.</span> <span class="w" style="--d:4">You</span> <span class="w" style="--d:5">just</span> <span class="w grad" style="--d:6">approve.<svg class="swash" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="swg" x1="0" x2="1"><stop offset="0" stop-color="#FF8A7A"/><stop offset=".5" stop-color="#F3B38F"/><stop offset="1" stop-color="#8FE0B4"/></linearGradient></defs><path d="M6 18 C 70 6, 150 4, 205 11 S 290 24, 314 9" fill="none" stroke="url(#swg)" stroke-width="5" stroke-linecap="round"/></svg><i class="glint" aria-hidden="true"></i></span></h1>
+    <h1><span class="w" style="--d:0">Your</span> <span class="w" style="--d:1">socials,</span> <span class="w" style="--d:2">always</span> <span class="w" style="--d:3">current.</span> <span class="w" style="--d:4">You</span> <span class="w" style="--d:5">just</span> <span class="w grad" style="--d:6">approve.<svg class="swash" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="swg" x1="0" x2="1"><stop offset="0" stop-color="#FF8A7A"/><stop offset=".5" stop-color="#F3B38F"/><stop offset="1" stop-color="#8FE0B4"/></linearGradient></defs><path pathLength="1" d="M6 18 C 70 6, 150 4, 205 11 S 290 24, 314 9" fill="none" stroke="url(#swg)" stroke-width="5" stroke-linecap="round"/></svg><i class="glint" aria-hidden="true"></i></span></h1>
     <p class="lede">Neuri Marketing starts from your business's style, puts together the month's posts and reels and hands them to you ready. You review, approve with one tap and they go live.</p>
 
     <form class="prompt" id="prompt">
@@ -1107,19 +1115,13 @@ mm.add({ok:'(prefers-reduced-motion: no-preference)',wide:'(min-width:1240px)'},
   var wide=ctx.conditions.wide;
 
   /* ---------- HERO entrance ---------- */
-  var path=$('.swash path'),L=path?path.getTotalLength():0;
-  if(path)gsap.set(path,{strokeDasharray:L,strokeDashoffset:L});
-  var words=$$('.hero h1 .w:not(.grad)'),grad=$('.hero h1 .grad');
-  var tl=gsap.timeline({defaults:{ease:'power4.out'},delay:.05});
-  tl.fromTo('.badge',{autoAlpha:0,y:-18,scale:.9},{autoAlpha:1,y:0,scale:1,duration:.7,ease:'back.out(2)'})
-    .set('.hero h1',{opacity:1},'<')
-    .fromTo(words,{autoAlpha:0,yPercent:70,rotationX:-70,filter:'blur(12px)',transformOrigin:'50% 100%',transformPerspective:800},{autoAlpha:1,yPercent:0,rotationX:0,filter:'blur(0px)',duration:1,stagger:.065},'-=.35')
-    .fromTo(grad,{autoAlpha:0,scale:.55,filter:'blur(18px)'},{autoAlpha:1,scale:1,filter:'blur(0px)',duration:1.15,ease:'expo.out'},'-=.55')
-    .to(path,{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},'-=.55')
-    .fromTo('.prompt',{autoAlpha:0,y:46,scale:.97},{autoAlpha:1,y:0,scale:1,duration:1},'-=.7')
+  /* h1 y badge entran con CSS desde el primer pintado; aquí solo lo de abajo */
+  var grad=$('.hero h1 .grad');
+  var tl=gsap.timeline({defaults:{ease:'power4.out'},delay:Math.max(0,.75-performance.now()/1000)});
+  tl.fromTo('.prompt',{autoAlpha:0,y:40},{autoAlpha:1,y:0,duration:1,clearProps:'transform'})
     .from('.prompt .chip,.prompt .send',{autoAlpha:0,y:14,stagger:.05,duration:.5,ease:'back.out(2.4)'},'-=.6')
     .from('.hint',{autoAlpha:0,y:8,duration:.5},'-=.35')
-    .fromTo('.week',{autoAlpha:0,y:110,rotationX:24,transformPerspective:1600,transformOrigin:'50% 0%'},{autoAlpha:1,y:0,rotationX:0,duration:1.5,ease:'expo.out'},'-=.55')
+    .fromTo('.week',{autoAlpha:0,y:80},{autoAlpha:1,y:0,duration:1.3,ease:'expo.out',clearProps:'transform'},'-=.55')
     .fromTo('.trust',{autoAlpha:0},{autoAlpha:1,duration:.4},'-=.9')
     .from('.trust span',{autoAlpha:0,y:14,stagger:.07,duration:.6},'<');
   if(wide){
@@ -1128,10 +1130,8 @@ mm.add({ok:'(prefers-reduced-motion: no-preference)',wide:'(min-width:1240px)'},
   }else{gsap.set('.toast',{autoAlpha:0})}
 
   /* «apruebas»: flowing brand gradient + glint */
-  gsap.to(grad,{backgroundPosition:'300% 50%',duration:9,ease:'none',repeat:-1});
-  gsap.timeline({repeat:-1,repeatDelay:3.2,delay:2.4})
-    .fromTo('.hero h1 .glint',{opacity:0,xPercent:-60},{opacity:1,xPercent:0,duration:.45,ease:'power2.in'})
-    .to('.hero h1 .glint',{opacity:0,xPercent:60,duration:.45,ease:'power2.out'});
+  gsap.fromTo(grad,{'--gx':'0%'},{'--gx':'300%',duration:12,ease:'none',repeat:-1,delay:1.6});
+  gsap.fromTo(grad,{'--sx':'160%'},{'--sx':'-60%',duration:1.1,ease:'power2.inOut',repeat:-1,repeatDelay:4,delay:1.9});
 
   /* glows: GSAP drift + follow mouse */
   gsap.to('.glow .g1',{x:120,y:-40,scale:1.12,duration:16,repeat:-1,yoyo:true,ease:'sine.inOut'});

@@ -293,7 +293,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <tr><td>Meta Platforms</td><td>WhatsApp Business (consented notices) and publishing to the store's Facebook/Instagram</td><td>US</td></tr>
 <tr><td>Google</td><td>Sign in with Google (name and email)</td><td>US</td></tr>
 <tr><td>Sentry</td><td>Technical error reports, without personal data</td><td>US</td></tr>
-<tr><td>PostHog</td><td>Anonymous, cookieless analytics for neuri.tech (not the app)</td><td>US</td></tr>
+<tr><td>PostHog</td><td>Anonymous, cookieless analytics for neuri.tech and the app (visits, clicks and sign-up and payment steps; no personal data)</td><td>US</td></tr>
 <tr><td>Cloudflare R2 or Backblaze B2; GitHub</td><td>Storing the encrypted daily backup; GitHub Actions runs the backup job</td><td>US</td></tr>
 </table></div>
 <p>If the owner connects an AI assistant (Claude, ChatGPT or another), the data that assistant reads goes to that provider at the store's choice and under its terms. Beyond this, we only disclose data when a competent authority lawfully requires it.</p></section>
@@ -316,7 +316,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 
 <section id="cookies"><h2>8. Cookies and analytics</h2>
 <ul><li><b>In the app</b> (bazar.neuri.tech) we use only the session cookie needed to keep you signed in, and we store the open ticket and the offline catalog on your device so the register works without internet. No advertising cookies.</li>
-<li><b>On neuri.tech</b> we use PostHog in anonymous mode: no cookies or browser storage, no session recording, no personal data, and nothing is counted if your browser sends "Do Not Track".</li></ul></section>
+<li><b>On neuri.tech and in the app</b> we use PostHog in anonymous mode (US servers): it counts visits, button clicks and which sign-up or payment step a store reached, with no cookies or browser storage, no session recording and no names, emails or phone numbers (each store is represented by a one-way encrypted code), and nothing is counted if your browser sends "Do Not Track".</li></ul></section>
 
 <section id="security"><h2>9. Security</h2>
 <p>Each store is isolated in the database (row-level security), money history cannot be edited, access is role-based, sessions can be ended instantly, connections are encrypted (HTTPS), social media tokens are stored encrypted, vendors' bank accounts are encrypted at the application level (AES-256, with a key kept outside the database) and shown masked (last 4 digits): the full number is only decrypted to build the bank payout file and when the store asks to see it to correct it, and it is not included in the data export and the daily backup is encrypted. If a breach significantly affects your rights, we will tell you without undue delay.</p></section>

@@ -2,6 +2,7 @@
  * Analítica de neuri.tech con PostHog (US cloud, proyecto 659231).
  * - Sin cookies ni localStorage (persistence: 'memory'): cuenta visitas de forma anónima, sin banner.
  * - Sin grabación de sesiones, respeta Do Not Track, no corre en localhost.
+ * - Super propiedades app='site' e is_internal (robots de QA/auditoría o ?interno=1).
  * - Eventos propios SIN datos personales: nunca nombres, correos, teléfonos, @usuarios ni texto libre.
  *   cta_click {label, page} · signup_step {step, giro, product} · signup_submitted {giro, product}
  *   language_switch {from, to} · outbound_click {host} · demo_scenario {value} (pestañas de la demo de neuri.bots)
@@ -30,6 +31,12 @@
     } catch (e) { return u; }
   }
   var PII = /@|\d{6,}|https?:\/\//;
+  // A-AN1: tráfico interno (robots de QA/auditoría o una URL con ?interno=1) → is_internal, que el
+  // filtro de cuentas de prueba del proyecto excluye. Sin guardar nada en el navegador.
+  function internal() {
+    return w.__nInternal === true || /[?&]interno=1\b/.test(l.search) ||
+      /HeadlessChrome|Playwright|Lighthouse/i.test(navigator.userAgent || '') || /^\/qa(\/|$)/.test(l.pathname);
+  }
 
   w.posthog.init('phc_sLLyPxfmbysuUJQrLHoPzCZDuzkUinD7o8ix8EPZvtPo', {
     api_host: 'https://us.i.posthog.com',
@@ -47,6 +54,8 @@
     before_send: function (ev) {
       if (!ev || !ev.properties) return ev;
       var p = ev.properties;
+      p.app = 'site';
+      p.is_internal = internal();
       ['$current_url', '$referrer', '$initial_referrer', '$pathname'].forEach(function (k) { if (p[k]) p[k] = cleanUrl(p[k]); });
       // Autocapture: si el texto de un elemento parece dato personal, no se manda.
       if (p.$el_text && PII.test(p.$el_text)) delete p.$el_text;
@@ -62,6 +71,8 @@
       return ev;
     }
   });
+
+  w.posthog.register({ app: 'site', is_internal: internal() });
 
   var path = l.pathname;
   var product = /^\/(bazar|en)\/?$/.test(path) ? 'bazar' : /^\/(sigue-disponible|en\/still-available)\//.test(path) ? 'bots' : path === '/' ? 'home' : 'other';

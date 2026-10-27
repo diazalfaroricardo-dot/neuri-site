@@ -293,7 +293,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <tr><td>Meta Platforms</td><td>WhatsApp Business (avisos con consentimiento) y publicación en Facebook/Instagram del bazar</td><td>EE. UU.</td></tr>
 <tr><td>Google</td><td>Inicio de sesión con Google (nombre y correo)</td><td>EE. UU.</td></tr>
 <tr><td>Sentry</td><td>Reporte de errores técnicos, sin datos personales</td><td>EE. UU.</td></tr>
-<tr><td>PostHog</td><td>Analítica anónima y sin cookies de neuri.tech (no de la app)</td><td>EE. UU.</td></tr>
+<tr><td>PostHog</td><td>Analítica anónima y sin cookies de neuri.tech y de la app (visitas, clics y pasos del alta y el pago; sin datos personales)</td><td>EE. UU.</td></tr>
 <tr><td>Cloudflare R2 o Backblaze B2; GitHub</td><td>Guardar el respaldo diario cifrado; GitHub Actions corre la tarea del respaldo</td><td>EE. UU.</td></tr>
 </table></div>
 <p>Si el dueño conecta un asistente de IA (Claude, ChatGPT u otro), los datos que ese asistente consulta pasan a ese proveedor por decisión del bazar y bajo sus términos. Fuera de lo anterior, solo compartimos datos si una autoridad competente lo exige conforme a la ley.</p></section>
@@ -316,7 +316,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 
 <section id="cookies"><h2>8. Cookies y analítica</h2>
 <ul><li><b>En la app</b> (bazar.neuri.tech) usamos solo la cookie de sesión necesaria para que sigas dentro, y guardamos en tu celular el ticket en curso y el catálogo para cobrar sin internet. No hay cookies de publicidad.</li>
-<li><b>En neuri.tech</b> usamos PostHog en modo anónimo: sin cookies ni almacenamiento en tu navegador, sin grabar la pantalla, sin datos personales, y no cuenta nada si tu navegador tiene activado «No rastrear».</li></ul></section>
+<li><b>En neuri.tech y en la app</b> usamos PostHog en modo anónimo (servidores en EE. UU.): cuenta visitas, clics en botones y en qué paso del alta o del pago va un bazar, sin cookies ni almacenamiento en tu navegador, sin grabar la pantalla y sin nombres, correos ni teléfonos (a cada bazar lo representa un código cifrado que no se puede revertir), y no cuenta nada si tu navegador tiene activado «No rastrear».</li></ul></section>
 
 <section id="seguridad"><h2>9. Seguridad</h2>
 <p>Cada bazar está separado en la base de datos (seguridad a nivel de fila), el historial de dinero no se puede editar, los accesos son por rol, las sesiones se pueden cerrar al instante, las conexiones van cifradas (HTTPS), los permisos de redes sociales se guardan cifrados, la cuenta bancaria de los vendedores se guarda cifrada en la aplicación (AES-256, con llave aparte de la base de datos) y se muestra enmascarada (últimos 4 dígitos): el número completo solo se descifra para el archivo de pagos al banco y cuando el bazar lo pide para corregirlo, y no sale en la exportación de datos y el respaldo diario va cifrado. Si ocurre una vulneración que afecte de forma significativa tus derechos, te avisaremos sin demora.</p></section>

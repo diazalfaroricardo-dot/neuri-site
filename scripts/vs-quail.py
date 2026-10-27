@@ -16,7 +16,7 @@ FECHA_ES, FECHA_EN = "24 de octubre de 2026", "October 24, 2026"
 
 T = {
  "es": dict(
-  title="neuri.bazar vs Quail: software para bazares y antique malls | Neuri",
+  title="neuri.bazar vs Quail: software para bazares y antique malls",
   desc="Comparamos neuri.bazar y Quail: precio, vendedores por plan, español, México y pesos, portal del vendedor y tienda en línea. Cuál conviene a tu bazar.",
   h1="neuri.bazar vs Quail: ¿cuál conviene para tu bazar o antique mall?",
   lead="Los dos sirven para bazares que rentan puestos a vendedores. La diferencia está en el idioma, el país y si quieres que tu inventario se venda también en línea.",

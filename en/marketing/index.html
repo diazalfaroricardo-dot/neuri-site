@@ -554,6 +554,91 @@ footer.ft{position:relative;z-index:1;background:var(--bg);padding-block:80px 48
 
 /* Cabecera en celular: el botón no se parte en 3 renglones ni se sale del borde. */
 header.top .btn{white-space:nowrap;flex-shrink:0}header.top .lk{white-space:nowrap}@media (max-width:430px){header.top .wrap{gap:10px}header.top .btn.sm{display:none}}
+
+/* mk-material */
+.art.media{display:block;padding:0;background:var(--chip);color:#FFF8F2}
+.art.media>img,.art.media>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.art.media.reel>video{object-position:50% 74%}
+.art .mtag{position:absolute;z-index:3;top:10px;right:10px;padding:6px 9px;border-radius:999px;background:rgba(11,17,24,.66);color:#FFF8F2;font:500 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.art.car>img{transform:translateX(100%);transition:transform .75s var(--ease)}
+.art.car>img.on{transform:none}
+.art.car>img.out{transform:translateX(-100%)}
+.art.story{--f:#FFF8F2;--a:#FFF8F2;--b:#0B1118}
+.art.story::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,17,24,.5),rgba(11,17,24,0) 30%,rgba(11,17,24,0) 62%,rgba(11,17,24,.42))}
+.art.story .sg{position:absolute;z-index:2;left:12px;right:12px;top:10px}
+.art.story .mtag{top:auto;bottom:10px}
+.art.story .poll{position:absolute;z-index:2;left:50%;top:60%;width:min(80%,220px);display:grid;gap:6px;padding:12px;border-radius:16px;background:#FFF8F2;color:#0B1118;text-align:center;transform:translate(-50%,-50%) rotate(-3deg);box-shadow:0 14px 30px -12px rgba(11,17,24,.55)}
+.art.story .poll b{font:600 13px/1.2 var(--sans);letter-spacing:-.01em}
+.art.story .poll span{display:block;padding:8px 6px;border-radius:10px;background:#F4ECE4;font:500 12px/1 var(--sans)}
+.art.story .poll span:first-of-type{background:linear-gradient(90deg,#8FE0B4 64%,#F4ECE4 64%)}
+#material .mflow{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:center}
+.mtabs{display:grid;gap:6px}
+.mt{display:grid;gap:8px;width:100%;text-align:left;padding:18px 22px;border:0;border-radius:22px;background:transparent;color:var(--ink);font:inherit;cursor:pointer;transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+.mt:hover{background:color-mix(in srgb,var(--chip) 70%,transparent)}
+.mt[aria-selected="true"]{background:var(--surface);box-shadow:var(--shadow-sm),inset 0 0 0 1px var(--line)}
+.mt:focus-visible{outline:2px solid var(--lila);outline-offset:2px}
+.mt-t{font:600 clamp(18px,1.6vw,21px)/1.2 var(--sans);letter-spacing:-.025em}
+.mt-d{display:none;font-size:15.5px;line-height:1.55;color:var(--muted);max-width:44ch}
+.mt[aria-selected="true"] .mt-d{display:block}
+.mstage{position:relative;min-height:clamp(480px,50vw,640px);border-radius:32px;overflow:hidden;background:radial-gradient(120% 90% at 85% 10%,color-mix(in srgb,var(--mint) 30%,transparent),transparent 60%),radial-gradient(90% 80% at 10% 95%,color-mix(in srgb,var(--coral) 24%,transparent),transparent 60%),var(--chip);box-shadow:inset 0 0 0 1px var(--line)}
+.mpanel{position:absolute;inset:0;display:grid;place-items:center;padding:28px 20px 64px}
+.mpanel[hidden]{display:none!important}
+.mphone,.mlook,.mr-a,.mr-b{margin:0}
+.mfan{position:relative;width:100%;height:100%}
+.mphone{--tx:0%;--r:0deg;--s:1;position:absolute;left:50%;top:46%;width:clamp(160px,19vw,232px);aspect-ratio:9/16;cursor:pointer;transform:translate(-50%,-50%) translateX(var(--tx)) rotate(var(--r)) scale(var(--s));transition:transform .9s var(--ease),filter .9s var(--ease),opacity .9s var(--ease)}
+.mphone video{width:100%;height:100%;object-fit:cover;display:block;border-radius:26px;background:#0B1118;box-shadow:var(--shadow-lg)}
+.mphone figcaption{position:absolute;left:50%;top:calc(100% + 14px);transform:translateX(-50%);display:grid;gap:2px;text-align:center;white-space:nowrap;font-size:13.5px;color:var(--muted);opacity:0;transition:opacity .5s var(--ease)}
+.mphone figcaption b{color:var(--ink);font-weight:600}
+.mphone[data-pos="0"]{z-index:4}.mphone[data-pos="0"] figcaption{opacity:1}
+.mphone[data-pos="1"]{--tx:62%;--r:8deg;--s:.84;z-index:3;filter:brightness(.9) saturate(.9)}
+.mphone[data-pos="2"]{--tx:-62%;--r:-8deg;--s:.84;z-index:2;filter:brightness(.9) saturate(.9)}
+.mphone[data-pos="3"]{--s:.7;z-index:1;opacity:0}
+.mphone:focus-visible{outline:none}.mphone:focus-visible video{outline:2px solid var(--lila);outline-offset:4px}
+.mdecks{display:grid;place-items:center;width:100%;height:100%}
+.mdeck{position:relative;width:clamp(210px,26vw,320px);aspect-ratio:4/5;transform:translateX(-14%)}
+.mdeck[hidden]{display:none}
+.mdeck img{--p:0;position:absolute;inset:0;width:100%;height:100%;border-radius:18px;box-shadow:var(--shadow-lg);z-index:calc(10 - var(--p));opacity:calc(1 - var(--p) * .12);transform:translateX(calc(var(--p) * 11%)) translateY(calc(var(--p) * -1.5%)) rotate(calc(var(--p) * 2.6deg)) scale(calc(1 - var(--p) * .06));transition:transform .8s var(--ease),opacity .8s var(--ease)}
+.mgsw{position:absolute;left:0;right:0;bottom:16px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:0 12px}
+.mgsw .chip{height:36px;background:color-mix(in srgb,var(--surface) 80%,transparent)}
+.mgsw .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.mlooks{position:relative;width:100%;height:100%}
+.mlook{--o:0;--a:0;position:absolute;left:50%;top:45%;width:clamp(150px,17vw,220px);aspect-ratio:4/5;cursor:pointer;z-index:calc(5 - var(--a));transform:translate(-50%,-50%) translateX(calc(var(--o) * 40%)) translateY(calc(var(--a) * 5%)) rotate(calc(var(--o) * 6deg)) scale(calc(1.08 - var(--a) * .1));transition:transform .9s var(--ease),filter .9s var(--ease)}
+.mlook img{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;box-shadow:var(--shadow-lg)}
+.mlook:not(.front){filter:brightness(.92) saturate(.85)}
+.mlook figcaption{position:absolute;left:50%;top:calc(100% + 16px);transform:translateX(-50%);padding:7px 12px;border-radius:999px;background:var(--ink);color:var(--bg);font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;opacity:0;transition:opacity .4s var(--ease)}
+.mlook.front figcaption{opacity:1}
+.mraw{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.4vw,32px)}
+.mraw video{display:block;height:auto;object-fit:cover;background:#0B1118;box-shadow:var(--shadow-lg)}
+.mr-a video{width:clamp(190px,22vw,300px);aspect-ratio:16/9;border-radius:14px}
+.mr-b video{width:clamp(140px,15vw,210px);aspect-ratio:9/16;border-radius:22px}
+.mraw figcaption{margin-top:12px;text-align:center;font-size:13.5px;color:var(--muted)}
+.mr-arrow{color:var(--coral-ink);flex:none}.mr-arrow svg{width:40px;height:16px;display:block}
+.mcmp{--x:50%;position:relative;width:clamp(230px,28vw,340px);aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.mcmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mc-top{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.mc-h{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:#FFF8F2;pointer-events:none}
+.mc-h::after{content:"";position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#FFF8F2;box-shadow:0 6px 18px -6px rgba(11,17,24,.6)}
+.mc-l,.mc-r{position:absolute;top:12px;z-index:2;padding:6px 10px;border-radius:999px;background:rgba(11,17,24,.66);color:#FFF8F2;font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.mc-l{left:12px}.mc-r{right:12px}
+.mcmp input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.mcmp:focus-within{outline:2px solid var(--lila);outline-offset:4px}
+#material .srcnote{margin-top:20px}
+@media (prefers-reduced-motion:no-preference){.mpanel.on{animation:mkIn .7s var(--ease) both}@keyframes mkIn{from{opacity:0;transform:translateY(14px)}}}
+@media (prefers-reduced-motion:reduce){.mphone,.mdeck img,.mlook,.art.car>img{transition:none}}
+@media (max-width:900px){
+  #material .mflow{grid-template-columns:1fr}
+  .mtabs{display:flex;align-items:flex-start;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-24px;padding:2px 24px 6px;scrollbar-width:none}
+  .mtabs::-webkit-scrollbar{display:none}
+  .mt{flex:none;width:auto;max-width:80vw;scroll-snap-align:start;padding:14px 18px}
+  .mt:not([aria-selected="true"]){background:var(--chip)}
+  .mstage{min-height:540px}
+  .mphone{width:clamp(150px,42vw,200px)}.mphone[data-pos="1"]{--tx:52%}.mphone[data-pos="2"]{--tx:-52%}
+  .mlook{width:clamp(130px,36vw,180px);transform:translate(-50%,-50%) translateX(calc(var(--o) * 30%)) translateY(calc(var(--a) * 5%)) rotate(calc(var(--o) * 5deg)) scale(calc(1.08 - var(--a) * .1))}
+  .mraw{flex-direction:column;gap:6px}.mr-arrow{transform:rotate(90deg)}
+  .mr-a video{width:min(62vw,240px)}.mr-b video{width:clamp(112px,30vw,140px)}
+  .mraw figcaption{margin-top:8px}
+  .mstage{min-height:580px}
+}
 </style>
 <script src="/assets/lang.js" data-solo-param></script>
 <script>(function(){var d=document.documentElement;if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("m");setTimeout(function(){if(!window.gsap)d.classList.remove("m")},3500)}})();</script>
@@ -653,12 +738,12 @@ html.m .sec{content-visibility:visible}
           <button type="button" class="chip" data-giro="cafe" aria-pressed="true">Coffee shop</button>
           <button type="button" class="chip" data-giro="bazar" aria-pressed="false">Vintage market</button>
           <button type="button" class="chip" data-giro="resto" aria-pressed="false">Restaurant</button>
-          <button type="button" class="chip" data-giro="boutique" aria-pressed="false">Boutique</button>
+          <button type="button" class="chip" data-giro="barber" aria-pressed="false">Barbershop</button>
         </div>
         <button class="send" type="submit" aria-label="See my example week"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15V3M4 8l5-5 5 5"/></svg></button>
       </div>
     </form>
-    <p class="hint">Pick a business type or type your own and see what your week would look like. It's an example and nothing is saved.</p>
+    <p class="hint">Pick a business type or type your own: these are real pieces Neuri Marketing made with sample photos. Nothing is saved.</p>
 
     <div class="week" id="week">
       <div class="toast ta" aria-hidden="true" style="--c:#FF8A7A"><span class="ti"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg></span><span><b>Possible customer</b><span>“How much is the large latte?”</span></span></div>
@@ -695,6 +780,14 @@ html.m .sec{content-visibility:visible}
     <div class="reading rv"><p>The reel brings new people and the carousel makes them stay. A small business needs both, every week.</p><a class="btn mag" href="https://marketing.neuri.tech/guia?lang=en">Read the free 2026 guide <span class="arr" aria-hidden="true">→</span></a></div>
   </div>
   <p class="srcnote">Public industry data, measured on accounts that use those tools. These are not Neuri Marketing results.</p>
+</div></section>
+
+<!-- mk-material -->
+<section class="sec" id="material" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">Made with Neuri Marketing</span><h2 class="h2">Reels and carousels in your brand. <span class="soft">This is how they come out.</span></h2><p class="lede">Your type, your colors and your style in every piece. Everything below was made by Neuri Marketing's own tools with sample photos and videos.</p></div>
+  <div class="mflow"><div class="mtabs" role="tablist" aria-label="Content Neuri Marketing makes"><button class="mt" role="tab" id="mt0" aria-controls="mp0" aria-selected="true"><span class="mt-t">Reels that build themselves</span><span class="mt-d">3 to 5 photos become a 7 to 15 second reel, with word-by-word captions in three styles. Tap another one to watch it.</span></button><button class="mt" role="tab" id="mt1" aria-controls="mp1" aria-selected="false" tabindex="-1"><span class="mt-t">Carousels people save</span><span class="mt-d">A cover that invites a swipe, steps or a list, and a closing slide to save. The text stays inside what Instagram shows in full.</span></button><button class="mt" role="tab" id="mt2" aria-controls="mp2" aria-selected="false" tabindex="-1"><span class="mt-t">One photo, five designs</span><span class="mt-d">Pick your layout once and every post comes out with it, in your type and colors.</span></button><button class="mt" role="tab" id="mt3" aria-controls="mp3" aria-selected="false" tabindex="-1"><span class="mt-t">From raw video to reel</span><span class="mt-d">Upload the video straight from your phone and Neuri turns it vertical with your text and captions.</span></button><button class="mt" role="tab" id="mt4" aria-controls="mp4" aria-selected="false" tabindex="-1"><span class="mt-t">The filter of an account you love</span><span class="mt-d">Neuri measures the brightness, contrast and warmth of a photo you admire and applies it to yours. Your original stays saved.</span></button></div>
+  <div class="mstage"><div class="mpanel on" role="tabpanel" id="mp0" aria-labelledby="mt0"><div class="mfan" data-fan><figure class="mphone" data-k="0"><video muted loop playsinline preload="none" poster="/img/mk/cafe-en-reel.webp" width="540" height="960" aria-label="Sample Café animated reel with captions"><source src="/img/mk/cafe-en-reel.mp4" type="video/mp4"></video><figcaption><b>Sample Café</b><span>Highlight captions</span></figcaption></figure><figure class="mphone" data-k="1"><video muted loop playsinline preload="none" poster="/img/mk/comida-en-reel.webp" width="540" height="960" aria-label="Sample Kitchen animated reel with captions"><source src="/img/mk/comida-en-reel.mp4" type="video/mp4"></video><figcaption><b>Sample Kitchen</b><span>Clean captions</span></figcaption></figure><figure class="mphone" data-k="2"><video muted loop playsinline preload="none" poster="/img/mk/bazar-en-reel.webp" width="540" height="960" aria-label="Sample Shop animated reel with captions"><source src="/img/mk/bazar-en-reel.mp4" type="video/mp4"></video><figcaption><b>Sample Shop</b><span>Clean captions</span></figcaption></figure><figure class="mphone" data-k="3"><video muted loop playsinline preload="none" poster="/img/mk/servicios-en-reel.webp" width="540" height="960" aria-label="Sample Studio animated reel with captions"><source src="/img/mk/servicios-en-reel.mp4" type="video/mp4"></video><figcaption><b>Sample Studio</b><span>Pill captions</span></figcaption></figure></div></div><div class="mpanel" role="tabpanel" id="mp1" aria-labelledby="mt1" hidden><div class="mdecks"><div class="mdeck" data-deck="cafe" hidden><img src="/img/mk/cafe-en-tc-1.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 1 of 5 of Sample Café's text carousel" style="--n:0"><img src="/img/mk/cafe-en-tc-2.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 2 of 5 of Sample Café's text carousel" style="--n:1"><img src="/img/mk/cafe-en-tc-3.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 3 of 5 of Sample Café's text carousel" style="--n:2"><img src="/img/mk/cafe-en-tc-4.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 4 of 5 of Sample Café's text carousel" style="--n:3"><img src="/img/mk/cafe-en-tc-5.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 5 of 5 of Sample Café's text carousel" style="--n:4"></div><div class="mdeck" data-deck="comida" hidden><img src="/img/mk/comida-en-tc-1.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 1 of 5 of Sample Kitchen's text carousel" style="--n:0"><img src="/img/mk/comida-en-tc-2.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 2 of 5 of Sample Kitchen's text carousel" style="--n:1"><img src="/img/mk/comida-en-tc-3.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 3 of 5 of Sample Kitchen's text carousel" style="--n:2"><img src="/img/mk/comida-en-tc-4.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 4 of 5 of Sample Kitchen's text carousel" style="--n:3"><img src="/img/mk/comida-en-tc-5.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 5 of 5 of Sample Kitchen's text carousel" style="--n:4"></div><div class="mdeck" data-deck="bazar"><img src="/img/mk/bazar-en-tc-1.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 1 of 5 of Sample Shop's text carousel" style="--n:0"><img src="/img/mk/bazar-en-tc-2.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 2 of 5 of Sample Shop's text carousel" style="--n:1"><img src="/img/mk/bazar-en-tc-3.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 3 of 5 of Sample Shop's text carousel" style="--n:2"><img src="/img/mk/bazar-en-tc-4.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 4 of 5 of Sample Shop's text carousel" style="--n:3"><img src="/img/mk/bazar-en-tc-5.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 5 of 5 of Sample Shop's text carousel" style="--n:4"></div><div class="mdeck" data-deck="servicios" hidden><img src="/img/mk/servicios-en-tc-1.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 1 of 5 of Sample Studio's text carousel" style="--n:0"><img src="/img/mk/servicios-en-tc-2.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 2 of 5 of Sample Studio's text carousel" style="--n:1"><img src="/img/mk/servicios-en-tc-3.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 3 of 5 of Sample Studio's text carousel" style="--n:2"><img src="/img/mk/servicios-en-tc-4.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 4 of 5 of Sample Studio's text carousel" style="--n:3"><img src="/img/mk/servicios-en-tc-5.webp" width="540" height="675" loading="lazy" decoding="async" alt="Slide 5 of 5 of Sample Studio's text carousel" style="--n:4"></div><div class="mgsw" role="group" aria-label="See another business's carousel"><button type="button" class="chip" data-show="cafe" aria-pressed="false">Sample Café</button><button type="button" class="chip" data-show="comida" aria-pressed="false">Sample Kitchen</button><button type="button" class="chip" data-show="bazar" aria-pressed="true">Sample Shop</button><button type="button" class="chip" data-show="servicios" aria-pressed="false">Sample Studio</button></div></div></div><div class="mpanel" role="tabpanel" id="mp2" aria-labelledby="mt2" hidden><div class="mlooks" data-looks><figure class="mlook" style="--n:0"><img src="/img/mk/cafe-en-look-marco.webp" width="640" height="800" loading="lazy" decoding="async" alt="The same Sample Café photo with the Frame layout"><figcaption>Frame</figcaption></figure><figure class="mlook" style="--n:1"><img src="/img/mk/cafe-en-look-minimal.webp" width="640" height="800" loading="lazy" decoding="async" alt="The same Sample Café photo with the Minimal layout"><figcaption>Minimal</figcaption></figure><figure class="mlook" style="--n:2"><img src="/img/mk/cafe-en-look-franja.webp" width="640" height="800" loading="lazy" decoding="async" alt="The same Sample Café photo with the Band layout"><figcaption>Band</figcaption></figure><figure class="mlook" style="--n:3"><img src="/img/mk/cafe-en-look-degradado.webp" width="640" height="800" loading="lazy" decoding="async" alt="The same Sample Café photo with the Gradient layout"><figcaption>Gradient</figcaption></figure><figure class="mlook" style="--n:4"><img src="/img/mk/cafe-en-look-titular.webp" width="640" height="800" loading="lazy" decoding="async" alt="The same Sample Café photo with the Headline layout"><figcaption>Headline</figcaption></figure></div></div><div class="mpanel" role="tabpanel" id="mp3" aria-labelledby="mt3" hidden><div class="mraw"><figure class="mr-a"><video muted loop playsinline preload="none" poster="/img/mk/comida-crudo.webp" width="480" height="270" aria-label="Raw horizontal kitchen video, straight from the phone"><source src="/img/mk/comida-crudo.mp4" type="video/mp4"></video><figcaption>How you shot it</figcaption></figure><span class="mr-arrow" aria-hidden="true"><svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h34M30 2l6 6-6 6"/></svg></span><figure class="mr-b"><video muted loop playsinline preload="none" poster="/img/mk/comida-en-editado.webp" width="540" height="960" aria-label="The same video turned into a vertical reel with text and captions"><source src="/img/mk/comida-en-editado.mp4" type="video/mp4"></video><figcaption>How the reel comes out</figcaption></figure></div></div><div class="mpanel" role="tabpanel" id="mp4" aria-labelledby="mt4" hidden><div class="mcmp" style="--x:50%"><img src="/img/mk/bazar-filtro.webp" width="640" height="800" loading="lazy" decoding="async" alt="Shop photo with the filter of an inspiration account"><div class="mc-top"><img src="/img/mk/bazar-raw.webp" width="640" height="800" loading="lazy" decoding="async" alt="The same shop photo without the filter"></div><span class="mc-l">Your photo</span><span class="mc-r">With the filter</span><span class="mc-h" aria-hidden="true"></span><input type="range" min="0" max="100" value="50" aria-label="Slide to compare your photo with the filter"></div></div></div></div>
+  <p class="srcnote">Sample content made with Neuri Marketing's real tools. Photos from Pexels and videos from Mixkit under free licenses; the businesses are examples.</p>
 </div></section>
 
 <section class="sec" id="como" style="padding-top:0"><div class="wrap">
@@ -765,10 +858,14 @@ html.m .sec{content-visibility:visible}
 
 <section class="sec" id="funciones" style="padding-top:0"><div class="wrap">
   <div class="sec-head center rv"><span class="eyebrow">Features</span><h2 class="h2">It's already built. <span class="soft">It turns on with you.</span></h2><p class="lede">The Instagram and Facebook connection turns on business by business with Meta's official login.</p></div>
-  <div class="secstat-wrap rv"><p class="secstat"><span class="dot" aria-hidden="true"></span><span><b>18 of 18 built and tested.</b> Anything that uses Instagram/Facebook or image and video AI turns on when you activate your business.</span></p></div>
+  <div class="secstat-wrap rv"><p class="secstat"><span class="dot" aria-hidden="true"></span><span><b>22 of 22 built and tested.</b> Anything that uses Instagram/Facebook or image and video AI turns on when you activate your business.</span></p></div>
   <div class="fgrid">
     <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="12" rx="2.5"/><circle cx="7.5" cy="8.5" r="1.5"/><path d="M17 13l-4-4-7 7"/></svg></span><h3>Improve your photo with AI</h3><p>Your original photo stays. The improved one is saved separately and goes back to draft for you to review.</p></div>
     <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="11" height="11" rx="2.5"/><path d="M13.5 8.5l4-2.5v8l-4-2.5"/></svg></span><h3>AI reel from a photo</h3><p>A short video from a photo in your bank, with a preview before you approve and a spending cap.</p></div>
+    <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="2" width="9" height="16" rx="2.5"/><path d="M8.5 7.5l3.5 2.5-3.5 2.5z"/></svg></span><h3>Animated reel from your photos</h3><p>3 to 5 photos become a 7 to 15 second reel with motion, word-by-word captions and sound effects. It doesn't touch your AI cap.</p></div>
+    <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="10" height="12.5" rx="2"/><path d="M15 5.5v9.5M17.5 7v6.5"/></svg></span><h3>Text carousel in your brand</h3><p>Steps, a list or before and after, with a cover that invites a swipe and a closing slide to save. All inside what Instagram shows in full.</p></div>
+    <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V3h4M17 7V3h-4M3 13v4h4M17 13v4h-4"/><circle cx="10" cy="10" r="2.5"/></svg></span><h3>A studio to edit up close</h3><p>Open any photo, reel or carousel full size and change the crop, filter, design and text before you approve.</p></div>
+    <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="6.5" height="8" rx="1.5"/><rect x="11" y="8.5" width="6.5" height="8" rx="1.5"/><path d="M9 7.5h2.5a1.5 1.5 0 011.5 1"/></svg></span><h3>The style of an account you love</h3><p>Upload a screenshot of an account you admire and Neuri takes its recipe: palette, type, layout and filter. Never its photos, words or logo.</p></div>
     <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3.5h12M4 8h12M4 12.5h7"/><path d="M14 13.5l2 2 3-3.5"/></svg></span><h3>Another version of the text</h3><p>Ask for another version whenever you want. The safety check blocks made-up prices, numbers or products.</p></div>
     <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="13" rx="2.5"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg></span><h3>Dates that sell</h3><p>Thanksgiving, Día de Muertos, Buen Fin and more, already in your calendar.</p></div>
     <div class="feat spot rv"><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="2" width="9" height="16" rx="2.5"/><path d="M8.5 15h3"/></svg></span><h3>Approve from your phone</h3><p>A secure link, no password. Approve the whole week at once or change the text of a single piece.</p></div>
@@ -942,41 +1039,40 @@ html.m .sec{content-visibility:visible}
 
   // Semana de ejemplo
   var W={
-    cafe:{name:'Coffee shop',h:'@cafe.example',p:{b:'#3B2A20',f:'#FFF8F2',a:'#FFC857'},items:[
-      ['Post','Seasonal <em>latte</em>','Mon 8:30'],['Reel','Behind the <em>bar</em>','Wed 12:00'],['Carousel','3 tips for your <em>morning</em>','Fri 9:00'],['Story','Today we open at <em>8</em>','Sat 7:30']]},
-    bazar:{name:'Vintage market',h:'@vintage.example',p:{b:'#0E7C66',f:'#FFF8F2',a:'#FFC857'},items:[
-      ['Post','Piece of the <em>week</em>','Mon 10:00'],['Reel','How the new stuff <em>arrives</em>','Wed 18:00'],['Carousel','5 finds this <em>Saturday</em>','Thu 19:00'],['Story','Open Saturday and <em>Sunday</em>','Sat 8:00']]},
-    resto:{name:'Restaurant',h:'@kitchen.example',p:{b:'#FF8A7A',f:'#1B0B06',a:'#FFF8F2'},items:[
-      ['Post','Dish of the <em>day</em>','Mon 12:30'],['Reel','From the griddle to your <em>table</em>','Wed 13:00'],['Carousel','This week\'s <em>menu</em>','Thu 11:00'],['Story','Booking for <em>Friday</em>?','Fri 17:00']]},
-    boutique:{name:'Boutique',h:'@boutique.example',p:{b:'#0B1118',f:'#FFF8F2',a:'#8FE0B4'},items:[
-      ['Post','New in <em>store</em>','Mon 11:00'],['Reel','3 ways to <em>wear it</em>','Wed 19:00'],['Carousel','Look of the <em>week</em>','Fri 12:00'],['Story','Last <em>sizes</em>','Sat 10:00']]}
+    cafe:{name:'Coffee shop',d:'cafe',h:'samplecafe',ini:'SC',poll:['Stopping by for coffee today?','Yes, this morning','Later'],alt:['Sample Café post: pumpkin latte or caramel frappé?','Sample Café animated reel with captions: How your coffee is born','Sample Café text carousel: How to order your coffee to go','Sample Café story with a poll'],items:[['Post','','Mon 8:30'],['Reel · 0:10','','Wed 12:00'],['Carousel · 5','','Fri 9:00'],['Story','','Sat 7:30']]},
+    bazar:{name:'Vintage market',d:'bazar',h:'sampleshop',ini:'SS',poll:['What are you hunting this Saturday?','Vintage clothes','Antiques'],alt:['Sample Shop post: Meet Ana, booth 14, vintage denim','Sample Shop animated reel with captions: Just in at the shop','Sample Shop text carousel: How to hold your piece','Sample Shop story with a poll'],items:[['Post','','Mon 10:00'],['Reel · 0:10','','Wed 18:00'],['Carousel · 5','','Thu 19:00'],['Story','','Sat 8:00']]},
+    resto:{name:'Restaurant',d:'comida',h:'samplekitchen',ini:'SK',poll:['What are you craving Friday?','Birria','Pasta'],alt:['Sample Kitchen post: Meet Ana, cooking at Sample Kitchen since 2019','Sample Kitchen animated reel with captions: Made fresh, for real','Sample Kitchen text carousel: This month\'s most ordered','Sample Kitchen story with a poll'],items:[['Post','','Mon 12:30'],['Reel · 0:10','','Wed 13:00'],['Carousel · 5','','Thu 11:00'],['Story','','Fri 17:00']]},
+    barber:{name:'Barbershop',d:'servicios',h:'samplestudio',ini:'SS',poll:['When is your next cut?','This week','Next week'],alt:['Sample Studio post: 3 mistakes that make your fade and beard trim cost more','Sample Studio animated reel with captions: Your fade, no waiting','Sample Studio text carousel: What a booking changes','Sample Studio story with a poll'],items:[['Post','','Mon 11:00'],['Reel · 0:10','','Wed 19:00'],['Carousel · 5','','Fri 12:00'],['Story','','Sat 10:00']]}
   };
-  var KEYS={cafe:/caf[eé]|coffee|barista|bakery|panader|pan /i,bazar:/bazar|tianguis|pulga|segunda|vintage|antig|antique|thrift|flea|swap/i,resto:/restaur|comida|taquer|cocina|food|men[uú]|tacos|pizza/i,boutique:/boutique|ropa|moda|tienda|joyer|zapat|accesor|clothing|fashion|jewel|shoe|apparel/i};
+  var KEYS={cafe:/caf[eé]|coffee|barista|bakery|panader|pan /i,bazar:/bazar|tianguis|pulga|segunda|vintage|antig|antique|thrift|flea|swap/i,resto:/restaur|comida|taquer|cocina|food|men[uú]|tacos|pizza/i,barber:/barber|haircut|fade|salon|sal[oó]n|nail|spa|beauty|studio|peluquer|corte/i};
   var grid=document.getElementById('wgrid'),title=document.getElementById('wtitle'),wstatus=document.getElementById('wstatus'),week=document.getElementById('week');
   var chips=document.querySelectorAll('.prompt .chip'),cur='cafe',timer;
 
-  function swap(p,i){ // variaciones de color por pieza, dentro de la paleta del giro
-    if(i===1)return {b:'#0B1118',f:'#FFF8F2',a:p.a===p.f?'#FF8A7A':p.a};
-    if(i===2)return {b:'#FFF8F2',f:'#0B1118',a:p.b==='#0B1118'?'#0E7C66':p.b};
-    if(i===3)return {b:p.a,f:'#0B1118',a:p.b==='#FFF8F2'?'#C2341D':'#0B1118'};
-    return p;
+// mk-material: piezas reales de Neuri Marketing (post, reel animado, carrusel de texto, historia)
+  var MK='/img/mk/',LANG=document.documentElement.lang.indexOf('en')===0?'en':'es',MKIO=null;
+  function art(g,it,i){
+    var w=W[g],d=w.d,tag='<span class="mtag">'+it[0]+'</span>';
+    if(i===1)return '<div class="art media reel">'+tag+'<video muted loop playsinline preload="none" poster="'+MK+d+'-'+LANG+'-reel.webp" width="540" height="960" aria-label="'+w.alt[1]+'"><source src="'+MK+d+'-'+LANG+'-reel.mp4" type="video/mp4"></video></div>';
+    if(i===2){var s='';for(var n=1;n<=5;n++)s+='<img src="'+MK+d+'-'+LANG+'-tc-'+n+'.webp" width="540" height="675" decoding="async" alt="'+(n===1?w.alt[2]:'')+'"'+(n===1?' class="on"':'')+'>';return '<div class="art media car">'+tag+s+'</div>'}
+    if(i===3)return '<div class="art media story"><img src="'+MK+d+'-story.webp" width="640" height="800" decoding="async" alt="'+w.alt[3]+'"><div class="sg"><div class="seg" aria-hidden="true"><i></i><i></i><i></i></div><span class="who"><i>'+w.ini+'</i>'+w.h+'</span></div><div class="poll"><b>'+w.poll[0]+'</b><span>'+w.poll[1]+'</span><span>'+w.poll[2]+'</span></div>'+tag+'</div>';
+    return '<div class="art media">'+tag+'<img src="'+MK+d+'-'+LANG+'-post.webp" width="640" height="800" decoding="async" alt="'+w.alt[0]+'"></div>';
   }
-  function art(kind,t,h,c){
-    var s='--b:'+c.b+';--f:'+c.f+';--a:'+c.a,ini=h.replace('@','').slice(0,2).toUpperCase();
-    var who='<span class="who"><i>'+ini+'</i>'+h+'</span>';
-    if(kind==='Reel')return '<div class="art" style="'+s+'">'+who+'<span class="play"></span><div class="t">'+t+'</div><div><div class="prog"></div><div class="foot"><span>Reel · 0:15</span></div></div></div>';
-    if(kind==='Carrusel')return '<div class="art" style="'+s+'">'+who+'<div class="t">'+t+'</div><div><div class="cdots"><i></i><i></i><i></i><i></i><i></i></div><div class="foot"><span>Carrusel</span><span>1/5</span></div></div></div>';
-    if(kind==='Historia')return '<div class="art" style="'+s+'"><div><div class="seg"><i></i><i></i><i></i></div>'+who+'</div><div class="t">'+t+'</div><div class="foot"><span>Historia</span><span class="tagp">Hoy</span></div></div>';
-    return '<div class="art" style="'+s+'">'+who+'<div class="t">'+t+'</div><div class="foot"><span>Post</span><span class="tagp">Nuevo</span></div></div>';
+  function mkWake(root){
+    if(RM)return;
+    var vs=root.querySelectorAll('video'),cs=root.querySelectorAll('.car');
+    if(!('IntersectionObserver' in window)){vs.forEach(function(v){v.play().catch(function(){})});return}
+    if(!MKIO)MKIO=new IntersectionObserver(function(es){es.forEach(function(e){var t=e.target;if(t.tagName==='VIDEO'){if(e.isIntersecting)t.play().catch(function(){});else t.pause()}else t._vis=e.isIntersecting})},{threshold:.25});
+    vs.forEach(function(v){MKIO.observe(v)});
+    cs.forEach(function(c){MKIO.observe(c);var k=0,im=c.querySelectorAll('img');c._t=setInterval(function(){if(!c.isConnected){clearInterval(c._t);return}if(!c._vis||document.hidden)return;var a=im[k];k=(k+1)%im.length;var b=im[k];b.style.transition='none';b.classList.remove('out');void b.offsetWidth;b.style.transition='';a.classList.remove('on');a.classList.add('out');b.classList.add('on')},2200)});
   }
   function draw(g){
     var w=W[g];grid.innerHTML='';
     w.items.forEach(function(it,i){
       var d=document.createElement('div');d.className='piece';d.style.setProperty('--i',i);
-      d.innerHTML=art(it[0],it[1],w.h,swap(w.p,i))+'<div class="pmeta"><span>'+it[2]+'</span><span class="ok">Lista</span></div>';
+      d.innerHTML=art(g,it,i)+'<div class="pmeta"><span>'+it[2]+'</span><span class="ok">Lista</span></div>';
       grid.appendChild(d);
     });
-    title.textContent='Your week · '+w.name;wstatus.textContent='Example · 4 pieces ready';week.classList.remove('busy');
+    title.textContent='Your week · '+w.name;wstatus.textContent='Example · 4 pieces ready';week.classList.remove('busy');mkWake(grid);
   }
   function build(g){
     cur=g;chips.forEach(function(c){c.setAttribute('aria-pressed',String(c.dataset.giro===g))});
@@ -995,7 +1091,7 @@ html.m .sec{content-visibility:visible}
   draw('cafe');
 
   // Texto de ejemplo que se escribe solo
-  var EX=['Specialty coffee shop in Phoenix','Antique market in Tucson, open on weekends','Family taquería, we want more orders by DM','Clothing boutique in Scottsdale, fresh tone'];
+  var EX=['Specialty coffee shop in Phoenix', 'Antique market in Tucson, open on weekends', 'Family taquería, we want more orders by DM', 'Barbershop in Scottsdale, cuts and beard trims by appointment'];
   if(!RM){
     var ei=0,ci=0,del=false;
     (function tick(){
@@ -1208,5 +1304,53 @@ mm.add({ok:'(prefers-reduced-motion: no-preference)',wide:'(min-width:1240px)'},
 <script src="/assets/vendedor.js" defer></script>
 <script src="/assets/menu-esc.js" defer></script>
 <script src="/assets/ancla.js" defer></script>
+<script>
+/* mk-material: sección #material (pestañas, abanico de reels, baraja de carrusel, 5 composiciones, crudo → reel, filtro). */
+(function(){
+  var sec=document.getElementById('material');if(!sec)return;
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tabs=[].slice.call(sec.querySelectorAll('.mt')),panels=[].slice.call(sec.querySelectorAll('.mpanel')),cur=0,vis=false,tick=0;
+  function playIn(p){p.querySelectorAll('video').forEach(function(v){var ph=v.closest('.mphone');if(vis&&!RM&&p.classList.contains('on')&&(!ph||ph.dataset.pos==='0'))v.play().catch(function(){});else v.pause()})}
+  function sel(i,focus){
+    tabs.forEach(function(t,k){var on=k===i;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;panels[k].hidden=!on;panels[k].classList.toggle('on',on);playIn(panels[k])});
+    cur=i;tick=0;if(focus)tabs[i].focus();var bar=tabs[i].parentNode;if(bar.scrollWidth>bar.clientWidth)bar.scrollTo({left:Math.max(0,tabs[i].offsetLeft-24),behavior:RM?'auto':'smooth'});
+  }
+  tabs.forEach(function(t,k){
+    t.addEventListener('click',function(){sel(k)});
+    t.addEventListener('keydown',function(e){var n=(e.key==='ArrowDown'||e.key==='ArrowRight')?1:(e.key==='ArrowUp'||e.key==='ArrowLeft')?-1:0;
+      if(e.key==='Home'){e.preventDefault();sel(0,true)}else if(e.key==='End'){e.preventDefault();sel(tabs.length-1,true)}else if(n){e.preventDefault();sel((cur+n+tabs.length)%tabs.length,true)}});
+  });
+  // Abanico de reels: el de enfrente se reproduce; clic en otro lo trae al frente
+  var fan=sec.querySelector('[data-fan]'),ph=[].slice.call(fan.querySelectorAll('.mphone')),order=ph.map(function(_,i){return i});
+  function lay(){order.forEach(function(idx,pos){var f=ph[idx];f.dataset.pos=String(pos);f.setAttribute('aria-current',pos===0?'true':'false')});playIn(panels[0])}
+  ph.forEach(function(f,idx){f.tabIndex=0;f.setAttribute('role','button');
+    function front(){var p=order.indexOf(idx);if(p>0){order.splice(p,1);order.unshift(idx);tick=0;lay()}}
+    f.addEventListener('click',front);f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();front()}})});
+  lay();
+  // Baraja del carrusel: cada diapositiva pasa al fondo; los chips cambian de negocio
+  function deckPos(d,k){[].forEach.call(d.querySelectorAll('img'),function(im,n){im.style.setProperty('--p',String((n-k+5)%5))});d._k=k}
+  var decks=[].slice.call(sec.querySelectorAll('.mdeck'));decks.forEach(function(d){deckPos(d,0)});
+  sec.querySelectorAll('.mgsw .chip').forEach(function(c){c.addEventListener('click',function(){
+    sec.querySelectorAll('.mgsw .chip').forEach(function(o){o.setAttribute('aria-pressed',String(o===c))});
+    decks.forEach(function(d){var on=d.dataset.deck===c.dataset.show;d.hidden=!on;if(on)deckPos(d,0)});tick=0})});
+  // Una foto, cinco diseños: abanico que rota el del centro
+  var looks=[].slice.call(sec.querySelectorAll('.mlook')),lk=0;
+  function lookPos(){looks.forEach(function(l,n){var o=((n-lk+7)%5)-2;l.style.setProperty('--o',String(o));l.style.setProperty('--a',String(Math.abs(o)));l.classList.toggle('front',o===0)})}
+  looks.forEach(function(l,n){l.addEventListener('click',function(){lk=n;tick=0;lookPos()})});
+  lookPos();
+  // Filtro antes / después
+  var cmp=sec.querySelector('.mcmp');if(cmp){var r=cmp.querySelector('input');r.addEventListener('input',function(){cmp.style.setProperty('--x',r.value+'%')})}
+  // Visible / no visible
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting;panels.forEach(playIn)})},{threshold:.2}).observe(sec.querySelector('.mstage'))}
+  else{vis=true;playIn(panels[0])}
+  if(RM)return;
+  setInterval(function(){
+    if(!vis||document.hidden)return;tick++;
+    if(cur===0&&tick%6===0){order.push(order.shift());lay()}
+    if(cur===1){var d=decks.filter(function(x){return !x.hidden})[0];if(d&&tick%1===0)deckPos(d,(d._k+1)%5)}
+    if(cur===2&&tick%2===0){lk=(lk+1)%5;lookPos()}
+  },1800);
+})();
+</script>
 </body>
 </html>

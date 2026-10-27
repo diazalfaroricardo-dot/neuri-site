@@ -1,0 +1,82 @@
+{
+  "es": {
+    "chip4": "Barbería",
+    "biz": {"cafe": "Café de ejemplo", "comida": "Cocina de ejemplo", "bazar": "Bazar de ejemplo", "servicios": "Estudio de ejemplo"},
+    "EX": ["Cafetería de especialidad en Phoenix", "Bazar de antigüedades en Guadalajara, abrimos fines de semana", "Taquería familiar, queremos más pedidos por DM", "Barbería en Monterrey, cortes y barba con cita"],
+    "W": "  var W={\n    cafe:{name:'Cafetería',d:'cafe',h:'cafedeejemplo',ini:'CE',poll:['¿Pasas hoy por tu café?','Sí, en la mañana','Más tarde'],alt:['Post de Café de ejemplo: ¿latte de calabaza o frappé de cajeta?','Reel animado de Café de ejemplo con subtítulos: Así nace tu café','Carrusel de texto de Café de ejemplo: Cómo pedir tu café para llevar','Historia de Café de ejemplo con una encuesta'],items:[['Post','','Lun 8:30'],['Reel · 0:10','','Mié 12:00'],['Carrusel · 5','','Vie 9:00'],['Historia','','Sáb 7:30']]},\n    bazar:{name:'Bazar',d:'bazar',h:'bazardeejemplo',ini:'BE',poll:['¿Qué buscas este sábado?','Ropa vintage','Antigüedades'],alt:['Post de Bazar de ejemplo: Conoce a Ana, puesto 14, mezclilla vintage','Reel animado de Bazar de ejemplo con subtítulos: Recién llegó al bazar','Carrusel de texto de Bazar de ejemplo: Cómo apartar tu pieza','Historia de Bazar de ejemplo con una encuesta'],items:[['Post','','Lun 10:00'],['Reel · 0:10','','Mié 18:00'],['Carrusel · 5','','Jue 19:00'],['Historia','','Sáb 8:00']]},\n    resto:{name:'Restaurante',d:'comida',h:'cocinadeejemplo',ini:'CE',poll:['¿Qué se te antoja el viernes?','Birria','Pasta'],alt:['Post de Cocina de ejemplo: Te presentamos a Ana, que cocina aquí desde 2019','Reel animado de Cocina de ejemplo con subtítulos: Recién hecho, de verdad','Carrusel de texto de Cocina de ejemplo: Lo que más piden este mes','Historia de Cocina de ejemplo con una encuesta'],items:[['Post','','Lun 12:30'],['Reel · 0:10','','Mié 13:00'],['Carrusel · 5','','Jue 11:00'],['Historia','','Vie 17:00']]},\n    barber:{name:'Barbería',d:'servicios',h:'estudiodeejemplo',ini:'EE',poll:['¿Cuándo te toca corte?','Esta semana','La próxima'],alt:['Post de Estudio de ejemplo: 3 errores que hacen más caro tu fade con barba','Reel animado de Estudio de ejemplo con subtítulos: Tu fade, sin esperas','Carrusel de texto de Estudio de ejemplo: Lo que cambia con una cita','Historia de Estudio de ejemplo con una encuesta'],items:[['Post','','Lun 11:00'],['Reel · 0:10','','Mié 19:00'],['Carrusel · 5','','Vie 12:00'],['Historia','','Sáb 10:00']]}\n  };\n  var KEYS={cafe:/caf[eé]|coffee|barista|panader|pan /i,bazar:/bazar|tianguis|pulga|segunda|vintage|antig|swap/i,resto:/restaur|comida|taquer|cocina|food|men[uú]|tacos|pizza/i,barber:/barber|peluquer|corte|fade|est[eé]tica|sal[oó]n|u[ñn]as|spa|estudio/i};",
+    "text": {
+      "Elige un giro o escribe el tuyo y mira cómo se vería tu semana. Es un ejemplo y no se guarda nada.": "Elige un giro o escribe el tuyo: son piezas reales que armó Neuri Marketing con fotos de ejemplo. No se guarda nada.",
+      "<b>18 de 18 construidas y probadas.</b>": "<b>22 de 22 construidas y probadas.</b>"
+    },
+    "feats": "<div class=\"feat spot rv\"><span class=\"ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5.5\" y=\"2\" width=\"9\" height=\"16\" rx=\"2.5\"/><path d=\"M8.5 7.5l3.5 2.5-3.5 2.5z\"/></svg></span><h3>Reel animado con tus fotos</h3><p>De 3 a 5 fotos sale un reel de 7 a 15 segundos con movimiento, subtítulos palabra por palabra y efectos de sonido. No gasta tu tope de IA.</p></div>\n    <div class=\"feat spot rv\"><span class=\"ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2.5\" y=\"4\" width=\"10\" height=\"12.5\" rx=\"2\"/><path d=\"M15 5.5v9.5M17.5 7v6.5\"/></svg></span><h3>Carrusel de texto con tu marca</h3><p>Pasos, lista o antes y después, con portada que invita a deslizar y cierre para guardar. Todo dentro de lo que Instagram muestra completo.</p></div>\n    <div class=\"feat spot rv\"><span class=\"ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 7V3h4M17 7V3h-4M3 13v4h4M17 13v4h-4\"/><circle cx=\"10\" cy=\"10\" r=\"2.5\"/></svg></span><h3>Estudio para editar en grande</h3><p>Abres cada foto, reel o carrusel en grande y cambias encuadre, filtro, diseño y texto antes de aprobar.</p></div>\n    <div class=\"feat spot rv\"><span class=\"ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2.5\" y=\"3.5\" width=\"6.5\" height=\"8\" rx=\"1.5\"/><rect x=\"11\" y=\"8.5\" width=\"6.5\" height=\"8\" rx=\"1.5\"/><path d=\"M9 7.5h2.5a1.5 1.5 0 011.5 1\"/></svg></span><h3>El estilo de una cuenta que te gusta</h3><p>Subes la captura de una cuenta que admiras y Neuri toma su receta: paleta, letra, composición y filtro. Nunca sus fotos, textos ni logo.</p></div>",
+    "sec": {
+      "eyebrow": "Hecho con Neuri Marketing",
+      "h2": "Reels y carruseles con tu marca. <span class=\"soft\">Así salen.</span>",
+      "lede": "Tu letra, tus colores y tu estilo en cada pieza. Todo lo de abajo lo armaron las herramientas de Neuri Marketing con fotos y videos de ejemplo.",
+      "tablist": "Material que arma Neuri Marketing",
+      "tabs": [
+        ["Reels que se arman solos", "De 3 a 5 fotos sale un reel de 7 a 15 segundos, con subtítulos palabra por palabra en tres estilos. Toca otro para verlo."],
+        ["Carruseles que se guardan", "Portada que invita a deslizar, pasos o lista y un cierre para guardar. El texto queda dentro de lo que Instagram muestra completo."],
+        ["Una foto, cinco diseños", "Eliges la composición una vez y todas tus publicaciones salen con ella, con tu letra y tus colores."],
+        ["Del video crudo al reel", "Subes el video como salió del celular y Neuri lo pasa a vertical con tu texto y subtítulos."],
+        ["El filtro de la cuenta que te gusta", "Neuri mide el brillo, contraste y calidez de una foto que admiras y lo aplica a la tuya. Tu original se queda guardada."]
+      ],
+      "subs": {"cafe": "Subtítulos resaltados", "comida": "Subtítulos limpios", "bazar": "Subtítulos limpios", "servicios": "Subtítulos en píldora"},
+      "reelAlt": "Reel animado de {biz} con subtítulos",
+      "tcAlt": "Diapositiva {n} de 5 del carrusel de texto de {biz}",
+      "deckGroup": "Ver el carrusel de otro negocio",
+      "looks": {"marco": "Marco", "minimal": "Minimal", "franja": "Franja", "degradado": "Degradado", "titular": "Titular"},
+      "lookAlt": "La misma foto de Café de ejemplo con la composición {name}",
+      "rawAlt": "Video crudo de una cocina, horizontal, como sale del celular",
+      "rawCap": "Así lo grabaste",
+      "editAlt": "El mismo video convertido en reel vertical con texto y subtítulos",
+      "editCap": "Así sale el reel",
+      "filtAlt": "Foto de un bazar con el filtro de una cuenta de inspiración",
+      "rawPhotoAlt": "La misma foto del bazar sin filtro",
+      "before": "Tu foto",
+      "after": "Con el filtro",
+      "slider": "Desliza para comparar tu foto con el filtro",
+      "note": "Material de ejemplo hecho con las herramientas reales de Neuri Marketing. Fotos de Pexels y videos de Mixkit con licencia libre; los negocios son de ejemplo."
+    }
+  },
+  "en": {
+    "chip4": "Barbershop",
+    "biz": {"cafe": "Sample Café", "comida": "Sample Kitchen", "bazar": "Sample Shop", "servicios": "Sample Studio"},
+    "EX": ["Specialty coffee shop in Phoenix", "Antique market in Tucson, open on weekends", "Family taquería, we want more orders by DM", "Barbershop in Scottsdale, cuts and beard trims by appointment"],
+    "W": "  var W={\n    cafe:{name:'Coffee shop',d:'cafe',h:'samplecafe',ini:'SC',poll:['Stopping by for coffee today?','Yes, this morning','Later'],alt:['Sample Café post: pumpkin latte or caramel frappé?','Sample Café animated reel with captions: How your coffee is born','Sample Café text carousel: How to order your coffee to go','Sample Café story with a poll'],items:[['Post','','Mon 8:30'],['Reel · 0:10','','Wed 12:00'],['Carousel · 5','','Fri 9:00'],['Story','','Sat 7:30']]},\n    bazar:{name:'Vintage market',d:'bazar',h:'sampleshop',ini:'SS',poll:['What are you hunting this Saturday?','Vintage clothes','Antiques'],alt:['Sample Shop post: Meet Ana, booth 14, vintage denim','Sample Shop animated reel with captions: Just in at the shop','Sample Shop text carousel: How to hold your piece','Sample Shop story with a poll'],items:[['Post','','Mon 10:00'],['Reel · 0:10','','Wed 18:00'],['Carousel · 5','','Thu 19:00'],['Story','','Sat 8:00']]},\n    resto:{name:'Restaurant',d:'comida',h:'samplekitchen',ini:'SK',poll:['What are you craving Friday?','Birria','Pasta'],alt:['Sample Kitchen post: Meet Ana, cooking at Sample Kitchen since 2019','Sample Kitchen animated reel with captions: Made fresh, for real','Sample Kitchen text carousel: This month\\'s most ordered','Sample Kitchen story with a poll'],items:[['Post','','Mon 12:30'],['Reel · 0:10','','Wed 13:00'],['Carousel · 5','','Thu 11:00'],['Story','','Fri 17:00']]},\n    barber:{name:'Barbershop',d:'servicios',h:'samplestudio',ini:'SS',poll:['When is your next cut?','This week','Next week'],alt:['Sample Studio post: 3 mistakes that make your fade and beard trim cost more','Sample Studio animated reel with captions: Your fade, no waiting','Sample Studio text carousel: What a booking changes','Sample Studio story with a poll'],items:[['Post','','Mon 11:00'],['Reel · 0:10','','Wed 19:00'],['Carousel · 5','','Fri 12:00'],['Story','','Sat 10:00']]}\n  };\n  var KEYS={cafe:/caf[eé]|coffee|barista|bakery|panader|pan /i,bazar:/bazar|tianguis|pulga|segunda|vintage|antig|antique|thrift|flea|swap/i,resto:/restaur|comida|taquer|cocina|food|men[uú]|tacos|pizza/i,barber:/barber|haircut|fade|salon|sal[oó]n|nail|spa|beauty|studio|peluquer|corte/i};",
+    "text": {
+      "Pick a business type or type your own and see what your week would look like. It's an example and nothing is saved.": "Pick a business type or type your own: these are real pieces Neuri Marketing made with sample photos. Nothing is saved.",
+      "<b>18 of 18 built and tested.</b>": "<b>22 of 22 built and tested.</b>"
+    },
+    "feats": "<div class=\"feat spot rv\"><span class=\"ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5.5\" y=\"2\" width=\"9\" height=\"16\" rx=\"2.5\"/><path d=\"M8.5 7.5l3.5 2.5-3.5 2.5z\"/></svg></span><h3>Animated reel from your photos</h3><p>3 to 5 photos become a 7 to 15 second reel with motion, word-by-word captions and sound effects. It doesn't touch your AI cap.</p></div>\n    <div class=\"feat spot rv\"><span class=\"ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2.5\" y=\"4\" width=\"10\" height=\"12.5\" rx=\"2\"/><path d=\"M15 5.5v9.5M17.5 7v6.5\"/></svg></span><h3>Text carousel in your brand</h3><p>Steps, a list or before and after, with a cover that invites a swipe and a closing slide to save. All inside what Instagram shows in full.</p></div>\n    <div class=\"feat spot rv\"><span class=\"ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 7V3h4M17 7V3h-4M3 13v4h4M17 13v4h-4\"/><circle cx=\"10\" cy=\"10\" r=\"2.5\"/></svg></span><h3>A studio to edit up close</h3><p>Open any photo, reel or carousel full size and change the crop, filter, design and text before you approve.</p></div>\n    <div class=\"feat spot rv\"><span class=\"ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2.5\" y=\"3.5\" width=\"6.5\" height=\"8\" rx=\"1.5\"/><rect x=\"11\" y=\"8.5\" width=\"6.5\" height=\"8\" rx=\"1.5\"/><path d=\"M9 7.5h2.5a1.5 1.5 0 011.5 1\"/></svg></span><h3>The style of an account you love</h3><p>Upload a screenshot of an account you admire and Neuri takes its recipe: palette, type, layout and filter. Never its photos, words or logo.</p></div>",
+    "sec": {
+      "eyebrow": "Made with Neuri Marketing",
+      "h2": "Reels and carousels in your brand. <span class=\"soft\">This is how they come out.</span>",
+      "lede": "Your type, your colors and your style in every piece. Everything below was made by Neuri Marketing's own tools with sample photos and videos.",
+      "tablist": "Content Neuri Marketing makes",
+      "tabs": [
+        ["Reels that build themselves", "3 to 5 photos become a 7 to 15 second reel, with word-by-word captions in three styles. Tap another one to watch it."],
+        ["Carousels people save", "A cover that invites a swipe, steps or a list, and a closing slide to save. The text stays inside what Instagram shows in full."],
+        ["One photo, five designs", "Pick your layout once and every post comes out with it, in your type and colors."],
+        ["From raw video to reel", "Upload the video straight from your phone and Neuri turns it vertical with your text and captions."],
+        ["The filter of an account you love", "Neuri measures the brightness, contrast and warmth of a photo you admire and applies it to yours. Your original stays saved."]
+      ],
+      "subs": {"cafe": "Highlight captions", "comida": "Clean captions", "bazar": "Clean captions", "servicios": "Pill captions"},
+      "reelAlt": "{biz} animated reel with captions",
+      "tcAlt": "Slide {n} of 5 of {biz}'s text carousel",
+      "deckGroup": "See another business's carousel",
+      "looks": {"marco": "Frame", "minimal": "Minimal", "franja": "Band", "degradado": "Gradient", "titular": "Headline"},
+      "lookAlt": "The same Sample Café photo with the {name} layout",
+      "rawAlt": "Raw horizontal kitchen video, straight from the phone",
+      "rawCap": "How you shot it",
+      "editAlt": "The same video turned into a vertical reel with text and captions",
+      "editCap": "How the reel comes out",
+      "filtAlt": "Shop photo with the filter of an inspiration account",
+      "rawPhotoAlt": "The same shop photo without the filter",
+      "before": "Your photo",
+      "after": "With the filter",
+      "slider": "Slide to compare your photo with the filter",
+      "note": "Sample content made with Neuri Marketing's real tools. Photos from Pexels and videos from Mixkit under free licenses; the businesses are examples."
+    }
+  }
+}

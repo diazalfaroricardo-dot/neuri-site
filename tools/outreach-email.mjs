@@ -19,7 +19,7 @@ export const T = {
   bots: { a: "#0B5E3A", bg: "#F6F4EE", ink: "#05080D", sub: "#56635C", line: "#E1E3DC", suf: ".bots",
     url: { es: "https://neuri.tech/sigue-disponible/", en: "https://neuri.tech/en/still-available/" },
     cta: { es: "Ver cómo contesta", en: "See it answer" },
-    chips: { es: ["Primer mes sin costo", "Yo lo configuro", "Instagram y Messenger"], en: ["First month free", "I set it up for you", "Instagram and Messenger"] } },
+    chips: { es: ["7 días de prueba gratis", "Yo lo configuro", "Instagram y Messenger"], en: ["7-day free trial", "I set it up for you", "Instagram and Messenger"] } },
   bazar: { a: "#B4441A", bg: "#F7F1E8", ink: "#05080D", sub: "#5E554C", line: "#E6DBC9", suf: ".bazar",
     url: { es: "https://neuri.tech/bazar/recorrido/", en: "https://neuri.tech/en/bazar/tour/" },
     cta: { es: "Ver el recorrido de 2 minutos", en: "Take the 2-minute tour" },

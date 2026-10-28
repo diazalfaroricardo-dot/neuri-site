@@ -6,7 +6,7 @@ Neuri crea agentes de IA para negocios de cualquier país, en español e inglés
 
 ## neuri.bots
 
-Answers Instagram and Messenger DMs for small sellers from the seller's own sheet: "is this still available?", price and payment, holds items and DMs a link to people who comment. It does not make things up: unknown questions go to the owner. The direct Instagram/Messenger connection is pending Meta's approval; WhatsApp is on the way. Month to month, no contract; setup and first month free for the first 10 sellers.
+Answers Instagram and Messenger DMs for small sellers from the seller's own sheet: "is this still available?", price and payment, holds items and DMs a link to people who comment. It does not make things up: unknown questions go to the owner. The direct Instagram/Messenger connection is pending Meta's approval; WhatsApp is on the way. Month to month, no contract; free setup and a 7-day free trial for the first 10 sellers.
 
 - Básico MXN 899/mes · Pro MXN 1,299/mes
 - Basic US$49/month · Pro US$69/month

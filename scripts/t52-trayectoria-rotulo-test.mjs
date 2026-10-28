@@ -8,6 +8,7 @@ const pages = {
 let fails = 0;
 for (const [p, re] of Object.entries(pages)) {
   const html = readFileSync(new URL(`../${p}`, import.meta.url), "utf8");
+  if (/http-equiv="refresh"[^>]*consulting\.neuri\.tech/.test(html)) { console.log(`✓ ${p}: redirige a consulting.neuri.tech (t66)`); continue; }
   const nota = html.indexOf('class="trayec"'), kpis = html.indexOf('class="kpis');
   if (nota < 0 || !re.test(html) || nota > kpis || !/\.trayec\{/.test(html)) { fails++; console.error(`✗ ${p}: falta el rótulo de trayectoria antes de los KPI`); }
   else console.log(`✓ ${p}`);

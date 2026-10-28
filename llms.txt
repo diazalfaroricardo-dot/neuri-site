@@ -26,7 +26,7 @@ Point of sale for consignment bazaars, tianguis, antique malls, vendor malls and
 
 AI consulting for companies: a virtual AI diagnostic, then implementation of agents that prospect customers, automate operations and deliver reporting. Diagnostic from MXN 4,500 / US$249.
 
-- [Neuri Consulting (español)](https://neuri.tech/consultoria/) · [English](https://neuri.tech/en/ai-consulting/)
+- [Neuri Consulting (español)](https://consulting.neuri.tech/) · [English](https://consulting.neuri.tech/?lang=en)
 - [Diagnostic site and pricing](https://consulting.neuri.tech/precios) · [llms.txt](https://consulting.neuri.tech/llms.txt)
 
 ## Neuri Marketing (coming soon)

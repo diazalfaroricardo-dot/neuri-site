@@ -33,6 +33,6 @@ for (const p of ["sigue-disponible/index.html", "en/still-available/index.html"]
   for (const pie of pies) if (!pie.includes("Neuri LLC")) bad(`${p}: pie sin «Neuri LLC» (T41)`);
 }
 // T45: el logo de /en/ai-consulting/ regresa al inicio en inglés
-if (!readFileSync(join(root, "en/ai-consulting/index.html"), "utf8").includes('class="logo" href="/en/home/"')) bad("/en/ai-consulting/: el logo no va a /en/home/ (T45)");
+{ const h45 = readFileSync(join(root, "en/ai-consulting/index.html"), "utf8"); if (!/http-equiv="refresh"/.test(h45) && !h45.includes('class="logo" href="/en/home/"')) bad("/en/ai-consulting/: el logo no va a /en/home/ (T45)"); }
 
 process.exit(fail ? 1 : 0);

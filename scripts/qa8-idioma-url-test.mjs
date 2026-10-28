@@ -2,11 +2,15 @@
 // también navegando dentro de neuri.tech (2ª vuelta). 390 y 1280, zona Phoenix, como un teléfono real.
 import { createRequire } from "node:module";
 import { readFileSync, existsSync } from "node:fs";
-const req = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`);
-const { chromium } = req("./index.js");
+let chromium;
+try {
+  ({ chromium } = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`)("./index.js"));
+} catch (_) {
+  ({ chromium } = createRequire(import.meta.url)("playwright"));
+}
 const root = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const live = process.argv.includes("--live");
-const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
+const b = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
 // [guardado, url, referer, ruta esperada, lang esperado]
 const cases = [
@@ -18,13 +22,15 @@ const cases = [
   ["en", "/sigue-disponible/", "https://neuri.tech/en/home/", "/sigue-disponible/", "es"],
   ["es", "/en/still-available/", "https://neuri.tech/", "/en/still-available/", "en"],
   ["en", "/bazar/", "https://neuri.tech/en/", "/bazar/", "es"],
-  // 3ª vuelta: sin elección guardada, la zona horaria solo decide en la primera página de la sesión.
-  [null, "/sigue-disponible/", null, "/en/still-available/", "en"],
+  // 4ª vuelta (28-oct): sin elección guardada y navegador en-US en Phoenix, la URL en español se queda en español
+  // y solo se ofrece la barra «View this page in English» (sexto campo = barra esperada).
+  [null, "/sigue-disponible/", null, "/sigue-disponible/", "es", null, "en"],
+  [null, "/bazar/", null, "/bazar/", "es", null, "en"],
   [null, "/sigue-disponible/", null, "/sigue-disponible/", "es", "/en/still-available/"],
   [null, "/en/still-available/", null, "/en/still-available/", "en", "/en/still-available/"],
 ];
 for (const w of [390, 1280]) {
-  for (const [saved, from, ref, to, lang, prev] of cases) {
+  for (const [saved, from, ref, to, lang, prev, bar] of cases) {
     const c = await b.newContext({ viewport: { width: w, height: 800 }, timezoneId: "America/Phoenix", locale: "en-US", userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148" });
     await c.addInitScript((v) => {
       Object.defineProperty(navigator, "webdriver", { get: () => false });
@@ -46,9 +52,10 @@ for (const w of [390, 1280]) {
     await p.waitForTimeout(live ? 1500 : 500);
     const got = new URL(p.url()).pathname;
     const hl = await p.evaluate(() => document.documentElement.lang).catch(() => "?");
-    const ok = got === to && hl.startsWith(lang);
+    const sug = await p.evaluate(() => document.getElementById("neuri-lang-sug")?.lang || null).catch(() => "?");
+    const ok = got === to && hl.startsWith(lang) && (!bar || sug === bar);
     if (!ok) fail++;
-    console.log(ok ? "OK  " : "FAIL", w, `guardado=${saved}`, from, `ref=${ref ?? "-"}`, "→", got, hl);
+    console.log(ok ? "OK  " : "FAIL", w, `guardado=${saved}`, from, `ref=${ref ?? "-"}`, "→", got, hl, `barra=${sug}`);
     await c.close();
   }
 }

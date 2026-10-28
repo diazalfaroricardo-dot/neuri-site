@@ -1,4 +1,5 @@
 /* Idioma por país (neuri.tech es sitio estático en GitHub Pages: no hay IP del visitante,
+   QA #8 4ª vuelta: NUNCA redirige por zona horaria; solo ofrece una barra con el otro idioma.
    así que el país se deduce de la zona horaria del dispositivo).
    - México → español; Estados Unidos → inglés; otro país → se queda la página que abrió.
    - Una URL con idioma se muestra siempre en ese idioma si la persona ya eligió uno con «English»/«Español»
@@ -35,6 +36,37 @@
     );
 
     if (!alt.es || !alt.en) return;
+    // Barra «Ver esta página en …» (no redirige: QA #8, 4ª vuelta — la URL con idioma manda siempre).
+    const suggest = (to) => {
+      const en = to === "en";
+      const show = () => {
+        if (document.getElementById("neuri-lang-sug")) return;
+        const bar = document.createElement("div");
+        bar.id = "neuri-lang-sug";
+        bar.setAttribute("role", "region");
+        bar.setAttribute("aria-label", en ? "Language" : "Idioma");
+        bar.lang = to;
+        bar.style.cssText = "display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:6px 16px;background:#0B0F14;color:#F2F5F7;font:500 14px/1.4 system-ui,sans-serif;border-bottom:1px solid #26303A";
+        const a = document.createElement("a");
+        a.href = alt[to].pathname + "?lang=" + to + location.hash;
+        a.hreflang = to;
+        a.textContent = en ? "View this page in English →" : "Ver esta página en español →";
+        a.style.cssText = "color:#F2F5F7;text-decoration:underline;display:inline-flex;align-items:center;min-height:44px;padding:0 4px";
+        const x = document.createElement("button");
+        x.type = "button";
+        x.lang = en ? "es" : "en";
+        x.textContent = en ? "Seguir en español" : "Stay in English";
+        x.style.cssText = "background:transparent;color:#C9D2D9;border:1px solid #3A4652;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;cursor:pointer";
+        x.addEventListener("click", () => {
+          store(en ? "es" : "en");
+          bar.remove();
+        });
+        bar.append(a, x);
+        document.body.prepend(bar);
+      };
+      if (document.body) show();
+      else document.addEventListener("DOMContentLoaded", show);
+    };
     // T15: un ?lang=es|en explícito siempre lleva a su par (también en navegadores automatizados y vistas previas).
     const here0 = location.pathname.replace(/index\.html$/, "");
     if ((q === "es" || q === "en") && here0 !== alt[q].pathname && (here0 === alt.es.pathname || here0 === alt.en.pathname)) {
@@ -52,32 +84,7 @@
       if (saved || q || !/^en\b/i.test(nl) || /bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit/i.test(navigator.userAgent) || navigator.webdriver) return;
       const here1 = location.pathname.replace(/index\.html$/, "");
       if (here1 !== alt.es.pathname) return;
-      const show = () => {
-        if (document.getElementById("neuri-lang-sug")) return;
-        const bar = document.createElement("div");
-        bar.id = "neuri-lang-sug";
-        bar.setAttribute("role", "region");
-        bar.setAttribute("aria-label", "Language");
-        bar.lang = "en";
-        bar.style.cssText = "display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:6px 16px;background:#0B0F14;color:#F2F5F7;font:500 14px/1.4 system-ui,sans-serif;border-bottom:1px solid #26303A";
-        const a = document.createElement("a");
-        a.href = alt.en.pathname + "?lang=en";
-        a.hreflang = "en";
-        a.textContent = "View this page in English →";
-        a.style.cssText = "color:#F2F5F7;text-decoration:underline;display:inline-flex;align-items:center;min-height:44px;padding:0 4px";
-        const x = document.createElement("button");
-        x.type = "button";
-        x.textContent = "Seguir en español";
-        x.style.cssText = "background:transparent;color:#C9D2D9;border:1px solid #3A4652;border-radius:8px;min-height:44px;padding:0 12px;font:inherit;cursor:pointer";
-        x.addEventListener("click", () => {
-          store("es");
-          bar.remove();
-        });
-        bar.append(a, x);
-        document.body.prepend(bar);
-      };
-      if (document.body) show();
-      else document.addEventListener("DOMContentLoaded", show);
+      suggest("en");
       return;
     }
     if (/bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit/i.test(navigator.userAgent) || navigator.webdriver) return;
@@ -112,7 +119,7 @@
     // En EE. UU. solo pasa al inglés si el teléfono también está en inglés: quien lo tiene en español se queda en español.
     else if (/^en\b/i.test(nl) && /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(tz)) want = "en";
     if (!want || want === cur) return;
-    const to = alt[want];
-    location.replace(to.pathname + location.search + location.hash);
+    // QA #8 (4ª vuelta, 28-oct): ya no redirige; un link en español se abre en español y se ofrece el otro idioma.
+    suggest(want);
   } catch (_) {}
 })();

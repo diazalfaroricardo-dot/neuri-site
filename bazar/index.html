@@ -686,10 +686,10 @@ html.m #inicio > div:nth-child(2){visibility:hidden}
 .hx{--ink:#05080D;--ink2:#0B1018;--paper:#F7F1E8;--terra:#B4441A;--terra2:#D9622F;--peach:#F3B38F;--teal:#0E6B6B;--mint:#8FE0B4;--mute:#B9AE9F;
   position:relative;margin:4px 12px 0;border-radius:36px;background:var(--ink);color:var(--paper);overflow:hidden;isolation:isolate}
 @media(max-width:560px){.hx{margin:0 8px;border-radius:26px}}
-.hx-aur{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:-2}
-.hx-a1{width:640px;height:640px;right:-160px;top:-220px;background:radial-gradient(closest-side,rgba(180,68,26,.75),rgba(180,68,26,0))}
-.hx-a2{width:560px;height:560px;left:-220px;bottom:-260px;background:radial-gradient(closest-side,rgba(14,107,107,.7),rgba(14,107,107,0))}
-.hx-a3{width:380px;height:380px;left:42%;top:30%;background:radial-gradient(closest-side,rgba(243,179,143,.28),rgba(243,179,143,0))}
+.hx-aur{position:absolute;border-radius:50%;pointer-events:none;z-index:-2}
+.hx-a1{width:640px;height:640px;right:-160px;top:-220px;background:radial-gradient(closest-side,rgba(180,68,26,.72),rgba(180,68,26,.42) 35%,rgba(180,68,26,.16) 62%,rgba(180,68,26,.04) 84%,rgba(180,68,26,0))}
+.hx-a2{width:560px;height:560px;left:-220px;bottom:-260px;background:radial-gradient(closest-side,rgba(14,107,107,.68),rgba(14,107,107,.4) 35%,rgba(14,107,107,.15) 62%,rgba(14,107,107,.04) 84%,rgba(14,107,107,0))}
+.hx-a3{width:380px;height:380px;left:42%;top:30%;background:radial-gradient(closest-side,rgba(243,179,143,.26),rgba(243,179,143,.15) 35%,rgba(243,179,143,.06) 62%,rgba(243,179,143,.015) 84%,rgba(243,179,143,0))}
 .hx-floor{position:absolute;left:-30%;right:-30%;bottom:-2px;height:42%;z-index:-1;pointer-events:none;
   background-image:linear-gradient(rgba(243,179,143,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(243,179,143,.16) 1px,transparent 1px);background-size:60px 60px;
   transform:perspective(520px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(to top,#000 5%,transparent 80%);mask-image:linear-gradient(to top,#000 5%,transparent 80%);animation:hxFloor 5s linear infinite}
@@ -735,9 +735,9 @@ html.m #inicio > div:nth-child(2){visibility:hidden}
 
 /* escena */
 .hx-wrap{position:relative;min-width:0;width:100%}
-.hx-scene{position:relative;width:580px;height:520px;transform-origin:0 0;transform-style:preserve-3d}
+.hx-scene{position:relative;width:580px;height:520px;transform-origin:0 0}
 .hx-label{position:absolute;left:0;top:0;font:500 10.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--peach);border:1px solid rgba(243,179,143,.35);border-radius:999px;padding:6px 10px;background:rgba(5,8,13,.6)}
-.hx-pos{position:absolute;left:0;top:40px;width:296px;background:#fff;color:var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.06);will-change:transform}
+.hx-pos{position:absolute;left:0;top:40px;width:296px;background:#fff;color:var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.06)}
 .hx-pos-top{background:var(--ink2);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font:600 14px/1 Geist,system-ui,sans-serif}
 .hx-pos-top span{display:inline-flex;align-items:center;gap:8px}.hx-pos-top small{font-size:12px;color:#CFC4B4;font-weight:500}
 .hx-live{width:8px;height:8px;border-radius:50%;background:var(--terra2);animation:hxPulse 1.6s infinite}
@@ -754,7 +754,7 @@ html.m #inicio > div:nth-child(2){visibility:hidden}
 .hx-cobrar{position:relative;overflow:hidden;background:var(--terra);color:#fff;text-align:center;font:700 16px/1 Geist,system-ui,sans-serif;padding:16px;border-radius:14px}
 .hx-cobrar i{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0)}
 .hx-ok{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--teal);opacity:0}
-.hx-v{position:absolute;right:0;width:232px;background:rgba(14,18,26,.86);border:1px solid rgba(247,241,232,.12);border-radius:20px;padding:14px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9);will-change:transform}
+.hx-v{position:absolute;right:0;width:232px;background:rgba(14,18,26,.86);border:1px solid rgba(247,241,232,.12);border-radius:20px;padding:14px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
 .hx-v1{top:26px}.hx-v2{top:206px}
 .hx-v-h{display:flex;align-items:center;gap:10px}
 .hx-av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:700 13px/1 Geist,system-ui,sans-serif;flex:none}
@@ -822,20 +822,20 @@ html.m .hx [data-hx]{visibility:hidden}
               <div class="hx-row r1"><span><b>Lámpara de latón vintage</b><small>Puesto 12 · Doña Rosa</small></span><em>$450</em></div>
               <div class="hx-row r2"><span><b>Vajilla de talavera, 12 pz</b><small>Puesto 7 · Lupita</small></span><em>$950</em></div>
             </div>
-            <div class="hx-tot"><span>Total</span><b id="hx-total">$1,400</b></div>
+            <div class="hx-tot"><span>Total</span><b id="hx-total">$0</b></div>
             <div class="hx-cobrar" id="hx-cobrar">Cobrar<i></i><span class="hx-ok">✓ Cobrado · saldos al día</span></div>
           </div>
         </div>
         <div class="hx-v hx-v1" id="hx-v1">
           <span class="hx-plus">+$450</span>
           <div class="hx-v-h"><span class="hx-av">DR</span><span><b>Doña Rosa</b><small>Puesto 12</small></span></div>
-          <div class="hx-bal"><span>Saldo</span><b id="hx-b1">$1,230</b></div>
+          <div class="hx-bal"><span>Saldo</span><b id="hx-b1">$780</b></div>
         </div>
         <div class="hx-v hx-v2" id="hx-v2">
           <span class="hx-plus">+$950</span>
           <span class="hx-stamp">LUNES · RENTA −$900</span>
           <div class="hx-v-h"><span class="hx-av">LU</span><span><b>Lupita</b><small>Puesto 7</small></span></div>
-          <div class="hx-bal"><span>Saldo</span><b id="hx-b2">$4,000</b></div>
+          <div class="hx-bal"><span>Saldo</span><b id="hx-b2">$3,050</b></div>
           <div class="hx-pay"><span>Le pagas</span><b>$3,100</b></div>
         </div>
         <span class="hx-coin c1">$</span><span class="hx-coin c2">$</span><span class="hx-coin c3">$</span><span class="hx-coin c4">$</span>
@@ -861,30 +861,30 @@ html.m .hx [data-hx]{visibility:hidden}
     function split(el){var out=[];(function walk(n){Array.prototype.slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.style.cssText='display:inline-block;overflow:hidden;vertical-align:top;padding:0 .08em .1em 0;margin:0 -.08em -.1em 0';var i=document.createElement('span');i.style.display='inline-block';i.textContent=p;w.appendChild(i);f.appendChild(w);out.push(i)});c.parentNode.replaceChild(f,c)}else if(c.nodeType===1)walk(c)})})(el);return out}
     var words=[];$$('.hx h1 [data-split]').forEach(function(e){words=words.concat(split(e))});
     var rw=document.querySelector('.hx-rw'),squig=document.querySelector('.hx-rot path'),SL=squig.getTotalLength();
-    g.set(squig,{strokeDasharray:SL,strokeDashoffset:SL});
+    g.set(squig,{strokeDasharray:SL+' '+(SL+12),strokeDashoffset:SL+6});
 
     /* ---- entrada ---- */
     var intro=g.timeline({defaults:{ease:'power4.out'},delay:.05});
     intro.set('.hx [data-hx]',{visibility:'visible'})
       .from('.hx-badge',{y:16,autoAlpha:0,scale:.9,duration:.6,ease:'back.out(2)'},0)
       .from(words.slice(0,2),{yPercent:115,rotate:6,duration:1.05,stagger:.07},.12)
-      .from(rw,{yPercent:70,autoAlpha:0,filter:'blur(14px)',duration:1.1},.32)
+      .from(rw,{yPercent:55,autoAlpha:0,duration:.95,ease:'expo.out'},.32)
       .to(squig,{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},.85)
       .from(words.slice(2),{yPercent:115,duration:.9,stagger:.05},.55)
       .from('.hx-p',{y:20,autoAlpha:0,duration:.8},.75)
       .from('.hx-ctas .hx-btn',{y:22,autoAlpha:0,scale:.94,duration:.7,stagger:.09,ease:'back.out(1.8)'},.9)
       .from('.hx-fine span',{y:10,autoAlpha:0,duration:.5,stagger:.07},1.05)
       .from('.hx-tag',{autoAlpha:0,y:30,rotate:-25,duration:1.1,stagger:.08,ease:'back.out(1.6)'},.4)
-      .from(scene,{autoAlpha:0,y:60,rotationY:-18,rotationX:10,transformPerspective:1200,duration:1.4,ease:'expo.out'},.25)
+      .from(scene,{autoAlpha:0,y:44,duration:1.2,ease:'expo.out'},.25)
       .from('.hx-v',{autoAlpha:0,x:40,duration:.9,stagger:.12,ease:'expo.out'},.7)
       .from('.hx-wire path',{autoAlpha:0,duration:.6},1.1);
 
     /* ---- palabra que rota ---- */
     var list=['sin libreta.','sin Excel.','sin papeles.','sin cuentas.'],wi=0;
     g.delayedCall(3.4,function cyc(){wi=(wi+1)%list.length;
-      g.timeline().to(rw,{yPercent:-60,autoAlpha:0,filter:'blur(10px)',duration:.4,ease:'power2.in'}).to(squig,{strokeDashoffset:SL,duration:.3},0)
+      g.timeline().to(rw,{yPercent:-45,autoAlpha:0,duration:.35,ease:'power2.in'}).to(squig,{strokeDashoffset:SL+6,duration:.3},0)
         .add(function(){rw.textContent=list[wi]})
-        .fromTo(rw,{yPercent:60,filter:'blur(10px)'},{yPercent:0,autoAlpha:1,filter:'blur(0px)',duration:.6,ease:'power3.out'})
+        .fromTo(rw,{yPercent:45},{yPercent:0,autoAlpha:1,duration:.55,ease:'power3.out'})
         .to(squig,{strokeDashoffset:0,duration:.7,ease:'power2.inOut'},'-=.3');
       g.delayedCall(2.8,cyc);});
 
@@ -952,7 +952,7 @@ html.m .hx [data-hx]{visibility:hidden}
       var qt=$$('.hx-tag').map(function(t){return[g.quickTo(t,'x',{duration:1.4,ease:'power3'})]});
       g.set(pos3,{transformPerspective:1000});
       hx.addEventListener('pointermove',function(e){var r=hx.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
-        ry(px*14);rx(-py*10);qv.forEach(function(q,i){q[0](px*(i?-18:-10));q[1](py*(i?-14:-8))});qt.forEach(function(q,i){q[0](px*(20+i*8))});});
+        ry(px*8);rx(-py*6);qv.forEach(function(q,i){q[0](px*(i?-18:-10));q[1](py*(i?-14:-8))});qt.forEach(function(q,i){q[0](px*(20+i*8))});});
       hx.addEventListener('pointerleave',function(){rx(0);ry(0);qv.forEach(function(q){q[0](0);q[1](0)})});
       $$('.hx-btn').forEach(function(b){var x=g.quickTo(b,'x',{duration:.5,ease:'power3'}),y=g.quickTo(b,'y',{duration:.5,ease:'power3'});
         b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();x((e.clientX-r.left-r.width/2)*.3);y((e.clientY-r.top-r.height/2)*.4)});
@@ -2136,10 +2136,10 @@ Armar mi bazar
 .hx{--ink:#05080D;--ink2:#0B1018;--paper:#F7F1E8;--terra:#B4441A;--terra2:#D9622F;--peach:#F3B38F;--teal:#0E6B6B;--mint:#8FE0B4;--mute:#B9AE9F;
   position:relative;margin:4px 12px 0;border-radius:36px;background:var(--ink);color:var(--paper);overflow:hidden;isolation:isolate}
 @media(max-width:560px){.hx{margin:0 8px;border-radius:26px}}
-.hx-aur{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:-2}
-.hx-a1{width:640px;height:640px;right:-160px;top:-220px;background:radial-gradient(closest-side,rgba(180,68,26,.75),rgba(180,68,26,0))}
-.hx-a2{width:560px;height:560px;left:-220px;bottom:-260px;background:radial-gradient(closest-side,rgba(14,107,107,.7),rgba(14,107,107,0))}
-.hx-a3{width:380px;height:380px;left:42%;top:30%;background:radial-gradient(closest-side,rgba(243,179,143,.28),rgba(243,179,143,0))}
+.hx-aur{position:absolute;border-radius:50%;pointer-events:none;z-index:-2}
+.hx-a1{width:640px;height:640px;right:-160px;top:-220px;background:radial-gradient(closest-side,rgba(180,68,26,.72),rgba(180,68,26,.42) 35%,rgba(180,68,26,.16) 62%,rgba(180,68,26,.04) 84%,rgba(180,68,26,0))}
+.hx-a2{width:560px;height:560px;left:-220px;bottom:-260px;background:radial-gradient(closest-side,rgba(14,107,107,.68),rgba(14,107,107,.4) 35%,rgba(14,107,107,.15) 62%,rgba(14,107,107,.04) 84%,rgba(14,107,107,0))}
+.hx-a3{width:380px;height:380px;left:42%;top:30%;background:radial-gradient(closest-side,rgba(243,179,143,.26),rgba(243,179,143,.15) 35%,rgba(243,179,143,.06) 62%,rgba(243,179,143,.015) 84%,rgba(243,179,143,0))}
 .hx-floor{position:absolute;left:-30%;right:-30%;bottom:-2px;height:42%;z-index:-1;pointer-events:none;
   background-image:linear-gradient(rgba(243,179,143,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(243,179,143,.16) 1px,transparent 1px);background-size:60px 60px;
   transform:perspective(520px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(to top,#000 5%,transparent 80%);mask-image:linear-gradient(to top,#000 5%,transparent 80%);animation:hxFloor 5s linear infinite}
@@ -2185,9 +2185,9 @@ Armar mi bazar
 
 /* escena */
 .hx-wrap{position:relative;min-width:0;width:100%}
-.hx-scene{position:relative;width:580px;height:520px;transform-origin:0 0;transform-style:preserve-3d}
+.hx-scene{position:relative;width:580px;height:520px;transform-origin:0 0}
 .hx-label{position:absolute;left:0;top:0;font:500 10.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--peach);border:1px solid rgba(243,179,143,.35);border-radius:999px;padding:6px 10px;background:rgba(5,8,13,.6)}
-.hx-pos{position:absolute;left:0;top:40px;width:296px;background:#fff;color:var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.06);will-change:transform}
+.hx-pos{position:absolute;left:0;top:40px;width:296px;background:#fff;color:var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.06)}
 .hx-pos-top{background:var(--ink2);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font:600 14px/1 Geist,system-ui,sans-serif}
 .hx-pos-top span{display:inline-flex;align-items:center;gap:8px}.hx-pos-top small{font-size:12px;color:#CFC4B4;font-weight:500}
 .hx-live{width:8px;height:8px;border-radius:50%;background:var(--terra2);animation:hxPulse 1.6s infinite}
@@ -2204,7 +2204,7 @@ Armar mi bazar
 .hx-cobrar{position:relative;overflow:hidden;background:var(--terra);color:#fff;text-align:center;font:700 16px/1 Geist,system-ui,sans-serif;padding:16px;border-radius:14px}
 .hx-cobrar i{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0)}
 .hx-ok{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--teal);opacity:0}
-.hx-v{position:absolute;right:0;width:232px;background:rgba(14,18,26,.86);border:1px solid rgba(247,241,232,.12);border-radius:20px;padding:14px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9);will-change:transform}
+.hx-v{position:absolute;right:0;width:232px;background:rgba(14,18,26,.86);border:1px solid rgba(247,241,232,.12);border-radius:20px;padding:14px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
 .hx-v1{top:26px}.hx-v2{top:206px}
 .hx-v-h{display:flex;align-items:center;gap:10px}
 .hx-av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:700 13px/1 Geist,system-ui,sans-serif;flex:none}
@@ -2272,20 +2272,20 @@ html.m .hx [data-hx]{visibility:hidden}
               <div class="hx-row r1"><span><b>Lámpara de latón vintage</b><small>Puesto 12 · Doña Rosa</small></span><em>$450</em></div>
               <div class="hx-row r2"><span><b>Vajilla de talavera, 12 pz</b><small>Puesto 7 · Lupita</small></span><em>$950</em></div>
             </div>
-            <div class="hx-tot"><span>Total</span><b id="hx-total">$1,400</b></div>
+            <div class="hx-tot"><span>Total</span><b id="hx-total">$0</b></div>
             <div class="hx-cobrar" id="hx-cobrar">Cobrar<i></i><span class="hx-ok">✓ Cobrado · saldos al día</span></div>
           </div>
         </div>
         <div class="hx-v hx-v1" id="hx-v1">
           <span class="hx-plus">+$450</span>
           <div class="hx-v-h"><span class="hx-av">DR</span><span><b>Doña Rosa</b><small>Puesto 12</small></span></div>
-          <div class="hx-bal"><span>Saldo</span><b id="hx-b1">$1,230</b></div>
+          <div class="hx-bal"><span>Saldo</span><b id="hx-b1">$780</b></div>
         </div>
         <div class="hx-v hx-v2" id="hx-v2">
           <span class="hx-plus">+$950</span>
           <span class="hx-stamp">LUNES · RENTA −$900</span>
           <div class="hx-v-h"><span class="hx-av">LU</span><span><b>Lupita</b><small>Puesto 7</small></span></div>
-          <div class="hx-bal"><span>Saldo</span><b id="hx-b2">$4,000</b></div>
+          <div class="hx-bal"><span>Saldo</span><b id="hx-b2">$3,050</b></div>
           <div class="hx-pay"><span>Le pagas</span><b>$3,100</b></div>
         </div>
         <span class="hx-coin c1">$</span><span class="hx-coin c2">$</span><span class="hx-coin c3">$</span><span class="hx-coin c4">$</span>
@@ -2311,30 +2311,30 @@ html.m .hx [data-hx]{visibility:hidden}
     function split(el){var out=[];(function walk(n){Array.prototype.slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}var w=document.createElement('span');w.style.cssText='display:inline-block;overflow:hidden;vertical-align:top;padding:0 .08em .1em 0;margin:0 -.08em -.1em 0';var i=document.createElement('span');i.style.display='inline-block';i.textContent=p;w.appendChild(i);f.appendChild(w);out.push(i)});c.parentNode.replaceChild(f,c)}else if(c.nodeType===1)walk(c)})})(el);return out}
     var words=[];$$('.hx h1 [data-split]').forEach(function(e){words=words.concat(split(e))});
     var rw=document.querySelector('.hx-rw'),squig=document.querySelector('.hx-rot path'),SL=squig.getTotalLength();
-    g.set(squig,{strokeDasharray:SL,strokeDashoffset:SL});
+    g.set(squig,{strokeDasharray:SL+' '+(SL+12),strokeDashoffset:SL+6});
 
     /* ---- entrada ---- */
     var intro=g.timeline({defaults:{ease:'power4.out'},delay:.05});
     intro.set('.hx [data-hx]',{visibility:'visible'})
       .from('.hx-badge',{y:16,autoAlpha:0,scale:.9,duration:.6,ease:'back.out(2)'},0)
       .from(words.slice(0,2),{yPercent:115,rotate:6,duration:1.05,stagger:.07},.12)
-      .from(rw,{yPercent:70,autoAlpha:0,filter:'blur(14px)',duration:1.1},.32)
+      .from(rw,{yPercent:55,autoAlpha:0,duration:.95,ease:'expo.out'},.32)
       .to(squig,{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},.85)
       .from(words.slice(2),{yPercent:115,duration:.9,stagger:.05},.55)
       .from('.hx-p',{y:20,autoAlpha:0,duration:.8},.75)
       .from('.hx-ctas .hx-btn',{y:22,autoAlpha:0,scale:.94,duration:.7,stagger:.09,ease:'back.out(1.8)'},.9)
       .from('.hx-fine span',{y:10,autoAlpha:0,duration:.5,stagger:.07},1.05)
       .from('.hx-tag',{autoAlpha:0,y:30,rotate:-25,duration:1.1,stagger:.08,ease:'back.out(1.6)'},.4)
-      .from(scene,{autoAlpha:0,y:60,rotationY:-18,rotationX:10,transformPerspective:1200,duration:1.4,ease:'expo.out'},.25)
+      .from(scene,{autoAlpha:0,y:44,duration:1.2,ease:'expo.out'},.25)
       .from('.hx-v',{autoAlpha:0,x:40,duration:.9,stagger:.12,ease:'expo.out'},.7)
       .from('.hx-wire path',{autoAlpha:0,duration:.6},1.1);
 
     /* ---- palabra que rota ---- */
     var list=['sin libreta.','sin Excel.','sin papeles.','sin cuentas.'],wi=0;
     g.delayedCall(3.4,function cyc(){wi=(wi+1)%list.length;
-      g.timeline().to(rw,{yPercent:-60,autoAlpha:0,filter:'blur(10px)',duration:.4,ease:'power2.in'}).to(squig,{strokeDashoffset:SL,duration:.3},0)
+      g.timeline().to(rw,{yPercent:-45,autoAlpha:0,duration:.35,ease:'power2.in'}).to(squig,{strokeDashoffset:SL+6,duration:.3},0)
         .add(function(){rw.textContent=list[wi]})
-        .fromTo(rw,{yPercent:60,filter:'blur(10px)'},{yPercent:0,autoAlpha:1,filter:'blur(0px)',duration:.6,ease:'power3.out'})
+        .fromTo(rw,{yPercent:45},{yPercent:0,autoAlpha:1,duration:.55,ease:'power3.out'})
         .to(squig,{strokeDashoffset:0,duration:.7,ease:'power2.inOut'},'-=.3');
       g.delayedCall(2.8,cyc);});
 
@@ -2402,7 +2402,7 @@ html.m .hx [data-hx]{visibility:hidden}
       var qt=$$('.hx-tag').map(function(t){return[g.quickTo(t,'x',{duration:1.4,ease:'power3'})]});
       g.set(pos3,{transformPerspective:1000});
       hx.addEventListener('pointermove',function(e){var r=hx.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
-        ry(px*14);rx(-py*10);qv.forEach(function(q,i){q[0](px*(i?-18:-10));q[1](py*(i?-14:-8))});qt.forEach(function(q,i){q[0](px*(20+i*8))});});
+        ry(px*8);rx(-py*6);qv.forEach(function(q,i){q[0](px*(i?-18:-10));q[1](py*(i?-14:-8))});qt.forEach(function(q,i){q[0](px*(20+i*8))});});
       hx.addEventListener('pointerleave',function(){rx(0);ry(0);qv.forEach(function(q){q[0](0);q[1](0)})});
       $$('.hx-btn').forEach(function(b){var x=g.quickTo(b,'x',{duration:.5,ease:'power3'}),y=g.quickTo(b,'y',{duration:.5,ease:'power3'});
         b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();x((e.clientX-r.left-r.width/2)*.3);y((e.clientY-r.top-r.height/2)*.4)});

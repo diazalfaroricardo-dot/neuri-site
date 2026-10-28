@@ -72,6 +72,8 @@
   // Lo que el visitante abrió o escribió no lo decide la plantilla: un <details> abierto
   // (menús EN / Entrar), el texto de un campo o el foco se conservan entre renders.
   function keepUserState(from, to) {
+    // El hero animado (.hx) no trae datos de la plantilla: no se re-pinta, así GSAP no pierde sus estilos ni los números del ciclo.
+    if (from.classList && from.classList.contains('hx')) return false;
     if (from.nodeName === 'DETAILS') { if (from.open) to.setAttribute('open', ''); else to.removeAttribute('open'); }
     if ((from.nodeName === 'INPUT' || from.nodeName === 'TEXTAREA' || from.nodeName === 'SELECT') && from === document.activeElement) return false;
     return true;

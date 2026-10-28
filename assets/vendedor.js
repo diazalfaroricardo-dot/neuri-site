@@ -23,7 +23,7 @@
     const path = sub + location.pathname.replace(/index\.html$/, "");
     const lang = (document.documentElement.lang || "es").slice(0, 2) === "en" ? "en" : "es";
     const es = lang === "es";
-    const KEY = "neuri-vendedor";
+    let KEY = "neuri-vendedor";
 
     // Color y saludo por producto (cada página conserva su marca).
     const P = [
@@ -79,6 +79,8 @@
       mkt: { a: "#C2341D", ai: "#9E2914", on: "#FFFFFF", bg: "#FFFFFF", cv: "#FFF8F2", ab: "#FFFFFF", ink: "#0B1118", sub: "#5B6670", ln: "#F0E4DA", tint: "#F4ECE4", dot: "#C2341D", ring: "#FFC857" },
     };
     const C = TH[prod.th] || TH.home;
+    // QA #27: una conversación por producto (la de Marketing no aparece dentro de neuri.bots).
+    KEY = `neuri-vendedor:${prod.th || "home"}`;
     // Los «planetas» que giran alrededor de Neuri: un color por producto (menta, durazno, sol).
     const PL = ["#8FE0B4", "#F3B38F", "#FFC857"];
     const A = C.a;
@@ -90,7 +92,7 @@
     } catch (_) {}
     const save = () => {
       try {
-        sessionStorage.setItem(KEY, JSON.stringify({ id: st.id, msgs: st.msgs.slice(-40), open: st.open }));
+        sessionStorage.setItem(KEY, JSON.stringify({ id: st.id, msgs: st.msgs.slice(-40), open: st.open, page: path }));
       } catch (_) {}
     };
     const newId = () => {
@@ -411,9 +413,13 @@
       addEventListener("resize", tapa);
       tapa();
       if (st.msgs.length) launch.classList.add("mini");
-      if (st.open) setOpen(true, false);
+      // QA #27: solo se reabre solo en la misma página y nunca a 480 px o menos (taparía el formulario).
+      if (st.open && st.page === path && !matchMedia("(max-width:480px)").matches) setOpen(true, false);
       // Ya vio la página un rato sin abrirlo: el globo se hace pequeño para no estorbar.
-      else setTimeout(() => launch.classList.add("mini"), 25000);
+      else {
+        st.open = false;
+        setTimeout(() => launch.classList.add("mini"), 25000);
+      }
     };
     // Solo aparece si la IA contesta de verdad (si la llave falla, nadie ve un asistente roto).
     const start = () =>

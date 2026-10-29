@@ -108,6 +108,8 @@
     // A124: ?giro=creador (u otro giro) preselecciona la tarjeta; el link de «Para creadores» lo hace sin recargar
     function pickGiro(v){var r=form.querySelector('input[name=giro][value="'+v+'"]');if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change'));}return !!r;}
     var giroQ=(new URLSearchParams(location.search).get('giro')||'').replace(/[^a-z]/g,'');if(giroQ)pickGiro(giroQ);
+    // A318b: «Agregar otro negocio» de Mi asistente → ?otro=1 marca la casilla y ?correo= pone el correo.
+    var qs318=new URLSearchParams(location.search);if(qs318.get('otro')==='1'&&form.elements.otroNegocio)form.elements.otroNegocio.checked=true;var mail318=(qs318.get('correo')||'').trim().slice(0,120);if(mail318&&form.elements.correo&&!form.elements.correo.value)form.elements.correo.value=mail318;
     document.querySelectorAll('a[data-giro]').forEach(function(a){a.addEventListener('click',function(e){if(!pickGiro(a.dataset.giro))return;e.preventDefault();try{history.replaceState(null,'','?giro='+a.dataset.giro+'#signup');}catch(_){}var al=document.getElementById('signup');al.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});var h=al.querySelector('h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}});});
     function setErr(name,on){var el=form.elements[name],e=document.getElementById('e-'+name);if(el&&el.setAttribute)el.setAttribute('aria-invalid',on?'true':'false');if(e)e.classList.toggle('on',!!on);}
     function validate(n){
@@ -150,7 +152,7 @@
       Array.prototype.forEach.call(form.elements,function(el){
         if(!el.name||el.name==='')return;
         if(el.type==='radio'){if(el.checked)data[el.name]=el.value;return;}
-        if(el.type==='checkbox'){if(el.name==='consent')data.consent=el.checked?'on':'';return;}
+        if(el.type==='checkbox'){if(el.name==='consent')data.consent=el.checked?'on':'';if(el.name==='otroNegocio'&&el.checked)data.otroNegocio=true;return;}
         data[el.name]=el.value;
       });
       data.vendes=vendesValue();
@@ -190,7 +192,7 @@
         .then(function(r){if(r.status===429)return r.json().then(function(b){throw {limit:b.message};});if(!r.ok)throw new Error();return r.json();})
         .then(function(r){
           // B-B4: correo ya registrado → no se duplica; le llega su link de Mi asistente.
-          if(r.existing){done('<p class="big">That email already has an assistant.</p><p>We just sent your link to My assistant to that email: open it to sign in. If you don\'t see it in a few minutes, check spam or promotions.</p><p><a class="btn" href="'+SD_ENDPOINT+'/entrar?lang=en">Sign in to My assistant</a></p><p style="color:var(--gris);font-size:15px">A different business? Use a different email to sign it up.</p>');return;}
+          if(r.existing){done('<p class="big">That email already has an assistant.</p><p>We just sent your link to My assistant to that email: open it to sign in. If you don\'t see it in a few minutes, check spam or promotions.</p><p><a class="btn" href="'+SD_ENDPOINT+'/entrar?lang=en">Sign in to My assistant</a></p><p style="color:var(--gris);font-size:15px">Another business of yours? <button type="button" class="btn ghost" data-fix-mail>Go back and check «This is another business of mine»</button></p>');return;}
           if(r.id)altaId=r.id;
           var miss=document.getElementById('missing');
           if(r.missing&&r.missing.length){

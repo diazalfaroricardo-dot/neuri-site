@@ -24,6 +24,7 @@ for (const f of ["marketing/index.html", "en/marketing/index.html"]) {
 for (const f of ["marketing/index.html", "en/marketing/index.html"])
   yes(f, /searchParams\.set\('ref',ref\)/, "?ref de «Hecho con Neuri» pasa a /empezar (MK160)");
 no("index.html", /Neuri Marketing \(pronto\)|Neuri Marketing<small>Lista de espera|Contenido · Lista de espera/, "tarjeta de Marketing en neuri.tech con lista de espera");
+no("404.html", /Neuri Marketing \(pronto\)/, "la página 404 dice que Marketing es «pronto»");
 no("llms.txt", /Not available yet; waitlist open|IVA incluido/, "llms.txt viejo");
 
 if (fails.length) {

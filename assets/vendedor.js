@@ -17,6 +17,11 @@
     if (/bot|crawl|spider|slurp|lighthouse|facebookexternalhit/i.test(navigator.userAgent)) return;
 
     const API = window.__NEURI_VENDEDOR_API || "https://consulting.neuri.tech/api/vendedor";
+    // N30: «escribiendo» = red neuronal de 3 capas (SVG + CSS, sin librerías); toma --a de cada app. El lector oye T.typing.
+    const NN =
+      '<svg class="nn" viewBox="0 0 44 26" aria-hidden="true" focusable="false"><path d="M4 13 16 4M4 13H16M4 13 16 22M16 4 28 7M16 4 28 19M16 13 28 7M16 13 28 19M16 22 28 7M16 22 28 19M28 7 40 13M28 19 40 13"/>' +
+      ["M4 13 16 13 28 19 40 13", "M4 13 16 4 28 7 40 13", "M4 13 16 22 28 19 40 13"].map((d, i) => `<circle class="p" r="1.4" style="offset-path:path('${d}');animation-delay:${i * 0.5}s"/>`).join("") +
+      '<circle class="n" cx="4" cy="13" r="2.6"/><circle class="n k2" cx="16" cy="4" r="2.1"/><circle class="n k2" cx="16" cy="13" r="2.1"/><circle class="n k2" cx="16" cy="22" r="2.1"/><circle class="n k3" cx="28" cy="7" r="2.1"/><circle class="n k3" cx="28" cy="19" r="2.1"/><circle class="n k4" cx="40" cy="13" r="2.6"/></svg>';
     // En consulting.neuri.tech las rutas son /precios, /ejemplo…: se presentan como /consultoria/… para
     // que el saludo, el color y la hoja de productos sean los de neuri.consulting.
     const sub = /^consulting\./.test(location.hostname) ? "/consultoria" : "";
@@ -172,8 +177,9 @@
 .p[hidden]{display:none}
 @keyframes in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-@keyframes dot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
-@media (prefers-reduced-motion:reduce){.p,.b,.c,.qs{animation:none}.l{transition:none}.l .av::after,.dots i,.o{animation:none}}
+@keyframes fire{0%,100%{opacity:.35;transform:scale(.8)}30%{opacity:1;transform:scale(1.25)}}
+@keyframes travel{0%{offset-distance:0%;opacity:0}15%,85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+@media (prefers-reduced-motion:reduce){.p,.b,.c,.qs{animation:none}.l{transition:none}.l .av::after,.o{animation:none}}
 @media (max-width:480px){.p{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0}}
 .h{display:flex;align-items:center;gap:12px;padding:14px 10px 14px 16px;background:var(--bg);color:var(--ink);border-bottom:1px solid var(--ln)}
 .h .av{width:40px;height:40px;border-radius:50%;background:var(--a);color:var(--on);display:grid;place-items:center;flex:none;position:relative}
@@ -188,11 +194,14 @@
 .b{max-width:86%;padding:11px 14px;border-radius:18px;font:400 15px/1.5 var(--f);letter-spacing:-.005em;white-space:pre-wrap;overflow-wrap:anywhere;animation:up .28s cubic-bezier(.22,1,.36,1)}
 .b.a{align-self:flex-start;background:var(--ab);color:var(--ink);box-shadow:0 0 0 1px var(--ln),0 1px 2px rgba(5,8,13,.04);border-bottom-left-radius:6px}
 .b.u{align-self:flex-end;background:var(--a);color:var(--on);border-bottom-right-radius:6px}
-.b.t{padding:14px 16px}
-.dots{display:flex;gap:5px}
-.dots i{width:7px;height:7px;border-radius:50%;background:var(--sub);animation:dot 1.2s ease-in-out infinite}
-.dots i:nth-child(2){animation-delay:.15s}
-.dots i:nth-child(3){animation-delay:.3s}
+.b.t{padding:9px 14px}
+.nn{display:block;width:46px;height:26px;overflow:visible}
+.nn path{fill:none;stroke:var(--a);stroke-opacity:.22}
+.nn .n{fill:var(--a);transform-box:fill-box;transform-origin:center;animation:fire 1.5s cubic-bezier(.4,0,.2,1) infinite}
+.nn .k2{animation-delay:.22s}.nn .k3{animation-delay:.44s}.nn .k4{animation-delay:.66s}
+.nn .p{fill:var(--a);opacity:0}
+@supports (offset-path:path("M0 0")){.nn .p{animation:travel 1.5s cubic-bezier(.4,0,.2,1) infinite}}
+@media (prefers-reduced-motion:reduce){.nn .n,.nn .p{animation:none}}
 .c{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;margin:0 0 4px;border-radius:999px;background:var(--a);border:0;color:var(--on);font:600 14px/1 var(--f);letter-spacing:-.01em;text-decoration:none;box-shadow:0 8px 20px -10px color-mix(in srgb,var(--a) 80%,#000);animation:up .28s cubic-bezier(.22,1,.36,1);transition:background .15s ease,transform .15s ease}
 .c:hover{background:var(--ai);transform:translateY(-1px)}
 .qs{display:flex;flex-wrap:wrap;gap:8px;padding:4px 0 6px;animation:up .32s cubic-bezier(.22,1,.36,1)}
@@ -299,7 +308,7 @@
       bubble("user", text);
       const typing = bubble("assistant", "");
       typing.classList.add("t");
-      typing.innerHTML = `<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sr">${T.typing}</span>`;
+      typing.innerHTML = `${NN}<span class="sr">${T.typing}</span>`;
       list.scrollTop = list.scrollHeight;
       track("vendedor_message", { page: path, n: st.msgs.filter((m) => m.role === "user").length });
       let reply = { respuesta: T.err, cta: { texto: "hola@neuri.tech", url: "mailto:hola@neuri.tech" } };

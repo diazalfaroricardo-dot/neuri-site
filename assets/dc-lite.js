@@ -74,6 +74,8 @@
   function keepUserState(from, to) {
     // El hero animado (.hx) no trae datos de la plantilla: no se re-pinta, así GSAP no pierde sus estilos ni los números del ciclo.
     if (from.classList && from.classList.contains('hx')) return false;
+    // N30: lo marcado con data-dc-keep (p. ej. el cierre animado de bazar) tampoco se re-pinta: GSAP conserva sus estilos.
+    if (from.hasAttribute && from.hasAttribute('data-dc-keep')) return false;
     if (from.nodeName === 'DETAILS') { if (from.open) to.setAttribute('open', ''); else to.removeAttribute('open'); }
     if ((from.nodeName === 'INPUT' || from.nodeName === 'TEXTAREA' || from.nodeName === 'SELECT') && from === document.activeElement) return false;
     return true;

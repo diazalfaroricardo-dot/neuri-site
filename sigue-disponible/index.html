@@ -655,6 +655,7 @@ input[type=range]{width:100%;accent-color:var(--verde);height:28px}
 @media (max-width:860px){.pasos{grid-template-columns:1fr}}
 .paso{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:2px solid var(--tinta)}
 .paso::before{counter-increment:p;content:"Paso " counter(p);font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--verde)}
+fieldset.paso::before{content:none} /* qa #48: el alta ya dice «Paso N de 4» arriba */
 .paso h3{font-size:24px;font-weight:700}
 .paso p{color:var(--gris-2)}
 

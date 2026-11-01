@@ -66,8 +66,13 @@ else {
   const NN = Function(`return (${nnSrc[1]})`)();
   if (!/^<svg class="nn"[^>]*aria-hidden="true"/.test(NN)) bad("vendedor.js: la red no es un <svg class=\"nn\" aria-hidden>");
   if (NN.length >= 1024) bad(`vendedor.js: la red pesa ${NN.length} B (≥1 KB)`);
-  if ((NN.match(/class="n( k\d)?"/g) || []).length !== 7) bad("vendedor.js: la red no tiene 7 neuronas (1-3-2-1)");
+  if ((NN.match(/class="n( e)?( k\d)?"/g) || []).length !== 7) bad("vendedor.js: la red no tiene 7 neuronas (1-3-2-1)");
 }
+// N31: el símbolo del agente es la misma red; no vuelven los puntos en órbita.
+if (!v.includes('panel = $("section.p")')) bad("vendedor.js: el panel se busca con .p y choca con las señales de la red");
+if (!v.includes("const SYM = NN.replace(")) bad("vendedor.js: el símbolo ya no sale de la red NN");
+if ((v.match(/\$\{SYM\}/g) || []).length !== 2) bad("vendedor.js: el símbolo no está en el globo y el encabezado");
+if (/class="o o1"|\.o1\{|@keyframes spin/.test(v)) bad("vendedor.js: quedan los puntos en órbita");
 if (!v.includes("typing.innerHTML = `${NN}<span class=\"sr\">${T.typing}</span>`")) bad("vendedor.js: el lector ya no oye T.typing");
 if (!/typing: "Escribiendo…"/.test(v) || !/typing: "Typing…"/.test(v)) bad("vendedor.js: sin «Escribiendo…»/«Typing…»");
 if (!/\.nn \.n\{fill:var\(--a\)/.test(v)) bad("vendedor.js: la red no usa el color de acento --a");

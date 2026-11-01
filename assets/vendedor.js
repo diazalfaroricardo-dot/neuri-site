@@ -20,8 +20,10 @@
     // N30: «escribiendo» = red neuronal de 3 capas (SVG + CSS, sin librerías); toma --a de cada app. El lector oye T.typing.
     const NN =
       '<svg class="nn" viewBox="0 0 44 26" aria-hidden="true" focusable="false"><path d="M4 13 16 4M4 13H16M4 13 16 22M16 4 28 7M16 4 28 19M16 13 28 7M16 13 28 19M16 22 28 7M16 22 28 19M28 7 40 13M28 19 40 13"/>' +
-      [0, 1, 2].map((i) => `<circle class="p t${i}" r="1.4" style="animation-delay:${i * 0.5}s"/>`).join("") +
-      '<circle class="n" cx="4" cy="13" r="2.6"/><circle class="n k2" cx="16" cy="4" r="2.1"/><circle class="n k2" cx="16" cy="13" r="2.1"/><circle class="n k2" cx="16" cy="22" r="2.1"/><circle class="n k3" cx="28" cy="7" r="2.1"/><circle class="n k3" cx="28" cy="19" r="2.1"/><circle class="n k4" cx="40" cy="13" r="2.6"/></svg>';
+      [0, 1, 2].map((i) => `<circle class="p t${i}" r="1.4"/>`).join("") +
+      '<circle class="n e" cx="4" cy="13" r="2.6"/><circle class="n k2" cx="16" cy="4" r="2.1"/><circle class="n k2" cx="16" cy="13" r="2.1"/><circle class="n k2" cx="16" cy="22" r="2.1"/><circle class="n k3" cx="28" cy="7" r="2.1"/><circle class="n k3" cx="28" cy="19" r="2.1"/><circle class="n e k4" cx="40" cy="13" r="2.6"/></svg>';
+    // N31: el símbolo del agente (globo y encabezado) es la misma red, más firme y calmada en reposo.
+    const SYM = NN.replace('class="nn"', 'class="nn sym"');
     // En consulting.neuri.tech las rutas son /precios, /ejemplo…: se presentan como /consultoria/… para
     // que el saludo, el color y la hoja de productos sean los de neuri.consulting.
     const sub = /^consulting\./.test(location.hostname) ? "/consultoria" : "";
@@ -153,18 +155,6 @@
 .l:focus-visible,.x:focus-visible,.s:focus-visible,.q:focus-visible,.c:focus-visible,.r:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
 .l .av{width:38px;height:38px;border-radius:50%;background:color-mix(in srgb,var(--on) 14%,transparent);display:grid;place-items:center;flex:none;position:relative}
 .av svg{display:block}
-.core{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--on);box-shadow:0 0 0 3px color-mix(in srgb,var(--on) 22%,transparent),0 0 12px color-mix(in srgb,var(--on) 45%,transparent)}
-.o{position:absolute;border-radius:50%;border:1px solid color-mix(in srgb,var(--on) 26%,transparent);animation:spin 14s linear infinite}
-.o1{inset:8px;animation-duration:6s}
-.o2{inset:1px;animation-duration:15s;animation-direction:reverse}
-.o i{position:absolute;left:50%;top:0;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--p1);box-shadow:0 0 0 1.5px var(--a),0 0 6px var(--p1)}
-.o2 i{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:var(--p2);box-shadow:0 0 0 1.5px var(--a),0 0 6px var(--p2)}
-.o2 i+i{top:100%;background:var(--p3);box-shadow:0 0 0 1.5px var(--a),0 0 6px var(--p3)}
-.w.busy .o1{animation-duration:1.4s}
-.w.busy .o2{animation-duration:3s}
-.l:hover .o1{animation-duration:2.4s}
-.l:hover .o2{animation-duration:6s}
-@keyframes spin{to{transform:rotate(360deg)}}
 .l .av::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--ring);opacity:0;animation:pulse 2.8s cubic-bezier(.22,1,.36,1) 1.2s 3}
 @keyframes pulse{0%{opacity:.7;transform:scale(.85)}100%{opacity:0;transform:scale(1.35)}}
 .l.mini{padding:0;width:52px;justify-content:center}
@@ -179,7 +169,7 @@
 @keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes fire{0%,100%{opacity:.35;transform:scale(.8)}30%{opacity:1;transform:scale(1.25)}}
 @keyframes t0{0%{transform:translate(4px,13px);opacity:0}15%,85%{opacity:1}33%{transform:translate(16px,13px)}66%{transform:translate(28px,19px)}100%{transform:translate(40px,13px);opacity:0}}@keyframes t1{0%{transform:translate(4px,13px);opacity:0}15%,85%{opacity:1}33%{transform:translate(16px,4px)}66%{transform:translate(28px,7px)}100%{transform:translate(40px,13px);opacity:0}}@keyframes t2{0%{transform:translate(4px,13px);opacity:0}15%,85%{opacity:1}33%{transform:translate(16px,22px)}66%{transform:translate(28px,19px)}100%{transform:translate(40px,13px);opacity:0}}
-@media (prefers-reduced-motion:reduce){.p,.b,.c,.qs{animation:none}.l{transition:none}.l .av::after,.o{animation:none}}
+@media (prefers-reduced-motion:reduce){.p,.b,.c,.qs{animation:none}.l{transition:none}.l .av::after{animation:none}}
 @media (max-width:480px){.p{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0}}
 .h{display:flex;align-items:center;gap:12px;padding:14px 10px 14px 16px;background:var(--bg);color:var(--ink);border-bottom:1px solid var(--ln)}
 .h .av{width:40px;height:40px;border-radius:50%;background:var(--a);color:var(--on);display:grid;place-items:center;flex:none;position:relative}
@@ -203,6 +193,23 @@
 .nn .t0{animation:t0 1.5s cubic-bezier(.4,0,.2,1) infinite}
 .nn .t1{animation:t1 1.5s cubic-bezier(.4,0,.2,1) infinite}
 .nn .t2{animation:t2 1.5s cubic-bezier(.4,0,.2,1) infinite}
+.nn .t1{animation-delay:.5s}
+.nn .t2{animation-delay:1s}
+.sym{--a:var(--on);--d:3.2s;width:32px;height:19px}
+.l.mini .sym{width:37px;height:22px}
+.sym path{stroke-opacity:.42;stroke-width:1.15}
+.sym .n{r:2.7px;animation:symfire var(--d) cubic-bezier(.4,0,.2,1) infinite}
+.sym .e{r:3.3px}
+.sym .k2{animation-delay:calc(var(--d)*.12)}
+.sym .k3{animation-delay:calc(var(--d)*.24)}
+.sym .k4{animation-delay:calc(var(--d)*.36)}
+.sym .p{r:1.9px}
+.sym .t0{fill:var(--p1);animation-duration:var(--d);animation-delay:0s}
+.sym .t1{fill:var(--p2);animation-duration:var(--d);animation-delay:calc(var(--d)/3)}
+.sym .t2{fill:var(--p3);animation-duration:var(--d);animation-delay:calc(var(--d)*2/3)}
+@keyframes symfire{0%,100%{opacity:.62;transform:none}30%{opacity:1;transform:scale(1.2)}}
+.l:hover .sym{--d:1.9s}
+.w.busy .sym{--d:1.2s}
 @media (prefers-reduced-motion:reduce){.nn .n,.nn .p{animation:none}}
 .c{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;margin:0 0 4px;border-radius:999px;background:var(--a);border:0;color:var(--on);font:600 14px/1 var(--f);letter-spacing:-.01em;text-decoration:none;box-shadow:0 8px 20px -10px color-mix(in srgb,var(--a) 80%,#000);animation:up .28s cubic-bezier(.22,1,.36,1);transition:background .15s ease,transform .15s ease}
 .c:hover{background:var(--ai);transform:translateY(-1px)}
@@ -223,9 +230,9 @@
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 <div class="w">
-<button class="l" type="button" aria-label="${T.launch} ${T.open}"><span class="av" aria-hidden="true"><span class="core"></span><span class="o o1"><i></i></span><span class="o o2"><i></i><i></i></span></span><span class="tx">${T.launch}</span></button>
+<button class="l" type="button" aria-label="${T.launch} ${T.open}"><span class="av" aria-hidden="true">${SYM}</span><span class="tx">${T.launch}</span></button>
 <section class="p" role="dialog" aria-modal="false" aria-label="${T.title}" hidden>
-<header class="h"><span class="av" aria-hidden="true"><span class="core"></span><span class="o o1"><i></i></span><span class="o o2"><i></i><i></i></span></span><span class="sp"><b${C.ttl ? ' class="sf"' : ""}>${T.title}</b><small>${T.sub}</small></span>
+<header class="h"><span class="av" aria-hidden="true">${SYM}</span><span class="sp"><b${C.ttl ? ' class="sf"' : ""}>${T.title}</b><small>${T.sub}</small></span>
 <button class="x" type="button" aria-label="${T.close}"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></header>
 <div class="m" aria-live="polite"></div>
 <form class="f"><label class="sr" for="nv-i">${T.ph}</label><textarea id="nv-i" class="i" rows="1" maxlength="1200" placeholder="${T.ph}"></textarea>
@@ -235,7 +242,7 @@
 
     const $ = (s) => root.querySelector(s);
     const launch = $(".l"),
-      panel = $(".p"),
+      panel = $("section.p"), // la red también trae circle.p
       list = $(".m"),
       form = $(".f"),
       input = $(".i"),

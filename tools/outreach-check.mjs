@@ -24,6 +24,10 @@ const BRAND_OK = /^(neuri\.(bots|bazar|consulting|marketing|tech)|Neuri( (Bazar|
 const OPT_ES = /contésteme ["“]no["”] y no le vuelvo a escribir/i;
 const OPT_EN = /reply ["“]no["”] and I won't write again/i;
 const SIG = /Ricardo Díaz\s*\n\s*Neuri · neuri\.tech/;
+// Firma «equipo» (envío automático, Ricardo 1-nov-2026).
+const SIG_EQ = /(El equipo de Neuri|The Neuri team)\s*\n\s*Neuri · neuri\.tech/;
+const OPT_EQ_ES = /responde ["“]no["”] y no te volvemos a escribir/i;
+const OPT_EQ_EN = /reply ["“]no["”] and we won't write again/i;
 const POSTAL_RE = /Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043/;
 const EMOJI = /\p{Extended_Pictographic}/u;
 const ES_WORDS = /\b(hola|usted|negocio|gracias|puestos|saludos|quiero|para|está)\b/gi;
@@ -40,6 +44,7 @@ export function checkOutreach(input) {
   const us = input.country ? input.country === "US" : en;
   const subject = String(input.subject ?? "").trim();
   const body = String(input.body ?? "").replace(/\r\n/g, "\n").trim();
+  const equipo = input.firma === "equipo";
   const issues = [];
   const warnings = [];
   const bad = (code, msg) => issues.push({ code, msg });
@@ -57,13 +62,20 @@ export function checkOutreach(input) {
 
   // Cuerpo
   if (!body) bad("cuerpo-vacio", "Falta el cuerpo.");
-  const sigIdx = body.search(/Ricardo Díaz/);
+  const sigIdx = body.search(equipo ? /El equipo de Neuri\s*\n|The Neuri team\s*\n/ : /Ricardo Díaz/);
   const main = sigIdx > 0 ? body.slice(0, sigIdx) : body;
   const words = main.split(/\s+/).filter(Boolean).length;
   if (body && (words < 60 || words > 120)) bad("cuerpo-largo", `El cuerpo tiene ${words} palabras antes de la firma (60–120).`);
-  if (product !== "personal" && !SIG.test(body)) bad("firma", "Falta la firma exacta «Ricardo Díaz / Neuri · neuri.tech».");
-  if (!(en ? OPT_EN : OPT_ES).test(body)) bad("baja", `Falta la línea de baja en ${en ? "inglés" : "español"}.`);
-  if (us && product !== "personal" && !POSTAL_RE.test(body)) bad("domicilio", "Falta el domicilio postal (CAN-SPAM) bajo la firma.");
+  if (product !== "personal" && !(equipo ? SIG_EQ : SIG).test(body)) bad("firma", equipo ? "Falta la firma «El equipo de Neuri / Neuri · neuri.tech»." : "Falta la firma exacta «Ricardo Díaz / Neuri · neuri.tech».");
+  if (!(equipo ? (en ? OPT_EQ_EN : OPT_EQ_ES) : en ? OPT_EN : OPT_ES).test(body)) bad("baja", `Falta la línea de baja en ${en ? "inglés" : "español"}.`);
+  if ((us || equipo) && product !== "personal" && !POSTAL_RE.test(body)) bad("domicilio", "Falta el domicilio postal (CAN-SPAM) bajo la firma.");
+  if (equipo) {
+    if (/\bRicardo\b/.test(main)) bad("equipo", "El correo automático habla como equipo: no menciona a Ricardo.");
+    if (en ? /\b(I|I'm|I've|I'll|my|me)\b/.test(main) : /\b(soy|construí|configuro|mi equipo|te escribo|yo)\b/i.test(main)) bad("equipo", "Primera persona del singular: el correo habla como «el equipo».");
+    if (!(en ? /is an advertisement/ : /es publicidad/).test(body)) bad("publicidad", "Falta decir que el correo es publicidad (CAN-SPAM).");
+    if (!/https:\/\/consulting\.neuri\.tech\/prospeccion\/baja\/[0-9a-f-]{36}/i.test(body)) bad("baja-link", "Falta el link de baja con su token en el texto.");
+    if (!/neuri\.tech\/(en\/)?legal\/#/.test(body)) bad("privacidad", "Falta el link al aviso de privacidad de prospección.");
+  }
   if ((/\[[^\]]*\]|\{[^}]*\}|lorem ipsum/i.test(body) || /\b(TODO|XXX)\b/.test(body))) bad("placeholder", "Quedó un marcador sin llenar ([…], {…}, TODO).");
   if (/https?:\/\/|www\./i.test(main)) bad("enlaces", "El texto plano no lleva enlaces (van en la versión con diseño).");
   if (EMOJI.test(body)) bad("emoji", "El correo lleva emojis.");
@@ -71,7 +83,7 @@ export function checkOutreach(input) {
   // Escritura de la marca
   for (const m of body.matchAll(/\bneuri[\s.]?[a-z]*\b/gi)) {
     const w = m[0];
-    if (!BRAND_OK.test(w) && !/^neuri (de|y|para|es|is|a|an|the|and|for|helps?|ayuda)$/i.test(w))
+    if (!BRAND_OK.test(w) && !/^neuri\s(de|y|para|es|is|a|an|the|and|for|helps?|ayuda|team|neuri)$/i.test(w))
       bad("marca", `Marca mal escrita: «${w}» (usa ${NAME[product] ?? "Neuri"}).`);
   }
   // Promesas por línea
@@ -88,7 +100,7 @@ export function checkOutreach(input) {
   if (!en && enw > es + 2) bad("idioma", "El prospecto es en español y el correo parece en inglés.");
 
   // Versión con diseño: la del input o la que genera la plantilla oficial.
-  const html = input.html ?? (body ? outreachHtml({ product, lang: en ? "en" : "es", subject, body }) : "");
+  const html = input.html ?? (body ? outreachHtml({ product, lang: en ? "en" : "es", subject, body, firma: input.firma, unsubUrl: input.unsubUrl, fuente: input.fuente }) : "");
   if (html) {
     const allowed = new Set(
       ["#FFFFFF", "#FFF", t.a, t.bg, t.ink, t.sub, t.line].filter(Boolean).map((h) => h.toUpperCase()),
@@ -104,11 +116,14 @@ export function checkOutreach(input) {
     const hrefs = [...html.matchAll(/href="([^"]+)"/g)].map((m) => m[1].replace(/&amp;/g, "&"));
     for (const h of hrefs) {
       if (/^mailto:/.test(h)) continue;
+      if (equipo && h === "https://www.gob.mx/profeco" && !en) continue;
       if (!/^https:\/\/(neuri\.tech|consulting\.neuri\.tech)(\/|$)/.test(h)) bad("link", `Link fuera de los dominios de Neuri: ${h}`);
     }
     if (product !== "personal" && !hrefs.some((h) => /utm_source=outreach/.test(h))) bad("cta", "Falta el botón con link medible (utm_source=outreach).");
     if (us && product !== "personal" && !/5818 W Raymond St/.test(html)) bad("domicilio-html", "La versión con diseño no muestra el domicilio.");
-    if (!/(reply|contésteme)/i.test(html)) bad("baja-html", "La versión con diseño no muestra la baja.");
+    if (!/(reply|contésteme|responde)/i.test(html)) bad("baja-html", "La versión con diseño no muestra la baja.");
+    if (equipo && !/href="https:\/\/consulting\.neuri\.tech\/prospeccion\/baja\/[0-9a-f-]{36}"/i.test(html)) bad("baja-link-html", "La versión con diseño no lleva el link de baja.");
+    if (equipo && /(Ricardo|>RD<)/.test(html)) bad("equipo", "La versión con diseño menciona a Ricardo.");
     const kb = Buffer.byteLength(html) / 1024;
     if (kb > 100) bad("peso", `El HTML pesa ${kb.toFixed(0)} KB; Gmail corta arriba de ~102 KB.`);
   }

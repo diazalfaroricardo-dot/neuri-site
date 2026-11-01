@@ -40,19 +40,27 @@ const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const utm = (u, p) => `${u}${u.includes("?") ? "&" : "?"}utm_source=outreach&utm_medium=email&utm_campaign=${p}`;
 
-export function outreachHtml({ product = "bazar", lang = "es", subject = "", body = "" }) {
+/** Firma «equipo» (envío automático, Ricardo 1-nov-2026): sin primera persona ni «Ricardo». */
+const CHIPS_EQUIPO = {
+  bots: { es: ["7 días de prueba gratis", "Lo configuramos por ti", "Instagram y Messenger"], en: ["7-day free trial", "We set it up for you", "Instagram and Messenger"] },
+  bazar: { es: ["Prueba de 14 días", "Lo configuramos con tus vendedores", "Español e inglés"], en: ["14-day trial", "Set up with your vendors", "English and Spanish"] },
+};
+export const PRIVACIDAD = { es: "https://neuri.tech/legal/#prospeccion", en: "https://neuri.tech/en/legal/#outreach" };
+
+export function outreachHtml({ product = "bazar", lang = "es", subject = "", body = "", firma = "ricardo", unsubUrl = "", fuente = "" }) {
   const t = T[product] ?? T.bazar;
   const en = lang === "en";
+  const equipo = firma === "equipo";
   let lines = body.replace(/\r\n/g, "\n").trim().split("\n");
   // Línea de baja (al final).
   let optOut = "";
-  const oi = lines.findIndex((l) => /reply "no"|contésteme "no"|contésteme “no”|no le vuelvo a escribir|won't write again/i.test(l));
+  const oi = lines.findIndex((l) => /reply "no"|contésteme "no"|contésteme “no”|responde "no"|no le vuelvo a escribir|no te volvemos a escribir|won't write again/i.test(l));
   if (oi >= 0) {
     optOut = lines[oi].trim();
     lines.splice(oi, 1);
   }
   // Firma: desde «Ricardo Díaz» (renglón solo) o «Best,/Saludos,» hasta el final.
-  let sigStart = lines.findIndex((l) => /^\s*Ricardo( Díaz)?\s*$/i.test(l));
+  let sigStart = lines.findIndex((l) => (equipo ? /^\s*(El equipo de Neuri|The Neuri team)\s*$/i : /^\s*Ricardo( Díaz)?\s*$/i).test(l));
   let closing = "";
   if (sigStart > 0 && /^(best|thanks|thank you|saludos|un saludo|gracias)[,.!]?\s*$/i.test(lines[sigStart - 1].trim())) {
     closing = lines[sigStart - 1].trim();
@@ -72,7 +80,7 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
     : "";
   const chips = isProduct
     ? // Chips inline-block (no celdas de tabla): en celular bajan a otra línea en vez de ensanchar el correo.
-      `<div style="margin:4px 0 14px;font-size:0;line-height:0">${t.chips[L]
+      `<div style="margin:4px 0 14px;font-size:0;line-height:0">${((equipo && CHIPS_EQUIPO[product]?.[L]) || t.chips[L])
         .map(
           (c) =>
             `<span style="display:inline-block;margin:0 6px 6px 0;padding:7px 12px;border-radius:999px;background:${t.bg};border:1px solid ${t.line};font-family:${FONT};font-size:13px;line-height:16px;font-weight:600;color:${t.ink};white-space:nowrap">&#10003;&nbsp;${esc(c)}</span>`,
@@ -89,9 +97,14 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
     : en
       ? `Founder · <a href="https://neuri.tech/${en ? "en/" : ""}" style="color:${t.a};text-decoration:none;font-weight:600">neuri${t.suf || ""}</a>`
       : `Fundador · <a href="https://neuri.tech/" style="color:${t.a};text-decoration:none;font-weight:600">neuri${t.suf || ""}</a>`;
-  const mark = `<td width="40" height="40" align="center" valign="middle" bgcolor="${t.a}" style="width:40px;height:40px;background:${t.a};border-radius:50%;font-family:${FONT};font-size:15px;font-weight:700;color:#FFFFFF;line-height:40px">RD</td>`;
-  const sig = `${closing ? `<p style="${P};margin-bottom:12px">${esc(closing)}</p>` : ""}<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:6px 0 4px"><tr>${mark}<td style="padding:0 0 0 12px;font-family:${FONT}"><div style="font-size:15px;line-height:1.3;font-weight:700;color:${t.ink}">Ricardo Díaz</div><div style="font-size:13px;line-height:1.45;color:${t.sub}">${role}</div></td></tr></table>`;
-  const foot = `${product === "personal" ? "" : `${esc(POSTAL)}<br>`}${esc(optOut)}`;
+  const mark = `<td width="40" height="40" align="center" valign="middle" bgcolor="${t.a}" style="width:40px;height:40px;background:${t.a};border-radius:50%;font-family:${FONT};font-size:15px;font-weight:700;color:#FFFFFF;line-height:40px">${equipo ? "N" : "RD"}</td>`;
+  const sig = `${closing ? `<p style="${P};margin-bottom:12px">${esc(closing)}</p>` : ""}<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:6px 0 4px"><tr>${mark}<td style="padding:0 0 0 12px;font-family:${FONT}"><div style="font-size:15px;line-height:1.3;font-weight:700;color:${t.ink}">${equipo ? (en ? "The Neuri team" : "El equipo de Neuri") : "Ricardo Díaz"}</div><div style="font-size:13px;line-height:1.45;color:${t.sub}">${equipo ? `<a href="https://neuri.tech/${en ? "en/" : ""}" style="color:${t.a};text-decoration:none;font-weight:600">neuri${t.suf || ""}</a>` : role}</div></td></tr></table>`;
+  const flink = (u, label) => `<a href="${esc(u)}" target="_blank" style="color:${t.sub};text-decoration:underline">${esc(label)}</a>`;
+  const foot = equipo
+    ? en
+      ? `This email is an advertisement from Neuri LLC.<br>${esc(POSTAL)} · hola@neuri.tech<br>${fuente ? `We found your business email published on ${esc(fuente)}. ` : ""}${flink(PRIVACIDAD.en, "Privacy notice")}<br>${flink(unsubUrl, "Unsubscribe")} with one tap, or reply "no" and we won't write again.`
+      : `Este correo es publicidad de Neuri LLC.<br>${esc(POSTAL)} · hola@neuri.tech<br>${fuente ? `Encontramos el correo de tu negocio publicado en ${esc(fuente)}. ` : ""}${flink(PRIVACIDAD.es, "Aviso de privacidad")} · ${flink("https://www.gob.mx/profeco", "Profeco")}<br>${flink(unsubUrl, "Darte de baja")} con un toque, o responde "no" y no te volvemos a escribir.`
+    : `${product === "personal" ? "" : `${esc(POSTAL)}<br>`}${esc(optOut)}`;
   const outerBg = isProduct ? t.bg : "#FFFFFF";
   const inner = isProduct
     ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="max-width:600px;background:#FFFFFF;border:1px solid ${t.line};border-radius:18px;border-collapse:separate">${hero}<tr><td style="padding:28px 30px 22px">${bodyHtml}${card}${sig}</td></tr></table>`

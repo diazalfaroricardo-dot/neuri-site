@@ -21,7 +21,7 @@ const server = createServer((req, res) => {
 });
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const base = LIVE ? "https://neuri.tech" : `http://127.0.0.1:${server.address().port}`;
-const PAGES = ["/bazar/", "/en/", "/sigue-disponible/", "/en/still-available/"];
+const PAGES = ["/bazar/", "/en/bazar/", "/sigue-disponible/", "/en/still-available/"];
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fallas = 0;
 for (const w of [390, 1280]) {

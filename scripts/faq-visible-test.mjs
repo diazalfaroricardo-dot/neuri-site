@@ -7,7 +7,7 @@ const BASE = process.argv[2] || "https://neuri.tech";
 const exe = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const b = await chromium.launch({ executablePath: exe, args: ["--headless=new"] });
 let fail = 0;
-for (const path of ["/sigue-disponible/", "/en/still-available/", "/bazar/", "/en/"]) {
+for (const path of ["/sigue-disponible/", "/en/still-available/", "/bazar/", "/en/bazar/"]) {
   for (const w of [390, 1280]) {
     const p = await b.newPage({ viewport: { width: w, height: 844 } });
     const errs = [];

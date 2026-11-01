@@ -62,7 +62,7 @@ TILE = {
 
 def landing(brand, lang):
     return {("bots", "es"): "/sigue-disponible/", ("bots", "en"): "/en/still-available/",
-            ("bazar", "es"): "/bazar/", ("bazar", "en"): "/en/",
+            ("bazar", "es"): "/bazar/", ("bazar", "en"): "/en/bazar/",
             ("home", "es"): "/", ("home", "en"): "/en/home/"}[(brand, lang)]
 
 
@@ -101,7 +101,7 @@ def header(brand, lang, alt):
                 (f"https://sd.neuri.tech/{'' if es else 'en/'}entrar" + ("?lang=es" if es else ""), "neuri.bots"),
                 (f"https://marketing.neuri.tech/entrar?lang={lang}", "Neuri Marketing")])
         nav = [a("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots", "nb-hide-sm"),
-               a("/bazar/" if es else "/en/", "neuri.bazar", "nb-hide-sm"),
+               a("/bazar/" if es else "/en/bazar/", "neuri.bazar", "nb-hide-sm"),
                a("/consultoria/" if es else "/en/ai-consulting/", "Consultoría IA" if es else "AI consulting", "nb-hide-sm"),
                a("/marketing/" if es else "/en/marketing/", "Marketing", "nb-hide-sm"),
                lang_link,
@@ -117,7 +117,7 @@ def footer(brand, lang, alt):
     es = lang == "es"
     if brand == "bots":
         word, links = 'neuri<span>.bots</span>', [
-            ("/" if es else "/en/home/", "neuri.tech"), ("/bazar/" if es else "/en/", "neuri.bazar"),
+            ("/" if es else "/en/home/", "neuri.tech"), ("/bazar/" if es else "/en/bazar/", "neuri.bazar"),
             ("/consultoria/" if es else "/en/ai-consulting/", "Neuri Consulting"), ("/marketing/" if es else "/en/marketing/", "Neuri Marketing"),
             ("/sigue-disponible/privacidad/" if es else "/en/still-available/privacy/", "Privacidad" if es else "Privacy"),
             ("/sigue-disponible/terminos/" if es else "/en/still-available/terms/", "Términos" if es else "Terms"),
@@ -134,7 +134,7 @@ def footer(brand, lang, alt):
             ("mailto:hola@neuri.tech", "hola@neuri.tech")]
     else:
         word, links = "neuri", [
-            ("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots"), ("/bazar/" if es else "/en/", "neuri.bazar"),
+            ("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots"), ("/bazar/" if es else "/en/bazar/", "neuri.bazar"),
             ("/consultoria/" if es else "/en/ai-consulting/", "Consultoría IA" if es else "AI consulting"),
             ("/marketing/" if es else "/en/marketing/", "Neuri Marketing"),
             ("/legal/" if es else "/en/legal/", "Privacidad y términos" if es else "Privacy & terms"), ("mailto:hola@neuri.tech", "hola@neuri.tech")]

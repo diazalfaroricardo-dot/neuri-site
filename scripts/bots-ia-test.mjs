@@ -9,7 +9,7 @@ const BOTS = ['GPTBot', 'ClaudeBot', 'PerplexityBot', 'OAI-SearchBot', 'Google-E
 const URLS = [
   'https://neuri.tech/', 'https://neuri.tech/en/home/', 'https://neuri.tech/llms.txt',
   'https://neuri.tech/sigue-disponible/', 'https://neuri.tech/en/still-available/',
-  'https://neuri.tech/bazar/', 'https://neuri.tech/en/', 'https://neuri.tech/consultoria/',
+  'https://neuri.tech/bazar/', 'https://neuri.tech/en/bazar/', 'https://neuri.tech/consultoria/',
   'https://neuri.tech/en/ai-consulting/', 'https://neuri.tech/marketing/', 'https://neuri.tech/en/marketing/',
 ];
 let fallas = 0;

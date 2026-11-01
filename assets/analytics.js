@@ -75,7 +75,7 @@
   w.posthog.register({ app: 'site', is_internal: internal() });
 
   var path = l.pathname;
-  var product = /^\/(bazar|en)\/?$/.test(path) ? 'bazar' : /^\/(sigue-disponible|en\/still-available)\//.test(path) ? 'bots' : path === '/' ? 'home' : 'other';
+  var product = /^\/(en\/)?bazar\/?$/.test(path) ? 'bazar' : /^\/(sigue-disponible|en\/still-available)\//.test(path) ? 'bots' : (path === '/' || path === '/en/home/') ? 'home' : 'other';
   function cap(name, props) {
     try { w.posthog.capture(name, props); } catch (e) {}
     // Meta Pixel solo si la persona aceptó (consent.js); sin datos personales.

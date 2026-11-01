@@ -8,7 +8,7 @@ const pages = [
   ["index.html", "/", "es", true],
   ["en/home/index.html", "/en/home/", "en", true],
   ["bazar/index.html", "/bazar/", "es"],
-  ["en/index.html", "/en/", "en"],
+  ["en/bazar/index.html", "/en/bazar/", "en"],
   ["sigue-disponible/index.html", "/sigue-disponible/", "es"],
   ["en/still-available/index.html", "/en/still-available/", "en"],
   // /consultoria y /en/ai-consulting redirigen a consulting.neuri.tech desde 28-oct (t66).

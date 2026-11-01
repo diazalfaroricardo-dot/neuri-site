@@ -26,7 +26,7 @@ const estructura = [
   ['<a class="lk lk-idioma" href="/en/marketing/" hreflang="en" lang="en" aria-label="EN, English" data-idioma>EN</a>',
    '<a class="lk lk-idioma" href="/marketing/" hreflang="es" lang="es" aria-label="ES, Español" data-idioma>ES</a>'],
   ['href="https://neuri.tech/sigue-disponible/"', 'href="https://neuri.tech/en/still-available/"'],
-  ['href="https://neuri.tech/bazar/"', 'href="https://neuri.tech/en/"'],
+  ['href="https://neuri.tech/bazar/"', 'href="https://neuri.tech/en/bazar/"'],
   ['href="https://neuri.tech/consultoria/"', 'href="https://neuri.tech/en/ai-consulting/"'],
   ['href="https://neuri.tech/"', 'href="https://neuri.tech/en/home/"'],
   ['<a class="logo" href="/"', '<a class="logo" href="/en/home/"'],

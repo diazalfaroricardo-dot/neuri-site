@@ -78,7 +78,7 @@ const dc = read("assets/dc-lite.js");
 if (!dc.includes("from.hasAttribute('data-dc-keep')) return false")) bad("dc-lite.js no respeta data-dc-keep (morphdom borraría los estilos de GSAP)");
 const CIERRE = {
   "bazar/index.html": ["Mira tu bazar armarse en <span class=\"cz-n\">10</span> segundos", "Prueba gratis 14 días"],
-  "en/index.html": ["Watch your bazaar set itself up in <span class=\"cz-n\">10</span> seconds", "Start free 14-day trial"],
+  "en/bazar/index.html": ["Watch your bazaar set itself up in <span class=\"cz-n\">10</span> seconds", "Start free 14-day trial"],
 };
 for (const [p, [titulo, cta]] of Object.entries(CIERRE)) {
   const h = read(p);

@@ -23,7 +23,7 @@ const pages = [];
 })(ROOT);
 let fails = 0;
 const bad = (p, m) => { fails++; console.log(`✗ /${p}: ${m}`); };
-const LANDINGS = ["index.html", "bazar/index.html", "en/index.html", "consultoria/index.html", "en/ai-consulting/index.html", "sigue-disponible/index.html", "en/still-available/index.html"];
+const LANDINGS = ["index.html", "bazar/index.html", "en/bazar/index.html", "consultoria/index.html", "en/ai-consulting/index.html", "sigue-disponible/index.html", "en/still-available/index.html"];
 for (const f of pages) {
   const rel = relative(ROOT, f);
   const h = readFileSync(f, "utf8");

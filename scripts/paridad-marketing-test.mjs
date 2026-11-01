@@ -22,7 +22,7 @@ diff("secciones", ids(es), ids(en));
 diff("anclas", anchors(es), anchors(en));
 diff("campos", fields(es), fields(en));
 // los destinos externos pueden diferir solo por idioma: cada página de neuri.tech se compara con su par
-const PAR = { "/en/home/": "/", "/en/still-available/": "/sigue-disponible/", "/en/ai-consulting/": "/consultoria/", "/en/": "/bazar/", "/en/marketing/": "/marketing/" };
+const PAR = { "/en/home/": "/", "/en/still-available/": "/sigue-disponible/", "/en/ai-consulting/": "/consultoria/", "/en/bazar/": "/bazar/", "/en/marketing/": "/marketing/" };
 const norm = (u) => {
   const m = u.match(/^https:\/\/neuri\.tech(\/.*)$/);
   if (m && PAR[m[1]]) return "https://neuri.tech" + PAR[m[1]];

@@ -29,7 +29,7 @@ const CASES = [
   { path: "/sigue-disponible/", text: "Entrar", hrefs: ["https://sd.neuri.tech/entrar?lang=es"] },
   { path: "/en/still-available/", text: "Sign in", hrefs: ["https://sd.neuri.tech/entrar?lang=en"] },
   { path: "/bazar/", text: "Entrar", hrefs: ["https://bazar.neuri.tech/login?lang=es"] },
-  { path: "/en/", text: "Sign in", hrefs: ["https://bazar.neuri.tech/login?lang=en"] },
+  { path: "/en/bazar/", text: "Sign in", hrefs: ["https://bazar.neuri.tech/login?lang=en"] },
   { path: "/consultoria/", text: "Entrar", hrefs: ["https://consulting.neuri.tech/entrar?lang=es"] },
   { path: "/en/ai-consulting/", text: "Sign in", hrefs: ["https://consulting.neuri.tech/entrar?lang=en"] },
 ];

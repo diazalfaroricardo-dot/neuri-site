@@ -9,7 +9,7 @@ if (f.length) { console.error("t60:", f.join("; ")); process.exit(1); }
 if (process.argv.includes("--live")) {
   const { chromium } = await import("playwright-core");
   const b = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
-  for (const url of ["https://neuri.tech/en/", "https://neuri.tech/bazar/"]) for (const w of [1280, 390]) {
+  for (const url of ["https://neuri.tech/en/bazar/", "https://neuri.tech/bazar/"]) for (const w of [1280, 390]) {
     const pg = await b.newPage({ viewport: { width: w, height: w > 500 ? 800 : 844 } });
     await pg.goto(url, { waitUntil: "networkidle" });
     await pg.waitForTimeout(2000);

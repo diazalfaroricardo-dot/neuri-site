@@ -42,7 +42,7 @@ ES = '''<body><div class="wrap">
 '''.replace('MAIL', MAIL_ES)
 
 EN = '''<body><div class="wrap">
-<header><a class="logo" href="/en/">neuri<span>.bazar</span></a><nav><a href="/bazar/borrar-mis-datos/" hreflang="es" lang="es">Español</a></nav></header>
+<header><a class="logo" href="/en/bazar/">neuri<span>.bazar</span></a><nav><a href="/bazar/borrar-mis-datos/" hreflang="es" lang="es">Español</a></nav></header>
 <div class="borrador" role="note"><strong>Draft pending legal review</strong>A lawyer has not reviewed this text yet and it may change. It is not legal advice.</div>
 <h1>Delete my data</h1>
 <p class="lead">How to ask us to delete your neuri.bazar data · Last updated: October 17, 2026</p>
@@ -58,7 +58,7 @@ EN = '''<body><div class="wrap">
 <li><b>Booth applicant:</b> if you never confirmed your email, the application is deleted automatically after 7 days. Your ID photo is deleted automatically after your application is declined or your rental ends (90 days or the bazaar’s setting); you can ask for earlier deletion.</li></ul></section>
 <section id="kept"><h2>What may be kept</h2>
 <p>Only what the law requires us to keep (for example, billing records for our plan), for the legal period. We will tell you in our reply.</p></section>
-<footer><span>© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043</span><a href="/en/">neuri.bazar</a><a href="/en/bazar/privacy/">Privacy</a><a href="/en/bazar/terms/">Terms</a><a href="/bazar/borrar-mis-datos/" hreflang="es">Español</a></footer>
+<footer><span>© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043</span><a href="/en/bazar/">neuri.bazar</a><a href="/en/bazar/privacy/">Privacy</a><a href="/en/bazar/terms/">Terms</a><a href="/bazar/borrar-mis-datos/" hreflang="es">Español</a></footer>
 </div></body></html>
 '''.replace('MAIL', MAIL_EN)
 

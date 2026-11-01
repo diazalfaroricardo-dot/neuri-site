@@ -21,7 +21,7 @@ const cases = [
   // 2ª vuelta (25-oct): aun navegando dentro de neuri.tech, la URL con idioma manda.
   ["en", "/sigue-disponible/", "https://neuri.tech/en/home/", "/sigue-disponible/", "es"],
   ["es", "/en/still-available/", "https://neuri.tech/", "/en/still-available/", "en"],
-  ["en", "/bazar/", "https://neuri.tech/en/", "/bazar/", "es"],
+  ["en", "/bazar/", "https://neuri.tech/en/bazar/", "/bazar/", "es"],
   // 4ª vuelta (28-oct): sin elección guardada y navegador en-US en Phoenix, la URL en español se queda en español
   // y solo se ofrece la barra «View this page in English» (sexto campo = barra esperada).
   [null, "/sigue-disponible/", null, "/sigue-disponible/", "es", null, "en"],

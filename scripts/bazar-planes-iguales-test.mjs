@@ -3,7 +3,7 @@
 // todos los planes (el código solo limita vendedores, cajas y mensajes).
 import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
-const en = readFileSync(new URL("../en/index.html", import.meta.url), "utf8");
+const en = readFileSync(new URL("../en/bazar/index.html", import.meta.url), "utf8");
 const es = readFileSync(new URL("../bazar/index.html", import.meta.url), "utf8");
 assert.ok(!en.includes("WhatsApp · neuri.bazar"), "EN: simulador promete WhatsApp");
 assert.ok(!es.includes("WhatsApp · neuri.bazar"), "ES: simulador promete WhatsApp");

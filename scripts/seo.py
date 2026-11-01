@@ -75,7 +75,7 @@ def priority(u):
     path = u[len(BASE):]
     if path in PRIORITY:
         return PRIORITY[path]
-    if path.count("/") <= 2 or path in ("/en/home/",):
+    if path.count("/") <= 2 or path in ("/en/home/", "/en/bazar/"):
         return "0.9"
     return "0.6"
 

@@ -3,7 +3,7 @@
 import { landingSource } from "./landing-src.mjs";
 const live = process.argv.includes("--live");
 const es = await landingSource("bazar/index.html", live);
-const en = await landingSource("en/index.html", live);
+const en = await landingSource("en/bazar/index.html", live);
 let fail = 0;
 const ok = (c, m) => { if (!c) { fail++; console.error("FALLA:", m); } else console.log("ok:", m); };
 ok(/Desde \$499 MXN o US\$79 al mes/.test(es), "hero de /bazar/ dice MXN y USD");

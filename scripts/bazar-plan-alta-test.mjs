@@ -9,8 +9,8 @@ let fail = 0;
 const cases = [
   ["/bazar/", "MX", 390, 2, "plus", "visit-phx"],
   ["/bazar/", "MX", 1280, 0, "basico", ""],
-  ["/en/", "US", 390, 1, "pro", ""],
-  ["/en/", "US", 1280, 0, "basico", "tarjeta-qa"],
+  ["/en/bazar/", "US", 390, 1, "pro", ""],
+  ["/en/bazar/", "US", 1280, 0, "basico", "tarjeta-qa"],
 ];
 for (const [path, country, w, idx, want, src] of cases) {
   const p = await b.newPage({ viewport: { width: w, height: 844 } });

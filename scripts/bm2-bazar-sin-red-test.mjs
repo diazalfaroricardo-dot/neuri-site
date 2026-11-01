@@ -7,9 +7,9 @@ const exe = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacO
 const b = await chromium.launch({ executablePath: exe, args: ["--headless=new"] });
 const cases = [
   ["es", 390, "/bazar/"],
-  ["en", 390, "/en/"],
+  ["en", 390, "/en/bazar/"],
   ["es", 1280, "/bazar/"],
-  ["en", 1280, "/en/"],
+  ["en", 1280, "/en/bazar/"],
 ];
 let fail = 0;
 for (const [lang, w, path] of cases) {

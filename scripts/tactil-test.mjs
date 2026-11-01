@@ -28,7 +28,7 @@ await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const base = LIVE ? "https://neuri.tech" : `http://127.0.0.1:${server.address().port}`;
 const AXE = process.env.AXE || join(homedir(), "neuri-bazar/node_modules/.pnpm/axe-core@4.10.3/node_modules/axe-core/axe.min.js");
 const axeSrc = existsSync(AXE) ? readFileSync(AXE, "utf8") : "";
-const PAGES = ["/consultoria/", "/en/ai-consulting/", "/bazar/", "/en/", "/sigue-disponible/", "/en/still-available/", "/marketing/", "/en/marketing/", "/en/bazar/tour/", "/en/bazar/delete-my-data/", "/en/still-available/sheet/", "/bazar/recorrido/", "/bazar/borrar-mis-datos/", "/bazar/privacidad/", "/en/bazar/terms/"];
+const PAGES = ["/consultoria/", "/en/ai-consulting/", "/bazar/", "/en/bazar/", "/sigue-disponible/", "/en/still-available/", "/marketing/", "/en/marketing/", "/en/bazar/tour/", "/en/bazar/delete-my-data/", "/en/still-available/sheet/", "/bazar/recorrido/", "/bazar/borrar-mis-datos/", "/bazar/privacidad/", "/en/bazar/terms/"];
 for (const f of ["consultoria/index.html", "en/ai-consulting/index.html"]) {
   const t = (readFileSync(join(ROOT, f), "utf8").match(/<title>([^<]*)</) || [])[1] || "";
   if (!t.endsWith("| Neuri Consulting") || (t.match(/Neuri/g) || []).length > 1) { console.log("✗", `${f}: título «${t}»`); process.exitCode = 1; }

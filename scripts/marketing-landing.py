@@ -119,7 +119,7 @@ C = {
          ("How does it relate to neuri.bots?","neuri.bots answers your customers' messages; Neuri Marketing prepares what you post. They're designed to work together.")],
     cl_h="Your next month of content, ready to approve.", cl_p="Join the list and we'll tell you as soon as we open.",
     ft_copy="© 2026 Neuri LLC · Phoenix, AZ · Neuri Marketing is under construction.",
-    ft_nav=[("/","neuri.tech"),("/en/still-available/","neuri.bots"),("/en/","neuri.bazar"),("/en/ai-consulting/","neuri.consulting"),("mailto:hola@neuri.tech","hola@neuri.tech"),(APP+"/privacidad?lang=en","Privacy"),(APP+"/terminos?lang=en","Terms")],
+    ft_nav=[("/","neuri.tech"),("/en/still-available/","neuri.bots"),("/en/bazar/","neuri.bazar"),("/en/ai-consulting/","neuri.consulting"),("mailto:hola@neuri.tech","hola@neuri.tech"),(APP+"/privacidad?lang=en","Privacy"),(APP+"/terminos?lang=en","Terms")],
   ),
 }
 NETWORKS = ["Instagram", "Facebook", "TikTok", "LinkedIn", "WhatsApp"]

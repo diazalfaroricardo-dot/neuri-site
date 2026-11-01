@@ -59,7 +59,7 @@ T = {
   us=("Choose neuri.bazar if…", "Your vendors speak Spanish, you operate in Mexico, or you want your inventory online where shoppers can hold items."),
   them=("Choose Quail if…", "You operate only in the US, in English, want the lowest price and don't need an online store."),
   h2b="Try it with your own mall",
-  cta="Set up your mall on neuri.bazar and try it free for 14 days, no card.", cta_link="Start free trial", cta_href="/en/#prueba",
+  cta="Set up your mall on neuri.bazar and try it free for 14 days, no card.", cta_link="Start free trial", cta_href="/en/bazar/#prueba",
   tour="See the tour with real screens", tour_href="/en/bazar/tour/",
   src=f"Quail details taken from its own site on {FECHA_EN}. If they change, we update this page.",
   aria="Table — swipe to see all columns", locale="en_US"),

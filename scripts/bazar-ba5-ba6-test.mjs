@@ -9,9 +9,9 @@ const live = process.argv.includes("--live");
 const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
 const ok = (c, m) => { console.log(c ? "OK  " : "FAIL", m); if (!c) fail++; };
-for (const [path, label, others] of [["/bazar/", "English", ["/consultoria/", "/marketing/", "/sigue-disponible/"]], ["/en/", "Español", ["/en/ai-consulting/", "/en/marketing/", "/en/still-available/"]]]) {
+for (const [path, label, others] of [["/bazar/", "English", ["/consultoria/", "/marketing/", "/sigue-disponible/"]], ["/en/bazar/", "Español", ["/en/ai-consulting/", "/en/marketing/", "/en/still-available/"]]]) {
   for (const w of [390, 1280]) {
-    const c = await b.newContext({ viewport: { width: w, height: 900 }, timezoneId: path === "/en/" ? "America/Phoenix" : "America/Mexico_City" });
+    const c = await b.newContext({ viewport: { width: w, height: 900 }, timezoneId: path === "/en/bazar/" ? "America/Phoenix" : "America/Mexico_City" });
     if (!live) await c.route("https://neuri.tech/**", (r) => {
       const p = new URL(r.request().url()).pathname;
       const f = root + p + (p.endsWith("/") ? "index.html" : "");
@@ -27,7 +27,7 @@ for (const [path, label, others] of [["/bazar/", "English", ["/consultoria/", "/
     const box = await hdr.boundingBox();
     ok(box && box.height >= 44, `${path} ${w}px «${label}» de 44 px`);
     const logo = await p.locator("header a").first().getAttribute("href");
-    ok(logo === (path === "/en/" ? "/en/home/" : "/"), `${path} ${w}px el logo lleva a neuri.tech (${logo}) — T18`);
+    ok(logo === (path === "/en/bazar/" ? "/en/home/" : "/"), `${path} ${w}px el logo lleva a neuri.tech (${logo}) — T18`);
     const sw = await p.evaluate(() => document.documentElement.scrollWidth);
     ok(sw <= w, `${path} ${w}px sin scroll horizontal (${sw})`);
     const hrefs = await p.$$eval("footer a", (as) => as.filter((a) => a.offsetParent).map((a) => a.getAttribute("href")));

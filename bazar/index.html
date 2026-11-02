@@ -3728,7 +3728,7 @@ class Component extends DCLogic {
       ],
       rateText: this.money(c.rate),
       valueText: this.money(value),
-      planLine: mult >= 1.2 ? 'Es ' + (Math.round(mult * 10) / 10).toLocaleString('es-MX') + ' veces lo que cuesta ' + planName + ' (' + this.money(planPrice) + ' MXN).' : planName + ' cuesta ' + this.money(planPrice) + ' MXN al mes.',
+      planLine: mult >= 1.2 ? (mult > 10 ? 'Es más de 10 veces' : 'Es ' + (Math.round(mult * 10) / 10).toLocaleString('es-MX') + ' veces') + ' lo que cuesta ' + planName + ' (' + this.money(planPrice) + ' MXN).' : planName + ' cuesta ' + this.money(planPrice) + ' MXN al mes.',
       accent: accent,
       empty: s === 0,
       h1: s >= 1,

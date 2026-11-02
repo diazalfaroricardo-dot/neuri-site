@@ -23,6 +23,7 @@ for (const [path, sim, viejos, renta] of [
   for (const v of viejos) ok(!html.includes(v), `${path} sin «${v}» (570, 577)`);
   ok(html.includes(renta), `${path} dice «${renta}» (577)`);
   ok(html.includes(`>${sim}<`), `${path} nombra el simulador (570)`);
+  ok(/mult > 10 \?/.test(html), `${path} la calculadora no presume «182.6 veces» (578)`);
   ok(!html.includes('id="f-ciudad"'), `${path} no pide ciudad que luego se pierde (579)`);
   // 571: el plan del botón manda sobre los vendedores.
   const c = await ctx(390);

@@ -235,7 +235,7 @@
 <header class="h"><span class="av" aria-hidden="true">${SYM}</span><span class="sp"><b${C.ttl ? ' class="sf"' : ""}>${T.title}</b><small>${T.sub}</small></span>
 <button class="x" type="button" aria-label="${T.close}"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></header>
 <div class="m" aria-live="polite"></div>
-<form class="f"><label class="sr" for="nv-i">${T.ph}</label><textarea id="nv-i" class="i" rows="1" maxlength="1200" placeholder="${T.ph}"></textarea>
+<form class="f"><label class="sr" for="nv-i">${T.ph}</label><textarea id="nv-i" class="i" rows="1" maxlength="1200" placeholder="${T.ph}"></textarea><input class="sr" id="nv-w" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 <button class="s" type="submit" aria-label="${T.send}"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M10 4.5L14.5 9 10 13.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></form>
 <div class="n"><span>${T.note}</span><button class="r" type="button">${T.reset}</button></div>
 </section></div>`;
@@ -327,7 +327,7 @@
         const r = await fetch(API, {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({ id: st.id, lang, page: path, text }),
+          body: JSON.stringify({ id: st.id, lang, page: path, text, website: root.querySelector("#nv-w")?.value || undefined }),
           signal: ctl.signal,
         });
         clearTimeout(to);

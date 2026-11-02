@@ -28,7 +28,6 @@ for (const [lang, w, path] of cases) {
   const next = async () => { await p.locator("#siguiente").click(); await p.waitForTimeout(200); };
   await p.locator("#f-nombre").fill("Bazar Ñandú's QA");
   await next();
-  await p.locator("#f-ciudad").fill("Culiacán");
   await f.locator('input[name="pais"]').first().evaluate((e) => { e.checked = true; e.dispatchEvent(new Event("change", { bubbles: true })); });
   await next();
   await f.locator('input[name="vendedores"]').first().evaluate((e) => { e.checked = true; e.dispatchEvent(new Event("change", { bubbles: true })); });

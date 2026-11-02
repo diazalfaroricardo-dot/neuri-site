@@ -425,8 +425,14 @@
       const tapa = () => {
         const d = document.getElementById("demo");
         const r = d && d.getBoundingClientRect();
-        launch.classList.toggle("tapa", !!r && !st.open && r.top < innerHeight - 70 && r.bottom > innerHeight - 70);
+        // 575 (B-N2): tampoco tapa el botón principal de un asistente («Siguiente»).
+        const s = document.getElementById("siguiente");
+        const sr = s && s.offsetParent ? s.getBoundingClientRect() : null;
+        const lr = launch.getBoundingClientRect();
+        const cruza = !!sr && lr.width > 0 && lr.left - 8 < sr.right && lr.right + 8 > sr.left && lr.top - 8 < sr.bottom && lr.bottom + 8 > sr.top;
+        launch.classList.toggle("tapa", !st.open && (cruza || (!!r && r.top < innerHeight - 70 && r.bottom > innerHeight - 70)));
       };
+      addEventListener("click", () => setTimeout(tapa, 60), { passive: true });
       addEventListener("scroll", tapa, { passive: true });
       addEventListener("resize", tapa);
       tapa();

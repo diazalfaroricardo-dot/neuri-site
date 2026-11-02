@@ -73,6 +73,18 @@
       location.replace(alt[q].pathname + location.search + location.hash);
       return;
     }
+    // 572: quien ya eligió otro idioma y vuelve a una URL en este: se le ofrece su idioma (sin redirigir, QA #8).
+    if (!/bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit/i.test(navigator.userAgent) && !navigator.webdriver) {
+      let elegido = null;
+      try {
+        elegido = localStorage.getItem(KEY);
+      } catch (_) {}
+      const aqui = here0 === alt.en.pathname ? "en" : here0 === alt.es.pathname ? "es" : null;
+      if ((elegido === "es" || elegido === "en") && aqui && aqui !== elegido) {
+        suggest(elegido);
+        return;
+      }
+    }
     if (soloParam) {
       // Auditoría bazar 18-oct (B-A6): la portada no redirige, pero a un navegador en inglés sin elección guardada
       // le ofrece «View in English» arriba (se cierra y se recuerda; bots y pruebas automatizadas no lo ven).

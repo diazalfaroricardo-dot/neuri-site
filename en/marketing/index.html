@@ -1069,7 +1069,7 @@ html.m .sec{content-visibility:visible}
     var w=W[g];grid.innerHTML='';
     w.items.forEach(function(it,i){
       var d=document.createElement('div');d.className='piece';d.style.setProperty('--i',i);
-      d.innerHTML=art(g,it,i)+'<div class="pmeta"><span>'+it[2]+'</span><span class="ok">Lista</span></div>';
+      d.innerHTML=art(g,it,i)+'<div class="pmeta"><span>'+it[2]+'</span><span class="ok">Ready</span></div>';
       grid.appendChild(d);
     });
     title.textContent='Your week · '+w.name;wstatus.textContent='Example · 4 pieces ready';week.classList.remove('busy');mkWake(grid);

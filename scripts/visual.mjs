@@ -55,8 +55,7 @@ const pages = [
   { name: "bazar-privacy", path: "/en/bazar/privacy/" },
   { name: "bazar-borrar", path: "/bazar/borrar-mis-datos/" },
   { name: "bazar-delete", path: "/en/bazar/delete-my-data/" },
-  { name: "consultoria", path: "/consultoria/" },
-  { name: "ai-consulting", path: "/en/ai-consulting/" },
+  // /consultoria/ y /en/ai-consulting/ ya solo redirigen a consulting.neuri.tech (t66): no se revisan aquí.
   { name: "marketing", path: "/marketing/" },
   { name: "marketing-en", path: "/en/marketing/" },
 ];
@@ -114,11 +113,12 @@ for (const pg of pages) {
         if (el.labels && el.labels.length > 0) return true;
         return !!(el.getAttribute("aria-label") || el.getAttribute("aria-labelledby") || el.title);
       };
-      const txt = (e) => (e.innerText || e.getAttribute("aria-label") || e.id || "").trim().slice(0, 40);
+      const txt = (e) => (e.innerText || e.getAttribute("aria-label") || e.id || e.getAttribute("href") || "").trim().slice(0, 40);
       const small = [];
       const sel = "a[href],button,input:not([type=hidden]):not([type=checkbox]):not([type=radio]),select,summary";
       for (const e of document.querySelectorAll(sel)) {
         if (!vis(e) || e.tabIndex < 0 || e.closest("[aria-hidden=true]")) continue;
+        if (e.tagName === "A" && !e.innerText.trim() && !e.querySelector("svg,img") && !e.getAttribute("aria-label")) continue; // texto oculto, no se ve ni se toca
         const h = e.getBoundingClientRect().height;
         const inline = !!e.closest("p,li") && e.tagName === "A";
         if (h < (inline ? 24 : 44)) small.push(`${e.tagName.toLowerCase()} «${txt(e)}» ${Math.round(h)}px`);
@@ -129,7 +129,12 @@ for (const pg of pages) {
           .filter((e) => !label(e))
           .map((e) => e.name || e.id || e.tagName),
         small,
-        manychat: /manychat/i.test(document.body.innerText),
+        // La comparación honesta (#cmp-t, T65) nombra a ManyChat a propósito; fuera de ella no.
+        manychat: (() => {
+          const c = document.getElementById("cmp-t")?.closest("section");
+          const fuera = document.body.innerText.replace(c?.innerText ?? "\0", "");
+          return /manychat/i.test(fuera);
+        })(),
       };
     });
     if (m.overflow > 0) problems.push(`${tag}: scroll horizontal (+${m.overflow}px)`);

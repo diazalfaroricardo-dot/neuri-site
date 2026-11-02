@@ -372,7 +372,7 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 
 <section class="eegband" aria-label="Network activity">
   <div class="in">
-    <span class="k mono"><span class="live"></span>Neural activity · simulation</span>
+    <span class="k mono"><span class="live"></span>Agent activity · simulation</span>
     <div class="mwrap" aria-hidden="true" style="flex:1;min-width:0;height:60px"><div class="eeg" id="eeg"></div></div>
     <span class="v mono hide-sm"><span id="spikes">1,284</span> sample signals / min</span>
   </div>
@@ -389,7 +389,7 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 
 <section id="systems" class="sis" aria-labelledby="x-sis">
   <div class="sh">
-    <div><p class="k-mono mono rv">02 · Systems in operation</p><h2 id="x-sis" data-split>Four missions. Three already in orbit.</h2></div>
+    <div><p class="k-mono mono rv">02 · Systems in operation</p><h2 id="x-sis" data-split>Four products, each with one job.</h2></div>
     <p class="s-p rv">Each product is an agent specialized in a job that used to steal your hours.</p>
   </div>
   <div class="cards stag">
@@ -419,11 +419,11 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 <section id="network" class="red" aria-labelledby="x-red">
   <div class="in">
     <div class="sh" style="margin:0">
-      <div><p class="k-mono mono rv">03 · The neural network</p><h2 id="x-red" data-split>How an agent decides before it answers.</h2><p class="s-p rv">A message or a sale comes in. The agent checks it against your sheet, your prices and your rules, decides and acts. Pick a case and watch it travel through the network.</p></div>
+      <div><p class="k-mono mono rv">03 · How it decides</p><h2 id="x-red" data-split>How an agent decides before it answers.</h2><p class="s-p rv">A message or a sale comes in. The agent checks it against your sheet, your prices and your rules, decides and acts. Pick a case and watch it travel through the network.</p></div>
       <div class="sigs" role="group" aria-label="Pick a signal" id="sigs"></div>
     </div>
     <div class="netbox rv" tabindex="0" role="region" aria-label="Network diagram: scroll to see all of it">
-      <svg class="net" id="net" viewBox="0 0 1000 440" role="img" aria-label="Neural network"></svg>
+      <svg class="net" id="net" viewBox="0 0 1000 440" role="img" aria-label="How an agent decides"></svg>
     </div>
     <div class="trace" id="trace" aria-live="polite"></div>
     <p class="note mono">Simplified diagram · sample data</p>
@@ -494,7 +494,7 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 "words":["answers","collects the rent","holds the item","books the visit","closes the day"],
 "marquee":["Replies in seconds","Holds and books","Rings up sales","Splits each vendor's take","Collects rent on its own","Hands you the hard ones","Never makes up prices","Instagram · Messenger","English and Spanish","Pesos and dollars"],
 "hl":{"agents":"hl","time.":"hl","own,":"hl2","people":"hl"},
-"netAria":"Neural network: the signal “{s}” comes in, crosses your context and ends in {o}",
+"netAria":"How an agent decides: the signal “{s}” comes in, crosses your context and ends in {o}",
 "inL":["MESSAGE","SALE","QUESTION"],"outL":["REPLY","BALANCE","TO YOU"],"cols":["INPUT","CONTEXT","DECISION","ACTION"],
 "sig":[
  {"label":"Instagram message","color":"#8FE0B4","inp":0,"h1":[0,1,2],"h2":[1,2],"out":0,"trace":[["Input","“Is the white wardrobe still available?”"],["Context","Your sheet: white wardrobe, $1,800, available"],["Decision","Reply with the price and offer to hold it"],["Action · neuri.bots","Reply sent in 2.8 s"]]},

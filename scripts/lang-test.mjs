@@ -33,17 +33,17 @@ const check = async (name, tz, url, expect, steps, locale, bar) => {
   await c.close();
 };
 await check("MX en página EN: se queda y ofrece español", "America/Mexico_City", "https://neuri.tech/en/still-available/", "/en/still-available/", null, undefined, "es");
-await check("Tijuana en EN: se queda y ofrece español", "America/Tijuana", "https://neuri.tech/en/ai-consulting/", "/en/ai-consulting/", null, undefined, "es");
+await check("Tijuana en EN: se queda y ofrece español", "America/Tijuana", "https://neuri.tech/en/bazar/", "/en/bazar/", null, undefined, "es");
 await check("Phoenix teléfono en inglés en ES: se queda y ofrece inglés", "America/Phoenix", "https://neuri.tech/sigue-disponible/", "/sigue-disponible/", null, "en-US", "en");
 await check("Phoenix teléfono en español se queda sin barra", "America/Phoenix", "https://neuri.tech/sigue-disponible/", "/sigue-disponible/", null, "es-US", null);
 await check("NY bazar ES (inglés): se queda y ofrece inglés", "America/New_York", "https://neuri.tech/bazar/", "/bazar/", null, "en-US", "en");
 await check("Madrid se queda sin barra", "Europe/Madrid", "https://neuri.tech/en/marketing/", "/en/marketing/", null, undefined, null);
 await check("Raíz no cambia", "America/Phoenix", "https://neuri.tech/", "/");
 await check("?lang=es manda en US", "America/Phoenix", "https://neuri.tech/sigue-disponible/?lang=es", "/sigue-disponible/", null, "en-US");
-await check("US elige «Seguir en español» y no vuelve a ver la barra", "America/Phoenix", "https://neuri.tech/sigue-disponible/", "/consultoria/", async (p) => {
+await check("US elige «Seguir en español» y no vuelve a ver la barra", "America/Phoenix", "https://neuri.tech/sigue-disponible/", "/marketing/", async (p) => {
   await p.evaluate(() => document.querySelector("#neuri-lang-sug button").click());
   await p.waitForTimeout(500);
-  await p.goto("https://neuri.tech/consultoria/");
+  await p.goto("https://neuri.tech/marketing/");
   await p.waitForTimeout(400);
 }, "en-US", null);
 await check("MX elige English y se queda", "America/Mexico_City", "https://neuri.tech/sigue-disponible/", "/en/still-available/", async (p) => {

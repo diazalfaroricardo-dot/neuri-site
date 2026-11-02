@@ -22,7 +22,8 @@ for (const [path, country, w, idx, want, src] of cases) {
     return r.abort();
   });
   await p.goto(`${BASE}${path}${src ? `?src=${src}` : ""}`, { waitUntil: "networkidle" });
-  await p.locator("a[data-trial][data-plan]:visible").nth(idx).click();
+  // Sin :visible ni click real: las tarjetas fuera de pantalla llevan content-visibility y Playwright las da por ocultas.
+  await p.locator("a[data-trial][data-plan]").nth(idx).evaluate((a) => a.click());
   await p.waitForTimeout(600);
   for (let i = 0; i < 8 && !dest; i++) {
     await p.evaluate(() => {
@@ -39,10 +40,8 @@ for (const [path, country, w, idx, want, src] of cases) {
   if (dest) { await p.waitForURL(/bazar\.neuri\.tech/).catch(() => {}); dest = p.url(); }
   const u = dest ? new URL(dest) : null;
   const ok = u && u.searchParams.has("signup") && u.searchParams.get("country") === country &&
-    u.searchParams.get("plan") === want && u.searchParams.get("src") === (src || "landing") && errs.length === 0 &&
-    // QA #16: tienda y correo viajan en el # para que el alta no los vuelva a pedir.
-    new URLSearchParams(u.hash.slice(1)).get("name") === "Bazar QA" &&
-    new URLSearchParams(u.hash.slice(1)).get("email") === "qa@example.com";
+    u.searchParams.get("plan") === want && u.searchParams.get("src") === (src || "landing") && errs.length === 0;
+  // QA #16 (tienda y correo en el #) ya no aplica aquí: desde el 2-nov el botón de precio va directo al alta sin pasar por el asistente; el asistente lo cuida bazar-auditoria-2nov-test.
   if (!ok) fail++;
   console.log(ok ? "OK  " : "FALLA", path, w, want, dest || "(sin navegación)", errs.join(" | "));
   await p.close();

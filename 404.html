@@ -243,6 +243,39 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <!--/contenido-->
 </div></main>
 <footer class="nb-foot"><div class="nb-foot-in"><span class="nb-word">neuri</span><nav class="nb-foot-links" aria-label="Pie"><a href="/sigue-disponible/">neuri.bots</a><a href="/bazar/">neuri.bazar</a><a href="/consultoria/">Consultoría IA</a><a href="/marketing/">Neuri Marketing</a><a href="/legal/">Privacidad y términos</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/en/home/" hreflang="en" lang="en">English</a></nav><p class="nb-foot-legal">© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, EE. UU.</p></div></footer>
+<script>
+/* Auditoría 2-nov: GitHub Pages sirve esta misma 404 para todo; bajo /en/ se muestra en inglés. */
+(function () {
+  if (!/^\/en(\/|$)/.test(location.pathname)) return;
+  document.documentElement.lang = 'en';
+  document.title = 'Page not found | Neuri';
+  var q = function (s) { return document.querySelector(s); };
+  q('h1').textContent = 'This page doesn\u2019t exist.';
+  q('.nb-hub > p').textContent = 'It may have moved, or the link was incomplete. Everything is one tap from here:';
+  var flecha = ' <span aria-hidden="true">\u2192</span>';
+  var hub = [['/en/home/', 'Go to the Neuri home page'],
+    ['/en/still-available/', 'neuri.bots: answers your Instagram messages'],
+    ['/en/bazar/', 'neuri.bazar: the register for your market'],
+    ['/en/ai-consulting/', 'AI consulting for your business'],
+    ['/en/marketing/', 'Neuri Marketing: your social media on track, you just approve']];
+  document.querySelectorAll('.nb-hub nav a').forEach(function (a, i) { a.href = hub[i][0]; a.innerHTML = hub[i][1] + flecha; });
+  q('.nb-hub p.en').remove();
+  var rutas = { '/sigue-disponible/': '/en/still-available/', '/bazar/': '/en/bazar/', '/consultoria/': '/en/ai-consulting/', '/marketing/': '/en/marketing/' };
+  document.querySelectorAll('.nb-nav a[href], .nb-foot a[href]').forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (rutas[h]) a.setAttribute('href', rutas[h]);
+    if (a.textContent === 'Consultor\u00eda IA') a.textContent = 'AI consulting';
+    if (h === '/legal/') { a.setAttribute('href', '/en/legal/'); a.textContent = 'Privacy and terms'; }
+    if (h && h.indexOf('lang=es') > -1) a.setAttribute('href', h.replace('lang=es', 'lang=en'));
+  });
+  var idioma = q('.nb-lang');
+  idioma.href = '/'; idioma.hreflang = 'es'; idioma.lang = 'es'; idioma.textContent = 'ES'; idioma.setAttribute('aria-label', 'ES, Espa\u00f1ol');
+  q('[data-entrar] summary').firstChild.textContent = 'Sign in ';
+  var ing = q('.nb-foot a[href="/en/home/"]');
+  ing.href = '/'; ing.hreflang = 'es'; ing.lang = 'es'; ing.textContent = 'Espa\u00f1ol';
+  q('.nb-foot-legal').textContent = q('.nb-foot-legal').textContent.replace('EE. UU.', 'USA');
+})();
+</script>
 <script src="/assets/menu-esc.js" defer></script>
 </body>
 </html>

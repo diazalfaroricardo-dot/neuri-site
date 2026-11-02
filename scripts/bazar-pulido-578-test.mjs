@@ -6,8 +6,8 @@ let fail = 0;
 const ok = (c, m) => { console.log(c ? "OK  " : "FAIL", m); if (!c) fail++; };
 const get = async (p) => (await fetch(`${BASE}${p}?t=${Date.now()}`)).text();
 for (const [path, malas, buena] of [
-  ["/", [/misiones/i, /en órbita/i, /red neural/i], "Cuatro productos, cada uno con un solo trabajo"],
-  ["/en/home/", [/missions/i, /in orbit/i, /neural network/i], "Four products, each with one job"],
+  ["/", [/Cuatro misiones/, /Tres ya en órbita/, /red neural/i], "Cuatro productos, cada uno con un solo trabajo"],
+  ["/en/home/", [/Four missions/, /already in orbit/, /neural network/i], "Four products, each with one job"],
 ]) {
   const h = await get(path);
   for (const m of malas) ok(!m.test(h), `${path} sin ${m}`);

@@ -44,7 +44,7 @@ C = {
            ("⏰","Programación en Instagram y Facebook","Con el inicio de sesión oficial de Meta, el día y la hora que apruebas.",False),
            ("💬","Comentarios y mensajes","Comentarios y mensajes de Instagram y Facebook en una sola bandeja; los posibles clientes salen primero.",False),
            ("📈","Reporte semanal","Quién te escribió y desde qué publicación, no solo likes, para saber qué sí funciona.",False)],
-    t_eb="Gratis y ya disponible", t_h="Mientras abrimos, <span class=soft>úsalas hoy.</span>", t_sub="Seis herramientas que ya funcionan, sin registro.", t_tag="Gratis", t_go="Abrir",
+    t_eb="Gratis y ya disponible", t_h="Sin cuenta, <span class=soft>úsalas hoy.</span>", t_sub="Seis herramientas que ya funcionan, sin registro.", t_tag="Gratis", t_go="Abrir",
     tools=[("10","Guía 2026","Las 10 reglas para que tu negocio salga en Explorar, con ideas por giro.","/guia"),
            ("2 min","Score de redes","10 preguntas: tu puntaje de 0 a 100, lo que más pesa para tu giro y tus 3 arreglos. No guardamos tus respuestas.","/diagnostico"),
            ("×5","Plantillas por giro","Una semana de publicaciones de ejemplo para café, restaurante, bazar y servicios.","/plantillas"),

@@ -277,6 +277,19 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 @media(max-width:560px){.man,.sis,.red,.con,.pri,.lab{padding-left:16px;padding-right:16px}.man{padding-top:100px;padding-bottom:100px}.red,.con,.pri,.lab{padding-top:100px;padding-bottom:100px}.card{padding:24px;border-radius:22px;min-height:0}.eegband .in{padding:0 16px}footer{padding:28px 16px 60px}.fin{padding:120px 16px 110px}}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* I8: láminas con pantallas reales en teléfono (aprobadas 3-nov). A 390 se deslizan; en compu, 4 columnas. */
+.shots-h{margin:72px 0 8px;font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.03em}
+.shots-p{margin:0 0 24px;color:var(--sub);font-size:16px;max-width:40em}
+.shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.shot{display:flex;flex-direction:column;gap:12px;height:100%;aspect-ratio:4/5.6;position:relative;overflow:hidden;text-decoration:none;border:1px solid var(--line2);border-radius:18px;padding:20px;background:radial-gradient(90% 60% at 50% 95%,rgba(143,224,180,.28),transparent 70%),radial-gradient(70% 40% at 90% 10%,rgba(243,179,143,.16),transparent 70%),var(--panel)}
+.shot:hover{border-color:var(--line3);color:var(--ink)}
+.shot .tag{font:12px var(--mono);color:var(--mint)}
+.shot h4{margin:0;font-size:21px;line-height:1.15;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+.shot .tel{flex:1;min-height:0;width:78%;margin:0 auto -60px;border:5px solid #1b232c;border-radius:26px 26px 0 0;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgba(143,224,180,.22)}
+.shot .tel img{display:block;width:100%;height:auto}
+.shot .src{position:absolute;left:12px;right:12px;bottom:10px;margin:0;font-size:12px;line-height:1.3;color:var(--ink);background:rgba(4,6,10,.85);padding:4px 8px;border-radius:6px}
+@media(max-width:900px){.shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.shots>li{flex:0 0 min(84vw,340px);scroll-snap-align:center}.shot .tel{width:66%}}
 </style>
 </head>
 <body>
@@ -414,6 +427,15 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
       <div class="stats"><div><b>1 tap</b><span class="mono">To approve</span></div><div><b><span data-count="30">30</span> days</b><span class="mono">Of calendar</span></div><div><b>Free</b><span class="mono">6 tools today</span></div></div>
       <span class="go">See Neuri Marketing<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
+
+  <h3 class="shots-h rv">Real screens, on a phone.</h3>
+  <p class="shots-p rv">Screenshots of today's pages at phone size. Any data shown is test or sample data.</p>
+  <ul class="shots" aria-label="Screens of the four products">
+    <li><a class="shot" href="/en/bazar/" hreflang="en"><span class="tag">neuri.bazar</span><h4>Your mall, on your phone.</h4><div class="tel"><img src="/img/pantalla-bazar-en.jpg" alt="neuri.bazar home screen with a test bazaar: sales, balance owed to vendors and today's to-dos." width="480" height="680" loading="lazy" decoding="async"></div><p class="src">Test bazaar with test data.</p></a></li>
+    <li><a class="shot" href="/en/still-available/" hreflang="en"><span class="tag">neuri.bots</span><h4>Answers “is this still available?” for you.</h4><div class="tel"><img src="/img/pantalla-bots-en.jpg" alt="neuri.bots page on a phone, with its Get my assistant button." width="480" height="680" loading="lazy" decoding="async"></div><p class="src">neuri.bots live page.</p></a></li>
+    <li><a class="shot" href="/en/marketing/" hreflang="en"><span class="tag">Neuri Marketing</span><h4>See what your month of content looks like.</h4><div class="tel"><img src="/img/pantalla-marketing-en.jpg" alt="A made-up café's month on Instagram on the Neuri Marketing sample page." width="480" height="680" loading="lazy" decoding="async"></div><p class="src">Sample page: made-up business.</p></a></li>
+    <li><a class="shot" href="/en/ai-consulting/" hreflang="en"><span class="tag">neuri.consulting</span><h4>Read a sample assessment before you pay.</h4><div class="tel"><img src="/img/pantalla-consulting-en.jpg" alt="AI assessment of a fictional hardware store, with buttons to download the PDF and presentation." width="480" height="680" loading="lazy" decoding="async"></div><p class="src">Sample assessment: fictional business.</p></a></li>
+  </ul>
 </section>
 
 <section id="network" class="red" aria-labelledby="x-red">

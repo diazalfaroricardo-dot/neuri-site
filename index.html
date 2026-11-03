@@ -285,6 +285,19 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 @media(max-width:560px){.man,.sis,.red,.con,.pri,.lab{padding-left:16px;padding-right:16px}.man{padding-top:100px;padding-bottom:100px}.red,.con,.pri,.lab{padding-top:100px;padding-bottom:100px}.card{padding:24px;border-radius:22px;min-height:0}.eegband .in{padding:0 16px}footer{padding:28px 16px 60px}.fin{padding:120px 16px 110px}}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* I8: láminas con pantallas reales en teléfono (aprobadas 3-nov). A 390 se deslizan; en compu, 4 columnas. */
+.shots-h{margin:72px 0 8px;font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.03em}
+.shots-p{margin:0 0 24px;color:var(--sub);font-size:16px;max-width:40em}
+.shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.shot{display:flex;flex-direction:column;gap:12px;height:100%;aspect-ratio:4/5.6;position:relative;overflow:hidden;text-decoration:none;border:1px solid var(--line2);border-radius:18px;padding:20px;background:radial-gradient(90% 60% at 50% 95%,rgba(143,224,180,.28),transparent 70%),radial-gradient(70% 40% at 90% 10%,rgba(243,179,143,.16),transparent 70%),var(--panel)}
+.shot:hover{border-color:var(--line3);color:var(--ink)}
+.shot .tag{font:12px var(--mono);color:var(--mint)}
+.shot h4{margin:0;font-size:21px;line-height:1.15;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+.shot .tel{flex:1;min-height:0;width:78%;margin:0 auto -60px;border:5px solid #1b232c;border-radius:26px 26px 0 0;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgba(143,224,180,.22)}
+.shot .tel img{display:block;width:100%;height:auto}
+.shot .src{position:absolute;left:12px;right:12px;bottom:10px;margin:0;font-size:12px;line-height:1.3;color:var(--ink);background:rgba(4,6,10,.85);padding:4px 8px;border-radius:6px}
+@media(max-width:900px){.shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.shots>li{flex:0 0 min(84vw,340px);scroll-snap-align:center}.shot .tel{width:66%}}
 </style>
 </head>
 <body>
@@ -430,6 +443,15 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
       <div class="stats"><div><b>1 toque</b><span class="mono">Para aprobar</span></div><div><b><span data-count="30">30</span> días</b><span class="mono">De calendario</span></div><div><b>Gratis</b><span class="mono">6 herramientas hoy</span></div></div>
       <span class="go">Ver Neuri Marketing<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
+
+  <h3 class="shots-h rv">Pantallas reales, en el teléfono.</h3>
+  <p class="shots-p rv">Capturas de las páginas de hoy a tamaño de celular. Donde hay datos, son de prueba o de ejemplo.</p>
+  <ul class="shots" aria-label="Pantallas de los cuatro productos">
+    <li><a class="shot" href="/bazar/"><span class="tag">neuri.bazar</span><h4>Tu bazar, en tu celular.</h4><div class="tel"><img src="/img/pantalla-bazar-es.jpg" alt="Pantalla de inicio de neuri.bazar con un bazar de prueba: ventas, saldo por pagar a vendedores y pendientes del día." width="480" height="680" loading="lazy" decoding="async"></div><p class="src">Bazar de prueba, con datos de prueba.</p></a></li>
+    <li><a class="shot" href="/sigue-disponible/"><span class="tag">neuri.bots</span><h4>Contesta «¿sigue disponible?» por ti.</h4><div class="tel"><img src="/img/pantalla-bots-es.jpg" alt="Página de neuri.bots en un teléfono, con su botón Quiero mi asistente." width="480" height="680" loading="lazy" decoding="async"></div><p class="src">Página de neuri.bots, en vivo.</p></a></li>
+    <li><a class="shot" href="/marketing/"><span class="tag">Neuri Marketing</span><h4>Así se ve tu mes de contenido.</h4><div class="tel"><img src="/img/pantalla-marketing-es.jpg" alt="Mes de Instagram de un café inventado en la página de ejemplo de Neuri Marketing." width="480" height="680" loading="lazy" decoding="async"></div><p class="src">Página de ejemplo: negocio inventado.</p></a></li>
+    <li><a class="shot" href="/consultoria/"><span class="tag">neuri.consulting</span><h4>Lee un diagnóstico de ejemplo antes de pagar.</h4><div class="tel"><img src="/img/pantalla-consulting-es.jpg" alt="Diagnóstico de IA de una ferretería ficticia, con botones para descargar PDF y presentación." width="480" height="680" loading="lazy" decoding="async"></div><p class="src">Diagnóstico de ejemplo: negocio ficticio.</p></a></li>
+  </ul>
 </section>
 
 <section id="red" class="red" aria-labelledby="x-red">

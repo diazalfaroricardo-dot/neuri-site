@@ -114,3 +114,12 @@ Bien: axe AA 0 en 44, sin scroll horizontal, sin contenido mixto, 69 links inter
 - HECHO t66 (28-oct, pedido de Ricardo: «el nuevo diseño que aprobé no se ve en neuri.tech/consultoria») — /consultoria/ y /en/ai-consulting/ eran la copia vieja; el diseño v2 aprobado el 25-oct vive en consulting.neuri.tech. Ahora ambas redirigen (refresh + location.replace) a consulting.neuri.tech/?lang=es|en conservando ?ref y el ancla; noindex + canonical a consulting.neuri.tech; fuera del sitemap; llms.txt apunta a consulting.neuri.tech. Los links internos a /consultoria/ se quedan (rebotan solos). t52/t56/jsonld/legal-pie ya no exigen contenido en esas páginas. Candado scripts/t66-consultoria-redirect-test.mjs [--live]. NO revivir contenido en /consultoria: cualquier cambio de diseño de consulting va en apps/consulting (repo neuri-bazar).
 - HECHO (3-nov 13:06, hallazgo de auditoría aparte, B-A8/B-N2): en /sigue-disponible/ y /en/still-available/ el paso 2 «Conectas tu cuenta» no decía que la conexión espera a Meta (solo en una pregunta frecuente cerrada); ahora sí, con el mismo texto de esa pregunta (b63c9f8). El globo de ayuda tapaba el final de «Quiero mi asistente» en la barra fija: ya sube sobre `.dock` (5efdcfc). Quitar el aviso y su prueba `bots-paso2-meta-test.mjs` cuando Meta apruebe.
 - HECHO job `pruebas` del CI: instala playwright y t51 mide con Geist en vez de la letra de reserva de la máquina (d4007e4).
+
+## Recuento de ESTACIONADOS · 3-nov 15:07 (nube)
+Ricardo 26-oct: los ESTACIONADOS cuentan como abiertos; los recuentos anteriores los dejaban fuera. Revisados uno por uno:
+- YA CUBIERTOS, sin código: T57 (el logo a «/» es lo que pide B-A5) · T37 (hecho en t19).
+- [ ] 🔒 Tiempo de respuesta junto al correo: Ricardo ya decidió 1 día hábil, se publica con t36, que no es de esta tarea.
+- [ ] 🔒 Promesa «tu precio no sube»: decisión de Ricardo.
+- [ ] 🔒 Páginas «vs» por competidor: afirmaciones sobre terceros; decisión de Ricardo.
+- [ ] T-EST1 (baja) «Cómo empiezas» en la portada: visual, va como vista previa + tarjeta.
+- [ ] T-EST2 (baja) Página de integraciones: visual, va como vista previa + tarjeta.

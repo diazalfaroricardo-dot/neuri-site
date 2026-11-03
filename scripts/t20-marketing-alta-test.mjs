@@ -16,6 +16,9 @@ for (const f of ["marketing/index.html", "en/marketing/index.html"]) {
   no(f, /(se activa|se encienden?|turns? on) (al abrir|at launch|when we open)|cuando abramos/i, "«al abrir» con el alta abierta");
   no(f, /Todavía no\. Lo estamos construyendo|Not yet\. We're building it/, "FAQ dice que todavía no se puede usar");
   no(f, /href="#lista">(Apartar mi lugar|Save my spot)/, "botón de plan a la lista de espera");
+  // AUD29: con el alta abierta, POST /lista en producción redirige a /empezar sin guardar: un formulario
+  // de «te avisamos» aquí promete un aviso que nunca sale.
+  no(f, /marketing\.neuri\.tech\/lista|data-form="marketing"|id="join"/, "formulario que promete avisar y no guarda (AUD29)");
   yes(f, /data-cta="marketing header"[^>]*>|href="https:\/\/marketing\.neuri\.tech\/empezar\?lang=(es|en)" data-cta="marketing header"/, "CTA del encabezado");
   yes(f, /href="https:\/\/marketing\.neuri\.tech\/empezar\?lang=(es|en)" data-cta="marketing header"/, "encabezado → /empezar");
   for (const p of ["inicio", "crece", "pro"])

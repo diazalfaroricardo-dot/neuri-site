@@ -965,36 +965,6 @@ html.m .sec{content-visibility:visible}
   </div>
 </div></section>
 
-<section class="sec" id="lista" style="padding-top:0"><div class="wrap join">
-  <div class="rv">
-    <div class="sec-head" style="margin-bottom:0"><span class="eyebrow">¿Todavía no?</span><h2 class="h2">Te avisamos de lo nuevo.</h2><p class="lede">Si aún no quieres crear tu cuenta, déjanos tu correo. Sin costo y sin compromiso.</p></div>
-    <ul class="perks">
-      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="15" height="11" rx="2.5"/><path d="M3 6l7 5 7-5"/></svg></span><span><b>Solo lo importante</b>Un correo cuando haya algo nuevo. Nada de spam.</span></li>
-      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span><b>Sin tarjeta, sin compromiso</b>Apuntarte no te obliga a nada.</span></li>
-      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="12" height="8" rx="2"/><path d="M7 9V6.5a3 3 0 016 0V9"/></svg></span><span><b>Tus datos, cuidados</b>Solo para avisarte de novedades. No los vendemos ni los compartimos.</span></li>
-    </ul>
-  </div>
-  <div class="formcard rv-s">
-    <form id="join" method="post" action="https://marketing.neuri.tech/lista?src=neuri-tech" data-form="marketing"><input type="hidden" name="lang" value="es">
-      <label class="hp" aria-hidden="true">Web <input name="website" tabindex="-1" autocomplete="off"></label>
-      <div class="two"><div class="field"><label for="f-name">Tu nombre</label><input id="f-name" name="name" required maxlength="120" autocomplete="name"></div>
-      <div class="field"><label for="f-biz">Nombre del negocio</label><input id="f-biz" name="business" required maxlength="160" autocomplete="organization"></div></div>
-      <div class="field"><label for="f-mail">Correo</label><input id="f-mail" name="email" type="email" required maxlength="200" autocomplete="email"></div>
-      <div class="two"><div class="field"><label for="f-wa">WhatsApp (opcional)</label><input id="f-wa" name="whatsapp" type="tel" maxlength="30" autocomplete="tel"></div>
-      <div class="field"><label for="f-giro">Giro</label><select id="f-giro" name="sector"><option>Café / restaurante</option><option>Bazar / tianguis</option><option>Tienda</option><option>Servicios</option><option>Otro</option></select></div></div>
-      <fieldset class="field"><legend>¿Qué redes usas?</legend><div class="nets">
-        <input id="n1" type="checkbox" name="networks" value="Instagram"><label for="n1">Instagram</label>
-        <input id="n2" type="checkbox" name="networks" value="Facebook"><label for="n2">Facebook</label>
-        <input id="n3" type="checkbox" name="networks" value="TikTok"><label for="n3">TikTok</label>
-        <input id="n4" type="checkbox" name="networks" value="LinkedIn"><label for="n4">LinkedIn</label>
-        <input id="n5" type="checkbox" name="networks" value="WhatsApp"><label for="n5">WhatsApp</label>
-      </div></fieldset>
-      <button class="btn ink" type="submit" data-cta="marketing submit">Apuntarme <span class="arr" aria-hidden="true">→</span></button>
-      <p class="fine">Al apuntarte aceptas que te escribamos sobre Neuri Marketing. Puedes darte de baja cuando quieras. <a href="https://marketing.neuri.tech/privacidad?lang=es">Lee el aviso de privacidad</a>.</p>
-    </form>
-  </div>
-</div></section>
-
 <section class="sec" id="preguntas" style="padding-top:0"><div class="wrap faqwrap">
   <div class="sec-head rv" style="margin-bottom:0"><span class="eyebrow">Preguntas</span><h2 class="h2">Lo que nos preguntan.</h2><p class="lede">¿Te quedó otra duda? Escríbenos a hola@neuri.tech.</p></div>
   <div class="faq rv">
@@ -1168,8 +1138,6 @@ html.m .sec{content-visibility:visible}
     new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!started){started=true;orbit.style.animation='none';void orbit.offsetWidth;orbit.style.animation='';mset(0);setInterval(function(){mi=(mi+1)%4;mset(mi)},2000)}})},{threshold:.4}).observe(document.querySelector('.cycle'));
   }
 
-  // Origen del visitante (?src=) en la lista de espera
-  var src=new URLSearchParams(location.search).get('src'),jf=document.querySelector('[data-form]');if(jf&&src&&/^[a-z0-9_-]{1,40}$/.test(src))jf.action='https://marketing.neuri.tech/lista?src='+src;
   // MK160: «Hecho con Neuri» llega con ?ref=<negocio>; lo pasamos al alta para atribuir el referido (sin cookies).
   var ref=new URLSearchParams(location.search).get('ref');if(ref&&/^[a-z0-9-]{2,40}$/.test(ref))document.querySelectorAll('a[href^="https://marketing.neuri.tech/empezar"]').forEach(function(a){var u=new URL(a.href);u.searchParams.set('ref',ref);a.href=u.toString()});
 })();

@@ -21,7 +21,7 @@ if (!/\$4,500[\s\S]{0,200}diagnóstico desde/.test(home)) bad("la tarjeta de con
 if (/Sistema en línea/i.test(home)) bad("«Sistema en línea» se lee como estado real del servicio");
 for (const m of home.matchAll(/([^>]{0,20})señales([^<]{0,20})\/ min/g))
   if (!/de ejemplo/.test(m[0])) bad(`«${m[0].trim()}» sin «de ejemplo»`);
-if (!/Actividad neural · simulación/.test(home)) bad("falta la etiqueta «simulación» de la animación");
+if (!/Actividad del agente · simulación/.test(home)) bad("falta la etiqueta «simulación» de la animación");
 // T12b: lo mismo en las landings de consulting (ES/EN) y llms.txt: ninguna promete revisión humana de cada diagnóstico.
 for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.txt"]) {
   const txt = readFileSync(join(root, f), "utf8").replace(/\(si algo no cuadra, lo revisa una persona\)|\(if something doesn.t add up, a person reviews it\)/gi, "");

@@ -30,8 +30,7 @@ const CASES = [
   { path: "/en/still-available/", text: "Sign in", hrefs: ["https://sd.neuri.tech/entrar?lang=en"] },
   { path: "/bazar/", text: "Entrar", hrefs: ["https://bazar.neuri.tech/login?lang=es"] },
   { path: "/en/bazar/", text: "Sign in", hrefs: ["https://bazar.neuri.tech/login?lang=en"] },
-  { path: "/consultoria/", text: "Entrar", hrefs: ["https://consulting.neuri.tech/entrar?lang=es"] },
-  { path: "/en/ai-consulting/", text: "Sign in", hrefs: ["https://consulting.neuri.tech/entrar?lang=en"] },
+  // /consultoria y /en/ai-consulting redirigen a consulting.neuri.tech desde t66: ahí el «Entrar» es de la app.
 ];
 // axe-core del repo neuri-bazar (AXE=ruta opcional); sin él la prueba avisa y sigue.
 const AXE = process.env.AXE || join(homedir(), "neuri-bazar/node_modules/.pnpm/axe-core@4.10.3/node_modules/axe-core/axe.min.js");

@@ -2,11 +2,11 @@
 // ES/EN, el logo regresa a neuri.tech (T18) y el pie liga a los otros productos de Neuri con páginas que existen.
 import { createRequire } from "node:module";
 import { readFileSync, existsSync } from "node:fs";
-const req = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`);
-const { chromium } = req("./index.js");
+const req = createRequire(import.meta.url);
+const { chromium } = req("playwright-core");
 const root = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const live = process.argv.includes("--live");
-const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
+const b = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
 const ok = (c, m) => { console.log(c ? "OK  " : "FAIL", m); if (!c) fail++; };
 for (const [path, label, others] of [["/bazar/", "English", ["/consultoria/", "/marketing/", "/sigue-disponible/"]], ["/en/bazar/", "Español", ["/en/ai-consulting/", "/en/marketing/", "/en/still-available/"]]]) {

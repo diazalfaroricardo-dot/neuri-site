@@ -10,3 +10,16 @@ jobs:
           node-version: 22
       - run: npm install --no-save playwright-core@1.55.1 && npx playwright-core install --with-deps chromium
       - run: node scripts/visual.mjs
+  pruebas:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright-core@1.55.1 axe-core@4.10.3 && npx playwright-core install --with-deps chromium
+      - run: |
+          export CHROME=$(node -e "console.log(require('playwright-core').chromium.executablePath())")
+          export AXE=$PWD/node_modules/axe-core/axe.min.js
+          scripts/correr-pruebas.sh

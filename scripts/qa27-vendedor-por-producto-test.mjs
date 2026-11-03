@@ -5,7 +5,7 @@ import { createRequire } from "node:module";
 import { readFileSync, existsSync } from "node:fs";
 let chromium;
 try {
-  ({ chromium } = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`)("./index.js"));
+  ({ chromium } = createRequire(import.meta.url)("./index.js"));
 } catch (_) {
   ({ chromium } = createRequire(import.meta.url)("playwright"));
 }

@@ -50,7 +50,7 @@ let chromium;
 try {
   ({ chromium } = createRequire(import.meta.url)("playwright"));
 } catch {
-  ({ chromium } = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`)("./index.js"));
+  ({ chromium } = createRequire(import.meta.url)("./index.js"));
 }
 const br = await chromium.launch(process.env.CHROME ? { executablePath: process.env.CHROME } : {});
 const ctx = await br.newContext();

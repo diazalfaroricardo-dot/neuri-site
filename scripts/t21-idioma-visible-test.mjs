@@ -20,8 +20,6 @@ const server = createServer((req, res) => {
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const base = LIVE ? "https://neuri.tech" : `http://127.0.0.1:${server.address().port}`;
 const CASES = [
-  { path: "/consultoria/", label: "EN", href: "/en/ai-consulting/" },
-  { path: "/en/ai-consulting/", label: "ES", href: "/consultoria/" },
   { path: "/sigue-disponible/", label: "EN", href: "/en/still-available/" },
   { path: "/en/still-available/", label: "ES", href: "/sigue-disponible/" },
   { path: "/marketing/", label: "EN", href: "/en/marketing/" },

@@ -30,7 +30,7 @@ const PIES = {
   "en/still-available/index.html": "en", "en/still-available/food/index.html": "en", "en/still-available/creators/index.html": "en", "en/still-available/appointments/index.html": "en",
 };
 const LEGAL = { es: ["Privacidad", "Términos", "Borrar mis datos"], en: ["Privacy", "Terms", "Delete my data"] };
-const PROD = { es: ["Productos", ["/", "/bazar/", "/consultoria/", "/marketing/"]], en: ["Products", ["/", "/en/bazar/", "/en/ai-consulting/", "/en/marketing/"]] };
+const PROD = { es: ["Productos", ["/", "/bazar/", "/consultoria/", "/marketing/"]], en: ["Products", ["/en/home/", "/en/bazar/", "/en/ai-consulting/", "/en/marketing/"]] };
 for (const [p, lang] of Object.entries(PIES)) {
   const h = read(p);
   const pies = h.split("<footer").slice(1).map((f) => f.split("</footer>")[0]);

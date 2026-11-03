@@ -2,10 +2,10 @@
 // (desde el encabezado #en-h hasta el final del contenido), para lectores de pantalla y traductores.
 import { createRequire } from "node:module";
 import { readFileSync } from "node:fs";
-const req = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`);
-const { chromium } = req("./index.js");
+const req = createRequire(import.meta.url);
+const { chromium } = req("playwright-core");
 const root = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
-const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
+const b = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
 for (const p of [] /* T50: /legal/ y /novedades/ ya no mezclan idiomas; su inglés vive en /en/legal/ y /en/whats-new/ (t50, t50b) */) {
   const page = await b.newPage();

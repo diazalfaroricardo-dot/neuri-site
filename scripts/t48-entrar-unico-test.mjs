@@ -3,7 +3,7 @@
 // junto a «Entrar» y el visitante nuevo terminaba en el login sin cuenta).
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-const ok = /^Entrar(\s+a\s+neuri\.(bazar|bots|consulting|marketing))?$/;
+const ok = /^Entrar(\s+a\s+(mi cuenta|neuri\.(bazar|bots|consulting|marketing)))?$/;
 const files = [];
 (function walk(d) {
   for (const f of readdirSync(d)) {

@@ -15,7 +15,7 @@ const port = server.address().port;
 // A226: --live corre lo mismo contra https://neuri.tech (producción)
 const LIVE = process.argv.includes("--live");
 const BASE = LIVE ? "https://neuri.tech" : `http://localhost:${port}`;
-const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
+const b = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
 for (const [path, good, bad, ok] of [
   ["/sigue-disponible/?lang=es", "Silla roja $450 MXN; Lámpara $300", "silla bonita", "Entendí"],

@@ -1,10 +1,10 @@
 // T15: ?lang=es|en lleva a su par aunque el navegador sea automatizado (webdriver=true), 390 y 1280.
 import { createRequire } from "node:module";
 import { readFileSync, existsSync } from "node:fs";
-const req = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`);
-const { chromium } = req("./index.js");
+const req = createRequire(import.meta.url);
+const { chromium } = req("playwright-core");
 const root = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
-const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
+const b = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
 const cases = [
   ["/bazar/?lang=en", "/en/bazar/", "en"],

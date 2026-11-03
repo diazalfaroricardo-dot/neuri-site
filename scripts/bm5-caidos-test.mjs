@@ -9,7 +9,7 @@ import { chromium } from "playwright-core";
 
 const root = new URL("..", import.meta.url).pathname;
 const live = process.argv.includes("--live");
-const PAGES = ["/", "/en/home/", "/bazar/", "/en/bazar/", "/sigue-disponible/", "/en/still-available/", "/consultoria/", "/en/ai-consulting/", "/marketing/", "/en/marketing/"];
+const PAGES = ["/", "/en/home/", "/bazar/", "/en/bazar/", "/sigue-disponible/", "/en/still-available/", "/marketing/", "/en/marketing/"];
 const CAIDOS = /fonts\.googleapis\.com|fonts\.gstatic\.com|posthog\.com|sd\.neuri\.tech|consulting\.neuri\.tech|railway\.app/;
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".woff2": "font/woff2", ".json": "application/json", ".txt": "text/plain" };
 

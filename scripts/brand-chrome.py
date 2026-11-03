@@ -221,10 +221,12 @@ def build(rel, cfg):
                   lambda m: m.group(1) + OG[(brand, lang)] + m.group(2), head)
     content = extract(rel, kind, body)
     wrap = {"hub": "nb-wrap nb-hub", "tour": "nb-wrap wide", "home": "nb-wrap nb-home"}.get(kind, "nb-wrap")
+    # La 404 de GitHub Pages es una sola: bajo /en/ se pasa a inglés con este script (auditoría 2-nov).
+    extra = (R / "scripts/404-en.js.html").read_text(encoding="utf-8") if rel == "404.html" else ""
     out = (f'<!doctype html>\n<html lang="{lang}" data-brand="{brand}">\n<head>\n{head.strip()}\n{marca_head(brand, lang)}\n</head>\n<body>\n'
            f"{header(brand, lang, alt)}\n"
            f'<main id="contenido" class="nb-main"><div class="{wrap}">\n<!--contenido-->\n{content}\n<!--/contenido-->\n</div></main>\n'
-           f"{footer(brand, lang, alt)}\n<script src=\"/assets/menu-esc.js\" defer></script>\n</body>\n</html>\n")
+           f"{footer(brand, lang, alt)}\n{extra}<script src=\"/assets/menu-esc.js\" defer></script>\n</body>\n</html>\n")
     f.write_text(out, encoding="utf-8")
     print("ok", rel)
 

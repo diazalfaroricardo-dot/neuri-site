@@ -3,11 +3,11 @@
 // Uso: node scripts/qa14-qa15-test.mjs [--live]
 import { createRequire } from "node:module";
 import { readFileSync, existsSync } from "node:fs";
-const req = createRequire(`${process.env.HOME}/neuri-bazar/node_modules/.pnpm/playwright-core@1.55.1/node_modules/playwright-core/package.json`);
-const { chromium } = req("./index.js");
+const req = createRequire(import.meta.url);
+const { chromium } = req("playwright-core");
 const root = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const live = process.argv.includes("--live");
-const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
+const b = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fail = 0;
 const pages = [["/sigue-disponible/", "es", /^10 dígitos\. Si no es de EE\. UU\., agrega la clave de tu país/], ["/en/still-available/", "en", /^10 digits\. Outside the US\? Add your country code/]];
 for (const w of [390, 1280]) {

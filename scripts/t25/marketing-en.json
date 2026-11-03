@@ -40,7 +40,7 @@
   ["<b>Posible cliente</b><span>«¿Cuánto cuesta el latte grande?»</span>","<b>Possible customer</b><span>“How much is the large latte?”</span>"],
   ["<b>Reel listo para aprobar</b><span>Detrás de la barra</span>","<b>Reel ready to approve</b><span>Behind the bar</span>"],
   ["<b>Semana aprobada</b><span>Sale el lunes a las 8:30</span>","<b>Week approved</b><span>Goes out Monday at 8:30</span>"],
-  ["<h3 id=\"wtitle\">Tu semana · Cafetería</h3>","<h3 id=\"wtitle\">Your week · Coffee shop</h3>"],
+  ["<h2 id=\"wtitle\">Tu semana · Cafetería</h2>","<h2 id=\"wtitle\">Your week · Coffee shop</h2>"],
   ["<span id=\"wstatus\">Ejemplo · 4 piezas listas</span>","<span id=\"wstatus\">Example · 4 pieces ready</span>"],
   ["Cada pieza sale de tu kit de marca y de tus fotos reales. Nada se publica sin tu visto bueno.","Every piece comes from your brand kit and your real photos. Nothing is posted without your OK."],
   ["Ver un mes de ejemplo, sin cuenta <span","See an example month, no account <span"],

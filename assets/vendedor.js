@@ -393,7 +393,7 @@
     const lift = () => {
       raf = 0;
       let px = 0;
-      for (const el of document.querySelectorAll(".sticky, .cta-fijo")) {
+      for (const el of document.querySelectorAll(".sticky, .cta-fijo, .dock")) {
         const r = el.getBoundingClientRect();
         if (r.height && r.top < innerHeight && r.bottom > innerHeight - 140 && getComputedStyle(el).opacity !== "0")
           px = Math.max(px, innerHeight - r.top + 4);

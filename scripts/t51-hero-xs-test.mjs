@@ -27,8 +27,10 @@ let fallas = 0;
 for (const w of [390, 1280]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: 844 }, locale: "es-MX" });
   const page = await ctx.newPage();
-  await page.route(/^(?!https?:\/\/(127\.0\.0\.1|neuri\.tech))/, (r) => r.abort());
-  await page.goto(`${base}/?lang=es`, { waitUntil: "domcontentloaded" });
+  // Con la letra real: sin Geist cada máquina cae en otra letra de reserva y el botón baja hasta 80 px (DejaVu en CI).
+  await page.route(/^(?!https?:\/\/(127\.0\.0\.1|neuri\.tech|fonts\.googleapis\.com|fonts\.gstatic\.com))/, (r) => r.abort());
+  await page.goto(`${base}/?lang=es`, { waitUntil: "networkidle" });
+  await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(400);
   const m = await page.evaluate(() => {
     const vis = (el) => el && el.getClientRects().length > 0 && getComputedStyle(el).visibility !== "hidden";

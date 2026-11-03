@@ -24,16 +24,17 @@ for (const ruta of ["/sigue-disponible/", "/en/still-available/"]) {
   for (const [w, h] of [[390, 844], [360, 740]]) {
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, isMobile: true, hasTouch: true });
     const page = await ctx.newPage();
-    await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (r) =>
+    // Con Geist: la letra de reserva de CI ensancha la página a 360 px.
+    await page.route(/^https?:\/\/(?!127\.0\.0\.1|fonts\.googleapis\.com|fonts\.gstatic\.com)/, (r) =>
       r.request().url().endsWith("/api/vendedor/estado")
         ? r.fulfill({ status: 200, contentType: "application/json", body: '{"activo":true}' })
         : r.abort(),
     );
-    await page.goto(base + ruta, { waitUntil: "load" });
-    await page.mouse.wheel(0, 1400);
-    await page.waitForTimeout(900);
-    await page.mouse.wheel(0, 60);
-    await page.waitForTimeout(900);
+    await page.goto(base + ruta, { waitUntil: "networkidle" });
+    await page.evaluate(() => document.fonts.ready);
+    // Un solo gesto: quien deja de mover la página también debe ver el globo arriba de la barra.
+    await page.evaluate(() => scrollTo(0, 1400));
+    await page.waitForTimeout(1200);
     const m = await page.evaluate(() => {
       const R = (e) => { const r = e.getBoundingClientRect(); return { l: Math.round(r.left), t: Math.round(r.top), r: Math.round(r.right), b: Math.round(r.bottom), w: Math.round(r.width) }; };
       const btn = document.querySelector(".dock.show .btn");

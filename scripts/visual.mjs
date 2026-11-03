@@ -121,7 +121,7 @@ for (const pg of pages) {
         if (e.tagName === "A" && !e.innerText.trim() && !e.querySelector("svg,img") && !e.getAttribute("aria-label")) continue; // texto oculto, no se ve ni se toca
         const h = e.getBoundingClientRect().height;
         const inline = !!e.closest("p,li") && e.tagName === "A";
-        if (h < (inline ? 24 : 44)) small.push(`${e.tagName.toLowerCase()} «${txt(e)}» ${Math.round(h)}px`);
+        if (Math.round(h) < (inline ? 24 : 44)) small.push(`${e.tagName.toLowerCase()} «${txt(e)}» ${Math.round(h)}px`);
       }
       return {
         overflow: document.documentElement.scrollWidth - window.innerWidth,

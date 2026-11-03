@@ -400,8 +400,12 @@
       }
       host.style.setProperty("--nv-lift", `${Math.round(px)}px`);
     };
+    let tras = 0;
     const onMove = () => {
       if (!raf) raf = requestAnimationFrame(lift);
+      // La barra entra con transición: se vuelve a medir cuando ya terminó, aunque nadie siga moviendo la página.
+      clearTimeout(tras);
+      tras = setTimeout(lift, 450);
     };
     addEventListener("scroll", onMove, { passive: true });
     addEventListener("resize", onMove);

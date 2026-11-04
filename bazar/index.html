@@ -425,6 +425,7 @@ details.b-assume[open] .b-chev{transform:rotate(180deg)}
 .legacy .opcion input:focus-visible+span{outline:3px solid var(--etiqueta);outline-offset:2px}
 .legacy .error{color:var(--rosa);font-weight:650;font-size:15px;margin-top:8px}
 .legacy .error:empty{display:none}
+.legacy .sug-correo{display:block;width:100%;min-height:44px;margin-top:6px;padding:8px 0;background:none;border:0;color:inherit;font:inherit;font-weight:650;font-size:15px;text-align:left;text-decoration:underline;overflow-wrap:anywhere;cursor:pointer}
 .legacy .asistente-botones{display:flex;gap:10px;justify-content:space-between;margin-top:24px;flex-wrap:wrap}
 .legacy .asistente-botones .btn-anil{margin-left:auto}
 .legacy .btn-atras{background:none;border:0;text-decoration:underline;font-weight:650;cursor:pointer;padding:12px 4px;color:var(--gris)}
@@ -1892,6 +1893,7 @@ Elige un puesto libre
           <label for="f-correo">Correo</label>
           <input type="email" id="f-correo" name="correo" autocomplete="email" inputmode="email" placeholder="tu@correo.com" aria-describedby="e-correo">
           <p class="error" id="e-correo" role="alert"></p>
+          <div aria-live="polite"><button type="button" class="sug-correo" id="sug-correo" hidden></button></div>
         </div>
         <div class="resumen" id="resumen"></div>
       </div>
@@ -3869,6 +3871,20 @@ var APP_URL = 'https://bazar.neuri.tech';
     $('#' + id).textContent = msg || '';
     if (campo) campo.setAttribute('aria-invalid', msg ? 'true' : 'false');
   }
+  /* 568: mismo aviso que el alta de la app. Solo sugiere; nunca cambia el correo sin que se toque. */
+  var TYPOS = {'gmial.com':'gmail.com','gmal.com':'gmail.com','gmai.com':'gmail.com','gamil.com':'gmail.com','gmail.co':'gmail.com','gmail.con':'gmail.com','gmail.cm':'gmail.com','hotmial.com':'hotmail.com','hotmal.com':'hotmail.com','hotmail.co':'hotmail.com','hotmail.con':'hotmail.com','outlok.com':'outlook.com','outlook.co':'outlook.com','outlook.con':'outlook.com','yaho.com':'yahoo.com','yahoo.co':'yahoo.com','yahoo.con':'yahoo.com','yahooo.com':'yahoo.com','icloud.co':'icloud.com','icloud.con':'icloud.com'};
+  (function () {
+    var c = form.elements.correo, b = $('#sug-correo'), fix = null;
+    if (!c || !b) return;
+    function ver() {
+      var m = c.value.trim().match(/^([^\s@]+)@([^\s@]+)$/), d = m && m[2].toLowerCase();
+      fix = m && Object.prototype.hasOwnProperty.call(TYPOS, d) ? m[1] + '@' + TYPOS[d] : null;
+      b.hidden = !fix; b.textContent = fix ? '¿Quisiste decir ' + fix + '?' : '';
+    }
+    c.addEventListener('input', ver);
+    b.addEventListener('click', function () { if (fix) { c.value = fix; ver(); c.focus(); } });
+    ver();
+  })();
   function validar(p) {
     if (p === 1) {
       var ok = val('nombre').length >= 2;

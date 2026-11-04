@@ -53,7 +53,7 @@ for (const [path, sel, want] of [
   ["/?ref=TEST", 'a[href*="bazar.neuri.tech"]', "bazar.neuri.tech"],
   ["/bazar/?ref=TEST", "a[data-trial]", "bazar.neuri.tech"],
   ["/en/bazar/?ref=TEST", "a[data-trial]", "bazar.neuri.tech"],
-  ["/marketing/?ref=TEST", 'a[href*="marketing.neuri.tech/empezar"]', "marketing.neuri.tech"],
+  // Marketing: alta cerrada por Ricardo (t20, 4-nov); la landing no liga a /empezar hasta que abra.
 ]) {
   const r = await clickHref(path, sel);
   check(r.href && r.href.includes(want) && /[?&]ref=test\b/.test(r.href), `${path} ${sel} → ${r.href}`);

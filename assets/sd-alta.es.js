@@ -147,7 +147,7 @@
     form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',reqMarks);});
     reqMarks();
     function giroLabel(){var g=form.querySelector('input[name=giro]:checked');return g?g.nextElementSibling.textContent.trim():'';}
-    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');var same={ropa:'ropa',comida:'comida'}[giroValue()];if(same&&!picked.length){var chip=vp.querySelectorAll('input')[ORDEN.indexOf(same)];if(chip&&!chip.checked){chip.checked=true;chip.dispatchEvent(new Event('change'));}}});});
+    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var ap=document.getElementById('apartadoBox');if(ap){var gv=giroValue();ap.hidden=gv!=='bazar'&&gv!=='ropa';if(ap.hidden)document.getElementById('apartado').value='';}var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');var same={ropa:'ropa',comida:'comida'}[giroValue()];if(same&&!picked.length){var chip=vp.querySelectorAll('input')[ORDEN.indexOf(same)];if(chip&&!chip.checked){chip.checked=true;chip.dispatchEvent(new Event('change'));}}});});
     // A124: ?giro=creador (u otro giro) preselecciona la tarjeta; el link de «Para creadores» lo hace sin recargar
     function pickGiro(v){var r=form.querySelector('input[name=giro][value="'+v+'"]');if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change'));}return !!r;}
     var giroQ=(new URLSearchParams(location.search).get('giro')||'').replace(/[^a-z]/g,'');if(giroQ)pickGiro(giroQ);
@@ -211,7 +211,7 @@
       var ok=document.getElementById('ok');ok.innerHTML=html;ok.hidden=false;ok.focus();
     }
     function mailto(d){
-      var labels={nombre:'Nombre',whatsapp:'WhatsApp',correo:'Correo',negocio:'Negocio',giro:'Giro',subgiro:'Giro (citas)',vendes:'Qué vende',donde:'Dónde vende',mensajes:'Mensajes al día',horario:'Horario',entrega:'Entrega',pagos:'Pagos',faq:'Preguntas frecuentes',agenda:'Agenda',plan:'Plan'};
+      var labels={nombre:'Nombre',whatsapp:'WhatsApp',correo:'Correo',negocio:'Negocio',giro:'Giro',subgiro:'Giro (citas)',vendes:'Qué vende',donde:'Dónde vende',mensajes:'Mensajes al día',horario:'Horario',entrega:'Entrega',apartado:'Apartado',pagos:'Pagos',faq:'Preguntas frecuentes',agenda:'Agenda',plan:'Plan'};
       var lines=['ALTA ¿SIGUE DISPONIBLE?',''];
       if(altaId)lines.push('Alta: '+altaId,'');
       if(refCode)lines.push('Recomendado por: '+refCode,'');

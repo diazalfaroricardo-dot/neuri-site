@@ -1897,6 +1897,7 @@ Build my bot
         <div class="fields">
           <div class="f"><label for="horario">Business hours <span class="opt" data-req="citas comida otro">(optional)</span></label><input type="text" id="horario" name="horario" placeholder="Mon–Sat, 10 am to 7 pm"></div>
           <div class="f"><label for="entrega">Pickup or delivery <span class="opt" data-req="citas comida otro">(optional)</span></label><textarea id="entrega" name="entrega" aria-describedby="h-entrega" placeholder="Pickup in Mesa near Main &amp; Dobson. I deliver in the East Valley for $40; Phoenix I quote."></textarea><p class="help" id="h-entrega">Area, pickup spot, whether you deliver or ship and what it costs.</p></div>
+          <div class="f" id="apartadoBox" hidden><label for="apartado">How do you hold an item? <span class="opt">(optional)</span></label><input type="text" id="apartado" name="apartado" maxlength="200" aria-describedby="h-apartado" placeholder="I can hold it for 24 hours, no deposit"><p class="help" id="h-apartado">Your assistant tells this to anyone who asks you to hold something. If you leave it blank, it holds for 24 hours.</p></div>
           <div class="f"><span class="lab" id="l-pagos">Payment methods <span class="opt" data-req="bazar ropa citas comida otro">(needed to turn it on; optional for creators)</span></span><div class="pills" id="pagosPills" role="group" aria-labelledby="l-pagos"></div><input type="hidden" id="pagos" name="pagos"></div>
           <div class="f"><span class="lab" id="l-agenda">Should it book pickups, visits or deliveries?</span><div class="pills" role="radiogroup" aria-labelledby="l-agenda">
             <label class="pill"><input type="radio" name="agenda" value="Sí"><span>Yes, book them (Pro plan)</span></label>
@@ -1971,7 +1972,7 @@ Build my bot
 <script src="/assets/dc-lite.js"></script>
 <script src="/assets/demo-qr.js" defer></script>
 <script src="/assets/sd-demo.en.js?v=e1b918c7"></script>
-<script src="/assets/sd-alta.en.js?v=ac730a90"></script>
+<script src="/assets/sd-alta.en.js?v=ea4fa83b"></script>
 <script src="/assets/bots-v3.js" defer></script>
 <script src="/assets/menu-esc.js" defer></script>
 </body>

@@ -104,7 +104,7 @@
     form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',reqMarks);});
     reqMarks();
     function giroLabel(){var g=form.querySelector('input[name=giro]:checked');return g?g.nextElementSibling.textContent.trim():'';}
-    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');var same={ropa:'ropa',comida:'comida'}[giroValue()];if(same&&!picked.length){var chip=vp.querySelectorAll('input')[ORDEN.indexOf(same)];if(chip&&!chip.checked){chip.checked=true;chip.dispatchEvent(new Event('change'));}}});});
+    form.querySelectorAll('input[name=giro]').forEach(function(r){r.addEventListener('change',function(){var ap=document.getElementById('apartadoBox');if(ap){var gv=giroValue();ap.hidden=gv!=='bazar'&&gv!=='ropa';if(ap.hidden)document.getElementById('apartado').value='';}var c=giroValue()==='citas';subBox.hidden=!c;if(!c)subSel.value='';document.getElementById('giros').setAttribute('aria-invalid','false');document.getElementById('e-giro').classList.remove('on');var same={ropa:'ropa',comida:'comida'}[giroValue()];if(same&&!picked.length){var chip=vp.querySelectorAll('input')[ORDEN.indexOf(same)];if(chip&&!chip.checked){chip.checked=true;chip.dispatchEvent(new Event('change'));}}});});
     // A124: ?giro=creador (u otro giro) preselecciona la tarjeta; el link de «Para creadores» lo hace sin recargar
     function pickGiro(v){var r=form.querySelector('input[name=giro][value="'+v+'"]');if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change'));}return !!r;}
     var giroQ=(new URLSearchParams(location.search).get('giro')||'').replace(/[^a-z]/g,'');if(giroQ)pickGiro(giroQ);
@@ -168,7 +168,7 @@
       var ok=document.getElementById('ok');ok.innerHTML=html;ok.hidden=false;ok.focus();
     }
     function mailto(d){
-      var labels={nombre:'Name',whatsapp:'Mobile',correo:'Email',negocio:'Business',giro:'Business type',subgiro:'Business type (citas)',vendes:'Sells',donde:'Sells on',mensajes:'Messages per day',horario:'Hours',entrega:'Pickup/delivery',pagos:'Payments',faq:'Common questions',agenda:'Booking',plan:'Plan'};
+      var labels={nombre:'Name',whatsapp:'Mobile',correo:'Email',negocio:'Business',giro:'Business type',subgiro:'Business type (citas)',vendes:'Sells',donde:'Sells on',mensajes:'Messages per day',horario:'Hours',entrega:'Pickup/delivery',apartado:'Holds',pagos:'Payments',faq:'Common questions',agenda:'Booking',plan:'Plan'};
       var lines=['SIGN-UP STILL AVAILABLE? (EN)',''];
       if(altaId)lines.push('Sign-up ID: '+altaId,'');
       if(refCode)lines.push('Referred by: '+refCode,'');

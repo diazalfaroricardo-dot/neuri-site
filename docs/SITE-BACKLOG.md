@@ -121,5 +121,5 @@ Ricardo 26-oct: los ESTACIONADOS cuentan como abiertos; los recuentos anteriores
 - [ ] 🔒 Tiempo de respuesta junto al correo: Ricardo ya decidió 1 día hábil, se publica con t36, que no es de esta tarea.
 - [ ] 🔒 Promesa «tu precio no sube»: decisión de Ricardo.
 - [ ] 🔒 Páginas «vs» por competidor: afirmaciones sobre terceros; decisión de Ricardo.
-- [ ] T-EST1 (baja) «Cómo empiezas» en la portada: visual, va como vista previa + tarjeta.
-- [ ] T-EST2 (baja) Página de integraciones: visual, va como vista previa + tarjeta.
+- [ ] 🔒 T-EST1 (baja) «Cómo empiezas» en la portada: vista previa https://claude.ai/artifact/62QkYpCV6Sv997o49L9QTu, espera a Ricardo (r-aprobar-test1-como-empiezas). Un «no» lo cierra.
+- [ ] 🔒 T-EST2 (baja) Página de integraciones: vista previa https://claude.ai/artifact/PtkYVob3XKb1gScm8awA2L, espera a Ricardo (r-aprobar-test2-integraciones). Un «no» lo cierra.

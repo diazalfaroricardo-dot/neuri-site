@@ -84,7 +84,7 @@ h2{font-weight:600;font-size:clamp(34px,4.2vw,56px);line-height:1.04;letter-spac
 .fr:nth-child(4) .bar i{background:linear-gradient(90deg,#B4532A,#F3B38F)}
 .fr .v{font-family:var(--mono);font-size:14px;color:var(--mint);text-align:right}
 .spot .note{font-family:var(--mono);font-size:12px;color:#7F978C;margin-top:20px}
-.spot .ctas{margin-top:40px}.spot .btn.pri{background:var(--mint);color:var(--night)}.spot .btn.pri:hover{background:#B5ECCD}
+.spot .ctas{margin-top:40px}.spot .btn.pri{background:var(--mint);color:var(--night)}.spot .btn.pri:hover{background:#B5EDCD}
 .spot .btn.sec{background:transparent;border-color:rgba(234,242,238,.3);color:#EAF2EE}
 /* engagement */
 .phases{display:grid;gap:0;grid-template-columns:1fr;border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:var(--paper)}

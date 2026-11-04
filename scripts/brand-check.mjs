@@ -26,7 +26,9 @@ const axeSrc = AXE ? readFileSync(AXE, "utf8") : "";
 
 export function productOf(path) {
   if (/^\/(en\/)?(sigue-disponible|still-available)\//.test(path)) return "bots";
-  if (/^\/(bazar\/|en\/bazar\/|en\/$)/.test(path)) return "bazar";
+  if (/^\/(en\/)?bots\//.test(path)) return "bots";
+  if (/^\/(bazar\/|en\/bazar\/)/.test(path)) return "bazar";
+  if (/^\/(afiliados|en\/affiliates)\//.test(path)) return "consulting";
   if (/^\/(consultoria|en\/ai-consulting)\//.test(path)) return "consulting";
   if (/^\/(en\/)?marketing\//.test(path)) return "marketing";
   return "home";
@@ -36,10 +38,10 @@ export function productOf(path) {
 // vendedor de IA (vendedor.js pinta los 3 productos en órbita en cualquier página).
 const COMMON = ["#FFFFFF", "#000000", "#05080D", "#04060A", "#8FE0B4", "#F3B38F", "#FFC857", "#B4441A", "#C2341D", "#0B5E3A"];
 export const PALETTE = {
-  home: ["#E9EEF2", "#9AA6B2", "#6E7A86", "#0B1118", "#111922", "#B7C2CC", "#1B2530", "#4F5A64", "#7D8994", "#C5CED6", "#67E8F9", "#7DD3FC", "#FF8A7A", "#E9FFF4", "#070A10", "#FCA5A5", "#B5EDCD"],
-  bots: ["#F6F4EE", "#3D4A44", "#56635C", "#E1E3DC", "#E3EFE7", "#C5D2CB", "#9A3D12", "#FCE9DC", "#EEF0EA", "#8FA79A", "#D5D9D2", "#F2F7F3", "#6B7A72", "#2F4339", "#24372E", "#E6ECE8", "#8A3510", "#6E2C0D", "#084A2D", "#B9CBBF", "#2A3B33", "#F2C14E", "#FFF7E0", "#F5E6B8", "#6B4E12", "#FAFAF7"],
-  bazar: ["#F7F1E8", "#5E554C", "#CFC4B4", "#0E6B6B", "#E6DBC9", "#4E463E", "#D9CCB8", "#4A4239", "#3A332C", "#EFE6D8", "#716658", "#6F6559", "#2B2520", "#DCEDEC", "#8A3313", "#F3DCCD", "#CDE5E4", "#A89C8C", "#9FCFCC", "#F6E7DA"],
-  consulting: ["#FBFAF7", "#0A1A14", "#4B5B54", "#5E6B64", "#E4E1DA", "#D3CFC6", "#1F7A52", "#145C3C", "#B4532A", "#EAF3EE", "#E3EFE7", "#C5D2CB"],
+  home: ["#B5EDCD", "#E9EEF2", "#9AA6B2", "#6E7A86", "#0B1118", "#111922", "#B7C2CC", "#1B2530", "#4F5A64", "#7D8994", "#C5CED6", "#67E8F9", "#7DD3FC", "#FF8A7A", "#E9FFF4", "#070A10", "#FCA5A5", "#B5EDCD"],
+  bots: ["#B5EDCD", "#2BB673", "#F5D88A", "#A8A8A8", "#F6F4EE", "#3D4A44", "#56635C", "#E1E3DC", "#E3EFE7", "#C5D2CB", "#9A3D12", "#FCE9DC", "#EEF0EA", "#8FA79A", "#D5D9D2", "#F2F7F3", "#6B7A72", "#2F4339", "#24372E", "#E6ECE8", "#8A3510", "#6E2C0D", "#084A2D", "#B9CBBF", "#2A3B33", "#F2C14E", "#FFF7E0", "#F5E6B8", "#6B4E12", "#FAFAF7"],
+  bazar: ["#1D7347", "#8C8173", "#B9AE9F", "#D9622F", "#F7F1E8", "#5E554C", "#CFC4B4", "#0E6B6B", "#E6DBC9", "#4E463E", "#D9CCB8", "#4A4239", "#3A332C", "#EFE6D8", "#716658", "#6F6559", "#2B2520", "#DCEDEC", "#8A3313", "#F3DCCD", "#CDE5E4", "#A89C8C", "#9FCFCC", "#F6E7DA"],
+  consulting: ["#14382A", "#2A4237", "#3A1A0A", "#3A3216", "#5A2A14", "#5F7A6E", "#D5E2DB", "#F5DFA0", "#F5E6B8", "#FBFAF7", "#0A1A14", "#4B5B54", "#5E6B64", "#E4E1DA", "#D3CFC6", "#1F7A52", "#145C3C", "#B4532A", "#EAF3EE", "#E3EFE7", "#C5D2CB"],
   marketing: ["#FFF8F2", "#0B1118", "#34404A", "#5B6670", "#F4ECE4", "#FF5B45", "#C2341D", "#0E7C66", "#1B0B06", "#1E6B57", "#FF8B79", "#FF8A7A", "#111922", "#16202A", "#C9D2DA", "#9AA6B2", "#F0E4DA", "#EADFD5", "#9E2914"],
 };
 // Colores de ilustración que pintan las propias landings (maquetas de chat, avatares, gráficas,

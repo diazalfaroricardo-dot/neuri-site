@@ -88,6 +88,8 @@ export function checkOutreach(input) {
   }
   // Promesas por línea
   if (product === "bots" && /marketplace/i.test(body)) bad("promesa", "neuri.bots no promete Marketplace.");
+  if (product === "bots" && /whatsapp/i.test(main)) bad("promesa", "neuri.bots no menciona WhatsApp: todavía no está disponible.");
+  if (product === "bots" && /instagram|messenger/i.test(main) && !/meta|pendiente|pending|aprobaci|approval/i.test(main)) warn("meta", "neuri.bots: la conexión directa con Instagram/Messenger sigue pendiente de Meta; el correo no debe dar a entender que ya contesta ahí.");
   if ((product === "bots" || product === "marketing") && /(\$|US\s?\d|MXN|USD|pesos|dólares|dollars|\/mes|per month|al mes)/i.test(main))
     bad("precio", `${NAME[product]} no menciona precio.`);
   if (product === "marketing" && /(seguidores|followers|ventas garantizadas|más ventas|more sales|alcance|reach|publica solo|posts automatically)/i.test(main))

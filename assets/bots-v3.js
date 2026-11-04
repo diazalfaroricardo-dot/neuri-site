@@ -146,7 +146,7 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
   var FEEDS={
     bazar:[
       ['ig','Laura M.','LM','#F2C14E','2:14 am','¿Sigue disponible el ropero blanco?','Sí, sigue disponible. Cuesta $1,800 y lo recoges hoy de 5 a 8 pm. ¿Te lo aparto?','ok','2.1'],
-      ['ms','Diego R.','DR','#F7B48C','2:31 am','¿En cuánto me lo dejas? Te doy $1,200','Ese precio lo decide Mariana. Le paso tu oferta y te contesta en la mañana.','ti','1.7'],
+      ['ms','Diego R.','DR','#F7B48C','2:31 am','¿En cuánto me lo dejas? Te doy $1,200','Ese precio lo decide Mariana. Le paso tu oferta.','ti','1.7'],
       ['ig','Sofía P.','SP','#8FE0B4','9:02 am','Apártamelo porfa, paso a las 6','Listo, quedó apartado a tu nombre hasta las 8 pm. Aceptamos efectivo y transferencia.','ap','2.4'],
       ['ms','Pablo G.','PG','#C5D2CB','9:15 am','¿Hacen envíos a Culiacán?','Sí. El envío a Culiacán sale en $150 y llega en 2 días hábiles.','ok','1.9']
     ],
@@ -154,7 +154,7 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
       ['ig','Karla S.','KS','#F7B48C','11:40 pm','¿Tienes lugar el sábado para uñas?','El sábado tengo libre a las 10:00, 12:30 y 4:00. ¿Cuál te queda?','ok','1.8'],
       ['ig','Karla S.','KS','#F7B48C','11:41 pm','12:30 porfa','Agendada: sábado 12:30, uñas acrílicas. Te recuerdo un día antes.','ci','2.0'],
       ['ms','Ana T.','AT','#8FE0B4','8:05 am','Necesito mover mi cita del jueves','Claro. El jueves tengo 3:00 o 5:30, o el viernes a las 11:00. ¿Cuál prefieres?','ok','2.2'],
-      ['ig','Rocío L.','RL','#F2C14E','8:20 am','¿Me haces descuento si vamos 3?','Eso lo decide Fer. Le paso tu mensaje y te contesta hoy.','ti','1.6']
+      ['ig','Rocío L.','RL','#F2C14E','8:20 am','¿Me haces descuento si vamos 3?','Eso lo decide Fer. Le paso tu mensaje.','ti','1.6']
     ],
     comida:[
       ['ig','Luis A.','LA','#8FE0B4','6:58 pm','2 rollos California y un té','2 California ($170 c/u) + té ($35) = $375. ¿Recoges a las 7:30?','pe','2.3'],
@@ -174,13 +174,13 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
     ST={ok:'Answered',ap:'On hold',ti:'Passed to you',ci:'Booked',pe:'Order logged',li:'Link sent'};
     FEEDS={
       bazar:[['ig','Laura M.','LM','#F2C14E','2:14 am','Is the white dresser still available?','Yes, it’s still available. It’s $180 and you can pick it up today from 5 to 8 pm. Want me to hold it?','ok','2.1'],
-        ['ms','Diego R.','DR','#F7B48C','2:31 am','What’s your lowest? I’ll give you $120','Mariana decides on price. I’ll pass her your offer and she’ll reply in the morning.','ti','1.7'],
+        ['ms','Diego R.','DR','#F7B48C','2:31 am','What’s your lowest? I’ll give you $120','Mariana decides on price. I’ll pass her your offer.','ti','1.7'],
         ['ig','Sofia P.','SP','#8FE0B4','9:02 am','Please hold it, I’ll come by at 6','Done, it’s on hold under your name until 8 pm. We take cash and Zelle.','ap','2.4'],
         ['ms','Paul G.','PG','#C5D2CB','9:15 am','Do you ship to Tucson?','Yes. Shipping to Tucson is $15 and takes 2 business days.','ok','1.9']],
       citas:[['ig','Karla S.','KS','#F7B48C','11:40 pm','Any openings Saturday for nails?','Saturday I have 10:00, 12:30 and 4:00. Which works for you?','ok','1.8'],
         ['ig','Karla S.','KS','#F7B48C','11:41 pm','12:30 please','Booked: Saturday 12:30, acrylic nails. I’ll remind you the day before.','ci','2.0'],
         ['ms','Ana T.','AT','#8FE0B4','8:05 am','I need to move my Thursday appointment','Sure. Thursday I have 3:00 or 5:30, or Friday at 11:00. Which do you prefer?','ok','2.2'],
-        ['ig','Rachel L.','RL','#F2C14E','8:20 am','Any discount if 3 of us come?','Fer decides that. I’ll pass her your message and she’ll reply today.','ti','1.6']],
+        ['ig','Rachel L.','RL','#F2C14E','8:20 am','Any discount if 3 of us come?','Fer decides that. I’ll pass her your message.','ti','1.6']],
       comida:[['ig','Luis A.','LA','#8FE0B4','6:58 pm','2 California rolls and a tea','2 California ($17 each) + tea ($3.50) = $37.50. Pick up at 7:30?','pe','2.3'],
         ['ms','Marta V.','MV','#F2C14E','7:02 pm','Anything without seafood?','Yes: the chicken Philadelphia roll and the veggie fried rice. Want me to add one?','ok','1.9'],
         ['ig','Ivan C.','IC','#F7B48C','7:10 pm','Is my order ready?','It’s ready! See you at the counter.','ok','1.4'],

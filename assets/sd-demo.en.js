@@ -28,11 +28,11 @@ class Component extends DCLogic {
       { id: 'juan', name: 'John P.', ini: 'JP', avatar: '#8FE0B4', when: '11:52 pm', kind: 'apart', status: 'On hold · tomorrow 5 pm',
         msgs: [['c', 'Is the dresser still available?'], ['b', 'Yes, it’s still available. It’s $180 and pickup is Monday to Saturday, 5 to 8 pm.'], ['c', 'Ok, hold it for me for tomorrow.'], ['b', 'It’s on hold for you tomorrow at 5 pm, no deposit.']], tags: ['On hold'] },
       { id: 'carla', name: 'Carla M.', ini: 'CM', avatar: '#C9D6F5', when: '10:31 pm', kind: 'hand', status: 'Passed to you',
-        msgs: [['c', 'How much for the dresser?'], ['b', 'It’s $180 and it’s still available.'], ['c', 'Would you take $120?'], ['b', 'I’ll pass that one to Mariana and she’ll reply shortly.']], tags: ['Interested', 'Haggling'] },
+        msgs: [['c', 'How much for the dresser?'], ['b', 'It’s $180 and it’s still available.'], ['c', 'Would you take $120?'], ['b', 'I’ll pass that one to Mariana, who’ll reply as soon as she can.']], tags: ['Interested', 'Haggling'] },
       { id: 'luis', name: 'Luis R.', ini: 'LR', avatar: '#E3EFE7', when: '9:14 pm', kind: 'done', status: 'Answered',
         msgs: [['c', 'Do you take Zelle?'], ['b', 'Yes, I take cash and Zelle. Pickup only for now.']], tags: ['Interested'] },
       { id: 'ana', name: 'Anna G.', ini: 'AG', avatar: '#F5D9E8', when: '8:40 pm', kind: 'hand', status: 'Passed to you',
-        msgs: [['c', 'Can you ship it to Tucson?'], ['b', 'I’ll pass that one to Mariana and she’ll reply shortly.']], tags: ['Shipping'] },
+        msgs: [['c', 'Can you ship it to Tucson?'], ['b', 'I’ll pass that one to Mariana, who’ll reply as soon as she can.']], tags: ['Shipping'] },
       { id: 'pedro', name: 'Pete S.', ini: 'PS', avatar: '#FFE9A8', when: '7:05 pm', kind: 'done', status: 'Answered',
         msgs: [['c', 'What time is pickup?'], ['b', 'Pickup is Monday to Saturday, 5 to 8 pm.']], tags: ['Interested'] }
     ];
@@ -247,9 +247,9 @@ class Component extends DCLogic {
   handoff() {
     var o = this.bizCur().owner;
     return [
-      'Good question. I’ll pass it to ' + o + ' for a reply shortly.',
-      'Checking with ' + o + '. I’ll let you know.',
-      'Allow me to check with ' + o + '. We’ll reply shortly.',
+      'I’ll pass that one to ' + o + ', who’ll reply as soon as they can.',
+      'Passing it to ' + o + '.',
+      'Allow me to check with ' + o + '. They will reply as soon as they can.',
       'Ooh, ' + o + ' will answer that one personally! Already let them know.'
     ][this.state.tone];
   }

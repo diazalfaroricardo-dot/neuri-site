@@ -28,11 +28,11 @@ class Component extends DCLogic {
       { id: 'juan', name: 'Juan Pérez', ini: 'JP', avatar: '#8FE0B4', when: '11:52 pm', kind: 'apart', status: 'Apartó · mañana 5 pm',
         msgs: [['c', '¿Sigue disponible el ropero?'], ['b', 'Sí, sigue disponible. Cuesta $1,800 y entrego de lunes a sábado de 5 a 8 pm.'], ['c', 'Va, apártamelo para mañana.'], ['b', 'Te lo aparto mañana a las 5 pm sin anticipo.']], tags: ['Apartó'] },
       { id: 'carla', name: 'Carla M.', ini: 'CM', avatar: '#C9D6F5', when: '10:31 pm', kind: 'hand', status: 'Te la pasó',
-        msgs: [['c', '¿Cuánto el ropero?'], ['b', 'Cuesta $1,800 y sigue disponible.'], ['c', '¿Me lo dejas en $1,200?'], ['b', 'Esa se la paso a Mariana y te contesta en un momento.']], tags: ['Interesada', 'Regateo'] },
+        msgs: [['c', '¿Cuánto el ropero?'], ['b', 'Cuesta $1,800 y sigue disponible.'], ['c', '¿Me lo dejas en $1,200?'], ['b', 'Esa se la paso a Mariana, que te contesta en cuanto pueda.']], tags: ['Interesada', 'Regateo'] },
       { id: 'luis', name: 'Luis R.', ini: 'LR', avatar: '#E3EFE7', when: '9:14 pm', kind: 'done', status: 'Contestada',
         msgs: [['c', '¿Aceptas transferencia?'], ['b', 'Sí, acepto efectivo y transferencia. Por ahora solo entrego en persona.']], tags: ['Interesado'] },
       { id: 'ana', name: 'Ana G.', ini: 'AG', avatar: '#F5D9E8', when: '8:40 pm', kind: 'hand', status: 'Te la pasó',
-        msgs: [['c', '¿Me lo mandas a Monterrey por paquetería?'], ['b', 'Esa se la paso a Mariana y te contesta en un momento.']], tags: ['Envío fuera'] },
+        msgs: [['c', '¿Me lo mandas a Monterrey por paquetería?'], ['b', 'Esa se la paso a Mariana, que te contesta en cuanto pueda.']], tags: ['Envío fuera'] },
       { id: 'pedro', name: 'Pedro S.', ini: 'PS', avatar: '#FFE9A8', when: '7:05 pm', kind: 'done', status: 'Contestada',
         msgs: [['c', '¿A qué hora entregas?'], ['b', 'Entrego de lunes a sábado, de 5 a 8 pm.']], tags: ['Interesado'] }
     ];
@@ -247,9 +247,9 @@ class Component extends DCLogic {
   handoff() {
     var o = this.bizCur().owner;
     return [
-      'Buena pregunta. Se la paso a ' + o + ' y te contesta en un momento.',
-      'Lo reviso con ' + o + ' y te aviso.',
-      'Permítame consultarlo con ' + o + '. En breve le respondemos.',
+      'Esa se la paso a ' + o + ', que te contesta en cuanto pueda.',
+      'Se lo paso a ' + o + '.',
+      'Permítame consultarlo con ' + o + '. Le responderá en cuanto pueda.',
       '¡Uy, esa te la contesta ' + o + ' en persona! Ya le avisé.'
     ][this.state.tone];
   }

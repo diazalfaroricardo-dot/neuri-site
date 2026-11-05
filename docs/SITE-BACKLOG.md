@@ -124,3 +124,4 @@ Ricardo 26-oct: los ESTACIONADOS cuentan como abiertos; los recuentos anteriores
 - [ ] 🔒 Páginas «vs» por competidor: afirmaciones sobre terceros; decisión de Ricardo.
 - [ ] 🔒 T-EST1 (baja) «Cómo empiezas» en la portada: vista previa https://claude.ai/artifact/62QkYpCV6Sv997o49L9QTu, espera a Ricardo (r-aprobar-test1-como-empiezas). Un «no» lo cierra.
 - [ ] 🔒 T-EST2 (baja) Página de integraciones: vista previa https://claude.ai/artifact/PtkYVob3XKb1gScm8awA2L, espera a Ricardo (r-aprobar-test2-integraciones). Un «no» lo cierra.
+- [x] AUD35 (baja, de la auditoría de Marketing del 4-nov) En celular las etiquetas del diagrama de la portada chocaban al girar: 15 de 40 muestras a 390 ES, 18 a 360. Hasta 560 px la etiqueta lleva solo el nombre; el estado sigue en la franja de arriba y en las tarjetas. Decidido sin vista previa: quita texto repetido, sin elementos nuevos. Guarda: scripts/aud35-diagrama-test.mjs.

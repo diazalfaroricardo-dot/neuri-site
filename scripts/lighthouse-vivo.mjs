@@ -1,8 +1,7 @@
 // Lighthouse móvil contra neuri.tech: 3 corridas por landing, se usa la mediana (A286, B-O1).
 // Uso: node scripts/lighthouse-vivo.mjs [ruta...]. Sale 1 si alguna mediana queda abajo de 90.
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { mkdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const RUTAS = process.argv.slice(2).length
@@ -22,12 +21,13 @@ const MINIMO = 90;
 
 export const mediana = (xs) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
 
+mkdirSync("lh-vivo", { recursive: true });
 let fallas = 0;
 for (const ruta of RUTAS) {
   const puntos = [];
   const detalle = [];
   for (let i = 0; i < CORRIDAS; i++) {
-    const out = join(tmpdir(), `lh-${Date.now()}.json`);
+    const out = join("lh-vivo", `${ruta.replace(/\W+/g, "_")}${i}.json`);
     try {
       execFileSync(
         "npx",

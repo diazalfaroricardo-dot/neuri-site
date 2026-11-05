@@ -1,0 +1,18 @@
+# Lighthouse móvil en vivo desde GitHub (A286, B-O1): sin el proxy de la nube que mete ruido.
+# A mano o los lunes. Falla si la mediana de 3 corridas de una landing queda abajo de 90.
+name: lighthouse
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 15 * * 1"
+jobs:
+  vivo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save lighthouse@12.8.2
+      - run: node scripts/lighthouse-vivo.mjs

@@ -119,7 +119,8 @@ for (const pg of pages) {
       for (const e of document.querySelectorAll(sel)) {
         if (!vis(e) || e.tabIndex < 0 || e.closest("[aria-hidden=true]")) continue;
         if (e.tagName === "A" && !e.innerText.trim() && !e.querySelector("svg,img") && !e.getAttribute("aria-label")) continue; // texto oculto, no se ve ni se toca
-        const h = e.getBoundingClientRect().height;
+        // Alto de layout: getBoundingClientRect incluye el transform, y la entrada con rebote de .badge daba 43 a medio camino.
+        const h = e.offsetHeight || e.getBoundingClientRect().height;
         const inline = !!e.closest("p,li") && e.tagName === "A";
         if (Math.round(h) < (inline ? 24 : 44)) small.push(`${e.tagName.toLowerCase()} «${txt(e)}» ${Math.round(h)}px`);
       }

@@ -65,7 +65,9 @@
 
   // La plantilla de escritorio se vuelve a clonar al animar el demo (ver A247): guardamos lo escrito y la
   // última respuesta para restaurarlos cuando la caja se re-inyecta.
-  var state = { q: "", asked: "", focus: false };
+  // Quitar del DOM un campo con foco dispara blur: «reciente» distingue eso de que la persona se haya ido del campo,
+  // porque el observer vuelve a montar en el mismo turno. Sin esto se perdía el foco y lo que seguía escribiendo.
+  var state = { q: "", asked: "", focus: false, reciente: false, sel: null };
   function mount() {
     var sec = document.getElementById("preguntas") || document.getElementById("faq-section");
     if (!sec || sec.querySelector("#ayuda-box")) return;
@@ -84,10 +86,22 @@
     h2.insertAdjacentElement("afterend", box);
     var inp = box.querySelector("#ayuda-q");
     inp.value = state.q;
-    inp.addEventListener("input", function () { state.q = inp.value; });
+    inp.addEventListener("input", function () {
+      state.q = inp.value;
+      var actual = document.getElementById("ayuda-q");
+      if (actual && actual !== inp) actual.value = inp.value;
+    });
     inp.addEventListener("focus", function () { state.focus = true; });
-    inp.addEventListener("blur", function () { state.focus = false; });
-    if (state.focus) inp.focus();
+    inp.addEventListener("blur", function () {
+      state.focus = false;
+      state.reciente = true;
+      try { state.sel = inp.selectionStart; } catch (e) {}
+      setTimeout(function () { state.reciente = false; }, 0);
+    });
+    if (state.focus || state.reciente) {
+      inp.focus();
+      try { if (state.sel != null) inp.setSelectionRange(state.sel, state.sel); } catch (e) {}
+    }
     if (state.asked) answer(box, sec, state.asked, false);
     box.addEventListener("submit", function (e) {
       e.preventDefault();

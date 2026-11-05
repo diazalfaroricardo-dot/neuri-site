@@ -49,7 +49,16 @@ THEME = {"bots": "#0B5E3A", "bazar": "#B4441A", "home": "#04060A"}
 SCHEME = {"bots": "light", "bazar": "light", "home": "dark"}
 OG = {("bots", "es"): "bots-es", ("bots", "en"): "bots-en", ("bazar", "es"): "bazar-es", ("bazar", "en"): "bazar-en",
       ("home", "es"): "neuri", ("home", "en"): "neuri"}
-FONTS = "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+# Geist desde el propio sitio: ninguna página manda la IP del visitante a Google (mismo bloque que tools/fuentes-propias.py).
+_RANGO = ("U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,"
+          "U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD")
+def _caras(fam, arch, pesos):
+    return "".join(f'@font-face{{font-family:{fam};font-style:normal;font-weight:{w};font-display:swap;'
+                   f'src:url(/assets/fonts/{arch}) format("woff2");unicode-range:{_RANGO}}}' for w in pesos)
+FONT_TAGS = ('<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist-latin-wght.woff2" crossorigin>\n'
+             '<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist-mono-latin-wght.woff2" crossorigin>\n'
+             '<style>' + _caras("Geist", "geist-latin-wght.woff2", ("400", "500", "600", "700", "800"))
+             + _caras('"Geist Mono"', "geist-mono-latin-wght.woff2", ("400", "500")) + '</style>')
 ADDR = {"es": "© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, EE. UU.",
         "en": "© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA"}
 
@@ -151,10 +160,7 @@ def marca_head(brand, lang):
     return ("<!--marca-->\n"
             f'<meta name="color-scheme" content="{SCHEME[brand]}">\n<meta name="theme-color" content="{THEME[brand]}">\n'
             f'<link rel="icon" href="{ICON[brand]}">\n'
-            '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-            f'<link rel="preload" as="style" href="{FONTS}">\n'
-            f'<link rel="stylesheet" href="{FONTS}" media="print" onload="this.media=\'all\'">\n'
-            f'<noscript><link rel="stylesheet" href="{FONTS}"></noscript>\n'
+            f"{FONT_TAGS}\n"
             # brand.css va en línea (como consulting/marketing): pinta bien desde el primer cuadro.
             f'<style data-brand-css>\n{(R / "assets/brand.css").read_text(encoding="utf-8").strip()}\n</style>\n'
             '<script src="/assets/vendedor.js" defer></script>\n'

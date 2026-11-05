@@ -8,8 +8,6 @@ import { join } from "node:path";
 const root = new URL("..", import.meta.url).pathname;
 const SKIP = new Set(["node_modules", ".git", ".t25", "scripts"]);
 const NOMBRE = {
-  "fonts.googleapis.com": "Google Fonts",
-  "fonts.gstatic.com": "Google Fonts",
   "us.i.posthog.com": "PostHog",
   "us-assets.i.posthog.com": "PostHog",
 };
@@ -32,6 +30,10 @@ const hosts = new Set();
 for (const f of html) {
   const t = readFileSync(f, "utf8");
   for (const m of t.matchAll(/<(?:script|link|iframe|img)[^>]*?(?:src|href)="https?:\/\/([^/"]+)/g)) hosts.add(m[1]);
+}
+// Las tipografías salen de /assets/fonts: ninguna página manda la IP del visitante a Google, y /legal/ ya no lo declara.
+for (const f of html) {
+  if (/fonts\.(googleapis|gstatic)\.com/.test(readFileSync(f, "utf8"))) bad(`${f.replace(root, "")} carga Google Fonts`);
 }
 const assets = readdirSync(join(root, "assets")).filter((n) => n.endsWith(".js"));
 let usaStorage = false;
@@ -58,6 +60,7 @@ for (const h of hosts) {
   if (!sitioEs.includes(nombre)) bad(`/legal/ ES no menciona ${nombre} (${h})`);
   if (!sitioEn.includes(nombre)) bad(`/legal/ EN no menciona ${nombre} (${h})`);
 }
+if (sitioEs.includes("Google Fonts") || sitioEn.includes("Google Fonts")) bad("/legal/ dice Google Fonts y el sitio ya no lo usa");
 if (usaStorage) {
   if (!/almacenamiento local/i.test(sitioEs)) bad("assets usan localStorage y /legal/ ES no dice «almacenamiento local»");
   if (!/local storage/i.test(sitioEn)) bad("assets usan localStorage y /legal/ EN no dice «local storage»");

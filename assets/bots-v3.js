@@ -138,6 +138,16 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
 /* ===== Centro de mando (hero v2) ===== */
 (function(){
   var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // A286 (B-O1): la malla y el panel se mueven hasta que la página ya cargó y descansó, o al primer
+  // toque, scroll o tecla. Mientras, se ve el primer cuadro completo. En móvil, animar durante la carga
+  // trababa el primer toque (Lighthouse: TBT 1,290 ms, casi todo de este archivo).
+  var calmo=false, alCalmar=[];
+  function enCalma(fn){ if(calmo) fn(); else alCalmar.push(fn); }
+  function calmar(){ if(calmo) return; calmo=true; EV.forEach(function(ev){removeEventListener(ev,calmar);}); alCalmar.splice(0).forEach(function(fn){fn();}); }
+  var EV=['pointerdown','touchstart','keydown','scroll'];
+  EV.forEach(function(ev){addEventListener(ev,calmar,{passive:true});});
+  function trasCargar(){ setTimeout(calmar,6000); }
+  if(document.readyState==='complete') trasCargar(); else addEventListener('load',trasCargar,{once:true});
   var IG='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>';
   var MS='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.4S17 3 12 3z"/><path d="M8 13l3-3 2 2 3-3"/></svg>';
   var ST={ok:'Contestada',ap:'Apartado',ti:'Te lo pasó a ti',ci:'Cita agendada',pe:'Pedido anotado',li:'Link enviado'};
@@ -229,8 +239,8 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
         },850);
       },1300);
     }
-    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ var was=run; run=e.isIntersecting; if(run&&!was) setTimeout(step,600); }); });
-    run=false; io.observe(c);
+    run=false;
+    enCalma(function(){ var io=new IntersectionObserver(function(es){ es.forEach(function(e){ var was=run; run=e.isIntersecting; if(run&&!was) setTimeout(step,600); }); }); io.observe(c); });
   });
 
   // Campo neuronal en canvas detrás del panel
@@ -248,12 +258,13 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
       for(i=0;i<P.length;i++){ ctx.fillStyle='rgba(143,224,180,.45)'; ctx.beginPath(); ctx.arc(P[i].x,P[i].y,P[i].r,0,6.283); ctx.fill(); }
       var T=target();
       pulses=pulses.filter(function(q){ q.t+=0.018; if(q.t>1) return false; var e=1-Math.pow(1-q.t,3), x=q.x+(T.x-q.x)*e, y=q.y+(T.y-q.y)*e; var g=ctx.createRadialGradient(x,y,0,x,y,18); g.addColorStop(0,'rgba(217,251,232,.95)'); g.addColorStop(1,'rgba(143,224,180,0)'); ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,18,0,6.283); ctx.fill(); ctx.strokeStyle='rgba(143,224,180,'+(.35*(1-q.t))+')'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(q.x,q.y); ctx.lineTo(x,y); ctx.stroke(); return true; });
-      if(!RM) requestAnimationFrame(frame);
+      if(!RM&&calmo) requestAnimationFrame(frame);
     }
     size(); addEventListener('resize',size);
     if(cons) cons.addEventListener('neuri-pulse',function(){ var p=P[Math.floor(Math.random()*P.length)]; if(p) pulses.push({x:p.x,y:p.y,t:0}); });
-    new IntersectionObserver(function(es){ var v=es[0].isIntersecting; if(v&&!vis){vis=true; requestAnimationFrame(frame);} vis=v; }).observe(hx);
+    new IntersectionObserver(function(es){ var v=es[0].isIntersecting; if(v&&!vis&&calmo){vis=true; requestAnimationFrame(frame);} vis=v; }).observe(hx);
     requestAnimationFrame(frame);
+    if(!RM) enCalma(function(){ if(vis) requestAnimationFrame(frame); });
   });
 })();
 /* Inclinación del teléfono según el cursor */

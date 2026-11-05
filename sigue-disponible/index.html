@@ -527,8 +527,8 @@ p{margin:0}
 @media (max-width:520px){.nav .btn-t{display:none}}
 
 /* Hoja de menú móvil */
-.sheet{position:fixed;inset:0;z-index:80;background:rgba(5,8,13,.45);display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .2s}
-.sheet.open{opacity:1;pointer-events:auto}
+.sheet{position:fixed;inset:0;z-index:80;background:rgba(5,8,13,.45);display:flex;align-items:flex-end;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,visibility 0s .2s}
+.sheet.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s,visibility 0s}
 .sheet-in{width:100%;background:var(--blanco);border-radius:24px 24px 0 0;padding:20px max(20px,env(safe-area-inset-left,0px)) calc(24px + env(safe-area-inset-bottom,0px));transform:translateY(24px);transition:transform .25s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:4px}
 .sheet.open .sheet-in{transform:none}
 .sheet-in a{text-decoration:none;font-weight:600;font-size:19px;padding:14px 4px;border-bottom:1px solid var(--linea);display:flex;justify-content:space-between}

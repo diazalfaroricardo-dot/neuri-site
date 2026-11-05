@@ -7,7 +7,16 @@ import { join } from "node:path";
 
 const RUTAS = process.argv.slice(2).length
   ? process.argv.slice(2)
-  : ["/", "/en/", "/sigue-disponible/", "/en/still-available/", "/bazar/", "/en/bazar/"];
+  : [
+      "/",
+      "/en/home/",
+      "/sigue-disponible/",
+      "/en/still-available/",
+      "/bazar/",
+      "/en/bazar/",
+      "/consultoria/",
+      "/marketing/",
+    ];
 const CORRIDAS = 3;
 const MINIMO = 90;
 

@@ -797,6 +797,8 @@ a.cz-cta:focus-visible{outline:3px solid #B4441A;outline-offset:3px}
 @keyframes hxDash{to{stroke-dashoffset:-22}}
 .hx-foot{position:absolute;left:0;bottom:0;font:500 10.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.06em;color:#8C8173}
 html.m .hx [data-hx]{visibility:hidden}
+/* El párrafo pinta a casi cero: se ve igual y el navegador ya no espera la entrada (B-O1) */
+html.m .hx .hx-p{visibility:visible;opacity:.01}
 .hx .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(prefers-reduced-motion:reduce){.hx-stamp,.hx-pay{opacity:1}}
 @media(prefers-reduced-motion:reduce){.hx *,.hx *::before,.hx *::after{animation:none!important}}
@@ -892,7 +894,7 @@ html.m .hx [data-hx]{visibility:hidden}
       .from(rw,{yPercent:55,autoAlpha:0,duration:.95,ease:'expo.out'},.32)
       .to(squig,{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},.85)
       .from(words.slice(2),{yPercent:115,duration:.9,stagger:.05},.55)
-      .from('.hx-p',{y:20,autoAlpha:0,duration:.8},.75)
+      .fromTo('.hx-p',{y:20,opacity:.01},{y:0,opacity:1,duration:.8},.75)
       .from('.hx-ctas .hx-btn',{y:22,autoAlpha:0,scale:.94,duration:.7,stagger:.09,ease:'back.out(1.8)'},.9)
       .from('.hx-fine span',{y:10,autoAlpha:0,duration:.5,stagger:.07},1.05)
       .from('.hx-tag',{autoAlpha:0,y:30,rotate:-25,duration:1.1,stagger:.08,ease:'back.out(1.6)'},.4)
@@ -2254,6 +2256,8 @@ Build my mall
 @keyframes hxDash{to{stroke-dashoffset:-22}}
 .hx-foot{position:absolute;left:0;bottom:0;font:500 10.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.06em;color:#8C8173}
 html.m .hx [data-hx]{visibility:hidden}
+/* El párrafo pinta a casi cero: se ve igual y el navegador ya no espera la entrada (B-O1) */
+html.m .hx .hx-p{visibility:visible;opacity:.01}
 .hx .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(prefers-reduced-motion:reduce){.hx-stamp,.hx-pay{opacity:1}}
 @media(prefers-reduced-motion:reduce){.hx *,.hx *::before,.hx *::after{animation:none!important}}
@@ -2349,7 +2353,7 @@ html.m .hx [data-hx]{visibility:hidden}
       .from(rw,{yPercent:55,autoAlpha:0,duration:.95,ease:'expo.out'},.32)
       .to(squig,{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},.85)
       .from(words.slice(2),{yPercent:115,duration:.9,stagger:.05},.55)
-      .from('.hx-p',{y:20,autoAlpha:0,duration:.8},.75)
+      .fromTo('.hx-p',{y:20,opacity:.01},{y:0,opacity:1,duration:.8},.75)
       .from('.hx-ctas .hx-btn',{y:22,autoAlpha:0,scale:.94,duration:.7,stagger:.09,ease:'back.out(1.8)'},.9)
       .from('.hx-fine span',{y:10,autoAlpha:0,duration:.5,stagger:.07},1.05)
       .from('.hx-tag',{autoAlpha:0,y:30,rotate:-25,duration:1.1,stagger:.08,ease:'back.out(1.6)'},.4)

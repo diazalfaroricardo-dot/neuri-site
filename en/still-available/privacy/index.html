@@ -308,10 +308,12 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <tr><th>Provider</th><th>Purpose</th><th>Where</th></tr>
 <tr><td>Meta Platforms</td><td>Instagram, Messenger and WhatsApp Cloud API: receiving and sending messages</td><td>USA</td></tr>
 <tr><td>Anthropic</td><td>Claude model to draft replies</td><td>USA</td></tr>
+<tr><td>OpenAI</td><td>Transcribing voice notes that the business's customers send, so the assistant can understand them (the audio is sent only for that)</td><td>USA</td></tr>
 <tr><td>Google</td><td>The owner's Google Calendar (if connected); reading their published sheet</td><td>USA</td></tr>
 <tr><td>Railway</td><td>Servers where the service runs and data is stored</td><td>USA</td></tr>
 <tr><td>Resend</td><td>Sending email to owners</td><td>USA</td></tr>
 <tr><td>Stripe</td><td>Billing owners for the plan (card and invoices)</td><td>USA</td></tr>
+<tr><td>Google Fonts</td><td>Page fonts: your browser downloads them from Google, which receives your IP address</td><td>USA</td></tr>
 <tr><td>PostHog</td><td>Anonymous, cookie-free analytics for neuri.tech and sd.neuri.tech (visits, clicks and sign-up and payment steps; not chats)</td><td>USA</td></tr>
 </table></div>
 <p>If the owner connects their own AI assistant (for example Claude or ChatGPT) to their account, the data that assistant reads goes to that provider by the owner's choice and under its terms. Beyond that, we only share data if a competent authority requires it by law.</p>
@@ -324,7 +326,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <li><b>“Stop messaging me”:</b> honored while the log exists; if you write again after 30 days, or write “start”, the assistant replies again.</li>
 <li><b>Google Calendar busy blocks:</b> replaced on each read and deleted on disconnect.</li>
 <li><b>Appointments and orders:</b> while the business has its account (the latest 500 orders and 200 waitlist entries are kept), so the owner can look them up.</li>
-<li><b>Business data:</b> while it has its account. If it cancels, data is kept so it can come back, until it asks for deletion (section 8). <mark class="ph">[Pending: automatic deletion period after cancellation]</mark></li>
+<li><b>Business data:</b> while it has its account. If it cancels, data is kept so it can come back, until it asks for deletion (section 8) or until <b>12 months</b> after canceling. About 30 days before, we email you the date; if you sign in before then, nothing is deleted and the period starts over. When it is up, the data is deleted just as if you had asked.</li>
 <li><b>Backups:</b> 7 daily copies of account data (without the message log), replaced automatically.</li>
 <li>Anything the law requires us to keep (such as billing records) is kept only for the legal period; what Stripe keeps about payments lives at Stripe.</li></ul>
 

@@ -1,9 +1,9 @@
 /**
- * AF3 (27-oct): vista previa del programa de afiliados en /afiliados/ y /en/affiliates/.
- * A 390 y 1280 px, ES y EN: sin scroll horizontal, axe WCAG 2 A/AA 0 violaciones, noindex,
+ * AF3 (27-oct; publicada 10-nov con el «sí» de Ricardo): programa de afiliados en /afiliados/ y /en/affiliates/.
+ * A 390 y 1280 px, ES y EN: sin scroll horizontal, axe WCAG 2 A/AA 0 violaciones, indexable (sin noindex),
  * botón de solicitud deshabilitado (el formulario no envía nada), 20 % y mínimos US$25 / MX$500
  * presentes, panel marcado como ejemplo, toques ≥44 px. Además: título 20–65 caracteres,
- * hreflang recíproco y que ninguna otra página ni el sitemap enlacen a la vista previa.
+ * hreflang recíproco, ambas en el sitemap y enlazadas desde el pie de la portada ES y EN; el alta sigue apagada.
  * Uso: node scripts/af3-afiliados-test.mjs   (CHROME=/ruta/chrome o PLAYWRIGHT_BROWSERS_PATH; AXE=/ruta/axe.min.js)
  */
 import { createReadStream, existsSync, readdirSync, readFileSync, statSync } from "node:fs";
@@ -43,25 +43,21 @@ const PAGES = [
   { path: "/en/affiliates/", file: "en/affiliates/index.html", lang: "en", pair: "https://neuri.tech/afiliados/", example: /Example · fictional data/i, soon: /^Coming soon — the program opens when Neuri turns it on$/ },
 ];
 
-// Estático: noindex, título, hreflang recíproco, sin enlaces desde otras páginas ni sitemap.
+// Estático: indexable, título, hreflang recíproco, en sitemap y en el pie de las portadas.
 for (const p of PAGES) {
   const h = readFileSync(join(ROOT, p.file), "utf8");
-  if (!/<meta name="robots" content="noindex">/.test(h)) bad(`${p.path}: falta noindex`);
+  if (/<meta name="robots" content="[^"]*noindex/.test(h)) bad(`${p.path}: sigue con noindex (ya está publicada)`);
   const t = (h.match(/<title>([^<]*)<\/title>/) || [, ""])[1];
   if (t.length < 20 || t.length > 65) bad(`${p.path}: título de ${t.length} caracteres «${t}»`);
   if (!h.includes(`<link rel="alternate" hreflang="${p.lang === "es" ? "en" : "es"}" href="${p.pair}">`)) bad(`${p.path}: hreflang al par falta`);
   if (/<form[^>]*\baction="(?!#")/.test(h) || /fetch\(|XMLHttpRequest|sendBeacon/.test(h)) bad(`${p.path}: el formulario podría enviar datos`);
 }
-if (/afiliados|affiliates/.test(readFileSync(join(ROOT, "sitemap.xml"), "utf8"))) bad("sitemap.xml enlaza la vista previa");
-const SKIP = new Set(["node_modules", ".git", "scripts", "docs", "tools", "tmp", "afiliados", "affiliates"]);
-(function walk(d) {
-  for (const n of readdirSync(d)) {
-    if (SKIP.has(n) || n.startsWith(".")) continue;
-    const f = join(d, n);
-    if (statSync(f).isDirectory()) walk(f);
-    else if (/\.(html|js|txt)$/.test(n) && /href="\/(en\/affiliates|afiliados)\//.test(readFileSync(f, "utf8"))) bad(`${relative(ROOT, f)} enlaza la vista previa`);
-  }
-})(ROOT);
+const sm = readFileSync(join(ROOT, "sitemap.xml"), "utf8");
+for (const u of ["https://neuri.tech/afiliados/", "https://neuri.tech/en/affiliates/"]) if (!sm.includes(`<loc>${u}</loc>`)) bad(`sitemap.xml no tiene ${u}`);
+for (const [f, href] of [["index.html", "/afiliados/"], ["en/home/index.html", "/en/affiliates/"]]) {
+  const foot = (readFileSync(join(ROOT, f), "utf8").match(/<footer[\s\S]*?<\/footer>/) || [""])[0];
+  if (!foot.includes(`href="${href}"`)) bad(`${f}: el pie no enlaza ${href}`);
+}
 
 const launch = { };
 if (process.env.CHROME) launch.executablePath = process.env.CHROME;
@@ -113,5 +109,5 @@ for (const width of [390, 1280]) {
 }
 await browser.close();
 server.close();
-if (!fails) console.log(`✓ AF3 afiliados: ES/EN × 390/1280 sin scroll, axe AA 0, noindex, botón deshabilitado, 20 % y mínimos, ${taps} toques ≥44 px, sin enlazar`);
+if (!fails) console.log(`✓ AF3 afiliados: ES/EN × 390/1280 sin scroll, axe AA 0, indexable, botón deshabilitado, 20 % y mínimos, ${taps} toques ≥44 px, en sitemap y pie`);
 process.exit(fails ? 1 : 0);

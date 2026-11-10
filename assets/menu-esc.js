@@ -15,3 +15,14 @@ document.addEventListener('toggle', function (e) {
     if (o !== d) o.open = false;
   });
 }, true);
+// QA #71 (reabierto): al tocar el botón de un menú cerrado, cerrar el otro en ese mismo momento
+// (el evento «toggle» llega después y alguien que revisa justo al tocar veía los dos abiertos).
+document.addEventListener('click', function (e) {
+  var s = e.target && e.target.closest && e.target.closest('details[data-entrar] > summary, details[data-idioma] > summary');
+  if (!s) return;
+  var d = s.parentElement;
+  if (d.open) return;
+  document.querySelectorAll('details[data-entrar][open], details[data-idioma][open]').forEach(function (o) {
+    if (o !== d) o.open = false;
+  });
+}, true);

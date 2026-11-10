@@ -40,6 +40,16 @@ for (const path of ["/"]) {
       const ok = abiertos.length === 1 && abiertos[0] === esperado;
       if (!ok) fails++;
       console.log(`${ok ? "ok" : "FALLA"} ${path} ${width}px ${a}→${b}: abiertos=${JSON.stringify(abiertos)}`);
+      // Reabierto: dos toques seguidos y la lectura en el mismo instante (sin esperar el «toggle»).
+      await page.evaluate(() => document.querySelectorAll("details[open]").forEach((d) => { d.open = false; }));
+      await page.waitForTimeout(50);
+      const inst = await page.evaluate(([x, y]) => {
+        document.querySelector(`details[${x}] > summary`).click();
+        document.querySelector(`details[${y}] > summary`).click();
+        return [...document.querySelectorAll("details[data-entrar], details[data-idioma]")].filter((d) => d.open).length;
+      }, [a, b]);
+      if (inst !== 1) fails++;
+      console.log(`${inst === 1 ? "ok" : "FALLA"} ${path} ${width}px ${a}→${b} al instante: abiertos=${inst}`);
     }
     await page.close();
   }

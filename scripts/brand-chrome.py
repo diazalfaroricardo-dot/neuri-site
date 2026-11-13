@@ -80,11 +80,14 @@ def a(href, text, cls="", extra=""):
     return f'<a{c} href="{href}"{extra}>{text}</a>'
 
 
-def header(brand, lang, alt):
+def header(brand, lang, alt, kind=""):
     es = lang == "es"
     home = landing(brand, lang)
     other = "en" if es else "es"
     lang_link = a(alt, "EN" if es else "ES", "nb-lang", f' hreflang="{other}" lang="{other}" aria-label="{"EN, English" if es else "ES, Español"}" data-idioma')
+    if brand == "bazar" and kind == "tour":
+        # 574: el recorrido de bazar cambia de idioma igual que su landing («English»/«Español», no «EN»/«ES»).
+        lang_link = a(alt, "English" if es else "Español", "nb-lang", f' hreflang="{other}" lang="{other}" data-idioma')
     if brand == "bots":
         word = 'neuri<span>.bots</span>'
         nav = [a(home + "#como-funciona", "Cómo funciona" if es else "How it works", "nb-hide-sm"),
@@ -230,7 +233,7 @@ def build(rel, cfg):
     # La 404 de GitHub Pages es una sola: bajo /en/ se pasa a inglés con este script (auditoría 2-nov).
     extra = (R / "scripts/404-en.js.html").read_text(encoding="utf-8") if rel == "404.html" else ""
     out = (f'<!doctype html>\n<html lang="{lang}" data-brand="{brand}">\n<head>\n{head.strip()}\n{marca_head(brand, lang)}\n</head>\n<body>\n'
-           f"{header(brand, lang, alt)}\n"
+           f"{header(brand, lang, alt, kind)}\n"
            f'<main id="contenido" class="nb-main"><div class="{wrap}">\n<!--contenido-->\n{content}\n<!--/contenido-->\n</div></main>\n'
            f"{footer(brand, lang, alt)}\n{extra}<script src=\"/assets/menu-esc.js\" defer></script>\n</body>\n</html>\n")
     f.write_text(out, encoding="utf-8")

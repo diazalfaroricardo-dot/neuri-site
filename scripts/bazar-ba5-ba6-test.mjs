@@ -1,4 +1,4 @@
-// B-A5/B-A6 (bazar): a 390 y 1280 px el cambio de idioma se ve en el encabezado de la landing
+// B-A5/B-A6 (bazar): a 390 y 1280 px el cambio de idioma se ve en el encabezado de la landing (a 390, dentro del menú, 574)
 // ES/EN, el logo regresa a neuri.tech (T18) y el pie liga a los otros productos de Neuri con páginas que existen.
 import { createRequire } from "node:module";
 import { readFileSync, existsSync } from "node:fs";
@@ -22,8 +22,13 @@ for (const [path, label, others] of [["/bazar/", "English", ["/consultoria/", "/
     const p = await c.newPage();
     await p.goto("https://neuri.tech" + path, { waitUntil: "domcontentloaded" });
     await p.waitForTimeout(500);
-    const hdr = p.locator("header a[data-idioma]").first();
-    ok(await hdr.isVisible(), `${path} ${w}px «${label}» visible en el encabezado`);
+    // 574 (aprobado 12-nov): en el celular el idioma vive en el menú del encabezado fijo; se abre el menú y ahí debe verse.
+    let hdr = p.locator("header a[data-idioma]").first();
+    if (!(await hdr.isVisible()) && (await p.locator("header details[data-menu] > summary").isVisible())) {
+      await p.locator("header details[data-menu] > summary").click();
+      hdr = p.locator(`header details[data-menu] a[lang]`, { hasText: label }).first();
+    }
+    ok(await hdr.isVisible() && (await hdr.innerText()).trim() === label, `${path} ${w}px «${label}» visible en el encabezado`);
     const box = await hdr.boundingBox();
     ok(box && box.height >= 44, `${path} ${w}px «${label}» de 44 px`);
     const logo = await p.locator("header a").first().getAttribute("href");

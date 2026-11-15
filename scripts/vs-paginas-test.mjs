@@ -41,8 +41,9 @@ const links = [
   ["marketing/index.html", "/marketing/vs-predis/"], ["en/marketing/index.html", "/en/marketing/vs-predis/"],
 ];
 for (const [p, href] of links) {
-  const s = read(p), i = s.indexOf('id="precios"');
-  if (i < 0 || s.indexOf(`href="${href}"`, i) < 0) bad(`${p}: la sección de precios no enlaza ${href}`);
+  // bots: el nombre ManyChat solo va dentro de la comparación (#cmp-t, regla de visual.mjs); ahí va el link.
+  const s = read(p), i = s.indexOf(href.includes("manychat") ? 'aria-labelledby="cmp-t"' : 'id="precios"');
+  if (i < 0 || s.indexOf(`href="${href}"`, i) < 0) bad(`${p}: la sección de precios (o comparación) no enlaza ${href}`);
 }
 
 // Promesa en precios: dice el alcance (suscripción activa) y lo que no cubre (cambiar de plan).

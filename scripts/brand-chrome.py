@@ -33,6 +33,13 @@ PAGES = {
     "en/bazar/tour/": ("bazar", "en", "/bazar/recorrido/", "tour"),
     "bazar/vs-quail/": ("bazar", "es", "/en/bazar/vs-quail/", "doc"),
     "en/bazar/vs-quail/": ("bazar", "en", "/bazar/vs-quail/", "doc"),
+    # Páginas «vs» de scripts/vs-paginas.py (14-nov-2026).
+    "bazar/vs-ricochet/": ("bazar", "es", "/en/bazar/vs-ricochet/", "doc"),
+    "en/bazar/vs-ricochet/": ("bazar", "en", "/bazar/vs-ricochet/", "doc"),
+    "sigue-disponible/vs-manychat/": ("bots", "es", "/en/still-available/vs-manychat/", "doc"),
+    "en/still-available/vs-manychat/": ("bots", "en", "/sigue-disponible/vs-manychat/", "doc"),
+    "marketing/vs-predis/": ("marketing", "es", "/en/marketing/vs-predis/", "doc"),
+    "en/marketing/vs-predis/": ("marketing", "en", "/marketing/vs-predis/", "doc"),
     "legal/": ("home", "es", "/en/legal/", "hub"),
     "en/legal/": ("home", "en", "/legal/", "hub"),
     "404.html": ("home", "es", "/en/home/", "hub"),
@@ -45,10 +52,12 @@ ICON = {
     "bazar": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 22%22%3E%3Cpath d=%22M9 0h21a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H9L0 11z%22 fill=%22%23B4441A%22/%3E%3Ccircle cx=%229%22 cy=%2211%22 r=%222.6%22 fill=%22%23F7F1E8%22/%3E%3C/svg%3E",
     "home": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%2304060A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%238FE0B4%22/%3E%3Ccircle cx=%2223%22 cy=%229%22 r=%222%22 fill=%22%23E9EEF2%22/%3E%3C/svg%3E",
 }
-THEME = {"bots": "#0B5E3A", "bazar": "#B4441A", "home": "#04060A"}
-SCHEME = {"bots": "light", "bazar": "light", "home": "dark"}
+THEME = {"bots": "#0B5E3A", "bazar": "#B4441A", "home": "#04060A", "marketing": "#C2341D"}
+ICON["marketing"] = ICON["home"]
+SCHEME = {"bots": "light", "bazar": "light", "home": "dark", "marketing": "light dark"}
 OG = {("bots", "es"): "bots-es", ("bots", "en"): "bots-en", ("bazar", "es"): "bazar-es", ("bazar", "en"): "bazar-en",
-      ("home", "es"): "neuri", ("home", "en"): "neuri"}
+      ("home", "es"): "neuri", ("home", "en"): "neuri",
+      ("marketing", "es"): "marketing-es", ("marketing", "en"): "marketing-en"}
 # Geist desde el propio sitio: ninguna página manda la IP del visitante a Google (mismo bloque que tools/fuentes-propias.py).
 _RANGO = ("U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,"
           "U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD")
@@ -67,12 +76,14 @@ TILE = {
     "bazar": '<span class="nb-tile"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"></path><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"></path><path d="M5 13v7h14v-7"></path></svg></span>',
     "home": '<svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"></circle><circle cx="15" cy="15" r="5" fill="#8FE0B4"></circle><circle cx="26" cy="9" r="2" fill="#E9EEF2"></circle></svg>',
 }
+TILE["marketing"] = TILE["home"]
 
 
 def landing(brand, lang):
     return {("bots", "es"): "/sigue-disponible/", ("bots", "en"): "/en/still-available/",
             ("bazar", "es"): "/bazar/", ("bazar", "en"): "/en/bazar/",
-            ("home", "es"): "/", ("home", "en"): "/en/home/"}[(brand, lang)]
+            ("home", "es"): "/", ("home", "en"): "/en/home/",
+            ("marketing", "es"): "/marketing/", ("marketing", "en"): "/en/marketing/"}[(brand, lang)]
 
 
 def a(href, text, cls="", extra=""):

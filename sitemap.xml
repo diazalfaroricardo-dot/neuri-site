@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://neuri.tech/afiliados/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/afiliados/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/affiliates/"/>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/bazar/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/bazar/recorrido/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/recorrido/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/tour/"/>
@@ -33,8 +33,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/bazar/vs-quail/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/bazar/vs-ricochet/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/vs-ricochet/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/vs-ricochet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/bazar/vs-ricochet/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/en/affiliates/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/afiliados/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/affiliates/"/>
@@ -42,7 +49,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/en/bazar/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/"/>
@@ -50,7 +57,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/en/bazar/tour/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/recorrido/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/tour/"/>
@@ -65,8 +72,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/bazar/vs-quail/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/en/bazar/vs-ricochet/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/bazar/vs-ricochet/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/bazar/vs-ricochet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/bazar/vs-ricochet/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/en/home/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/home/"/>
@@ -103,6 +117,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/marketing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/marketing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/marketing/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/en/marketing/vs-predis/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/marketing/vs-predis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/marketing/vs-predis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/marketing/vs-predis/"/>
   </url>
   <url>
     <loc>https://neuri.tech/en/still-available/appointments/</loc>
@@ -145,6 +166,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/privacidad/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/en/still-available/vs-manychat/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/vs-manychat/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/vs-manychat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/vs-manychat/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/en/whats-new/</loc>
     <lastmod>2026-11-05</lastmod>
     <priority>0.6</priority>
@@ -154,7 +182,7 @@
   </url>
   <url>
     <loc>https://neuri.tech/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/home/"/>
@@ -191,6 +219,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/marketing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/marketing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/marketing/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/marketing/vs-predis/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/marketing/vs-predis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/marketing/vs-predis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/marketing/vs-predis/"/>
   </url>
   <url>
     <loc>https://neuri.tech/novedades/</loc>
@@ -239,5 +274,12 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/privacidad/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/privacidad/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/vs-manychat/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/sigue-disponible/vs-manychat/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/vs-manychat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/vs-manychat/"/>
   </url>
 </urlset>

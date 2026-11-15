@@ -2,7 +2,7 @@
 """Páginas comparativas neuri.bazar vs Quail (ES/EN). Aprobadas por Ricardo el 24-oct-2026.
 
 Escribe la fuente con <!--contenido--> y aplica el chrome de marca de bazar (brand-chrome.py).
-Datos de Quail: quailhq.com/llms.txt (24-oct-2026). Si Quail cambia precios, edita QUAIL y vuelve a correr.
+Datos de Quail: quailhq.com/llms.txt y /pricing (revisados de nuevo el 14-nov-2026, sin cambios). Si Quail cambia precios, edita QUAIL y vuelve a correr.
 Uso: python3 scripts/vs-quail.py && python3 scripts/seo.py && node scripts/seo-test.mjs
 """
 import importlib.util, json, pathlib
@@ -12,7 +12,7 @@ spec = importlib.util.spec_from_file_location("bc", R / "scripts/brand-chrome.py
 bc = importlib.util.module_from_spec(spec); spec.loader.exec_module(bc)
 
 ES_PATH, EN_PATH = "bazar/vs-quail/", "en/bazar/vs-quail/"
-FECHA_ES, FECHA_EN = "24 de octubre de 2026", "October 24, 2026"
+FECHA_ES, FECHA_EN = "14 de noviembre de 2026", "November 14, 2026"
 
 T = {
  "es": dict(
@@ -71,7 +71,7 @@ def page(lang, path, alt_path):
     url, alt = "https://neuri.tech/" + path, "https://neuri.tech/" + alt_path
     es_url = url if lang == "es" else alt
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": t["h1"], "description": t["desc"], "url": url,
-          "inLanguage": "es" if lang == "es" else "en", "dateModified": "2026-10-24",
+          "inLanguage": "es" if lang == "es" else "en", "dateModified": "2026-11-14",
           "publisher": {"@type": "Organization", "name": "Neuri LLC", "url": "https://neuri.tech/"},
           "about": [{"@type": "SoftwareApplication", "name": "neuri.bazar", "applicationCategory": "BusinessApplication"},
                     {"@type": "SoftwareApplication", "name": "Quail", "applicationCategory": "BusinessApplication", "url": "https://quailhq.com/"}]}

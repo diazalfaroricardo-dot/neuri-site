@@ -282,4 +282,20 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/still-available/vs-manychat/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/sigue-disponible/vs-manychat/"/>
   </url>
+  <url>
+    <loc>https://neuri.tech/legal/google/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/legal/google/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/legal/google/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/legal/google/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/en/legal/google/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://neuri.tech/legal/google/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuri.tech/en/legal/google/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/legal/google/"/>
+  </url>
 </urlset>

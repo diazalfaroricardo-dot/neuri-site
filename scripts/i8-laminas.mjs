@@ -10,7 +10,7 @@ const dir = process.argv[2];
 const L = [
   ["1-bazar", "bazar", "neuri.bazar", "Tu bazar, en tu celular.", "Your mall, on your phone.", "Bazar de prueba, con datos de prueba.", "Test bazaar with test data."],
   ["2-bots", "bots", "neuri.bots", "Contesta «¿sigue disponible?» por ti.", "Answers “is this still available?” for you.", "Página de neuri.bots, en vivo.", "neuri.bots live page."],
-  ["3-marketing", "marketing", "Neuri Marketing", "Así se ve tu mes de contenido.", "See what your month of content looks like.", "Página de ejemplo: negocio inventado.", "Sample page: made-up business."],
+  ["3-marketing", "marketing", "neuri.marketing", "Así se ve tu mes de contenido.", "See what your month of content looks like.", "Página de ejemplo: negocio inventado.", "Sample page: made-up business."],
   ["4-consulting", "consulting", "neuri.consulting", "Lee un diagnóstico de ejemplo antes de pagar.", "Read a sample assessment before you pay.", "Diagnóstico de ejemplo: negocio ficticio.", "Sample assessment: fictional business."],
 ];
 const b64 = (f) => `data:image/jpeg;base64,${readFileSync(f).toString("base64")}`;

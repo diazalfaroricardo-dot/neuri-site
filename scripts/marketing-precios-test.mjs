@@ -1,4 +1,4 @@
-// PR2 — neuri.tech/marketing anuncia los mismos precios que cobra Neuri Marketing
+// PR2 — neuri.tech/marketing anuncia los mismos precios que cobra neuri.marketing
 // (apps/marketing/src/quota.ts PLANS, aprobados por Ricardo el 17-oct) y no promete
 // en un plan funciones que plan-features.ts le da a otro.
 // Uso: node scripts/marketing-precios-test.mjs [--live]

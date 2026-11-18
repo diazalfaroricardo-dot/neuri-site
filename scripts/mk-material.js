@@ -1,4 +1,4 @@
-  // mk-material: piezas reales de Neuri Marketing (post, reel animado, carrusel de texto, historia)
+  // mk-material: piezas reales de neuri.marketing (post, reel animado, carrusel de texto, historia)
   var MK='/img/mk/',LANG=document.documentElement.lang.indexOf('en')===0?'en':'es',MKIO=null;
   function art(g,it,i){
     var w=W[g],d=w.d,tag='<span class="mtag">'+it[0]+'</span>';

@@ -443,7 +443,7 @@ class Component extends DCLogic {
       compRows: [
         { need: 'Contesta a las 2 am', a: 'Si estás despierto', b: 'Solo en su turno', c: 'Sí', d: 'Sí, siempre', aC: R, bC: R, cC: N },
         { need: 'Lo que cuesta', a: 'Tu tiempo y tu sueño', b: 'Un sueldo al mes', c: 'Plan + tus horas armándolo', d: 'Desde $899 al mes', aC: N, bC: R, cC: N },
-        { need: 'Listo en', a: 'Ya', b: 'Semanas buscando y enseñando', c: 'Días o semanas', d: 'Lo instalamos nosotros', aC: G, bC: R, cC: R },
+        { need: 'Listo en', a: 'Ya', b: 'Semanas buscando y enseñando', c: 'Días o semanas', d: 'Minutos, tú mismo', aC: G, bC: R, cC: R },
         { need: 'Usa tus precios sin inventar', a: 'Sí', b: 'Si se los aprende', c: 'Depende cómo lo armes', d: 'Solo contesta con tu hoja', aC: G, bC: N, cC: N },
         { need: 'Te pasa lo difícil', a: 'No aplica', b: 'Sí', c: 'Si lo programas', d: 'Regateos y dudas raras, a ti', aC: N, bC: G, cC: N },
         { need: 'Sin saber de tecnología', a: 'Sí', b: 'Sí', c: 'No', d: 'Sí, se arma solo', aC: G, bC: G, cC: R }
@@ -460,7 +460,7 @@ class Component extends DCLogic {
         { q: '¿Por qué no uso las respuestas automáticas que ya trae Instagram?', a: 'Las de Instagram sirven para saludar al primer mensaje y avisar cuando no estás, y son gratis: si con eso te basta, úsalas. neuri.bots contesta cada pregunta distinta con la información de tu hoja (si sigue disponible, precio, entrega, apartados) y manda tu link a quien comenta tus publicaciones.' },
         { q: '¿Me dan factura?', a: 'Todavía no emitimos factura CFDI: Neuri LLC es una empresa de Estados Unidos. Cuando empiecen los cobros, cada pago tiene su recibo para descargar en el portal de pagos de Stripe, que abres desde Mi asistente. Si tu negocio necesita CFDI, tenlo en cuenta antes de contratar; cuando la tengamos, lo diremos aquí.' },
         { q: '¿Qué pasa cuando terminan los 7 días de prueba?', a: 'Tres días antes te llega un correo para poner tu tarjeta; no se cobra nada antes de que termine la prueba. Si no la pones, tienes 5 días de gracia y luego tu asistente se pausa, sin borrar nada. Sin cargos sorpresa.' },
-        { q: '¿Ya lo usa alguien?', a: 'Estamos abriendo con los primeros 10 negocios. Por eso la instalación va gratis y tienes 7 días de prueba gratis: a cambio solo te pedimos tu opinión.' }
+        { q: '¿Ya lo usa alguien?', a: 'Estamos abriendo con los primeros 10 negocios. Por eso tienes 7 días de prueba gratis: a cambio solo te pedimos tu opinión.' }
       ],
       bizList: this.bizDefs.map(function (b, i) {
         var on = st.biz === i;

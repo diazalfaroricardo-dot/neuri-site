@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Neuri — AI agents that run the busywork of your business</title>
-<meta name="description" content="Neuri builds AI agents for small businesses: Instagram and Messenger replies, a POS for vendor malls, AI consulting and social media you approve.">
+<meta name="description" content="Neuri is a suite of AI agents that grows your business: Instagram and Messenger replies, a POS for vendor malls, AI consulting and social media you approve.">
 <link rel="canonical" href="https://neuri.tech/en/home/">
 <link rel="alternate" hreflang="es" href="https://neuri.tech/">
 <link rel="alternate" hreflang="en" href="https://neuri.tech/en/home/">
@@ -194,6 +194,7 @@ h2{margin:0;font-size:clamp(38px,5vw,68px);line-height:.98;letter-spacing:-.05em
 .stats div{border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(4,6,10,.5);display:flex;flex-direction:column;gap:6px;min-width:0}
 .stats b{font-size:clamp(18px,2vw,24px);font-weight:700;letter-spacing:-.03em;color:var(--c);overflow-wrap:anywhere}
 .stats>div>span{font-size:10.5px;color:var(--sub)}
+@media(max-width:560px){.stats{grid-template-columns:1fr;gap:6px}.stats div{flex-direction:row;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 14px}.stats b{font-size:18px;overflow-wrap:normal;white-space:nowrap}.stats>div>span{text-align:right}}
 .card .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
 .card .go svg{transition:transform .25s var(--ease)}.card:hover .go svg{transform:translateX(5px)}
 
@@ -289,6 +290,30 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 .shot .tel{flex:1;min-height:0;width:78%;margin:0 auto -60px;border:5px solid #1b232c;border-radius:26px 26px 0 0;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgba(143,224,180,.22)}
 .shot .tel picture,.shot .tel img{display:block;width:100%;height:auto}
 .shot .src{position:absolute;left:12px;right:12px;bottom:10px;margin:0;font-size:12px;line-height:1.3;color:var(--ink);background:rgba(4,6,10,.85);padding:4px 8px;border-radius:6px}
+/* Pestaña al taller (neuri.ventures): discreta, al final, antes del pie. */
+.vtab{max-width:1280px;margin:0 auto;padding:0 28px 28px;display:flex;justify-content:center}
+.vtab a{position:relative;display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:10px 20px 10px 14px;border:1px dashed rgba(233,238,242,.22);border-radius:16px;background:rgba(255,255,255,.02);text-decoration:none;color:var(--sub);transition:border-color .3s,color .3s,background .3s}
+.vtab a:hover,.vtab a:focus-visible{border-color:rgba(243,179,143,.6);color:var(--ink);background:rgba(243,179,143,.05)}
+.vtab .vt-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(243,179,143,.12);color:var(--peach);font-size:15px;flex:none}
+.vtab b{color:var(--ink);font-weight:600;letter-spacing:-.01em}
+.vtab small{display:block;font:400 11px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.vtab svg{transition:transform .25s var(--ease)}.vtab a:hover svg{transform:translateX(4px)}
+@media(max-width:560px){.vtab{padding:0 16px 20px}}
+/* Pantallas con movimiento (la captura se recorre y una capa muestra el trabajo del agente). */
+.shot .tel{position:relative}
+.shot .tel picture{will-change:transform}
+.tm{position:absolute;left:14px;right:14px;bottom:44px;display:flex;flex-direction:column;gap:6px;pointer-events:none;font:500 12px/1.3 var(--sans);z-index:2}
+.tm>*{opacity:0;align-self:flex-start;max-width:92%;padding:7px 10px;border-radius:14px;box-shadow:0 8px 24px rgba(4,6,10,.28)}
+.tm .in{background:#fff;color:#0B0F14;border:1px solid #E3E8EC;border-bottom-left-radius:4px}
+.tm .out{align-self:flex-end;background:#8FE0B4;color:#04060A;border-bottom-right-radius:4px}
+.tm .dark{background:rgba(4,6,10,.92);color:#E9EEF2;border:1px solid rgba(143,224,180,.35)}
+.tm .dark em{font-style:normal;color:#8FE0B4;font-weight:700}
+.tm .peach em{color:#F3B38F}
+.tm .typing{display:inline-flex;gap:3px}.tm .typing i{width:5px;height:5px;border-radius:50%;background:#04060A;opacity:.5}
+.tm .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:6px;background:rgba(4,6,10,.92);border:1px solid rgba(255,138,122,.4)}
+.tm .grid i{aspect-ratio:1;border-radius:5px;background:linear-gradient(135deg,#FF8A7A,#F3B38F);opacity:0}
+.tm .ring{display:flex;align-items:center;gap:8px}
+.tm .ring svg{flex:none}
 @media(max-width:900px){.shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.shots>li{flex:0 0 min(84vw,340px);scroll-snap-align:center}.shot .tel{width:66%}}
 </style>
 </head>
@@ -317,7 +342,7 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
         <a role="menuitem" href="https://bazar.neuri.tech/login?lang=en">neuri.bazar</a>
         <a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=en">neuri.consulting</a>
         <a role="menuitem" href="https://sd.neuri.tech/en/entrar">neuri.bots</a>
-        <a role="menuitem" href="https://marketing.neuri.tech/entrar?lang=en">Neuri Marketing</a>
+        <a role="menuitem" href="https://marketing.neuri.tech/entrar?lang=en">neuri.marketing</a>
       </div>
     </details>
   </nav>
@@ -332,15 +357,15 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
   <canvas class="fx" aria-hidden="true"></canvas>
   <div class="hero-in">
     <div class="hero-txt">
-      <span class="badge mono"><span class="live"></span>AI agents for small businesses · In English and Spanish</span>
+      <span class="badge mono"><span class="live"></span>AI agents for growing businesses · English and Spanish</span>
       <h1 id="x-h1"><span class="sp"><span class="w"><span class="wi" style="--i:0">Software</span></span> <span class="w"><span class="wi" style="--i:1">that</span></span></span> <span class="rot"><span class="rw x-wa">answers</span></span><br><span class="sp"><span class="w"><span class="wi" style="--i:2">while</span></span> <span class="w"><span class="wi" style="--i:3">you</span></span> <span class="w"><span class="wi" style="--i:4">live.</span></span></span></h1>
       <nav class="dock" aria-label="Neuri products">
         <a href="/en/still-available/" hreflang="en" style="--c:#8FE0B4"><i aria-hidden="true"></i><span>neuri.bots<small>Sign-up open</small></span></a>
         <a href="/en/bazar/" hreflang="en" style="--c:#F3B38F"><i aria-hidden="true"></i><span>neuri.bazar<small>Live</small></span></a>
         <a href="/en/ai-consulting/" hreflang="en" style="--c:#B5EDCD"><i aria-hidden="true"></i><span>neuri.consulting<small>Open</small></span></a>
-        <a href="/en/marketing/" hreflang="en" style="--c:#FF8A7A"><i aria-hidden="true"></i><span>Neuri Marketing<small>Not open yet</small></span></a>
+        <a href="/en/marketing/" hreflang="en" style="--c:#FF8A7A"><i aria-hidden="true"></i><span>neuri.marketing<small>Not open yet</small></span></a>
       </nav>
-      <p class="hero-p">Neuri builds AI agents for small businesses. They answer your buyers at midnight, run the register and deduct booth rent from each vendor's balance, always with your prices and your rules. Anything they're not sure about, they hand to you.</p>
+      <p class="hero-p">Neuri is a suite of AI agents that grows your business: they answer your customers at any hour, run the register and keep the books, prepare your month of content and find what else to automate. You win back hours and your business sells more, always with your prices and your rules.</p>
       <div class="ctas">
         <a class="btn solid mag" href="#systems">See the products<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn ghost mag hide-xs-cta" href="#console"><span class="x-kbd">⌘K</span>Try the demo</a>
@@ -373,7 +398,7 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
           <div class="planet" data-a="-90" style="--c:#8FE0B4"><a href="/en/still-available/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.bots</b><small>Messages · Sign-up open</small></span></a></div>
           <div class="planet" data-a="0" style="--c:#F3B38F"><a href="/en/bazar/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.bazar</b><small>Operations · Live</small></span></a></div>
           <div class="planet" data-a="90" style="--c:#B5EDCD"><a href="/en/ai-consulting/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.consulting</b><small>Consulting · Open</small></span></a></div>
-          <div class="planet" data-a="180" style="--c:#FF8A7A"><a href="/en/marketing/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>Neuri Marketing</b><small>Content · Not open yet</small></span></a></div>
+          <div class="planet" data-a="180" style="--c:#FF8A7A"><a href="/en/marketing/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.marketing</b><small>Content · Not open yet</small></span></a></div>
         </div>
         <div class="float mono" aria-hidden="true" style="top:2%;left:-4%"><span style="color:#8FE0B4">● Agent · messages</span><b>Replies in seconds</b></div>
         <div class="float mono" aria-hidden="true" style="bottom:4%;right:-2%"><span style="color:#F3B38F">● Agent · register</span><b>Keeps the books itself</b></div>
@@ -397,7 +422,7 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 
 <section class="man" aria-label="Manifesto">
   <p class="k-mono mono">01 · Manifesto</p>
-  <p class="big" id="manifesto">Small businesses don't need more screens. They need time. That's why we build agents that answer, hold items and keep the books on their own, with each owner's rules, so people can get back to what only people can do.</p>
+  <p class="big" id="manifesto">Nobody wants to buy artificial intelligence. They want hours back, sales that don't slip away and books that balance. That's why Neuri doesn't sell AI: it sells solutions. A suite of agents that answer, charge, book and automate by your rules, so your business grows and you get back to what only you can do.</p>
 </section>
 
 <section id="systems" class="sis" aria-labelledby="x-sis">
@@ -409,23 +434,23 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
     <a class="card" href="/en/still-available/" hreflang="en" style="--c:#8FE0B4"><div class="scan" aria-hidden="true"></div>
       <div class="hd"><span class="code mono">MISSION 01 · MESSAGES AGENT</span><span class="st mono"><i></i>Sign-up open</span></div>
       <div><h3>neuri.bots</h3><p class="d">Replies to your buyers on Instagram and Messenger with your prices and rules: is it still available, how much, where to pick up. Holds items, books visits and passes you the hard ones. Sign-up is open today; the Instagram and Messenger connection is pending Meta's approval.</p></div>
-      <div class="stats"><div><b>Seconds</b><span class="mono">To reply</span></div><div><b>24/7</b><span class="mono">Awake</span></div><div><b>0</b><span class="mono">Made-up prices</span></div></div>
+      <div class="stats"><div><b>Seconds</b><span class="mono">To reply</span></div><div><b>24/7</b><span class="mono">Awake</span></div><div><b>Your prices</b><span class="mono">Always, from your sheet</span></div></div>
       <span class="go">See neuri.bots<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     <a class="card" href="/en/bazar/" hreflang="en" style="--c:#F3B38F"><div class="scan" aria-hidden="true"></div>
       <div class="hd"><span class="code mono">MISSION 02 · OPERATIONS AGENT</span><span class="st mono"><i></i>Live</span></div>
       <div><h3>neuri.bazar</h3><p class="d">The register and the books for vendor malls, flea markets and antique malls. Each sale goes to its vendor's balance, booth rent is deducted from that balance automatically and the books run without a notebook. From US$79 a month; Neuri takes no commission on sales.</p></div>
-      <div class="stats"><div><b>To balance</b><span class="mono">Each booth&#39;s rent</span></div><div><b>0</b><span class="mono">Neuri commission per sale</span></div><div><b>EN · ES</b><span class="mono">English and Spanish</span></div></div>
+      <div class="stats"><div><b>1 checkout</b><span class="mono">Each sale to its vendor&#39;s balance</span></div><div><b>Automatic</b><span class="mono">Rent comes out of the balance</span></div><div><b>0%</b><span class="mono">Neuri commission per sale</span></div></div>
       <span class="go">See neuri.bazar<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     <a class="card" href="/en/ai-consulting/" hreflang="en" style="--c:#B5EDCD"><div class="scan" aria-hidden="true"></div>
       <div class="hd"><span class="code mono">MISSION 03 · AI CONSULTING</span><span class="st mono"><i></i>Open</span></div>
       <div><h3>neuri.consulting</h3><p class="d">Shows where AI saves your business hours and helps you put it to work. Free AI Score, an online diagnosis with quality checks (a person reviews it if something doesn't add up), implementation and monthly support.</p></div>
-      <div class="stats"><div><b>Free</b><span class="mono">Your AI Score</span></div><div><b>Fixed</b><span class="mono">Price per stage</span></div><div><b>US$249</b><span class="mono">Assessment from</span></div></div>
+      <div class="stats"><div><b>3 min</b><span class="mono">Your free AI Score</span></div><div><b>90 days</b><span class="mono">Prioritized plan with a business case</span></div><div><b>Fixed</b><span class="mono">Price per stage, with guarantee</span></div></div>
       <span class="go">See neuri.consulting<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     <a class="card" href="/en/marketing/" hreflang="en" style="--c:#FF8A7A"><div class="scan" aria-hidden="true"></div>
       <div class="hd"><span class="code mono">MISSION 04 · CONTENT AGENT</span><span class="st mono"><i></i>Not open yet</span></div>
-      <div><h3>Neuri Marketing</h3><p class="d">Prepares your business's posts and reels for the month with your brand and your photos; you approve with one tap. New accounts open once Instagram and Facebook can be connected; today you can see a sample and use 6 free tools.</p></div>
+      <div><h3>neuri.marketing</h3><p class="d">Prepares your business's posts and reels for the month with your brand and your photos; you approve with one tap. New accounts open once Instagram and Facebook can be connected; today you can see a sample and use 6 free tools.</p></div>
       <div class="stats"><div><b>1 tap</b><span class="mono">To approve</span></div><div><b><span data-count="30">30</span> days</b><span class="mono">Of calendar</span></div><div><b>Free</b><span class="mono">6 tools today</span></div></div>
-      <span class="go">See Neuri Marketing<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <span class="go">See neuri.marketing<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
 
   <h3 class="shots-h rv">Real screens, on a phone.</h3>
@@ -433,7 +458,7 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
   <ul class="shots" aria-label="Screens of the four products">
     <li><a class="shot" href="/en/bazar/" hreflang="en"><span class="tag">neuri.bazar</span><h4>Your mall, on your phone.</h4><div class="tel"><picture><source srcset="/img/pantalla-bazar-en.avif" type="image/avif"><source srcset="/img/pantalla-bazar-en.webp" type="image/webp"><img src="/img/pantalla-bazar-en.jpg" alt="neuri.bazar home screen with a test bazaar: sales, balance owed to vendors and today's to-dos." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">Test bazaar with test data.</p></a></li>
     <li><a class="shot" href="/en/still-available/" hreflang="en"><span class="tag">neuri.bots</span><h4>Answers “is this still available?” for you.</h4><div class="tel"><picture><source srcset="/img/pantalla-bots-en.avif" type="image/avif"><source srcset="/img/pantalla-bots-en.webp" type="image/webp"><img src="/img/pantalla-bots-en.jpg" alt="neuri.bots page on a phone, with its Get my assistant button." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">neuri.bots live page.</p></a></li>
-    <li><a class="shot" href="/en/marketing/" hreflang="en"><span class="tag">Neuri Marketing</span><h4>See what your month of content looks like.</h4><div class="tel"><picture><source srcset="/img/pantalla-marketing-en.avif" type="image/avif"><source srcset="/img/pantalla-marketing-en.webp" type="image/webp"><img src="/img/pantalla-marketing-en.jpg" alt="A made-up café's month on Instagram on the Neuri Marketing sample page." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">Sample page: made-up business.</p></a></li>
+    <li><a class="shot" href="/en/marketing/" hreflang="en"><span class="tag">neuri.marketing</span><h4>See what your month of content looks like.</h4><div class="tel"><picture><source srcset="/img/pantalla-marketing-en.avif" type="image/avif"><source srcset="/img/pantalla-marketing-en.webp" type="image/webp"><img src="/img/pantalla-marketing-en.jpg" alt="A made-up café's month on Instagram on the neuri.marketing sample page." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">Sample page: made-up business.</p></a></li>
     <li><a class="shot" href="/en/ai-consulting/" hreflang="en"><span class="tag">neuri.consulting</span><h4>Read a sample assessment before you pay.</h4><div class="tel"><picture><source srcset="/img/pantalla-consulting-en.avif" type="image/avif"><source srcset="/img/pantalla-consulting-en.webp" type="image/webp"><img src="/img/pantalla-consulting-en.jpg" alt="AI assessment of a fictional hardware store, with buttons to download the PDF and presentation." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">Sample assessment: fictional business.</p></a></li>
   </ul>
 </section>
@@ -503,19 +528,21 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 </section>
 </main>
 
+<div class="vtab"><a href="/en/ventures/" hreflang="en" data-ventures><span class="vt-ic" aria-hidden="true">✦</span><span><b>neuri.ventures</b><small>From the workshop · apps in incubation</small></span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+
 <footer>
   <span class="c mono">© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA</span>
   <nav aria-label="Footer">
-    <a href="/en/still-available/">neuri.bots</a><a href="/en/bazar/">neuri.bazar</a><a href="/en/ai-consulting/">AI consulting</a><a href="/en/marketing/">Neuri Marketing</a><a href="/en/affiliates/">Affiliates</a><a href="/en/legal/">Privacy &amp; terms</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/?lang=es" hreflang="es" lang="es">Español</a>
+    <a href="/en/still-available/">neuri.bots</a><a href="/en/bazar/">neuri.bazar</a><a href="/en/ai-consulting/">AI consulting</a><a href="/en/marketing/">neuri.marketing</a><a href="/en/affiliates/">Affiliates</a><a href="/en/ventures/">neuri.ventures</a><a href="/en/legal/">Privacy &amp; terms</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/?lang=es" hreflang="es" lang="es">Español</a>
   </nav>
 </footer>
 </div>
 
 <script type="application/json" id="portada-datos">{
 "locale":"en-US",
-"words":["answers","deducts the rent","holds the item","books the visit","keeps the books"],
+"words":["answers","charges","books visits","automates","keeps the books"],
 "marquee":["Replies in seconds","Holds and books","Rings up sales","Splits each vendor's take","Deducts rent on its own","Hands you the hard ones","Never makes up prices","Instagram · Messenger","English and Spanish","Pesos and dollars"],
-"hl":{"agents":"hl","time.":"hl","own,":"hl2","people":"hl"},
+"hl":{"hours":"hl","solutions.":"hl","agents":"hl","grows":"hl2"},
 "netAria":"How an agent decides: the signal “{s}” comes in, crosses your context and ends in {o}",
 "inL":["MESSAGE","SALE","QUESTION"],"outL":["REPLY","BALANCE","TO YOU"],"cols":["INPUT","CONTEXT","DECISION","ACTION"],
 "sig":[
@@ -533,6 +560,7 @@ footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inlin
 <script src="/assets/gsap/gsap.min.js" defer></script>
 <script src="/assets/gsap/ScrollTrigger.min.js" defer></script>
 <script src="/assets/portada.js" defer></script>
+<script src="/assets/tel-motion.js" defer></script>
 <script src="/assets/menu-esc.js" defer></script>
 <script src="/assets/ref-links.js" defer></script>
 </body>

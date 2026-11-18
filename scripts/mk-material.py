@@ -1,4 +1,4 @@
-"""Material real de Neuri Marketing en /marketing y /en/marketing (27-oct, pedido de Ricardo:
+"""Material real de neuri.marketing en /marketing y /en/marketing (27-oct, pedido de Ricardo:
 que las funciones recién desplegadas —reel animado con subtítulos, carrusel de texto, composiciones,
 crudo→reel, filtro de inspiración— se vean en las piezas apiladas del sitio, con el mejor material).
 - Hero «Tu semana»: las 4 piezas pasan de tarjetas de color a material real por giro (post, reel

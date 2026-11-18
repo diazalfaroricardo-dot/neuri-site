@@ -61,8 +61,8 @@
       {
         re: /^\/(en\/)?marketing/,
         th: "mkt",
-        es: "¡Hola! Soy el asistente de Neuri (una IA). Neuri Marketing arma los posts y reels del mes con tu estilo, y tú los apruebas desde el celular. El alta ya está abierta: ¿te cuento qué plan te queda?",
-        en: "Hi! I'm Neuri's assistant (an AI). Neuri Marketing drafts your month of posts and reels in your style, and you approve them from your phone. Sign-up is open: want help picking a plan?",
+        es: "¡Hola! Soy el asistente de Neuri (una IA). neuri.marketing arma los posts y reels del mes con tu estilo, y tú los apruebas desde el celular. El alta ya está abierta: ¿te cuento qué plan te queda?",
+        en: "Hi! I'm Neuri's assistant (an AI). neuri.marketing drafts your month of posts and reels in your style, and you approve them from your phone. Sign-up is open: want help picking a plan?",
         qes: ["¿Cuánto cuesta?", "¿Publica sin que yo lo vea?", "Tengo una cafetería"],
         qen: ["How much is it?", "Does it post without my OK?", "I run a coffee shop"],
       },

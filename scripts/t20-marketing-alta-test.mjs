@@ -1,4 +1,4 @@
-// t20 (reabierto por Ricardo 4-nov): el alta de Neuri Marketing está CERRADA hasta encender Meta. La landing
+// t20 (reabierto por Ricardo 4-nov): el alta de neuri.marketing está CERRADA hasta encender Meta. La landing
 // (ES/EN), las portadas y llms.txt no prometen crear cuenta; los botones llevan al ejemplo (/demo) y no hay
 // lista de espera. t23: mientras Neuri no esté
 // registrado ante el SAT tampoco decimos «IVA incluido» / «VAT included»: decimos «precio final».
@@ -28,12 +28,12 @@ for (const f of ["marketing/index.html", "en/marketing/index.html"]) {
 }
 for (const f of ["marketing/index.html", "en/marketing/index.html"])
   yes(f, /searchParams\.set\('ref',ref\)/, "?ref de «Hecho con Neuri» pasa a /empezar (MK160)");
-no("index.html", /Neuri Marketing \(pronto\)|Neuri Marketing<small>Lista de espera|Contenido · Lista de espera/, "tarjeta de Marketing en neuri.tech con lista de espera");
+no("index.html", /neuri.marketing \(pronto\)|neuri.marketing<small>Lista de espera|Contenido · Lista de espera/, "tarjeta de Marketing en neuri.tech con lista de espera");
 no("en/home/index.html", /Waitlist|waitlist|Will draft your business/, "portada EN de Marketing con lista de espera (qa #62)");
-no("404.html", /Neuri Marketing \(pronto\)/, "la página 404 dice que Marketing es «pronto»");
+no("404.html", /neuri.marketing \(pronto\)/, "la página 404 dice que Marketing es «pronto»");
 no("llms.txt", /Not available yet; waitlist open|IVA incluido|Open for sign-up at https:\/\/marketing/, "llms.txt viejo");
-no("index.html", /Neuri Marketing<small>Alta abierta|Contenido · Alta abierta|MISIÓN 04[^\n]*Alta abierta/, "portada dice Alta abierta en Marketing");
-no("en/home/index.html", /Neuri Marketing<small>Sign-up open|Content · Sign-up open|MISSION 04[^\n]*Sign-up open/, "portada EN dice Sign-up open en Marketing");
+no("index.html", /neuri.marketing<small>Alta abierta|Contenido · Alta abierta|MISIÓN 04[^\n]*Alta abierta/, "portada dice Alta abierta en Marketing");
+no("en/home/index.html", /neuri.marketing<small>Sign-up open|Content · Sign-up open|MISSION 04[^\n]*Sign-up open/, "portada EN dice Sign-up open en Marketing");
 
 if (fails.length) {
   console.error(`✗ t20/t23: ${fails.length}\n- ${fails.join("\n- ")}`);

@@ -26,7 +26,7 @@ META_ES = """<div class="code">NEURI LLC · LEGAL · META</div>
 <h2 id="que-h">Qué usa cada producto y para qué</h2>
 <ul class="sitio">
 <li><b>neuri.bots</b> — contesta por ti las preguntas de tus clientes. Con tu permiso recibe los mensajes que te mandan por Instagram, Messenger y WhatsApp (texto, nombre o usuario e identificador de quien escribe, fecha), los responde en tu nombre con la información de tus productos que tú cargaste y te avisa cuando una persona tiene que intervenir. Permisos: instagram_business_basic, instagram_business_manage_messages, pages_show_list, pages_manage_metadata, pages_messaging, whatsapp_business_management, whatsapp_business_messaging.</li>
-<li><b>Neuri Marketing</b> — publica en tu página e Instagram lo que tú apruebas y te ayuda a no perder clientes. Lee la lista de tus páginas y su cuenta de Instagram, publica fotos, carruseles y reels aprobados, recibe comentarios y mensajes directos para mostrártelos en una bandeja y marcar a quien pregunta precios, y lee estadísticas de tus publicaciones (alcance, guardados, compartidos) para tu reporte del mes. Permisos: pages_show_list, pages_read_engagement, pages_manage_posts, pages_manage_metadata, pages_messaging, business_management, instagram_basic, instagram_content_publish, instagram_manage_comments, instagram_manage_messages, instagram_manage_insights.</li>
+<li><b>neuri.marketing</b> — publica en tu página e Instagram lo que tú apruebas y te ayuda a no perder clientes. Lee la lista de tus páginas y su cuenta de Instagram, publica fotos, carruseles y reels aprobados, recibe comentarios y mensajes directos para mostrártelos en una bandeja y marcar a quien pregunta precios, y lee estadísticas de tus publicaciones (alcance, guardados, compartidos) para tu reporte del mes. Permisos: pages_show_list, pages_read_engagement, pages_manage_posts, pages_manage_metadata, pages_messaging, business_management, instagram_basic, instagram_content_publish, instagram_manage_comments, instagram_manage_messages, instagram_manage_insights.</li>
 <li><b>neuri.bazar</b> — publica en la página e Instagram del bazar las publicaciones que el dueño programa y manda avisos por WhatsApp a sus locatarios. Usa los mismos permisos de publicar y de WhatsApp de arriba.</li>
 <li><b>neuri.consulting</b> no se conecta a Facebook, Instagram ni WhatsApp.</li>
 </ul>
@@ -64,7 +64,7 @@ META_ES = """<div class="code">NEURI LLC · LEGAL · META</div>
 <nav aria-label="Avisos por producto">
 <a href="/sigue-disponible/privacidad/">neuri.bots <span aria-hidden="true">→</span></a>
 <a href="/bazar/privacidad/">neuri.bazar <span aria-hidden="true">→</span></a>
-<a href="https://marketing.neuri.tech/privacidad">Neuri Marketing <span aria-hidden="true">→</span></a>
+<a href="https://marketing.neuri.tech/privacidad">neuri.marketing <span aria-hidden="true">→</span></a>
 <a href="/legal/">Todos los avisos y términos <span aria-hidden="true">→</span></a>
 </nav>
 </section>
@@ -83,7 +83,7 @@ META_EN = """<div class="code">NEURI LLC · LEGAL · META</div>
 <h2 id="what-h">What each product uses and why</h2>
 <ul class="sitio">
 <li><b>neuri.bots</b> — answers your customers’ questions for you. With your permission it receives the messages people send you on Instagram, Messenger and WhatsApp (text, name or username and ID of the sender, date), replies on your behalf using the product information you uploaded, and tells you when a person needs to step in. Permissions: instagram_business_basic, instagram_business_manage_messages, pages_show_list, pages_manage_metadata, pages_messaging, whatsapp_business_management, whatsapp_business_messaging.</li>
-<li><b>Neuri Marketing</b> — publishes what you approve to your Page and Instagram and helps you not miss customers. It reads your list of Pages and their Instagram account, publishes approved photos, carousels and reels, receives comments and direct messages to show them in one inbox and flag people asking about prices, and reads post insights (reach, saves, shares) for your monthly report. Permissions: pages_show_list, pages_read_engagement, pages_manage_posts, pages_manage_metadata, pages_messaging, business_management, instagram_basic, instagram_content_publish, instagram_manage_comments, instagram_manage_messages, instagram_manage_insights.</li>
+<li><b>neuri.marketing</b> — publishes what you approve to your Page and Instagram and helps you not miss customers. It reads your list of Pages and their Instagram account, publishes approved photos, carousels and reels, receives comments and direct messages to show them in one inbox and flag people asking about prices, and reads post insights (reach, saves, shares) for your monthly report. Permissions: pages_show_list, pages_read_engagement, pages_manage_posts, pages_manage_metadata, pages_messaging, business_management, instagram_basic, instagram_content_publish, instagram_manage_comments, instagram_manage_messages, instagram_manage_insights.</li>
 <li><b>neuri.bazar</b> — publishes the posts a market owner schedules to the market’s Page and Instagram and sends WhatsApp notices to its vendors. It uses the same publishing and WhatsApp permissions listed above.</li>
 <li><b>neuri.consulting</b> does not connect to Facebook, Instagram or WhatsApp.</li>
 </ul>
@@ -121,7 +121,7 @@ META_EN = """<div class="code">NEURI LLC · LEGAL · META</div>
 <nav aria-label="Notices by product">
 <a href="/sigue-disponible/privacidad/">neuri.bots <span aria-hidden="true">→</span></a>
 <a href="/bazar/privacidad/">neuri.bazar <span aria-hidden="true">→</span></a>
-<a href="https://marketing.neuri.tech/privacidad?lang=en">Neuri Marketing <span aria-hidden="true">→</span></a>
+<a href="https://marketing.neuri.tech/privacidad?lang=en">neuri.marketing <span aria-hidden="true">→</span></a>
 <a href="/en/legal/">All notices and terms <span aria-hidden="true">→</span></a>
 </nav>
 </section>
@@ -144,7 +144,7 @@ DEL_ES = """<div class="code">NEURI LLC · LEGAL · BORRADO</div>
 <h2 id="op2-h">2. Desde el producto</h2>
 <ul class="sitio">
 <li><b>neuri.bots</b>: en «Mi asistente» → «Desconectar», y para borrar todo, «Borrar mis datos».</li>
-<li><b>Neuri Marketing</b>: en tu panel → «Tus datos» → «Borrar mis datos».</li>
+<li><b>neuri.marketing</b>: en tu panel → «Tus datos» → «Borrar mis datos».</li>
 <li><b>neuri.bazar</b>: en tu cuenta → «Borrar mis datos».</li>
 <li><b>neuri.consulting</b>: en el portal → «Tus datos y privacidad» → «Pedir el borrado».</li>
 </ul>
@@ -181,7 +181,7 @@ DEL_EN = """<div class="code">NEURI LLC · LEGAL · DELETION</div>
 <h2 id="o2-h">2. From the product</h2>
 <ul class="sitio">
 <li><b>neuri.bots</b>: in “My assistant” → “Disconnect”; to delete everything, “Delete my data”.</li>
-<li><b>Neuri Marketing</b>: in your dashboard → “Your data” → “Delete my data”.</li>
+<li><b>neuri.marketing</b>: in your dashboard → “Your data” → “Delete my data”.</li>
 <li><b>neuri.bazar</b>: in your account → “Delete my data”.</li>
 <li><b>neuri.consulting</b>: in the portal → “Your data and privacy” → “Request deletion”.</li>
 </ul>

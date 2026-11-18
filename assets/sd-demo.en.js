@@ -444,7 +444,7 @@ class Component extends DCLogic {
         { need: 'Ready in', a: 'Now', b: 'Weeks of hiring and training', c: 'Days or weeks', d: 'Sets itself up in minutes', aC: G, bC: R, cC: R },
         { need: 'Uses your prices, never makes them up', a: 'Yes', b: 'Once they learn them', c: 'Depends on how you build it', d: 'Answers only from your sheet', aC: G, bC: N, cC: N },
         { need: 'Hands you the tricky ones', a: 'N/A', b: 'Yes', c: 'If you program it', d: 'Haggling and odd questions go to you', aC: N, bC: G, cC: N },
-        { need: 'No tech skills needed', a: 'Yes', b: 'Yes', c: 'No', d: 'Yes, we build it for you', aC: G, bC: G, cC: R }
+        { need: 'No tech skills needed', a: 'Yes', b: 'Yes', c: 'No', d: 'Yes, it guides you step by step', aC: G, bC: G, cC: R }
       ],
       faqs: [
         { q: 'What if it gets something wrong?', a: 'It only answers from your sheet. If a buyer asks something it doesn’t know, it doesn’t make things up: it passes you the conversation and tells the buyer you’ll reply. You can pause it anytime.' },
@@ -458,7 +458,7 @@ class Component extends DCLogic {
         { q: 'Why not use Instagram’s built-in auto-replies?', a: 'Instagram’s built-in replies greet a first message and send an away message, and they’re free: if that’s all you need, use them. neuri.bots answers each different question with the info in your sheet (still available, price, delivery, holds) and DMs your link to people who comment on your posts.' },
         { q: 'Do I get a receipt or invoice?', a: 'Yes, a receipt: once billing starts, every payment has a receipt you can download from the Stripe billing portal, which you open from My assistant. Neuri LLC is a US company; we don’t issue Mexican CFDI invoices yet.' },
         { q: 'What happens when the 7-day trial ends?', a: 'Three days before, you get an email to add your card; nothing is charged before the trial ends. If you don’t add it, you get a 5-day grace period, then your assistant pauses, with nothing deleted. No surprise charges.' },
-        { q: 'Is anyone using it yet?', a: 'We’re opening with our first 10 sellers. That’s why setup is free and you get a 7-day free trial: all we ask in return is your honest feedback.' }
+        { q: 'Is anyone using it yet?', a: 'We’re opening with our first 10 sellers. That’s why you get a 7-day free trial: all we ask in return is your honest feedback.' }
       ],
       bizList: this.bizDefs.map(function (b, i) {
         var on = st.biz === i;

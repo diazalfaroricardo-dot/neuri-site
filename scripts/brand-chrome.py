@@ -122,7 +122,7 @@ def header(brand, lang, alt, kind=""):
                 (f"https://bazar.neuri.tech/login?lang={lang}", "neuri.bazar"),
                 (f"https://consulting.neuri.tech/entrar?lang={lang}", "neuri.consulting"),
                 (f"https://sd.neuri.tech/{'' if es else 'en/'}entrar" + ("?lang=es" if es else ""), "neuri.bots"),
-                (f"https://marketing.neuri.tech/entrar?lang={lang}", "Neuri Marketing")])
+                (f"https://marketing.neuri.tech/entrar?lang={lang}", "neuri.marketing")])
         nav = [a("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots", "nb-hide-sm"),
                a("/bazar/" if es else "/en/bazar/", "neuri.bazar", "nb-hide-sm"),
                a("/consultoria/" if es else "/en/ai-consulting/", "Consultoría IA" if es else "AI consulting", "nb-hide-sm"),
@@ -141,7 +141,7 @@ def footer(brand, lang, alt):
     if brand == "bots":
         word, links = 'neuri<span>.bots</span>', [
             ("/" if es else "/en/home/", "neuri.tech"), ("/bazar/" if es else "/en/bazar/", "neuri.bazar"),
-            ("/consultoria/" if es else "/en/ai-consulting/", "Neuri Consulting"), ("/marketing/" if es else "/en/marketing/", "Neuri Marketing"),
+            ("/consultoria/" if es else "/en/ai-consulting/", "Neuri Consulting"), ("/marketing/" if es else "/en/marketing/", "neuri.marketing"),
             ("/sigue-disponible/privacidad/" if es else "/en/still-available/privacy/", "Privacidad" if es else "Privacy"),
             ("/sigue-disponible/terminos/" if es else "/en/still-available/terms/", "Términos" if es else "Terms"),
             ("/sigue-disponible/hoja/" if es else "/en/still-available/sheet/", "Hoja de catálogo" if es else "Catalog sheet"),
@@ -149,7 +149,7 @@ def footer(brand, lang, alt):
     elif brand == "bazar":
         word, links = 'neuri<span>.bazar</span>', [
             ("/" if es else "/en/home/", "neuri.tech"), ("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots"),
-            ("/consultoria/" if es else "/en/ai-consulting/", "Neuri Consulting"), ("/marketing/" if es else "/en/marketing/", "Neuri Marketing"),
+            ("/consultoria/" if es else "/en/ai-consulting/", "Neuri Consulting"), ("/marketing/" if es else "/en/marketing/", "neuri.marketing"),
             ("/bazar/recorrido/" if es else "/en/bazar/tour/", "Recorrido" if es else "Tour"),
             ("/bazar/privacidad/" if es else "/en/bazar/privacy/", "Privacidad" if es else "Privacy"),
             ("/bazar/terminos/" if es else "/en/bazar/terms/", "Términos" if es else "Terms"),
@@ -159,7 +159,7 @@ def footer(brand, lang, alt):
         word, links = "neuri", [
             ("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots"), ("/bazar/" if es else "/en/bazar/", "neuri.bazar"),
             ("/consultoria/" if es else "/en/ai-consulting/", "Consultoría IA" if es else "AI consulting"),
-            ("/marketing/" if es else "/en/marketing/", "Neuri Marketing"),
+            ("/marketing/" if es else "/en/marketing/", "neuri.marketing"),
             ("/legal/" if es else "/en/legal/", "Privacidad y términos" if es else "Privacy & terms"), ("mailto:hola@neuri.tech", "hola@neuri.tech")]
     other = "en" if es else "es"
     alt_href = "/en/home/" if alt.startswith("#") else alt

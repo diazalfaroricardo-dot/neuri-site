@@ -249,6 +249,9 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
   document.documentElement.lang = 'en';
   document.title = 'Page not found | Neuri';
   var q = function (s) { return document.querySelector(s); };
+  var salto = q('.nb-skip'); if (salto) salto.textContent = 'Skip to content';
+  var navs = { Principal: 'Main', Pie: 'Footer' };
+  document.querySelectorAll('nav[aria-label]').forEach(function (n) { var v = navs[n.getAttribute('aria-label')]; if (v) n.setAttribute('aria-label', v); });
   q('h1').textContent = 'This page doesn\u2019t exist.';
   q('.nb-hub > p').textContent = 'It may have moved, or the link was incomplete. Everything is one tap from here:';
   var flecha = ' <span aria-hidden="true">\u2192</span>';

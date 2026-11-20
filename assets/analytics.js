@@ -1,6 +1,8 @@
 /*
  * Analítica de neuri.tech con PostHog (US cloud, proyecto 659231).
- * - Sin cookies ni localStorage (persistence: 'memory'): cuenta visitas de forma anónima, sin banner.
+ * - Sin cookies ni localStorage (cookieless_mode 'always' + persistence 'memory'): PostHog cuenta
+ *   únicos por día con un hash con sal diaria calculado en su servidor; la IP no se guarda
+ *   (anonymize_ips en el proyecto). Sin banner.
  * - Sin grabación de sesiones, respeta Do Not Track, no corre en localhost.
  * - Super propiedades app='site' e is_internal (robots de QA/auditoría o ?interno=1).
  * - Eventos propios SIN datos personales: nunca nombres, correos, teléfonos, @usuarios ni texto libre.
@@ -34,12 +36,14 @@
   // A-AN1: tráfico interno (robots de QA/auditoría o una URL con ?interno=1) → is_internal, que el
   // filtro de cuentas de prueba del proyecto excluye. Sin guardar nada en el navegador.
   function internal() {
-    return w.__nInternal === true || /[?&]interno=1\b/.test(l.search) ||
-      /HeadlessChrome|Playwright|Lighthouse/i.test(navigator.userAgent || '') || /^\/qa(\/|$)/.test(l.pathname);
+    // navigator.webdriver: el QA emula iPhone con UA normal; Claude/: agentes del equipo.
+    return w.__nInternal === true || navigator.webdriver === true || /[?&]interno=1\b/.test(l.search) ||
+      /HeadlessChrome|Playwright|Lighthouse|UptimeRobot|Claude\/\d/i.test(navigator.userAgent || '') || /^\/qa(\/|$)/.test(l.pathname);
   }
 
   w.posthog.init('phc_sLLyPxfmbysuUJQrLHoPzCZDuzkUinD7o8ix8EPZvtPo', {
     api_host: 'https://us.i.posthog.com',
+    cookieless_mode: 'always',
     persistence: 'memory',
     person_profiles: 'identified_only',
     autocapture: true,

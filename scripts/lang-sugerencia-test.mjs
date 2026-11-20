@@ -45,7 +45,7 @@ for (const w of [390, 1280]) {
     if (!/^\/en\/home\/\?lang=en$/.test(href)) bad(`${w}: link ${href}`);
     for (const el of await bar.locator("a,button").all()) {
       const b = await el.boundingBox();
-      if (!b || b.height < 44) bad(`${w}: toque de ${b && b.height} px`);
+      if (!b || b.height < 43.9) bad(`${w}: toque de ${b && b.height} px`); // 43.99999 en CI = 44 px (redondeo de flotante)
     }
     if (await p.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)) bad(`${w}: scroll horizontal`);
     if (axeSrc) {

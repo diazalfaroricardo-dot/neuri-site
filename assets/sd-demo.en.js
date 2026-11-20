@@ -450,7 +450,7 @@ class Component extends DCLogic {
         { q: 'What if it gets something wrong?', a: 'It only answers from your sheet. If a buyer asks something it doesn’t know, it doesn’t make things up: it passes you the conversation and tells the buyer you’ll reply. You can pause it anytime.' },
         { q: 'What do I need to get started?', a: 'Your Instagram account or Facebook Page, and a sheet with your items or services, prices, pickup or delivery, and payment options. Sign-up takes 3 minutes.' },
         { q: 'Can I try it first?', a: 'Yes. We give you a test code so you can message it from your personal account and see how it answers before turning it on for your buyers.' },
-        { q: 'What about WhatsApp?', a: 'It’s on the way. We’re opening Instagram and Messenger first (pending Meta’s approval); as soon as WhatsApp is ready, we’ll let you know so you can connect it.' },
+        { q: 'What about WhatsApp?', a: 'It’s available now. From My assistant you connect your business’s WhatsApp number through Meta’s official connection, and your assistant answers there with the info from your sheet, just like on Instagram and Messenger.' },
         { q: 'Can I cancel?', a: 'Yes, anytime. It’s billed month to month with no contract.' },
         { q: 'Do you charge per message or per contact?', a: 'No. You pay the same flat monthly price no matter how many buyers message you: there’s no per-contact or per-message fee. For safety, each account answers up to 1,000 messages a day.' },
         { q: 'Who helps me if something breaks?', a: 'In My assistant, tap “Something’s not right”: it checks your Instagram, your sheet and whether it’s paused, and gives you a button to fix each one. If it still doesn’t work, it goes to a person at Neuri and we reply by email.' },
@@ -496,7 +496,7 @@ class Component extends DCLogic {
       }),
       chList: ['ig', 'fb', 'wa'].map(function (k) {
         var on = st.ch === k;
-        return { label: k === 'wa' ? 'WhatsApp · soon' : CH[k].label, icon: CH[k].icon, selected: on ? 'true' : 'false',
+        return { label: CH[k].label, icon: CH[k].icon, selected: on ? 'true' : 'false',
           style: 'font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; ' + (on ? 'background: #FFFFFF; color: #05080D;' : 'background: transparent; color: #C5D2CB;'),
           pick: function () { self.setState({ ch: k }); } };
       }),
@@ -505,7 +505,7 @@ class Component extends DCLogic {
       phSubStyle: 'font-size: 12px; color: ' + c.sub,
       bizIni: ini,
       phTitle: st.ch === 'ig' ? slug : nm,
-      phSub: st.ch === 'wa' ? 'WhatsApp coming soon · preview' : st.typing ?'typing…' : (ready ? (st.ch === 'ig' ? nm + ' · replies instantly' : 'online · replies instantly') : 'Your bot isn’t built yet'),
+      phSub: st.typing ?'typing…' : (ready ? (st.ch === 'ig' ? nm + ' · replies instantly' : 'online · replies instantly') : 'Your bot isn’t built yet'),
       phIdle: !ready,
       idleText: building ? 'Building your bot…' : 'Set up your bot and tap “Build my bot.”',
       msgs: st.msgs.map(function (m) {

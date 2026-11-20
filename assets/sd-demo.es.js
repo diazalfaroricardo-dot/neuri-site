@@ -452,7 +452,7 @@ class Component extends DCLogic {
         { q: '¿Y si contesta algo mal?', a: 'Solo contesta con la información de tu hoja. Si le preguntan algo que no sabe, no inventa: te pasa la conversación y le avisa al cliente que tú le contestas. Puedes pausarlo cuando quieras.' },
         { q: '¿Qué necesito para empezar?', a: 'Tu cuenta de Instagram o tu página de Facebook, y una hoja con tus piezas o servicios, precios, entregas y formas de pago. El alta toma 3 minutos.' },
         { q: '¿Lo puedo probar antes?', a: 'Sí. Te damos un código de prueba para que le escribas desde tu cuenta personal y veas cómo contesta antes de activarlo para tus clientes.' },
-        { q: '¿Y WhatsApp?', a: 'Está en camino. Primero abrimos Instagram y Messenger (pendiente de aprobación de Meta); en cuanto WhatsApp esté listo, te avisamos para conectarlo.' },
+        { q: '¿Y WhatsApp?', a: 'Ya está disponible. Desde Mi asistente conectas el número de WhatsApp de tu negocio con la conexión oficial de Meta, y tu asistente contesta ahí con la información de tu hoja, igual que en Instagram y Messenger.' },
         { q: '¿Puedo cancelarlo?', a: 'Sí, cuando quieras. Se paga mes a mes y no hay contrato.' },
         { q: '¿Me cobran por cada mensaje o cliente?', a: 'No. Pagas el mismo precio fijo al mes aunque te escriban muchos compradores: no hay cobro por contacto ni por mensaje. Por seguridad, cada cuenta contesta hasta 1,000 mensajes al día.' },
         { q: '¿Quién me ayuda si algo falla?', a: 'Desde Mi asistente tocas «Algo no está bien»: revisa solo tu Instagram, tu hoja y si está pausado, y te da el botón para arreglar cada cosa. Si sigue sin funcionar, pasa a una persona de Neuri y te contestamos por correo.' },
@@ -498,7 +498,7 @@ class Component extends DCLogic {
       }),
       chList: ['ig', 'fb', 'wa'].map(function (k) {
         var on = st.ch === k;
-        return { label: k === 'wa' ? 'WhatsApp · pronto' : CH[k].label, icon: CH[k].icon, selected: on ? 'true' : 'false',
+        return { label: CH[k].label, icon: CH[k].icon, selected: on ? 'true' : 'false',
           style: 'font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; ' + (on ? 'background: #FFFFFF; color: #05080D;' : 'background: transparent; color: #C5D2CB;'),
           pick: function () { self.setState({ ch: k }); } };
       }),
@@ -507,7 +507,7 @@ class Component extends DCLogic {
       phSubStyle: 'font-size: 12px; color: ' + c.sub,
       bizIni: ini,
       phTitle: st.ch === 'ig' ? slug : nm,
-      phSub: st.ch === 'wa' ? 'WhatsApp llega pronto · vista previa' : st.typing ?'escribiendo…' : (ready ? (st.ch === 'ig' ? nm + ' · responde al instante' : 'en línea · responde al instante') : 'Tu bot todavía no está armado'),
+      phSub: st.typing ?'escribiendo…' : (ready ? (st.ch === 'ig' ? nm + ' · responde al instante' : 'en línea · responde al instante') : 'Tu bot todavía no está armado'),
       phIdle: !ready,
       idleText: building ? 'Armando tu bot…' : 'Configura tu bot y dale «Armar mi bot».',
       msgs: st.msgs.map(function (m) {

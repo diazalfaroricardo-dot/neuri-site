@@ -63,6 +63,8 @@ const SKIP = new Set(["node_modules", ".git", "scripts", "docs", "tools", "tmp"]
     if (!/\.(html|js|txt|xml|json)$/.test(n)) continue;
     const rel = relative(ROOT, f);
     if (rel === "ventures/index.html" || rel === "en/ventures/index.html") continue;
+    // Ricardo 18-nov: una pestaña al final de la portada (ES/EN) lleva a neuri.ventures; en ninguna otra página.
+    if (rel === "index.html" || rel === "en/home/index.html") continue;
     if (/href=["'](?:https:\/\/neuri\.tech)?\/(?:en\/)?ventures\//.test(readFileSync(f, "utf8"))) bad(`${rel} enlaza a ventures (debe quedar sin enlaces en menú ni pie)`);
   }
 })(ROOT);

@@ -30,7 +30,7 @@ const paths = args.includes("--todas") ? paginasPublicas(ROOT) : args.length ? a
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let fails = 0;
 for (const width of [390, 1280]) for (const p of paths) {
-  const page = await browser.newPage({ viewport: { width, height: 800 }, reducedMotion: "reduce" });
+  const page = await browser.newPage({ viewport: { width, height: 800 }, reducedMotion: "reduce", bypassCSP: true });
   await page.goto("https://neuri.tech" + p, { waitUntil: "load" });
   await page.addScriptTag({ content: axeSrc });
   const v = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));

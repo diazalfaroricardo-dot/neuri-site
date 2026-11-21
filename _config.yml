@@ -1,1 +1,3 @@
 include: [".well-known"]
+# eng-auditoria-8-checks: lo interno (backlog, pruebas, herramientas) no se publica en neuri.tech.
+exclude: [docs, scripts, tools, node_modules, .t25]

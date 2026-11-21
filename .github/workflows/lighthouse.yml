@@ -16,7 +16,7 @@ jobs:
           node-version: 22
       - run: npm install --no-save lighthouse@12.8.2
       - run: node scripts/lighthouse-vivo.mjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: lh-vivo

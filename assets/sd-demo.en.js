@@ -497,7 +497,7 @@ class Component extends DCLogic {
       chList: ['ig', 'fb', 'wa'].map(function (k) {
         var on = st.ch === k;
         return { label: CH[k].label, icon: CH[k].icon, selected: on ? 'true' : 'false',
-          style: 'font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 40px; ' + (on ? 'background: #FFFFFF; color: #05080D;' : 'background: transparent; color: #C5D2CB;'),
+          style: 'font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; padding: 9px 14px; border-radius: 999px; border: none; min-height: 44px; ' + (on ? 'background: #FFFFFF; color: #05080D;' : 'background: transparent; color: #C5D2CB;'),
           pick: function () { self.setState({ ch: k }); } };
       }),
       phoneBodyStyle: 'background: ' + c.body + '; border-radius: 34px; overflow: hidden; color: #05080D; display: flex; flex-direction: column;',

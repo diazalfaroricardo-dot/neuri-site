@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - run: npm install --no-save playwright-core@1.55.1 && npx playwright-core install --with-deps chromium
@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - run: npm install --no-save playwright@1.55.1 playwright-core@1.55.1 axe-core@4.10.3 && npx playwright-core install --with-deps chromium

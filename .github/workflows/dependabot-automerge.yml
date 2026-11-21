@@ -1,0 +1,35 @@
+name: Dependabot auto-merge
+# hf-idea-20261121-secretos-dependencias: al terminar CI o Secretos en un PR de Dependabot, fusiona
+# solo si TODO es menor/parche y visual + Secretos quedaron en verde en ese commit. Las mayores esperan revisión.
+# Mismo flujo que neuri-bazar (ver docs/SEGURIDAD-DEPENDENCIAS.md allá).
+on:
+  workflow_run:
+    workflows: [visual, Secretos]
+    types: [completed]
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+concurrency:
+  group: automerge-${{ github.event.workflow_run.head_sha }}
+jobs:
+  merge:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.actor.login == 'dependabot[bot]' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Revisar y fusionar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          REQUIRED_WORKFLOWS: visual,Secretos
+        run: node scripts/dependabot-automerge.mjs

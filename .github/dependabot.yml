@@ -1,0 +1,20 @@
+# hf-idea-20261121-secretos-dependencias. El sitio es estático (sin package.json): solo acciones.
+# Menores/parches agrupados se fusionan solos con visual + Secretos en verde
+# (.github/workflows/dependabot-automerge.yml); las mayores quedan como PR para revisión.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:17"
+      timezone: America/Phoenix
+    cooldown:
+      default-days: 3
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "ci"
+    groups:
+      acciones-menores-y-parches:
+        update-types: ["minor", "patch"]

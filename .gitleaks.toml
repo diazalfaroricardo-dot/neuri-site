@@ -1,0 +1,5 @@
+# Gitleaks (hf-idea-20261121-secretos-dependencias). Historial completo 21-nov-2026: 441 commits, 0 hallazgos.
+title = "neuri-site gitleaks"
+
+[extend]
+useDefault = true

@@ -24,6 +24,9 @@ for (const f of files) {
   titles.set(t, f);
   const d = (hd.match(/name="description"\s+content="([^"]*)"/) || [, ""])[1];
   if (d.length < 50 || d.length > 170) fails.push(`${f}: descripción de ${d.length} caracteres (50–170)`);
+  // Un solo <h1> en el HTML crudo (lo que leen los rastreadores; también dentro de <template>).
+  const h1s = (h.match(/<h1[\s>]/g) || []).length;
+  if (h1s > 1) fails.push(`${f}: ${h1s} <h1> en el HTML (debe haber uno)`);
   if (!sitemap.includes(`<loc>${url}</loc>`)) fails.push(`${f}: no está en sitemap.xml (corre python3 scripts/seo.py)`);
 }
 

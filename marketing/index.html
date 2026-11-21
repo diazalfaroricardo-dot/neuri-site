@@ -713,6 +713,19 @@ html.m .toast{opacity:0}
 /* ScrollTrigger needs real section heights (content-visibility:auto reports 900px placeholders) */
 html.m .sec{content-visibility:visible}
 </style>
+<style id="mo-despues">
+/* DESPUÉS: solo el listón (marquee) y el teléfono de muestra siguen continuos. Lo demás corre una vez al entrar a su sección y se queda quieto. */
+.grad,.logo svg .orb,.badge .pulse::after,.glow .g1,.glow .g2,.glow .g3,.status .sp,.art .prog::after,.art .seg i:first-child::after,.skel::after,.closer .gl i,.node .link::after,.rec i,.ppl i,.sig span,.ripple i,.cycle .ring,.cycle .orbit,.secstat .dot::after{animation-iteration-count:1!important;animation-fill-mode:both!important}
+.glow .g1,.glow .g2,.glow .g3,.closer .gl i{animation-duration:3.2s!important;animation-timing-function:cubic-bezier(.22,1,.36,1)!important}
+.logo svg .orb,.cycle .orbit{animation-duration:2.4s!important;animation-timing-function:cubic-bezier(.22,1,.36,1)!important}
+.cycle .ring{animation-duration:2.8s!important;animation-timing-function:cubic-bezier(.22,1,.36,1)!important}
+.grad{animation-duration:2.6s!important}
+.status .sp{animation-iteration-count:2!important}
+.rec i{animation-iteration-count:3!important}
+.toast{animation:toastIn .9s var(--spring) both!important}
+html.mo :is(section,header,footer):not(.mo-in) .grad,html.mo :is(section,header,footer):not(.mo-in) .logo svg .orb,html.mo :is(section,header,footer):not(.mo-in) .badge .pulse::after,html.mo :is(section,header,footer):not(.mo-in) .glow .g1,html.mo :is(section,header,footer):not(.mo-in) .glow .g2,html.mo :is(section,header,footer):not(.mo-in) .glow .g3,html.mo :is(section,header,footer):not(.mo-in) .status .sp,html.mo :is(section,header,footer):not(.mo-in) .art .prog::after,html.mo :is(section,header,footer):not(.mo-in) .art .seg i:first-child::after,html.mo :is(section,header,footer):not(.mo-in) .skel::after,html.mo :is(section,header,footer):not(.mo-in) .closer .gl i,html.mo :is(section,header,footer):not(.mo-in) .toast,html.mo :is(section,header,footer):not(.mo-in) .node .link::after,html.mo :is(section,header,footer):not(.mo-in) .rec i,html.mo :is(section,header,footer):not(.mo-in) .ppl i,html.mo :is(section,header,footer):not(.mo-in) .sig span,html.mo :is(section,header,footer):not(.mo-in) .ripple i,html.mo :is(section,header,footer):not(.mo-in) .cycle .ring,html.mo :is(section,header,footer):not(.mo-in) .cycle .orbit,html.mo :is(section,header,footer):not(.mo-in) .secstat .dot::after{animation-play-state:paused!important}
+</style>
+<script>document.documentElement.classList.add("mo");addEventListener("DOMContentLoaded",function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("mo-in");io.unobserve(e.target)}})},{threshold:.15});document.querySelectorAll("section,header,footer").forEach(function(el){io.observe(el)})})</script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -1151,6 +1164,7 @@ html.m .sec{content-visibility:visible}
 
 <script src="/assets/gsap/gsap.min.js" defer></script>
 <script src="/assets/gsap/ScrollTrigger.min.js" defer></script>
+<script src="/assets/marketing-calma.js" defer></script>
 <script>
 /* Motion v3 — neuri.marketing. GSAP 3.12.5 + ScrollTrigger (self-hosted, deferred: runs on DOMContentLoaded). */
 document.addEventListener('DOMContentLoaded',function(){

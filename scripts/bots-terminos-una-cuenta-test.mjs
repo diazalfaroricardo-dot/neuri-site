@@ -1,6 +1,6 @@
 // Pedido de Ricardo (2026-11-21): los términos de todas las apps dicen una sola cuenta por red.
 // neuri.bots ES/EN: sección «Una cuenta por red» con las cuatro redes, más cuentas no incluidas
-// (se piden a hola@neuri.tech), WhatsApp ya conectable, TikTok por etapas y versión 0.2.
+// (se piden a hola@neuri.tech), WhatsApp ya conectable, TikTok por etapas y versión 0.3 (vigente desde el 22-nov-2026).
 // Uso: node scripts/bots-terminos-una-cuenta-test.mjs [--live]
 import { readFileSync } from "node:fs";
 
@@ -16,8 +16,8 @@ const casos = [
     titulo: "Una cuenta por red",
     redes: ["una cuenta de Instagram", "una página de Facebook (Messenger)", "un número de WhatsApp", "una cuenta de TikTok"],
     fuera: "no están incluidas",
-    version: "Versión 0.2",
-    fecha: "21 de noviembre de 2026",
+    version: "Versión 0.3",
+    fecha: "22 de noviembre de 2026",
     viejo: [/WhatsApp está en camino/, /por <b>Instagram y Messenger<\/b>/],
     tiktok: /TikTok<\/b> se va encendiendo por etapas/,
   },
@@ -26,8 +26,8 @@ const casos = [
     titulo: "One account per network",
     redes: ["one Instagram account", "one Facebook Page (Messenger)", "one WhatsApp number", "one TikTok account"],
     fuera: "are not included",
-    version: "Version 0.2",
-    fecha: "November 21, 2026",
+    version: "Version 0.3",
+    fecha: "November 22, 2026",
     viejo: [/WhatsApp is on the way/, /on <b>Instagram and Messenger<\/b>/],
     tiktok: /TikTok<\/b> is being turned on in stages/,
   },

@@ -8,7 +8,8 @@ import { existsSync, readFileSync } from "node:fs";
 import { dirname, basename, join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const CARPETAS = /^(assets\/(email|og)|bazar\/(img|recorrido\/img)|en\/(img|bazar\/tour\/img)|img|img\/mk)\/[^/]+$/;
+const CARPETAS = /^(assets\/(email|og)|bazar\/(img|recorrido\/img)|en\/(img|bazar\/tour\/img)|img|img\/mk|ads\/tanda-\d+)\/[^/]+$/;
+// ads/tanda-N: creativos de anuncios de Meta. Fuente: «Neuri, generado en casa» (tools/ads/, ads/manifest.json).
 const SUELTAS = new Set(["assets/neuri-logo.png"]);
 const imagen = /\.(png|jpe?g|webp|gif|svg|ico|avif)$/i;
 

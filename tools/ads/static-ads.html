@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:G;src:url('geist.woff2') format('woff2');font-weight:100 900}
+:root{--ink:#0F1A14;--ink2:#36443D;--muted:#5C6963;--mint:#1F8A5B;--mf:#8FE0B4;--peach:#B4581F;--coral:#FF8A7A;--sun:#FFC857;--g:#F5F7F5}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#ccc}
+.ad{position:relative;width:1080px;height:1350px;overflow:hidden;font-family:G;color:var(--ink);
+  background:radial-gradient(820px 820px at 95% 0%, rgba(143,224,180,.5), transparent 70%),radial-gradient(700px 700px at 0% 100%, rgba(255,200,87,.22), transparent 70%),var(--g)}
+.ad.tall{height:1920px}
+.pad{position:absolute;inset:0;padding:96px 100px}
+.tall .pad{padding:260px 130px 600px 110px}
+.net{position:absolute;inset:0;pointer-events:none}
+.logo{display:flex;align-items:center;gap:16px;font:700 44px G;letter-spacing:-.03em}
+.logo i{width:44px;height:44px;border-radius:50%;background:var(--mint);position:relative;display:block}
+.logo i:after{content:"";position:absolute;inset:13px;border-radius:50%;background:var(--mf)}
+.h{font-weight:900;letter-spacing:-.045em;line-height:.96}
+.m{color:var(--mint)}.p{color:var(--peach)}
+.btn{display:inline-flex;align-items:center;gap:14px;font:700 40px G;background:var(--ink);color:#fff;padding:26px 44px;border-radius:999px}
+.url{font:500 32px G;color:var(--mint);margin-left:22px}
+.foot{position:absolute;left:100px;right:100px;bottom:90px;display:flex;align-items:center;justify-content:space-between}
+.tall .foot{left:110px;right:130px;bottom:auto;top:1250px}
+.phone{position:absolute;background:var(--ink);border-radius:72px;padding:20px;box-shadow:0 50px 100px rgba(15,26,20,.25),0 10px 24px rgba(15,26,20,.14)}
+.scr{background:#fff;border-radius:54px;overflow:hidden;height:100%;position:relative}
+.chd{display:flex;align-items:center;gap:18px;padding:40px 34px 20px;border-bottom:2px solid #E9EFEB}
+.av{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--sun),var(--coral))}
+.who{font:700 32px G}.who small{display:block;font:500 26px G;color:var(--muted)}
+.msgs{padding:26px 28px;display:flex;flex-direction:column;gap:16px}
+.b{max-width:82%;padding:20px 26px;border-radius:32px;font:500 31px/1.28 G}
+.b.in{align-self:flex-start;background:#EEF1EF;border-bottom-left-radius:10px}
+.b.out{align-self:flex-end;background:var(--mint);color:#fff;border-bottom-right-radius:10px}
+.meta{font:500 24px G;color:var(--muted)}.meta.r{align-self:flex-end}
+.chip{display:inline-flex;font:700 30px G;padding:14px 24px;border-radius:999px;background:var(--mf);color:#0A2417}
+.tag{display:inline-block;font:600 30px G;color:var(--mint);background:rgba(143,224,180,.38);padding:10px 22px;border-radius:999px}
+</style></head><body>
+<div id="stage"></div>
+<script>
+const P=new URLSearchParams(location.search); const D=P.get("d"), tall=P.get("r")==="916";
+function net(seed,x0,y0,x1,y1,W=1080,H=tall?1920:1350,n=30,op=.5){let s=seed;const R=()=>{s=(s*16807)%2147483647;return(s-1)/2147483646};
+ const pts=Array.from({length:n},()=>[x0*W+R()*(x1-x0)*W,y0*H+R()*(y1-y0)*H]);let l="",c="";
+ for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){const dx=pts[i][0]-pts[j][0],dy=pts[i][1]-pts[j][1];if(dx*dx+dy*dy<(W*.2)**2)l+=`<line x1="${pts[i][0]}" y1="${pts[i][1]}" x2="${pts[j][0]}" y2="${pts[j][1]}"/>`}
+ pts.forEach(p=>c+=`<circle cx="${p[0]}" cy="${p[1]}" r="${[3,4,5,6][Math.floor(R()*4)]}"/>`);
+ return `<svg class="net" viewBox="0 0 ${W} ${H}"><g stroke="#1F8A5B" stroke-opacity="${op*.55}" stroke-width="2">${l}</g><g fill="#1F8A5B" fill-opacity="${op}">${c}</g></svg>`}
+const FOOT=(cta="Pruébalo gratis →")=>`<div class="foot"><div><span class="btn">${cta}</span></div><div class="logo"><i></i>neuri.bots</div></div>`;
+const AD={
+ lock:()=>`<div class="ad ${tall?"tall":""}" style="background:radial-gradient(900px 1000px at 50% 20%, #24362C 0%, #0F1A14 72%)">
+   ${net(7,0,tall?.66:.72,1,1,undefined,undefined,26,.55).replace(/#1F8A5B/g,"#8FE0B4")}
+   <div class="pad" style="color:#F5F7F5">
+    <div style="text-align:center;font:400 ${tall?150:170}px G;letter-spacing:-.05em;margin-top:${tall?0:-10}px">2:14</div>
+    <div style="text-align:center;font:500 34px G;color:#B9C6BF;margin-top:-6px">sábado</div>
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:${tall?30:44}px">
+     ${[["Ana","¿Todavía tienes la talla M? 🙏"],["Luis","¿Cuánto con envío a Culiacán?"],["Sofi","Hola, ¿sigue disponible?"]].map(([n,t])=>`<div style="display:flex;gap:18px;align-items:center;background:rgba(245,247,245,.93);color:var(--ink);border-radius:32px;padding:20px 24px"><span style="width:58px;height:58px;border-radius:16px;background:linear-gradient(135deg,#1F8A5B,#8FE0B4);flex:none"></span><div><b style="font:700 29px G;display:block">${n}</b><span style="font:500 28px/1.25 G;color:var(--ink2)">${t}</span></div><em style="margin-left:auto;align-self:flex-start;font:500 24px G;font-style:normal;color:var(--muted)">ahora</em></div>`).join("")}
+    </div>
+    <div class="h" style="font-size:${tall?84:92}px;margin-top:${tall?40:50}px">Tú dormías.<br>Tu Instagram, <span style="color:var(--mf)">no.</span></div>
+   </div>
+   <div class="foot" style="${tall?"":""}"><div><span class="btn" style="background:var(--mf);color:#0A2417">Pruébalo gratis →</span></div><div class="logo" style="color:#F5F7F5"><i></i>neuri.bots</div></div></div>`,
+ chat:()=>`<div class="ad ${tall?"tall":""}">${net(11,0,tall?.7:.78,1,1)}<div class="pad">
+   <span class="tag">Instagram · Messenger · WhatsApp</span>
+   <div class="h" style="font-size:${tall?104:110}px;margin-top:30px">Contesta en<br><span class="m">segundos.</span><br>A cualquier hora.</div></div>
+   <div class="phone" style="left:${tall?130:470}px;top:${tall?675:560}px;width:${tall?640:560}px;height:${tall?560:600}px;transform:rotate(${tall?0:-4}deg)"><div class="scr">
+    <div class="chd"><div class="av"></div><div class="who">Ana<small>Instagram</small></div></div>
+    <div class="msgs"><div class="b in">¿Todavía tienes la talla M? 🙏</div><div class="b out">¡Sí! Talla M en negro, $480 con envío. ¿Te la aparto? 🖤</div><div class="meta r">al instante</div></div></div></div>
+   ${tall?"":`<div style="position:absolute;left:100px;top:700px;width:330px;font:500 34px/1.35 G;color:var(--ink2)">Contesta lo que tú contestarías, aunque estés dormido.</div>`}
+   ${FOOT()}</div>`,
+ repeat:()=>{let b="";const xs=[0,60,140,30,110,190,20,90,160];for(let i=0;i<9;i++)b+=`<div style="position:absolute;left:${(tall?110:100)+xs[i]}px;top:${(tall?270:110)+i*(tall?62:70)}px;transform:rotate(${[-3,2,-1,3,-2,1,-3,2,0][i]}deg);font:600 36px G;background:#fff;padding:18px 28px;border-radius:32px;border-bottom-left-radius:8px;box-shadow:0 8px 24px rgba(15,26,20,.1);opacity:${.45+i*.07}">¿Sigue disponible?</div>`;
+   return `<div class="ad ${tall?"tall":""}">${net(23,.5,0,1,.4)}${b}
+   <div style="position:absolute;right:${tall?150:100}px;top:${tall?640:560}px;font:900 170px G;letter-spacing:-.06em;color:var(--peach)">×9</div>
+   <div class="h" style="position:absolute;left:${tall?110:100}px;right:${tall?130:100}px;top:${tall?900:830}px;font-size:${tall?88:98}px">Deja de contestar<br><span class="m">lo mismo.</span></div>
+   ${FOOT()}</div>`},
+ question:()=>`<div class="ad ${tall?"tall":""}">${net(31,.45,0,1,.45)}<div class="pad">
+   <span class="tag">pregunta honesta</span>
+   <div class="h" style="font-size:${tall?92:100}px;margin-top:30px">¿Cuánto tardaste en contestar tu último mensaje?</div>
+   <div style="margin-top:${tall?60:54}px;display:flex;flex-direction:column;gap:16px">
+     <div style="font:900 ${tall?84:92}px G;letter-spacing:-.04em;color:var(--peach);text-decoration:line-through;text-decoration-thickness:10px;opacity:.75">1 h 35 min</div>
+     <div style="font:900 ${tall?84:92}px G;letter-spacing:-.04em;color:var(--mint)">→ segundos.</div></div>
+   </div>${FOOT()}</div>`,
+ offer:()=>`<div class="ad ${tall?"tall":""}" style="background:var(--mf)">${net(41,0,0,1,tall?.3:.4,undefined,undefined,26,.5)}
+   <div class="pad"><div class="logo"><i></i>neuri.bots</div>
+   <div class="h" style="font-size:${tall?118:124}px;margin-top:${tall?50:46}px">Prueba<br>gratis.</div>
+   <div style="font:600 44px/1.3 G;margin-top:26px;max-width:${tall?820:520}px">Tu asistente que contesta Instagram, Messenger y WhatsApp, 24/7.</div>
+   <div style="display:inline-flex;margin-top:34px;background:var(--ink);color:var(--mf);font:700 44px G;padding:22px 34px;border-radius:24px">desde $899 MXN/mes</div></div>
+   ${tall?"":`<div class="phone" style="left:640px;top:470px;width:400px;height:700px;transform:rotate(5deg)"><div class="scr"><div class="chd"><div class="av"></div><div class="who">Luis<small>WhatsApp</small></div></div><div class="msgs"><div class="b in">¿Cuánto con envío?</div><div class="b out">$480 con envío 📦 ¿Te lo aparto?</div><div class="b in">¡Va! 🙌</div><span class="chip" style="align-self:flex-end">✓ Vendido</span></div></div></div>`}
+   <div class="foot"><div><span class="btn">Empieza gratis →</span></div><div class="url" style="color:var(--ink)">neuri.tech/bots</div></div></div>`
+};
+document.getElementById("stage").innerHTML=AD[D]();
+</script></body></html>

@@ -1,0 +1,115 @@
+{
+  "producto": "neuri.bots",
+  "tanda": "tanda-1",
+  "fuente": "Neuri, generado en casa (HyperFrames + GSAP; HTML + Playwright). Fuentes en tools/ads/",
+  "nota": "Solo para Meta Ads por URL. No se enlaza desde ninguna página ni va en el sitemap.",
+  "creativos": [
+    {
+      "id": "neuri-bots-v1",
+      "tipo": "video",
+      "tamaño": "1080x1920",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-v1.mp4",
+      "gancho": "2:14 a. m. · «Tú dormías. Tu Instagram, no.»",
+      "duración": 15.0,
+      "audio": "pista silenciosa (se ve sin sonido)"
+    },
+    {
+      "id": "neuri-bots-v2",
+      "tipo": "video",
+      "tamaño": "1080x1920",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-v2.mp4",
+      "gancho": "«¿Cuánto tardaste en contestar tu último mensaje?»",
+      "duración": 12.2,
+      "audio": "pista silenciosa (se ve sin sonido)"
+    },
+    {
+      "id": "neuri-bots-v3",
+      "tipo": "video",
+      "tamaño": "1080x1920",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-v3.mp4",
+      "gancho": "«¿Sigue disponible?» · «Deja de contestar lo mismo.»",
+      "duración": 12.9,
+      "audio": "pista silenciosa (se ve sin sonido)"
+    },
+    {
+      "id": "neuri-bots-lock-4x5",
+      "tipo": "imagen",
+      "tamaño": "1080x1350",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-lock-4x5.png",
+      "gancho": "«Tú dormías. Tu Instagram, no.»",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-lock-9x16",
+      "tipo": "imagen",
+      "tamaño": "1080x1920",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-lock-9x16.png",
+      "gancho": "«Tú dormías. Tu Instagram, no.»",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-chat-4x5",
+      "tipo": "imagen",
+      "tamaño": "1080x1350",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-chat-4x5.png",
+      "gancho": "«Contesta en segundos. A cualquier hora.»",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-chat-9x16",
+      "tipo": "imagen",
+      "tamaño": "1080x1920",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-chat-9x16.png",
+      "gancho": "«Contesta en segundos. A cualquier hora.»",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-repeat-4x5",
+      "tipo": "imagen",
+      "tamaño": "1080x1350",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-repeat-4x5.png",
+      "gancho": "«Deja de contestar lo mismo.»",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-repeat-9x16",
+      "tipo": "imagen",
+      "tamaño": "1080x1920",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-repeat-9x16.png",
+      "gancho": "«Deja de contestar lo mismo.»",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-question-4x5",
+      "tipo": "imagen",
+      "tamaño": "1080x1350",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-question-4x5.png",
+      "gancho": "«¿Cuánto tardaste en contestar tu último mensaje?»",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-question-9x16",
+      "tipo": "imagen",
+      "tamaño": "1080x1920",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-question-9x16.png",
+      "gancho": "«¿Cuánto tardaste en contestar tu último mensaje?»",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-offer-4x5",
+      "tipo": "imagen",
+      "tamaño": "1080x1350",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-offer-4x5.png",
+      "gancho": "«Prueba gratis.» · desde $899 MXN/mes",
+      "duración": null
+    },
+    {
+      "id": "neuri-bots-offer-9x16",
+      "tipo": "imagen",
+      "tamaño": "1080x1920",
+      "url": "https://neuri.tech/ads/tanda-1/neuri-bots-offer-9x16.png",
+      "gancho": "«Prueba gratis.» · desde $899 MXN/mes",
+      "duración": null
+    }
+  ]
+}

@@ -137,3 +137,29 @@
 .np-noti .ap.sms{background:#1F3A2E}
 /* líneas de palabras clave bajo los títulos: texto, no disfraz de código */
 .sec-head .kw{font-family:inherit!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;color:var(--gris)!important}
+
+/* ---- 22-nov: sin bloques negros de lado a lado (Ricardo prefiere claro). El teléfono sigue oscuro: es el aparato. ---- */
+#ver.oscuro{background:radial-gradient(90% 120% at 85% 50%,#E3EFE7,#FFFFFF 60%);color:var(--tinta);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+#ver.oscuro .h2{color:var(--tinta)}
+#ver.oscuro .lead{color:var(--gris-2)}
+#ver .tab{border-color:#D5D9D2;color:var(--tinta);background:#FFFFFF}
+#ver .tab:hover{border-color:var(--tinta)}
+#ver .tab[aria-selected=true]{background:var(--tinta);color:#FFFFFF;border-color:var(--tinta)}
+#ver .btn-b.arma-link{background:#FFFFFF;color:var(--tinta);border-color:#D5D9D2}
+#ver .btn-b.arma-link:hover{border-color:var(--tinta)}
+#ver .halo{opacity:.25!important}
+
+#demo{background:#F6F4EE!important;color:var(--tinta)!important;border-top:1px solid var(--linea)}
+#demo [style*="color: #FFFFFF"]:not([style*="background: #0B5E3A"]):not([style*="background: #05080D"]),#demo [style*="color: rgb(255, 255, 255)"]:not([style*="background: rgb(11, 94, 58)"]):not([style*="background: rgb(5, 8, 13)"]){color:var(--tinta)!important}
+#demo [style*="color: #C5D2CB"],#demo [style*="color: rgb(197, 210, 203)"]{color:var(--gris-2)!important}
+#demo [style*="color: #8FA79A"],#demo [style*="color: rgb(143, 167, 154)"],#demo [style*="color: #6B7A72"],#demo [style*="color: rgb(107, 122, 114)"]{color:var(--gris)!important}
+#demo [style*="background: #1C2A24"],#demo [style*="background: rgb(28, 42, 36)"]{background:#FFFFFF!important;border-color:var(--linea)!important;box-shadow:0 30px 60px -40px rgba(5,8,13,.35)}
+#demo [style*="background: #24372E"],#demo [style*="background: rgb(36, 55, 46)"]{background:#EEF0EA!important}
+#demo [style*="background: rgba(255,255,255,0.03)"],#demo [style*="background: rgba(255, 255, 255, 0.03)"],#demo [style*="background: rgba(255,255,255,0.04)"],#demo [style*="background: rgba(255, 255, 255, 0.04)"]{background:#F6F4EE!important;box-shadow:inset 0 0 0 1px var(--linea)}
+#demo [style*="background: rgba(255,255,255,0.06)"],#demo [style*="background: rgba(255, 255, 255, 0.06)"]{background:#EEF0EA!important}
+#demo input[style*="background: #05080D"],#demo input[style*="background: rgb(5, 8, 13)"],#demo textarea[style*="background: #05080D"]{background:#FFFFFF!important;color:var(--tinta)!important;border-color:#D5D9D2!important}
+#demo [style*="border: 1.5px solid #2F4339"],#demo [style*="border: 1.5px solid rgb(47, 67, 57)"]{border-color:#D5D9D2!important}
+#demo [style*="border: 1px solid #2A3B33"],#demo [style*="border: 1px solid rgb(42, 59, 51)"]{border-color:var(--linea)!important}
+#demo button[style*="background: transparent"]{border-color:#D5D9D2!important}
+#demo [style*="color: #8FE0B4"],#demo [style*="color: rgb(143, 224, 180)"]{color:var(--verde)!important}
+#demo [style*="background: rgba(143,224,180,0.14)"],#demo [style*="background: rgba(143, 224, 180, 0.14)"]{background:#E3EFE7!important}

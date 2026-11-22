@@ -163,3 +163,6 @@
 #demo button[style*="background: transparent"]{border-color:#D5D9D2!important}
 #demo [style*="color: #8FE0B4"],#demo [style*="color: rgb(143, 224, 180)"]{color:var(--verde)!important}
 #demo [style*="background: rgba(143,224,180,0.14)"],#demo [style*="background: rgba(143, 224, 180, 0.14)"]{background:#E3EFE7!important}
+/* 22-nov: menos aire entre la cinta de preguntas y «Mientras duermes» */
+.qs{padding-bottom:16px}
+.noche-sec{padding-top:32px!important}

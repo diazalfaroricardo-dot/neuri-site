@@ -1,6 +1,6 @@
 // Pedido de Ricardo (2026-11-21): los términos de todas las apps dicen una sola cuenta por red.
 // neuri.bots ES/EN: sección «Una cuenta por red» con las cuatro redes, más cuentas no incluidas
-// (se piden a hola@neuri.tech), WhatsApp ya conectable, TikTok por etapas y versión 0.3 (vigente desde el 22-nov-2026).
+// (se piden a hola@neuri.tech), WhatsApp ya conectable, TikTok por etapas y versión 0.4 (vigente desde el 22-nov-2026; v0.4 agrega lo que cobra Meta por WhatsApp).
 // Uso: node scripts/bots-terminos-una-cuenta-test.mjs [--live]
 import { readFileSync } from "node:fs";
 
@@ -16,7 +16,7 @@ const casos = [
     titulo: "Una cuenta por red",
     redes: ["una cuenta de Instagram", "una página de Facebook (Messenger)", "un número de WhatsApp", "una cuenta de TikTok"],
     fuera: "no están incluidas",
-    version: "Versión 0.3",
+    version: "Versión 0.4",
     fecha: "22 de noviembre de 2026",
     viejo: [/WhatsApp está en camino/, /por <b>Instagram y Messenger<\/b>/],
     tiktok: /TikTok<\/b> se va encendiendo por etapas/,
@@ -26,7 +26,7 @@ const casos = [
     titulo: "One account per network",
     redes: ["one Instagram account", "one Facebook Page (Messenger)", "one WhatsApp number", "one TikTok account"],
     fuera: "are not included",
-    version: "Version 0.3",
+    version: "Version 0.4",
     fecha: "November 22, 2026",
     viejo: [/WhatsApp is on the way/, /on <b>Instagram and Messenger<\/b>/],
     tiktok: /TikTok<\/b> is being turned on in stages/,
@@ -43,6 +43,8 @@ for (const c of casos) {
   ok(sec.includes("mailto:hola@neuri.tech"), `${c.p}: se piden a hola@neuri.tech`);
   ok(s.includes(c.version) && s.includes(c.fecha), `${c.p}: ${c.version} · ${c.fecha}`);
   ok(c.tiktok.test(s), `${c.p}: TikTok por etapas`);
+  // v0.4: cargos de Meta por WhatsApp (plantillas) fuera del plan, pagados en la cuenta de WhatsApp Business.
+  ok(/<li data-terms-meta-fees>[^<]*<b>[^<]+<\/b>[^<]*(WhatsApp Business)/.test(s), `${c.p}: cláusula de cargos de Meta por WhatsApp`);
   for (const re of c.viejo) ok(!re.test(s), `${c.p}: ya no dice ${re}`);
   const nums = [...s.matchAll(/<section id="[^"]+"><h2>(\d+)\. /g)].map((m) => +m[1]);
   ok(nums.every((n, i) => n === i + 1), `${c.p}: secciones numeradas 1..${nums.length} sin saltos`);

@@ -232,28 +232,37 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <main id="contenido" class="nb-main"><div class="nb-wrap">
 <p class="nb-crumb"><a href="/legal/">Privacidad, términos y contacto</a></p>
 <h1>Aviso de privacidad de Neuri para datos de Google</h1>
-<p class="lead">Última actualización: 15 de noviembre de 2026. Este aviso cubre la app <strong>Neuri</strong> que ves en las pantallas de inicio de sesión y permisos de Google. La opera Neuri LLC (5818 W Raymond St, Phoenix, AZ 85043, EE. UU.) y la usan nuestros productos neuri.bazar, neuri.bots, Neuri Consulting y neuri.marketing. Explica qué recibimos de Google, para qué, cuánto tiempo lo guardamos y cómo quitarlo. Al final está el aviso completo de cada producto.</p>
+<p class="lead">Última actualización: 22 de noviembre de 2026 · Versión 1.1 (vigente). Este aviso cubre la app <strong>Neuri</strong> que ves en las pantallas de inicio de sesión y permisos de Google. La opera Neuri LLC (5818 W Raymond St, Phoenix, AZ 85043, EE. UU.) y la usan nuestros productos neuri.bazar, neuri.bots, Neuri Consulting y neuri.marketing. Explica qué recibimos de Google, para qué, cuánto tiempo lo guardamos y cómo quitarlo. Al final está el aviso completo de cada producto.</p>
 
 <h2 id="que">1. Qué recibimos de Google y para qué</h2>
-<p>Solo le pedimos a Google lo que necesita una función que tú prendes. Son tres casos:</p>
+<p>Solo le pedimos a Google lo que necesita una función que tú prendes. Son cuatro casos:</p>
 <h3>Iniciar sesión con Google (todos los productos)</h3>
 <p>Permisos: <code>openid</code>, <code>email</code>, <code>profile</code>. Recibimos tu correo, si Google ya lo verificó y tu nombre. Los usamos solo para crear tu cuenta o dejarte entrar y saber cuál negocio es tuyo. No recibimos tu contraseña, contactos, archivos ni nada más de tu cuenta de Google.</p>
 <h3>Google Calendar (neuri.bots, solo si el dueño lo conecta)</h3>
-<p>Permiso: <code>https://www.googleapis.com/auth/calendar.events</code> (ver y editar eventos). Lo usamos solo para:</p>
+<p>Permisos: <code>https://www.googleapis.com/auth/calendar.freebusy</code> y <code>https://www.googleapis.com/auth/calendar.app.created</code>. <strong>No pedimos <code>calendar.events</code> ni <code>calendar</code></strong>: no podemos leer ni cambiar los eventos de tus otros calendarios. Los usamos solo para:</p>
 <ul>
-<li><strong>No encimar citas:</strong> de los eventos de hoy al último día con citas leemos solo su ID, inicio y fin. Nunca el título, la descripción ni los invitados. Guardamos solo esos bloques de inicio y fin, y se reemplazan cada vez que se vuelven a leer.</li>
-<li><strong>Anotar citas:</strong> creamos un evento por cada cita que agenda el asistente (servicio, nombre del cliente o un código corto y «Cita agendada por tu asistente de Neuri») y lo borramos si la cita se cancela.</li>
+<li><strong>No encimar citas</strong> (<code>calendar.freebusy</code>): vemos solo los bloques ocupados (inicio y fin) de tu calendario principal. Nunca el título, la descripción ni los invitados. Guardamos solo esos bloques y se reemplazan cada vez que se vuelven a leer.</li>
+<li><strong>Anotar citas</strong> (<code>calendar.app.created</code>): creamos en tu cuenta un calendario aparte, «Citas de Neuri», y ahí un evento por cada cita que agenda el asistente (servicio, nombre del cliente o un código corto y «Cita agendada por tu asistente de Neuri»); lo borramos si la cita se cancela. Este permiso no toca ningún otro calendario.</li>
 </ul>
-<h3>Perfil de Negocio de Google (neuri.marketing, solo si el dueño lo conecta)</h3>
-<p>Permiso: <code>https://www.googleapis.com/auth/business.manage</code>. Lo usamos solo para mostrarte la lista de perfiles que manejas y que elijas el tuyo, publicar en ese perfil las publicaciones que ya aprobaste y enseñarte totales del mes de tus reseñas (cuántas nuevas, cuántas contestadas, calificación promedio). Guardamos esos totales, no el texto de las reseñas.</p>
+<h3>Perfil de Negocio de Google en neuri.bots (reseñas; solo si el dueño lo conecta y cuando la función esté disponible)</h3>
+<p>Permiso: <code>https://www.googleapis.com/auth/business.manage</code>, en una pantalla de permiso aparte de la del calendario. Lo usamos solo para ver qué ubicaciones verificadas administras, leer las reseñas de los últimos 14 días sin respuesta (estrellas, texto y nombre de quien reseñó) y contestarlas: a las de 4 o 5 estrellas sin queja, un agradecimiento fijo <strong>sin IA</strong> (máximo 20 al día por negocio); las de 1 a 3 estrellas o con queja quedan como borrador y <strong>solo se publican si tú las apruebas</strong>. Nunca ofrecemos nada a cambio de una reseña. El texto de las reseñas no se manda a ningún modelo de IA.</p>
+<h3>Perfil de Negocio de Google en neuri.marketing (solo si el dueño lo conecta y cuando cada función esté disponible)</h3>
+<p>Permiso: <code>https://www.googleapis.com/auth/business.manage</code>. Lo usamos solo para:</p>
+<ul>
+<li>mostrarte los perfiles que manejas para que elijas el tuyo y revisar su ficha (nombre, categorías, horario y cuántas fotos tiene);</li>
+<li>publicar en ese perfil las publicaciones que ya aprobaste;</li>
+<li>enseñarte totales del mes de tus reseñas (cuántas nuevas, cuántas contestadas, calificación promedio) y avisarte si llegan varias de 1 o 2 estrellas en menos de 48 horas; para eso guardamos los totales, no el texto ni el nombre de quien escribe;</li>
+<li>si tú pides un borrador de respuesta a una reseña, o enciendes la respuesta automática a reseñas de 4 o 5 estrellas, mandar el texto de esa reseña, sus estrellas y el nombre de pila a Claude (Anthropic), nuestro proveedor de IA, solo para redactar esa respuesta, y publicarla en Google cuando tú la apruebas o, con la respuesta automática, cuando no la detienes. Las reseñas de 1 a 3 estrellas siempre esperan tu aprobación.</li>
+</ul>
 
 <h2 id="uso-limitado">2. Política de datos de usuario de las API de Google (Uso Limitado)</h2>
+<p lang="en">Neuri's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
 <p>El uso que hace Neuri de la información recibida de las API de Google, y su transferencia a cualquier otra app, se apega a la <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de datos de usuario de los servicios de API de Google</a>, incluidos los requisitos de Uso Limitado. En concreto, los datos que recibimos de Google:</p>
 <ul>
 <li>se usan solo para dar o mejorar las funciones descritas arriba, que tú ves en el producto;</li>
 <li><strong>no se venden</strong> y <strong>no se usan para publicidad</strong>, incluida la publicidad personalizada o de retargeting;</li>
-<li><strong>no se usan para entrenar modelos de inteligencia artificial o aprendizaje automático</strong>, ni nuestros ni de nadie, y no se mandan a modelos de IA;</li>
-<li>no se pasan a terceros, salvo lo necesario para dar la función (nuestro proveedor de servidores), por seguridad, para cumplir la ley o como parte de una fusión, adquisición o venta de activos;</li>
+<li><strong>no se usan para entrenar modelos de inteligencia artificial o aprendizaje automático</strong>, ni nuestros ni de nadie. Los datos de Google Calendar, de inicio de sesión y de reseñas de neuri.bots no se mandan a ningún modelo de IA. La única excepción es la de neuri.marketing descrita arriba: el texto de una reseña va a Claude solo para redactar la respuesta que tú pediste o encendiste, y conforme a los términos comerciales de Anthropic no se usa para entrenar sus modelos;</li>
+<li>no se pasan a terceros, salvo lo necesario para dar la función (nuestros proveedores de servidores y de correo y, en el caso de arriba, el de IA), por seguridad, para cumplir la ley o como parte de una fusión, adquisición o venta de activos;</li>
 <li>ninguna persona los lee, salvo que tú lo permitas, que haga falta por seguridad (investigar una falla o un abuso) o que la ley lo exija.</li>
 </ul>
 
@@ -265,12 +274,13 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <li>Tu correo y nombre del inicio de sesión con Google: mientras exista tu cuenta. Al borrarla se eliminan según las reglas de ese producto.</li>
 <li>Bloques ocupados del calendario: se reemplazan en cada lectura y se borran al desconectar Google Calendar.</li>
 <li>Tokens de Google: se borran en cuanto desconectas el calendario o el perfil de negocio, o borras tu cuenta.</li>
-<li>Totales de reseñas del Perfil de Negocio: mientras exista la conexión; se borran al desconectarla.</li>
+<li>Reseñas en neuri.bots: cada borrador, hasta que lo apruebes (máximo los últimos 50); los identificadores de reseñas ya atendidas, los últimos 500.</li>
+<li>Reseñas en neuri.marketing: los totales del mes, mientras exista la conexión. Con la respuesta automática, el texto, las estrellas y el nombre de pila de una reseña se guardan solo mientras su respuesta está pendiente y se borran al resolverse; después queda solo el identificador de la reseña, sus estrellas, la fecha y, si se publicó, el texto de la respuesta.</li>
 </ul>
 
 <h2 id="quitar">5. Cómo quitar el acceso o borrar tus datos</h2>
 <ul>
-<li>Desconecta Google Calendar o el Perfil de Negocio de Google desde la configuración del producto cuando quieras.</li>
+<li>Desconecta Google Calendar o el Perfil de Negocio de Google desde la configuración del producto cuando quieras, o pídenos desconectarlo en <a href="mailto:hola@neuri.tech">hola@neuri.tech</a>.</li>
 <li>Quita el acceso de Neuri en tu cuenta de Google: <a href="https://myaccount.google.com/connections">Cuenta de Google → Apps y servicios de terceros</a>.</li>
 <li>Pídenos borrar tu cuenta y tus datos: <a href="/legal/borrar-datos/">borrar mis datos</a> o escribe a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a>. Contestamos en un día hábil.</li>
 </ul>
@@ -287,6 +297,12 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 
 <h2 id="contacto">8. Contacto</h2>
 <p>Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, EE. UU. · <a href="mailto:hola@neuri.tech">hola@neuri.tech</a></p>
+
+<h2 id="registro">9. Registro de cambios</h2>
+<ul>
+<li><strong>v1.1 · 22-nov-2026:</strong> Google Calendar con los permisos que de verdad pedimos (<code>calendar.freebusy</code> y <code>calendar.app.created</code>; ya no <code>calendar.events</code>); Perfil de Negocio de Google (<code>business.manage</code>) en neuri.bots para reseñas; neuri.marketing con revisión de la ficha, avisos de reseñas y respuestas redactadas con IA solo cuando tú las pides o las enciendes; Uso Limitado y plazos al día.</li>
+<li><strong>v1.0 · 15-nov-2026:</strong> primera versión.</li>
+</ul>
 </div></main>
 <footer class="nb-foot"><div class="nb-foot-in"><span class="nb-word">neuri</span><nav class="nb-foot-links" aria-label="Pie"><a href="/sigue-disponible/">neuri.bots</a><a href="/bazar/">neuri.bazar</a><a href="/consultoria/">Consultoría IA</a><a href="/marketing/">neuri.marketing</a><a href="/legal/">Privacidad y términos</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/en/legal/google/" hreflang="en" lang="en">English</a></nav><p class="nb-foot-legal">© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, EE. UU.</p></div></footer>
 <script src="/assets/menu-esc.js" defer></script>

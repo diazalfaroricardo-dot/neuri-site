@@ -3,10 +3,15 @@
  * los estilos YA CALCULADOS de cada elemento visible (color, fondo, bordes, fill/stroke de SVG y
  * font-family). Falla si:
  *   - un color no está en la paleta del producto al que pertenece la página (por su ruta), o
- *   - la primera fuente de un elemento con texto no es de marca (Geist / Geist Mono; Instrument
- *     Serif solo en neuri.consulting), o
+ *   - la primera fuente de un elemento con texto no es de marca (Geist / Geist Mono en todo; Instrument
+ *     Serif libre en neuri.consulting y afiliados, y solo itálica —la palabra de acento <em>— en bots y
+ *     en las páginas de Neuri/ventures; nunca en bazar ni marketing), o
  *   - falta lo básico de marca: <html lang> correcto, favicon, <footer>, hreflang a la contraparte,
- *     og:image del producto.
+ *     og:image del producto, Geist autoalojada (/assets/fonts) y ninguna fuente pedida a Google.
+ * Las páginas de redirección (meta refresh) solo pasan los básicos estáticos: su destino se revisa aparte.
+ * Alineado con lo publicado el 22-nov (tech-cls-noindex-brandcheck): antes avisaba «no carga Geist de
+ * Google Fonts» en 51 páginas (el sitio ya la autoaloja) y marcaba la serif itálica de bots/ventures.
+ * Las reglas puras (productOf, fontAllowed, staticIssues) se prueban en brand-check-reglas-test.mjs.
  * Las paletas salen de lo que pintan las landings (fuente de verdad) y de assets/brand.css.
  * Si una landing cambia de color a propósito, agrega el hex aquí.
  *
@@ -58,7 +63,36 @@ const ILLUSTRATION = {
 const TOL = { marketing: 48 }; // el texto «grad» de marketing anima entre coral y durazno
 const rgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
 const near = (c, set, tol = 24) => set.has(c) || [...set].some((a) => { const x = rgb(a), y = rgb(c); return Math.hypot(x[0] - y[0], x[1] - y[1], x[2] - y[2]) <= tol; });
-const FONTS = { default: ["Geist", "Geist Mono"], consulting: ["Geist", "Geist Mono", "Instrument Serif"] };
+// Tipografía real de neuri.tech (22-nov): Geist y Geist Mono en todo; Instrument Serif completa en consulting
+// (y afiliados, que usa sus tokens) y solo itálica (acento en <em>) en bots y en home/ventures.
+const SERIF_ITALIC = "Instrument Serif (itálica)";
+const FONTS = {
+  default: ["Geist", "Geist Mono"],
+  consulting: ["Geist", "Geist Mono", "Instrument Serif", SERIF_ITALIC],
+  bots: ["Geist", "Geist Mono", SERIF_ITALIC],
+  home: ["Geist", "Geist Mono", SERIF_ITALIC],
+};
+/** Nombre con el que se compara una fuente: la itálica de Instrument Serif se distingue de la recta. */
+export const fontKey = (family, italic) => (family === "Instrument Serif" && italic ? SERIF_ITALIC : family);
+export const fontAllowed = (prod, family, italic = false) => (FONTS[prod] || FONTS.default).includes(fontKey(family, italic));
+
+/** Básicos estáticos de una página (sin navegador). Devuelve la lista de problemas. */
+export function staticIssues(path, src, prod = productOf(path)) {
+  const out = [];
+  const lang = /^\/en\//.test(path) ? "en" : "es";
+  const redirect = /http-equiv="refresh"/.test(src);
+  if (!new RegExp(`<html[^>]*lang="${lang}`).test(src)) out.push(`<html lang> no es «${lang}»`);
+  if (/fonts\.(googleapis|gstatic)\.com/.test(src)) out.push("pide fuentes a Google Fonts (el sitio las autoaloja; manda la IP del visitante)");
+  if (redirect) return out; // una redirección no pinta nada: su destino se revisa por su cuenta
+  if (!/<link rel="icon"/.test(src)) out.push("sin favicon");
+  if (!/<footer/.test(src)) out.push("sin <footer>");
+  if (!src.includes("/assets/fonts/geist-latin-wght.woff2")) out.push("no carga Geist autoalojada (/assets/fonts/geist-latin-wght.woff2)");
+  const og = src.match(/property="og:image" content="([^"]+)"/);
+  const prodImg = og && new RegExp(`^https://neuri\\.tech${path.replace(/\/$/, "")}/`).test(og[1]);
+  if (og && !OG[prod].test(og[1]) && !prodImg) out.push(`og:image de otro producto: ${og[1]}`);
+  if (path !== "/404.html" && !/hreflang="(en|es)"/.test(src)) out.push("sin link al otro idioma (hreflang)");
+  return out;
+}
 const OG = { home: /\/og\/neuri\.png|\/og\/marketing-(es|en)\.png/, bots: /\/og\/bots-(es|en)\.png/, bazar: /\/og\/bazar-(es|en)\.png/, consulting: /./, marketing: /\/og\/marketing-(es|en)\.png/ };
 
 const TYPES = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".webp": "image/webp", ".json": "application/json", ".pdf": "application/pdf" };
@@ -83,22 +117,13 @@ if (isMain) {
   for (const path of pages) {
     const prod = productOf(path);
     const allowed = new Set([...COMMON, ...PALETTE[prod], ...ILLUSTRATION[prod]]);
-    const fonts = FONTS[prod] || FONTS.default;
     const src = readFileSync(join(ROOT, path.endsWith(".html") ? path : path + "index.html"), "utf8");
     const bad = (m) => fails.push(`${path} [${prod}]: ${m}`);
     // — Básicos estáticos —
     const lang = /^\/en\//.test(path) ? "en" : "es";
     const redirect = /http-equiv="refresh"/.test(src);
-    if (!new RegExp(`<html[^>]*lang="${lang}`).test(src)) bad(`<html lang> no es «${lang}»`);
-    if (!/<link rel="icon"/.test(src)) bad("sin favicon");
-    if (!redirect) {
-      if (!/<footer/.test(src)) bad("sin <footer>");
-      if (!/fonts\.googleapis\.com\/css2\?family=Geist/.test(src)) bad("no carga Geist de Google Fonts");
-      const og = src.match(/property="og:image" content="([^"]+)"/);
-      const prodImg = og && new RegExp(`^https://neuri\\.tech${path.replace(/\/$/, "")}/`).test(og[1]);
-      if (og && !OG[prod].test(og[1]) && !prodImg) bad(`og:image de otro producto: ${og[1]}`);
-      if (path !== "/404.html" && !/hreflang="(en|es)"/.test(src)) bad("sin link al otro idioma (hreflang)");
-    }
+    for (const m of staticIssues(path, src, prod)) bad(m);
+    if (redirect) continue; // medir el destino aquí duplicaría avisos (o mediría la respuesta simulada de otro dominio)
     for (const scheme of ["light", "dark"]) {
       for (const width of [390, 1280]) {
         const ctx = await browser.newContext({ viewport: { width, height: 900 }, colorScheme: scheme, reducedMotion: "reduce" });
@@ -107,8 +132,9 @@ if (isMain) {
           r.fulfill({ status: 503, headers: { "access-control-allow-origin": base, "access-control-allow-credentials": "true" }, contentType: "application/json", body: "{}" }),
         );
         await p.route(/vendedor\.js/, (r) => r.fulfill({ status: 200, contentType: "text/javascript", body: "" }));
+        const google = [];
+        p.on("request", (q) => { if (/fonts\.(googleapis|gstatic)\.com/.test(q.url())) google.push(q.url()); });
         await p.goto(base + path + "?lang=" + lang, { waitUntil: "load" }).catch(() => {});
-        if (redirect) await p.waitForTimeout(300);
         const r = await p.evaluate(() => {
           const hex = (c) => {
             const m = c.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/);
@@ -133,7 +159,7 @@ if (isMain) {
             const own = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
             if (own) {
               add(colors, hex(cs.color), el);
-              add(fonts, cs.fontFamily.split(",")[0].replace(/["']/g, "").trim(), el);
+              add(fonts, JSON.stringify([cs.fontFamily.split(",")[0].replace(/["']/g, "").trim(), cs.fontStyle === "italic" || cs.fontStyle.startsWith("oblique")]), el);
             }
             add(colors, hex(cs.backgroundColor), el);
             for (const s of ["Top", "Right", "Bottom", "Left"])
@@ -141,6 +167,10 @@ if (isMain) {
           }
           add(colors, hex(getComputedStyle(document.body).backgroundColor), document.body);
           return { colors: [...colors], fonts: [...fonts], over: document.documentElement.scrollWidth - innerWidth };
+        });
+        const geist = await p.evaluate(async () => {
+          await document.fonts.ready;
+          return [...document.fonts].some((f) => f.family.replace(/["']/g, "") === "Geist" && f.status === "loaded");
         });
         const tag = `@${width}/${scheme}`;
         if (axeSrc) {
@@ -153,7 +183,12 @@ if (isMain) {
         }
         if (process.env.DUMP) console.log(path, tag, r.colors.map((c) => c[0]).join(" "));
         for (const [c, where] of r.colors) if (!near(c, allowed, TOL[prod])) bad(`${tag} color fuera de paleta ${c} en ${where}`);
-        for (const [f, where] of r.fonts) if (!fonts.includes(f)) bad(`${tag} fuente fuera de marca «${f}» en ${where}`);
+        for (const [k, where] of r.fonts) {
+          const [f, it] = JSON.parse(k);
+          if (!fontAllowed(prod, f, it)) bad(`${tag} fuente fuera de marca «${fontKey(f, it)}» en ${where}`);
+        }
+        if (!geist) bad(`${tag} Geist no llegó a cargarse`);
+        if (google.length) bad(`${tag} pidió fuentes a Google Fonts (${google.length})`);
         if (r.over > 0) bad(`${tag} scroll horizontal +${r.over}px`);
         await ctx.close();
       }

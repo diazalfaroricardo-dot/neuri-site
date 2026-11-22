@@ -1,7 +1,7 @@
 // Pasada premium de neuri.bots (aprobada por Ricardo 21-nov-2026): hero C, celular 3D que contesta.
 // Reemplaza a a286-hero-calma (probaba el panel oscuro que ya no existe). Revisa ES/EN a 390 y 1280:
 // el celular y sus notificaciones salen, el chat contesta, sin errores de JS, sin scroll horizontal,
-// solo canales reales encendidos (WhatsApp/TikTok/SMS dicen «pronto») y sin el aviso viejo de Meta.
+// solo canales reales encendidos (TikTok/SMS dicen «pronto»; WhatsApp está encendido en sd.neuri.tech/estado) y sin el aviso viejo de Meta.
 // Uso: node scripts/np-hero-c-test.mjs [base]   (por defecto https://neuri.tech)
 import { chromium } from "playwright-core";
 const base = process.argv[2] || "https://neuri.tech";
@@ -29,7 +29,7 @@ for (const [path, en] of [["/sigue-disponible/", false], ["/en/still-available/"
     ok(r.notis === 5, `${t}: 5 notificaciones (${r.notis})`);
     ok(r.chat >= 1, `${t}: el celular contesta (${r.chat} mensajes)`);
     ok(!r.over, `${t}: sin scroll horizontal`);
-    ok(r.pronto === 3, `${t}: WhatsApp, TikTok y SMS marcados como pronto (${r.pronto})`);
+    ok(r.pronto === 2, `${t}: TikTok y SMS marcados como pronto; WhatsApp encendido (${r.pronto})`);
     ok(!r.meta, `${t}: sin el aviso viejo de Meta`);
     ok(errs.length === 0, `${t}: sin errores de JS ${errs.join(" | ")}`);
     await p.close();

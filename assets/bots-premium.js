@@ -36,28 +36,29 @@
 
   /* ---------- hero C: celular 3D que contesta ---------- */
   var IG = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+  var WA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 20l1.2-3.9A8.3 8.3 0 1 1 8 19z"/></svg>';
   var FB = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.3S17 3 12 3z"/></svg>';
   var CHK = '<svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
-  // Solo canales que contestan hoy (Instagram y Facebook): nada que no exista.
+  // Solo canales que contestan hoy (Instagram, Facebook y WhatsApp): nada que no exista.
   var CHATS = EN ? [
     ['Laura M.', 'ig', 'Is the white wardrobe still available?', 'Yes, it’s still available. It’s $1,800 and you can pick it up today 5–8 pm. Want me to hold it?', 'Answered · 2.1 s'],
     ['Diego R.', 'fb', 'What’s your lowest? I’ll give you $1,200', 'Mariana decides on price. I’ll pass her your offer.', 'Passed to you', 1],
-    ['Sofia L.', 'ig', 'Can you hold the coffee table for me?', 'Done, it’s on hold for you until tomorrow at 8 pm.', 'On hold · 1.9 s'],
+    ['Sofia L.', 'wa', 'Can you hold the coffee table for me?', 'Done, it’s on hold for you until tomorrow at 8 pm.', 'On hold · 1.9 s'],
     ['Carlos P.', 'fb', 'Do you take bank transfer?', 'Yes: cash or bank transfer. Want me to hold it?', 'Answered · 1.4 s'],
     ['Ana G.', 'ig', 'Where do you do pickups?', 'Pickups at Plaza Cardón, Monday to Saturday, 5–8 pm.', 'Answered · 1.7 s']
   ] : [
     ['Laura M.', 'ig', '¿Sigue disponible el ropero blanco?', 'Sí, sigue disponible. Cuesta $1,800 y lo recoges hoy de 5 a 8 pm. ¿Te lo aparto?', 'Contestada · 2.1 s'],
     ['Diego R.', 'fb', '¿En cuánto me lo dejas? Te doy $1,200', 'Ese precio lo decide Mariana. Le paso tu oferta.', 'Te lo pasó a ti', 1],
-    ['Sofía L.', 'ig', 'Apártame la mesa de centro porfa', 'Listo, quedó apartada a tu nombre hasta mañana a las 8 pm.', 'Apartado · 1.9 s'],
+    ['Sofía L.', 'wa', 'Apártame la mesa de centro porfa', 'Listo, quedó apartada a tu nombre hasta mañana a las 8 pm.', 'Apartado · 1.9 s'],
     ['Carlos P.', 'fb', '¿Aceptas transferencia?', 'Sí: efectivo o transferencia. ¿Te lo aparto?', 'Contestada · 1.4 s'],
     ['Ana G.', 'ig', '¿Dónde entregas?', 'Entrego en Plaza Cardón de lunes a sábado, de 5 a 8 pm.', 'Contestada · 1.7 s']
   ];
-  var AHORA = EN ? 'now' : 'ahora', NAME = { ig: 'Instagram', fb: 'Facebook' };
+  var AHORA = EN ? 'now' : 'ahora', NAME = { ig: 'Instagram', fb: 'Facebook', wa: 'WhatsApp' };
   if (stage) (function () {
     var phone = $('.np-phone'), capas = $('.np-capas'), chat = $('.np-chat'), notis = $('.np-notis'), canal = $('.np-canal');
     var POS = [[-90, -300, 160], [180, -240, 90], [-215, 40, 220], [185, 150, 260], [-180, 245, 120]], nEls;
     var h = ''; for (var i = 1; i <= 14; i++) h += '<i style="transform:translateZ(' + (-i) + 'px)"></i>'; capas.innerHTML = h;
-    notis.innerHTML = CHATS.map(function (c) { return '<div class="np-noti"><span class="ap ' + c[1] + '">' + (c[1] === 'ig' ? IG : FB) + '</span><b>' + esc(c[0]) + '<span>' + AHORA + '</span></b><span>' + esc(c[2]) + '</span><span class="r">' + CHK + esc(c[4]) + '</span></div>'; }).join('');
+    notis.innerHTML = CHATS.map(function (c) { return '<div class="np-noti"><span class="ap ' + c[1] + '">' + (c[1] === 'ig' ? IG : c[1] === 'wa' ? WA : FB) + '</span><b>' + esc(c[0]) + '<span>' + AHORA + '</span></b><span>' + esc(c[2]) + '</span><span class="r">' + CHK + esc(c[4]) + '</span></div>'; }).join('');
     nEls = $$('.np-noti', notis);
     var base = { ry: -18, rx: 6, s: 1 }, tmx = 0, tmy = 0, cmx = 0, cmy = 0, on = false, raf, loopT, k = 0;
     function escala() { return innerWidth < 700 ? .62 : (innerHeight < 820 ? .86 : 1); }

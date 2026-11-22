@@ -132,3 +132,6 @@
 /* cierre */
 #empezar .hx.fin{background:#084A2D;border-radius:36px}
 #empezar .fin-in h2{font-weight:660;letter-spacing:-.042em}
+.np-noti .ap.wa{background:#0B5E3A}
+/* líneas de palabras clave bajo los títulos: texto, no disfraz de código */
+.sec-head .kw{font-family:inherit!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;color:var(--gris)!important}

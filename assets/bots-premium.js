@@ -53,13 +53,45 @@
     ['Carlos P.', 'fb', '¿Aceptas transferencia?', 'Sí: efectivo o transferencia. ¿Te lo aparto?', 'Contestada · 1.4 s'],
     ['Ana G.', 'ig', '¿Dónde entregas?', 'Entrego en Plaza Cardón de lunes a sábado, de 5 a 8 pm.', 'Contestada · 1.7 s']
   ];
-  var AHORA = EN ? 'now' : 'ahora', NAME = { ig: 'Instagram', fb: 'Facebook', wa: 'WhatsApp' };
+  var TT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2.2 4.3 5 4.5"/></svg>';
+  var SMS = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 21l3-4"/></svg>';
+  var ICO = { ig: IG, fb: FB, wa: WA, tt: TT, sms: SMS };
+  var AHORA = EN ? 'now' : 'ahora', NAME = { ig: 'Instagram', fb: 'Facebook', wa: 'WhatsApp', tt: 'TikTok', sms: 'SMS' };
+  /* Canales con bandera (sd.neuri.tech/estado): al encender TikTok o SMS se quita su «pronto» y entran
+     a las notificaciones del celular; si WhatsApp se apaga, vuelve a decir «pronto». Sin respuesta, el
+     HTML se queda como está (solo lo que hoy contesta). */
+  var EXTRA = {
+    tt: EN ? ['Vale T.', 'tt', 'Saw your TikTok, is the lamp still available?', 'Yes, it’s still available: $800. Want me to hold it?', 'Answered · 1.8 s']
+           : ['Vale T.', 'tt', 'Vi tu TikTok, ¿sigue la lámpara?', 'Sí, sigue disponible: $800. ¿Te la aparto?', 'Contestada · 1.8 s'],
+    sms: EN ? ['Rosa P.', 'sms', 'Hi! Do you deliver on Saturdays?', 'Yes, Saturdays 10 am–2 pm at Plaza Cardón.', 'Answered · 1.6 s']
+            : ['Rosa P.', 'sms', '¡Hola! ¿Entregas los sábados?', 'Sí, los sábados de 10 a 2 en Plaza Cardón.', 'Contestada · 1.6 s']
+  };
+  var SLOT = { tt: 4, sms: 3 }, BASE = CHATS.slice(), hooks = [];
+  function canales(st) {
+    var on = { wa: st.whatsapp === 'on', tt: st.tiktokDm === 'on' || st.tiktok === 'on', sms: st.sms === 'on' }, cambio = false;
+    $$('.np-can').forEach(function (el) {
+      var t = (el.firstChild && el.textContent || '').trim(), k = /^WhatsApp/.test(t) ? 'wa' : /^TikTok/.test(t) ? 'tt' : /^SMS/.test(t) ? 'sms' : null;
+      if (!k) return;
+      var sm = el.querySelector('small');
+      if (on[k]) { el.classList.remove('pronto'); if (sm) sm.remove(); }
+      else if (k !== 'wa' || st.whatsapp === 'off') { el.classList.add('pronto'); if (!sm) { sm = document.createElement('small'); sm.textContent = EN ? 'soon' : 'pronto'; el.appendChild(sm); } }
+    });
+    ['tt', 'sms'].forEach(function (k) { var want = on[k] ? EXTRA[k] : BASE[SLOT[k]]; if (CHATS[SLOT[k]] !== want) { CHATS[SLOT[k]] = want; cambio = true; } });
+    if (!on.wa) CHATS.forEach(function (c, i) { if (c[1] === 'wa') { CHATS[i] = [c[0], 'ig', c[2], c[3], c[4]]; cambio = true; } });
+    if (cambio) hooks.forEach(function (f) { f(); });
+  }
+  if (window.fetch && /neuri\.tech$|^localhost$|^127\./.test(location.hostname)) {
+    var ctl = window.AbortController ? new AbortController() : null; if (ctl) setTimeout(function () { ctl.abort(); }, 5000);
+    fetch('https://sd.neuri.tech/estado', { mode: 'cors', credentials: 'omit', signal: ctl ? ctl.signal : undefined }).then(function (r) { return r.ok ? r.json() : null; }).then(function (st) { if (st) canales(st); }, function () {});
+  }
+  window.npCanales = canales;
   if (stage) (function () {
     var phone = $('.np-phone'), capas = $('.np-capas'), chat = $('.np-chat'), notis = $('.np-notis'), canal = $('.np-canal');
     var POS = [[-90, -300, 160], [180, -240, 90], [-215, 40, 220], [185, 150, 260], [-180, 245, 120]], nEls;
     var h = ''; for (var i = 1; i <= 14; i++) h += '<i style="transform:translateZ(' + (-i) + 'px)"></i>'; capas.innerHTML = h;
-    notis.innerHTML = CHATS.map(function (c) { return '<div class="np-noti"><span class="ap ' + c[1] + '">' + (c[1] === 'ig' ? IG : c[1] === 'wa' ? WA : FB) + '</span><b>' + esc(c[0]) + '<span>' + AHORA + '</span></b><span>' + esc(c[2]) + '</span><span class="r">' + CHK + esc(c[4]) + '</span></div>'; }).join('');
-    nEls = $$('.np-noti', notis);
+    function notisHtml() { notis.innerHTML = CHATS.map(function (c) { return '<div class="np-noti ok"><span class="ap ' + c[1] + '">' + (ICO[c[1]] || IG) + '</span><b>' + esc(c[0]) + '<span>' + AHORA + '</span></b><span>' + esc(c[2]) + '</span><span class="r">' + CHK + esc(c[4]) + '</span></div>'; }).join(''); nEls = $$('.np-noti', notis); }
+    notisHtml(); nEls.forEach(function (n) { n.classList.remove('ok'); });
+    hooks.push(function () { notisHtml(); place(); });
     var base = { ry: -18, rx: 6, s: 1 }, tmx = 0, tmy = 0, cmx = 0, cmy = 0, on = false, raf, loopT, k = 0;
     function escala() { return innerWidth < 700 ? .62 : (innerHeight < 820 ? .86 : 1); }
     function place() { var sm = innerWidth < 700 ? .55 : 1; nEls.forEach(function (n, i) { var p = POS[i]; n.style.setProperty('--x', (p[0] * sm + cmx * p[2] * .25) + 'px'); n.style.setProperty('--y', (p[1] * sm + cmy * p[2] * .2) + 'px'); n.style.setProperty('--z', p[2] + 'px'); }); }

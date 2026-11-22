@@ -95,3 +95,40 @@
 .np-can{height:30px;font-size:13px;padding:0 10px 0 9px;gap:6px}
 .np-can small{font-size:9.5px}
 @media (max-width:980px){#inicio .hx{margin-inline:0!important;padding-inline:0!important}}
+
+/* ===== resto de la página, como en la vista previa aprobada ===== */
+/* calculadora: tarjeta clara, número grande en tinta, sin brillo */
+#calculadora .calc{grid-template-columns:1fr 1fr;gap:0;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 0 0 1px rgba(5,8,13,.05),0 12px 28px -12px rgba(5,8,13,.16),0 28px 64px -32px rgba(11,94,58,.22)}
+#calculadora .calc-in{border:0;border-radius:0;box-shadow:none;padding:40px}
+#calculadora .calc-in label{font-weight:500;color:var(--gris-2);font-size:15px}
+#calculadora .calc-in label output{font-family:inherit;font-size:22px;font-weight:600;color:var(--tinta);letter-spacing:-.02em}
+#calculadora .calc-out{background:var(--papel);color:var(--tinta);border-radius:0;border-left:1px solid var(--linea);padding:40px}
+#calculadora .calc-out::after,#calculadora .calc-out::before{display:none}
+#calculadora .calc-out .co-k{color:var(--gris-2);font-size:15px}
+#calculadora .calc-out .big{color:var(--tinta)!important;text-shadow:none!important;filter:none!important;font-weight:620;font-size:clamp(56px,7.5vw,104px);letter-spacing:-.055em;line-height:.92}
+#calculadora .calc-out small{color:var(--gris-2);font-size:15px}
+#calculadora .calc-out small b{color:var(--tinta)}
+#calculadora input[type=range]{accent-color:var(--verde)}
+@media (max-width:860px){#calculadora .calc{grid-template-columns:1fr}#calculadora .calc-out{border-left:0;border-top:1px solid var(--linea)}#calculadora .calc-in,#calculadora .calc-out{padding:26px}}
+
+/* precios */
+#precios .planes{max-width:920px}
+#precios .plan{border-radius:28px;padding:36px;border:0;box-shadow:0 0 0 1px var(--linea)}
+#precios .plan.pro{box-shadow:0 2px 2px rgba(5,8,13,.04),0 24px 48px -20px rgba(5,8,13,.22),0 60px 120px -60px rgba(11,94,58,.35)}
+#precios .plan h3{font-weight:600;font-size:20px;display:flex;justify-content:space-between;align-items:center}
+#precios .plan h3 small{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:rgba(143,224,180,.16);color:var(--menta);padding:6px 10px;border-radius:99px}
+#precios .precio .pn{font-weight:620!important;font-size:64px!important;letter-spacing:-.05em;line-height:1}
+#precios .plan li::before{color:var(--verde)}
+#precios .plan.pro li::before{color:var(--menta)}
+#precios .plan.pro .btn-m{background:var(--menta)!important;color:var(--tinta)!important;justify-content:center}
+#precios .plan .btn{width:100%}
+
+/* preguntas frecuentes */
+#preguntas h2{font-weight:660!important;letter-spacing:-.04em!important}
+#preguntas summary{font-size:20px!important;font-weight:540!important;letter-spacing:-.015em;cursor:pointer}
+#preguntas .faq-plus{display:grid;place-items:center;width:36px;height:36px;flex:none;border-radius:99px;box-shadow:inset 0 0 0 1px #D3D6CD;transition:transform .5s var(--np-ease),background-color .3s,color .3s}
+#preguntas details[open] .faq-plus{background:var(--tinta);color:#fff;box-shadow:none}
+
+/* cierre */
+#empezar .hx.fin{background:#084A2D;border-radius:36px}
+#empezar .fin-in h2{font-weight:660;letter-spacing:-.042em}

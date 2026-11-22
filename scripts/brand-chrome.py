@@ -183,7 +183,7 @@ def marca_head(brand, lang):
 
 STRIP = [
     r"<!--marca-->.*?<!--/marca-->\s*",
-    r"<style[^>]*>.*?</style>\s*",
+    r'<style(?![^>]*id="antiClickjack")[^>]*>.*?</style>\s*',  # el frame-buster (csp-meta.py) se queda
     r'<link rel="preconnect"[^>]*>\s*',
     r'<link rel="preload" as="style"[^>]*>\s*',
     r'<link rel="stylesheet"[^>]*>\s*',

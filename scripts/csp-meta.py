@@ -4,7 +4,13 @@ política de referrer como <meta> justo después de <meta charset>. Idempotente:
 Uso: python3 scripts/csp-meta.py   (después de agregar o generar páginas). Prueba: csp-meta-test.mjs.
 Scripts: solo del sitio, PostHog y Meta Pixel (con consentimiento); 'unsafe-inline' por el JSON-LD y
 los <script> en línea de las páginas. frame-ancestors no funciona en <meta> (clickjacking: no hay
-login en neuri.tech; las apps sí mandan X-Frame-Options)."""
+login en neuri.tech; las apps sí mandan X-Frame-Options).
+eng-alm-au-tech-headers: mientras no haya headers (Cloudflare apagado, docs/CLOUDFLARE-HEADERS-ENCENDER.md)
+cada página lleva además el frame-buster de OWASP: la página nace oculta y solo se muestra si es la
+ventana de arriba; dentro de un iframe intenta salirse y, si el navegador no deja, se queda en blanco.
+Ninguna app de Neuri incrusta neuri.tech (revisado 22-nov: repos y Mission Control). Prueba: t67-anti-iframe-test.mjs.
+Va en línea (la CSP permite 'unsafe-inline'); NO agregar su hash a script-src: con un hash el navegador
+ignora 'unsafe-inline' y se romperían los demás <script> en línea."""
 import pathlib, re
 
 CSP = "; ".join([
@@ -24,7 +30,12 @@ CSP = "; ".join([
 ])
 TAGS = (f'<meta http-equiv="Content-Security-Policy" content="{CSP}">'
         '<meta name="referrer" content="strict-origin-when-cross-origin">')
-OLD = re.compile(r'<meta http-equiv="Content-Security-Policy"[^>]*>(<meta name="referrer"[^>]*>)?')
+ANTIFRAME = ('<style id="antiClickjack">html{display:none!important}</style>'
+             '<script>(function(){try{if(self===top){var s=document.getElementById("antiClickjack");'
+             's&&s.parentNode.removeChild(s)}else{top.location=self.location}}catch(e){}})()</script>')
+TAGS += ANTIFRAME
+OLD = re.compile(r'<meta http-equiv="Content-Security-Policy"[^>]*>(<meta name="referrer"[^>]*>)?'
+                 r'(<style id="antiClickjack">.*?</style><script>.*?</script>)?')
 CHARSET = re.compile(r'(<meta charset="?[^">]+"?\s*/?>)', re.I)
 
 def main():

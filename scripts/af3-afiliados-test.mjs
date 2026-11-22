@@ -1,6 +1,6 @@
 /**
  * AF3 (27-oct; publicada 10-nov con el «sí» de Ricardo): programa de afiliados en /afiliados/ y /en/affiliates/.
- * A 390 y 1280 px, ES y EN: sin scroll horizontal, axe WCAG 2 A/AA 0 violaciones, indexable (sin noindex),
+ * A 390 y 1280 px, ES y EN: sin scroll horizontal, axe WCAG 2 A/AA 0 violaciones, noindex mientras esté apagado, CLS < 0.1,
  * botón de solicitud deshabilitado (el formulario no envía nada), 20 % y mínimos US$25 / MX$500
  * presentes, panel marcado como ejemplo, toques ≥44 px. Además: título 20–65 caracteres,
  * hreflang recíproco, ambas en el sitemap y enlazadas desde el pie de la portada ES y EN; el alta sigue apagada.
@@ -38,6 +38,10 @@ const axeSrc = AXE ? readFileSync(AXE, "utf8") : "";
 let fails = 0;
 const bad = (m) => { fails++; console.log("✗", m); };
 
+// Programa de afiliados apagado (22-nov): /afiliados/ y /en/affiliates/ llevan noindex y no van en el sitemap.
+// Al encenderlo: true aquí, borrar la meta robots de ambas páginas y correr python3 scripts/seo.py.
+const PROGRAMA_ENCENDIDO = false;
+
 const PAGES = [
   { path: "/afiliados/", file: "afiliados/index.html", lang: "es", pair: "https://neuri.tech/en/affiliates/", example: /Ejemplo · datos ficticios/i, soon: /^Pronto — el programa abre cuando Neuri lo encienda$/ },
   { path: "/en/affiliates/", file: "en/affiliates/index.html", lang: "en", pair: "https://neuri.tech/afiliados/", example: /Example · fictional data/i, soon: /^Coming soon — the program opens when Neuri turns it on$/ },
@@ -46,14 +50,22 @@ const PAGES = [
 // Estático: indexable, título, hreflang recíproco, en sitemap y en el pie de las portadas.
 for (const p of PAGES) {
   const h = readFileSync(join(ROOT, p.file), "utf8");
-  if (/<meta name="robots" content="[^"]*noindex/.test(h)) bad(`${p.path}: sigue con noindex (ya está publicada)`);
+  const ni = /<meta name="robots" content="[^"]*noindex/.test(h);
+  if (PROGRAMA_ENCENDIDO && ni) bad(`${p.path}: sigue con noindex (el programa ya está encendido)`);
+  if (!PROGRAMA_ENCENDIDO && !ni) bad(`${p.path}: el programa está apagado y la página es indexable (falta noindex)`);
+  // CLS (tech-cls-noindex-brandcheck): el h1 usa Instrument Serif itálica; sin preload el título se reacomodaba.
+  if (!h.includes('<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" crossorigin>')) bad(`${p.path}: falta el preload de Instrument Serif itálica (CLS)`);
   const t = (h.match(/<title>([^<]*)<\/title>/) || [, ""])[1];
   if (t.length < 20 || t.length > 65) bad(`${p.path}: título de ${t.length} caracteres «${t}»`);
   if (!h.includes(`<link rel="alternate" hreflang="${p.lang === "es" ? "en" : "es"}" href="${p.pair}">`)) bad(`${p.path}: hreflang al par falta`);
   if (/<form[^>]*\baction="(?!#")/.test(h) || /fetch\(|XMLHttpRequest|sendBeacon/.test(h)) bad(`${p.path}: el formulario podría enviar datos`);
 }
 const sm = readFileSync(join(ROOT, "sitemap.xml"), "utf8");
-for (const u of ["https://neuri.tech/afiliados/", "https://neuri.tech/en/affiliates/"]) if (!sm.includes(`<loc>${u}</loc>`)) bad(`sitemap.xml no tiene ${u}`);
+for (const u of ["https://neuri.tech/afiliados/", "https://neuri.tech/en/affiliates/"]) {
+  const en = sm.includes(`<loc>${u}</loc>`);
+  if (PROGRAMA_ENCENDIDO && !en) bad(`sitemap.xml no tiene ${u}`);
+  if (!PROGRAMA_ENCENDIDO && en) bad(`sitemap.xml tiene ${u} con el programa apagado`);
+}
 for (const [f, href] of [["index.html", "/afiliados/"], ["en/home/index.html", "/en/affiliates/"]]) {
   const foot = (readFileSync(join(ROOT, f), "utf8").match(/<footer[\s\S]*?<\/footer>/) || [""])[0];
   if (!foot.includes(`href="${href}"`)) bad(`${f}: el pie no enlaza ${href}`);
@@ -107,7 +119,19 @@ for (const width of [390, 1280]) {
     await page.close();
   }
 }
+// CLS < 0.1 a 390 y 1280 sin caché, con las fuentes 50 ms tarde (sin el preload falla aun a 0 ms; con él aguanta ~60-90 ms).
+for (const width of [390, 1280]) for (const p of PAGES) {
+  const ctx = await browser.newContext({ viewport: { width, height: 800 } });
+  const page = await ctx.newPage();
+  await page.route(/\.woff2$/, async (r) => { await new Promise((s) => setTimeout(s, Number(process.env.AF3_FONT_MS ?? 50))); await r.continue(); });
+  await page.addInitScript(() => { window.__cls = 0; new PerformanceObserver((l) => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: "layout-shift", buffered: true }); });
+  await page.goto(base + p.path, { waitUntil: "load" });
+  await page.waitForTimeout(1200);
+  const cls = await page.evaluate(() => window.__cls);
+  if (cls >= 0.1) bad(`${p.path}@${width}: CLS ${cls.toFixed(3)} ≥ 0.1`);
+  await ctx.close();
+}
 await browser.close();
 server.close();
-if (!fails) console.log(`✓ AF3 afiliados: ES/EN × 390/1280 sin scroll, axe AA 0, indexable, botón deshabilitado, 20 % y mínimos, ${taps} toques ≥44 px, en sitemap y pie`);
+if (!fails) console.log(`✓ AF3 afiliados: ES/EN × 390/1280 sin scroll, axe AA 0, noindex/sitemap según bandera, CLS < 0.1, botón deshabilitado, 20 % y mínimos, ${taps} toques ≥44 px, pie`);
 process.exit(fails ? 1 : 0);

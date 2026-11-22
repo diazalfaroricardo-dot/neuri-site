@@ -53,8 +53,10 @@ for (const p of PAGES) {
   const ni = /<meta name="robots" content="[^"]*noindex/.test(h);
   if (PROGRAMA_ENCENDIDO && ni) bad(`${p.path}: sigue con noindex (el programa ya está encendido)`);
   if (!PROGRAMA_ENCENDIDO && !ni) bad(`${p.path}: el programa está apagado y la página es indexable (falta noindex)`);
-  // CLS (tech-cls-noindex-brandcheck): el h1 usa Instrument Serif itálica; sin preload el título se reacomodaba.
-  if (!h.includes('<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" crossorigin>')) bad(`${p.path}: falta el preload de Instrument Serif itálica (CLS)`);
+  // CLS (tech-cls-noindex-brandcheck): el h1 (Geist + Instrument Serif itálica) se reacomodaba al llegar las
+  // fuentes; con preload seguía 3 de 10 veces. Ambas van en línea (data:) para que pinte ya con la fuente final.
+  if (!/font-family:Geist;[^}]*src:url\(data:font\/woff2;base64,/.test(h)) bad(`${p.path}: Geist no va en línea (CLS)`);
+  if (!/font-family:"Instrument Serif";font-style:italic;[^}]*src:url\(data:font\/woff2;base64,/.test(h)) bad(`${p.path}: Instrument Serif itálica no va en línea (CLS)`);
   const t = (h.match(/<title>([^<]*)<\/title>/) || [, ""])[1];
   if (t.length < 20 || t.length > 65) bad(`${p.path}: título de ${t.length} caracteres «${t}»`);
   if (!h.includes(`<link rel="alternate" hreflang="${p.lang === "es" ? "en" : "es"}" href="${p.pair}">`)) bad(`${p.path}: hreflang al par falta`);
@@ -119,11 +121,11 @@ for (const width of [390, 1280]) {
     await page.close();
   }
 }
-// CLS < 0.1 a 390 y 1280 sin caché, con las fuentes 50 ms tarde (sin el preload falla aun a 0 ms; con él aguanta ~60-90 ms).
+// CLS < 0.1 a 390 y 1280 sin caché, con las fuentes de red 300 ms tarde (antes del arreglo fallaba aun a 0 ms).
 for (const width of [390, 1280]) for (const p of PAGES) {
   const ctx = await browser.newContext({ viewport: { width, height: 800 } });
   const page = await ctx.newPage();
-  await page.route(/\.woff2$/, async (r) => { await new Promise((s) => setTimeout(s, Number(process.env.AF3_FONT_MS ?? 50))); await r.continue(); });
+  await page.route(/\.woff2$/, async (r) => { await new Promise((s) => setTimeout(s, Number(process.env.AF3_FONT_MS ?? 300))); await r.continue(); });
   await page.addInitScript(() => { window.__cls = 0; new PerformanceObserver((l) => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: "layout-shift", buffered: true }); });
   await page.goto(base + p.path, { waitUntil: "load" });
   await page.waitForTimeout(1200);

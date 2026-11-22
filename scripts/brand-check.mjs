@@ -86,7 +86,9 @@ export function staticIssues(path, src, prod = productOf(path)) {
   if (redirect) return out; // una redirección no pinta nada: su destino se revisa por su cuenta
   if (!/<link rel="icon"/.test(src)) out.push("sin favicon");
   if (!/<footer/.test(src)) out.push("sin <footer>");
-  if (!src.includes("/assets/fonts/geist-latin-wght.woff2")) out.push("no carga Geist autoalojada (/assets/fonts/geist-latin-wght.woff2)");
+  // Geist propia: el archivo de /assets/fonts o, donde el CLS lo pide (afiliados), en línea como data:.
+  const geistPropia = src.includes("/assets/fonts/geist-latin-wght.woff2") || /font-family:"?Geist"?;[^}]*src:url\(data:font\/woff2;/.test(src);
+  if (!geistPropia) out.push("no carga Geist autoalojada (/assets/fonts/geist-latin-wght.woff2)");
   const og = src.match(/property="og:image" content="([^"]+)"/);
   const prodImg = og && new RegExp(`^https://neuri\\.tech${path.replace(/\/$/, "")}/`).test(og[1]);
   if (og && !OG[prod].test(og[1]) && !prodImg) out.push(`og:image de otro producto: ${og[1]}`);

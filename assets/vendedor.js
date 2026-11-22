@@ -430,10 +430,14 @@
         const d = document.getElementById("demo");
         const r = d && d.getBoundingClientRect();
         // 575 (B-N2): tampoco tapa el botón principal de un asistente («Siguiente»).
-        const s = document.getElementById("siguiente");
-        const sr = s && s.offsetParent ? s.getBoundingClientRect() : null;
+        // tech-cls: ni lo que la página marque con data-globo-evita (botones y cifra del reporte de ejemplo de consulting).
         const lr = launch.getBoundingClientRect();
-        const cruza = !!sr && lr.width > 0 && lr.left - 8 < sr.right && lr.right + 8 > sr.left && lr.top - 8 < sr.bottom && lr.bottom + 8 > sr.top;
+        let cruza = false;
+        for (const s of document.querySelectorAll("#siguiente, [data-globo-evita]")) {
+          if (!s.offsetParent) continue;
+          const sr = s.getBoundingClientRect();
+          if (lr.width > 0 && lr.left - 8 < sr.right && lr.right + 8 > sr.left && lr.top - 8 < sr.bottom && lr.bottom + 8 > sr.top) cruza = true;
+        }
         launch.classList.toggle("tapa", !st.open && (cruza || (!!r && r.top < innerHeight - 70 && r.bottom > innerHeight - 70)));
       };
       addEventListener("click", () => setTimeout(tapa, 60), { passive: true });

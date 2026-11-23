@@ -1,0 +1,52 @@
+name: IndexNow
+# seo-indexnow (23-nov-2026): en cada push a main avisa a IndexNow (Bing → ChatGPT Search, Yandex,
+# Seznam, Naver) qué páginas de neuri.tech cambiaron. Las URLs salen del diff (archivos *.html →
+# URL) y solo se mandan las que están en sitemap.xml. La llave es pública por diseño
+# (/<llave>.txt en la raíz). Sin secretos. Doc: docs/seo/indexnow.md
+# Apagar: variable del repo INDEXNOW_APAGADO=1 o «Disable workflow» en Actions.
+on:
+  push:
+    branches: [main]
+    paths: ["**.html", "sitemap.xml"]
+  workflow_dispatch:
+    inputs:
+      todo:
+        description: "Mandar el sitemap completo"
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+jobs:
+  indexnow:
+    if: vars.INDEXNOW_APAGADO != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 50
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - name: Esperar el deploy de GitHub Pages
+        if: github.event_name == 'push'
+        run: sleep 150
+      - name: Avisar a IndexNow
+        env:
+          EVENTO: ${{ github.event_name }}
+          TODO: ${{ inputs.todo }}
+          DESDE: ${{ github.event.before }}
+          HASTA: ${{ github.sha }}
+        run: |
+          if [ "$EVENTO" = "workflow_dispatch" ] && [ "$TODO" = "true" ]; then
+            node scripts/indexnow.mjs --todo
+          elif [ "$EVENTO" = "workflow_dispatch" ]; then
+            node scripts/indexnow.mjs --desde HEAD~1 --hasta HEAD
+          else
+            git cat-file -e "$DESDE" 2>/dev/null || DESDE=""
+            node scripts/indexnow.mjs --desde "${DESDE:-0}" --hasta "$HASTA"
+          fi

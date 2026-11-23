@@ -3,3 +3,8 @@ title = "neuri-site gitleaks"
 
 [extend]
 useDefault = true
+
+# seo-indexnow: la llave IndexNow es pública por diseño (se sirve en https://neuri.tech/<llave>.txt).
+[[allowlists]]
+description = "Llave IndexNow pública"
+regexes = ['''03f7fa0bb42ae6fc4ff35b88291c0e33''']

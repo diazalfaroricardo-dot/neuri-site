@@ -9,7 +9,9 @@ const set = (re, s) => new Set([...s.matchAll(re)].map((m) => m[1]));
 const ids = (s) => set(/<(?:section|form|main|nav|header|footer)[^>]*\sid="([^"]+)"/g, s);
 const anchors = (s) => set(/href="(#[^"]+)"/g, s);
 const ext = (s) => set(/href="(https?:\/\/[^"#?]+|mailto:[^"?]+)/g, s);
-const hreflang = (s) => set(/hreflang="([^"]+)"/g, s);
+// D-10: solo los <link rel="alternate"> del <head> (en-US, es-US, x-default); el selector visible
+// de cada página apunta al otro idioma a propósito.
+const hreflang = (s) => set(/<link rel="alternate" hreflang="([^"]+)"/g, s.slice(0, s.indexOf("</head>")));
 const fields = (s) => set(/<(?:input|select|textarea)[^>]*\sname="([^"]+)"/g, s);
 const fallas = [];
 const diff = (nombre, a, b, ignorar = () => false) => {

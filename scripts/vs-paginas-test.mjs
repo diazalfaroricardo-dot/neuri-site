@@ -23,7 +23,9 @@ for (const [es, en, dom] of pares) {
     const s = read(p + "index.html");
     if (!s.includes(`<html lang="${lang}"`)) bad(`${p} sin lang=${lang}`);
     if (!s.includes(`<link rel="canonical" href="https://neuri.tech/${p}">`)) bad(`${p} sin canonical propio`);
-    if (!s.includes(`hreflang="${lang === "es" ? "en" : "es"}" href="https://neuri.tech/${otro}"`)) bad(`${p} sin hreflang a ${otro}`);
+    // D-10: hreflang regional (en-US/es-US) en las páginas ya pasadas por t19; «es»/«en» en las demás.
+    const otroLang = lang === "es" ? "en" : "es";
+    if (!new RegExp(`hreflang="${otroLang}(-US)?" href="https://neuri\\.tech/${otro.replace(/\//g, "\\/")}"`).test(s)) bad(`${p} sin hreflang a ${otro}`);
     // D-10: en neuri.bots y neuri.marketing x-default apunta al inglés.
     const xd = /^(sigue-disponible|marketing)\//.test(es) ? en : es;
     if (!s.includes(`hreflang="x-default" href="https://neuri.tech/${xd}"`)) bad(`${p} sin x-default`);

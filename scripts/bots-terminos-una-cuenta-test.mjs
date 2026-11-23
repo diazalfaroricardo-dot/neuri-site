@@ -1,6 +1,6 @@
 // Pedido de Ricardo (2026-11-21): los términos de todas las apps dicen una sola cuenta por red.
 // neuri.bots ES/EN: sección «Una cuenta por red» con las cuatro redes, más cuentas no incluidas
-// (se piden a hola@neuri.tech), WhatsApp ya conectable, TikTok por etapas y versión 0.4 (vigente desde el 22-nov-2026; v0.4 agrega lo que cobra Meta por WhatsApp).
+// (se piden a hola@neuri.tech), WhatsApp ya conectable, TikTok por etapas y versión 0.5 (23-nov-2026; v0.5 agrega SMS y códigos de regalo).
 // Uso: node scripts/bots-terminos-una-cuenta-test.mjs [--live]
 import { readFileSync } from "node:fs";
 
@@ -16,20 +16,20 @@ const casos = [
     titulo: "Una cuenta por red",
     redes: ["una cuenta de Instagram", "una página de Facebook (Messenger)", "un número de WhatsApp", "una cuenta de TikTok"],
     fuera: "no están incluidas",
-    version: "Versión 0.4",
-    fecha: "22 de noviembre de 2026",
+    version: "Versión 0.5",
+    fecha: "23 de noviembre de 2026",
     viejo: [/WhatsApp está en camino/, /por <b>Instagram y Messenger<\/b>/],
-    tiktok: /TikTok<\/b> se va encendiendo por etapas/,
+    tiktok: /TikTok<\/b> y los <b>mensajes de texto \(SMS\)<\/b> se van encendiendo por etapas/,
   },
   {
     p: "en/still-available/terms/index.html",
     titulo: "One account per network",
     redes: ["one Instagram account", "one Facebook Page (Messenger)", "one WhatsApp number", "one TikTok account"],
     fuera: "are not included",
-    version: "Version 0.4",
-    fecha: "November 22, 2026",
+    version: "Version 0.5",
+    fecha: "November 23, 2026",
     viejo: [/WhatsApp is on the way/, /on <b>Instagram and Messenger<\/b>/],
-    tiktok: /TikTok<\/b> is being turned on in stages/,
+    tiktok: /TikTok<\/b> and <b>text messages \(SMS\)<\/b> are being turned on in stages/,
   },
 ];
 

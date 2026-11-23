@@ -243,7 +243,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <nav class="nb-nav" aria-label="Main"><a class="nb-hide-sm" href="/en/still-available/#como-funciona">How it works</a><a class="nb-hide-sm" href="/en/still-available/#precios">Pricing</a><a class="nb-hide-sm" href="/en/still-available/#preguntas">FAQ</a><a class="nb-lang" href="/sigue-disponible/privacidad/" hreflang="es" lang="es" aria-label="ES, Español" data-idioma>ES</a><a class="nb-in" href="https://sd.neuri.tech/entrar?lang=en" data-entrar>Sign in</a><a class="nb-cta" href="/en/still-available/#signup">Get my assistant</a></nav></header>
 <main id="contenido" class="nb-main"><div class="nb-wrap">
 <!--contenido-->
-<h1>neuri.bots privacy policy</h1><p class="lead">Last updated: November 22, 2026 · Version 1.3 (in force). neuri.bots is a service of Neuri LLC (Phoenix, Arizona, USA) that answers, on behalf of a business, its customers' messages on Instagram, Messenger, WhatsApp, Telegram and its website chat: whether an item is still available, prices, holds, appointments and orders.</p>
+<h1>neuri.bots privacy policy</h1><p class="lead">Last updated: November 23, 2026 · Version 1.4 (in force). neuri.bots is a service of Neuri LLC (Phoenix, Arizona, USA) that answers, on behalf of a business, its customers' messages on Instagram, Messenger, WhatsApp, Telegram, text messages (SMS, once available) and its website chat: whether an item is still available, prices, holds, appointments and orders.</p>
 <section>
 <h2 id="controller">1. Who is responsible</h2>
 <p>This notice is issued under Mexico's <b>Federal Law on the Protection of Personal Data Held by Private Parties</b> (LFPDPPP), published in the Diario Oficial de la Federación on March 20, 2025 and in force since March 21, 2025, and also considers the US laws that apply to Neuri LLC.</p>
@@ -262,6 +262,12 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <h3>From people who write through Telegram or the website chat</h3>
 <ul><li><b>Telegram:</b> the text of the messages and the chat ID Telegram assigns; in the log it is stored as a hash, just like with Meta. Telegram processes the messages on its servers under its own terms.</li>
 <li><b>Website chat:</b> the text you type and a random ID your browser keeps in the business site's local storage to continue the conversation. We don't use cookies or ask for your name. We use your IP only to limit messages per hour.</li></ul>
+<h3 id="sms">From people who text the business (SMS)</h3>
+<p><i>Applies once text messaging is available for the business.</i></p>
+<ul><li>Your phone number and the text of the messages you send to the business's number and of the replies (up to 1,000 characters per message), to reply to you on the business's behalf. Twilio receives and sends those messages.</li>
+<li>If you called the business's number, weren't answered, and the business turned on “Missed call”: your number and the time of the call, to send you a single text asking how they can help (at most once every 24 hours).</li>
+<li>If you reply STOP: that flag, so we don't text you again from that number until you reply START.</li>
+<li><b>Mobile phone numbers and text messaging opt-in data and consent are not shared with third parties or affiliates for marketing or promotional purposes.</b> All of the categories in this policy exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties, except the providers that need it to deliver the messages (Twilio and mobile carriers).</li></ul>
 <h3>Appointments</h3>
 <p>If you book an appointment by chat: the service, day and time, status (confirmed, awaiting deposit or canceled), the network you used and, if you join a waitlist, the day you wanted. If the owner logs an appointment by hand, they may type your name. Any deposit is paid through the business's own payment link: <b>Neuri does not receive or see payment details</b>.</p>
 <h3>Orders</h3>
@@ -276,6 +282,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <li>Team: if you invite other people (Owner, Admin or Member), their email, role, invitation and acceptance dates and the key of their personal link. Removed right away from “Team”.</li>
 <li>Browser notifications: if you turn them on, your browser's subscription, up to 5. The notification goes through your browser's service (Google, Apple or Mozilla).</li>
 <li>Catalog from Instagram: if you import it, we read the text and link of your last 30 posts; an AI model suggests items that you approve one by one.</li>
+<li>Gift codes: if you receive a code to use a plan free or at a discount, we keep the code, who it was given to, when it was redeemed, for which business and whether it is still active, to control its use.</li>
 <li>Affiliate program (<i>applies once the feature is available</i>): if you arrive through an affiliate's link (<code>?ref=</code>), we store our own <code>sd_aff</code> cookie with the affiliate's code for 60 days, only to know who to credit for your sign-up. It doesn't store your name or follow you on other sites.</li></ul>
 <h3>Features turned on in stages</h3>
 <p><i>Applies once the feature is available for the business.</i></p>
@@ -330,6 +337,9 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <div class="tabla" tabindex="0" role="region" aria-label="Table — scroll to see every column"><table>
 <tr><th>Provider</th><th>Purpose</th><th>Where</th></tr>
 <tr><td>Meta Platforms</td><td>Instagram, Messenger and WhatsApp Cloud API: receiving and sending messages</td><td>USA</td></tr>
+<tr><td>Twilio</td><td>Receiving and sending text messages (SMS), the number Neuri rents for the business, calls to that number (“Missed call”) and support calls, once available</td><td>USA</td></tr>
+<tr><td>ElevenLabs</td><td>Voice of the AI support-call agent, once available (receives the call audio)</td><td>USA</td></tr>
+<tr><td>TikTok</td><td>Reading the business's videos and comments and posting its replies, when the business connects TikTok</td><td>Per TikTok</td></tr>
 <tr><td>Telegram</td><td>Receiving and sending messages for the business's Telegram bot (if connected)</td><td>Per Telegram</td></tr>
 <tr><td>Anthropic</td><td>Claude model to draft replies</td><td>USA</td></tr>
 <tr><td>OpenAI</td><td>Transcribing voice notes that the business's customers send, so the assistant can understand them (the audio is sent only for that)</td><td>USA</td></tr>
@@ -337,7 +347,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <tr><td>Railway</td><td>Servers where the service runs and data is stored</td><td>USA</td></tr>
 <tr><td>Resend</td><td>Sending email to owners</td><td>USA</td></tr>
 <tr><td>Stripe</td><td>Billing owners for the plan (card and invoices)</td><td>USA</td></tr>
-<tr><td>Google Fonts</td><td>Page fonts: your browser downloads them from Google, which receives your IP address</td><td>USA</td></tr>
+<tr><td>Google Fonts</td><td>Fonts on the app screens (sd.neuri.tech): your browser downloads them from Google, which receives your IP address</td><td>USA</td></tr>
 <tr><td>PostHog</td><td>Anonymous, cookie-free analytics for neuri.tech and sd.neuri.tech (visits, clicks and sign-up and payment steps; not chats)</td><td>USA</td></tr>
 </table></div>
 <p>If the owner connects their own AI assistant (for example Claude or ChatGPT) to their account, the data that assistant reads goes to that provider by the owner's choice and under its terms. Beyond that, we only share data if a competent authority requires it by law.</p>
@@ -412,7 +422,8 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 </section>
 <section>
 <h2 id="changelog">16. Change log</h2>
-<ul><li><b>v1.3 · Nov 22, 2026:</b> Google Business Profile can also be disconnected with the <b>Disconnect</b> button in Connections (My assistant): it asks Google to remove the permission and deletes what we stored for that connection.</li>
+<ul><li><b>v1.4 · Nov 23, 2026:</b> text messages (SMS): what we keep, “Missed call,” opting out with STOP, and that numbers and SMS consent are not shared for marketing; gift codes; Twilio, ElevenLabs and TikTok in the provider table; Google Fonts only on the app screens.</li>
+<li><b>v1.3 · Nov 22, 2026:</b> Google Business Profile can also be disconnected with the <b>Disconnect</b> button in Connections (My assistant): it asks Google to remove the permission and deletes what we stored for that connection.</li>
 <li><b>v1.2 · Nov 22, 2026:</b> section 4 now covers all Google data: Google Calendar only with <code>calendar.freebusy</code> and <code>calendar.app.created</code> (we no longer request <code>calendar.events</code>) and Google Business Profile (<code>business.manage</code>, reviews, once available): what we read, store and post, and that it doesn't go through AI; the Google API Services User Data Policy Limited Use statement applies to both; providers and retention.</li>
 <li><b>v1.1 · Nov 22, 2026:</b> becomes the policy in force (no draft label). Telegram and website chat; Google Calendar with minimal permissions (<code>calendar.freebusy</code> and <code>calendar.app.created</code>); team, browser notifications and catalog from Instagram; learning from your replies; AI support; Your Neuri network; features in stages (TikTok, Google reviews, AI call); affiliate cookie; legal contact.</li>
 <li><b>v1.0 · Nov 14, 2026:</b> first published version.</li></ul>

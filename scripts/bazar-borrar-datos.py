@@ -1,7 +1,12 @@
 # L11 (bazar): genera /bazar/borrar-mis-datos/ y /en/bazar/delete-my-data/
 # reutilizando el <head> y estilos del aviso de privacidad. Solo describe lo que la app ya hace.
-# Uso: python3 scripts/bazar-borrar-datos.py
-import pathlib, re
+# OBSOLETO COMO GENERADOR (qa, 23-nov, backlog/d10-pruebas-rezagadas): las páginas publicadas ya llevan la marca
+# nueva (cabecera nb-head, pie con todos los productos, regenerados por scripts/brand-chrome.py) y este script
+# escribiría la plantilla vieja encima. Por omisión ahora solo VERIFICA (sin escribir) el hreflang de D-10 de las dos
+# páginas: en-US → EN, es-US → ES y x-default → EN.
+# Uso: python3 scripts/bazar-borrar-datos.py            (verifica; sale 1 si algo falla)
+#      python3 scripts/bazar-borrar-datos.py --write    (regenera con la plantilla vieja: obsoleto)
+import pathlib, re, sys
 R = pathlib.Path(__file__).resolve().parent.parent
 
 def head_from(src, title, desc, canon, es, en, lang):
@@ -12,8 +17,11 @@ def head_from(src, title, desc, canon, es, en, lang):
     h = re.sub(r'(<meta property="og:title" content=")[^"]*', r'\g<1>' + title.split(' | ')[0], h)
     h = re.sub(r'(<link rel="canonical" href=")[^"]*', r'\g<1>' + canon, h)
     h = re.sub(r'(<meta property="og:url" content=")[^"]*', r'\g<1>' + canon, h)
-    h = re.sub(r'(hreflang="es" href=")[^"]*', r'\g<1>' + es, h)
-    h = re.sub(r'(hreflang="en" href=")[^"]*', r'\g<1>' + en, h)
+    # D-10 (22-nov): hreflang regional en-US / es-US y x-default en inglés (igual que scripts/t19-hreflang.py).
+    h = re.sub(r'(hreflang="es-US" href=")[^"]*', r'\g<1>' + es, h)
+    h = re.sub(r'(hreflang="en-US" href=")[^"]*', r'\g<1>' + en, h)
+    h = re.sub(r'(hreflang="x-default" href=")[^"]*', r'\g<1>' + en, h)
+    assert re.search(r'hreflang="en-US"', h) and re.search(r'hreflang="es-US"', h) and re.search(r'hreflang="x-default"', h), 'hreflang regional ausente en la plantilla'
     assert canon in h and es in h and en in h, 'head substitution failed'
     return h
 
@@ -70,6 +78,17 @@ pages = [
   ('en/bazar/privacy/index.html', 'en/bazar/delete-my-data/index.html', 'Delete my data · neuri.bazar | Neuri',
    'How to ask us to delete your neuri.bazar data: by email, reply within 20 business days.', en_url, 'en', EN),
 ]
+if "--write" not in sys.argv:
+    want = sorted([('en-US', en_url), ('es-US', es_url), ('x-default', en_url)])
+    malas = 0
+    for _src, dst, *_ in pages:
+        head = (R / dst).read_text().split('</head>')[0]
+        got = sorted(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]*)">', head))
+        ok = got == want
+        malas += not ok
+        print('ok ' if ok else 'FALLA', dst, '' if ok else f'hreflang: {got}')
+    sys.exit(1 if malas else 0)
+
 for src, dst, title, desc, canon, lang, body in pages:
     out = head_from(src, title, desc, canon, es_url, en_url, lang) + '\n' + body
     p = R / dst; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(out)

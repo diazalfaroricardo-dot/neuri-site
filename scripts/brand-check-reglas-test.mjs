@@ -54,6 +54,8 @@ const sinIcono = base.replace(/<link rel="icon"[^>]*>/, "");
 ok(staticIssues("/sigue-disponible/", sinIcono).includes("sin favicon"), "sin favicon avisa");
 const sinPie = base.replace(/<footer/g, "<div");
 ok(staticIssues("/sigue-disponible/", sinPie).includes("sin <footer>"), "sin pie avisa");
+// D-10: una redirección a /en/ debe estar en inglés (/bots/ → /en/still-available/); en español avisa.
+ok(staticIssues("/bots/", read("bots/index.html").replace('lang="en"', 'lang="es"')).some((m) => /<html lang> no es «en»/.test(m)), "redirección a /en/ con lang es avisa");
 ok(staticIssues("/en/still-available/", base).some((m) => /<html lang>/.test(m)), "lang equivocado avisa");
 
 console.log(fails ? `${fails} fallas` : "✓ brand-check reglas: tipografía y básicos alineados con el sitio publicado");

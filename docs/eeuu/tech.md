@@ -82,10 +82,11 @@ textos ni precios):
    `vs-paginas-test.mjs` exige en-US/es-US, x-default en inglés y og:locale `*_US` en las 8 «vs». Se comprobó que los
    tres fallan con el HTML anterior.
 
-Notas: `t25-marketing-en.mjs` ya estaba desfasado de `/marketing/` antes de este cambio (204 frases sin par): no se
-puede usar con `--write` hasta que marketing lo ponga al día. `meta-legal.py` y `bazar-borrar-datos.py` buscan
-`hreflang="es"`/`"en"`; con el formato nuevo no reemplazan esas líneas y quedan las de t19 (correctas); si se
-regeneran, correr después `t19-hreflang.py --todo`.
+Notas (al día 23-nov, `backlog/d10-pruebas-rezagadas`, equipo qa): `t25-marketing-en.mjs` quedó **retirado**
+(no hace nada sin `--forzar`): `/en/marketing` se edita a mano y sus pares iban 204 frases atrás. `meta-legal.py` y
+`bazar-borrar-datos.py` emiten ya en-US/es-US con x-default en inglés y, **por omisión, solo verifican** ese hreflang
+en las páginas publicadas (salen 1 si falla); `--write` existe pero es obsoleto: las páginas se editaron después
+de generarse y regenerarlas borraría esos cambios.
 
 ## Qué falta y por qué
 

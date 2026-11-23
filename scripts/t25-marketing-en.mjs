@@ -7,6 +7,18 @@
 //   node scripts/t25-marketing-en.mjs            → reporte de frases en español pendientes
 //   node scripts/t25-marketing-en.mjs --write    → escribe en/marketing/index.html SOLO si quedan 0
 //   node scripts/t25-marketing-en.mjs --preview  → escribe el borrador en .t25/marketing-en.html (no se publica)
+//
+// RETIRADO (qa, 23-nov, backlog/d10-pruebas-rezagadas). Desde el rediseño de octubre y D-10 (f9305e6, 22-nov)
+// el equipo marketing edita /marketing y /en/marketing A MANO y por separado (p. ej. 3f900f6 cambia solo EN);
+// los pares de scripts/t25/marketing-en.json se quedaron 204 frases atrás. Con --write este script pisaría la
+// landing inglesa publicada con una traducción vieja. Igual que marketing-landing.py: no hace nada sin --forzar.
+// La paridad ES/EN de marketing la cuidan paridad-marketing-test.mjs, marketing-precios-test.mjs y
+// t21-idioma-visible-test.mjs. Si algún día /en/marketing vuelve a armarse desde /marketing, primero
+// poner al día los pares (--forzar --lista) y revisar el borrador (--forzar --preview) antes de --write.
+if (!process.argv.includes('--forzar')) {
+  console.log('t25-marketing-en.mjs está retirado: /en/marketing se edita a mano (ver la nota al inicio del archivo). Usa --forzar solo si sabes lo que haces.');
+  process.exit(0);
+}
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

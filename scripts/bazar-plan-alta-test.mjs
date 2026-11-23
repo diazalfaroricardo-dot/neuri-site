@@ -1,5 +1,7 @@
 // B-B1: en la landing de neuri.bazar ES/EN el plan que elige el visitante («Probar gratis» de Básico/Pro/Plus
 // o los vendedores del asistente) viaja al alta: bazar.neuri.tech/?signup&country=…&src=…&plan=basico|pro|plus.
+// D-10 (041cc17, 22-nov): /bazar/ es el español para hispanos en EE. UU.; el alta es solo EE. UU. en los dos
+// idiomas, así que country=US también desde /bazar/ (antes MX) y lang= dice el idioma de la landing.
 // Uso: node scripts/bazar-plan-alta-test.mjs [base]   (no crea ningún alta: la navegación a la app se intercepta)
 import { chromium } from "playwright-core";
 const BASE = process.argv[2] || "https://neuri.tech";
@@ -7,12 +9,12 @@ const exe = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacO
 const b = await chromium.launch({ executablePath: exe, args: ["--headless=new"] });
 let fail = 0;
 const cases = [
-  ["/bazar/", "MX", 390, 2, "plus", "visit-phx"],
-  ["/bazar/", "MX", 1280, 0, "basico", ""],
-  ["/en/bazar/", "US", 390, 1, "pro", ""],
-  ["/en/bazar/", "US", 1280, 0, "basico", "tarjeta-qa"],
+  ["/bazar/", "US", 390, 2, "plus", "visit-phx", "es"],
+  ["/bazar/", "US", 1280, 0, "basico", "", "es"],
+  ["/en/bazar/", "US", 390, 1, "pro", "", "en"],
+  ["/en/bazar/", "US", 1280, 0, "basico", "tarjeta-qa", "en"],
 ];
-for (const [path, country, w, idx, want, src] of cases) {
+for (const [path, country, w, idx, want, src, lang] of cases) {
   const p = await b.newPage({ viewport: { width: w, height: 844 } });
   const errs = [];
   p.on("pageerror", (e) => errs.push(e.message));
@@ -39,7 +41,7 @@ for (const [path, country, w, idx, want, src] of cases) {
   // El # no viaja en la petición: se lee de la URL de la página ya navegada.
   if (dest) { await p.waitForURL(/bazar\.neuri\.tech/).catch(() => {}); dest = p.url(); }
   const u = dest ? new URL(dest) : null;
-  const ok = u && u.searchParams.has("signup") && u.searchParams.get("country") === country &&
+  const ok = u && u.searchParams.has("signup") && u.searchParams.get("country") === country && u.searchParams.get("lang") === lang &&
     u.searchParams.get("plan") === want && u.searchParams.get("src") === (src || "landing") && errs.length === 0;
   // QA #16 (tienda y correo en el #) ya no aplica aquí: desde el 2-nov el botón de precio va directo al alta sin pasar por el asistente; el asistente lo cuida bazar-auditoria-2nov-test.
   if (!ok) fail++;

@@ -79,8 +79,11 @@ export const fontAllowed = (prod, family, italic = false) => (FONTS[prod] || FON
 /** Básicos estáticos de una página (sin navegador). Devuelve la lista de problemas. */
 export function staticIssues(path, src, prod = productOf(path)) {
   const out = [];
-  const lang = /^\/en\//.test(path) || path === "/" ? "en" : "es"; // D-10: la portada / es la versión en inglés
   const redirect = /http-equiv="refresh"/.test(src);
+  // D-10: la portada / es la versión en inglés. Una redirección habla el idioma de su destino por omisión
+  // (p. ej. /bots/ → /en/still-available/ está en inglés; el script la manda a /sigue-disponible/ solo si eligió español).
+  const dest = redirect && (src.match(/http-equiv="refresh" content="[^"]*url=([^"]+)"/i) || [])[1];
+  const lang = (dest ? /^\/en\//.test(dest) : /^\/en\//.test(path) || path === "/") ? "en" : "es";
   if (!new RegExp(`<html[^>]*lang="${lang}`).test(src)) out.push(`<html lang> no es «${lang}»`);
   if (/fonts\.(googleapis|gstatic)\.com/.test(src)) out.push("pide fuentes a Google Fonts (el sitio las autoaloja; manda la IP del visitante)");
   if (redirect) return out; // una redirección no pinta nada: su destino se revisa por su cuenta

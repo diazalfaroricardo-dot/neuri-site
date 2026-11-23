@@ -1,6 +1,7 @@
 // A237/A238 (QA en vivo): un iPhone en inglés que escanea la tarjeta de visita EN ESPAÑOL de neuri.bazar
 // (bazar.neuri.tech/?signup&lang=es…) debe ver la app en español y con <html lang="es">; con lang=en, en inglés.
-// Sin lang, sigue mandando el teléfono. No envía ningún alta.
+// Sin lang: D-10 (04421f3, 22-nov) — inglés por defecto para todo visitante nuevo, aunque el teléfono esté
+// en español (el teléfono ya no decide; español = ?lang=es, botón «Español» o elección guardada). No envía ningún alta.
 // Uso: node scripts/bazar-lang-link-test.mjs [base]   (por defecto https://bazar.neuri.tech)
 import { chromium } from "playwright-core";
 const BASE = process.argv[2] || "https://bazar.neuri.tech";
@@ -8,10 +9,10 @@ const exe = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacO
 const b = await chromium.launch({ executablePath: exe, args: ["--headless=new"] });
 // [idioma del teléfono, query, idioma esperado]
 const cases = [
-  ["en-US", "?signup&lang=es&country=MX&src=qa-lang&name=Prueba", "es"],
+  ["en-US", "?signup&lang=es&country=US&src=qa-lang&name=Prueba", "es"],
   ["es-MX", "?signup&lang=en&country=US&src=qa-lang&name=Test", "en"],
   ["en-US", "?signup&country=US&src=qa-lang", "en"],
-  ["es-MX", "?signup&country=MX&src=qa-lang", "es"],
+  ["es-MX", "?signup&country=US&src=qa-lang", "en"],
 ];
 let fail = 0;
 for (const w of [390, 1280]) {

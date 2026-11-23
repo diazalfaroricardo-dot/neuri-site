@@ -46,7 +46,7 @@ for (const [where, html] of srcs) {
 const en = [["local", readFileSync("en/marketing/index.html", "utf8")]];
 if (live) en.push(["live", await (await fetch("https://neuri.tech/en/marketing/")).text()]);
 for (const [where, html] of en) {
-  // T25: EN usa el mismo HTML que ES (generado por scripts/t25-marketing-en.mjs); planes Start/Grow/Pro.
+  // T25: EN usa el mismo HTML que ES (antes generado por scripts/t25-marketing-en.mjs, retirado el 23-nov: hoy a mano); planes Start/Grow/Pro.
   const NOMBRE = { Start: "Inicio", Grow: "Crece", Pro: "Pro" };
   const cards = [...html.matchAll(/<div class="plan[^"]*">(?:<span class="tagx">\w+<\/span>)?<div><h3>(\w+)<\/h3>[\s\S]*?<b>US\$(\d+)<\/b>([\s\S]*?)<\/ul>/g)]
     .map(([m, n, usd, body]) => [m, NOMBRE[n] || n, usd, body]);

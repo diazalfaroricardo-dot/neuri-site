@@ -6,9 +6,17 @@ Genera, a partir de las plantillas legal/index.html y en/legal/index.html (misma
   /en/legal/meta/         EN
   /legal/borrar-datos/    ES  — Cómo borrar tus datos (Data Deletion Instructions URL de Meta)
   /en/legal/data-deletion/ EN
-Correr de nuevo si cambia la plantilla: python3 scripts/meta-legal.py
+OBSOLETO COMO GENERADOR (qa, 23-nov, backlog/d10-pruebas-rezagadas): desde octubre las 4 páginas publicadas se
+editaron después de generarse (texto de borrado automático de Meta, canonical propio, JSON-LD por página, link de
+marketing sin ?lang) y su cabecera/pie los regenera scripts/brand-chrome.py. Regenerarlas con este script BORRA esos
+cambios. Por eso ahora, por omisión, solo VERIFICA (sin escribir) que las 4 páginas lleven el hreflang de D-10:
+en-US → EN, es-US → ES y x-default → EN. --write sigue existiendo pero no lo uses sin pasar antes el texto vivo a
+las constantes de abajo.
+Uso: python3 scripts/meta-legal.py            (verifica; sale 1 si algo falla)
+     python3 scripts/meta-legal.py --write    (regenera: obsoleto, ver arriba)
 """
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -226,9 +234,13 @@ PAGES = [
 
 def build(tpl, out, alt, es, en, title, desc, body):
     html = (ROOT / tpl).read_text(encoding="utf-8")
-    html = re.sub(r'<link rel="alternate" hreflang="es" href="[^"]*">', f'<link rel="alternate" hreflang="es" href="https://neuri.tech{es}">', html)
-    html = re.sub(r'<link rel="alternate" hreflang="en" href="[^"]*">', f'<link rel="alternate" hreflang="en" href="https://neuri.tech{en}">', html)
-    html = re.sub(r'<link rel="alternate" hreflang="x-default" href="[^"]*">', f'<link rel="alternate" hreflang="x-default" href="https://neuri.tech{es}">', html)
+    # D-10 (22-nov): hreflang regional en-US / es-US y x-default en inglés (igual que scripts/t19-hreflang.py).
+    alts = re.compile(r'<link rel="alternate" hreflang="[^"]+" href="[^"]*">\n?')
+    block = (f'<link rel="alternate" hreflang="en-US" href="https://neuri.tech{en}">\n'
+             f'<link rel="alternate" hreflang="es-US" href="https://neuri.tech{es}">\n'
+             f'<link rel="alternate" hreflang="x-default" href="https://neuri.tech{en}">\n')
+    assert alts.search(html), f"{tpl}: la plantilla no trae <link rel=alternate hreflang>"
+    html = alts.sub(lambda m, n=[0]: (n.__setitem__(0, n[0] + 1) or block) if n[0] == 0 else "", html)
     html = re.sub(r"<title>[^<]*</title>", f"<title>{title}</title>", html, count=1)
     html = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{desc}">', html, count=1)
     # Botón de idioma y link «English/Español» del pie → la página hermana.
@@ -244,6 +256,23 @@ def build(tpl, out, alt, es, en, title, desc, body):
     print("ok", dest.relative_to(ROOT))
 
 
+def hreflang_ok(out, es, en):
+    """D-10: el <head> publicado declara exactamente en-US → EN, es-US → ES y x-default → EN."""
+    html = (ROOT / out / "index.html").read_text(encoding="utf-8")
+    head = html.split("</head>", 1)[0]
+    got = re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]*)">', head)
+    want = [("en-US", f"https://neuri.tech{en}"), ("es-US", f"https://neuri.tech{es}"), ("x-default", f"https://neuri.tech{en}")]
+    return sorted(got) == sorted(want), got
+
+
 if __name__ == "__main__":
-    for p in PAGES:
-        build(*p)
+    if "--write" in sys.argv:
+        for p in PAGES:
+            build(*p)
+        sys.exit(0)
+    malas = 0
+    for _tpl, out, _alt, es, en, *_ in PAGES:
+        ok, got = hreflang_ok(out, es, en)
+        malas += not ok
+        print("ok " if ok else "FALLA", out, "" if ok else f"hreflang: {got}")
+    sys.exit(1 if malas else 0)

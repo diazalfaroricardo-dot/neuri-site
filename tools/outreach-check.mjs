@@ -65,7 +65,14 @@ export function checkOutreach(input) {
   const sigIdx = body.search(equipo ? /El equipo de Neuri\s*\n|The Neuri team\s*\n/ : /Ricardo Díaz/);
   const main = sigIdx > 0 ? body.slice(0, sigIdx) : body;
   const words = main.split(/\s+/).filter(Boolean).length;
-  if (body && (words < 60 || words > 120)) bad("cuerpo-largo", `El cuerpo tiene ${words} palabras antes de la firma (60–120).`);
+  // copy-correos-cortos (23-nov): con `corto: true` el cuerpo va de 25 a 79 palabras (ideal < 50) y lleva UNA sola
+  // pregunta. Apagado hasta el sí de Ricardo (items/copy-correos-cortos-aprobar): sin la opción, sigue 60–120.
+  if (input.corto === true) {
+    if (body && (words < 25 || words >= 80)) bad("cuerpo-largo", `El cuerpo tiene ${words} palabras antes de la firma (25–79, ideal < 50).`);
+    const preguntas = (main.replace(/https?:\/\/\S+/g, "").match(/\?/g) ?? []).length;
+    if (body && preguntas !== 1) bad("una-pregunta", `El cuerpo lleva ${preguntas} preguntas; debe llevar una sola.`);
+    if (body && words >= 50) warn("cuerpo-ideal", `${words} palabras: funciona, pero lo ideal es menos de 50.`);
+  } else if (body && (words < 60 || words > 120)) bad("cuerpo-largo", `El cuerpo tiene ${words} palabras antes de la firma (60–120).`);
   if (product !== "personal" && !(equipo ? SIG_EQ : SIG).test(body)) bad("firma", equipo ? "Falta la firma «El equipo de Neuri / Neuri · neuri.tech»." : "Falta la firma exacta «Ricardo Díaz / Neuri · neuri.tech».");
   if (!(equipo ? (en ? OPT_EQ_EN : OPT_EQ_ES) : en ? OPT_EN : OPT_ES).test(body)) bad("baja", `Falta la línea de baja en ${en ? "inglés" : "español"}.`);
   if ((us || equipo) && product !== "personal" && !POSTAL_RE.test(body)) bad("domicilio", "Falta el domicilio postal (CAN-SPAM) bajo la firma.");

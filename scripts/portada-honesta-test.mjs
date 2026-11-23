@@ -30,14 +30,15 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.
   if (/revisad[oa] por (una )?persona|100\s*%[^<]{0,80}revisad|(reviewed|checked) by a (real )?(person|human)|human[- ]reviewed|100\s*%[^<]{0,80}review/i.test(txt))
     bad(`${f} promete revisión humana de cada diagnóstico (K43: entrega automática con controles)`);
 }
-// T14: la tarjeta de neuri.bots dice el estado real — el alta está abierta y la conexión con Meta, pendiente.
+// T14: la tarjeta de neuri.bots dice el estado real — el alta está abierta (y desde 23-nov, Meta abierta).
 if (/Por abrir/i.test(home)) bad("la tarjeta de neuri.bots dice «Por abrir» y el alta ya está abierta en /sigue-disponible");
 const bots = (home.match(/<article class="prod" style="--c:var\(--bots\)">[\s\S]{0,1600}/g) || []);
 // Diseño v2 (25-oct-2026): la portada ya no usa dc-lite con plantilla duplicada; el HTML es la única copia.
 if (bots.length < 1) bad("no encontré la tarjeta de neuri.bots");
 for (const b of bots) {
   if (!/Alta abierta/.test(b)) bad("la tarjeta de neuri.bots no dice «Alta abierta»");
-  if (!/pendiente de Meta/.test(b)) bad("la tarjeta de neuri.bots no dice que Instagram/Messenger está pendiente de Meta");
+  // copy-contradicciones (23-nov): /estado dice meta "open" y whatsapp "on" → ya no «pendiente de Meta».
+  if (/pendiente de Meta|Meta pendiente/i.test(b)) bad("la tarjeta de neuri.bots dice «pendiente de Meta» y Meta ya está abierta (/estado)");
 }
 // B-A8 (auditoría bazar 18-oct): neuri.marketing está en lista de espera → no decir que las cuatro ya están «en órbita».
 if (/Cuatro misiones\.\s*Ya en órbita/i.test(home)) bad("«Cuatro misiones. Ya en órbita.» y neuri.marketing sigue en lista de espera");

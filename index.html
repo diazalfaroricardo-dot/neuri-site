@@ -14,6 +14,7 @@
 <meta property="og:image" content="https://neuri.tech/assets/og/neuri.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){var h=location.hash;if(/^#(inicio|sistemas|red|consola|principios|laboratorio)$/.test(h))location.replace("/es/"+location.search+h);})();</script>
+<script>/* copy-idioma-default (23-nov): la raíz es inglés (canonical, x-default). Primera visita a «/» con el navegador en español → /es/. No redirige: buscadores/bots/navegadores automatizados, ?lang, links armados por Neuri (src/utm/ref…), si ya eligió idioma (neuri-lang), si viene de otra página de neuri.tech ni en visitas siguientes (neuri-lang-raiz). */(function(){try{if(!/^\/(index\.html)?$/.test(location.pathname))return;var u=navigator.userAgent||"";if(navigator.webdriver||/bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit|headless|inspectiontool|chrome-lighthouse|pagespeed|prerender/i.test(u))return;var sp=new URLSearchParams(location.search);if(sp.has("lang")||sp.has("banner")||["src","ref","utm_source","utm_campaign","negocio","business","alta","moneda","giro"].some(function(k){return sp.has(k)}))return;var ls=window.localStorage;if(ls.getItem("neuri-lang")||ls.getItem("neuri-lang-raiz"))return;ls.setItem("neuri-lang-raiz","1");try{if(document.referrer&&new URL(document.referrer).host===location.host)return}catch(_){}var nl=(navigator.languages&&navigator.languages[0])||navigator.language||"";if(/^es\b/i.test(nl))location.replace("/es/"+location.search+location.hash)}catch(_){}})();</script>
 <script src="/assets/lang.js"></script>
 <script src="/assets/analytics.js" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://neuri.tech/#org", "name": "Neuri", "legalName": "Neuri LLC", "url": "https://neuri.tech/", "logo": "https://neuri.tech/assets/neuri-logo.png", "email": "hola@neuri.tech", "address": {"@type": "PostalAddress", "addressLocality": "Phoenix", "addressRegion": "AZ", "addressCountry": "US"}, "areaServed": "Worldwide", "sameAs": ["https://www.instagram.com/neuri.tech", "https://www.facebook.com/neuri.tech"], "alternateName": "neuri.tech"}, {"@type": "WebSite", "@id": "https://neuri.tech/#web", "name": "Neuri", "url": "https://neuri.tech/", "inLanguage": "en-US", "publisher": {"@id": "https://neuri.tech/#org"}}]}</script>
@@ -50,10 +51,11 @@ html{scrollbar-color:#CFCDC6 transparent}
 .top{position:sticky;top:0;z-index:20;background:rgba(246,244,238,.95);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
 .top.s{border-bottom-color:var(--line)}
 .top .w{display:flex;align-items:center;height:60px;gap:28px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:500;font-size:16px;letter-spacing:-.02em}
+.brand{display:flex;align-items:center;gap:9px;min-height:44px;font-weight:500;font-size:16px;letter-spacing:-.02em}
 .brand svg{display:block}
 .nav{display:flex;align-items:center;gap:26px;margin-left:auto;font-size:14px;color:#585D57}
 .nav>a:not(.btn):hover,.dd>summary:hover{color:var(--ink)}
+.nav>a:not(.btn){padding:11px 0}.dd>summary{min-height:44px}
 .dd{position:relative}
 .dd>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:5px}
 .dd>summary::-webkit-details-marker{display:none}
@@ -61,10 +63,10 @@ html{scrollbar-color:#CFCDC6 transparent}
 .dd [role=menu]{position:absolute;right:0;top:calc(100% + 12px);min-width:240px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px;box-shadow:0 12px 32px -12px rgba(5,8,13,.18)}
 .dd [role=menu] a{display:block;padding:8px 10px;border-radius:8px;color:var(--ink2);font-size:14px}
 .dd [role=menu] a:hover{background:var(--wall);color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:999px;font:500 14px/1 var(--sans);letter-spacing:-.01em;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;font:500 14px/1 var(--sans);letter-spacing:-.01em;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
 .btn.p{background:var(--ink);color:#fff}.btn.p:hover{background:#1E2420}
 .btn.g{border:1px solid var(--line);background:var(--panel);color:var(--ink)}.btn.g:hover{border-color:#CBC9C1}
-.btn.sm{height:34px;padding:0 14px;font-size:13.5px}
+.btn.sm{height:44px;padding:0 14px;font-size:13.5px}
 .btn svg{width:14px;height:14px}
 
 /* hero */
@@ -119,7 +121,7 @@ section{padding:160px 0 0}
 .prod .st i{width:6px;height:6px;border-radius:50%;background:var(--c)}
 .prod .st.off i{background:transparent;box-shadow:inset 0 0 0 1.2px var(--faint)}
 .prod .d{color:var(--ink2);max-width:36em}
-.prod .more{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px;font-weight:500;color:var(--ink)}
+.prod .more{display:inline-flex;align-items:center;gap:6px;margin-top:5px;min-height:44px;font-size:14px;font-weight:500;color:var(--ink)}
 .prod .more svg{width:13px;height:13px;transition:transform .25s var(--ease)}
 .prod a.more:hover svg{transform:translateX(3px)}
 .facts{display:grid;gap:14px;margin:0}
@@ -173,7 +175,8 @@ section{padding:160px 0 0}
 .fin .act{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
 footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:13.5px;color:var(--sub)}
 footer .w{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-footer nav{display:flex;gap:20px;flex-wrap:wrap}
+footer nav{display:flex;gap:0 20px;flex-wrap:wrap}
+footer nav a{display:inline-flex;align-items:center;min-height:44px}
 footer a:hover{color:var(--ink)}
 
 @media (max-width:1080px){
@@ -481,8 +484,8 @@ footer a:hover{color:#F6F4EE}
     </div>
     <div class="prods">
       <article class="prod" style="--c:var(--bots)">
-        <div><h3><i class="dot"></i>neuri.bots</h3><span class="st"><i></i>Sign-up open · pending Meta</span></div>
-        <div><p class="d">Replies to your buyers on Instagram and Messenger with your prices and rules: is it still available, how much, where to pick up. Holds items, books visits and passes you the hard ones. The Instagram and Messenger connection is pending Meta’s approval.</p><a class="more" href="/en/still-available/">See neuri.bots <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+        <div><h3><i class="dot"></i>neuri.bots</h3><span class="st"><i></i>Sign-up open · Instagram, Facebook and WhatsApp</span></div>
+        <div><p class="d">Replies to your buyers on Instagram, Facebook and WhatsApp with your prices and rules: is it still available, how much, where to pick up. Holds items, books visits and passes you the hard ones. TikTok and SMS coming soon.</p><a class="more" href="/en/still-available/">See neuri.bots <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
         <dl class="facts"><div><dt>To reply</dt><dd>Seconds</dd></div><div><dt>Hours</dt><dd>24/7</dd></div><div><dt>Prices</dt><dd>From your sheet</dd></div></dl>
       <a class="shot" href="/en/still-available/"><span class="fr"><picture><source srcset="/img/pantalla-bots-en.avif" type="image/avif"><source srcset="/img/pantalla-bots-en.webp" type="image/webp"><img src="/img/pantalla-bots-en.jpg" alt="The neuri.bots page on a phone." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">neuri.bots live page</p></a></article>
       <article class="prod" style="--c:var(--bazar)">
@@ -542,9 +545,9 @@ footer a:hover{color:#F6F4EE}
   <div class="w">
     <div class="sh"><h2 id="l-t">What already works and what we’re finishing.</h2></div>
     <div class="road">
-      <div><span class="s wip"><i></i>Pending Meta</span><h3>Instagram and Messenger</h3><p>The messages agent uses Meta’s official API. We’re waiting on Meta’s approval to open it.</p></div>
+      <div><span class="s"><i></i>Available</span><h3>Instagram and Messenger</h3><p>The messages agent replies through Meta’s official API. You connect it from My assistant.</p></div>
       <div><span class="s"><i></i>Available</span><h3>Set it up with your AI</h3><p>Connect Neuri to Claude or ChatGPT and set up your business just by chatting.</p></div>
-      <div><span class="s wip"><i></i>In progress</span><h3>Official WhatsApp</h3><p>Your same number, answered by your agent, on the official WhatsApp Business platform.</p></div>
+      <div><span class="s"><i></i>Available</span><h3>Official WhatsApp</h3><p>Your agent replies on WhatsApp through the official WhatsApp Business platform.</p></div>
       <div><span class="s"><i></i>Available</span><h3>Your mall online</h3><p>A site with your mall’s whole inventory that updates itself with every sale. On the Plus plan.</p></div>
     </div>
   </div>

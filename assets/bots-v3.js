@@ -10,7 +10,7 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
       ['in','Hola, ¿sigue disponible el ropero blanco?'],
       ['out','¡Hola! Sí, sigue disponible. Cuesta $1,800 y puedes recogerlo hoy de 5 a 8 pm. ¿Te lo aparto?'],
       ['in','Sí, apártamelo porfa 🙏'],
-      ['out','Listo, quedó apartado a tu nombre hasta las 8 pm. Aceptamos efectivo y transferencia.'],
+      ['out','Listo, quedó apartado a tu nombre hasta las 8 pm. Aceptamos efectivo y Zelle.'],
       ['sys','Apartado anotado · Ropero blanco']
     ],
     citas: [
@@ -157,8 +157,8 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
     bazar:[
       ['ig','Laura M.','LM','#F2C14E','2:14 am','¿Sigue disponible el ropero blanco?','Sí, sigue disponible. Cuesta $1,800 y lo recoges hoy de 5 a 8 pm. ¿Te lo aparto?','ok','2.1'],
       ['ms','Diego R.','DR','#F7B48C','2:31 am','¿En cuánto me lo dejas? Te doy $1,200','Ese precio lo decide Mariana. Le paso tu oferta.','ti','1.7'],
-      ['ig','Sofía P.','SP','#8FE0B4','9:02 am','Apártamelo porfa, paso a las 6','Listo, quedó apartado a tu nombre hasta las 8 pm. Aceptamos efectivo y transferencia.','ap','2.4'],
-      ['ms','Pablo G.','PG','#C5D2CB','9:15 am','¿Hacen envíos a Culiacán?','Sí. El envío a Culiacán sale en $150 y llega en 2 días hábiles.','ok','1.9']
+      ['ig','Sofía P.','SP','#8FE0B4','9:02 am','Apártamelo porfa, paso a las 6','Listo, quedó apartado a tu nombre hasta las 8 pm. Aceptamos efectivo y Zelle.','ap','2.4'],
+      ['ms','Pablo G.','PG','#C5D2CB','9:15 am','¿Hacen envíos a Tucson?','Sí. El envío a Tucson sale en $15 y llega en 2 días hábiles.','ok','1.9']
     ],
     citas:[
       ['ig','Karla S.','KS','#F7B48C','11:40 pm','¿Tienes lugar el sábado para uñas?','El sábado tengo libre a las 10:00, 12:30 y 4:00. ¿Cuál te queda?','ok','1.8'],

@@ -5,8 +5,8 @@ import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
 const casos = [
-  { page: "sigue-disponible/index.html", want: ["/", "/bazar/", "/consultoria/", "/marketing/"] },
-  { page: "en/still-available/index.html", want: ["/en/home/", "/en/bazar/", "/en/ai-consulting/", "/en/marketing/"] },
+  { page: "sigue-disponible/index.html", want: ["/es/", "/bazar/", "/consultoria/", "/marketing/"] },
+  { page: "en/still-available/index.html", want: ["/", "/en/bazar/", "/en/ai-consulting/", "/en/marketing/"] },
 ];
 let fail = 0;
 for (const { page, want } of casos) {

@@ -140,7 +140,7 @@ def footer(brand, lang, alt):
     es = lang == "es"
     if brand == "bots":
         word, links = 'neuri<span>.bots</span>', [
-            ("/" if es else "/en/home/", "neuri.tech"), ("/bazar/" if es else "/en/bazar/", "neuri.bazar"),
+            ("/es/" if es else "/", "neuri.tech"), ("/bazar/" if es else "/en/bazar/", "neuri.bazar"),
             ("/consultoria/" if es else "/en/ai-consulting/", "Neuri Consulting"), ("/marketing/" if es else "/en/marketing/", "neuri.marketing"),
             ("/sigue-disponible/privacidad/" if es else "/en/still-available/privacy/", "Privacidad" if es else "Privacy"),
             ("/sigue-disponible/terminos/" if es else "/en/still-available/terms/", "Términos" if es else "Terms"),
@@ -148,7 +148,7 @@ def footer(brand, lang, alt):
             ("mailto:hola@neuri.tech", "hola@neuri.tech")]
     elif brand == "bazar":
         word, links = 'neuri<span>.bazar</span>', [
-            ("/" if es else "/en/home/", "neuri.tech"), ("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots"),
+            ("/es/" if es else "/", "neuri.tech"), ("/sigue-disponible/" if es else "/en/still-available/", "neuri.bots"),
             ("/consultoria/" if es else "/en/ai-consulting/", "Neuri Consulting"), ("/marketing/" if es else "/en/marketing/", "neuri.marketing"),
             ("/bazar/recorrido/" if es else "/en/bazar/tour/", "Recorrido" if es else "Tour"),
             ("/bazar/privacidad/" if es else "/en/bazar/privacy/", "Privacidad" if es else "Privacy"),

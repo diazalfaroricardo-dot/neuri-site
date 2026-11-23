@@ -73,7 +73,7 @@ for (const [path, sim, viejos, renta] of [
   await c2.close();
 }
 // 572: la elección de idioma se recuerda al volver (ofrece el otro sin redirigir) y el pie en inglés no regresa al español.
-for (const [saved, path, want] of [["en", "/", "en"], ["en", "/bazar/", "en"], ["es", "/en/bazar/", "es"], ["es", "/bazar/", null]]) {
+for (const [saved, path, want] of [["en", "/", null], ["es", "/es/", null], ["en", "/bazar/", "en"], ["es", "/en/bazar/", "es"], ["es", "/bazar/", null]]) {
   const c = await ctx(1280, saved);
   const p = await c.newPage();
   await p.goto(`${BASE}${path}`, { waitUntil: "domcontentloaded" });
@@ -83,7 +83,8 @@ for (const [saved, path, want] of [["en", "/", "en"], ["en", "/bazar/", "en"], [
   await c.close();
 }
 const en = await (await fetch(`${BASE}/en/bazar/?t=${Date.now()}`)).text();
-ok(!/<a href="\/"[^>]*>neuri\.tech<\/a>/.test(en), "pie de /en/bazar/ liga a la portada en inglés (572)");
+// D-10: la portada en inglés vive en / (y la española en /es/); el pie en inglés no debe ir a /es/ ni a la redirección /en/home/.
+ok(/<a href="\/"[^>]*>neuri\.tech<\/a>/.test(en) && !/<a href="\/(es|en\/home)\/"[^>]*>neuri\.tech<\/a>/.test(en), "pie de /en/bazar/ liga a la portada en inglés (572)");
 await b.close();
 if (fail) { console.log(fail, "fallas"); process.exit(1); }
 console.log("auditoría 2-nov OK");

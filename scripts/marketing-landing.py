@@ -16,7 +16,7 @@ e = html.escape
 
 C = {
   "es": dict(
-    path="/marketing/", other="/en/marketing/", other_label="English", other_lang="en", locale="es_MX",
+    path="/marketing/", other="/en/marketing/", other_label="English", other_lang="en", locale="es_US",
     title="neuri.marketing — Tus redes con IA, aprobadas por ti | Neuri",
     desc="Próximamente: neuri.marketing prepara los posts y reels del mes de tu negocio con tu estilo y tú los apruebas con un toque. Lista de espera abierta.",
     skip="Saltar al contenido", nav=[("#como","Cómo funciona"),("#funciones","Funciones"),("#gratis","Gratis")], nav_cta="Unirme a la lista",

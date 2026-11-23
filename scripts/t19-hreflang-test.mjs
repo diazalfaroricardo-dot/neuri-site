@@ -6,8 +6,8 @@
  *   - <link rel="alternate" hreflang> en orden en-US, es-US, x-default (D-10, 22-nov-2026: EE. UU. primero),
  *     URLs absolutas https://neuri.tech/…, la de su idioma = ella misma, la del otro idioma apunta a un archivo
  *     que existe (no redirección) y que la declara de vuelta (recíproco); x-default = la versión en inglés;
- *     las landings de cada app (LANDINGS) pueden seguir en el formato viejo es, en, x-default=español (neuri.bots ya en inglés) hasta que
- *     su equipo corra `python3 scripts/t19-hreflang.py --todo`; lo común ya no puede volver al viejo;
+ *     desde d10-landings-es-home (22-nov) también las landings de cada app: nada puede volver al formato viejo
+ *     (si un generador lo trae, `python3 scripts/t19-hreflang.py --todo`);
  *   - <html lang> = "en" también en la portada / (index.html), que es la versión en inglés;
  *     sin par: solo su idioma (+ x-default a sí misma si lo trae);
  *   - selector de idioma (links con data-idioma, o «English»/«Español» con lang=) lleva al par
@@ -83,14 +83,9 @@ for (const [rel, p] of info) {
   if (nuevo) {
     if (order !== "en-US,es-US,x-default") bad(rel, `hreflang en orden ${order} (esperado en-US,es-US,x-default)`);
     if (m["x-default"] !== en) bad(rel, `x-default = ${m["x-default"] ?? "falta"} (esperado ${en}, la versión en inglés)`);
-  } else if (!LANDINGS.some((x) => rel.startsWith(x))) {
-    bad(rel, `hreflang en formato viejo ${order}: lo común va en en-US,es-US,x-default (python3 scripts/t19-hreflang.py)`);
   } else {
-    if (order !== "es,en,x-default") bad(rel, `hreflang en orden ${order} (esperado es,en,x-default)`);
-    // Equipo bots (c4fc45b): en neuri.bots x-default = inglés; en las otras landings se acepta cualquiera de las dos.
-    const bots = /^(sigue-disponible|en\/still-available)(\/|$)/.test(rel);
-    if (bots ? m["x-default"] !== en : m["x-default"] !== es && m["x-default"] !== en)
-      bad(rel, `x-default = ${m["x-default"] ?? "falta"} (esperado ${bots ? en : es})`);
+    const donde = LANDINGS.some((x) => rel.startsWith(x)) ? "landing" : "común";
+    bad(rel, `hreflang en formato viejo ${order} (${donde}): va en en-US,es-US,x-default (python3 scripts/t19-hreflang.py --todo)`);
   }
   const pf = fileOf(pair);
   if (!pf || !existsSync(join(ROOT, pf))) { bad(rel, `hreflang ${other} → ${pair}: no existe en el repo`); continue; }

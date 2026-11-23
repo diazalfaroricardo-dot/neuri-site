@@ -23,12 +23,11 @@ for (const [es, en, dom] of pares) {
     const s = read(p + "index.html");
     if (!s.includes(`<html lang="${lang}"`)) bad(`${p} sin lang=${lang}`);
     if (!s.includes(`<link rel="canonical" href="https://neuri.tech/${p}">`)) bad(`${p} sin canonical propio`);
-    // D-10: hreflang regional (en-US/es-US) en las páginas ya pasadas por t19; «es»/«en» en las demás.
+    // D-10 (d10-landings-es-home): hreflang regional en-US/es-US y x-default al inglés en todas las vs.
     const otroLang = lang === "es" ? "en" : "es";
-    if (!new RegExp(`hreflang="${otroLang}(-US)?" href="https://neuri\\.tech/${otro.replace(/\//g, "\\/")}"`).test(s)) bad(`${p} sin hreflang a ${otro}`);
-    // D-10: en neuri.bots, neuri.marketing y neuri.bazar x-default apunta al inglés.
-    const xd = /^(sigue-disponible|marketing|bazar)\//.test(es) ? en : es;
-    if (!s.includes(`hreflang="x-default" href="https://neuri.tech/${xd}"`)) bad(`${p} sin x-default`);
+    if (!s.includes(`hreflang="${otroLang}-US" href="https://neuri.tech/${otro}"`)) bad(`${p} sin hreflang ${otroLang}-US a ${otro}`);
+    if (!s.includes(`hreflang="x-default" href="https://neuri.tech/${en}"`)) bad(`${p} sin x-default al inglés`);
+    if (!s.includes(`<meta property="og:locale" content="${lang}_US">`)) bad(`${p} sin og:locale ${lang}_US`);
     if (!new RegExp(`href="https://(www\\.)?${dom.replace(".", "\\.")}`).test(s)) bad(`${p} no enlaza su fuente ${dom}`);
     if (!/(noviembre|November) \d+, 2026|\d+ de noviembre de 2026/.test(s)) bad(`${p} sin fecha de revisión de la fuente`);
     if (/<img[^>]+(quail|ricochet|ricoconsign|manychat|predis)/i.test(s)) bad(`${p} trae un logo de tercero`);

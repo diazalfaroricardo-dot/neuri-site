@@ -80,22 +80,22 @@ PAGINAS = [
   T={
    "es": dict(
     title="neuri.bots vs ManyChat: bot de Instagram para vender",
-    desc="Comparamos neuri.bots y ManyChat para contestar DMs de Instagram y Messenger: precio en pesos, cobro por contactos, canales, cómo se arma y qué está listo hoy.",
+    desc="Comparamos neuri.bots y ManyChat para contestar DMs de Instagram y Messenger: precio fijo, cobro por contactos, canales, cómo se arma y qué está listo hoy.",
     h1="neuri.bots vs ManyChat: ¿cuál conviene para contestar tus DMs?",
     lead="Los dos contestan mensajes de Instagram y Messenger por ti. Cambian en cómo cobran, en qué canales cubren, en cómo se arman y en qué está listo hoy.",
     th="Qué comparamos",
     rows=[
      ("Qué está listo hoy", "Alta abierta. La conexión directa con Instagram y Messenger está pendiente de aprobación de Meta", "Funcionando; dice ser Official Meta Business Partner"),
-     ("Precio al mes", "MXN 899 · 1,299, o US$49 · 69", "Gratis hasta 25 contactos; US$17 · 39 · 99 · 199 (menos si pagas el año). Dice que el precio final depende del país de facturación"),
+     ("Precio al mes", "US$49 · 69", "Gratis hasta 25 contactos; US$17 · 39 · 99 · 199 (menos si pagas el año). Dice que el precio final depende del país de facturación"),
      ("Cobro por contactos", "No: precio fijo, sin cobro por contacto ni por mensaje (hasta 1,000 mensajes al día por cuenta)", "Cada plan trae un tope de contactos activos al mes (de 25 a 25,000); arriba del tope cobra por cada contacto extra"),
      ("Canales", "Instagram y Messenger; WhatsApp en camino", "Instagram, Messenger, WhatsApp, TikTok, Telegram, SMS y correo"),
      ("Cómo se arma", "Contesta con la información de tu hoja: piezas, precios, entregas y pagos. El alta toma 3 minutos", "Armas tus automatizaciones con su editor y plantillas; su IA (Manychat AI) viene desde el plan Pro"),
      ("Español", "Sí", "Sí, tiene sitio en español"),
-     ("Pesos", "Sí, cobra en MXN o USD", "Su página de precios muestra dólares"),
+     ("Precio fijo", "Sí, el mismo cada mes, sin contar contactos", "Sube según tus contactos"),
      ("Prueba gratis", "7 días, sin tarjeta, para los primeros 10 negocios", "Plan gratis, y 14 días gratis de Essential o Pro"),
     ],
     h2a="¿Cuál elegir?",
-    pick_us=("Elige neuri.bots si…", "Vendes por Instagram en México, quieres un precio fijo en pesos sin contar contactos y prefieres que conteste desde tu hoja en vez de armar flujos. Ojo: la conexión con Instagram todavía espera a Meta."),
+    pick_us=("Elige neuri.bots si…", "Vendes por Instagram, quieres un precio fijo al mes sin contar contactos y prefieres que conteste desde tu hoja en vez de armar flujos. Ojo: la conexión con Instagram todavía espera a Meta."),
     pick_them=("Elige ManyChat si…", "Lo necesitas funcionando hoy, usas WhatsApp, TikTok u otros canales, o quieres armar tus propios flujos. Si tienes pocos contactos al mes, su plan gratis puede bastarte."),
     h2b="Prueba neuri.bots",
     cta="Date de alta en 3 minutos y te avisamos por correo en cuanto Meta abra la conexión.", cta_link="Quiero mi asistente", cta_href="/sigue-disponible/#alta",
@@ -108,12 +108,12 @@ PAGINAS = [
     th="Feature",
     rows=[
      ("What works today", "Sign-up is open. The direct Instagram and Messenger connection is pending Meta’s approval", "Live; says it is an Official Meta Business Partner"),
-     ("Monthly price", "US$49 · 69, or MXN 899 · 1,299", "Free up to 25 contacts; US$17 · 39 · 99 · 199 (less if billed yearly). Says the final price depends on your billing country"),
+     ("Monthly price", "US$49 · 69", "Free up to 25 contacts; US$17 · 39 · 99 · 199 (less if billed yearly). Says the final price depends on your billing country"),
      ("Billing by contacts", "No: flat price, no charge per contact or per message (up to 1,000 messages a day per account)", "Each plan has a monthly active-contact limit (25 to 25,000); above it, it charges for each extra contact"),
      ("Channels", "Instagram and Messenger; WhatsApp on the way", "Instagram, Messenger, WhatsApp, TikTok, Telegram, SMS and email"),
      ("Setup", "Answers from your sheet: items, prices, delivery and payment. Sign-up takes 3 minutes", "You build automations with its builder and templates; its AI (Manychat AI) starts on the Pro plan"),
      ("Spanish", "Yes", "Yes, it has a Spanish site"),
-     ("Pesos", "Yes, bills in MXN or USD", "Its pricing page shows dollars"),
+     ("Flat price", "Yes, the same every month, no contact count", "Goes up with your contacts"),
      ("Free trial", "7 days, no card, for the first 10 businesses", "Free plan, plus 14 days free on Essential or Pro"),
     ],
     h2a="Which should you choose?",
@@ -177,7 +177,7 @@ PAGINAS = [
 
 TXT = {
  "es": dict(src="Datos de {them} tomados de su propio sitio el {fecha}: {links}. Si cambian, actualizamos esta página.",
-            aria="Tabla — desliza para ver todas las columnas", locale="es_MX"),
+            aria="Tabla — desliza para ver todas las columnas", locale="es_US"),
  "en": dict(src="{them} details taken from its own site on {fecha}: {links}. If they change, we update this page.",
             aria="Table — swipe to see all columns", locale="en_US"),
 }
@@ -186,7 +186,7 @@ OG = {"bazar": "bazar", "bots": "bots", "marketing": "marketing"}
 
 def page(p, lang):
     t, x = p["T"][lang], TXT[lang]
-    locale = "es_US" if lang == "es" and p.get("us_first") else x["locale"]
+    locale = x["locale"]  # D-10: es_US / en_US en todas
     path, alt_path = (p["es"], p["en"]) if lang == "es" else (p["en"], p["es"])
     url, alt = "https://neuri.tech/" + path, "https://neuri.tech/" + alt_path
     es_url, en_url = "https://neuri.tech/" + p["es"], "https://neuri.tech/" + p["en"]
@@ -203,8 +203,9 @@ def page(p, lang):
             f'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{t["title"]}</title>'
             f'<meta name="description" content="{t["desc"]}">\n'
             f'<link rel="canonical" href="{url}">\n'
-            f'<link rel="alternate" hreflang="es" href="{es_url}"><link rel="alternate" hreflang="en" href="{en_url}">'
-            f'<link rel="alternate" hreflang="x-default" href="{en_url if p.get("us_first") else es_url}">\n'
+            # D-10 (22-nov-2026): EE. UU. primero — en-US, es-US y x-default en inglés (mismo formato que t19-hreflang.py).
+            f'<link rel="alternate" hreflang="en-US" href="{en_url}">\n<link rel="alternate" hreflang="es-US" href="{es_url}">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{en_url}">\n'
             f'<meta property="og:type" content="article"><meta property="og:site_name" content="Neuri"><meta property="og:locale" content="{locale}">\n'
             f'<meta property="og:title" content="{t["h1"]}"><meta property="og:description" content="{t["desc"]}"><meta property="og:url" content="{url}">\n'
             f'<meta property="og:image" content="{og}"><meta name="twitter:card" content="summary_large_image">'

@@ -19,7 +19,7 @@ const pairs = JSON.parse(readFileSync(join(root, 'scripts/t25/marketing-en.json'
 const estructura = [
   ['<html lang="es"', '<html lang="en"'],
   ['<link rel="canonical" href="https://neuri.tech/marketing/">', '<link rel="canonical" href="https://neuri.tech/en/marketing/">'],
-  ['<meta property="og:locale" content="es_MX">', '<meta property="og:locale" content="en_US">'],
+  ['<meta property="og:locale" content="es_US">', '<meta property="og:locale" content="en_US">'],
   ['<meta property="og:url" content="https://neuri.tech/marketing/">', '<meta property="og:url" content="https://neuri.tech/en/marketing/">'],
   ['/assets/og/marketing-es.png', '/assets/og/marketing-en.png'],
   ['?lang=es', '?lang=en'],
@@ -28,8 +28,9 @@ const estructura = [
   ['href="https://neuri.tech/sigue-disponible/"', 'href="https://neuri.tech/en/still-available/"'],
   ['href="https://neuri.tech/bazar/"', 'href="https://neuri.tech/en/bazar/"'],
   ['href="https://neuri.tech/consultoria/"', 'href="https://neuri.tech/en/ai-consulting/"'],
-  ['href="https://neuri.tech/"', 'href="https://neuri.tech/en/home/"'],
-  ['<a class="logo" href="/"', '<a class="logo" href="/en/home/"'],
+  // D-10 (22-nov-2026): el inicio en español es /es/ y el inglés /.
+  ['href="https://neuri.tech/es/"', 'href="https://neuri.tech/"'],
+  ['<a class="logo" href="/es/"', '<a class="logo" href="/"'],
 ];
 
 let en = es;

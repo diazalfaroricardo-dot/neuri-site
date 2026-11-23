@@ -32,7 +32,7 @@ for (const [path, label, others] of [["/bazar/", "English", ["/consultoria/", "/
     const box = await hdr.boundingBox();
     ok(box && box.height >= 44, `${path} ${w}px «${label}» de 44 px`);
     const logo = await p.locator("header a").first().getAttribute("href");
-    ok(logo === (path === "/en/bazar/" ? "/en/home/" : "/"), `${path} ${w}px el logo lleva a neuri.tech (${logo}) — T18`);
+    ok(logo === (path === "/en/bazar/" ? "/" : "/es/"), `${path} ${w}px el logo lleva a neuri.tech de su idioma (${logo}) — T18 + D-10`);
     const sw = await p.evaluate(() => document.documentElement.scrollWidth);
     ok(sw <= w, `${path} ${w}px sin scroll horizontal (${sw})`);
     const hrefs = await p.$$eval("footer a", (as) => as.filter((a) => a.offsetParent).map((a) => a.getAttribute("href")));

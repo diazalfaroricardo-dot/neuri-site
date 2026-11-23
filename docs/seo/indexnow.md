@@ -38,7 +38,7 @@ Reusar **la misma llave** (IndexNow permite una llave por host, y puede ser la m
 
 | Fecha | Qué | Respuesta |
 |---|---|---|
-| 2026-11-23 | Sitemap completo de neuri.tech (primer envío) | ver commit del primer envío en el backlog |
+| 2026-11-23 15:00 MST | Sitemap completo de neuri.tech (36 URLs), primer envío a mano | `202 Accepted` |
 
 ## Checklist de 1 minuto si algo falla
 

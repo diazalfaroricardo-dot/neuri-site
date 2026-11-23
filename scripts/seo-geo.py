@@ -20,6 +20,8 @@ PAGINAS = [
     "bazar/", "bazar/recorrido/", "bazar/vs-quail/", "bazar/vs-ricochet/",
     "en/bazar/", "en/bazar/tour/", "en/bazar/vs-quail/", "en/bazar/vs-ricochet/",
     "marketing/", "marketing/vs-predis/", "en/marketing/", "en/marketing/vs-predis/",
+    # seo-herramientas-gratis (vista previa en la rama seo/herramientas-gratis)
+    "sigue-disponible/calculadora-dms/", "bazar/calculadora-renta-comision/",
 ]
 FAQ_DESDE_DETAILS = {"bazar/", "en/bazar/"}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre",

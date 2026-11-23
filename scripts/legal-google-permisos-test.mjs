@@ -1,4 +1,4 @@
-// backlog/legal-privacidad-bots-google (22-nov-2026): la privacidad de neuri.bots (v1.2) y la de datos de
+// backlog/legal-privacidad-bots-google (22-nov-2026): la privacidad de neuri.bots (v1.3) y la de datos de
 // Google (/legal/google v1.1) dicen los permisos que el código pide de verdad (neuri-bazar
 // packages/sd-setup/src/gcal.ts: calendar.freebusy + calendar.app.created; greviews/api.ts: business.manage)
 // y traen la declaración de Uso Limitado de la Google API Services User Data Policy.
@@ -13,8 +13,8 @@ const ok = (c, m) => { console.log((c ? "ok   " : "FALLA") + " " + m); if (!c) f
 const LU = /use and transfer to any other app of information received from Google APIs will adhere to the <a href="https:\/\/developers\.google\.com\/terms\/api-services-user-data-policy"[^>]*>Google API Services User Data Policy<\/a>, including the Limited Use requirements/;
 
 const casos = [
-  { p: "sigue-disponible/privacidad/index.html", version: "Versión 1.2 (vigente)", gbp: "Perfil de Negocio de Google (reseñas)", noIA: "no se manda a ningún modelo de IA" },
-  { p: "en/still-available/privacy/index.html", version: "Version 1.2 (in force)", gbp: "Google Business Profile (reviews)", noIA: "not sent to any AI model" },
+  { p: "sigue-disponible/privacidad/index.html", version: "Versión 1.3 (vigente)", gbp: "Perfil de Negocio de Google (reseñas)", noIA: "no se manda a ningún modelo de IA", off: "con el botón <b>Desconectar</b> en Conexiones" },
+  { p: "en/still-available/privacy/index.html", version: "Version 1.3 (in force)", gbp: "Google Business Profile (reviews)", noIA: "not sent to any AI model", off: "with the <b>Disconnect</b> button in Connections" },
   { p: "legal/google/index.html", version: "Versión 1.1 (vigente)", gbp: "Perfil de Negocio de Google en neuri.bots", noIA: "no se manda a ningún modelo de IA" },
   { p: "en/legal/google/index.html", version: "Version 1.1 (in force)", gbp: "Google Business Profile in neuri.bots", noIA: "not sent to any AI model" },
 ];
@@ -30,5 +30,7 @@ for (const c of casos) {
   ok(main.includes(c.gbp) && /business\.manage/.test(main), `${c.p}: sección de Google Business Profile con business.manage`);
   ok(main.includes(c.noIA), `${c.p}: el texto de las reseñas de bots no va a IA`);
   ok(LU.test(main), `${c.p}: declaración de Uso Limitado`);
+  // A351 (22-nov): el botón «Desconectar» de reseñas de Google (privacidad de bots v1.3).
+  if (c.off) ok(main.includes(c.off), `${c.p}: se desconecta con el botón Desconectar en Conexiones`);
 }
 process.exit(fallos ? 1 : 0);

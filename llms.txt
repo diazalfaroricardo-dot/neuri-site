@@ -1,52 +1,49 @@
 # Neuri
 
-> Neuri (Neuri LLC, Phoenix, AZ) builds a suite of AI agents that help growing businesses anywhere win back hours and sell more, in Spanish and English. Four products: neuri.bots, neuri.bazar, neuri.consulting and neuri.marketing. Contact: hola@neuri.tech
+> Neuri (Neuri LLC, Phoenix, Arizona, USA) builds a suite of AI agents that help small and growing US businesses win back hours and sell more, in English and Spanish. Four products: neuri.bots, neuri.bazar, neuri.consulting and neuri.marketing. Prices in US dollars. Contact: hola@neuri.tech
 
-Neuri crea agentes de IA para negocios de cualquier país, en español e inglés: neuri.bots contesta tus DMs de Instagram y Messenger, neuri.bazar lleva la caja y los vendedores de tu bazar, neuri.consulting te ayuda a poner la IA a trabajar y neuri.marketing prepara tus posts para que solo los apruebes.
+Neuri crea agentes de IA para negocios en Estados Unidos, en inglés y en español: neuri.bots contesta tus DMs de Instagram y Messenger, neuri.bazar lleva la caja y los vendedores de tu bazar, neuri.consulting te ayuda a poner la IA a trabajar y neuri.marketing prepara tus posts para que solo los apruebes. Precios en dólares.
 
 Price promise (neuri.bazar, neuri.bots, neuri.marketing): while a subscription stays active, its monthly price does not go up. It does not cover switching plans, canceling and resubscribing, or taxes; founders' prices last as their written offer says.
+
+- [Neuri home (English)](https://neuri.tech/) · [Inicio en español](https://neuri.tech/es/)
 
 ## neuri.bots
 
 Answers Instagram and Messenger DMs for small sellers from the seller's own sheet: "is this still available?", price and payment, holds items and DMs a link to people who comment. It does not make things up: unknown questions go to the owner. The direct Instagram/Messenger connection is pending Meta's approval; WhatsApp is on the way. Month to month, no contract; free setup and a 7-day free trial for the first 10 sellers.
 
-- Básico MXN 899/mes · Pro MXN 1,299/mes
 - Basic US$49/month · Pro US$69/month
-- [neuri.bots (español)](https://neuri.tech/sigue-disponible/) · [English](https://neuri.tech/en/still-available/)
-- Comparison: [neuri.bots vs ManyChat (español)](https://neuri.tech/sigue-disponible/vs-manychat/) · [English](https://neuri.tech/en/still-available/vs-manychat/)
+- [neuri.bots (English)](https://neuri.tech/en/still-available/) · [Español](https://neuri.tech/sigue-disponible/)
+- Comparison: [neuri.bots vs ManyChat (English)](https://neuri.tech/en/still-available/vs-manychat/) · [Español](https://neuri.tech/sigue-disponible/vs-manychat/)
 
 ## neuri.bazar
 
-Point of sale for consignment bazaars, tianguis, antique malls, vendor malls and makers markets that rent booths: ring up sales on a phone; each vendor's sales, rent and payouts add up automatically. 14 days free.
+Point of sale for antique malls, vendor malls, consignment shops and makers markets that rent booths: ring up sales on a phone; each vendor's sales, rent and payouts add up automatically. 14 days free.
 
-- Básico MXN 499 · Pro MXN 899 · Plus MXN 1,499 al mes
 - Basic US$79 · Pro US$119 · Plus US$149 per month
 - Basic: up to 30 vendors and 1 register · Pro: up to 75 vendors and 3 registers · Plus: unlimited vendors and registers, plus a public website with the whole inventory. Flat monthly price, no fee on sales.
-- [neuri.bazar (español)](https://neuri.tech/bazar/) · [English](https://neuri.tech/en/bazar/) · [Recorrido con pantallas reales](https://neuri.tech/bazar/recorrido/) · [Tour with real screens](https://neuri.tech/en/bazar/tour/)
-- Comparison: [neuri.bazar vs Quail (español)](https://neuri.tech/bazar/vs-quail/) · [English](https://neuri.tech/en/bazar/vs-quail/) · [neuri.bazar vs Ricochet (español)](https://neuri.tech/bazar/vs-ricochet/) · [English](https://neuri.tech/en/bazar/vs-ricochet/)
+- [neuri.bazar (English)](https://neuri.tech/en/bazar/) · [Español](https://neuri.tech/bazar/) · [Tour with real screens](https://neuri.tech/en/bazar/tour/) · [Recorrido con pantallas reales](https://neuri.tech/bazar/recorrido/)
+- Comparison: [neuri.bazar vs Quail (English)](https://neuri.tech/en/bazar/vs-quail/) · [Español](https://neuri.tech/bazar/vs-quail/) · [neuri.bazar vs Ricochet (English)](https://neuri.tech/en/bazar/vs-ricochet/) · [Español](https://neuri.tech/bazar/vs-ricochet/)
 
 ## neuri.consulting
 
-AI consulting for companies: a virtual AI diagnostic, then implementation of agents that prospect customers, automate operations and deliver reporting. Diagnostic from MXN 4,500 / US$249.
+AI consulting for companies: a virtual AI diagnostic, then implementation of agents that prospect customers, automate operations and deliver reporting. Diagnostic from US$249.
 
-- [Neuri Consulting (español)](https://consulting.neuri.tech/) · [English](https://consulting.neuri.tech/?lang=en)
+- [Neuri Consulting (English)](https://consulting.neuri.tech/?lang=en) · [Español](https://consulting.neuri.tech/)
 - [Diagnostic site and pricing](https://consulting.neuri.tech/precios) · [llms.txt](https://consulting.neuri.tech/llms.txt)
 
 ## neuri.marketing
 
 AI marketing hub for growing businesses: brand kit, a 30-day content calendar, posts and reels drafted with the business's own photos, one-tap approval, then scheduling on Instagram and Facebook. New accounts are not open yet: sign-up opens once Instagram and Facebook can be connected through Meta's official login. Sample at https://marketing.neuri.tech/demo. Nothing is posted without the owner's approval. Free tools that work today, no sign-up: 2026 guide, profile score, templates by business type, reel ideas with 3-shot scripts, ready-to-copy comment replies, brand sheet.
 
-- Inicio MXN 599 · Crece MXN 1,199 · Pro MXN 1,999 al mes, precio final en pesos (founders' price for the first 10 paying businesses in Mexico: MXN 449 · 699 · 1,199, locked for 12 months)
 - Start US$49 · Grow US$99 · Pro US$169 per month
-
-- [neuri.marketing (español)](https://neuri.tech/marketing/) · [English](https://neuri.tech/en/marketing/)
-- Comparison: [neuri.marketing vs Predis.ai (español)](https://neuri.tech/marketing/vs-predis/) · [English](https://neuri.tech/en/marketing/vs-predis/)
-- Free tools: [2026 guide](https://marketing.neuri.tech/guia) · [Profile self-check](https://marketing.neuri.tech/diagnostico) · [Templates by business type](https://marketing.neuri.tech/plantillas) · [Reel ideas](https://marketing.neuri.tech/ideas-reels) · [Comment replies](https://marketing.neuri.tech/respuestas) · [Brand sheet](https://marketing.neuri.tech/marca) (English: add ?lang=en)
+- [neuri.marketing (English)](https://neuri.tech/en/marketing/) · [Español](https://neuri.tech/marketing/)
+- Comparison: [neuri.marketing vs Predis.ai (English)](https://neuri.tech/en/marketing/vs-predis/) · [Español](https://neuri.tech/marketing/vs-predis/)
+- Free tools: [2026 guide](https://marketing.neuri.tech/guia?lang=en) · [Profile self-check](https://marketing.neuri.tech/diagnostico?lang=en) · [Templates by business type](https://marketing.neuri.tech/plantillas?lang=en) · [Reel ideas](https://marketing.neuri.tech/ideas-reels?lang=en) · [Comment replies](https://marketing.neuri.tech/respuestas?lang=en) · [Brand sheet](https://marketing.neuri.tech/marca?lang=en) (Spanish: drop ?lang=en)
 
 ## Legal
 
-- [Neuri home (English)](https://neuri.tech/en/home/) · [Privacidad, términos y contacto](https://neuri.tech/legal/) · [Privacy, terms and contact](https://neuri.tech/en/legal/)
-- [Novedades](https://neuri.tech/novedades/): lo liberado, con fecha
-- [What’s new](https://neuri.tech/en/whats-new/): what shipped, with dates
-- [Privacidad neuri.bots](https://neuri.tech/sigue-disponible/privacidad/) · [Privacy](https://neuri.tech/en/still-available/privacy/)
-- [Privacidad neuri.bazar](https://neuri.tech/bazar/privacidad/) · [Términos](https://neuri.tech/bazar/terminos/) · [Privacy](https://neuri.tech/en/bazar/privacy/) · [Terms](https://neuri.tech/en/bazar/terms/)
+- [Privacy, terms and contact](https://neuri.tech/en/legal/) · [Privacidad, términos y contacto](https://neuri.tech/legal/)
+- [What’s new](https://neuri.tech/en/whats-new/): what shipped, with dates · [Novedades](https://neuri.tech/novedades/)
+- [neuri.bots privacy](https://neuri.tech/en/still-available/privacy/) · [Privacidad](https://neuri.tech/sigue-disponible/privacidad/)
+- [neuri.bazar privacy](https://neuri.tech/en/bazar/privacy/) · [Terms](https://neuri.tech/en/bazar/terms/) · [Privacidad](https://neuri.tech/bazar/privacidad/) · [Términos](https://neuri.tech/bazar/terminos/)

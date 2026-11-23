@@ -4,7 +4,7 @@
 import { readFileSync, statSync, existsSync } from "node:fs";
 let fails = 0;
 const ok = (c, m) => { console.log((c ? "OK  " : "FALLA ") + m); if (!c) fails++; };
-for (const [page, lang] of [["index.html", "es"], ["en/home/index.html", "en"]]) {
+for (const [page, lang] of [["es/index.html", "es"], ["index.html", "en"]]) {
   const html = readFileSync(page, "utf8");
   for (const app of ["bazar", "bots", "marketing", "consulting"]) {
     const base = `pantalla-${app}-${lang}`;

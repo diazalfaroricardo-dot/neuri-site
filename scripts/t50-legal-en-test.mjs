@@ -12,12 +12,12 @@ let en = "";
 try { en = readFileSync(join(root, "en/legal/index.html"), "utf8"); } catch { bad("falta en/legal/index.html"); }
 if (es.includes('<section lang="en"')) bad("/legal/ todavía trae el bloque EN dentro de la página");
 if (!/<a class="nb-lang" href="\/en\/legal\/"/.test(es)) bad("/legal/: botón EN no lleva a /en/legal/");
-if (!es.includes('hreflang="en" href="https://neuri.tech/en/legal/"')) bad("/legal/ sin hreflang en → /en/legal/");
+if (!es.includes('hreflang="en-US" href="https://neuri.tech/en/legal/"')) bad("/legal/ sin hreflang en → /en/legal/");
 if (en) {
   if (!/<html lang="en"/.test(en)) bad("/en/legal/ sin lang=en");
   for (const id of ["site-h", "security-h"]) if (!en.includes(`id="${id}"`)) bad(`/en/legal/ sin #${id}`);
   if (!/<a class="nb-lang" href="\/legal\/"/.test(en)) bad("/en/legal/: botón ES no lleva a /legal/");
-  if (!en.includes('hreflang="es" href="https://neuri.tech/legal/"')) bad("/en/legal/ sin hreflang es");
+  if (!en.includes('hreflang="es-US" href="https://neuri.tech/legal/"')) bad("/en/legal/ sin hreflang es");
   const cuerpo = en.split("<!--contenido-->")[1] || "";
   for (const w of ["Este sitio", "Aviso de privacidad", "Términos de uso", "Escríbenos"]) if (cuerpo.includes(w)) bad(`/en/legal/ trae texto en español: «${w}»`);
   for (const w of ["Privacy, terms and contact", "Skip to content", "Sign in"]) if (!en.includes(w)) bad(`/en/legal/ sin «${w}»`);

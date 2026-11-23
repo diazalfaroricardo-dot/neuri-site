@@ -1,8 +1,8 @@
 // Candado: el tiempo de respuesta (1 día hábil, decisión de Ricardo) va junto a hola@neuri.tech en la portada ES/EN.
 import { readFileSync } from "node:fs";
 const casos = [
-  ["index.html", "Te contestamos en 1 día hábil."],
-  ["en/home/index.html", "We reply within 1 business day."],
+  ["es/index.html", "Te contestamos en 1 día hábil."],
+  ["index.html", "We reply within 1 business day."],
 ];
 let fallas = 0;
 for (const [archivo, frase] of casos) {

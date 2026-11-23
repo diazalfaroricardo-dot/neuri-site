@@ -23,7 +23,7 @@ const server = createServer((req, res) => {
 });
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const base = LIVE ? "https://neuri.tech" : `http://127.0.0.1:${server.address().port}`;
-const HREFS = ["/en/home/", "/en/still-available/", "/en/bazar/", "/en/ai-consulting/", "/en/marketing/"];
+const HREFS = ["/", "/en/still-available/", "/en/bazar/", "/en/ai-consulting/", "/en/marketing/"];
 const AXE = process.env.AXE || join(homedir(), "neuri-bazar/node_modules/.pnpm/axe-core@4.10.3/node_modules/axe-core/axe.min.js");
 const axeSrc = existsSync(AXE) ? readFileSync(AXE, "utf8") : "";
 const browser = await chromium.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
@@ -31,7 +31,7 @@ let fails = 0;
 const bad = (m) => { fails++; console.log("✗", m); };
 for (const w of [390, 1280]) {
   const page = await browser.newPage({ viewport: { width: w, height: 800 }, reducedMotion: "reduce" });
-  await page.goto(`${base}/`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${base}/es/`, { waitUntil: "domcontentloaded" });
   const sum = page.locator("header details[data-idioma] summary").first();
   if (!(await sum.isVisible())) { bad(`@${w}: «EN» no se ve`); await page.close(); continue; }
   await sum.focus();

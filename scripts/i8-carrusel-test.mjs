@@ -11,8 +11,8 @@ const bad = (m) => {
   fail++;
 };
 for (const [f, lang, aviso] of [
-  ["index.html", "es", /Bazar de prueba/],
-  ["en/home/index.html", "en", /Test bazaar/],
+  ["es/index.html", "es", /Bazar de prueba/],
+  ["index.html", "en", /Test bazaar/],
 ]) {
   const html = readFileSync(join(root, f), "utf8");
   const shots = [...html.matchAll(/<a class="shot" href="([^"]+)"[^>]*>[\s\S]*?<\/a>/g)];

@@ -1,4 +1,4 @@
-/* Portada neuri.tech (ES /, EN /en/home/) — diseño v2 aprobado por Ricardo el 25-oct-2026.
+/* Portada neuri.tech (EN /, ES /es/ desde D-10; antes ES / y EN /en/home/) — diseño v2 aprobado por Ricardo el 25-oct-2026.
  * Textos de cada idioma: <script type="application/json" id="portada-datos"> en la página.
  * Sin GSAP (o con prefers-reduced-motion) todo queda estático y visible.
  * Carga con defer después de /assets/gsap/gsap.min.js y ScrollTrigger.min.js. */

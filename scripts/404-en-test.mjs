@@ -23,11 +23,15 @@ ok((await en.textContent(".nb-skip")) === "Skip to content", "salto «Skip to co
 const labels = await en.$$eval("nav[aria-label]", (ns) => ns.map((n) => n.getAttribute("aria-label")));
 ok(!labels.includes("Principal") && !labels.includes("Pie"), "nav aria-label en inglés: " + labels.join(", "));
 const hrefs = await en.$$eval("a[href]", (as) => as.map((a) => a.getAttribute("href")));
-for (const h of ["/en/home/", "/en/bazar/", "/en/still-available/", "/en/marketing/", "/en/ai-consulting/", "/en/legal/"]) {
+for (const h of ["/", "/en/bazar/", "/en/still-available/", "/en/marketing/", "/en/ai-consulting/", "/en/legal/"]) {
   ok(hrefs.includes(h), "liga " + h);
   ok(existsSync(new URL(".." + h + "index.html", import.meta.url)), "existe " + h);
 }
 ok(!hrefs.some((h) => h.includes("lang=es")), "Entrar con lang=en");
+// D-10: fuera de rutas en español, la 404 sale en inglés.
+const raiz = await open("https://neuri.tech/nope-xyz/");
+ok(await raiz.getAttribute("html", "lang") === "en", "D-10: /nope-xyz/ en inglés");
+ok((await raiz.innerText("h1")).includes("This page doesn’t exist"), "D-10: título en inglés en la raíz");
 const es = await open("https://neuri.tech/bazar/nope-xyz/");
 ok(await es.getAttribute("html", "lang") === "es", "fuera de /en/ sigue en español");
 ok((await es.innerText("h1")).includes("Esta página no existe"), "título en español");

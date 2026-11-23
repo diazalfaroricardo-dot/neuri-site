@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const home = readFileSync(join(root, "index.html"), "utf8");
+const home = readFileSync(join(root, "es/index.html"), "utf8");
 let fail = 0;
 const bad = (m) => { console.error(`✗ ${m}`); fail++; };
 if (/revisado por una persona(?! si)/i.test(home.replace(/\(si algo no cuadra, lo revisa una persona\)/g, "")))

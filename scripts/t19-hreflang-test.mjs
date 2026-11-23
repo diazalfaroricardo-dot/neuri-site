@@ -3,9 +3,12 @@
  * Para cada página pública que no es redirección (meta refresh) ni la 404:
  *   - <html lang> = "en" si vive bajo /en/, si no "es";
  *   - canonical = su propia URL absoluta;
- *   - <link rel="alternate" hreflang> en orden es, en, x-default, URLs absolutas https://neuri.tech/…,
- *     la de su idioma = ella misma, la del otro idioma apunta a un archivo que existe (no redirección)
- *     y que la declara de vuelta (recíproco); x-default = la versión en inglés en neuri.bots (D-10), si no la española; igual en ambas;
+ *   - <link rel="alternate" hreflang> en orden en-US, es-US, x-default (D-10, 22-nov-2026: EE. UU. primero),
+ *     URLs absolutas https://neuri.tech/…, la de su idioma = ella misma, la del otro idioma apunta a un archivo
+ *     que existe (no redirección) y que la declara de vuelta (recíproco); x-default = la versión en inglés;
+ *     las landings de cada app (LANDINGS) pueden seguir en el formato viejo es, en, x-default=español (neuri.bots ya en inglés) hasta que
+ *     su equipo corra `python3 scripts/t19-hreflang.py --todo`; lo común ya no puede volver al viejo;
+ *   - <html lang> = "en" también en la portada / (index.html), que es la versión en inglés;
  *     sin par: solo su idioma (+ x-default a sí misma si lo trae);
  *   - selector de idioma (links con data-idioma, o «English»/«Español» con lang=) lleva al par
  *     (se permite ?lang=… / #…), no al inicio del otro idioma;
@@ -40,6 +43,9 @@ const fileOf = (url) => {
   const p = url.slice(BASE.length + 1);
   return p.endsWith("/") || p === "" ? p + "index.html" : p;
 };
+const LANDINGS = ["sigue-disponible/", "marketing/", "bazar/", "consultoria/", "en/still-available/", "en/marketing/", "en/bazar/", "en/ai-consulting/"];
+const langOf = (rel) => (rel.startsWith("en/") || rel === "index.html" ? "en" : "es");
+const norm = (l) => (l === "x-default" ? l : l.slice(0, 2));
 const alts = (hd) => [...hd.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)].map((m) => [m[1], m[2]]);
 
 const fails = [];
@@ -55,13 +61,14 @@ for (const rel of files) {
 const pairs = [], solos = [];
 for (const [rel, p] of info) {
   const own = urlOf(rel);
-  const lang = rel.startsWith("en/") ? "en" : "es";
+  const lang = langOf(rel);
   const other = lang === "es" ? "en" : "es";
   const htmlLang = (p.h.match(/<html[^>]*\blang="([^"]+)"/) || [])[1];
   if (htmlLang !== lang) bad(rel, `<html lang="${htmlLang}"> (esperado ${lang})`);
   const can = (p.hd.match(/<link rel="canonical" href="([^"]+)">/) || [])[1];
   if (can !== own) bad(rel, `canonical ${can ?? "falta"} (esperado ${own})`);
-  const m = Object.fromEntries(p.alts);
+  const m = Object.fromEntries(p.alts.map(([l, u]) => [norm(l), u]));
+  const nuevo = p.alts.some(([l]) => l === "en-US" || l === "es-US");
   if (p.alts.length !== Object.keys(m).length) bad(rel, "hreflang repetido");
   for (const [l, u] of p.alts) if (!u.startsWith(BASE + "/")) bad(rel, `hreflang ${l} no es URL absoluta de neuri.tech: ${u}`);
   if (m[lang] !== own) bad(rel, `hreflang ${lang} = ${m[lang] ?? "falta"} (esperado ${own})`);
@@ -72,19 +79,24 @@ for (const [rel, p] of info) {
     continue;
   }
   const order = p.alts.map(([l]) => l).join(",");
-  if (order !== "es,en,x-default") bad(rel, `hreflang en orden ${order} (esperado es,en,x-default)`);
-  const es = lang === "es" ? own : pair;
-  // D-10 (22-nov, «EE. UU. primero»): en neuri.bots x-default = la versión en inglés; en el resto, la española
-  // hasta que su equipo la cambie (se acepta cualquiera de las dos, igual en ambas por el chequeo recíproco).
-  const enU = lang === "en" ? own : pair;
-  const bots = /^(sigue-disponible|en\/still-available)(\/|$)/.test(rel);
-  if (bots ? m["x-default"] !== enU : m["x-default"] !== es && m["x-default"] !== enU)
-    bad(rel, `x-default = ${m["x-default"] ?? "falta"} (esperado ${bots ? enU : es})`);
+  const es = lang === "es" ? own : pair, en = lang === "en" ? own : pair;
+  if (nuevo) {
+    if (order !== "en-US,es-US,x-default") bad(rel, `hreflang en orden ${order} (esperado en-US,es-US,x-default)`);
+    if (m["x-default"] !== en) bad(rel, `x-default = ${m["x-default"] ?? "falta"} (esperado ${en}, la versión en inglés)`);
+  } else if (!LANDINGS.some((x) => rel.startsWith(x))) {
+    bad(rel, `hreflang en formato viejo ${order}: lo común va en en-US,es-US,x-default (python3 scripts/t19-hreflang.py)`);
+  } else {
+    if (order !== "es,en,x-default") bad(rel, `hreflang en orden ${order} (esperado es,en,x-default)`);
+    // Equipo bots (c4fc45b): en neuri.bots x-default = inglés; en las otras landings se acepta cualquiera de las dos.
+    const bots = /^(sigue-disponible|en\/still-available)(\/|$)/.test(rel);
+    if (bots ? m["x-default"] !== en : m["x-default"] !== es && m["x-default"] !== en)
+      bad(rel, `x-default = ${m["x-default"] ?? "falta"} (esperado ${bots ? en : es})`);
+  }
   const pf = fileOf(pair);
   if (!pf || !existsSync(join(ROOT, pf))) { bad(rel, `hreflang ${other} → ${pair}: no existe en el repo`); continue; }
   const q = info.get(pf);
   if (!q) { bad(rel, `hreflang ${other} → ${pair}: es una redirección, no la página`); continue; }
-  const back = Object.fromEntries(q.alts)[lang];
+  const back = Object.fromEntries(q.alts.map(([l, u]) => [norm(l), u]))[lang];
   if (back !== own) bad(rel, `no recíproco: ${pair} declara hreflang ${lang} = ${back ?? "nada"}`);
   if (lang === "es") pairs.push([own, pair]);
   // Selector de idioma: data-idioma o «English»/«Español» con lang= → el par.

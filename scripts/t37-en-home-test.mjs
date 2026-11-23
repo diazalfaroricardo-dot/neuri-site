@@ -1,4 +1,4 @@
-// T37: neuri.tech/en/ ya no es la landing de neuri.bazar. /en/ redirige al inicio en inglés (/en/home/)
+// T37: neuri.tech/en/ ya no es la landing de neuri.bazar. /en/ redirige al inicio en inglés (desde D-10, 22-nov: / ; /en/home/ también redirige a /)
 // conservando ?query y #ancla; los anclas viejos de bazar (#precios, #prueba…) van a /en/bazar/ para que
 // links y QR impresos tipo neuri.tech/en/#precios sigan sirviendo. La landing EN de bazar vive en /en/bazar/.
 // Uso: node scripts/t37-en-home-test.mjs   (lee archivos locales; Playwright con rutas falsas a neuri.tech)
@@ -14,8 +14,8 @@ const read = (r) => readFileSync(join(root, r), "utf8");
 // 1. /en/index.html = redirección al inicio en inglés.
 const r = read("en/index.html");
 ok(/<meta name="robots" content="noindex/.test(r), "/en/ noindex");
-ok(r.includes('<link rel="canonical" href="https://neuri.tech/en/home/">'), "/en/ canonical → https://neuri.tech/en/home/");
-ok(/http-equiv="refresh" content="0; url=\/en\/home\/"/.test(r), "/en/ meta refresh → /en/home/");
+ok(r.includes('<link rel="canonical" href="https://neuri.tech/">'), "/en/ canonical → https://neuri.tech/ (D-10)");
+ok(/http-equiv="refresh" content="0; url=\/"/.test(r), "/en/ meta refresh → / (D-10)");
 ok(/location\.replace\(/.test(r) && /location\.search/.test(r) && /location\.hash/.test(r), "/en/ location.replace conserva search y hash");
 ok(r.length < 5000, `/en/ es una redirección corta (${r.length} B), no la landing`);
 
@@ -24,10 +24,10 @@ const b = read("en/bazar/index.html");
 ok(!/http-equiv=["']refresh/i.test(b), "/en/bazar/ no es redirección");
 ok(b.includes('<link rel="canonical" href="https://neuri.tech/en/bazar/">'), "/en/bazar/ canonical propio");
 ok(b.includes('<meta property="og:url" content="https://neuri.tech/en/bazar/">'), "/en/bazar/ og:url propio");
-ok(b.includes('hreflang="en" href="https://neuri.tech/en/bazar/"') && b.includes('hreflang="es" href="https://neuri.tech/bazar/"'), "/en/bazar/ hreflang en/es");
+ok(/hreflang="en(-US)?" href="https:\/\/neuri\.tech\/en\/bazar\/"/.test(b) && /hreflang="es(-US)?" href="https:\/\/neuri\.tech\/bazar\/"/.test(b), "/en/bazar/ hreflang en/es");
 ok(b.includes('id="precios"') && b.length > 100000, "/en/bazar/ trae la landing completa (#precios)");
 ok(!b.includes('"url": "https://neuri.tech/en/"'), "/en/bazar/ JSON-LD sin la URL vieja /en/");
-ok(read("bazar/index.html").includes('hreflang="en" href="https://neuri.tech/en/bazar/"'), "/bazar/ hreflang en → /en/bazar/");
+ok(/hreflang="en(-US)?" href="https:\/\/neuri\.tech\/en\/bazar\/"/.test(read("bazar/index.html")), "/bazar/ hreflang en → /en/bazar/");
 
 // 3. Ningún HTML enlaza a /en/ pelado (salvo la propia redirección).
 const walk = (d) => readdirSync(d).flatMap((n) => {
@@ -64,9 +64,12 @@ await ctx.route("https://neuri.tech/**", (rt) => {
 await ctx.route(/^https:\/\/(?!neuri\.tech\/)/, (rt) => rt.abort());
 const page = await ctx.newPage();
 for (const [from, to] of [
-  ["/en/", "/en/home/"],
-  ["/en/?ref=qr", "/en/home/?ref=qr"],
-  ["/en/#productos", "/en/home/#productos"],
+  ["/en/", "/"],
+  ["/en/?ref=qr", "/?ref=qr"],
+  ["/en/#productos", "/#productos"],
+  ["/en/home/", "/"],
+  ["/en/home/?ref=qr#lab", "/?ref=qr#lab"],
+  ["/#sistemas", "/es/#sistemas"],
   ["/en/?ref=qr#precios", "/en/bazar/?ref=qr#precios"],
   ["/en/#prueba", "/en/bazar/#prueba"],
   ["/en/#simula", "/en/bazar/#simula"],
@@ -76,7 +79,7 @@ for (const [from, to] of [
   ["/en/#demo", "/en/bazar/#demo"],
 ]) {
   await page.goto("https://neuri.tech" + from, { waitUntil: "domcontentloaded" }).catch(() => {});
-  await page.waitForURL((u) => !/\/en\/(\?|#|$)/.test(u.pathname + u.search + u.hash) || u.pathname !== "/en/", { timeout: 5000 }).catch(() => {});
+  await page.waitForURL((u) => u.pathname + u.search + u.hash === to, { timeout: 5000 }).catch(() => {});
   const u = new URL(page.url());
   ok(u.pathname + u.search + u.hash === to, `${from} → ${to} (${u.pathname + u.search + u.hash})`);
 }

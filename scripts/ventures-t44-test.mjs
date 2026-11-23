@@ -47,7 +47,7 @@ for (const p of PAGES) {
   const h = readFileSync(join(ROOT, p.file), "utf8");
   if (!/<meta name="robots" content="noindex,nofollow">/.test(h)) bad(`${p.path}: falta <meta name="robots" content="noindex,nofollow">`);
   if (!h.includes(`<html lang="${p.lang}"`)) bad(`${p.path}: <html lang> no es ${p.lang}`);
-  if (!h.includes(`<link rel="alternate" hreflang="${p.lang === "es" ? "en" : "es"}" href="${p.pair}">`)) bad(`${p.path}: hreflang al par falta`);
+  if (!h.includes(`<link rel="alternate" hreflang="${p.lang === "es" ? "en-US" : "es-US"}" href="${p.pair}">`)) bad(`${p.path}: hreflang al par falta`);
   if (/railway\.app/i.test(h)) bad(`${p.path}: muestra una URL de Railway`);
   if (!h.includes("Neuri Café")) bad(`${p.path}: no lista Neuri Café`);
 }
@@ -64,7 +64,7 @@ const SKIP = new Set(["node_modules", ".git", "scripts", "docs", "tools", "tmp"]
     const rel = relative(ROOT, f);
     if (rel === "ventures/index.html" || rel === "en/ventures/index.html") continue;
     // Ricardo 18-nov: una pestaña al final de la portada (ES/EN) lleva a neuri.ventures; en ninguna otra página.
-    if (rel === "index.html" || rel === "en/home/index.html") continue;
+    if (rel === "index.html" || rel === "es/index.html") continue;
     if (/href=["'](?:https:\/\/neuri\.tech)?\/(?:en\/)?ventures\//.test(readFileSync(f, "utf8"))) bad(`${rel} enlaza a ventures (debe quedar sin enlaces en menú ni pie)`);
   }
 })(ROOT);

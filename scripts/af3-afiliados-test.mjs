@@ -59,7 +59,7 @@ for (const p of PAGES) {
   if (!/font-family:"Instrument Serif";font-style:italic;[^}]*src:url\(data:font\/woff2;base64,/.test(h)) bad(`${p.path}: Instrument Serif itálica no va en línea (CLS)`);
   const t = (h.match(/<title>([^<]*)<\/title>/) || [, ""])[1];
   if (t.length < 20 || t.length > 65) bad(`${p.path}: título de ${t.length} caracteres «${t}»`);
-  if (!h.includes(`<link rel="alternate" hreflang="${p.lang === "es" ? "en" : "es"}" href="${p.pair}">`)) bad(`${p.path}: hreflang al par falta`);
+  if (!h.includes(`<link rel="alternate" hreflang="${p.lang === "es" ? "en-US" : "es-US"}" href="${p.pair}">`)) bad(`${p.path}: hreflang al par falta`);
   if (/<form[^>]*\baction="(?!#")/.test(h) || /fetch\(|XMLHttpRequest|sendBeacon/.test(h)) bad(`${p.path}: el formulario podría enviar datos`);
 }
 const sm = readFileSync(join(ROOT, "sitemap.xml"), "utf8");
@@ -68,7 +68,7 @@ for (const u of ["https://neuri.tech/afiliados/", "https://neuri.tech/en/affilia
   if (PROGRAMA_ENCENDIDO && !en) bad(`sitemap.xml no tiene ${u}`);
   if (!PROGRAMA_ENCENDIDO && en) bad(`sitemap.xml tiene ${u} con el programa apagado`);
 }
-for (const [f, href] of [["index.html", "/afiliados/"], ["en/home/index.html", "/en/affiliates/"]]) {
+for (const [f, href] of [["es/index.html", "/afiliados/"], ["index.html", "/en/affiliates/"]]) {
   const foot = (readFileSync(join(ROOT, f), "utf8").match(/<footer[\s\S]*?<\/footer>/) || [""])[0];
   if (!foot.includes(`href="${href}"`)) bad(`${f}: el pie no enlaza ${href}`);
 }

@@ -72,7 +72,7 @@ if(q.has("sandbox"))f.setAttribute("sandbox",q.get("sandbox"));f.src=q.get("src"
   const base = live ? "https://neuri.tech" : `http://127.0.0.1:${port}`;
   const evilOrigin = `http://localhost:${evil}`;
   const b = await chromium.launch(process.env.CHROME ? { executablePath: process.env.CHROME } : {});
-  const paths = ["/", "/bazar/", "/sigue-disponible/", "/marketing/", "/en/home/", "/legal/", "/afiliados/"];
+  const paths = ["/", "/bazar/", "/sigue-disponible/", "/marketing/", "/es/", "/legal/", "/afiliados/"];
   try {
     // 2a. Carga normal a 390 y 1280
     for (const width of [390, 1280]) {
@@ -105,7 +105,7 @@ if(q.has("sandbox"))f.setAttribute("sandbox",q.get("sandbox"));f.src=q.get("src"
     // 2b. Metida en un iframe desde otro origen: normal y con sandbox (sin scripts, el truco clásico
     // para apagar frame-busters: ahí el estilo nunca se quita).
     for (const sandbox of ["", ' sandbox="allow-forms"', ' sandbox="allow-scripts allow-forms"']) {
-      for (const path of ["/", "/bazar/", "/en/home/"]) {
+      for (const path of ["/", "/bazar/", "/es/"]) {
         const ctx = await b.newContext({ viewport: { width: 1280, height: 900 } });
         if (!live) await ctx.route(/^https?:\/\/(?!127\.0\.0\.1|localhost)/, (r) => r.fulfill({ status: 204, body: "" }));
         const sb = sandbox.match(/sandbox="([^"]*)"/);

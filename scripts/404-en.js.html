@@ -1,7 +1,8 @@
 <script>
-/* Auditoría 2-nov: GitHub Pages sirve esta misma 404 para todo; bajo /en/ se muestra en inglés. */
+/* Auditoría 2-nov: GitHub Pages sirve esta misma 404 para todo. D-10 (22-nov): EE. UU. primero, sale en inglés
+   salvo bajo una ruta en español (/es/, /sigue-disponible/, /bazar/, /marketing/, /consultoria/, /legal/…). */
 (function () {
-  if (!/^\/en(\/|$)/.test(location.pathname)) return;
+  if (/^\/(es|sigue-disponible|bazar|marketing|consultoria|legal|novedades|afiliados|ventures)(\/|$)/.test(location.pathname)) return;
   document.documentElement.lang = 'en';
   document.title = 'Page not found | Neuri';
   var q = function (s) { return document.querySelector(s); };
@@ -11,7 +12,7 @@
   q('h1').textContent = 'This page doesn\u2019t exist.';
   q('.nb-hub > p').textContent = 'It may have moved, or the link was incomplete. Everything is one tap from here:';
   var flecha = ' <span aria-hidden="true">\u2192</span>';
-  var hub = [['/en/home/', 'Go to the Neuri home page'],
+  var hub = [['/', 'Go to the Neuri home page'],
     ['/en/still-available/', 'neuri.bots: answers your Instagram messages'],
     ['/en/bazar/', 'neuri.bazar: the register for your market'],
     ['/en/ai-consulting/', 'AI consulting for your business'],
@@ -27,10 +28,11 @@
     if (h && h.indexOf('lang=es') > -1) a.setAttribute('href', h.replace('lang=es', 'lang=en'));
   });
   var idioma = q('.nb-lang');
-  idioma.href = '/'; idioma.hreflang = 'es'; idioma.lang = 'es'; idioma.textContent = 'ES'; idioma.setAttribute('aria-label', 'ES, Espa\u00f1ol');
+  q('.nb-logo').setAttribute('href', '/'); q('.nb-logo').setAttribute('aria-label', 'neuri, home');
+  idioma.href = '/es/'; idioma.hreflang = 'es'; idioma.lang = 'es'; idioma.textContent = 'ES'; idioma.setAttribute('aria-label', 'ES, Espa\u00f1ol');
   q('[data-entrar] summary').firstChild.textContent = 'Sign in ';
-  var ing = q('.nb-foot a[href="/en/home/"]');
-  ing.href = '/'; ing.hreflang = 'es'; ing.lang = 'es'; ing.textContent = 'Espa\u00f1ol';
+  var ing = q('.nb-foot a[href="/"]');
+  ing.href = '/es/'; ing.hreflang = 'es'; ing.lang = 'es'; ing.textContent = 'Espa\u00f1ol';
   q('.nb-foot-legal').textContent = q('.nb-foot-legal').textContent.replace('EE. UU.', 'USA');
 })();
 </script>

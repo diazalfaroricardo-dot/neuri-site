@@ -35,14 +35,14 @@ for (const w of [390, 1280]) {
     const ctx = await browser.newContext({ viewport: { width: w, height: 800 }, locale: loc, timezoneId: "America/Phoenix" });
     await ctx.addInitScript(humano);
     const p = await ctx.newPage();
-    await p.goto(`${base}/`, { waitUntil: "domcontentloaded", timeout: 15000 }); console.log(`· ${w} ${loc} cargó`);
+    await p.goto(`${base}/es/`, { waitUntil: "domcontentloaded", timeout: 15000 }); console.log(`· ${w} ${loc} cargó`);
     await p.waitForTimeout(300);
     const bar = p.locator("#neuri-lang-sug");
     const n = await bar.count();
     if (loc === "es-MX") { if (n) bad(`${w} es-MX: aparece la sugerencia de inglés`); await ctx.close(); continue; }
     if (n !== 1) { bad(`${w} en-US: no aparece «View this page in English»`); await ctx.close(); continue; }
     const href = await bar.locator("a").getAttribute("href");
-    if (!/^\/en\/home\/\?lang=en$/.test(href)) bad(`${w}: link ${href}`);
+    if (!/^\/\?lang=en$/.test(href)) bad(`${w}: link ${href}`);
     for (const el of await bar.locator("a,button").all()) {
       const b = await el.boundingBox();
       if (!b || b.height < 43.9) bad(`${w}: toque de ${b && b.height} px`); // 43.99999 en CI = 44 px (redondeo de flotante)
@@ -59,7 +59,7 @@ for (const w of [390, 1280]) {
     await p.reload({ waitUntil: "domcontentloaded" });
     await p.waitForTimeout(300);
     if (await p.locator("#neuri-lang-sug").count()) bad(`${w}: reaparece después de elegir español`);
-    if (!/^\/$/.test(new URL(p.url()).pathname)) bad(`${w}: redirigió a ${p.url()}`);
+    if (!/^\/es\/$/.test(new URL(p.url()).pathname)) bad(`${w}: redirigió a ${p.url()}`);
     await ctx.close();
   }
 }

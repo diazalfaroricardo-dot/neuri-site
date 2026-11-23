@@ -13,8 +13,9 @@
     const KEY = "neuri-lang";
     const alt = {};
     for (const l of document.querySelectorAll('link[rel="alternate"][hreflang]')) {
-      const h = l.getAttribute("hreflang");
-      if (h === "es" || h === "en") alt[h] = new URL(l.href, location.href);
+      // D-10: los hreflang ahora son regionales (en-US, es-US); también se aceptan es/en.
+      const h = (l.getAttribute("hreflang") || "").slice(0, 2).toLowerCase();
+      if ((h === "es" || h === "en") && !alt[h]) alt[h] = new URL(l.href, location.href);
     }
     const store = (v) => {
       try {
@@ -29,7 +30,7 @@
       "click",
       (e) => {
         const a = e.target?.closest?.("a[hreflang]");
-        const h = a?.getAttribute("hreflang");
+        const h = (a?.getAttribute("hreflang") || "").slice(0, 2).toLowerCase();
         if (h === "es" || h === "en") store(h);
       },
       true,

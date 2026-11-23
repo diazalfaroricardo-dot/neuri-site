@@ -79,7 +79,7 @@ export const fontAllowed = (prod, family, italic = false) => (FONTS[prod] || FON
 /** Básicos estáticos de una página (sin navegador). Devuelve la lista de problemas. */
 export function staticIssues(path, src, prod = productOf(path)) {
   const out = [];
-  const lang = /^\/en\//.test(path) ? "en" : "es";
+  const lang = /^\/en\//.test(path) || path === "/" ? "en" : "es"; // D-10: la portada / es la versión en inglés
   const redirect = /http-equiv="refresh"/.test(src);
   if (!new RegExp(`<html[^>]*lang="${lang}`).test(src)) out.push(`<html lang> no es «${lang}»`);
   if (/fonts\.(googleapis|gstatic)\.com/.test(src)) out.push("pide fuentes a Google Fonts (el sitio las autoaloja; manda la IP del visitante)");
@@ -122,7 +122,7 @@ if (isMain) {
     const src = readFileSync(join(ROOT, path.endsWith(".html") ? path : path + "index.html"), "utf8");
     const bad = (m) => fails.push(`${path} [${prod}]: ${m}`);
     // — Básicos estáticos —
-    const lang = /^\/en\//.test(path) ? "en" : "es";
+    const lang = /^\/en\//.test(path) || path === "/" ? "en" : "es"; // D-10: la portada / es la versión en inglés
     const redirect = /http-equiv="refresh"/.test(src);
     for (const m of staticIssues(path, src, prod)) bad(m);
     if (redirect) continue; // medir el destino aquí duplicaría avisos (o mediría la respuesta simulada de otro dominio)

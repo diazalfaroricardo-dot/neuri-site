@@ -42,9 +42,9 @@ PAGES = {
     "en/marketing/vs-predis/": ("marketing", "en", "/marketing/vs-predis/", "doc"),
     "legal/": ("home", "es", "/en/legal/", "hub"),
     "en/legal/": ("home", "en", "/legal/", "hub"),
-    "404.html": ("home", "es", "/en/home/", "hub"),
-    # en/home/ ya no sale de aquí (25-oct-2026): es la portada EN con el diseño v2 (órbita + GSAP),
-    # gemela de index.html y con /assets/portada.js; editarla a mano junto con la ES.
+    "404.html": ("home", "es", "/", "hub"),  # D-10: el inglés vive en /
+    # La portada no sale de aquí: EN en / (index.html) y ES en /es/ (D-10, 22-nov-2026), diseño v2 (órbita + GSAP)
+    # con /assets/portada.js; editarlas a mano, las dos juntas.
 }
 
 ICON = {
@@ -82,7 +82,7 @@ TILE["marketing"] = TILE["home"]
 def landing(brand, lang):
     return {("bots", "es"): "/sigue-disponible/", ("bots", "en"): "/en/still-available/",
             ("bazar", "es"): "/bazar/", ("bazar", "en"): "/en/bazar/",
-            ("home", "es"): "/", ("home", "en"): "/en/home/",
+            ("home", "es"): "/es/", ("home", "en"): "/",  # D-10 (22-nov-2026)
             ("marketing", "es"): "/marketing/", ("marketing", "en"): "/en/marketing/"}[(brand, lang)]
 
 
@@ -162,7 +162,7 @@ def footer(brand, lang, alt):
             ("/marketing/" if es else "/en/marketing/", "neuri.marketing"),
             ("/legal/" if es else "/en/legal/", "Privacidad y términos" if es else "Privacy & terms"), ("mailto:hola@neuri.tech", "hola@neuri.tech")]
     other = "en" if es else "es"
-    alt_href = "/en/home/" if alt.startswith("#") else alt
+    alt_href = "/" if alt.startswith("#") else alt
     links.append((alt_href, "English" if es else "Español"))
     li = "".join(a(h, t, "", f' hreflang="{other}" lang="{other}"' if t in ("English", "Español") else "") for h, t in links)
     return (f'<footer class="nb-foot"><div class="nb-foot-in"><span class="nb-word">{word}</span>'

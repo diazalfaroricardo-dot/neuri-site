@@ -7,7 +7,7 @@ import { join } from "node:path";
 const root = new URL("..", import.meta.url).pathname;
 let fail = 0;
 const bad = (m) => { console.error(`✗ ${m}`); fail++; };
-const home = readFileSync(join(root, "index.html"), "utf8");
+const home = readFileSync(join(root, "es/index.html"), "utf8");
 const pies = home.split("<footer").slice(1).map((f) => f.split("</footer>")[0]);
 if (!pies.length) bad("index.html sin <footer>");
 for (const pie of pies) {

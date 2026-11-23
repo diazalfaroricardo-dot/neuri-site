@@ -4,13 +4,14 @@
 Para cada index.html público que no es redirección (meta refresh):
   - toma su par del hreflang del otro idioma que ya declara (o del que lo declara a él);
   - reemplaza todos sus <link rel="alternate" hreflang> por el bloque
-      es → URL ES, en → URL EN, x-default → URL ES
+      en-US → URL EN, es-US → URL ES, x-default → URL EN
+    (D-10, 22-nov-2026: EE. UU. primero; inglés por defecto en / y español en /es/)
     en el lugar del primero (o tras el canonical);
   - el selector de idioma visible («English»/«Español»/EN/ES con lang=, o data-idioma)
     que apunte al inicio del otro idioma en vez del par se cambia al par (solo el href).
 No toca textos visibles ni nada fuera de esas etiquetas. Luego: python3 scripts/seo.py
 (sitemap) y node scripts/t19-hreflang-test.mjs.
-Uso: python3 scripts/t19-hreflang.py [--dry]
+Uso: python3 scripts/t19-hreflang.py [--dry] [--todo]
 """
 import os, re, sys
 
@@ -19,6 +20,11 @@ BASE = "https://neuri.tech"
 SKIP = {"node_modules", ".git", "scripts", "docs", "tools", "tmp", "assets", "img"}
 ALT = re.compile(r'[ \t]*<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">[ \t]*\n?')
 DRY = "--dry" in sys.argv
+# D-10: las landings de cada app (bots, bazar, marketing, consultoría) las llevan sus equipos; por defecto
+# este script solo reescribe lo común. Con --todo pasa también las landings al formato en-US/es-US.
+TODO = "--todo" in sys.argv
+LANDINGS = ("sigue-disponible/", "marketing/", "bazar/", "consultoria/",
+            "en/still-available/", "en/marketing/", "en/bazar/", "en/ai-consulting/")
 
 
 def files():
@@ -28,6 +34,14 @@ def files():
         if "index.html" in fs:
             out.append(os.path.relpath(os.path.join(d, "index.html"), ROOT))
     return sorted(out)
+
+
+REG = {"en": "en-US", "es": "es-US"}
+
+
+def lang_of(rel):
+    # D-10: la portada en inglés vive en / (index.html); el resto en inglés bajo /en/.
+    return "en" if rel.startswith("en/") or rel == "index.html" else "es"
 
 
 def url_of(rel):
@@ -46,13 +60,13 @@ def main():
         if re.search(r'http-equiv=["\']refresh', h, re.I):
             continue
         a, b = head_span(h)
-        pages[rel] = (h, dict((l, u) for l, u in ALT.findall(h[a:b])))
+        pages[rel] = (h, dict((l[:2] if l != "x-default" else l, u) for l, u in ALT.findall(h[a:b])))
     by_url = {url_of(r): r for r in pages}
 
     # Par de cada página: el que declara, o quien la declara a ella.
     pair = {}
     for rel, (_, alts) in pages.items():
-        lang = "en" if rel.startswith("en/") else "es"
+        lang = lang_of(rel)
         other = "es" if lang == "en" else "en"
         if alts.get(other) in by_url:
             pair[rel] = by_url[alts[other]]
@@ -61,15 +75,17 @@ def main():
 
     touched = []
     for rel, (h, alts) in pages.items():
+        if not TODO and rel.startswith(LANDINGS):
+            continue
         own = url_of(rel)
-        lang = "en" if rel.startswith("en/") else "es"
+        lang = lang_of(rel)
         a, b = head_span(h)
         head = h[a:b]
         if rel in pair:
             es, en = (own, url_of(pair[rel])) if lang == "es" else (url_of(pair[rel]), own)
-            want = [("es", es), ("en", en), ("x-default", es)]
+            want = [("en-US", en), ("es-US", es), ("x-default", en)]
         elif alts:
-            want = [(lang, own)] + ([("x-default", own)] if "x-default" in alts else [])
+            want = [(REG[lang], own)] + ([("x-default", own)] if "x-default" in alts else [])
         else:
             continue
         m = ALT.search(head)

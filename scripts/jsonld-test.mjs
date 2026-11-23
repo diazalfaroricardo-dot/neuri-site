@@ -5,8 +5,8 @@
 import { readFileSync } from "node:fs";
 
 const pages = [
-  ["index.html", "/", "es", true],
-  ["en/home/index.html", "/en/home/", "en", true],
+  ["es/index.html", "/es/", "es", true],
+  ["index.html", "/", "en", true],
   ["bazar/index.html", "/bazar/", "es"],
   ["en/bazar/index.html", "/en/bazar/", "en"],
   ["sigue-disponible/index.html", "/sigue-disponible/", "es"],
@@ -48,7 +48,7 @@ for (const [f, path, lang, portada] of pages) {
       const org = all.find((x) => x["@type"] === "Organization");
       const web = all.find((x) => x["@type"] === "WebSite");
       if (!org || org.legalName !== "Neuri LLC" || org.email !== "hola@neuri.tech") bad(`${where} ${path}: falta Organization Neuri LLC / hola@neuri.tech`);
-      if (!web || web.inLanguage !== lang) bad(`${where} ${path}: WebSite sin inLanguage ${lang}`);
+      if (!web || String(web.inLanguage).slice(0, 2) !== lang) bad(`${where} ${path}: WebSite sin inLanguage ${lang}`);
     }
     if (fail === before) console.log(`✓ ${where} ${path}: ${all.length} nodos, ${n} precios visibles`);
   }

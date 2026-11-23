@@ -55,14 +55,14 @@
       "lede": "Your type, your colors and your style in every piece. Everything below was made by neuri.marketing's own tools with sample photos and videos.",
       "tablist": "Content neuri.marketing makes",
       "tabs": [
-        ["Reels that build themselves", "3 to 5 photos become a 7 to 15 second reel, with word-by-word captions in three styles. Tap another one to watch it."],
+        ["Reels that build themselves", "Your photos become a 10-second reel: a hook from the first frame, your product with its price and a close with your brand. Tap another one to watch it."],
         ["Carousels people save", "A cover that invites a swipe, steps or a list, and a closing slide to save. The text stays inside what Instagram shows in full."],
         ["One photo, five designs", "Pick your layout once and every post comes out with it, in your type and colors."],
         ["From raw video to reel", "Upload the video straight from your phone and Neuri turns it vertical with your text and captions."],
         ["The filter of an account you love", "Neuri measures the brightness, contrast and warmth of a photo you admire and applies it to yours. Your original stays saved."]
       ],
-      "subs": {"cafe": "Highlight captions", "comida": "Clean captions", "bazar": "Clean captions", "servicios": "Pill captions"},
-      "reelAlt": "{biz} animated reel with captions",
+      "subs": {"cafe": "Hook, price and cutout", "comida": "Hook, price and cutout", "bazar": "Hook, price and cutout", "servicios": "Hook, price and cutout"},
+      "reelAlt": "{biz} animated reel",
       "tcAlt": "Slide {n} of 5 of {biz}'s text carousel",
       "deckGroup": "See another business's carousel",
       "looks": {"marco": "Frame", "minimal": "Minimal", "franja": "Band", "degradado": "Gradient", "titular": "Headline"},
@@ -76,7 +76,7 @@
       "before": "Your photo",
       "after": "With the filter",
       "slider": "Slide to compare your photo with the filter",
-      "note": "Sample content made with neuri.marketing's real tools. Photos from StockSnap under a free license (CC0); the businesses are examples."
+      "note": "Sample content made with neuri.marketing's templates. Photos from StockSnap and rawpixel under a free license (CC0); the businesses are examples."
     }
   }
 }

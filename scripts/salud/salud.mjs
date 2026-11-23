@@ -8,7 +8,8 @@
 // Modos:
 //   apps   → portada (200 tras redirecciones) + /health de cada app + tiempo de respuesta.
 //   diario → SPF / DKIM (selector «resend») / DMARC de neuri.tech, holaneuri.com, in.neuri.tech
-//            + resultado de `pnpm audit --prod` de neuri-bazar (archivo en AUDIT_BAZAR_JSON).
+//            + resultado de `pnpm audit --prod` de neuri-bazar (archivo en AUDIT_BAZAR_JSON;
+//            SALUD_BAZAR=apagado lo salta como aviso cuando no hay token para el repo privado).
 //   todo   → los dos.
 // Escribe salud.json y salud.md, imprime ok=1|0. Con GITHUB_TOKEN y GITHUB_REPOSITORY (y sin
 // --sin-issues) abre UN issue «salud» por problema, lo actualiza en silencio mientras siga y lo
@@ -208,6 +209,12 @@ async function revisarDominio({ dominio, envia }) {
 function revisarAuditBazar() {
   const ruta = process.env.AUDIT_BAZAR_JSON || "audit-bazar.json";
   const clave = "deps-neuri-bazar";
+  if (process.env.SALUD_BAZAR === "apagado") {
+    // neuri-bazar es privado: sin SALUD_BAZAR_TOKEN no se puede clonar. Listo para encender (docs/SALUD.md).
+    avisos.push("neuri-bazar: audit apagado (falta el secreto SALUD_BAZAR_TOKEN; ver docs/SALUD.md). neuri-site no tiene dependencias npm.");
+    filas.push(["neuri-bazar", "pnpm audit --prod", "⚠️", "apagado (sin token)", ""]);
+    return;
+  }
   if (!existsSync(ruta)) {
     falla(clave, "neuri-bazar: no se pudo correr pnpm audit --prod", `No existe ${ruta} (¿falló el clon público o pnpm?).`);
     filas.push(["neuri-bazar", "pnpm audit --prod", "❌", "no corrió", ""]);

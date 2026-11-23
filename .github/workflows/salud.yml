@@ -1,11 +1,12 @@
 name: Salud
 # backlog/hf-idea-20261122-salud-dmarc-action (cubre eng-revision-programada). Aprobado por Ricardo el
 # 22-nov-2026 (opción B: GitHub Action en neuri-site, sin tarea programada, $0). Doc: docs/SALUD.md.
-# SOLO LEE, sin secretos: unas pocas peticiones GET y consultas DNS públicas.
+# SOLO LEE, sin secretos nuevos: unas pocas peticiones GET y consultas DNS públicas.
 #   - Cada 3 h (:57 de 02 a 23 h Phoenix): portada (200) y /health de tech, bots, bazar, consulting,
 #     marketing + tiempo de respuesta.
 #   - 1 vez al día (la corrida de 05:57 Phoenix): además SPF / DKIM (selector resend) / DMARC de
-#     neuri.tech, holaneuri.com, in.neuri.tech y `pnpm audit --prod` de neuri-bazar (repo público).
+#     neuri.tech, holaneuri.com, in.neuri.tech y `pnpm audit --prod` de neuri-bazar (este último
+#     APAGADO hasta que exista el secreto SALUD_BAZAR_TOKEN: neuri-bazar es privado).
 # Abre UN issue «salud» por problema (sin duplicar), lo actualiza en silencio y lo cierra al volver a
 # verde. Mismo patrón que «auditoria» y «vigilante» de neuri-bazar.
 # Apagar: variable del repo SALUD_APAGADO=1 o «Disable workflow» en Actions (ver doc).
@@ -54,11 +55,20 @@ jobs:
         if: steps.modo.outputs.modo != 'apps'
         with:
           version: 10.28.0
-      - name: pnpm audit --prod de neuri-bazar (clon público, sin instalar nada)
+      - name: pnpm audit --prod de neuri-bazar (APAGADO sin SALUD_BAZAR_TOKEN; ver docs/SALUD.md)
+        # neuri-bazar es privado: sin un token de solo lectura no se puede clonar. Sin el secreto se
+        # salta y queda como aviso (no abre issue). No se instala nada: pnpm audit solo lee el lockfile.
         if: steps.modo.outputs.modo != 'apps'
+        id: bazar
+        env:
+          T: ${{ secrets.SALUD_BAZAR_TOKEN }}
         run: |
           set -uo pipefail
-          git clone --quiet --depth 1 https://github.com/diazalfaroricardo-dot/neuri-bazar "$RUNNER_TEMP/bazar" || exit 0
+          if [ -z "${T:-}" ]; then echo "estado=apagado" >> "$GITHUB_OUTPUT"; echo "::notice::Audit de neuri-bazar apagado: falta SALUD_BAZAR_TOKEN"; exit 0; fi
+          echo "estado=on" >> "$GITHUB_OUTPUT"
+          auth=$(printf 'x-access-token:%s' "$T" | base64 -w0); echo "::add-mask::$auth"
+          git -c http.extraheader="AUTHORIZATION: basic $auth" clone --quiet --depth 1 \
+            https://github.com/diazalfaroricardo-dot/neuri-bazar "$RUNNER_TEMP/bazar" || exit 0
           # pnpm audit sale con código ≠ 0 si hay hallazgos; el script decide con el JSON.
           ( cd "$RUNNER_TEMP/bazar" && pnpm audit --prod --json > "$GITHUB_WORKSPACE/audit-bazar.json" ) || true
           node -e 'JSON.parse(require("fs").readFileSync("audit-bazar.json","utf8"))' 2>/dev/null || rm -f audit-bazar.json
@@ -68,6 +78,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           SALUD_LENTO_MS: ${{ vars.SALUD_LENTO_MS || '4000' }}
           MODO: ${{ steps.modo.outputs.modo }}
+          SALUD_BAZAR: ${{ steps.bazar.outputs.estado || 'apagado' }}
         run: |
           set -euo pipefail
           node scripts/salud/salud.mjs --modo "$MODO" | tee salida.txt

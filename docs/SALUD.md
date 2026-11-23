@@ -6,7 +6,7 @@ neuri-site, sin tarea programada, $0»). Hecho por el equipo tech.
 
 - Workflow: [`.github/workflows/salud.yml`](../.github/workflows/salud.yml)
 - Script: [`scripts/salud/salud.mjs`](../scripts/salud/salud.mjs) (Node 22, sin dependencias)
-- Costo: **US$0** (minutos gratis de Actions; ~1 min por corrida). Sin secretos, sin llaves, sin correos.
+- Costo: **US$0** (minutos gratis de Actions; ~20 s por corrida). Sin secretos nuevos, sin llaves, sin correos.
 - **Solo lee**: unas pocas peticiones GET a las apps y consultas DNS públicas. No escribe en ninguna app.
 
 ## Qué revisa
@@ -46,9 +46,24 @@ in.neuri.tech y vulnerabilidades *moderate*.
 Si el resolvedor DNS del runner no responde, abre **un** solo problema (`dns-resolvedor`) en vez de
 marcar todo en rojo.
 
-**Dependencias:** `pnpm audit --prod` de **neuri-bazar** (repo público: se clona sin token y no se
-instala nada; equivale a `npm audit --omit=dev` para un repo con pnpm). Falla si hay *high* o
-*critical*. neuri-site no tiene `package.json` (sitio estático), así que no hay nada que auditar ahí.
+**Dependencias — APAGADO, listo para encender:** `pnpm audit --prod` de **neuri-bazar** (equivale a
+`npm audit --omit=dev` en un repo con pnpm; falla si hay *high* o *critical*, *moderate* es aviso).
+neuri-bazar es **privado**: la primera corrida (22-nov) confirmó que sin token no se puede clonar
+(`could not read Username for 'https://github.com'`). Como el item pide «sin secretos nuevos», queda
+apagado y sale como aviso en el resumen (no abre issue). neuri-site no tiene `package.json` (sitio
+estático), así que ahí no hay nada que auditar.
+
+### Encender el audit de neuri-bazar (1 minuto, lo hace Ricardo si lo quiere)
+
+1. GitHub → Settings (de tu cuenta) → Developer settings → *Fine-grained tokens* → *Generate new token*.
+   Nombre `salud-bazar-lectura`, caducidad 1 año, *Only select repositories* → **neuri-bazar**,
+   permiso **Contents: Read-only** (nada más).
+2. neuri-site → Settings → Secrets and variables → Actions → *New repository secret* →
+   nombre `SALUD_BAZAR_TOKEN`, pega el token.
+3. Actions → **Salud** → *Run workflow* → modo `diario`. En el resumen la fila «neuri-bazar» pasa de
+   ⚠️ «apagado» a ✅ con el conteo. Para apagarlo otra vez: borra el secreto.
+
+El token solo se usa para clonar (se enmascara en el log); no se instala nada ni corren scripts.
 
 ## Issues «salud»
 

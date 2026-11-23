@@ -109,15 +109,14 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
   if(c){
     var f=function(id){return document.getElementById(id);};
     var fmt=new Intl.NumberFormat('en-US',{maximumFractionDigits:0});
-    var usd=(function(){try{var mo=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase();if(mo==='usd')return true;if(mo==='mxn')return false;return !/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||'');}catch(_){return true;}})();
     function calc(){
       var m=+f('lc-msgs').value, l=+f('lc-late').value, cl=+f('lc-close').value, t=+f('lc-ticket').value;
       ['lc-msgs','lc-late','lc-close','lc-ticket'].forEach(function(id){var e=f(id);e.style.setProperty('--f',((e.value-e.min)/(e.max-e.min)*100)+'%');});
-      f('o-m').textContent=m; f('o-l').textContent=l+'%'; f('o-c').textContent=NEURI_EN?cl+'%':(cl/10)+' de 10'; f('o-t').textContent='$'+fmt.format(t);
+      f('o-m').textContent=m; f('o-l').textContent=l+'%'; f('o-c').textContent=cl+'%'; f('o-t').textContent='$'+fmt.format(t);
       var ventas=m*30*(l/100)*(cl/100);
       f('o-r').textContent='$'+fmt.format(Math.round(ventas*t));
       f('o-v').textContent=fmt.format(Math.round(ventas));
-      if(NEURI_EN) usd=true; var be=Math.max(1,Math.ceil((usd?49:899)/t)); f('o-be').textContent=NEURI_EN?('Win back '+be+(be===1?' sale':' sales')+' a month and it pays for itself.'):('Se paga con '+be+(be===1?' venta.':' ventas.'));
+      var be=Math.max(1,Math.ceil(49/t)); // QA #105: la venta promedio es en USD, igual que el plan que dice al lado f('o-be').textContent=NEURI_EN?('Win back '+be+(be===1?' sale':' sales')+' a month and it pays for itself.'):('Se paga con '+be+(be===1?' venta.':' ventas.'));
     }
     c.addEventListener('input',calc); calc();
   }

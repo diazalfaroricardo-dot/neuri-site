@@ -8,7 +8,7 @@ class Component extends DCLogic {
       biz: 0, tone: 0, ch: 'ig', name: 'Tienda de Mariana', nameEdited: false, prods: '',
       skills: { precio: true, horario: true, apartar: true, pago: false },
       phase: 'setup', bChecks: 0, msgs: [], typing: false, draft: '',
-      lcMsgs: 30, lcLate: 40, lcClose: 20, lcTicket: 600, lostAnim: 43200, // B-A7: arranca en el valor real (antes $0 hasta montar la demo)
+      lcMsgs: 30, lcLate: 40, lcClose: 20, lcTicket: 60, lostAnim: 4320, // B-A7: arranca en el valor real (antes $0 hasta montar la demo)
       ownFilter: 'all', ownSel: 1, ownNew: false,
       scen: 'bazar', sStep: 0, sProg: 0
     };
@@ -383,7 +383,7 @@ class Component extends DCLogic {
       { key: 'msgs', label: 'Mensajes que te llegan al día', min: 5, max: 200, step: 5, value: st.lcMsgs, display: st.lcMsgs, field: 'lcMsgs' },
       { key: 'late', label: 'De esos, ¿cuántos contestas tarde o nunca?', min: 10, max: 90, step: 5, value: st.lcLate, display: st.lcLate + '%', field: 'lcLate' },
       { key: 'close', label: 'De cada 100 que sí atiendes, ¿cuántos compran?', min: 5, max: 50, step: 1, value: st.lcClose, display: st.lcClose + '%', field: 'lcClose' },
-      { key: 'ticket', label: 'Lo que vale una venta en promedio', min: 100, max: 5000, step: 50, value: st.lcTicket, display: money(st.lcTicket), field: 'lcTicket' }
+      { key: 'ticket', label: 'Lo que vale una venta en promedio', min: 10, max: 1000, step: 5, value: st.lcTicket, display: money(st.lcTicket), field: 'lcTicket' }
     ];
     var rowsAll = this.ownRowsDef.filter(function (r) { return r.id !== 'sofia' || st.ownNew; });
     var rowsF = rowsAll.filter(function (r) { return st.ownFilter === 'all' || (st.ownFilter === 'hand' ? r.kind === 'hand' : r.kind === 'apart'); });

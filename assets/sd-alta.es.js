@@ -130,7 +130,9 @@
       l.querySelector('input').addEventListener('change',function(e){if(e.target.checked)picked.push(g.label);else picked=picked.filter(function(x){return x!==g.label;});});});
     // Chips de pago → campo «pagos»
     var pp=document.getElementById('pagosPills'),pIn=document.getElementById('pagos');
-    ['Efectivo','Transferencia','Tarjeta','Depósito en OXXO','Meses sin intereses'].forEach(function(p){var l=document.createElement('label');l.className='pill';l.innerHTML='<input type="checkbox" value="'+p+'"><span>'+p+'</span>';pp.appendChild(l);
+    // D-10 (QA 23-nov): formas de pago de EE. UU. por omisión; las de México solo con ?moneda=mxn o zona horaria de México (clientes de siempre).
+    var payMX=(function(){var mon=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase(),tz=false;try{tz=/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||'');}catch(_){}return mon==='mxn'||(mon!=='usd'&&tz);})();
+    (payMX?['Efectivo','Transferencia','Tarjeta','Depósito en OXXO','Meses sin intereses']:['Efectivo','Venmo','Zelle','Cash App','PayPal','Tarjeta']).forEach(function(p){var l=document.createElement('label');l.className='pill';l.innerHTML='<input type="checkbox" value="'+p+'"><span>'+p+'</span>';pp.appendChild(l);
       l.querySelector('input').addEventListener('change',function(){pIn.value=[].map.call(pp.querySelectorAll('input:checked'),function(i){return i.value;}).join(', ');});});
     function vendesValue(){var extra=vIn.value.trim();return picked.concat(extra?[extra]:[]).join(', ');}
 

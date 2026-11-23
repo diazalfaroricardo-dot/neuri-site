@@ -78,8 +78,10 @@ def page(lang, path, alt_path):
             f'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{t["title"]}</title>'
             f'<meta name="description" content="{t["desc"]}">\n'
             f'<link rel="canonical" href="{url}">\n'
-            f'<link rel="alternate" hreflang="es" href="{es_url}"><link rel="alternate" hreflang="en" href="{alt if lang == "es" else url}">'
-            f'<link rel="alternate" hreflang="x-default" href="{es_url}">\n'
+            # D-10 (d10-bazar-idioma-por-persona): en-US/es-US con x-default en inglés, como deja t19-hreflang.py.
+            f'<link rel="alternate" hreflang="en-US" href="{alt if lang == "es" else url}">\n'
+            f'<link rel="alternate" hreflang="es-US" href="{es_url}">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{alt if lang == "es" else url}">\n'
             f'<meta property="og:type" content="article"><meta property="og:site_name" content="Neuri"><meta property="og:locale" content="{t["locale"]}">\n'
             f'<meta property="og:title" content="{t["h1"]}"><meta property="og:description" content="{t["desc"]}"><meta property="og:url" content="{url}">\n'
             f'<meta property="og:image" content="https://neuri.tech/assets/og/bazar-es.png"><meta name="twitter:card" content="summary_large_image">'

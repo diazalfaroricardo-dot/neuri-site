@@ -23,6 +23,8 @@ ISO = "2026-11-14"
 PAGINAS = [
  dict(
   brand="bazar", es="bazar/vs-ricochet/", en="en/bazar/vs-ricochet/", them="Ricochet", us="neuri.bazar",
+  # D-10: EE. UU. primero → x-default en inglés y español de EE. UU. (es_US).
+  us_first=True,
   them_url="https://www.ricoconsign.com/",
   fuentes=[("https://www.ricoconsign.com/pricing/", "ricoconsign.com/pricing"), ("https://www.ricoconsign.com/vendor", "ricoconsign.com/vendor")],
   T={

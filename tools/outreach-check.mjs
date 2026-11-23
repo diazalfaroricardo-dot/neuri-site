@@ -65,7 +65,14 @@ export function checkOutreach(input) {
   const sigIdx = body.search(equipo ? /El equipo de Neuri\s*\n|The Neuri team\s*\n/ : /Ricardo Díaz/);
   const main = sigIdx > 0 ? body.slice(0, sigIdx) : body;
   const words = main.split(/\s+/).filter(Boolean).length;
-  if (body && (words < 60 || words > 120)) bad("cuerpo-largo", `El cuerpo tiene ${words} palabras antes de la firma (60–120).`);
+  // copy-correos-cortos (23-nov): con `corto: true` el cuerpo va de 25 a 79 palabras (ideal < 50) y lleva UNA sola
+  // pregunta. Apagado hasta el sí de Ricardo (items/copy-correos-cortos-aprobar): sin la opción, sigue 60–120.
+  if (input.corto === true) {
+    if (body && (words < 25 || words >= 80)) bad("cuerpo-largo", `El cuerpo tiene ${words} palabras antes de la firma (25–79, ideal < 50).`);
+    const preguntas = (main.replace(/https?:\/\/\S+/g, "").match(/\?/g) ?? []).length;
+    if (body && preguntas !== 1) bad("una-pregunta", `El cuerpo lleva ${preguntas} preguntas; debe llevar una sola.`);
+    if (body && words >= 50) warn("cuerpo-ideal", `${words} palabras: funciona, pero lo ideal es menos de 50.`);
+  } else if (body && (words < 60 || words > 120)) bad("cuerpo-largo", `El cuerpo tiene ${words} palabras antes de la firma (60–120).`);
   if (product !== "personal" && !(equipo ? SIG_EQ : SIG).test(body)) bad("firma", equipo ? "Falta la firma «El equipo de Neuri / Neuri · neuri.tech»." : "Falta la firma exacta «Ricardo Díaz / Neuri · neuri.tech».");
   if (!(equipo ? (en ? OPT_EQ_EN : OPT_EQ_ES) : en ? OPT_EN : OPT_ES).test(body)) bad("baja", `Falta la línea de baja en ${en ? "inglés" : "español"}.`);
   if ((us || equipo) && product !== "personal" && !POSTAL_RE.test(body)) bad("domicilio", "Falta el domicilio postal (CAN-SPAM) bajo la firma.");
@@ -89,7 +96,8 @@ export function checkOutreach(input) {
   // Promesas por línea
   if (product === "bots" && /marketplace/i.test(body)) bad("promesa", "neuri.bots no promete Marketplace.");
   if (product === "bots" && /whatsapp/i.test(main)) bad("promesa", "neuri.bots no menciona WhatsApp: todavía no está disponible.");
-  if (product === "bots" && /instagram|messenger/i.test(main) && !/meta|pendiente|pending|aprobaci|approval/i.test(main)) warn("meta", "neuri.bots: la conexión directa con Instagram/Messenger sigue pendiente de Meta; el correo no debe dar a entender que ya contesta ahí.");
+  // copy-contradicciones (23-nov): /estado → meta "open", whatsapp "on". Lo falso ahora es decir que está pendiente.
+  if (product === "bots" && /pendiente de (la aprobación de )?Meta|Meta pendiente|pending Meta|waiting (on|for) Meta|esperamos (su|la) aprobación/i.test(main)) warn("meta", "neuri.bots: ya contesta en Instagram, Facebook y WhatsApp (Meta abierta en /estado); el correo no debe decir que sigue pendiente de Meta.");
   if ((product === "bots" || product === "marketing") && /(\$|US\s?\d|MXN|USD|pesos|dólares|dollars|\/mes|per month|al mes)/i.test(main))
     bad("precio", `${NAME[product]} no menciona precio.`);
   if (product === "marketing" && /(seguidores|followers|ventas garantizadas|más ventas|more sales|alcance|reach|publica solo|posts automatically)/i.test(main))

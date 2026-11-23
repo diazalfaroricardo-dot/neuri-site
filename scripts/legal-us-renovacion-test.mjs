@@ -33,8 +33,8 @@ const ES = [
   "al menos 30 días antes",
 ];
 const pages = [
-  ["en/still-available/terms/index.html", [...EN, "“My assistant” → “Your plan”", "at least 3 days before the first charge"]],
-  ["sigue-disponible/terminos/index.html", [...ES, "«Mi asistente» → «Tu plan»", "al menos 3 días antes del primer cobro"]],
+  ["en/still-available/terms/index.html", [...EN, "“My assistant” → “Your plan”", "at least 2 days before the first charge"]],
+  ["sigue-disponible/terminos/index.html", [...ES, "«Mi asistente» → «Tu plan»", "al menos 2 días antes del primer cobro"]],
   ["en/bazar/terms/index.html", [...EN, "“My plan”", "never turns into a paid plan by itself"]],
   ["bazar/terminos/index.html", [...ES, "«Mi plan»", "nunca se vuelve plan de pago sola"]],
 ];

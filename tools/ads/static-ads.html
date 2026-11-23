@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="utf-8">
+<title>Plantilla interna de anuncios estáticos · Neuri</title>
+<meta name="description" content="Plantilla interna para renderizar los anuncios estáticos de neuri.bots (no se publica en neuri.tech).">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%230B5E3A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%23F6F4EE%22/%3E%3C/svg%3E">
+<meta property="og:image" content="https://neuri.tech/assets/og/neuri.png">
 <style>
 @font-face{font-family:G;src:url('geist.woff2') format('woff2');font-weight:100 900}
 :root{--ink:#0F1A14;--ink2:#36443D;--muted:#5C6963;--mint:#1F8A5B;--mf:#8FE0B4;--peach:#B4581F;--coral:#FF8A7A;--sun:#FFC857;--g:#F5F7F5}
@@ -34,6 +39,7 @@ body{background:#ccc}
 .tag{display:inline-block;font:600 30px G;color:var(--mint);background:rgba(143,224,180,.38);padding:10px 22px;border-radius:999px}
 </style></head><body>
 <div id="stage"></div>
+<footer style="font:12px system-ui,sans-serif;color:#5C6963;padding:8px 12px">Herramienta interna de Neuri · <a href="/legal/">Aviso legal y privacidad</a> · hola@neuri.tech</footer>
 <script>
 const P=new URLSearchParams(location.search); const D=P.get("d"), tall=P.get("r")==="916";
 function net(seed,x0,y0,x1,y1,W=1080,H=tall?1920:1350,n=30,op=.5){let s=seed;const R=()=>{s=(s*16807)%2147483647;return(s-1)/2147483646};

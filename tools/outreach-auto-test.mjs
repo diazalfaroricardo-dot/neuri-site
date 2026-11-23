@@ -34,3 +34,15 @@ assert.equal(buildAuto({ product: "bazar", lang: "en", country: "US", subject: "
 assert.equal(buildAuto({ product: "bazar", lang: "en", country: "US", subject: "FREE booth rent!!", body: en, unsubUrl: U }).ok, false);
 // El modo anterior (correos que Ricardo aprueba a mano) sigue igual.
 console.log("outreach-auto OK");
+
+// copy-correos-cortos (23-nov): modo corto (apagado por omisión) — menos de 80 palabras y una sola pregunta.
+const corto = "Hi RaeAnn,\n\nWe read about Static Hall's 33 booths, flat rent and monthly payouts. That's a lot of tracking.\n\nNeuri Bazar shows who paid, who owes and each vendor's payout, and sends the reminders. Try it 14 days free.\n\nWorth a 15-minute look next week?";
+const c = buildAuto({ product: "bazar", lang: "en", country: "US", subject: "Booth rent and payouts at Static Hall", body: corto, unsubUrl: U, fuente: "statichall.com", corto: true });
+assert.equal(c.ok, true, JSON.stringify(c.issues));
+// El largo de hoy no pasa en modo corto (más de 80 palabras), y sin la opción el corto no pasa (menos de 60).
+assert.equal(buildAuto({ product: "bazar", lang: "en", country: "US", subject: "Booth rent and payouts at Static Hall", body: en, unsubUrl: U, corto: true }).ok, false);
+assert.equal(buildAuto({ product: "bazar", lang: "en", country: "US", subject: "Booth rent and payouts at Static Hall", body: corto, unsubUrl: U }).ok, false);
+// Dos preguntas: no pasa.
+const dos = buildAuto({ product: "bazar", lang: "en", country: "US", subject: "Booth rent and payouts at Static Hall", body: corto.replace("That's a lot of tracking.", "Is that a lot of tracking?"), unsubUrl: U, corto: true });
+assert.ok(dos.issues.some((x) => x.code === "una-pregunta"), JSON.stringify(dos.issues));
+console.log("outreach-auto corto OK");

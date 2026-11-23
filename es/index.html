@@ -58,10 +58,11 @@ html{scrollbar-color:#CFCDC6 transparent}
 .top{position:sticky;top:0;z-index:20;background:rgba(246,244,238,.95);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
 .top.s{border-bottom-color:var(--line)}
 .top .w{display:flex;align-items:center;height:60px;gap:28px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:500;font-size:16px;letter-spacing:-.02em}
+.brand{display:flex;align-items:center;gap:9px;min-height:44px;font-weight:500;font-size:16px;letter-spacing:-.02em}
 .brand svg{display:block}
 .nav{display:flex;align-items:center;gap:26px;margin-left:auto;font-size:14px;color:#585D57}
 .nav>a:not(.btn):hover,.dd>summary:hover{color:var(--ink)}
+.nav>a:not(.btn){padding:11px 0}.dd>summary{min-height:44px}
 .dd{position:relative}
 .dd>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:5px}
 .dd>summary::-webkit-details-marker{display:none}
@@ -69,10 +70,10 @@ html{scrollbar-color:#CFCDC6 transparent}
 .dd [role=menu]{position:absolute;right:0;top:calc(100% + 12px);min-width:240px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px;box-shadow:0 12px 32px -12px rgba(5,8,13,.18)}
 .dd [role=menu] a{display:block;padding:8px 10px;border-radius:8px;color:var(--ink2);font-size:14px}
 .dd [role=menu] a:hover{background:var(--wall);color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:999px;font:500 14px/1 var(--sans);letter-spacing:-.01em;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;font:500 14px/1 var(--sans);letter-spacing:-.01em;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
 .btn.p{background:var(--ink);color:#fff}.btn.p:hover{background:#1E2420}
 .btn.g{border:1px solid var(--line);background:var(--panel);color:var(--ink)}.btn.g:hover{border-color:#CBC9C1}
-.btn.sm{height:34px;padding:0 14px;font-size:13.5px}
+.btn.sm{height:44px;padding:0 14px;font-size:13.5px}
 .btn svg{width:14px;height:14px}
 
 /* hero */
@@ -127,7 +128,7 @@ section{padding:160px 0 0}
 .prod .st i{width:6px;height:6px;border-radius:50%;background:var(--c)}
 .prod .st.off i{background:transparent;box-shadow:inset 0 0 0 1.2px var(--faint)}
 .prod .d{color:var(--ink2);max-width:36em}
-.prod .more{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px;font-weight:500;color:var(--ink)}
+.prod .more{display:inline-flex;align-items:center;gap:6px;margin-top:5px;min-height:44px;font-size:14px;font-weight:500;color:var(--ink)}
 .prod .more svg{width:13px;height:13px;transition:transform .25s var(--ease)}
 .prod a.more:hover svg{transform:translateX(3px)}
 .facts{display:grid;gap:14px;margin:0}
@@ -181,7 +182,8 @@ section{padding:160px 0 0}
 .fin .act{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
 footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:13.5px;color:var(--sub)}
 footer .w{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-footer nav{display:flex;gap:20px;flex-wrap:wrap}
+footer nav{display:flex;gap:0 20px;flex-wrap:wrap}
+footer nav a{display:inline-flex;align-items:center;min-height:44px}
 footer a:hover{color:var(--ink)}
 
 @media (max-width:1080px){
@@ -489,8 +491,8 @@ footer a:hover{color:#F6F4EE}
     </div>
     <div class="prods">
       <article class="prod" style="--c:var(--bots)">
-        <div><h3><i class="dot"></i>neuri.bots</h3><span class="st"><i></i>Alta abierta · Meta pendiente</span></div>
-        <div><p class="d">Contesta a tus compradores en Instagram y Messenger con tus precios y tus reglas: si sigue, cuánto cuesta, dónde se entrega. Aparta, agenda y te pasa lo difícil. La conexión con Instagram y Messenger está pendiente de Meta.</p><a class="more" href="/sigue-disponible/">Ver neuri.bots <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+        <div><h3><i class="dot"></i>neuri.bots</h3><span class="st"><i></i>Alta abierta · Instagram, Facebook y WhatsApp</span></div>
+        <div><p class="d">Contesta a tus compradores en Instagram, Facebook y WhatsApp con tus precios y tus reglas: si sigue, cuánto cuesta, dónde se entrega. Aparta, agenda y te pasa lo difícil. TikTok y SMS, pronto.</p><a class="more" href="/sigue-disponible/">Ver neuri.bots <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
         <dl class="facts"><div><dt>Para contestar</dt><dd>Segundos</dd></div><div><dt>Horario</dt><dd>24/7</dd></div><div><dt>Precios</dt><dd>De tu hoja</dd></div></dl>
       <a class="shot" href="/sigue-disponible/"><span class="fr"><picture><source srcset="/img/pantalla-bots-es.avif" type="image/avif"><source srcset="/img/pantalla-bots-es.webp" type="image/webp"><img src="/img/pantalla-bots-es.jpg" alt="Página de neuri.bots en el celular." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Página de neuri.bots, en vivo</p></a></article>
       <article class="prod" style="--c:var(--bazar)">
@@ -550,9 +552,9 @@ footer a:hover{color:#F6F4EE}
   <div class="w">
     <div class="sh"><h2 id="l-t">Lo que ya funciona y lo que estamos terminando.</h2></div>
     <div class="road">
-      <div><span class="s wip"><i></i>Pendiente de Meta</span><h3>Instagram y Messenger</h3><p>El agente de mensajes usa la API oficial de Meta. Esperamos su aprobación para abrirla.</p></div>
+      <div><span class="s"><i></i>Disponible</span><h3>Instagram y Messenger</h3><p>El agente de mensajes contesta con la API oficial de Meta. Lo conectas desde Mi asistente.</p></div>
       <div><span class="s"><i></i>Disponible</span><h3>Configúralo con tu IA</h3><p>Conecta Neuri a Claude o ChatGPT y da de alta tu negocio conversando.</p></div>
-      <div><span class="s wip"><i></i>En construcción</span><h3>WhatsApp oficial</h3><p>Tu mismo número, contestado por tu agente, en la plataforma oficial de WhatsApp Business.</p></div>
+      <div><span class="s"><i></i>Disponible</span><h3>WhatsApp oficial</h3><p>Tu agente contesta en WhatsApp con la plataforma oficial de WhatsApp Business.</p></div>
       <div><span class="s"><i></i>Disponible</span><h3>Tu bazar en internet</h3><p>Un sitio con todo el inventario de tu bazar, que se actualiza solo con cada venta. En el plan Plus.</p></div>
     </div>
   </div>

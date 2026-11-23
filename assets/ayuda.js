@@ -110,15 +110,15 @@
     });
   }
   function precioTexto() {
-    if (en) return "Prices: Basic $49 USD a month, Pro $69 USD a month. The first 10 businesses get a 7-day free trial, no card.";
+    if (en) return "Prices: Basic $49 USD a month, Pro $69 USD a month. You get a 7-day free trial: add your card when you turn it on, and nothing is charged until day 8.";
     var usd = false;
     try {
       var mo = (new URLSearchParams(location.search).get("moneda") || "").toLowerCase();
       usd = mo === "usd" || (mo !== "mxn" && /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone || ""));
     } catch (e) {}
     return usd
-      ? "Precios: Básico $49 USD al mes, Pro $69 USD al mes. Los primeros 10 negocios tienen 7 días de prueba gratis, sin tarjeta."
-      : "Precios: Básico $899 MXN al mes, Pro $1,299 MXN al mes. Los primeros 10 negocios tienen 7 días de prueba gratis, sin tarjeta.";
+      ? "Precios: Básico $49 USD al mes, Pro $69 USD al mes. Tienes 7 días de prueba gratis: pones tu tarjeta al prender y no se cobra nada hasta el día 8."
+      : "Precios: Básico $899 MXN al mes, Pro $1,299 MXN al mes. Tienes 7 días de prueba gratis: pones tu tarjeta al prender y no se cobra nada hasta el día 8.";
   }
   function answer(box, sec, q, track) {
       var r = box.querySelector("#ayuda-r");

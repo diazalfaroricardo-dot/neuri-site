@@ -149,9 +149,10 @@
     let want = null;
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
     const nl = (navigator.languages && navigator.languages[0]) || navigator.language || "";
-    if (/^es\b/i.test(nl) || /^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(tz)) want = "es";
-    // En EE. UU. solo pasa al inglés si el teléfono también está en inglés: quien lo tiene en español se queda en español.
-    else if (/^en\b/i.test(nl) && /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(tz)) want = "en";
+    // D-10 (22-nov, «EE. UU. primero»): inglés por omisión. Solo un teléfono en español (o en zona de México sin
+    // idioma claro) se queda en español; cualquier otro idioma ve la barra para pasar al inglés.
+    if (/^es\b/i.test(nl) || (!nl && /^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(tz))) want = "es";
+    else want = "en";
     if (!want || want === cur) return;
     // QA #8 (4ª vuelta, 28-oct): ya no redirige; un link en español se abre en español y se ofrece el otro idioma.
     suggest(want);

@@ -4,7 +4,9 @@
 import { readFileSync } from "node:fs";
 
 const pages = [
-  { f: "sigue-disponible/index.html", url: "https://neuri.tech/sigue-disponible/", cur: "MXN", b: "899", p: "1299", vis: ["$899", "$1,299"] },
+  // D-10: el JSON-LD de la página en español anuncia USD (EE. UU. primero); el texto estático trae los pesos que
+  // sd-alta.es.js cambia a USD para todos salvo ?moneda=mxn o zona horaria de México (lo prueba usd-test.mjs).
+  { f: "sigue-disponible/index.html", url: "https://neuri.tech/sigue-disponible/", cur: "USD", b: "49", p: "69", vis: ["$899", "$1,299"] },
   { f: "en/still-available/index.html", url: "https://neuri.tech/en/still-available/", cur: "USD", b: "49", p: "69", vis: ["$49", "$69"] },
 ];
 const live = process.argv.includes("--live");

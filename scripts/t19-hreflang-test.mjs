@@ -5,7 +5,7 @@
  *   - canonical = su propia URL absoluta;
  *   - <link rel="alternate" hreflang> en orden es, en, x-default, URLs absolutas https://neuri.tech/…,
  *     la de su idioma = ella misma, la del otro idioma apunta a un archivo que existe (no redirección)
- *     y que la declara de vuelta (recíproco); x-default = la versión en español, igual en ambas;
+ *     y que la declara de vuelta (recíproco); x-default = la versión en inglés en neuri.bots (D-10), si no la española; igual en ambas;
  *     sin par: solo su idioma (+ x-default a sí misma si lo trae);
  *   - selector de idioma (links con data-idioma, o «English»/«Español» con lang=) lleva al par
  *     (se permite ?lang=… / #…), no al inicio del otro idioma;
@@ -74,7 +74,12 @@ for (const [rel, p] of info) {
   const order = p.alts.map(([l]) => l).join(",");
   if (order !== "es,en,x-default") bad(rel, `hreflang en orden ${order} (esperado es,en,x-default)`);
   const es = lang === "es" ? own : pair;
-  if (m["x-default"] !== es) bad(rel, `x-default = ${m["x-default"] ?? "falta"} (esperado ${es})`);
+  // D-10 (22-nov, «EE. UU. primero»): en neuri.bots x-default = la versión en inglés; en el resto, la española
+  // hasta que su equipo la cambie (se acepta cualquiera de las dos, igual en ambas por el chequeo recíproco).
+  const enU = lang === "en" ? own : pair;
+  const bots = /^(sigue-disponible|en\/still-available)(\/|$)/.test(rel);
+  if (bots ? m["x-default"] !== enU : m["x-default"] !== es && m["x-default"] !== enU)
+    bad(rel, `x-default = ${m["x-default"] ?? "falta"} (esperado ${bots ? enU : es})`);
   const pf = fileOf(pair);
   if (!pf || !existsSync(join(ROOT, pf))) { bad(rel, `hreflang ${other} → ${pair}: no existe en el repo`); continue; }
   const q = info.get(pf);

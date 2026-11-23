@@ -68,7 +68,7 @@ class Component extends DCLogic {
           horario: A('Abrimos de lunes a sábado, de 11 am a 8 pm.', 'Lunes a sábado, 11 am a 8 pm.', '¿Qué horario tienen?'),
           ubicacion: A('Estamos en Calle Morelos 45, en el centro.', 'Calle Morelos 45, centro.', '¿Dónde está la tienda?'),
           apartar: A('Te lo aparto 24 horas. ¿Qué talla quieres?', 'Apartado por 24 horas.', '¿Me apartas una M?'),
-          pago: A('Enviamos a todo México por paquetería y aceptamos transferencia o tarjeta.', 'Envíos a todo México. Transferencia o tarjeta.', '¿Hacen envíos?') },
+          pago: A('Enviamos a todo el país por paquetería y aceptamos transferencia o tarjeta.', 'Envíos a todo el país. Transferencia o tarjeta.', '¿Hacen envíos?') },
         otro: '¿Lo tienen en color negro?' },
       { label: 'Bienes raíces', example: 'Precios, visitas, crédito', name: 'Casas del Valle', owner: 'un asesor',
         ans: { precio: A('La casa en Col. Las Palmas está en $1,850,000 y tiene 3 recámaras.', 'Col. Las Palmas: $1,850,000, 3 recámaras.', '¿Cuánto cuesta la casa?'),
@@ -376,8 +376,8 @@ class Component extends DCLogic {
     var checkTexts = ['Entendiendo tu negocio: ' + biz.label.toLowerCase(), 'Escribiendo respuestas en tono ' + this.toneDefs[st.tone].toLowerCase(), 'Conectando Instagram y Messenger'];
     var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
     var lostT = this.lostTarget(st);
-    // QA #7: en zona de EE. UU. (o ?moneda=usd) la página muestra USD (A235 en sd-alta.es.js): la cuenta usa $49 USD
-    var nbUSD = (function () { try { var mo = (new URLSearchParams(location.search).get('moneda') || '').toLowerCase(); if (mo === 'usd') return true; if (mo === 'mxn') return false; return /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone || ''); } catch (_) { return false; } })();
+    // D-10: la página muestra USD salvo ?moneda=mxn o zona horaria de México (sd-alta.es.js): la cuenta usa $49 USD
+    var nbUSD = (function () { try { var mo = (new URLSearchParams(location.search).get('moneda') || '').toLowerCase(); if (mo === 'usd') return true; if (mo === 'mxn') return false; return !/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone || ''); } catch (_) { return true; } })();
     var be = Math.max(1, Math.ceil((nbUSD ? 49 : 899) / st.lcTicket));
     var sliders = [
       { key: 'msgs', label: 'Mensajes que te llegan al día', min: 5, max: 200, step: 5, value: st.lcMsgs, display: st.lcMsgs, field: 'lcMsgs' },

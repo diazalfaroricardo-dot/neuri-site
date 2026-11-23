@@ -24,7 +24,9 @@ for (const [es, en, dom] of pares) {
     if (!s.includes(`<html lang="${lang}"`)) bad(`${p} sin lang=${lang}`);
     if (!s.includes(`<link rel="canonical" href="https://neuri.tech/${p}">`)) bad(`${p} sin canonical propio`);
     if (!s.includes(`hreflang="${lang === "es" ? "en" : "es"}" href="https://neuri.tech/${otro}"`)) bad(`${p} sin hreflang a ${otro}`);
-    if (!s.includes(`hreflang="x-default" href="https://neuri.tech/${es}"`)) bad(`${p} sin x-default`);
+    // D-10: en neuri.bots x-default apunta al inglés.
+    const xd = es.startsWith("sigue-disponible/") ? en : es;
+    if (!s.includes(`hreflang="x-default" href="https://neuri.tech/${xd}"`)) bad(`${p} sin x-default`);
     if (!new RegExp(`href="https://(www\\.)?${dom.replace(".", "\\.")}`).test(s)) bad(`${p} no enlaza su fuente ${dom}`);
     if (!/(noviembre|November) \d+, 2026|\d+ de noviembre de 2026/.test(s)) bad(`${p} sin fecha de revisión de la fuente`);
     if (/<img[^>]+(quail|ricochet|ricoconsign|manychat|predis)/i.test(s)) bad(`${p} trae un logo de tercero`);

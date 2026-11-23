@@ -109,7 +109,7 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
   if(c){
     var f=function(id){return document.getElementById(id);};
     var fmt=new Intl.NumberFormat('en-US',{maximumFractionDigits:0});
-    var usd=(function(){try{var mo=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase();if(mo==='usd')return true;if(mo==='mxn')return false;return /^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||'');}catch(_){return false;}})();
+    var usd=(function(){try{var mo=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase();if(mo==='usd')return true;if(mo==='mxn')return false;return !/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||'');}catch(_){return true;}})();
     function calc(){
       var m=+f('lc-msgs').value, l=+f('lc-late').value, cl=+f('lc-close').value, t=+f('lc-ticket').value;
       ['lc-msgs','lc-late','lc-close','lc-ticket'].forEach(function(id){var e=f(id);e.style.setProperty('--f',((e.value-e.min)/(e.max-e.min)*100)+'%');});
@@ -121,9 +121,9 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
     }
     c.addEventListener('input',calc); calc();
   }
-  // Sub-páginas (sin el alta): en zona de EE. UU. o ?moneda=usd, precios en USD como la landing
-  (function(){ if(NEURI_EN||document.getElementById('f')) return; var mo=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase(), us=false; try{ us=/^(America\/(New_York|Detroit|Kentucky\/.+|Indiana\/.+|Louisville|Chicago|Menominee|North_Dakota\/.+|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak)|Pacific\/Honolulu|US\/.+)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||''); }catch(_){}
-    if(!(mo==='usd'||(mo!=='mxn'&&us))) return; var P={'$899':'$49','$1,299':'$69'};
+  // Sub-páginas (sin el alta): D-10, USD por omisión como la landing; pesos solo con ?moneda=mxn o zona horaria de México
+  (function(){ if(NEURI_EN||document.getElementById('f')) return; var mo=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase(), mx=false; try{ mx=/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||''); }catch(_){}
+    if(!(mo==='usd'||(mo!=='mxn'&&!mx))) return; var P={'$899':'$49','$1,299':'$69'};
     document.querySelectorAll('.pn').forEach(function(s){ if(P[s.textContent]){ s.textContent=P[s.textContent]; var n=s.nextElementSibling; if(n) n.textContent=n.textContent.replace('MXN','USD'); } });
     document.querySelectorAll('.kw').forEach(function(k){ k.textContent=k.textContent.replace('Precios en pesos','Precios en dólares'); });
     document.querySelectorAll('a[href*="giro="]').forEach(function(a){ a.href=a.href.replace('?giro=','?moneda=usd&giro='); });

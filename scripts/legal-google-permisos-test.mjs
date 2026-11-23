@@ -13,8 +13,8 @@ const ok = (c, m) => { console.log((c ? "ok   " : "FALLA") + " " + m); if (!c) f
 const LU = /use and transfer to any other app of information received from Google APIs will adhere to the <a href="https:\/\/developers\.google\.com\/terms\/api-services-user-data-policy"[^>]*>Google API Services User Data Policy<\/a>, including the Limited Use requirements/;
 
 const casos = [
-  { p: "sigue-disponible/privacidad/index.html", version: "Versión 1.4 (vigente)", gbp: "Perfil de Negocio de Google (reseñas)", noIA: "no se manda a ningún modelo de IA", off: "con el botón <b>Desconectar</b> en Conexiones" },
-  { p: "en/still-available/privacy/index.html", version: "Version 1.4 (in force)", gbp: "Google Business Profile (reviews)", noIA: "not sent to any AI model", off: "with the <b>Disconnect</b> button in Connections" },
+  { p: "sigue-disponible/privacidad/index.html", version: "Versión 1.5 (vigente)", gbp: "Perfil de Negocio de Google (reseñas)", noIA: "no se manda a ningún modelo de IA", off: "con el botón <b>Desconectar</b> en Conexiones" },
+  { p: "en/still-available/privacy/index.html", version: "Version 1.5 (in force)", gbp: "Google Business Profile (reviews)", noIA: "not sent to any AI model", off: "with the <b>Disconnect</b> button in Connections" },
   { p: "legal/google/index.html", version: "Versión 1.1 (vigente)", gbp: "Perfil de Negocio de Google en neuri.bots", noIA: "no se manda a ningún modelo de IA" },
   { p: "en/legal/google/index.html", version: "Version 1.1 (in force)", gbp: "Google Business Profile in neuri.bots", noIA: "not sent to any AI model" },
 ];

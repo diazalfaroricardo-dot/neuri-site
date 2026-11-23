@@ -123,27 +123,28 @@ PAGINAS = [
   }),
  dict(
   brand="marketing", es="marketing/vs-predis/", en="en/marketing/vs-predis/", them="Predis.ai", us="neuri.marketing",
+  # D-10 (22-nov): EE. UU. primero → x-default en inglés, español de EE. UU. (es_US) y solo USD.
+  us_first=True,
   them_url="https://predis.ai/",
   fuentes=[("https://predis.ai/pricing/", "predis.ai/pricing")],
   T={
    "es": dict(
     title="neuri.marketing vs Predis.ai: redes con IA para tu negocio",
-    desc="Comparamos neuri.marketing y Predis.ai: precio en pesos, publicaciones contra créditos, quién arma el contenido, aprobación y publicación automática.",
+    desc="Comparamos neuri.marketing y Predis.ai: precio en dólares, publicaciones contra créditos, quién arma el contenido, aprobación y publicación automática.",
     h1="neuri.marketing vs Predis.ai: ¿cuál conviene para tus redes?",
     lead="Los dos usan IA para tus publicaciones de Instagram y Facebook. En Predis.ai tú generas el contenido con créditos; en neuri.marketing te llega el mes armado y tú apruebas.",
     th="Qué comparamos",
     rows=[
      ("Qué está listo hoy", "Todavía no abre cuentas nuevas: abre cuando se pueda conectar Instagram y Facebook con el inicio de sesión oficial de Meta", "Funcionando"),
-     ("Precio al mes", "MXN 599 · 1,199 · 1,999, o US$49 · 99 · 169", "US$32 · 79 · 249 mes a mes, o US$19 · 40 · 212 al mes pagando el año"),
+     ("Precio al mes", "US$49 · 99 · 169 al mes, o pagas el año y te regalamos 2 meses", "US$32 · 79 · 249 mes a mes, o US$19 · 40 · 212 al mes pagando el año"),
      ("Qué incluye", "Publicaciones del mes: de 12 fotos y 4 reels (Inicio) a 30 fotos y 12 reels (Pro)", "Créditos para generar: 1,300 · 3,200 · 10,000 al mes (en Core, unas 325 imágenes o 33 videos)"),
      ("Quién arma el contenido", "Neuri arma el plan y las publicaciones con tu estilo", "Tú lo generas en su herramienta"),
      ("Antes de publicar", "Nada se publica sin tu visto bueno; apruebas desde el celular", "Menciona flujo de aprobación y borradores"),
      ("Publicación automática", "Sí, lo que apruebas sale en tu calendario", "En Rise y Enterprise+; Core dice «No Auto Posting»"),
      ("Idiomas", "Español e inglés", "Dice que maneja más de 18 idiomas"),
-     ("Pesos", "Sí, precio final en MXN", "Precios en dólares, más impuestos"),
     ],
     h2a="¿Cuál elegir?",
-    pick_us=("Elige neuri.marketing si…", "Quieres que alguien arme tu mes y tú solo apruebes, pagar en pesos por un número fijo de publicaciones, y puedes esperar a que abra."),
+    pick_us=("Elige neuri.marketing si…", "Quieres que alguien arme tu mes y tú solo apruebes, pagar un precio fijo por un número fijo de publicaciones, y puedes esperar a que abra."),
     pick_them=("Elige Predis.ai si…", "Lo quieres hoy, prefieres generar tú mismo publicaciones y anuncios con IA, o manejas varias marcas."),
     h2b="Mira cómo se ve un mes",
     cta="Ve un ejemplo de un mes armado por neuri.marketing, sin crear cuenta.", cta_link="Ver un ejemplo", cta_href="https://marketing.neuri.tech/demo?lang=es",
@@ -156,13 +157,12 @@ PAGINAS = [
     th="Feature",
     rows=[
      ("What works today", "Not opening new accounts yet: it opens when Instagram and Facebook can be connected through Meta’s official login", "Live"),
-     ("Monthly price", "US$49 · 99 · 169, or MXN 599 · 1,199 · 1,999", "US$32 · 79 · 249 month to month, or US$19 · 40 · 212 a month billed yearly"),
+     ("Monthly price", "US$49 · 99 · 169 a month, or pay for the year and get 2 months free", "US$32 · 79 · 249 month to month, or US$19 · 40 · 212 a month billed yearly"),
      ("What you get", "The month’s posts: from 12 photos and 4 reels (Start) to 30 photos and 12 reels (Pro)", "Credits to generate: 1,300 · 3,200 · 10,000 a month (on Core, about 325 images or 33 videos)"),
      ("Who makes the content", "Neuri plans and makes the posts in your style", "You generate it in its tool"),
      ("Before anything posts", "Nothing posts without your OK; you approve from your phone", "Mentions an approval flow and drafts"),
      ("Auto-posting", "Yes, what you approve goes out on your calendar", "On Rise and Enterprise+; Core says “No Auto Posting”"),
      ("Languages", "Spanish and English", "Says it supports 18+ languages"),
-     ("Pesos", "Yes, final price in MXN", "Prices in USD, plus taxes"),
     ],
     h2a="Which should you choose?",
     pick_us=("Choose neuri.marketing if…", "You want someone to build your month so you only approve, want a fixed number of posts at a flat price, and can wait for it to open."),
@@ -184,6 +184,7 @@ OG = {"bazar": "bazar", "bots": "bots", "marketing": "marketing"}
 
 def page(p, lang):
     t, x = p["T"][lang], TXT[lang]
+    locale = "es_US" if lang == "es" and p.get("us_first") else x["locale"]
     path, alt_path = (p["es"], p["en"]) if lang == "es" else (p["en"], p["es"])
     url, alt = "https://neuri.tech/" + path, "https://neuri.tech/" + alt_path
     es_url, en_url = "https://neuri.tech/" + p["es"], "https://neuri.tech/" + p["en"]
@@ -201,8 +202,8 @@ def page(p, lang):
             f'<meta name="description" content="{t["desc"]}">\n'
             f'<link rel="canonical" href="{url}">\n'
             f'<link rel="alternate" hreflang="es" href="{es_url}"><link rel="alternate" hreflang="en" href="{en_url}">'
-            f'<link rel="alternate" hreflang="x-default" href="{es_url}">\n'
-            f'<meta property="og:type" content="article"><meta property="og:site_name" content="Neuri"><meta property="og:locale" content="{x["locale"]}">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{en_url if p.get("us_first") else es_url}">\n'
+            f'<meta property="og:type" content="article"><meta property="og:site_name" content="Neuri"><meta property="og:locale" content="{locale}">\n'
             f'<meta property="og:title" content="{t["h1"]}"><meta property="og:description" content="{t["desc"]}"><meta property="og:url" content="{url}">\n'
             f'<meta property="og:image" content="{og}"><meta name="twitter:card" content="summary_large_image">'
             f'<meta name="twitter:image" content="{og}">\n'

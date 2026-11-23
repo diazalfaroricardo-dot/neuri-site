@@ -24,8 +24,8 @@ for (const [es, en, dom] of pares) {
     if (!s.includes(`<html lang="${lang}"`)) bad(`${p} sin lang=${lang}`);
     if (!s.includes(`<link rel="canonical" href="https://neuri.tech/${p}">`)) bad(`${p} sin canonical propio`);
     if (!s.includes(`hreflang="${lang === "es" ? "en" : "es"}" href="https://neuri.tech/${otro}"`)) bad(`${p} sin hreflang a ${otro}`);
-    // D-10: en neuri.bots x-default apunta al inglés.
-    const xd = es.startsWith("sigue-disponible/") ? en : es;
+    // D-10: en neuri.bots y neuri.marketing x-default apunta al inglés.
+    const xd = /^(sigue-disponible|marketing)\//.test(es) ? en : es;
     if (!s.includes(`hreflang="x-default" href="https://neuri.tech/${xd}"`)) bad(`${p} sin x-default`);
     if (!new RegExp(`href="https://(www\\.)?${dom.replace(".", "\\.")}`).test(s)) bad(`${p} no enlaza su fuente ${dom}`);
     if (!/(noviembre|November) \d+, 2026|\d+ de noviembre de 2026/.test(s)) bad(`${p} sin fecha de revisión de la fuente`);
@@ -61,7 +61,12 @@ for (const lang of ["es", "en"]) for (const p of precios[lang]) {
   const sec = s.slice(i, s.indexOf("</section>", i));
   for (const re of frase[lang]) if (!re.test(sec)) bad(`${p}: la sección de precios no dice ${re}`);
 }
-if (!/precio de fundador dura/.test(read("marketing/index.html"))) bad("marketing: la promesa no aclara el precio de fundador");
+// D-10: la landing de marketing ya no anuncia precio de fundador (era solo México); si vuelve a
+// anunciarlo, la promesa tiene que aclararlo.
+{
+  const mk = read("marketing/index.html");
+  if (/fundador/i.test(mk) && !/precio de fundador dura/.test(mk)) bad("marketing: la promesa no aclara el precio de fundador");
+}
 
 // Términos: la promesa en la sección de planes y la excepción en «Cambios».
 const terminos = [

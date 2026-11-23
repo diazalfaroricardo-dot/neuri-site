@@ -20,26 +20,27 @@ const live = process.argv.includes("--live");
 let fail = 0;
 const bad = (m) => { fail++; console.error("✗", m); };
 
+// D-10 (22-nov): EE. UU. primero. La versión en español es para hispanos en EE. UU.: mismos precios
+// en USD que la inglesa, sin pesos, sin MXN y sin precio de fundador (era solo México).
 const srcs = [["local", readFileSync("marketing/index.html", "utf8")]];
 if (live) srcs.push(["live", await (await fetch("https://neuri.tech/marketing/")).text()]);
 for (const [where, html] of srcs) {
-  const plans = [...html.matchAll(/<div class="plan[^"]*"[\s\S]*?<h3>(\w+)<\/h3>[\s\S]*?<b>\$([\d,]+)<\/b>[\s\S]*?Fundadores: <b>\$([\d,]+)<\/b>([\s\S]*?)<\/ul>/g)];
-  if (plans.length !== 3) bad(`${where}: esperaba 3 planes con precio de fundador, hay ${plans.length}`);
-  for (const [, name, list, fnd, body] of plans) {
+  const plans = [...html.matchAll(/<div class="plan[^"]*"[\s\S]*?<h3>(\w+)<\/h3>[\s\S]*?<b>US\$([\d,]+)<\/b>[\s\S]*?<b>US\$([\d,]+)<\/b> al año([\s\S]*?)<\/ul>/g)];
+  if (plans.length !== 3) bad(`${where}: esperaba 3 planes en USD con precio anual, hay ${plans.length}`);
+  for (const [, name, usd, year, body] of plans) {
     const w = want[name.toLowerCase()];
     if (!w) { bad(`${where}: plan desconocido ${name}`); continue; }
-    if (list !== fmt(w[0])) bad(`${where} ${name}: lista $${list} ≠ $${fmt(w[0])}`);
-    if (fnd !== fmt(w[1])) bad(`${where} ${name}: fundador $${fnd} ≠ $${fmt(w[1])}`);
+    if (usd !== fmt(w[2])) bad(`${where} ${name}: US$${usd} ≠ US$${fmt(w[2])}`);
+    if (year !== fmt(w[2] * 10)) bad(`${where} ${name}: anual US$${year} ≠ US$${fmt(w[2] * 10)} (10 meses)`);
     // plan-features.ts: bandeja/compradores en Crece; reels IA, video crudo, collabs en Pro.
     if (name === "Inicio" && (/bandeja/i.test(body) || /\bIA\b/.test(body))) bad(`${where} Inicio promete bandeja o IA`);
     if (name === "Crece" && /reels? con IA|video crudo|collab/i.test(body)) bad(`${where} Crece promete algo de Pro`);
   }
   const text = html.replace(/<style[\s\S]*?<\/style>/g, " ").replace(/<[^>]+>/g, " ");
-  for (const u of want.inicio.slice(2).concat(want.crece[2], want.pro[2]))
-    if (!text.includes(`US$${u}`)) bad(`${where}: no muestra US$${u}`);
-  const viejos = text.match(/\$349(?!\d)/g);
-  if (viejos) bad(`${where}: queda el precio viejo $349`);
-  if (!fail) console.log(`✓ ${where} marketing/index.html: ${Object.values(want).map((w) => `$${fmt(w[0])}/$${fmt(w[1])}/US$${w[2]}`).join(" · ")}`);
+  for (const m of ["MXN", "pesos", "undador", "México", "es_MX"])
+    if (text.includes(m) || html.includes(m)) bad(`${where}: queda «${m}» (D-10: nada de México para EE. UU.)`);
+  if (!html.includes('hreflang="x-default" href="https://neuri.tech/en/marketing/"')) bad(`${where}: x-default debe ser la versión en inglés`);
+  if (!fail) console.log(`✓ ${where} marketing/index.html: ${Object.values(want).map((w) => `US$${w[2]}`).join(" · ")} (sin pesos)`);
 }
 // EN (clientes de EE. UU. pagan en USD de lista; el precio de fundador es solo México).
 const en = [["local", readFileSync("en/marketing/index.html", "utf8")]];
@@ -58,6 +59,7 @@ for (const [where, html] of en) {
     if (name === "Crece" && /AI reels|raw video|collab/i.test(body)) bad(`${where} EN Crece promete algo de Pro`);
   }
   if (/founder/i.test(html)) bad(`${where} EN: el precio de fundador es solo para México`);
+  if (/MXN|pesos|Mexico/.test(html)) bad(`${where} EN: D-10, nada de México ni pesos para EE. UU.`);
   if (!fail) console.log(`✓ ${where} en/marketing/index.html: US$${want.inicio[2]}/${want.crece[2]}/${want.pro[2]}`);
 }
 process.exit(fail ? 1 : 0);

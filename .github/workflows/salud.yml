@@ -1,0 +1,84 @@
+name: Salud
+# backlog/hf-idea-20261122-salud-dmarc-action (cubre eng-revision-programada). Aprobado por Ricardo el
+# 22-nov-2026 (opción B: GitHub Action en neuri-site, sin tarea programada, $0). Doc: docs/SALUD.md.
+# SOLO LEE, sin secretos: unas pocas peticiones GET y consultas DNS públicas.
+#   - Cada 3 h (:57 de 02 a 23 h Phoenix): portada (200) y /health de tech, bots, bazar, consulting,
+#     marketing + tiempo de respuesta.
+#   - 1 vez al día (la corrida de 05:57 Phoenix): además SPF / DKIM (selector resend) / DMARC de
+#     neuri.tech, holaneuri.com, in.neuri.tech y `pnpm audit --prod` de neuri-bazar (repo público).
+# Abre UN issue «salud» por problema (sin duplicar), lo actualiza en silencio y lo cierra al volver a
+# verde. Mismo patrón que «auditoria» y «vigilante» de neuri-bazar.
+# Apagar: variable del repo SALUD_APAGADO=1 o «Disable workflow» en Actions (ver doc).
+on:
+  schedule:
+    # UTC = Phoenix + 7 (Arizona no cambia de horario): 02,05,08,11,14,17,20,23 h Phoenix.
+    - cron: "57 0,3,6,9,12,15,18,21 * * *"
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "apps (cada 3 h) · diario (correo + dependencias) · todo"
+        type: choice
+        options: [todo, apps, diario]
+        default: todo
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: salud
+  cancel-in-progress: false
+jobs:
+  salud:
+    if: vars.SALUD_APAGADO != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - name: Modo
+        id: modo
+        env:
+          EVENTO: ${{ github.event_name }}
+          ELEGIDO: ${{ inputs.modo }}
+        run: |
+          # La corrida programada de 12:57 UTC (05:57 Phoenix) hace también lo diario; se acepta hasta
+          # las 14 UTC por si GitHub la retrasa (la siguiente es 15:57).
+          if [ "$EVENTO" = "workflow_dispatch" ]; then m="${ELEGIDO:-todo}"
+          else case "$(date -u +%H)" in 12|13|14) m=todo ;; *) m=apps ;; esac; fi
+          echo "modo=$m" >> "$GITHUB_OUTPUT"; echo "Modo: $m"
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.3.0
+        if: steps.modo.outputs.modo != 'apps'
+        with:
+          version: 10.28.0
+      - name: pnpm audit --prod de neuri-bazar (clon público, sin instalar nada)
+        if: steps.modo.outputs.modo != 'apps'
+        run: |
+          set -uo pipefail
+          git clone --quiet --depth 1 https://github.com/diazalfaroricardo-dot/neuri-bazar "$RUNNER_TEMP/bazar" || exit 0
+          # pnpm audit sale con código ≠ 0 si hay hallazgos; el script decide con el JSON.
+          ( cd "$RUNNER_TEMP/bazar" && pnpm audit --prod --json > "$GITHUB_WORKSPACE/audit-bazar.json" ) || true
+          node -e 'JSON.parse(require("fs").readFileSync("audit-bazar.json","utf8"))' 2>/dev/null || rm -f audit-bazar.json
+      - name: Revisar y sincronizar issues «salud»
+        id: revisar
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SALUD_LENTO_MS: ${{ vars.SALUD_LENTO_MS || '4000' }}
+          MODO: ${{ steps.modo.outputs.modo }}
+        run: |
+          set -euo pipefail
+          node scripts/salud/salud.mjs --modo "$MODO" | tee salida.txt
+          cat salud.md >> "$GITHUB_STEP_SUMMARY"
+          grep -q '^ok=1$' salida.txt && echo "ok=1" >> "$GITHUB_OUTPUT" || echo "ok=0" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: salud-${{ github.run_id }}
+          path: |
+            salud.json
+            salud.md
+          retention-days: 14
+          if-no-files-found: ignore

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://us-assets.i.posthog.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; media-src 'self' blob: https:; connect-src 'self' https://*.neuri.tech https://us.i.posthog.com https://us-assets.i.posthog.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.facebook.com; worker-src 'self' blob:; form-action 'self' https://*.neuri.tech; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><style id="antiClickjack">html{display:none!important}</style><script>(function(){try{if(self===top){var s=document.getElementById("antiClickjack");s&&s.parentNode.removeChild(s)}else{top.location=self.location}}catch(e){}})()</script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light">
 <title>Neuri — AI agents that run the busywork of your business</title>
 <meta name="description" content="Neuri is a suite of AI agents that grows your business: Instagram and Messenger replies, a POS for vendor malls, AI consulting and social media you approve.">
 <link rel="canonical" href="https://neuri.tech/">
@@ -17,551 +17,564 @@
 <script src="/assets/lang.js"></script>
 <script src="/assets/analytics.js" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://neuri.tech/#org", "name": "Neuri", "legalName": "Neuri LLC", "url": "https://neuri.tech/", "logo": "https://neuri.tech/assets/neuri-logo.png", "email": "hola@neuri.tech", "address": {"@type": "PostalAddress", "addressLocality": "Phoenix", "addressRegion": "AZ", "addressCountry": "US"}, "areaServed": "Worldwide"}, {"@type": "WebSite", "@id": "https://neuri.tech/#web", "name": "Neuri", "url": "https://neuri.tech/", "inLanguage": "en-US", "publisher": {"@id": "https://neuri.tech/#org"}}]}</script>
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#04060A">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%2304060A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%238FE0B4%22/%3E%3Ccircle cx=%2223%22 cy=%229%22 r=%222%22 fill=%22%23E9EEF2%22/%3E%3C/svg%3E">
+
+<meta name="theme-color" content="#F6F4EE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%230B5E3A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%23F6F4EE%22/%3E%3C/svg%3E">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist-latin-wght.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist-mono-latin-wght.woff2" crossorigin>
-<style>@font-face{font-family:Geist;font-style:normal;font-weight:300;font-display:swap;src:url(/assets/fonts/geist-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Geist;font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/geist-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Geist;font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/geist-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Geist;font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/geist-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Geist;font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/geist-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Geist;font-style:normal;font-weight:800;font-display:swap;src:url(/assets/fonts/geist-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Geist Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/geist-mono-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Geist Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/geist-mono-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Geist Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/geist-mono-latin-wght.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
-<script src="/assets/vendedor.js" defer></script>
-<script>(function(){var d=document.documentElement;if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("m","mi");setTimeout(function(){d.classList.remove("m")},3000)}})();</script>
 <style>
+@font-face{font-family:Geist;src:url(/assets/fonts/geist-latin-wght.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(/assets/fonts/geist-mono-latin-wght.woff2) format("woff2");font-weight:100 900;font-display:swap}
 :root{
-  --space:#04060A;--space2:#05080D;--space3:#070A10;--panel:#0B1118;
-  --ink:#E9EEF2;--ink2:#B7C2CC;--sub:#9AA6B2;--dim:#9AA6B2;--faint:#7D8994;
-  --mint:#8FE0B4;--mint2:#B5EDCD;--core:#E9FFF4;--peach:#F3B38F;--coral:#FF8A7A;
-  --line:rgba(233,238,242,.08);--line2:rgba(233,238,242,.12);--line3:rgba(233,238,242,.25);
-  --sans:Geist,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Geist Mono",ui-monospace,monospace;
-  --ease:cubic-bezier(.2,.8,.2,1);
-  color-scheme:dark;
+  --wall:#F6F4EE;--panel:#FFFFFF;--line:#E4E2DB;--line2:#EDEBE5;--night:#EFEDE6;
+  --ink:#05080D;--ink2:#3D423E;--sub:#6A6F69;--faint:#696E67;
+  --green:#0B5E3A;--greenDk:#084A2D;--mint:#8FE0B4;--blush:#E3EFE7;
+  --bots:#0B5E3A;--bazar:#B4441A;--consulting:#1F7A52;--marketing:#C2341D;
+  --sans:Geist,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --w:1200px;--pad:32px;--ease:cubic-bezier(.16,1,.3,1)
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--space);-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--space);color:var(--ink);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:var(--ink)}a:hover{color:var(--mint)}
-:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
-::selection{background:var(--mint);color:var(--space)}
-/* Entrada del hero con CSS desde la primera pintura (.mi lo pone el script del <head>): no espera a GSAP, así el texto (LCP) se pinta de inmediato.
-   fill «backwards»: al terminar no pisa los transform/opacity que luego pone GSAP (palabra rotativa, botones magnéticos). */
-.m .orb{opacity:0}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-/* El párrafo es el LCP: pinta a casi cero, se ve igual y el navegador ya no espera la entrada (B-O1) */
-@keyframes rise-p{from{opacity:.01;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes wup{from{transform:translateY(115%)}to{transform:none}}
-.mi .badge{animation:rise .6s var(--ease) backwards}
-.mi #x-h1 .wi{animation:wup 1.1s cubic-bezier(.16,1,.3,1) backwards;animation-delay:calc(.05s + var(--i) * .07s)}
-.mi .rot>span{animation:rise 1s .3s var(--ease) backwards,hue 6s ease-in-out infinite alternate}
-.mi .dock a{animation:rise .55s .5s var(--ease) backwards}.mi .dock a:nth-child(2){animation-delay:.57s}.mi .dock a:nth-child(3){animation-delay:.64s}.mi .dock a:nth-child(4){animation-delay:.71s}
-.mi .hero-p{animation:rise-p .9s .4s var(--ease) backwards}
-.mi .hero .ctas .btn{animation:rise .7s .5s var(--ease) backwards}.mi .hero .ctas .btn+.btn{animation-delay:.58s}
-.mono{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase}
-.page{overflow-x:clip}
-.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .12em .1em 0;margin:0 -.12em -.1em 0}.wi{display:inline-block;will-change:transform}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--wall);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:"ss01","cv11";text-rendering:optimizeLegibility}
+::selection{background:#CFE7D9;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+img{display:block;max-width:100%;height:auto}
+.w{max-width:var(--w);margin:0 auto;padding:0 var(--pad)}
+.x-skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:10px;z-index:99}.x-skip:focus{left:12px}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;text-wrap:balance;color:var(--ink)}
+p{margin:0;text-wrap:pretty}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:0}
+html{scrollbar-color:#CFCDC6 transparent}
 
-/* encabezado */
-.top{position:relative;z-index:6;max-width:1280px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{text-decoration:none;display:inline-flex;align-items:center;gap:12px;min-height:44px}
-.brand span{font-weight:700;font-size:22px;letter-spacing:-.04em}
-.nav{display:flex;align-items:center;gap:28px;flex-wrap:nowrap}
-.nav>*{white-space:nowrap;flex-shrink:0}
-.nav a.l{text-decoration:none;font-size:12.5px;color:var(--sub);min-height:44px;display:inline-flex;align-items:center}
-.nav a.l:hover{color:var(--ink)}
-.nav a.l.mk{color:var(--coral)}.nav a.l.cs{color:var(--mint)}
-.nav a.lang{text-decoration:none;font-weight:600;font-size:14px;color:var(--ink);min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;border:1px solid rgba(233,238,242,.28);border-radius:999px}
-.pill{text-decoration:none;font-weight:600;font-size:15px;padding:0 18px;border-radius:999px;border:1px solid var(--line3);min-height:44px;display:inline-flex;align-items:center;color:var(--ink);background:none;transition:box-shadow .2s,background .2s}
-.pill:hover{box-shadow:0 0 0 1px var(--mint),0 12px 40px -8px rgba(143,224,180,.55);color:var(--ink)}
-details.dd{position:relative}
-details.dd summary{list-style:none;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--ink);padding:0 14px;border:1px solid rgba(233,238,242,.28);border-radius:999px}
-details.dd summary::-webkit-details-marker{display:none}
-details.dd [role=menu]{position:absolute;right:0;top:calc(100% + 8px);min-width:230px;background:var(--panel);border:1px solid rgba(233,238,242,.18);border-radius:14px;padding:8px;z-index:20;box-shadow:0 12px 40px rgba(0,0,0,.45)}
-details.dd [role=menu] a{display:flex;min-height:44px;align-items:center;padding:0 12px;color:var(--ink);text-decoration:none;border-radius:10px;font-size:15px;white-space:nowrap}
-details.dd [role=menu] a:hover,details.dd [role=menu] a:focus-visible{background:rgba(143,224,180,.12)}
-.hide-md{display:none!important}
-@media(max-width:1180px){.hide-lg{display:none!important}}
-@media(max-width:900px){.hide-sm{display:none!important}}
-@media(max-width:560px){.hide-xs{display:none!important}.top{padding:16px;gap:10px}.nav{gap:8px}details.dd [role=menu]{position:fixed;left:16px;right:16px;top:76px;min-width:0}}
-@media(max-width:430px){.hide-xxs{display:none!important}}
-
-/* ambiente */
-.stars{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.75;background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 140px 80px,rgba(255,255,255,.7),transparent),radial-gradient(1.5px 1.5px at 90px 160px,rgba(143,224,180,.8),transparent);background-size:220px 220px,300px 300px,420px 420px;animation:drift 90s linear infinite}
-@keyframes drift{to{background-position:0 -600px,0 -400px,0 -260px}}
-.aur{position:absolute;z-index:0;pointer-events:none;border-radius:50%;filter:blur(80px);opacity:.55}
-.floor{position:absolute;left:-20%;right:-20%;bottom:-2px;height:46%;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(143,224,180,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(143,224,180,.22) 1px,transparent 1px);background-size:64px 64px;transform:perspective(520px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%);animation:floor 6s linear infinite}
-@keyframes floor{to{background-position:0 64px}}
-canvas.fx{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+/* nav */
+.top{position:sticky;top:0;z-index:20;background:rgba(246,244,238,.95);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.s{border-bottom-color:var(--line)}
+.top .w{display:flex;align-items:center;height:60px;gap:28px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:500;font-size:16px;letter-spacing:-.02em}
+.brand svg{display:block}
+.nav{display:flex;align-items:center;gap:26px;margin-left:auto;font-size:14px;color:#585D57}
+.nav>a:not(.btn):hover,.dd>summary:hover{color:var(--ink)}
+.dd{position:relative}
+.dd>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:5px}
+.dd>summary::-webkit-details-marker{display:none}
+.dd>summary::after{content:"";width:5px;height:5px;border-right:1.2px solid currentColor;border-bottom:1.2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.6}
+.dd [role=menu]{position:absolute;right:0;top:calc(100% + 12px);min-width:240px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px;box-shadow:0 12px 32px -12px rgba(5,8,13,.18)}
+.dd [role=menu] a{display:block;padding:8px 10px;border-radius:8px;color:var(--ink2);font-size:14px}
+.dd [role=menu] a:hover{background:var(--wall);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:999px;font:500 14px/1 var(--sans);letter-spacing:-.01em;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.btn.p{background:var(--ink);color:#fff}.btn.p:hover{background:#1E2420}
+.btn.g{border:1px solid var(--line);background:var(--panel);color:var(--ink)}.btn.g:hover{border-color:#CBC9C1}
+.btn.sm{height:34px;padding:0 14px;font-size:13.5px}
+.btn svg{width:14px;height:14px}
 
 /* hero */
-.hero{position:relative;padding:24px 28px 150px}
-.hero-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:48px}
-.hero-txt{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:26px}
-.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;font-size:12px;color:var(--mint);border:1px solid rgba(143,224,180,.35);background:rgba(143,224,180,.06);padding:8px 14px;border-radius:999px}
-.live{width:8px;height:8px;border-radius:50%;background:var(--mint);animation:live 1.6s infinite;flex-shrink:0}
-@keyframes live{0%{box-shadow:0 0 0 0 rgba(143,224,180,.6)}100%{box-shadow:0 0 0 9px rgba(143,224,180,0)}}
-h1{margin:0;font-weight:700;font-size:clamp(52px,6.6vw,96px);line-height:.92;letter-spacing:-.06em}
-.rot{display:inline-grid;vertical-align:top;padding-bottom:.08em}
-/* El texto con degradado se pinta solo dentro de su caja; con letter-spacing negativo la última letra se salía (T36). */
-.rot>span{grid-area:1/1;white-space:nowrap;background:linear-gradient(92deg,#8FE0B4,#F3B38F 50%,#8FE0B4);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.14em;margin-right:-.1em;animation:hue 6s ease-in-out infinite alternate}
-@keyframes hue{to{background-position:100% 0}}
-.hero-p{margin:0;font-size:21px;line-height:1.5;color:var(--ink2);max-width:34em;font-weight:300}
-.ctas{display:flex;gap:12px;flex-wrap:wrap}
-.btn{position:relative;text-decoration:none;font-weight:600;font-size:16px;padding:0 24px;border-radius:999px;min-height:52px;display:inline-flex;align-items:center;gap:10px;transition:box-shadow .2s,background .2s;will-change:transform}
-.btn:hover{box-shadow:0 0 0 1px var(--mint),0 12px 40px -8px rgba(143,224,180,.55)}
-.btn.solid{background:var(--ink);color:var(--space)}.btn.solid:hover{color:var(--space)}
-.btn.mint{background:var(--mint);color:var(--space)}.btn.mint:hover{color:var(--space)}
-.btn.ghost{color:var(--ink);border:1px solid var(--line3)}
-.btn svg{pointer-events:none}
-.x-kbd{font-family:var(--mono);font-size:12px;border:1px solid rgba(233,238,242,.3);border-radius:6px;padding:2px 6px;pointer-events:none}
-.show-xs{display:none!important}
-@media(max-width:560px){.show-xs{display:inline-flex!important}.hide-xs-cta{display:none!important}}
-@media (hover:none),(pointer:coarse){.x-kbd{display:none !important}}
+.hero{padding:96px 0 0}
+.hero h1{font-size:clamp(40px,5.4vw,68px);line-height:1.02;letter-spacing:-.045em;max-width:17ch}
+.hero h1 span{color:#80857F}
+.hero .sub{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-top:28px}
+.hero .sub p{font-size:18px;line-height:1.55;color:var(--ink2);max-width:34em}
+.hero .act{display:flex;gap:10px;flex-shrink:0}
 
-/* dock de productos (celular, primera pantalla) */
-.dock{display:none;grid-template-columns:1fr 1fr;gap:8px}
-.dock a{display:flex;align-items:center;gap:8px;min-height:44px;padding:7px 12px;border:1px solid var(--line2);border-radius:14px;background:rgba(255,255,255,.03);text-decoration:none;font-weight:600;font-size:14px;letter-spacing:-.01em;color:var(--ink)}
-.dock a i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c);flex:none}
-.dock a small{display:block;font:400 10px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-top:2px}
+/* day instrument */
+.day{margin-top:64px;background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 0 rgba(5,8,13,.02),0 40px 80px -60px rgba(5,8,13,.28);overflow:hidden}
+.day-h{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line2);font-size:13.5px;color:var(--sub)}
+.day-h b{font-weight:500;color:var(--ink)}
+.legend{display:flex;gap:18px;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none}
+.plot{position:relative;margin:0 24px;height:470px}
+.lane-l{position:absolute;left:0;width:132px;font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:8px;height:20px;transform:translateY(-50%)}
+.track{position:absolute;left:148px;right:0;top:0;bottom:0}
+.night{position:absolute;top:0;bottom:36px;background:var(--night)}
+.night i{position:absolute;top:12px;left:12px;font-style:normal;font-size:12px;color:#585D57}
+.hr{position:absolute;top:0;bottom:36px;width:1px;background:var(--line2)}
+.hr.m{background:var(--line)}
+.hl{position:absolute;bottom:10px;transform:translateX(-50%);font-size:12px;color:var(--faint)}
+.lane{position:absolute;left:0;right:0;height:1px;background:var(--line2)}
+.ev{position:absolute;transform:translate(-50%,-50%);z-index:2}
+.ev .pin{display:block;width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px var(--panel)}
+.ev .tag{position:absolute;left:-1px;bottom:16px;width:max-content;max-width:172px;padding:7px 10px 8px;background:var(--panel);border:1px solid var(--line);border-radius:10px;font-size:12.5px;line-height:1.35;color:var(--ink2);box-shadow:0 6px 16px -10px rgba(5,8,13,.18)}
+.ev .tag .mono{display:block;font-size:12px;color:var(--sub);margin-bottom:2px}
+.ev.r .tag{left:auto;right:-1px}
+.cursor{position:absolute;top:0;bottom:36px;width:0;left:0;pointer-events:none;z-index:1}.cursor b{z-index:3}
+.cursor::before{content:"";position:absolute;top:0;bottom:0;left:-.5px;width:1px;background:var(--ink)}
+.cursor b{position:absolute;bottom:-29px;left:0;transform:translateX(-50%);font:500 12px/1 var(--mono);background:var(--ink);color:#fff;padding:5px 7px;border-radius:6px;white-space:nowrap}
+.day-f{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 24px;border-top:1px solid var(--line2);font-size:13.5px;color:var(--sub)}
+.day-f .k{display:flex;gap:28px;flex-wrap:wrap}
+.day-f .k b{font-weight:500;color:var(--ink)}
+.feed{display:none}
 
-/* órbita */
-.orb-col{flex:1 1 440px;min-width:0;display:flex;justify-content:center;position:relative}
-.orb{position:relative;width:min(480px,100%);aspect-ratio:1}
-.orb svg.coreart{position:absolute;inset:6%;width:88%;height:88%;overflow:visible}
-.spin{transform-origin:210px 210px;animation:spin 28s linear infinite}
-.spin-r{transform-origin:210px 210px;animation:spin 40s linear infinite reverse}
-.spin-f{transform-origin:210px 210px;animation:spin 12s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.corepulse{transform-origin:210px 210px;animation:cpulse 3.2s ease-in-out infinite}
-@keyframes cpulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-.fire{animation:fire 1.6s ease-in-out infinite}
-@keyframes fire{0%,100%{opacity:.35;r:6}50%{opacity:1;r:9}}
-.syn{stroke-dasharray:6 14;animation:dash 3s linear infinite}
-@keyframes dash{to{stroke-dashoffset:-200}}
-.ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(233,238,242,.14)}
-.planets{position:absolute;inset:0;z-index:2}
-.planet{position:absolute;left:50%;top:50%;width:0;height:0}
-.planet a{position:absolute;left:0;top:0;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:var(--ink);min-width:44px;min-height:44px;outline-offset:6px}
-.planet .ball{position:relative;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--c) 45%,color-mix(in srgb,var(--c) 40%,#04060A));box-shadow:0 0 18px 2px color-mix(in srgb,var(--c) 60%,transparent)}
-.planet .ball::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid var(--c);opacity:.5;animation:halo 2.4s ease-out infinite}
-@keyframes halo{0%{transform:scale(.7);opacity:.7}100%{transform:scale(2.2);opacity:0}}
-.planet .tag{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 11px;border-radius:12px;background:rgba(4,6,10,.85);border:1px solid var(--line2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s,background .25s}
-.planet .tag b{font-size:15px;letter-spacing:-.02em;font-weight:700;white-space:nowrap}
-.planet .tag small{font:400 9.5px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c);white-space:nowrap}
-.planet a:hover .tag,.planet a:focus-visible .tag{border-color:var(--c);background:rgba(4,6,10,.92)}
-.planet a:hover{color:var(--ink)}
-.float{position:absolute;opacity:.92;font-size:11px;color:var(--sub);background:rgba(4,6,10,.75);border:1px solid var(--line2);border-radius:12px;padding:10px 12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;flex-direction:column;gap:4px;z-index:1}
-.float b{font-weight:400;color:var(--ink);font-size:13px;letter-spacing:.02em;text-transform:none;font-family:var(--sans)}
-.clock{position:absolute;bottom:-6%;left:0;right:0;text-align:center;font-size:11px;color:var(--sub)}
-@media(max-width:560px){.planet .tag small{display:none}.hero{padding:12px 16px 90px}.hero-txt{gap:16px}h1{font-size:44px}.hero-p{font-size:17.5px}.dock{display:grid}.orb{width:100%}.planet .tag b{font-size:13px}.planet .tag{padding:5px 8px}.float{display:none}.badge{font-size:11px;padding:7px 12px}}
+/* sections */
+section{padding:160px 0 0}
+.sh{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.sh h2{font-size:clamp(32px,3.6vw,48px);line-height:1.06}
+.sh p{color:var(--ink2);font-size:17px;max-width:30em;justify-self:end}
 
-/* EEG + marquesina */
-.eegband{position:relative;z-index:2;background:var(--space);padding:0 0 10px}
-.eegband .in{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:18px}
-.eegband .k{font-size:11px;color:var(--mint);white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
-.eegband .v{font-size:11px;color:var(--sub);white-space:nowrap;font-variant-numeric:tabular-nums}
-.mwrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-.eeg{display:flex;width:max-content}
-.capband{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;background:var(--space3)}
-.marq{display:flex;gap:56px;width:max-content;font-size:13px;color:var(--sub)}
-.marq span{display:inline-flex;align-items:center;gap:14px;white-space:nowrap}
-.marq span i{font-style:normal;color:var(--mint)}
-.marq span:nth-child(3n) i{color:var(--peach)}
+/* products */
+.prods{border-top:1px solid var(--line)}
+.prod{display:grid;grid-template-columns:260px 1fr 300px;gap:40px;padding:36px 0;border-bottom:1px solid var(--line);align-items:start;transition:background .3s}
+.prod h3{font-size:26px;letter-spacing:-.03em;display:flex;align-items:center;gap:12px}
+.prod h3 .dot{width:8px;height:8px}
+.prod .st{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;color:var(--sub)}
+.prod .st i{width:6px;height:6px;border-radius:50%;background:var(--c)}
+.prod .st.off i{background:transparent;box-shadow:inset 0 0 0 1.2px var(--faint)}
+.prod .d{color:var(--ink2);max-width:36em}
+.prod .more{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px;font-weight:500;color:var(--ink)}
+.prod .more svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.prod a.more:hover svg{transform:translateX(3px)}
+.facts{display:grid;gap:14px;margin:0}
+.facts div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line2);padding-bottom:14px}
+.facts div:last-child{border-bottom:0;padding-bottom:0}
+.facts dt{color:var(--sub);font-size:14px}
+.facts dd{margin:0;font-weight:500;font-size:14px;text-align:right}
 
-/* secciones */
-.k-mono{margin:0;font-size:12px;color:var(--mint)}
-h2{margin:0;font-size:clamp(38px,5vw,68px);line-height:.98;letter-spacing:-.05em;font-weight:700}
-.s-p{margin:0;color:var(--sub);font-size:18px;line-height:1.5;font-weight:300}
-.man{max-width:1120px;margin:0 auto;padding:150px 28px}
-.man p.big{margin:28px 0 0;font-size:clamp(32px,4.6vw,60px);line-height:1.12;letter-spacing:-.035em;font-weight:500}
-.man .mw.hl{color:var(--mint)}.man .mw.hl2{color:var(--peach)}
+/* screens */
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.shot{display:block}
+.shot .fr{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 14px 0;overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-start;justify-content:center;transition:border-color .25s}
+.shot:hover .fr{border-color:#CBC9C1}
+.shot img{width:100%;border-radius:10px 10px 0 0;border:1px solid var(--line2);border-bottom:0}
+.shot .cap{margin-top:14px;font-size:14px}
+.shot .cap b{display:flex;align-items:center;gap:8px;font-weight:500}
+.shot .cap span{display:block;color:var(--sub);font-size:13px;margin-top:2px}
 
-.sis{max-width:1280px;margin:0 auto;padding:40px 28px 140px}
-.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
-.sh>div{display:flex;flex-direction:column;gap:16px;max-width:720px}
-.sh>p{max-width:26em;font-size:17px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:20px}
-.card{text-decoration:none;color:var(--ink);position:relative;overflow:hidden;border:1px solid var(--line2);border-radius:28px;padding:32px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));display:flex;flex-direction:column;gap:22px;min-height:420px;transition:border-color .3s,background .3s;--mx:50%;--my:0%}
-.card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx) var(--my),color-mix(in srgb,var(--c) 18%,transparent),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none}
-.card:hover{border-color:color-mix(in srgb,var(--c) 55%,transparent);color:var(--ink)}
-.card:hover::before{opacity:1}
-.scan{position:absolute;left:0;right:0;top:0;height:100%;background:linear-gradient(to bottom,transparent,color-mix(in srgb,var(--c) 8%,transparent) 48%,color-mix(in srgb,var(--c) 25%,transparent) 50%,transparent 52%);animation:scan 4.5s linear infinite;pointer-events:none}
-@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
-.card>*{position:relative}
-.card .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.card .code{font-size:12px;color:var(--sub)}
-.card .st{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;color:var(--c);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);padding:6px 10px;border-radius:999px}
-.card .st i{width:7px;height:7px;border-radius:50%;background:var(--c)}
-.card h3{margin:0 0 12px;font-size:clamp(34px,3.6vw,48px);letter-spacing:-.045em;font-weight:700;line-height:1}
-.card .d{margin:0;font-size:18px;color:var(--ink2);line-height:1.5;font-weight:300}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:auto}
-.stats div{border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(4,6,10,.5);display:flex;flex-direction:column;gap:6px;min-width:0}
-.stats b{font-size:clamp(18px,2vw,24px);font-weight:700;letter-spacing:-.03em;color:var(--c);overflow-wrap:anywhere}
-.stats>div>span{font-size:10.5px;color:var(--sub)}
-@media(max-width:560px){.stats{grid-template-columns:1fr;gap:6px}.stats div{flex-direction:row;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 14px}.stats b{font-size:18px;overflow-wrap:normal;white-space:nowrap}.stats>div>span{text-align:right}}
-.card .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
-.card .go svg{transition:transform .25s var(--ease)}.card:hover .go svg{transform:translateX(5px)}
+/* how */
+.how{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden}
+.step{padding:32px 28px 30px;border-right:1px solid var(--line2);position:relative}
+.step:last-child{border-right:0}
+.step .n{font-size:13px;color:var(--sub);display:flex;align-items:center;gap:10px}
+.step .n::after{content:"";flex:1;height:1px;background:var(--line2)}
+.step h3{font-size:20px;letter-spacing:-.02em;margin:22px 0 8px}
+.step p{color:var(--ink2);font-size:15px}
+.step .ex{margin-top:22px;padding:12px 14px;border-radius:10px;background:var(--wall);font-size:14px;color:var(--ink)}
+.step .ex .mono{display:block;font-size:12px;color:var(--sub);margin-bottom:3px}
+.note{margin-top:14px;font-size:13px;color:var(--faint)}
 
-.red{position:relative;padding:140px 28px;border-top:1px solid var(--line);background:radial-gradient(800px 420px at 50% 40%,rgba(143,224,180,.07),transparent),var(--space);overflow:hidden}
-.red .in{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
-.red .s-p{font-size:19px}
-.sigs{display:flex;gap:8px;flex-wrap:wrap}
-.sig{font:inherit;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;min-height:44px;color:var(--ink);border:1px solid rgba(233,238,242,.18);background:transparent;transition:border-color .25s,background .25s}
-.sig i{width:8px;height:8px;border-radius:50%;background:var(--c)}
-.sig[aria-pressed=true]{border-color:var(--c);background:rgba(255,255,255,.06)}
-.netbox{border:1px solid var(--line2);border-radius:28px;background:rgba(8,12,18,.7);padding:24px;overflow-x:auto}
-.netbox svg{min-width:640px;display:block;width:100%}
-.net line{transition:stroke .4s}
-.net .flow{stroke-dasharray:4 8;animation:nflow 1.1s linear infinite}
-@keyframes nflow{to{stroke-dashoffset:-60}}
-.net .h{transform-box:fill-box;transform-origin:center;animation:nhalo 1.8s ease-out infinite}
-@keyframes nhalo{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(2.6)}}
-.trace{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
-.trace div{border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.02)}
-.trace span:first-child{font-size:10.5px}
-.trace span:last-child{font-size:15.5px;color:var(--ink);line-height:1.4}
-.note{margin:0;font-size:11px;color:var(--faint)}
+/* principles */
+.prin{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.prin div{border-top:1px solid var(--ink);padding-top:22px}
+.prin h3{font-size:20px;letter-spacing:-.02em;margin-bottom:10px}
+.prin p{color:var(--ink2);font-size:15.5px}
 
-.con{position:relative;padding:140px 28px;background:radial-gradient(900px 500px at 50% 0%,rgba(243,179,143,.08),transparent),var(--space2);border-top:1px solid var(--line)}
-.con .in{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
-.con .s-p{font-size:19px}
-.term{border:1px solid rgba(233,238,242,.14);border-radius:24px;background:rgba(10,14,20,.85);box-shadow:0 40px 120px -40px rgba(143,224,180,.25);overflow:hidden}
-.term .bar{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
-.term .q{flex:1;font-size:17px;min-width:0}
-.caret{color:var(--mint);animation:blink 1s step-end infinite}
-@keyframes blink{50%{opacity:0}}
-.term .k{font-size:11px;color:var(--sub);border:1px solid rgba(233,238,242,.15);border-radius:6px;padding:3px 7px}
-.term .body{display:flex;flex-wrap:wrap}
-.cmds{flex:1 1 340px;min-width:0;padding:10px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
-.cmd{font:inherit;cursor:pointer;color:var(--ink);display:flex;align-items:center;gap:14px;width:100%;padding:12px 14px;border-radius:14px;min-height:60px;border:1px solid transparent;background:transparent;transition:background .2s,border-color .2s;text-align:left}
-.cmd:hover{background:rgba(255,255,255,.06)}
-.cmd[aria-selected=true]{border-color:rgba(143,224,180,.4);background:rgba(143,224,180,.08)}
-.cmd .ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;background:var(--ib);color:var(--ic)}
-.cmd .t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
-.cmd .t b{font-size:15.5px;font-weight:500}.cmd .t small{font-size:10.5px;color:var(--sub)}
-.cmd .sc{font-size:11px;color:var(--sub)}
-.log{flex:999 1 420px;min-width:0;padding:22px 24px;font-family:var(--mono);font-size:14px;line-height:1.75;min-height:300px;display:flex;flex-direction:column;gap:4px}
-.log .ln{overflow-wrap:anywhere}
-.log .run{color:var(--sub)}
-.log .foot{margin-top:auto;padding-top:18px;color:var(--faint);font-size:11.5px}
+/* road */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.road div{padding:24px 28px 0 0}
+.road .s{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--sub)}
+.road .s i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.road .s.wip i{background:transparent;box-shadow:inset 0 0 0 1.2px var(--bazar)}
+.road h3{font-size:17px;letter-spacing:-.015em;margin:12px 0 6px}
+.road p{color:var(--sub);font-size:14.5px}
 
-.pri{max-width:1280px;margin:0 auto;padding:140px 28px}
-.pri h2{margin:16px 0 56px;max-width:16ch}
-.prin{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:rgba(233,238,242,.1);border:1px solid rgba(233,238,242,.1);border-radius:24px;overflow:hidden}
-.prin>div{background:var(--space);padding:34px 30px;display:flex;flex-direction:column;gap:18px;min-height:280px;transition:background .3s}
-.prin>div:hover{background:#070A10}
-.prin .n{font-size:12px;color:var(--sub)}
-.prin h3{margin:0;font-size:28px;letter-spacing:-.035em;font-weight:600}
-.prin p{margin:0;color:var(--sub);font-size:16.5px;line-height:1.55;font-weight:300}
+/* close */
+.fin{padding:200px 0 160px;text-align:left}
+.fin .w{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end}
+.fin h2{font-size:clamp(40px,5vw,68px);line-height:1.02;letter-spacing:-.045em}
+.fin p{color:var(--ink2);font-size:17px;max-width:28em}
+.fin .act{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:13.5px;color:var(--sub)}
+footer .w{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer nav{display:flex;gap:20px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
 
-.lab{position:relative;padding:140px 28px;border-top:1px solid var(--line);background:var(--space2);overflow:hidden}
-.lab .stars{opacity:.35}
-.lab .in{position:relative;max-width:1280px;margin:0 auto}
-.lab h2{margin:16px 0 18px}.lab .s-p{margin:0 0 60px;max-width:34em}
-.road{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:28px}
-.road .rail{position:absolute;left:0;right:0;top:13px;height:1px;background:linear-gradient(90deg,#8FE0B4,rgba(243,179,143,.6),rgba(233,238,242,.1));transform-origin:left}
-.road>div:not(.rail){position:relative;display:flex;flex-direction:column;gap:14px}
-.dot{width:27px;height:27px;border-radius:50%;border:1px solid var(--c);background:var(--space2);display:flex;align-items:center;justify-content:center}
-.dot i{width:9px;height:9px;border-radius:50%;background:var(--c)}
-.road .st{font-size:11.5px;color:var(--c)}
-.road h3{margin:0;font-size:22px;letter-spacing:-.03em;font-weight:600}
-.road p{margin:0;color:var(--sub);font-size:15.5px;line-height:1.55;font-weight:300}
-@media(max-width:900px){.road .rail{display:none}}
+@media (max-width:1080px){
+  .nav .hide-md{display:none}
+  .prod{grid-template-columns:1fr 1fr;gap:20px 40px}.prod .facts{grid-column:2}.prod>div:nth-child(2){grid-column:1/-1;grid-row:2}
+  .shots{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  :root{--pad:20px}
+  .nav .hide-sm{display:none}.nav{gap:18px}
+  .hero{padding-top:56px}
+  .hero .sub{flex-direction:column;align-items:flex-start;gap:24px}
+  .hero .sub p{font-size:17px}
+  .day{margin-top:44px}
+  .day-h{flex-direction:column;align-items:flex-start;padding:16px 18px}.legend{display:none}
+  .plot{display:none}
+  .feed{display:block;list-style:none;margin:0;padding:8px 18px 4px}
+  .feed li{display:grid;grid-template-columns:54px 12px 1fr;gap:10px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line2);font-size:14.5px;color:var(--ink2)}
+  .feed li:last-child{border-bottom:0}
+  .feed .mono{font-size:13px;color:var(--sub)}
+  .feed .dot{transform:translateY(-1px)}
+  .feed .nt{color:var(--sub);font-size:12px;display:block}
+  .day-f{padding:14px 18px}.day-f .k{gap:16px}
+  section{padding-top:112px}
+  .sh{grid-template-columns:1fr;gap:16px;margin-bottom:36px}.sh p{justify-self:start}
+  .prod{grid-template-columns:1fr;gap:16px}.prod .facts,.prod>div:nth-child(2){grid-column:auto;grid-row:auto}
+  .shots{grid-template-columns:1fr 1fr;gap:14px}
+  .how{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line2)}.step:last-child{border-bottom:0}
+  .prin{grid-template-columns:1fr;gap:32px}
+  .road{grid-template-columns:1fr 1fr;gap:0 20px}.road div{padding-right:0;padding-bottom:20px}
+  .fin{padding:128px 0 96px}.fin .w{grid-template-columns:1fr;gap:20px}
+}
+@media (max-width:420px){.nav .hide-xs{display:none}.shots{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* hero: luz del día */
+.hero{position:relative;isolation:isolate}
+.sky{position:absolute;inset:-60px 0 auto 0;height:900px;z-index:-1;pointer-events:none;background:radial-gradient(60% 55% at 78% 18%,var(--sun,#FCE9DC) 0%,rgba(246,244,238,0) 70%),radial-gradient(50% 50% at 12% 40%,var(--sun2,#E3EFE7) 0%,rgba(246,244,238,0) 70%);opacity:.9;transition:opacity .6s}
+.hero h1{font-size:clamp(44px,6.4vw,88px)}
+.day-f b.mono{display:inline-block;min-width:1.4em;text-align:right}
 
-.fin{position:relative;padding:170px 28px 150px;text-align:center;overflow:hidden}
-.fin .in{position:relative;z-index:2;max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:26px}
-.fin h2{font-size:clamp(44px,7vw,96px);line-height:.94;letter-spacing:-.06em}
-.fin p:not(.k-mono){margin:0;font-size:20px;color:var(--ink2);max-width:32em;font-weight:300;line-height:1.5}
-.fin .btn{font-size:17px;min-height:56px;padding:0 28px}
-.fin .ctas{justify-content:center}
+/* historia fijada */
+.story{padding:0;position:relative}
+.stage{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;background:var(--bg,#FCE9DC);color:var(--fg,#05080D);transition:none}
+.stage-in{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;width:100%}
+.clock{font-size:clamp(80px,11vw,160px);font-weight:500;letter-spacing:-.055em;line-height:1;color:inherit;font-variant-numeric:tabular-nums}
+.chapters{list-style:none;margin:36px 0 0;padding:0;display:grid}
+.chapters li{grid-area:1/1;opacity:0;transform:translateY(12px);pointer-events:none}
+.chapters li.on{opacity:1;transform:none;pointer-events:auto}
+.chapters .who{display:inline-flex;align-items:center;gap:8px;font-size:14px;opacity:.75}
+.chapters h3{font-size:clamp(26px,2.6vw,38px);line-height:1.12;letter-spacing:-.035em;margin:14px 0 12px;color:inherit;max-width:16ch}
+.chapters p{font-size:17px;opacity:.78;max-width:30em}
+.story-note{margin-top:28px;font-size:13px;opacity:.6}
+.art{position:relative;height:520px}
+.a{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden}
+.a.on{opacity:1;visibility:visible}
+/* marketing */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
+.post{aspect-ratio:4/5;border-radius:16px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:0 30px 60px -40px rgba(5,8,13,.5)}
+.post span{font-size:19px;font-weight:500;letter-spacing:-.02em;line-height:1.15}
+.post small{font-size:12px;opacity:.92}
+.p1{background:#0B5E3A}.p2{background:#A63E17}.p3{background:#05080D}
+.a-mk{flex-direction:column;gap:16px}
+.appr{display:flex;justify-content:space-between;align-items:center;width:100%;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 12px 12px 18px;font-size:14.5px;color:var(--ink)}
+.ok-btn{background:var(--ink);color:#fff;border-radius:999px;padding:9px 14px;font-weight:500;font-size:13.5px}
+/* chat */
+.chat{width:min(400px,100%);background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 40px 80px -50px rgba(5,8,13,.45);display:flex;flex-direction:column;gap:10px;color:var(--ink)}
+.chat-h{display:flex;gap:10px;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--line2);margin-bottom:4px}
+.chat-h .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#FCE9DC,#E3EFE7);box-shadow:inset 0 0 0 1px var(--line)}
+.chat-h b{display:block;font-weight:500;font-size:14.5px}.chat-h small{color:var(--sub);font-size:12.5px}
+.bub{max-width:80%;padding:10px 14px;border-radius:18px;font-size:15px;line-height:1.4}
+.bub.in{background:#EFEDE6;align-self:flex-start;border-bottom-left-radius:6px}
+.bub.out{background:var(--green);color:#fff;align-self:flex-end;border-bottom-right-radius:6px}
+.chat-f{margin-top:6px;font-size:13px;color:var(--sub)}.chat-f .mono{color:var(--green);font-weight:500;margin-right:4px}
+/* ticket */
+.ticket{width:min(380px,100%);background:#fff;border-radius:6px;padding:24px 24px 20px;box-shadow:0 40px 80px -50px rgba(5,8,13,.45);color:var(--ink);font-size:14.5px;position:relative;-webkit-mask:radial-gradient(circle 7px at 50% 0,#0000 98%,#000) top/18px 51% repeat-x,radial-gradient(circle 7px at 50% 100%,#0000 98%,#000) bottom/18px 51% repeat-x}
+.tk-h{display:flex;justify-content:space-between;padding-bottom:14px;margin-bottom:10px;border-bottom:1px dashed #D8D5CC}.tk-h b{font-weight:500}.tk-h .mono{color:var(--sub);font-size:13px}
+.tk-r{display:flex;justify-content:space-between;gap:12px;padding:6px 0}
+.tk-r.sub{color:var(--sub);font-size:13.5px}
+.tk-r .up{color:var(--green)}
+.tk-sep{border-top:1px dashed #D8D5CC;margin:8px 0}
+.tk-r.tot{font-weight:500;font-size:17px;border-top:1px solid var(--ink);margin-top:8px;padding-top:12px}
+.tk-f{margin-top:14px;font-size:12.5px;color:var(--sub);text-align:center}
+/* score */
+.score{width:min(420px,100%);background:#fff;border-radius:22px;padding:26px;box-shadow:0 40px 80px -50px rgba(5,8,13,.45);color:var(--ink)}
+.sc-h{display:flex;justify-content:space-between;font-size:14.5px}.sc-h small{color:var(--sub)}
+.sc-n{display:flex;align-items:baseline;gap:6px;margin:10px 0 18px}.sc-n b{font-size:76px;font-weight:500;letter-spacing:-.05em;line-height:1}.sc-n span{color:var(--sub)}
+.bars{display:grid;gap:12px;margin-bottom:22px}
+.bars div{display:grid;gap:6px;font-size:13.5px;color:var(--ink2)}
+.bars i{display:block;height:6px;border-radius:3px;background:#EFEDE6;position:relative;overflow:hidden}
+.bars i::after{content:"";position:absolute;inset:0;width:calc(var(--v)*100%);background:var(--consulting);border-radius:3px}
+.tasks{display:grid;gap:8px;font-size:14px;padding-top:16px;border-top:1px solid var(--line2)}
+.tasks b{font-weight:500}.tasks span{color:var(--ink2);padding-left:14px;position:relative}.tasks span::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--consulting)}
+/* corte */
+.corte{width:min(400px,100%);border:1px solid rgba(143,224,180,.25);border-radius:22px;padding:28px;background:rgba(255,255,255,.04);color:#F6F4EE;display:grid;gap:12px;font-size:15px}
+.ct-k{font-size:13.5px;color:#B8BDB7}
+.ct-r{display:flex;justify-content:space-between;border-bottom:1px solid rgba(246,244,238,.1);padding-bottom:12px}
+.ct-r.big{font-size:22px;font-weight:500;border:0}
+.ct-ok{color:var(--mint);font-weight:500}
 
-footer{border-top:1px solid var(--line);padding:28px;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-footer .c{font-size:11.5px;color:var(--sub)}
-footer nav{display:flex;gap:4px 22px;flex-wrap:wrap;font-size:14px}
-footer nav a{text-decoration:none;color:var(--sub);min-height:44px;display:inline-flex;align-items:center}
-@media(max-width:560px){.man,.sis,.red,.con,.pri,.lab{padding-left:16px;padding-right:16px}.man{padding-top:100px;padding-bottom:100px}.red,.con,.pri,.lab{padding-top:100px;padding-bottom:100px}.card{padding:24px;border-radius:22px;min-height:0}.eegband .in{padding:0 16px}footer{padding:28px 16px 60px}.fin{padding:120px 16px 110px}}
+/* productos con pantalla */
+.prod{grid-template-columns:220px 1fr 250px 150px!important;gap:36px!important}
+.pshot{width:150px;height:170px;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#fff;padding:8px 8px 0;box-shadow:0 20px 40px -32px rgba(5,8,13,.4)}
+.pshot img{border-radius:8px 8px 0 0}
+.prod:hover{background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0))}
 
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+/* marca */
+.brand-s .bs-top h2{font-size:clamp(34px,4.4vw,60px);line-height:1.06;letter-spacing:-.04em;max-width:20ch}
+.brand-s .bs-top h2 span{color:#80857F}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);margin:72px 0 88px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums div{padding:32px 24px 30px 0;border-right:1px solid var(--line2)}
+.nums div+div{padding-left:24px}
+.nums div:last-child{border-right:0}
+.nums b{display:block;font-size:clamp(44px,5vw,72px);font-weight:500;letter-spacing:-.05em;line-height:1}
+.nums span{display:block;margin-top:12px;color:var(--ink2);font-size:15px;max-width:16ch}
 
-/* I8: láminas con pantallas reales en teléfono (aprobadas 3-nov). A 390 se deslizan; en compu, 4 columnas. */
-.shots-h{margin:72px 0 8px;font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.03em}
-.shots-p{margin:0 0 24px;color:var(--sub);font-size:16px;max-width:40em}
-.shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
-.shot{display:flex;flex-direction:column;gap:12px;height:100%;aspect-ratio:4/5.6;position:relative;overflow:hidden;text-decoration:none;border:1px solid var(--line2);border-radius:18px;padding:20px;background:radial-gradient(90% 60% at 50% 95%,rgba(143,224,180,.28),transparent 70%),radial-gradient(70% 40% at 90% 10%,rgba(243,179,143,.16),transparent 70%),var(--panel)}
-.shot:hover{border-color:var(--line3);color:var(--ink)}
-.shot .tag{font:12px var(--mono);color:var(--mint)}
-.shot h4{margin:0;font-size:21px;line-height:1.15;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
-.shot .tel{flex:1;min-height:0;width:78%;margin:0 auto -60px;border:5px solid #1b232c;border-radius:26px 26px 0 0;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgba(143,224,180,.22)}
-.shot .tel picture,.shot .tel img{display:block;width:100%;height:auto}
-.shot .src{position:absolute;left:12px;right:12px;bottom:10px;margin:0;font-size:12px;line-height:1.3;color:var(--ink);background:rgba(4,6,10,.85);padding:4px 8px;border-radius:6px}
-/* Pestaña al taller (neuri.ventures): discreta, al final, antes del pie. */
-.vtab{max-width:1280px;margin:0 auto;padding:0 28px 28px;display:flex;justify-content:center}
-.vtab a{position:relative;display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:10px 20px 10px 14px;border:1px dashed rgba(233,238,242,.22);border-radius:16px;background:rgba(255,255,255,.02);text-decoration:none;color:var(--sub);transition:border-color .3s,color .3s,background .3s}
-.vtab a:hover,.vtab a:focus-visible{border-color:rgba(243,179,143,.6);color:var(--ink);background:rgba(243,179,143,.05)}
-.vtab .vt-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(243,179,143,.12);color:var(--peach);font-size:15px;flex:none}
-.vtab b{color:var(--ink);font-weight:600;letter-spacing:-.01em}
-.vtab small{display:block;font:400 11px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
-.vtab svg{transition:transform .25s var(--ease)}.vtab a:hover svg{transform:translateX(4px)}
-@media(max-width:560px){.vtab{padding:0 16px 20px}}
-/* Pantallas con movimiento (la captura se recorre y una capa muestra el trabajo del agente). */
-.shot .tel{position:relative}
-.shot .tel picture{will-change:transform}
-.tm{position:absolute;left:14px;right:14px;bottom:44px;display:flex;flex-direction:column;gap:6px;pointer-events:none;font:500 12px/1.3 var(--sans);z-index:2}
-.tm>*{opacity:0;align-self:flex-start;max-width:92%;padding:7px 10px;border-radius:14px;box-shadow:0 8px 24px rgba(4,6,10,.28)}
-.tm .in{background:#fff;color:#0B0F14;border:1px solid #E3E8EC;border-bottom-left-radius:4px}
-.tm .out{align-self:flex-end;background:#8FE0B4;color:#04060A;border-bottom-right-radius:4px}
-.tm .dark{background:rgba(4,6,10,.92);color:#E9EEF2;border:1px solid rgba(143,224,180,.35)}
-.tm .dark em{font-style:normal;color:#8FE0B4;font-weight:700}
-.tm .peach em{color:#F3B38F}
-.tm .typing{display:inline-flex;gap:3px}.tm .typing i{width:5px;height:5px;border-radius:50%;background:#04060A;opacity:.5}
-.tm .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:6px;background:rgba(4,6,10,.92);border:1px solid rgba(255,138,122,.4)}
-.tm .grid i{aspect-ratio:1;border-radius:5px;background:linear-gradient(135deg,#FF8A7A,#F3B38F);opacity:0}
-.tm .ring{display:flex;align-items:center;gap:8px}
-.tm .ring svg{flex:none}
-@media(max-width:900px){.shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.shots>li{flex:0 0 min(84vw,340px);scroll-snap-align:center}.shot .tel{width:66%}}
+/* cierre de noche */
+.fin{background:#05080D;color:#F6F4EE;margin-top:160px;position:relative;overflow:hidden}
+.fin::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 60% at 85% 10%,rgba(143,224,180,.12),transparent 70%),radial-gradient(30% 40% at 10% 90%,rgba(11,94,58,.35),transparent 70%);pointer-events:none}
+.fin .w{position:relative}
+.fin h2{color:#F6F4EE}
+.fin p{color:#B8BDB7}
+.fin .btn.p{background:var(--mint);color:#05080D}.fin .btn.p:hover{background:#A6E9C4}
+.fin .btn.g{background:transparent;border-color:rgba(246,244,238,.2);color:#F6F4EE}.fin .btn.g:hover{border-color:rgba(246,244,238,.4)}
+.fin .tm{display:block;font-size:14px;color:var(--mint);margin-bottom:22px}
+footer{background:#05080D;color:#9DA29C;border-top:1px solid rgba(246,244,238,.08)}
+footer a:hover{color:#F6F4EE}
+
+@media (max-width:1080px){.prod{grid-template-columns:1fr 1fr!important}.pshot{display:none}.nums{grid-template-columns:1fr 1fr}.nums div:nth-child(2){border-right:0}.nums div:nth-child(n+3){border-top:1px solid var(--line2)}.nums div:nth-child(3){padding-left:0}}
+@media (max-width:760px){
+  .stage{height:auto;min-height:0;display:block;background:none!important;color:var(--ink)!important;padding:0}
+  .stage-in{display:block}
+  .clock{display:none}.story-note{margin-top:8px}
+  .chapters{display:block;margin:0}
+  .chapters li{opacity:1;transform:none;margin-top:72px}
+  .art{height:auto}
+  .a{position:relative;opacity:1;visibility:visible;margin-top:24px}
+  .a-night{background:#05080D;border-radius:22px;padding:20px}
+  .prod{grid-template-columns:1fr!important}
+  .posts span{font-size:15px}
+  .nums{margin:48px 0 56px}.nums div{padding:22px 12px 20px 0}.nums div+div{padding-left:12px}
+  .fin{margin-top:112px}
+}
+
+.chapters li,.a{transition:opacity .5s var(--ease),transform .6s var(--ease),visibility .5s}
+.story.flat .stage{height:auto;min-height:0;display:block;background:none!important;color:var(--ink)!important;padding:0}
+.story.flat .stage-in{display:block}.story.flat .clock{display:none}
+.story.flat .chapters{display:block;margin:0}.story.flat .chapters li{opacity:1;transform:none;margin-top:72px}
+.story.flat .art{display:none}.story.flat .a{position:relative;opacity:1;visibility:visible;margin-top:24px;justify-content:flex-start}
+.story.flat .a-night{background:#05080D;border-radius:22px;padding:20px}
+.story.flat li .a{max-width:520px}
+
+#hola{position:absolute;inset:0;z-index:0;display:block;pointer-events:none}
+.fin{padding:min(30vw,420px) 0 160px!important}
+.fin .w{z-index:1}
+@media (max-width:760px){.fin{padding:250px 0 96px!important}}
+
+.prod .shot{display:block;width:150px}
+.prod .shot .fr{display:block;height:170px;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#fff;padding:8px 8px 0;box-shadow:0 20px 40px -32px rgba(5,8,13,.4);transition:border-color .25s}
+.prod .shot:hover .fr{border-color:#CBC9C1}
+.prod .shot img{border-radius:8px 8px 0 0}
+.prod .shot .src{margin-top:8px;font-size:12px;line-height:1.35;color:var(--sub)}
+@media (max-width:1080px){.prod .shot{display:none}}
 </style>
 </head>
 <body>
-<style>.x-skip{position:absolute;left:-9999px;top:8px;z-index:60;background:#E9EEF2;color:#04060A;font:600 15px/1 system-ui,sans-serif;padding:10px 14px;border-radius:10px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}.x-skip:focus{left:12px}</style>
-<a class="x-skip" href="#home">Skip to content</a>
-<div class="page">
-
-<header class="top">
-  <a class="brand" href="#home" aria-label="Neuri, home">
-    <svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#8FE0B4" stroke-width="1.5" opacity=".5"/><circle cx="15" cy="15" r="5" fill="#8FE0B4"/><g class="moon"><circle cx="26" cy="9" r="2" fill="#E9EEF2"/></g></svg>
-    <span>neuri</span>
-  </a>
-  <nav class="nav x-topnav" aria-label="Main">
-    <a class="l mono hide-sm" href="#systems">Systems</a>
-    <a class="l mono hide-sm hide-lg" href="#network">Neural net</a>
-    <a class="l mono hide-md" href="#console">Console</a>
-    <a class="l mono hide-sm hide-lg" href="#principles">Principles</a>
-    <a class="l mono hide-md" href="#lab">Lab</a>
-    <a class="l mono mk hide-sm" href="/en/marketing/">Marketing</a>
-    <a class="l mono cs hide-xxs" href="/en/ai-consulting/">AI consulting</a>
-    <a class="pill hide-xs mag" href="mailto:hola@neuri.tech">Talk to Neuri</a>
-    <a class="lang" href="/es/" hreflang="es" lang="es" aria-label="ES, Español" data-idioma>ES</a>
-    <details data-entrar class="dd"><summary>Sign in <span aria-hidden="true">▾</span></summary>
-      <div role="menu">
-        <a role="menuitem" href="https://bazar.neuri.tech/login?lang=en">neuri.bazar</a>
-        <a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=en">neuri.consulting</a>
-        <a role="menuitem" href="https://sd.neuri.tech/en/entrar">neuri.bots</a>
-        <a role="menuitem" href="https://marketing.neuri.tech/entrar?lang=en">neuri.marketing</a>
-      </div>
-    </details>
-  </nav>
+<a class="x-skip" href="#inicio">Skip to content</a>
+<header class="top" id="top">
+  <div class="w">
+    <a class="brand" href="/" aria-label="Neuri, home">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9.5" fill="none" stroke="#0B5E3A" stroke-width="1.2" opacity=".45"/><circle cx="11" cy="11" r="3.6" fill="#0B5E3A"/><circle cx="18.2" cy="6.4" r="1.5" fill="#05080D"/></svg>
+      neuri
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="hide-sm" href="#historia">Your day</a><a class="hide-sm" href="#productos">Products</a>
+      <a class="hide-md" href="#como">How it decides</a>
+      <a class="hide-md" href="#neuri">Neuri</a>
+      <a class="hide-sm" href="/en/ai-consulting/">AI consulting</a>
+      <a class="hide-xs" href="/es/" hreflang="es" lang="es">ES</a>
+      <details data-entrar class="dd"><summary>Sign in</summary>
+        <div role="menu">
+          <a role="menuitem" href="https://bazar.neuri.tech/login?lang=en">neuri.bazar</a>
+          <a role="menuitem" href="https://consulting.neuri.tech/entrar?lang=en">neuri.consulting</a>
+          <a role="menuitem" href="https://sd.neuri.tech/en/entrar">neuri.bots</a>
+          <a role="menuitem" href="https://marketing.neuri.tech/entrar?lang=en">neuri.marketing</a>
+        </div>
+      </details>
+      <a class="btn p sm hide-xs" href="mailto:hola@neuri.tech">Talk to Neuri</a>
+    </nav>
+  </div>
 </header>
 
-<main>
-<section id="home" class="hero" aria-labelledby="x-h1">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="aur a1" aria-hidden="true" style="width:620px;height:620px;top:-140px;right:-120px;background:radial-gradient(closest-side,rgba(143,224,180,.55),rgba(143,224,180,.14),transparent)"></div>
-  <div class="aur a2" aria-hidden="true" style="width:520px;height:520px;top:260px;left:-220px;background:radial-gradient(closest-side,rgba(243,179,143,.30),transparent)"></div>
-  <div class="floor" aria-hidden="true"></div>
-  <canvas class="fx" aria-hidden="true"></canvas>
-  <div class="hero-in">
-    <div class="hero-txt">
-      <span class="badge mono"><span class="live"></span>AI agents for growing businesses · English and Spanish</span>
-      <h1 id="x-h1"><span class="sp"><span class="w"><span class="wi" style="--i:0">Software</span></span> <span class="w"><span class="wi" style="--i:1">that</span></span></span> <span class="rot"><span class="rw x-wa">answers</span></span><br><span class="sp"><span class="w"><span class="wi" style="--i:2">while</span></span> <span class="w"><span class="wi" style="--i:3">you</span></span> <span class="w"><span class="wi" style="--i:4">live.</span></span></span></h1>
-      <nav class="dock" aria-label="Neuri products">
-        <a href="/en/still-available/" hreflang="en" style="--c:#8FE0B4"><i aria-hidden="true"></i><span>neuri.bots<small>Sign-up open</small></span></a>
-        <a href="/en/bazar/" hreflang="en" style="--c:#F3B38F"><i aria-hidden="true"></i><span>neuri.bazar<small>Live</small></span></a>
-        <a href="/en/ai-consulting/" hreflang="en" style="--c:#B5EDCD"><i aria-hidden="true"></i><span>neuri.consulting<small>Open</small></span></a>
-        <a href="/en/marketing/" hreflang="en" style="--c:#FF8A7A"><i aria-hidden="true"></i><span>neuri.marketing<small>Not open yet</small></span></a>
-      </nav>
-      <p class="hero-p">Neuri is a suite of AI agents that grows your business: they answer your customers at any hour, run the register and keep the books, prepare your month of content and find what else to automate. You win back hours and your business sells more, always with your prices and your rules.</p>
-      <div class="ctas">
-        <a class="btn solid mag" href="#systems">See the products<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn ghost mag hide-xs-cta" href="#console"><span class="x-kbd">⌘K</span>Try the demo</a>
-        <a class="btn ghost show-xs" href="mailto:hola@neuri.tech" data-hero-contacto>Talk to Neuri</a>
+<main id="main">
+<div class="hero" id="inicio" tabindex="-1">
+  <div class="sky" id="sky" aria-hidden="true"></div>
+  <div class="w">
+    <h1>Software that works <span>while you live.</span></h1>
+    <div class="sub">
+      <p>Neuri is a suite of AI agents that grows your business: they answer your customers, run the register, keep the books and prepare your content. With your prices and your rules, at any hour.</p>
+      <div class="act">
+        <a class="btn p" href="#productos">See the products</a>
+        <a class="btn g" href="mailto:hola@neuri.tech">Write to us</a>
       </div>
     </div>
 
-    <div class="orb-col">
-      <div class="orb">
-        <div class="ring" aria-hidden="true"></div>
-        <svg class="coreart" viewBox="0 0 420 420" role="img" aria-label="The Neuri core: a network of neurons firing around a bright center, with its four products in orbit">
-          <defs>
-            <radialGradient id="g-core" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E9FFF4"/><stop offset="35%" stop-color="#8FE0B4"/><stop offset="100%" stop-color="#8FE0B4" stop-opacity="0"/></radialGradient>
-            <linearGradient id="g-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8FE0B4"/><stop offset="100%" stop-color="#F3B38F" stop-opacity=".3"/></linearGradient>
-          </defs>
-          <g class="paral">
-          <circle cx="210" cy="210" r="200" fill="none" stroke="rgba(233,238,242,.08)"/>
-          <g class="spin-r"><circle class="draw" cx="210" cy="210" r="182" fill="none" stroke="url(#g-ring)" stroke-width="1" stroke-dasharray="2 10"/><circle cx="392" cy="210" r="5" fill="#F3B38F"/><circle cx="28" cy="210" r="3" fill="#E9EEF2"/></g>
-          <g class="spin"><circle class="draw" cx="210" cy="210" r="140" fill="none" stroke="rgba(143,224,180,.45)" stroke-width="1"/><circle cx="210" cy="70" r="6" fill="#8FE0B4"/><circle cx="350" cy="210" r="3.5" fill="#F3B38F"/><circle cx="111" cy="309" r="4" fill="#E9EEF2"/></g>
-          <g class="spin-f"><circle class="draw" cx="210" cy="210" r="96" fill="none" stroke="rgba(243,179,143,.35)" stroke-width="1" stroke-dasharray="40 18"/><circle cx="306" cy="210" r="3" fill="#F3B38F"/></g>
-          <path class="mesh" d="M120 120 L170 160 L210 130 L255 165 L300 120 M140 300 L180 255 L230 290 L275 250 L310 300 M95 210 L150 190 L170 160 M325 205 L275 250 M150 190 L180 255 M255 165 L300 210 L275 250 M210 130 L210 175 M230 290 L210 245" stroke="rgba(143,224,180,.28)" stroke-width="1" fill="none"/>
-          <g class="neur"><circle class="fire" cx="120" cy="120" r="6" fill="#8FE0B4" style="animation-delay:.1s"/><circle class="fire" cx="300" cy="120" r="6" fill="#F3B38F" style="animation-delay:.7s"/><circle class="fire" cx="140" cy="300" r="6" fill="#F3B38F" style="animation-delay:1.1s"/><circle class="fire" cx="310" cy="300" r="6" fill="#8FE0B4" style="animation-delay:.4s"/><circle class="fire" cx="95" cy="210" r="6" fill="#8FE0B4" style="animation-delay:1.4s"/><circle class="fire" cx="325" cy="205" r="6" fill="#F3B38F" style="animation-delay:.9s"/></g>
-          <g fill="#E9EEF2" opacity=".7"><circle cx="170" cy="160" r="2.5"/><circle cx="255" cy="165" r="2.5"/><circle cx="180" cy="255" r="2.5"/><circle cx="275" cy="250" r="2.5"/><circle cx="150" cy="190" r="2.5"/><circle cx="230" cy="290" r="2.5"/></g>
-          <path class="syn" d="M210 210 L210 70 M210 210 L350 210 M210 210 L111 309 M210 210 L392 210" stroke="rgba(143,224,180,.5)" stroke-width="1" fill="none"/>
-          <circle class="corepulse coreg" cx="210" cy="210" r="64" fill="url(#g-core)"/>
-          <circle class="coredot" cx="210" cy="210" r="14" fill="#04060A" stroke="#E9FFF4" stroke-width="2"/>
-          </g>
-        </svg>
-        <div class="planets" id="planets">
-          <div class="planet" data-a="-90" style="--c:#8FE0B4"><a href="/en/still-available/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.bots</b><small>Messages · Sign-up open</small></span></a></div>
-          <div class="planet" data-a="0" style="--c:#F3B38F"><a href="/en/bazar/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.bazar</b><small>Operations · Live</small></span></a></div>
-          <div class="planet" data-a="90" style="--c:#B5EDCD"><a href="/en/ai-consulting/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.consulting</b><small>Consulting · Open</small></span></a></div>
-          <div class="planet" data-a="180" style="--c:#FF8A7A"><a href="/en/marketing/" hreflang="en"><span class="ball" aria-hidden="true"></span><span class="tag"><b>neuri.marketing</b><small>Content · Not open yet</small></span></a></div>
+    <figure class="day" id="dia" aria-labelledby="dia-t" style="margin-left:0;margin-right:0">
+      <figcaption class="day-h">
+        <span id="dia-t"><b>A day in your business</b> · sample with made-up data</span>
+        <span class="legend" aria-hidden="true">
+          <span><i class="dot" style="--c:var(--bots)"></i>neuri.bots</span>
+          <span><i class="dot" style="--c:var(--bazar)"></i>neuri.bazar</span>
+          <span><i class="dot" style="--c:var(--consulting)"></i>neuri.consulting</span>
+          <span><i class="dot" style="--c:var(--marketing)"></i>neuri.marketing</span>
+        </span>
+      </figcaption>
+      <div class="plot" id="plot" aria-hidden="true">
+        <div class="track" id="track"></div>
+      </div>
+      <ol class="feed" id="feed"></ol>
+      <div class="day-f">
+        <span class="k"><span><b class="mono" data-n="41">41</b> messages answered</span><span><b class="mono" data-n="7">7</b> sales to each vendor’s balance</span><span>Register <b>balanced</b> at 11:40 pm</span></span>
+        <span>Times you touched your phone: <b class="mono">0</b></span>
+      </div>
+    </figure>
+  </div>
+</div>
+
+<section class="story" id="historia" aria-labelledby="h-t">
+  <h2 id="h-t" class="vh">Your day, hour by hour</h2>
+  <div class="stage" id="stage">
+    <div class="w stage-in">
+      <div class="clock-col">
+        <div class="clock" id="clock" aria-hidden="true">06:30</div>
+        <ol class="chapters" id="chapters">
+          <li data-t="6.5" style="--c:var(--marketing)"><span class="who"><i class="dot"></i>neuri.marketing · 06:30</span><h3>Before you wake up, your content is ready.</h3><p>Three posts with your brand and your photos. You approve them with one tap from bed.</p></li>
+          <li data-t="7.2" style="--c:var(--bots)"><span class="who"><i class="dot"></i>neuri.bots · 07:12</span><h3>The first customer asks. They already got an answer.</h3><p>With your price, your stock and your hold rules. In 2.8 seconds, without you touching your phone.</p></li>
+          <li data-t="9.67" style="--c:var(--bazar)"><span class="who"><i class="dot"></i>neuri.bazar · 09:40</span><h3>Every sale lands in its vendor’s balance.</h3><p>Rosa’s lamp is rung up at the register and her balance updates itself. Booth rent comes out of that same balance.</p></li>
+          <li data-t="11" style="--c:var(--consulting)"><span class="who"><i class="dot"></i>neuri.consulting · 11:00</span><h3>It tells you what else you can automate.</h3><p>Your AI Score in 3 minutes and the tasks that give you back the most hours, in order.</p></li>
+          <li data-t="23.67" style="--c:var(--mint)"><span class="who"><i class="dot"></i>neuri.bazar · 23:40</span><h3>Register balanced. Good night.</h3><p>The day’s count matches to the cent. Tomorrow at 6:30 it starts again, with or without you.</p></li>
+        </ol>
+        <p class="story-note">A sample day with made-up data.</p>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="a a-mk">
+          <div class="posts">
+            <div class="post p1"><span>The coffee table is in</span><small>Friday · 10:00</small></div>
+            <div class="post p2"><span>Saturday deals at booth 12</span><small>Saturday · 09:00</small></div>
+            <div class="post p3"><span>Hold it without coming in</span><small>Sunday · 12:00</small></div>
+          </div>
+          <div class="appr"><span>3 posts ready to approve</span><b class="ok-btn">Approve all 3</b></div>
         </div>
-        <div class="float mono" aria-hidden="true" style="top:2%;left:-4%"><span style="color:#8FE0B4">● Agent · messages</span><b>Replies in seconds</b></div>
-        <div class="float mono" aria-hidden="true" style="bottom:4%;right:-2%"><span style="color:#F3B38F">● Agent · register</span><b>Keeps the books itself</b></div>
-        <div class="clock mono">PHX <span id="clock">--:--:--</span> · Demo with sample data</div>
+        <div class="a a-bots">
+          <div class="chat">
+            <div class="chat-h"><i class="av"></i><div><b>Your business</b><small>Instagram · messages</small></div></div>
+            <div class="bub in">Is the white dresser still available?</div>
+            <div class="bub out">Yes! It’s $1,800. Want me to hold it until Saturday?</div>
+            <div class="bub in">Yes please 🙏</div>
+            <div class="bub out">Done, it’s on hold in your name until Saturday at 6 pm.</div>
+            <div class="chat-f"><span class="mono">2.8 s</span> Answered by neuri.bots from your price sheet</div>
+          </div>
+        </div>
+        <div class="a a-bz">
+          <div class="ticket">
+            <div class="tk-h"><b>Test bazaar</b><span class="mono">Tue 09:40</span></div>
+            <div class="tk-r"><span>Brass lamp</span><span class="mono">$450.00</span></div>
+            <div class="tk-r sub"><span>Vendor</span><span>Booth 12 · Rosa</span></div>
+            <div class="tk-sep"></div>
+            <div class="tk-r"><span>Rosa’s balance</span><span class="mono up">+$450.00</span></div>
+            <div class="tk-r sub"><span>Weekly rent deducted</span><span class="mono">−$300.00</span></div>
+            <div class="tk-r tot"><span>To pay her</span><span class="mono">$1,250.00</span></div>
+            <div class="tk-f">No notebook · no Neuri commission</div>
+          </div>
+        </div>
+        <div class="a a-cs">
+          <div class="score">
+            <div class="sc-h"><span>Your AI Score</span><small>Sample hardware store</small></div>
+            <div class="sc-n"><b class="mono">72</b><span>/100</span></div>
+            <div class="bars">
+              <div><span>Customer service</span><i style="--v:.58"></i></div>
+              <div><span>Sales and holds</span><i style="--v:.76"></i></div>
+              <div><span>Books and register</span><i style="--v:.81"></i></div>
+            </div>
+            <div class="tasks"><b>3 tasks to automate</b><span>Answering prices on Instagram · 6 h/wk</span><span>Copying emails into the CRM · 6.5 h/wk</span><span>Balancing the day’s register · 3 h/wk</span></div>
+          </div>
+        </div>
+        <div class="a a-night">
+          <div class="corte">
+            <span class="ct-k">End-of-day count · 11:40 pm</span>
+            <div class="ct-r"><span>Expected</span><span class="mono">$18,420</span></div>
+            <div class="ct-r"><span>Counted</span><span class="mono">$18,420</span></div>
+            <div class="ct-r big"><span>Difference</span><span class="mono">$0</span></div>
+            <span class="ct-ok">✓ Register balanced</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="eegband" aria-label="Network activity">
-  <div class="in">
-    <span class="k mono"><span class="live"></span>Agent activity · simulation</span>
-    <div class="mwrap" aria-hidden="true" style="flex:1;min-width:0;height:60px"><div class="eeg" id="eeg"></div></div>
-    <span class="v mono hide-sm"><span id="spikes">1,284</span> sample signals / min</span>
-  </div>
-</section>
-
-<section class="capband" aria-label="What the agents do">
-  <div class="mwrap"><div class="marq mono" id="marq"></div></div>
-</section>
-
-<section class="man" aria-label="Manifesto">
-  <p class="k-mono mono">01 · Manifesto</p>
-  <p class="big" id="manifesto">Nobody wants to buy artificial intelligence. They want hours back, sales that don't slip away and books that balance. That's why Neuri doesn't sell AI: it sells solutions. A suite of agents that answer, charge, book and automate by your rules, so your business grows and you get back to what only you can do.</p>
-</section>
-
-<section id="systems" class="sis" aria-labelledby="x-sis">
-  <div class="sh">
-    <div><p class="k-mono mono rv">02 · Systems in operation</p><h2 id="x-sis" data-split>Four products, each with one job.</h2></div>
-    <p class="s-p rv">Each product is an agent specialized in a job that used to steal your hours.</p>
-  </div>
-  <div class="cards stag">
-    <a class="card" href="/en/still-available/" hreflang="en" style="--c:#8FE0B4"><div class="scan" aria-hidden="true"></div>
-      <div class="hd"><span class="code mono">MISSION 01 · MESSAGES AGENT</span><span class="st mono"><i></i>Sign-up open</span></div>
-      <div><h3>neuri.bots</h3><p class="d">Replies to your buyers on Instagram and Messenger with your prices and rules: is it still available, how much, where to pick up. Holds items, books visits and passes you the hard ones. Sign-up is open today; the Instagram and Messenger connection is pending Meta's approval.</p></div>
-      <div class="stats"><div><b>Seconds</b><span class="mono">To reply</span></div><div><b>24/7</b><span class="mono">Awake</span></div><div><b>Your prices</b><span class="mono">Always, from your sheet</span></div></div>
-      <span class="go">See neuri.bots<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    <a class="card" href="/en/bazar/" hreflang="en" style="--c:#F3B38F"><div class="scan" aria-hidden="true"></div>
-      <div class="hd"><span class="code mono">MISSION 02 · OPERATIONS AGENT</span><span class="st mono"><i></i>Live</span></div>
-      <div><h3>neuri.bazar</h3><p class="d">The register and the books for vendor malls, flea markets and antique malls. Each sale goes to its vendor's balance, booth rent is deducted from that balance automatically and the books run without a notebook. From US$79 a month; Neuri takes no commission on sales.</p></div>
-      <div class="stats"><div><b>1 checkout</b><span class="mono">Each sale to its vendor&#39;s balance</span></div><div><b>Automatic</b><span class="mono">Rent comes out of the balance</span></div><div><b>0%</b><span class="mono">Neuri commission per sale</span></div></div>
-      <span class="go">See neuri.bazar<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    <a class="card" href="/en/ai-consulting/" hreflang="en" style="--c:#B5EDCD"><div class="scan" aria-hidden="true"></div>
-      <div class="hd"><span class="code mono">MISSION 03 · AI CONSULTING</span><span class="st mono"><i></i>Open</span></div>
-      <div><h3>neuri.consulting</h3><p class="d">Shows where AI saves your business hours and helps you put it to work. Free AI Score, an online diagnosis with quality checks (a person reviews it if something doesn't add up), implementation and monthly support.</p></div>
-      <div class="stats"><div><b>3 min</b><span class="mono">Your free AI Score</span></div><div><b>90 days</b><span class="mono">Prioritized plan with a business case</span></div><div><b>Fixed</b><span class="mono">Price per stage, with guarantee</span></div></div>
-      <span class="go">See neuri.consulting<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    <a class="card" href="/en/marketing/" hreflang="en" style="--c:#FF8A7A"><div class="scan" aria-hidden="true"></div>
-      <div class="hd"><span class="code mono">MISSION 04 · CONTENT AGENT</span><span class="st mono"><i></i>Not open yet</span></div>
-      <div><h3>neuri.marketing</h3><p class="d">Prepares your business's posts and reels for the month with your brand and your photos; you approve with one tap. New accounts open once Instagram and Facebook can be connected; today you can see a sample and use 6 free tools.</p></div>
-      <div class="stats"><div><b>1 tap</b><span class="mono">To approve</span></div><div><b><span data-count="30">30</span> days</b><span class="mono">Of calendar</span></div><div><b>Free</b><span class="mono">6 tools today</span></div></div>
-      <span class="go">See neuri.marketing<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-  </div>
-
-  <h3 class="shots-h rv">Real screens, on a phone.</h3>
-  <p class="shots-p rv">Screenshots of today's pages at phone size. Any data shown is test or sample data.</p>
-  <ul class="shots" aria-label="Screens of the four products">
-    <li><a class="shot" href="/en/bazar/" hreflang="en"><span class="tag">neuri.bazar</span><h4>Your mall, on your phone.</h4><div class="tel"><picture><source srcset="/img/pantalla-bazar-en.avif" type="image/avif"><source srcset="/img/pantalla-bazar-en.webp" type="image/webp"><img src="/img/pantalla-bazar-en.jpg" alt="neuri.bazar home screen with a test bazaar: sales, balance owed to vendors and today's to-dos." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">Test bazaar with test data.</p></a></li>
-    <li><a class="shot" href="/en/still-available/" hreflang="en"><span class="tag">neuri.bots</span><h4>Answers “is this still available?” for you.</h4><div class="tel"><picture><source srcset="/img/pantalla-bots-en.avif" type="image/avif"><source srcset="/img/pantalla-bots-en.webp" type="image/webp"><img src="/img/pantalla-bots-en.jpg" alt="neuri.bots page on a phone, with its Get my assistant button." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">neuri.bots live page.</p></a></li>
-    <li><a class="shot" href="/en/marketing/" hreflang="en"><span class="tag">neuri.marketing</span><h4>See what your month of content looks like.</h4><div class="tel"><picture><source srcset="/img/pantalla-marketing-en.avif" type="image/avif"><source srcset="/img/pantalla-marketing-en.webp" type="image/webp"><img src="/img/pantalla-marketing-en.jpg" alt="A made-up café's month on Instagram on the neuri.marketing sample page." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">Sample page: made-up business.</p></a></li>
-    <li><a class="shot" href="/en/ai-consulting/" hreflang="en"><span class="tag">neuri.consulting</span><h4>Read a sample assessment before you pay.</h4><div class="tel"><picture><source srcset="/img/pantalla-consulting-en.avif" type="image/avif"><source srcset="/img/pantalla-consulting-en.webp" type="image/webp"><img src="/img/pantalla-consulting-en.jpg" alt="AI assessment of a fictional hardware store, with buttons to download the PDF and presentation." width="480" height="680" loading="lazy" decoding="async"></picture></div><p class="src">Sample assessment: fictional business.</p></a></li>
-  </ul>
-</section>
-
-<section id="network" class="red" aria-labelledby="x-red">
-  <div class="in">
-    <div class="sh" style="margin:0">
-      <div><p class="k-mono mono rv">03 · How it decides</p><h2 id="x-red" data-split>How an agent decides before it answers.</h2><p class="s-p rv">A message or a sale comes in. The agent checks it against your sheet, your prices and your rules, decides and acts. Pick a case and watch it travel through the network.</p></div>
-      <div class="sigs" role="group" aria-label="Pick a signal" id="sigs"></div>
+<section id="productos" aria-labelledby="p-t">
+  <div class="w">
+    <div class="sh">
+      <h2 id="p-t">Four agents. Each with one job.</h2>
+      <p>Each product is a lane in your day: an agent specialized in a job that used to steal your hours.</p>
     </div>
-    <div class="netbox rv" tabindex="0" role="region" aria-label="Network diagram: scroll to see all of it">
-      <svg class="net" id="net" viewBox="0 0 1000 440" role="img" aria-label="How an agent decides"></svg>
-    </div>
-    <div class="trace" id="trace" aria-live="polite"></div>
-    <p class="note mono">Simplified diagram · sample data</p>
-  </div>
-</section>
-
-<section id="console" class="con" aria-labelledby="x-con">
-  <div class="in">
-    <div style="display:flex;flex-direction:column;gap:16px;max-width:760px"><p class="k-mono mono rv">04 · Console</p><h2 id="x-con" data-split>One command. The agent does the rest.</h2><p class="s-p rv">Pick a command and see what happens inside. It's a simulation, with sample data, of what our products already do.</p></div>
-    <div class="term rv">
-      <div class="bar"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA6B2" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="q"><span id="query"></span><span class="caret" aria-hidden="true">▍</span></span><span class="k mono hide-sm" aria-hidden="true">⌘K</span></div>
-      <div class="body">
-        <div class="cmds" role="listbox" aria-label="Commands" id="cmds"></div>
-        <div class="log" aria-live="polite"><span class="run">$ neuri run <span id="runkey">reply</span></span><div id="lines"></div><span class="foot">Simulation · sample data</span></div>
-      </div>
+    <div class="prods">
+      <article class="prod" style="--c:var(--bots)">
+        <div><h3><i class="dot"></i>neuri.bots</h3><span class="st"><i></i>Sign-up open · pending Meta</span></div>
+        <div><p class="d">Replies to your buyers on Instagram and Messenger with your prices and rules: is it still available, how much, where to pick up. Holds items, books visits and passes you the hard ones. The Instagram and Messenger connection is pending Meta’s approval.</p><a class="more" href="/en/still-available/">See neuri.bots <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+        <dl class="facts"><div><dt>To reply</dt><dd>Seconds</dd></div><div><dt>Hours</dt><dd>24/7</dd></div><div><dt>Prices</dt><dd>From your sheet</dd></div></dl>
+      <a class="shot" href="/en/still-available/"><span class="fr"><picture><source srcset="/img/pantalla-bots-en.avif" type="image/avif"><source srcset="/img/pantalla-bots-en.webp" type="image/webp"><img src="/img/pantalla-bots-en.jpg" alt="The neuri.bots page on a phone." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">neuri.bots live page</p></a></article>
+      <article class="prod" style="--c:var(--bazar)">
+        <div><h3><i class="dot"></i>neuri.bazar</h3><span class="st"><i></i>Live</span></div>
+        <div><p class="d">The register and the books for vendor malls, flea markets and antique malls. Each sale goes to its vendor’s balance, booth rent is deducted from that balance automatically and the books run without a notebook. From US$79 a month; Neuri takes no commission on sales.</p><a class="more" href="/en/bazar/">See neuri.bazar <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+        <dl class="facts"><div><dt>Each sale</dt><dd>To the vendor’s balance</dd></div><div><dt>Booth rent</dt><dd>Deducted automatically</dd></div><div><dt>Commission per sale</dt><dd class="mono">0%</dd></div></dl>
+      <a class="shot" href="/en/bazar/"><span class="fr"><picture><source srcset="/img/pantalla-bazar-en.avif" type="image/avif"><source srcset="/img/pantalla-bazar-en.webp" type="image/webp"><img src="/img/pantalla-bazar-en.jpg" alt="neuri.bazar home with a test bazaar and sample sales." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Test bazaar with test data</p></a></article>
+      <article class="prod" style="--c:var(--consulting)">
+        <div><h3><i class="dot"></i>neuri.consulting</h3><span class="st"><i></i>Open</span></div>
+        <div><p class="d">Shows where AI saves your business hours and helps you put it to work. Free AI Score, an online diagnosis with quality checks (a person reviews it if something doesn’t add up), implementation and monthly support.</p><a class="more" href="/en/ai-consulting/">See neuri.consulting <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+        <dl class="facts"><div><dt>Your free AI Score</dt><dd>3 min</dd></div><div><dt>Prioritized plan</dt><dd>90 days</dd></div><div><dt>Price per stage</dt><dd>Fixed, with guarantee</dd></div></dl>
+      <a class="shot" href="/en/ai-consulting/"><span class="fr"><picture><source srcset="/img/pantalla-consulting-en.avif" type="image/avif"><source srcset="/img/pantalla-consulting-en.webp" type="image/webp"><img src="/img/pantalla-consulting-en.jpg" alt="A sample neuri.consulting AI assessment." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Sample assessment: fictional business</p></a></article>
+      <article class="prod" style="--c:var(--marketing)">
+        <div><h3><i class="dot"></i>neuri.marketing</h3><span class="st off"><i></i>Not open yet</span></div>
+        <div><p class="d">Prepares your business’s posts and reels for the month with your brand and your photos; you approve with one tap. New accounts open once Instagram and Facebook can be connected; today you can see a sample and use 6 free tools.</p><a class="more" href="/en/marketing/">See neuri.marketing <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+        <dl class="facts"><div><dt>To approve</dt><dd>1 tap</dd></div><div><dt>Calendar</dt><dd>30 days</dd></div><div><dt>Today</dt><dd>6 free tools</dd></div></dl>
+      <a class="shot" href="/en/marketing/"><span class="fr"><picture><source srcset="/img/pantalla-marketing-en.avif" type="image/avif"><source srcset="/img/pantalla-marketing-en.webp" type="image/webp"><img src="/img/pantalla-marketing-en.jpg" alt="neuri.marketing sample: what your month on Instagram would look like." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Sample page: made-up business</p></a></article>
     </div>
   </div>
 </section>
 
-<section id="principles" class="pri" aria-labelledby="x-pri">
-  <p class="k-mono mono rv">05 · Design principles</p>
-  <h2 id="x-pri" data-split>Autonomous. Honest. You're in charge.</h2>
-  <div class="prin stag">
-    <div><span class="n mono">01</span><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M22 4v6M22 34v6M4 22h6M34 22h6M22 14a8 8 0 1 0 0 16a8 8 0 1 0 0-16z"/></svg><h3>Autonomous</h3><p>Each agent finishes the whole job: the item held, the books up to date, not just a suggestion.</p></div>
-    <div><span class="n mono">02</span><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M22 4l15 6v10c0 9-6.5 16.5-15 20c-8.5-3.5-15-11-15-20V10zM15 22l5 5l9-10"/></svg><h3>Honest</h3><p>It only answers with your information. If it doesn't know, it says so and passes the conversation to you.</p></div>
-    <div><span class="n mono">03</span><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#8FE0B4" stroke-width="1.5"><path d="M8 30h28M14 30V18M22 30V10M30 30V22M6 38h32"/></svg><h3>You're in charge</h3><p>Nothing answers until you switch it on. You decide what it handles alone, pause it any time and take your data with you.</p></div>
-  </div>
-</section>
-
-<section id="lab" class="lab" aria-labelledby="x-lab">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="in">
-    <p class="k-mono mono rv">06 · Lab</p>
-    <h2 id="x-lab" data-split>What's coming in the next orbit.</h2>
-    <p class="s-p rv">Here's what already works and what we're finishing.</p>
-    <div class="road" id="road">
-      <div class="rail" aria-hidden="true"></div>
-      <div style="--c:#F3B38F"><span class="dot" aria-hidden="true"><i></i></span><span class="st mono">Pending Meta</span><h3>Instagram and Messenger</h3><p>The messages agent uses Meta's official API. We're waiting on Meta's approval to open it.</p></div>
-      <div style="--c:#8FE0B4"><span class="dot" aria-hidden="true"><i></i></span><span class="st mono">Available</span><h3>Set it up with your AI</h3><p>Connect Neuri to Claude or ChatGPT and set up your business just by chatting.</p></div>
-      <div style="--c:#F3B38F"><span class="dot" aria-hidden="true"><i></i></span><span class="st mono">In progress</span><h3>Official WhatsApp</h3><p>Your same number, answered by your agent, on the official WhatsApp Business platform.</p></div>
-      <div style="--c:#8FE0B4"><span class="dot" aria-hidden="true"><i></i></span><span class="st mono">Available</span><h3>Your mall online</h3><p>A site with your mall's whole inventory that updates itself with every sale. On the Plus plan.</p></div>
+<section id="neuri" class="brand-s" aria-labelledby="n-t">
+  <div class="w">
+    <div class="bs-top">
+      <h2 id="n-t">We are Neuri. We build AI agents for real businesses, <span>from Phoenix, in English and Spanish.</span></h2>
+    </div>
+    <div class="nums">
+      <div><b>4</b><span>agents, each with one job</span></div>
+      <div><b>24/7</b><span>no shifts, no overtime</span></div>
+      <div><b>2</b><span>languages: English and Spanish</span></div>
+      <div><b>1</b><span>business day to reply to you</span></div>
+    </div>
+    <div class="prin" id="principios">
+      <div><h3>Autonomous</h3><p>Each agent finishes the whole job: the item held, the books up to date, not just a suggestion.</p></div>
+      <div><h3>Honest</h3><p>It only answers with your information. If it doesn’t know, it doesn’t make things up: it passes the conversation to you and lets the customer know.</p></div>
+      <div><h3>You’re in charge</h3><p>Nothing answers until you switch it on. You decide what it handles alone, pause it any time and take your data with you.</p></div>
     </div>
   </div>
 </section>
 
-<section class="fin" aria-labelledby="x-fin">
-  <div class="aur a3" aria-hidden="true" style="width:760px;height:420px;left:50%;top:40%;margin-left:-380px;background:radial-gradient(closest-side,rgba(143,224,180,.35),rgba(243,179,143,.2),transparent)"></div>
-  <div class="floor" aria-hidden="true" style="height:60%"></div>
-  <div class="in">
-    <p class="k-mono mono rv">07 · Next step</p>
-    <h2 id="x-fin" data-split>Tell us what eats up your hours.</h2>
-    <p class="rv">We're opening with our first businesses. Write to us and we'll tell you which agent fits, or whether we don't have one for you yet. We reply within 1 business day.</p>
-    <div class="ctas rv"><a class="btn mint mag" href="mailto:hola@neuri.tech">hola@neuri.tech</a><a class="btn ghost mag" href="#systems">See the products</a></div>
+<section id="como" aria-labelledby="c-t">
+  <div class="w">
+    <div class="sh">
+      <h2 id="c-t">How an agent decides before it answers.</h2>
+      <p>Nothing leaves your business without going through your information. If something doesn’t add up, the agent doesn’t make it up: it passes it to you.</p>
+    </div>
+    <div class="how">
+      <div class="step"><span class="n">It comes in</span><h3>A message or a sale</h3><p>From Instagram, Messenger or your mall’s register, at any hour.</p><div class="ex"><span class="mono">22:48 · Instagram</span>“Is the dresser still available?”</div></div>
+      <div class="step"><span class="n">It checks</span><h3>Your sheet and your rules</h3><p>Price, stock, pickup and what you decided it can handle alone.</p><div class="ex"><span class="mono">Your sheet</span>White dresser · $1,800 · available</div></div>
+      <div class="step"><span class="n">It acts</span><h3>Or hands it to you</h3><p>Answers, holds or charges. If it’s haggling or something new, it lets you know.</p><div class="ex"><span class="mono">22:48 · 2.8 s later</span>“Yes! $1,800. Want me to hold it until Saturday?”</div></div>
+    </div>
+    <p class="note">Simplified example with made-up data.</p>
+  </div>
+</section>
+
+<section id="laboratorio" aria-labelledby="l-t">
+  <div class="w">
+    <div class="sh"><h2 id="l-t">What already works and what we’re finishing.</h2></div>
+    <div class="road">
+      <div><span class="s wip"><i></i>Pending Meta</span><h3>Instagram and Messenger</h3><p>The messages agent uses Meta’s official API. We’re waiting on Meta’s approval to open it.</p></div>
+      <div><span class="s"><i></i>Available</span><h3>Set it up with your AI</h3><p>Connect Neuri to Claude or ChatGPT and set up your business just by chatting.</p></div>
+      <div><span class="s wip"><i></i>In progress</span><h3>Official WhatsApp</h3><p>Your same number, answered by your agent, on the official WhatsApp Business platform.</p></div>
+      <div><span class="s"><i></i>Available</span><h3>Your mall online</h3><p>A site with your mall’s whole inventory that updates itself with every sale. On the Plus plan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fin" id="cierre" aria-labelledby="f-t">
+  <canvas id="hola" aria-hidden="true"></canvas>
+  <div class="w">
+    <div><span class="tm mono">11:41 pm · your agents are still awake</span><h2 id="f-t">Tell us what eats up your hours.</h2></div>
+    <div>
+      <p>We’re opening with our first businesses. Write to us and we’ll tell you which agent fits, or whether we don’t have one for you yet. We reply within 1 business day.</p>
+      <div class="act"><a class="btn p" href="mailto:hola@neuri.tech">hola@neuri.tech</a><a class="btn g" href="#productos">See the products</a></div>
+    </div>
   </div>
 </section>
 </main>
 
-<div class="vtab"><a href="/en/ventures/" hreflang="en" data-ventures><span class="vt-ic" aria-hidden="true">✦</span><span><b>neuri.ventures</b><small>From the workshop · apps in incubation</small></span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-
 <footer>
-  <span class="c mono">© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA</span>
-  <nav aria-label="Footer">
-    <a href="/en/still-available/">neuri.bots</a><a href="/en/bazar/">neuri.bazar</a><a href="/en/ai-consulting/">AI consulting</a><a href="/en/marketing/">neuri.marketing</a><a href="/en/affiliates/">Affiliates</a><a href="/en/ventures/">neuri.ventures</a><a href="/en/legal/">Privacy &amp; terms</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/es/" hreflang="es" lang="es">Español</a>
-  </nav>
+  <div class="w">
+    <span>© 2026 Neuri LLC · 5818 W Raymond St, Phoenix, AZ 85043, USA</span>
+    <nav aria-label="Footer">
+      <a href="/en/still-available/">neuri.bots</a><a href="/en/bazar/">neuri.bazar</a><a href="/en/ai-consulting/">AI consulting</a><a href="/en/marketing/">neuri.marketing</a><a href="/en/affiliates/">Affiliates</a><a href="/en/ventures/">neuri.ventures</a><a href="/en/legal/">Privacy &amp; terms</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/en/ai-consulting/">AI consulting</a><a href="/en/bazar/">neuri.bazar</a>
+    </nav>
+  </div>
 </footer>
-</div>
 
-<script type="application/json" id="portada-datos">{
-"locale":"en-US",
-"words":["answers","charges","books visits","automates","keeps the books"],
-"marquee":["Replies in seconds","Holds and books","Rings up sales","Splits each vendor's take","Deducts rent on its own","Hands you the hard ones","Never makes up prices","Instagram · Messenger","English and Spanish","Priced in US dollars"],
-"hl":{"hours":"hl","solutions.":"hl","agents":"hl","grows":"hl2"},
-"netAria":"How an agent decides: the signal “{s}” comes in, crosses your context and ends in {o}",
-"inL":["MESSAGE","SALE","QUESTION"],"outL":["REPLY","BALANCE","TO YOU"],"cols":["INPUT","CONTEXT","DECISION","ACTION"],
-"sig":[
- {"label":"Instagram message","color":"#8FE0B4","inp":0,"h1":[0,1,2],"h2":[1,2],"out":0,"trace":[["Input","“Is the white wardrobe still available?”"],["Context","Your sheet: white wardrobe, $180, available"],["Decision","Reply with the price and offer to hold it"],["Action · neuri.bots","Reply sent in 2.8 s"]]},
- {"label":"Register sale","color":"#F3B38F","inp":1,"h1":[2,3],"h2":[2,3,4],"out":1,"trace":[["Input","Brass lamp, $45, booth 12"],["Context","Booth 12 belongs to Doña Rosa, fixed rent"],["Decision","The whole sale goes to her balance"],["Action · neuri.bazar","Balance updated and visible on her link"]]},
- {"label":"Hard question","color":"#FF8A7A","inp":2,"h1":[3,4],"h2":[0,4],"out":2,"trace":[["Input","“Will you take $120?”"],["Context","Your rule: you handle haggling"],["Decision","Don't make it up: hand over the conversation"],["Action · neuri.bots","Alerts you and tells the buyer you'll reply"]]}
-],
-"cmds":[
- {"key":"reply","label":"Reply to my buyers","hint":"neuri.bots","icon":"✦","ib":"rgba(143,224,180,.12)","ic":"#8FE0B4","short":"↵","log":[["› Reading 14 new Instagram and Messenger messages",0],["› 11 solved with your sheet: price, pickup and payment",0],["› 2 holds confirmed · white wardrobe, coffee table",1],["› 1 haggle detected → passed to you",2],["✓ Done in 2.8 s · you never touched your phone",1]]},
- {"key":"close-day","label":"Close the day at the mall","hint":"neuri.bazar","icon":"◈","ib":"rgba(243,179,143,.14)","ic":"#F3B38F","short":"⌘1","log":[["› 90 sales from 30 vendors, split at checkout",0],["› This week's rent deducted from each balance",0],["› Cash count: expected $1,842 · counted $1,842",1],["› 30 vendor statements ready to send",0],["✓ Day closed in 6 min",1]]},
- {"key":"rent-booth","label":"Rent out a new booth","hint":"neuri.bazar","icon":"⬡","ib":"rgba(181,236,205,.12)","ic":"#B5EDCD","short":"⌘2","log":[["› Booth 7 free · fixed rent $75 a week",0],["› Contract emailed to Lupita",0],["› Signed from her phone",1],["› Her My Booth link is live",0],["✓ Vendor signed up",1]]},
- {"key":"book","label":"Book a visit and send a reminder","hint":"neuri.bots · Pro","icon":"◎","ib":"rgba(233,238,242,.08)","ic":"#E9EEF2","short":"⌘3","log":[["› Ana asks if she can see the table on Saturday",0],["› Visit booked: Saturday 11 am",1],["› Reminder scheduled 2 hours before",0],["› Reminder sent · Ana confirmed",0],["✓ Visit set without you typing a word",1]]}
-]
-}</script>
-<script src="/assets/gsap/gsap.min.js" defer></script>
-<script src="/assets/gsap/ScrollTrigger.min.js" defer></script>
-<script src="/assets/portada.js" defer></script>
-<script src="/assets/tel-motion.js" defer></script>
+<script src="/assets/gsap/gsap.min.js"></script>
+<script src="/assets/gsap/ScrollTrigger.min.js"></script>
+<script src="/assets/dia.js"></script>
+<script src="/assets/hola.js" defer></script>
 <script src="/assets/menu-esc.js" defer></script>
 <script src="/assets/ref-links.js" defer></script>
 </body>

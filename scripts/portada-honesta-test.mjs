@@ -22,7 +22,8 @@ if (!/Tu AI Score, gratis[\s\S]{0,300}Precio por etapa/.test(home)) bad("la tarj
 if (/Sistema en línea/i.test(home)) bad("«Sistema en línea» se lee como estado real del servicio");
 for (const m of home.matchAll(/([^>]{0,20})señales([^<]{0,20})\/ min/g))
   if (!/de ejemplo/.test(m[0])) bad(`«${m[0].trim()}» sin «de ejemplo»`);
-if (!/Actividad del agente · simulación/.test(home)) bad("falta la etiqueta «simulación» de la animación");
+// Portada v12 (Ricardo 23-nov): la línea del día y la historia se marcan como ejemplo con datos inventados.
+if (!/ejemplo con datos inventados/.test(home) || !/Un día de ejemplo con datos inventados/.test(home)) bad("falta la etiqueta de ejemplo en la línea del día o en la historia");
 // T12b: lo mismo en las landings de consulting (ES/EN) y llms.txt: ninguna promete revisión humana de cada diagnóstico.
 for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.txt"]) {
   const txt = readFileSync(join(root, f), "utf8").replace(/\(si algo no cuadra, lo revisa una persona\)|\(if something doesn.t add up, a person reviews it\)/gi, "");
@@ -31,7 +32,7 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html", "llms.
 }
 // T14: la tarjeta de neuri.bots dice el estado real — el alta está abierta y la conexión con Meta, pendiente.
 if (/Por abrir/i.test(home)) bad("la tarjeta de neuri.bots dice «Por abrir» y el alta ya está abierta en /sigue-disponible");
-const bots = (home.match(/MISIÓN 01 · AGENTE DE MENSAJES[\s\S]{0,1600}/g) || []);
+const bots = (home.match(/<article class="prod" style="--c:var\(--bots\)">[\s\S]{0,1600}/g) || []);
 // Diseño v2 (25-oct-2026): la portada ya no usa dc-lite con plantilla duplicada; el HTML es la única copia.
 if (bots.length < 1) bad("no encontré la tarjeta de neuri.bots");
 for (const b of bots) {
@@ -54,10 +55,10 @@ if (/Tú piensas\. La red ejecuta\.|Ver sistemas en operación/.test(home)) bad(
 if ((home.match(/>Ver los productos</g) || []).length + (home.match(/>Ver los productos<svg/g) || []).length < 2) bad("T38: falta «Ver los productos» en el encabezado");
 for (const m of home.matchAll(/<span class="([^"]*)"[^>]*>⌘K<\/span>Probar la demo/g))
   if (!/x-kbd/.test(m[1])) bad("T38: el ⌘K del botón «Probar la demo» no se oculta en táctil (.x-kbd)");
-if (!/@media \(hover:none\),\(pointer:coarse\)\{\.x-kbd\{display:none/.test(home)) bad("T38: falta la regla que oculta .x-kbd en táctil");
+// Portada v12 (23-nov): ya no hay consola ni atajo ⌘K; si el botón vuelve, el ⌘K se oculta en táctil (arriba).
 if (!fail) console.log("✓ portada honesta: diagnóstico con controles, animación marcada como ejemplo");
 // T55 (B-A1, re-auditoría 20-oct): botón llano sin «consola» y la palabra rotativa no se lee como «te cobra».
 if (/Abrir la consola/.test(home)) bad("T55: la portada ES aún dice «Abrir la consola» (jerga)");
-if ((home.match(/<\/span>Probar la demo<\/a>/g) || []).length < 1) bad("T55: falta «Probar la demo» en el botón");
+
 if (/'cobra',/.test(home)) bad("T55: la palabra rotativa «cobra» sola se lee como «te cobra»; usar «cobra la renta»");
 process.exit(fail ? 1 : 0);

@@ -33,6 +33,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/bazar/vs-ricochet/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/en/bazar/antique-mall/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/bazar/antique-mall/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/en/bazar/flea-market/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/bazar/flea-market/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/en/bazar/</loc>
     <lastmod>2026-11-23</lastmod>
     <priority>0.9</priority>
@@ -241,6 +251,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/whats-new/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/sigue-disponible/boutiques/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/boutiques/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/celulares/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/celulares/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/sigue-disponible/citas/</loc>
     <lastmod>2026-11-23</lastmod>
     <priority>0.6</priority>
@@ -279,6 +299,11 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/still-available/privacy/"/>
     <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/privacidad/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/still-available/privacy/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/salones/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/salones/"/>
   </url>
   <url>
     <loc>https://neuri.tech/sigue-disponible/vs-manychat/</loc>

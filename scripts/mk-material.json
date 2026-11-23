@@ -15,13 +15,13 @@
       "lede": "Tu letra, tus colores y tu estilo en cada pieza. Todo lo de abajo lo armaron las herramientas de neuri.marketing con fotos y videos de ejemplo.",
       "tablist": "Material que arma neuri.marketing",
       "tabs": [
-        ["Reels que se arman solos", "De 3 a 5 fotos sale un reel de 7 a 15 segundos, con subtítulos palabra por palabra en tres estilos. Toca otro para verlo."],
+        ["Reels que se arman solos", "Con tus fotos sale un reel de 10 segundos: gancho desde el primer cuadro, tu producto con su precio y el cierre con tu marca. Toca otro para verlo."],
         ["Carruseles que se guardan", "Portada que invita a deslizar, pasos o lista y un cierre para guardar. El texto queda dentro de lo que Instagram muestra completo."],
         ["Una foto, cinco diseños", "Eliges la composición una vez y todas tus publicaciones salen con ella, con tu letra y tus colores."],
         ["Del video crudo al reel", "Subes el video como salió del celular y Neuri lo pasa a vertical con tu texto y subtítulos."],
         ["El filtro de la cuenta que te gusta", "Neuri mide el brillo, contraste y calidez de una foto que admiras y lo aplica a la tuya. Tu original se queda guardada."]
       ],
-      "subs": {"cafe": "Subtítulos resaltados", "comida": "Subtítulos limpios", "bazar": "Subtítulos limpios", "servicios": "Subtítulos en píldora"},
+      "subs": {"cafe": "Gancho, precio y recorte", "comida": "Gancho, precio y recorte", "bazar": "Gancho, precio y recorte", "servicios": "Gancho, precio y recorte"},
       "reelAlt": "Reel animado de {biz} con subtítulos",
       "tcAlt": "Diapositiva {n} de 5 del carrusel de texto de {biz}",
       "deckGroup": "Ver el carrusel de otro negocio",
@@ -36,7 +36,7 @@
       "before": "Tu foto",
       "after": "Con el filtro",
       "slider": "Desliza para comparar tu foto con el filtro",
-      "note": "Material de ejemplo hecho con las herramientas reales de neuri.marketing. Fotos de StockSnap con licencia libre (CC0); los negocios son de ejemplo."
+      "note": "Material de ejemplo hecho con las plantillas de neuri.marketing. Fotos de StockSnap y rawpixel con licencia libre (CC0); los negocios son de ejemplo."
     }
   },
   "en": {

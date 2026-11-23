@@ -21,7 +21,7 @@
     f.addEventListener('click',front);f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();front()}})});
   lay();
   // Baraja del carrusel: cada diapositiva pasa al fondo; los chips cambian de negocio
-  function deckPos(d,k){[].forEach.call(d.querySelectorAll('img'),function(im,n){im.style.setProperty('--p',String((n-k+5)%5))});d._k=k}
+  function deckPos(d,k){var ims=d.querySelectorAll('img'),m=ims.length;[].forEach.call(ims,function(im,n){var p=(n-k+m)%m;im.style.setProperty('--p',String(Math.min(p,4)));im.style.opacity=p>4?'0':''});d._k=k}
   var decks=[].slice.call(sec.querySelectorAll('.mdeck'));decks.forEach(function(d){deckPos(d,0)});
   sec.querySelectorAll('.mgsw .chip').forEach(function(c){c.addEventListener('click',function(){
     sec.querySelectorAll('.mgsw .chip').forEach(function(o){o.setAttribute('aria-pressed',String(o===c))});
@@ -40,7 +40,7 @@
   setInterval(function(){
     if(!vis||document.hidden)return;tick++;
     if(cur===0&&tick%6===0){order.push(order.shift());lay()}
-    if(cur===1){var d=decks.filter(function(x){return !x.hidden})[0];if(d&&tick%1===0)deckPos(d,(d._k+1)%5)}
+    if(cur===1){var d=decks.filter(function(x){return !x.hidden})[0];if(d&&tick%1===0)deckPos(d,(d._k+1)%d.querySelectorAll('img').length)}
     if(cur===2&&tick%2===0){lk=(lk+1)%5;lookPos()}
   },1800);
 })();

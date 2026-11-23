@@ -40,8 +40,8 @@ def section(L, lang):
     decks = []
     for g in G:
         sl = "".join(
-            f'<img src="/img/mk/{g}-{lang}-tc-{n}.webp" width="540" height="675" loading="lazy" decoding="async" alt="{s["tcAlt"].format(n=n, biz=biz[g])}" style="--n:{n - 1}">'
-            for n in range(1, 6)
+            f'<img src="/img/mk/{g}-{lang}-tc-{n}.webp" width="540" height="675" loading="lazy" decoding="async" alt="{s["tcAlt"].format(n=n, biz=biz[g]).replace(" de 5 ", " de 7 ") if (g, lang) == ("cafe", "es") else s["tcAlt"].format(n=n, biz=biz[g])}" style="--n:{n - 1}">'
+            for n in range(1, (8 if (g, lang) == ("cafe", "es") else 6))
         )
         decks.append(f'<div class="mdeck" data-deck="{g}"{"" if g == "bazar" else " hidden"}>{sl}</div>')
     gsw = "".join(

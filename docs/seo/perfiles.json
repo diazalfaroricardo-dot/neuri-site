@@ -1,0 +1,7 @@
+{
+  "_nota": "Perfiles oficiales de Neuri (neuri.tech) que van en sameAs del Organization. Solo perfiles vivos y nuestros. Ver docs/seo/sameas.md.",
+  "perfiles": [
+    {"red": "Instagram", "url": "https://www.instagram.com/neuri.tech", "desde": "2026-11-23"},
+    {"red": "Facebook", "url": "https://www.facebook.com/neuri.tech", "desde": "2026-11-23"}
+  ]
+}

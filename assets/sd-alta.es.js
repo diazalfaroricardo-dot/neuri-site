@@ -69,48 +69,44 @@
   /* ---------- Planes: preseleccionar en el alta ---------- */
   document.querySelectorAll('[data-plan]').forEach(function(a){a.addEventListener('click',function(){var r=document.querySelector('input[name=plan][value="'+a.dataset.plan+'"]');if(r)r.checked=true;});});
 
-  /* A230: vendedores de EE. UU. que leen en español (visitas en Phoenix): ?moneda=usd muestra y manda el plan en USD; sd-setup cobra en USD si el plan dice USD (planswitch.ts) */
+  /* A230 / D-10: el HTML ya viene en USD (EE. UU. primero, sin depender de JS). Pesos solo con ?moneda=mxn o un teléfono con zona horaria de México (clientes de siempre); ?moneda=usd gana siempre. sd-setup cobra en MXN si el plan no dice USD (planswitch.ts) */
   (function(){
-    // D-10 (22-nov): USD por omisión para todos (EE. UU. primero). Pesos solo con ?moneda=mxn o un teléfono con zona horaria de México (clientes de siempre).
     var mon = (new URLSearchParams(location.search).get('moneda') || '').toLowerCase(), tzMX = false;
     try { tzMX = /^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone || ''); } catch (_) {}
-    if (!(mon === 'usd' || (mon !== 'mxn' && !tzMX))) return;
-    var M = {'Básico ($899)': ['Básico ($49 USD)', 'Básico, $49 USD'], 'Pro ($1,299)': ['Pro ($69 USD)', 'Pro, $69 USD']};
+    if (!(mon === 'mxn' || (mon !== 'usd' && tzMX))) return;
+    var M = {'Básico ($49 USD)': ['Básico ($899)', 'Básico, $899'], 'Pro ($69 USD)': ['Pro ($1,299)', 'Pro, $1,299']};
     document.querySelectorAll('input[name=plan]').forEach(function(r){
       var m = M[r.value]; if (!m) return;
       r.value = m[0];
       var b = r.parentNode.querySelector('b'); if (b) b.textContent = m[1];
     });
-    // Los botones de la sección de precios traen data-plan en MXN (la plantilla los vuelve a pintar): se traduce al hacer clic
+    // Los botones de la sección de precios traen data-plan en USD (la plantilla los vuelve a pintar): se traduce al hacer clic
     document.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('[data-plan]'); var m = a && M[a.dataset.plan]; if (!m) return; var r = document.querySelector('input[name=plan][value="' + m[0] + '"]'); if (r) r.checked = true; });
-    // A233: la sección de precios y los textos sueltos también en USD (la plantilla vuelve a pintar: se repite al cambiar el DOM)
-    var P = {'$899': '$49', '$1,299': '$69'};
-    // A247: la plantilla vuelve a clonar sus <template> en cada repintado (el demo anima): se corrige el contenido de las plantillas también, y el observer corrige en el mismo microtask (sin ventana en MXN)
+    var P = {'$49': '$899', '$69': '$1,299'};
+    // A247: la plantilla vuelve a clonar sus <template> en cada repintado (el demo anima): se corrige el contenido de las plantillas también, y el observer corrige en el mismo microtask
     var fixRoot = function(root){
       root.querySelectorAll('span').forEach(function(sp){
         var t = sp.textContent;
-        if (sp.children.length === 0 && P[t]) { sp.textContent = P[t]; var n = sp.nextElementSibling; if (n && /MXN/.test(n.textContent)) n.textContent = n.textContent.replace('MXN', 'USD'); }
-        else if (sp.children.length === 0 && (t === 'El plan Básico cuesta $899 al mes.' || t === 'El plan Básico cuesta $899 MXN al mes.')) sp.textContent = 'El plan Básico cuesta $49 USD al mes.';
-        // QA #7: la calculadora y el título de precios no deben prometer pesos cuando la página está en USD
-        else if (sp.children.length === 0 && t === 'Al mes se te van (MXN)') sp.textContent = 'Al mes se te van (USD)';
+        if (sp.children.length === 0 && P[t]) { var n = sp.nextElementSibling; if (n && /USD/.test(n.textContent)) { sp.textContent = P[t]; n.textContent = n.textContent.replace('USD', 'MXN'); } }
+        else if (sp.children.length === 0 && t === 'El plan Básico cuesta $49 USD al mes.') sp.textContent = 'El plan Básico cuesta $899 MXN al mes.';
+        else if (sp.children.length === 0 && t === 'Al mes se te van (USD)') sp.textContent = 'Al mes se te van (MXN)';
       });
       var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), x;
       while ((x = w.nextNode())) {
         var tv = x.nodeValue.trim();
-        if (tv === 'Desde $899 al mes') x.nodeValue = x.nodeValue.replace('$899', '$49 USD');
-        else if (tv === '¿Cuánto cuesta un bot de Instagram? Precios en pesos') x.nodeValue = x.nodeValue.replace('Precios en pesos', 'Precios en dólares');
-        else if (tv === 'Lo que vale una venta en promedio (MXN)') x.nodeValue = x.nodeValue.replace('(MXN)', '(USD)');
+        if (tv === 'Desde $49 USD al mes') x.nodeValue = x.nodeValue.replace('$49 USD', '$899');
+        else if (tv === '¿Cuánto cuesta un bot de Instagram? Precios en dólares') x.nodeValue = x.nodeValue.replace('Precios en dólares', 'Precios en pesos');
+        else if (tv === 'Lo que vale una venta en promedio (USD)') x.nodeValue = x.nodeValue.replace('(USD)', '(MXN)');
       }
       root.querySelectorAll('template').forEach(function(tp){ if (tp.content) fixRoot(tp.content); });
     };
     var fix = function(){ fixRoot(document.body || document.documentElement); };
+    var nu = document.getElementById('nb-usd'); if (nu) nu.remove();
     fix();
     new MutationObserver(function(ms){ for (var i=0;i<ms.length;i++){ var n=ms[i].target; n = n && n.nodeType===1 ? n : n && n.parentNode; if (!(n && n.closest && n.closest('.cons,.chat,.night'))) { fix(); return; } } }).observe(document.documentElement, {childList: true, subtree: true, characterData: true});
     // A235: en prod la plantilla a veces pinta precios después (red lenta): se repasa también al cargar y a 1 y 3 s
     window.addEventListener('load', fix); setTimeout(fix, 1000); setTimeout(fix, 3000);
     var nfix = 0, tfix = setInterval(function(){ fix(); if (++nfix >= 40) clearInterval(tfix); }, 250);
-    var why = document.querySelector('.paso[data-step="4"] .why');
-    if (why) why.insertAdjacentHTML('beforeend', ' <span id="nb-usd">Precios en dólares (EE. UU.): Básico $49 USD/mes, Pro $69 USD/mes.</span>');
   })();
   /* ---------- Alta: asistente de 4 pasos ---------- */
   var form = document.getElementById('f');

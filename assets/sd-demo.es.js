@@ -442,7 +442,7 @@ class Component extends DCLogic {
       }),
       compRows: [
         { need: 'Contesta a las 2 am', a: 'Si estás despierto', b: 'Solo en su turno', c: 'Sí', d: 'Sí, siempre', aC: R, bC: R, cC: N },
-        { need: 'Lo que cuesta', a: 'Tu tiempo y tu sueño', b: 'Un sueldo al mes', c: 'Plan + tus horas armándolo', d: 'Desde $899 al mes', aC: N, bC: R, cC: N },
+        { need: 'Lo que cuesta', a: 'Tu tiempo y tu sueño', b: 'Un sueldo al mes', c: 'Plan + tus horas armándolo', d: nbUSD ? 'Desde $49 USD al mes' : 'Desde $899 al mes', aC: N, bC: R, cC: N },
         { need: 'Listo en', a: 'Ya', b: 'Semanas buscando y enseñando', c: 'Días o semanas', d: 'Minutos, tú mismo', aC: G, bC: R, cC: R },
         { need: 'Usa tus precios sin inventar', a: 'Sí', b: 'Si se los aprende', c: 'Depende cómo lo armes', d: 'Solo contesta con tu hoja', aC: G, bC: N, cC: N },
         { need: 'Te pasa lo difícil', a: 'No aplica', b: 'Sí', c: 'Si lo programas', d: 'Regateos y dudas raras, a ti', aC: N, bC: G, cC: N },

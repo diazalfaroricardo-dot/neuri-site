@@ -121,12 +121,13 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
     }
     c.addEventListener('input',calc); calc();
   }
-  // Sub-páginas (sin el alta): D-10, USD por omisión como la landing; pesos solo con ?moneda=mxn o zona horaria de México
+  // Sub-páginas (sin el alta): D-10, el HTML ya viene en USD; pesos solo con ?moneda=mxn o zona horaria de México (?moneda=usd gana)
   (function(){ if(NEURI_EN||document.getElementById('f')) return; var mo=(new URLSearchParams(location.search).get('moneda')||'').toLowerCase(), mx=false; try{ mx=/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Ensenada|Santa_Isabel)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone||''); }catch(_){}
-    if(!(mo==='usd'||(mo!=='mxn'&&!mx))) return; var P={'$899':'$49','$1,299':'$69'};
-    document.querySelectorAll('.pn').forEach(function(s){ if(P[s.textContent]){ s.textContent=P[s.textContent]; var n=s.nextElementSibling; if(n) n.textContent=n.textContent.replace('MXN','USD'); } });
-    document.querySelectorAll('.kw').forEach(function(k){ k.textContent=k.textContent.replace('Precios en pesos','Precios en dólares'); });
-    document.querySelectorAll('a[href*="giro="]').forEach(function(a){ a.href=a.href.replace('?giro=','?moneda=usd&giro='); });
+    if(mo==='usd'){ document.querySelectorAll('a[href*="giro="]').forEach(function(a){ a.href=a.href.replace('?giro=','?moneda=usd&giro='); }); return; }
+    if(!(mo==='mxn'||mx)) return; var P={'$49':'$899','$69':'$1,299'};
+    document.querySelectorAll('.pn').forEach(function(s){ var n=s.nextElementSibling; if(P[s.textContent]&&n&&/USD/.test(n.textContent)){ s.textContent=P[s.textContent]; n.textContent=n.textContent.replace('USD','MXN'); } });
+    document.querySelectorAll('.kw').forEach(function(k){ k.textContent=k.textContent.replace('Precios en dólares','Precios en pesos'); });
+    if(mo==='mxn') document.querySelectorAll('a[href*="giro="]').forEach(function(a){ a.href=a.href.replace('?giro=','?moneda=mxn&giro='); });
   })();
 
   // Ligas viejas a secciones que ahora tienen su página

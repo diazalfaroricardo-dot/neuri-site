@@ -4,9 +4,9 @@
 import { readFileSync } from "node:fs";
 
 const pages = [
-  // D-10: el JSON-LD de la página en español anuncia USD (EE. UU. primero); el texto estático trae los pesos que
-  // sd-alta.es.js cambia a USD para todos salvo ?moneda=mxn o zona horaria de México (lo prueba usd-test.mjs).
-  { f: "sigue-disponible/index.html", url: "https://neuri.tech/sigue-disponible/", cur: "USD", b: "49", p: "69", vis: ["$899", "$1,299"] },
+  // D-10: la página en español anuncia USD en el JSON-LD y en el HTML (sin depender de JS); sd-alta.es.js la cambia a
+  // pesos solo con ?moneda=mxn o zona horaria de México (lo prueban usd-test.mjs y d10-usd-html-test.mjs).
+  { f: "sigue-disponible/index.html", url: "https://neuri.tech/sigue-disponible/", cur: "USD", b: "49", p: "69", vis: ["$49", "$69"], no: ["$899", "$1,299", "MXN"] },
   { f: "en/still-available/index.html", url: "https://neuri.tech/en/still-available/", cur: "USD", b: "49", p: "69", vis: ["$49", "$69"] },
 ];
 const live = process.argv.includes("--live");
@@ -22,6 +22,7 @@ for (const pg of pages) {
     if (JSON.stringify(offers) !== JSON.stringify(want)) bad(`${where} ${pg.f}: JSON-LD ${offers} ≠ ${want}`);
     const text = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, " ").replace(/<[^>]+>/g, " ");
     for (const v of pg.vis) if (!text.includes(v)) bad(`${where} ${pg.f}: no muestra ${v}`);
+    for (const v of pg.no || []) if (text.includes(v)) bad(`${where} ${pg.f}: el HTML sin JS todavía dice ${v}`);
     const otros = text.match(/\$(999|799|1,199|1,499|39|59|79)(?=\b| ?(MXN|USD|\/))/g);
     if (otros) bad(`${where} ${pg.f}: precio de plan distinto ${otros}`);
     if (!fail) console.log(`✓ ${where} ${pg.f}: ${want.join(" / ")}`);

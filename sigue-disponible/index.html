@@ -1245,12 +1245,12 @@ footer.bft a:focus-visible{outline:2px solid var(--menta);outline-offset:2px;bor
       <div><label for="lc-msgs">Mensajes que te llegan al día <output id="o-m">30</output></label><input id="lc-msgs" type="range" min="5" max="150" step="5" value="30"></div>
       <div><label for="lc-late">De esos, los que contestas tarde o nunca <output id="o-l">40%</output></label><input id="lc-late" type="range" min="5" max="90" step="5" value="40"></div>
       <div><label for="lc-close">De cada 10 que reciben respuesta, cuántos compran <output id="o-c">2 de 10</output></label><input id="lc-close" type="range" min="10" max="80" step="10" value="20"></div>
-      <div><label for="lc-ticket">Lo que vale una venta en promedio (MXN) <output id="o-t">$600</output></label><input id="lc-ticket" type="range" min="100" max="5000" step="50" value="600"></div>
+      <div><label for="lc-ticket">Lo que vale una venta en promedio (USD) <output id="o-t">$600</output></label><input id="lc-ticket" type="range" min="100" max="5000" step="50" value="600"></div>
     </div>
     <div class="calc-out">
-      <span class="co-k">Al mes se te van (MXN)</span>
+      <span class="co-k">Al mes se te van (USD)</span>
       <div class="big" id="o-r">$43,200</div>
-      <small>Son unas <b id="o-v">72</b> ventas al mes que se van con otro vendedor. <span>El plan Básico cuesta $899 MXN al mes.</span> <span id="o-be">Se paga con 2 ventas.</span></small>
+      <small>Son unas <b id="o-v">72</b> ventas al mes que se van con otro vendedor. <span>El plan Básico cuesta $49 USD al mes.</span> <span id="o-be">Se paga con 1 venta.</span></small>
       <a class="btn btn-m" href="#alta" data-cta="calc-alta">Recuperarlas con Neuri</a>
     </div>
   </form>
@@ -1719,7 +1719,7 @@ Armar mi bot
       <thead><tr><th scope="col"><span class="sr">Comparación</span></th><th scope="col">Contestar tú</th><th scope="col">Pagarle a alguien</th><th scope="col">ManyChat u otro bot que armas tú</th><th scope="col" class="nb"><span class="nb-h"><i></i>neuri.bots</span></th></tr></thead>
       <tbody>
         <tr><th scope="row">Contesta a las 2 am</th><td data-l="Contestar tú" class="mal">Si estás despierto</td><td data-l="Pagarle a alguien" class="mal">Solo en su turno</td><td data-l="Bot que armas tú">Sí</td><td data-l="neuri.bots" class="nb">Sí</td></tr>
-        <tr><th scope="row">Lo que cuesta</th><td data-l="Contestar tú">Tu tiempo y tu sueño</td><td data-l="Pagarle a alguien" class="mal">Un sueldo al mes</td><td data-l="Bot que armas tú">Su plan + tus horas armándolo</td><td data-l="neuri.bots" class="nb">Desde $899 al mes</td></tr>
+        <tr><th scope="row">Lo que cuesta</th><td data-l="Contestar tú">Tu tiempo y tu sueño</td><td data-l="Pagarle a alguien" class="mal">Un sueldo al mes</td><td data-l="Bot que armas tú">Su plan + tus horas armándolo</td><td data-l="neuri.bots" class="nb">Desde $49 USD al mes</td></tr>
         <tr><th scope="row">Listo en</th><td data-l="Contestar tú">Ya</td><td data-l="Pagarle a alguien" class="mal">Semanas buscando y enseñando</td><td data-l="Bot que armas tú">Días o semanas</td><td data-l="neuri.bots" class="nb">Minutos, tú mismo</td></tr>
         <tr><th scope="row">Usa tus precios</th><td data-l="Contestar tú">Sí</td><td data-l="Pagarle a alguien">Si se los aprende</td><td data-l="Bot que armas tú">Depende de cómo lo armes</td><td data-l="neuri.bots" class="nb">Revisa cada precio contra tu hoja</td></tr>
         <tr><th scope="row">Te pasa lo difícil</th><td data-l="Contestar tú">No aplica</td><td data-l="Pagarle a alguien">Sí</td><td data-l="Bot que armas tú">Si lo programas</td><td data-l="neuri.bots" class="nb">Regateos y dudas raras, a ti</td></tr>
@@ -1732,20 +1732,20 @@ Armar mi bot
 
 <section id="precios" class="blanco band" aria-labelledby="pr-t">
   <div class="wrap stack" style="gap:28px">
-    <div class="sec-head" style="margin-bottom:0"><h2 class="h2" id="pr-t">Un precio fijo al mes. Sin cobro por mensaje.</h2><p class="kw">¿Cuánto cuesta un bot de Instagram? Precios en pesos</p></div>
+    <div class="sec-head" style="margin-bottom:0"><h2 class="h2" id="pr-t">Un precio fijo al mes. Sin cobro por mensaje.</h2><p class="kw">¿Cuánto cuesta un bot de Instagram? Precios en dólares</p></div>
     <div class="promo"><b>Primeros 10 negocios</b>7 días de prueba gratis, sin tarjeta, a cambio de tu opinión.</div>
     <div class="planes">
       <div class="plan reveal">
         <h3>Básico</h3>
-        <div class="precio"><span class="pn">$899</span><span>MXN / mes</span></div>
+        <div class="precio"><span class="pn">$49</span><span>USD / mes</span></div>
         <ul><li>Contesta si sigue, precio, entrega y pagos</li><li>Tus 5 preguntas frecuentes</li><li>Etiqueta a tus compradores (apartó, preguntó precio…)</li><li>Reporte cada lunes</li></ul>
-        <a class="btn btn-b" href="#alta" data-plan="Básico ($899)" data-cta="precios-basico">Elegir Básico</a>
+        <a class="btn btn-b" href="#alta" data-plan="Básico ($49 USD)" data-cta="precios-basico">Elegir Básico</a>
       </div>
       <div class="plan pro reveal">
         <h3>Pro <small>Más completo</small></h3>
-        <div class="precio"><span class="pn">$1,299</span><span>MXN / mes</span></div>
+        <div class="precio"><span class="pn">$69</span><span>USD / mes</span></div>
         <ul><li>Todo lo de Básico</li><li>Agenda visitas y entregas</li><li>Manda recordatorios a quien agendó</li><li>Hasta 10 cambios al día a sus respuestas</li></ul>
-        <a class="btn btn-m" href="#alta" data-plan="Pro ($1,299)" data-cta="precios-pro">Elegir Pro</a>
+        <a class="btn btn-m" href="#alta" data-plan="Pro ($69 USD)" data-cta="precios-pro">Elegir Pro</a>
       </div>
     </div>
     <p class="tbl-note">Se cobra mes a mes, sin contrato. Lo cancelas cuando quieras.</p>
@@ -1944,11 +1944,11 @@ Armar mi bot
       <fieldset class="paso" data-step="4" style="border:0" hidden>
         <legend class="sr">Paso 4: Tu plan</legend>
         <h3 tabindex="-1">Último paso</h3>
-        <p class="why">Si quedas entre los primeros 10, no pagas nada los primeros 7 días con ninguno de los dos.</p>
+        <p class="why">Si quedas entre los primeros 10, no pagas nada los primeros 7 días con ninguno de los dos. <span id="nb-usd">Precios en dólares (EE. UU.): Básico $49 USD/mes, Pro $69 USD/mes.</span></p>
         <div class="fields">
           <div class="f"><span class="lab" id="l-plan">¿Qué plan te interesa?</span><div class="planpick" role="radiogroup" aria-labelledby="l-plan">
-            <label class="pp"><input type="radio" name="plan" value="Básico ($899)" checked><span><b>Básico, $899</b><em>Contesta y aparta</em></span></label>
-            <label class="pp"><input type="radio" name="plan" value="Pro ($1,299)"><span><b>Pro, $1,299</b><em>También agenda visitas y entregas</em></span></label></div></div>
+            <label class="pp"><input type="radio" name="plan" value="Básico ($49 USD)" checked><span><b>Básico, $49 USD</b><em>Contesta y aparta</em></span></label>
+            <label class="pp"><input type="radio" name="plan" value="Pro ($69 USD)"><span><b>Pro, $69 USD</b><em>También agenda visitas y entregas</em></span></label></div></div>
           <div class="f"><label for="faq">Las preguntas que más te hacen y qué contestas <span class="opt">(opcional, hasta 5)</span></label><textarea id="faq" name="faq" placeholder="¿Haces descuento? — Solo pagando de contado.&#10;¿Tienes más colores? — Solo los de las fotos."></textarea></div>
           <div class="f"><span class="lab">Revisa tus datos</span><dl class="resumen" id="resumen"></dl></div>
           <label class="check"><input type="checkbox" id="consent" name="consent" required aria-describedby="e-consent"><span>Acepto que neuri.bots (Neuri LLC) use estos datos para armar mi asistente y contactarme por WhatsApp y correo sobre mi cuenta. No los vendemos ni los usamos para publicidad. Acepto los <a href="/sigue-disponible/terminos/" target="_blank" rel="noopener">términos de servicio</a> y el <a href="/sigue-disponible/privacidad/" target="_blank" rel="noopener">aviso de privacidad</a>.</span></label>
@@ -2007,9 +2007,9 @@ Armar mi bot
 <script type="application/json" id="dc-props">{"accent":{"editor":"color","default":"#0B5E3A","options":["#0B5E3A","#05080D","#1F4FD1","#B4441A"]},"$preview":{"width":1440,"height":8400}}</script>
 <script src="/assets/dc-lite.js"></script>
 <script src="/assets/demo-qr.js" defer></script>
-<script src="/assets/sd-demo.es.js?v=fd08b06f"></script>
-<script src="/assets/sd-alta.es.js?v=0c25f056"></script>
-<script src="/assets/bots-v3.js?v=d10" defer></script>
+<script src="/assets/sd-demo.es.js?v=4e1c3d0c"></script>
+<script src="/assets/sd-alta.es.js?v=42f00f6e"></script>
+<script src="/assets/bots-v3.js?v=d10b" defer></script>
 <script src="/assets/menu-esc.js" defer></script>
 <script>(function(){var b=document.getElementById("ia2Copy"),o=document.getElementById("ia2Ok"),u=document.getElementById("ia2Url");if(!b)return;var en=document.documentElement.lang==="en";b.addEventListener("click",function(){var t=u.textContent.trim(),ok=function(){o.textContent=en?"Copied! Paste it into your AI assistant as a custom connector.":"¡Copiada! Pégala en tu asistente de IA como conector personalizado."};if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,function(){o.textContent=en?"Select the URL and copy it.":"Selecciona la URL y cópiala."});else o.textContent=t;});})();</script>
 <script src="/assets/gsap/gsap.min.js" defer></script><script src="/assets/gsap/ScrollTrigger.min.js" defer></script><script src="/assets/bots-premium.js" defer></script>

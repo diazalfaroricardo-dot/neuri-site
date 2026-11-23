@@ -243,7 +243,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <nav class="nb-nav" aria-label="Principal"><a class="nb-hide-sm" href="/sigue-disponible/#como-funciona">Cómo funciona</a><a class="nb-hide-sm" href="/sigue-disponible/#precios">Precios</a><a class="nb-hide-sm" href="/sigue-disponible/#preguntas">Preguntas</a><a class="nb-lang" href="/en/still-available/privacy/" hreflang="en" lang="en" aria-label="EN, English" data-idioma>EN</a><a class="nb-in" href="https://sd.neuri.tech/entrar?lang=es" data-entrar>Entrar</a><a class="nb-cta" href="/sigue-disponible/#alta">Quiero mi asistente</a></nav></header>
 <main id="contenido" class="nb-main"><div class="nb-wrap">
 <!--contenido-->
-<h1>Aviso de privacidad de neuri.bots</h1><p class="lead">Última actualización: 23 de noviembre de 2026 · Versión 1.5 (vigente). neuri.bots es un servicio de Neuri LLC (Phoenix, Arizona, EE. UU.) que contesta, a nombre de un negocio, los mensajes de sus clientes por Instagram, Messenger, WhatsApp, Telegram, mensajes de texto (SMS, cuando estén disponibles) y el chat de su página web: si una pieza sigue disponible, precios, apartados, citas y pedidos.</p>
+<h1>Aviso de privacidad de neuri.bots</h1><p class="lead">Última actualización: 23 de noviembre de 2026 · Versión 1.6 (vigente). neuri.bots es un servicio de Neuri LLC (Phoenix, Arizona, EE. UU.) que contesta, a nombre de un negocio, los mensajes de sus clientes por Instagram, Messenger, WhatsApp, Telegram, mensajes de texto (SMS, cuando estén disponibles) y el chat de su página web: si una pieza sigue disponible, precios, apartados, citas y pedidos.</p>
 <section>
 <h2 id="responsable">1. Quién es responsable</h2>
 <p>Este aviso se emite conforme a la <b>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</b> (LFPDPPP), publicada en el Diario Oficial de la Federación el 20 de marzo de 2025 y vigente desde el 21 de marzo de 2025, y considera también las leyes de EE. UU. que aplican a Neuri LLC.</p>
@@ -288,7 +288,10 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <p><i>Aplica cuando la función esté disponible para el negocio.</i></p>
 <ul><li><b>TikTok:</b> leemos los videos recientes del negocio y los comentarios de primer nivel de las últimas 48 horas. Guardamos el texto del comentario, su identificador y la respuesta. El token se guarda cifrado y se borra al desconectar.</li>
 <li><b>Reseñas de tu Perfil de Negocio de Google</b> (permiso <code>business.manage</code>): leemos las reseñas de los últimos 14 días para agradecer las de 4–5 estrellas y dejar como borrador las demás. Detalle en la sección 4.</li>
-<li><b>Llamada de soporte con IA:</b> la contesta un agente de voz con IA (Twilio y ElevenLabs) y te lo decimos al empezar. Si se graba, pedimos tu consentimiento al inicio.</li></ul>
+<li><b>Llamada de soporte con IA:</b> la contesta un agente de voz con IA (Twilio y ElevenLabs) y te lo decimos al empezar. Si se graba, pedimos tu consentimiento al inicio.</li>
+ <li><b>Medición de anuncios con Meta (Conversions API):</b> si el negocio la prende, para los chats que llegaron por un anuncio en los últimos 7 días le avisamos a Meta cuando terminan en cita, apartado, pedido o venta (con el monto, si se conoce). Solo mandamos identificadores que Meta ya asignó (el del clic en el anuncio o el de la conversación), nunca tu teléfono, nombre ni correo, ni siquiera con hash. Sirve para que el negocio sepa qué anuncios le traen ventas.</li>
+<li><b>Cal.com:</b> si el negocio agenda con Cal.com, consultamos sus horarios libres y, al agendar tu cita, la creamos en su Cal.com con tu nombre y, solo si su evento lo pide, tu correo o teléfono. Si la cita se cancela, la cancelamos allá. Cal.com la guarda según sus propias condiciones.</li>
+<li><b>Shopify:</b> si el negocio conecta su tienda Shopify, leemos precios y existencias. Si preguntas «¿dónde está mi pedido?», te pedimos tu correo y tu número de pedido para buscarlo, y solo contestamos el estado y el rastreo si el correo coincide con el del pedido (máximo 5 búsquedas por hora). El token de la tienda se guarda cifrado.</li></ul>
 <p><b>Datos sensibles:</b> no pedimos ni buscamos datos sensibles. Te pedimos no mandarlos por chat; si llegan en un mensaje, solo se usan para contestar y se borran con el registro de mensajes.</p>
 
 </section>
@@ -336,7 +339,7 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <p>Usamos estos proveedores para dar el servicio. Tratan los datos solo para eso y bajo contrato. Están en EE. UU., por lo que hay <b>transferencia internacional</b> de datos a ese país; las comunicaciones a encargados no requieren tu consentimiento conforme a la LFPDPPP.</p>
 <div class="tabla" tabindex="0" role="region" aria-label="Tabla — desliza para ver todas las columnas"><table>
 <tr><th>Proveedor</th><th>Para qué</th><th>Dónde</th></tr>
-<tr><td>Meta Platforms</td><td>Instagram, Messenger y WhatsApp Cloud API: recibir y enviar los mensajes</td><td>EE. UU.</td></tr>
+<tr><td>Meta Platforms</td><td>Instagram, Messenger y WhatsApp Cloud API: recibir y enviar los mensajes; si el negocio prende la medición de anuncios, los avisos de cita, pedido o venta de chats que llegaron por un anuncio</td><td>EE. UU.</td></tr>
 <tr><td>Twilio</td><td>Recibir y enviar los mensajes de texto (SMS), el número que Neuri renta para el negocio, las llamadas a ese número («Llamada perdida») y las llamadas de soporte, cuando estén disponibles</td><td>EE. UU.</td></tr>
 <tr><td>ElevenLabs</td><td>Voz del agente de IA de la llamada de soporte, cuando esté disponible (recibe el audio de la llamada)</td><td>EE. UU.</td></tr>
 <tr><td>TikTok</td><td>Leer los videos y comentarios del negocio y publicar sus respuestas, cuando el negocio conecte TikTok</td><td>Según TikTok</td></tr>
@@ -348,6 +351,8 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 <tr><td>Resend</td><td>Envío de correos a los dueños</td><td>EE. UU.</td></tr>
 <tr><td>Stripe</td><td>Cobro del plan a los dueños (tarjeta y facturación)</td><td>EE. UU.</td></tr>
 <tr><td>Google Fonts</td><td>Tipografías de las pantallas de la app (sd.neuri.tech): tu navegador las descarga de Google, que recibe tu dirección IP</td><td>EE. UU.</td></tr>
+<tr><td>Cal.com</td><td>Agendar y cancelar citas en el Cal.com del negocio, cuando el negocio lo conecta</td><td>EE. UU.</td></tr>
+<tr><td>Shopify</td><td>Leer precios, existencias y el estado de un pedido en la tienda del negocio, cuando el negocio la conecta</td><td>Canadá y EE. UU.</td></tr>
 <tr><td>Sentry</td><td>Reportes de errores técnicos de la app para arreglarlos (configurado para no mandar datos de usuario)</td><td>EE. UU.</td></tr>
 <tr><td>PostHog</td><td>Analítica anónima y sin cookies de neuri.tech y de sd.neuri.tech (visitas, clics y pasos del alta y el pago; no de los chats)</td><td>EE. UU.</td></tr>
 </table></div>
@@ -423,7 +428,8 @@ html[data-brand=home] body{background:radial-gradient(900px 520px at 85% 0%,rgba
 </section>
 <section>
 <h2 id="registro">16. Registro de cambios</h2>
-<ul><li><b>v1.5 · 23-nov-2026:</b> Sentry (reportes de errores técnicos) en la tabla de proveedores.</li>
+<ul><li><b>v1.6 · 23-nov-2026:</b> funciones por etapas: medición de anuncios con Meta (Conversions API), Cal.com y Shopify; Cal.com y Shopify en la tabla de proveedores.</li>
+<li><b>v1.5 · 23-nov-2026:</b> Sentry (reportes de errores técnicos) en la tabla de proveedores.</li>
 <li><b>v1.4 · 23-nov-2026:</b> mensajes de texto (SMS): qué guardamos, «Llamada perdida», la baja con STOP y que los números y el consentimiento para SMS no se comparten para marketing; códigos de regalo; Twilio, ElevenLabs y TikTok en la tabla de proveedores; Google Fonts solo en las pantallas de la app.</li>
 <li><b>v1.3 · 22-nov-2026:</b> el Perfil de Negocio de Google también se desconecta con el botón <b>Desconectar</b> en Conexiones (Mi asistente): le pide a Google que quite el permiso y borra lo guardado de esa conexión.</li>
 <li><b>v1.2 · 22-nov-2026:</b> la sección 4 cubre todos los datos de Google: Google Calendar solo con <code>calendar.freebusy</code> y <code>calendar.app.created</code> (ya no pedimos <code>calendar.events</code>) y el Perfil de Negocio de Google (<code>business.manage</code>, reseñas, cuando esté disponible): qué se lee, qué se guarda, qué se publica y que no pasa por IA; la declaración de Uso Limitado de la Google API Services User Data Policy aplica a ambos; proveedores y plazos.</li>

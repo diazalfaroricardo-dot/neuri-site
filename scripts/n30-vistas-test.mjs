@@ -81,31 +81,23 @@ if (!v.includes("@media (prefers-reduced-motion:reduce){.nn .n,.nn .p{animation:
 // 3 · cierre de neuri.bazar
 const dc = read("assets/dc-lite.js");
 if (!dc.includes("from.hasAttribute('data-dc-keep')) return false")) bad("dc-lite.js no respeta data-dc-keep (morphdom borraría los estilos de GSAP)");
-const CIERRE = {
-  "bazar/index.html": ["Mira tu bazar armarse en <span class=\"cz-n\">10</span> segundos", "Prueba gratis 14 días"],
-  "en/bazar/index.html": ["Watch your bazaar set itself up in <span class=\"cz-n\">10</span> seconds", "Start free 14-day trial"],
-};
-for (const [p, [titulo, cta]] of Object.entries(CIERRE)) {
+// Landing v3 (aprobada por Ricardo el 23-nov): el cierre ya no es la plantilla dc-b; es un atardecer claro con
+// 40 puestos que se pintan al pagarse (canvas#malla) y el contador #paid, animado por /assets/bazar-v2.js.
+const CIERRE = { "bazar/index.html": "Prueba 14 días gratis", "en/bazar/index.html": "free" };
+const bz = read("assets/bazar-v2.js");
+if (!/IntersectionObserver/.test(bz) || !bz.includes("prefers-reduced-motion: reduce")) bad("bazar-v2.js: sin disparo por IntersectionObserver o sin respetar reducir movimiento");
+for (const [p] of Object.entries(CIERRE)) {
   const h = read(p);
-  if (!h.includes('<script src="/assets/gsap/gsap.min.js" defer></script>')) bad(`${p}: ya no carga GSAP de /assets/gsap/`);
-  const secs = h.split('<section id="cierre"').slice(1).map((s) => s.split("</section>")[0]);
-  if (secs.length !== 2) bad(`${p}: #cierre aparece ${secs.length} veces (esperado: estático y plantilla dc-b)`);
-  const pegados = h.match(/<section id="cierre"(?:(?!<section)[^])*?<\/section>\n\n<footer style="background: #05080D; color: #CFC4B4">/g) || [];
-  if (pegados.length !== 2) bad(`${p}: #cierre no va justo antes de cada <footer> (${pegados.length}/2)`);
-  if (!h.includes('<template data-dc-part="dc-b">') || !h.split('<template data-dc-part="dc-b">')[1].includes('<section id="cierre"')) bad(`${p}: la plantilla dc-b no trae #cierre (dc-lite lo borraría)`);
+  if (!h.includes('<script src="/assets/gsap/gsap.min.js"')) bad(`${p}: ya no carga GSAP de /assets/gsap/`);
+  if (!h.includes('<script src="/assets/bazar-v2.js"')) bad(`${p}: ya no carga /assets/bazar-v2.js`);
+  const secs = h.split(/<section[^>]* id="cierre"/).slice(1).map((s) => s.split("</section>")[0]);
+  if (secs.length !== 1) bad(`${p}: #cierre aparece ${secs.length} veces (esperado: 1)`);
   for (const s of secs) {
-    if (!s.includes("data-dc-keep")) bad(`${p}: #cierre sin data-dc-keep`);
-    if (!s.includes(titulo)) bad(`${p}: título distinto al aprobado`);
-    if ((s.match(/<g class="cz-st">/g) || []).length !== 12) bad(`${p}: no son 12 puestos`);
-    if (!new RegExp(`<a class="cz-cta" href="#prueba">${cta} <span aria-hidden="true">→</span></a>`).test(s)) bad(`${p}: el botón no es «${cta}» a #prueba`);
-    if (/[$€]\s?\d|\d\s?(MXN|USD)/.test(s)) bad(`${p}: #cierre trae montos`);
+    if (!s.includes('id="malla"')) bad(`${p}: #cierre sin la malla de puestos`);
+    if (!s.includes('href="#prueba"')) bad(`${p}: #cierre sin botón a #prueba`);
     if (/Repetir|Replay|type="range"/.test(s)) bad(`${p}: #cierre trae controles de la vista previa`);
-    if (!/role="img" aria-label="[^"]{20,}"/.test(s)) bad(`${p}: la animación no tiene texto para lector`);
   }
-  const js = h.slice(h.lastIndexOf("/* N30: el bazar se arma"));
-  if (!/IntersectionObserver[^]*io\.disconnect\(\); tl\.play\(0\)/.test(js)) bad(`${p}: la animación no se dispara una sola vez con IntersectionObserver`);
-  if (!js.includes("matchMedia('(prefers-reduced-motion: reduce)').matches) return")) bad(`${p}: con reducir movimiento no se queda el cuadro final`);
-  if (!/<style id="n30-cierre">[^]*?<\/style>\n<\/head>/.test(h)) bad(`${p}: falta el CSS del cierre en <head>`);
+  if (!/id="cierre"[^]*?<\/section>\s*(<\/main>\s*)?(<div class="sticky"[^]*?<\/div>\s*)?<footer/.test(h)) bad(`${p}: #cierre no va justo antes del <footer>`);
   if (!h.includes('href="#prueba"') || !h.includes('id="prueba"')) bad(`${p}: el destino de prueba #prueba ya no existe`);
 }
 

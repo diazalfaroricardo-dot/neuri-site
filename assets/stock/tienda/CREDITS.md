@@ -1,0 +1,24 @@
+# Fotos de piezas — sección «Tu bazar en internet» de la landing de neuri.bazar
+
+Piezas de muestra en la tienda de ejemplo (Desert Rose Antiques) de /bazar/ y /en/bazar/. Todas de uso libre
+(CC0 o dominio público), buscadas en Openverse el 23-nov-2026, recortadas a 320×320 y en WebP.
+`scripts/l10-imagenes-test.mjs` exige que cada archivo de esta carpeta tenga su fila aquí.
+
+| Archivo | Pieza en la tienda | Fuente (original) | Autor / institución | Licencia | En uso (23-nov) |
+|---|---|---|---|---|---|
+| `olivetti.webp` | Máquina de escribir Olivetti | [smithsonian_anacostia_museum · «Olivetti Studio 46 Typewriter Used by Octavia Butler»](https://n2t.net/ark:/65665/dl8d8ea1c63-5635-4d2f-b401-94b4d676b3c6) | smithsonian_anacostia_museum | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `talavera.webp` | Plato de cerámica pintada | [rawpixel · «Plate by Talavera Poblana (Potter)»](https://www.rawpixel.com/image/8939140/plate-talavera-poblana-potter) | artinstitutechicago | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `vaso.webp` | Vaso de cristal pintado | [rawpixel · «Elegant vintage etched glass tumbler»](https://www.rawpixel.com/image/9008765/beaker) | artinstitutechicago | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `garrafa.webp` | Botella de barro | [clevelandmuseum · «Flask in the Form of a Leather Bag»](https://clevelandart.org/art/1914.726) | clevelandmuseum | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `mimbre.webp` | Silla de mimbre | [wordpress · «A white wicker chair with red details sits on a wooden floor against a»](https://wordpress.org/photos/photo/8876844816/) | Bigul Malayi | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `radio.webp` | Radio de los años 50 | [rawpixel · «Vintage radio»](https://www.rawpixel.com/image/5905755/vintage-radio-free-public-domain-cc0-image) | rawpixel | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `quinque.webp` | Quinqué de latón | [rawpixel · «Brass Lamp (c. 1939) William»](https://www.rawpixel.com/image/10082803/brass-lamp-c-1939-william-fletcher) | rawpixel | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `espejo.webp` | Espejo ovalado | [wordpress · «An oval mirror on a wall, the sun making a square of light in the lowe»](https://wordpress.org/photos/photo/53667f90eb/) | Topher | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `espejo-mano.webp` | Espejo de mano esmaltado | [clevelandmuseum · «Mirror»](https://clevelandart.org/art/1926.246) | clevelandmuseum | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `maceta.webp` | Maceta de barro | [rawpixel · «Earthenware Jar (ca. 1937) ANNIE»](https://www.rawpixel.com/image/3392034/free-illustration-image-annie-johnston-antique-art) | nationalgalleryofart | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `oleo.webp` | Óleo de paisaje | [smithsonian_american_art_museum · «Valley of Cuernavaca»](https://americanart.si.edu/collections/search/artwork/?id=17879) | Thomas Moran, born Bolton, England 1837-died Santa Barbara, CA 1926 | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `sombrero.webp` | Sombrero de palma | [wordpress · «A straw hat with a wide brim, decorated with small white shells, place»](https://wordpress.org/photos/photo/63069be9cb/) | Mutebi Ivan Junior | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `silla-tallada.webp` | Silla tallada antigua | [wordpress · «An antique wooden chair with detailed carvings, a woven cane backrest,»](https://wordpress.org/photos/photo/9436a45102/) | Bigul Malayi | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `tarro.webp` | Tarro de cerámica | [rawpixel · «Earthenware Jar (1935/1942) American 20th»](https://www.rawpixel.com/image/10060389/earthenware-jar-19351942-american-20th-century) | rawpixel | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `plato.webp` | Plato pintado a mano | [rawpixel · «Charger Talavera de la Reina»](https://www.rawpixel.com/image/8929383/charger-talavera-reina-potteries) | artinstitutechicago | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |
+| `botellones.webp` | Par de botellones | [clevelandmuseum · «Pair of Leather Bag-Shaped Flasks with Covers»](https://clevelandart.org/art/2012.448) | clevelandmuseum | CC0 (vía Openverse) | Sí — landing /bazar/ y /en/bazar/, sección «Tu bazar en internet» |

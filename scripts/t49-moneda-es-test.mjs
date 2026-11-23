@@ -13,8 +13,8 @@ const pesosCons = cons.match(/(?<!US)\$\d[\d,]*(?![\d,]*\s*(MXN|[MK]))/g) || [];
 ok(!pesosCons.length, `consultoria: montos en pesos dicen MXN ${pesosCons.join(", ")}`);
 
 const bazarHtml = read("bazar/index.html");
-ok((bazarHtml.match(/montos en dólares \(USD\)/gi) || []).length === 6, "bazar: los 2 demos y la escena «Así se mueve el dinero» (estático y plantilla) rotulan montos en USD");
-ok((bazarHtml.match(/montos en USD<\/span>/g) || []).length === 2, "bazar: la caja del hero (estático y plantilla) rotula montos en USD");
-ok(bazarHtml.includes("Con tu hora a $25, ese tiempo vale") && bazarHtml.includes("Con tu hora a {{rateText}}, ese tiempo vale"), "bazar: calculadora con tarifa en dólares");
+ok((bazarHtml.match(/montos en dólares \(USD\)/gi) || []).length >= 1, "bazar: la demo «Pruébalo» rotula montos en USD (landing v3, 23-nov)");
+ok(/montos en USD<\/em>/.test(bazarHtml), "bazar: el estado de cuenta del hero rotula montos en USD");
+ok(bazarHtml.includes("Lo que vale una hora de tu tiempo (USD)") && bazarHtml.includes(">$25</b>"), "bazar: calculadora con tarifa en dólares");
 ok(!/MXN/.test(bazarHtml), "bazar: sin MXN");
 process.exit(fails ? 1 : 0);

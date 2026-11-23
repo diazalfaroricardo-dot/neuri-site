@@ -25,7 +25,7 @@ ok(!/http-equiv=["']refresh/i.test(b), "/en/bazar/ no es redirección");
 ok(b.includes('<link rel="canonical" href="https://neuri.tech/en/bazar/">'), "/en/bazar/ canonical propio");
 ok(b.includes('<meta property="og:url" content="https://neuri.tech/en/bazar/">'), "/en/bazar/ og:url propio");
 ok(/hreflang="en(-US)?" href="https:\/\/neuri\.tech\/en\/bazar\/"/.test(b) && /hreflang="es(-US)?" href="https:\/\/neuri\.tech\/bazar\/"/.test(b), "/en/bazar/ hreflang en/es");
-ok(b.includes('id="precios"') && b.length > 100000, "/en/bazar/ trae la landing completa (#precios)");
+ok(b.includes('id="precios"') && b.length > 60000, "/en/bazar/ trae la landing completa (#precios)");
 ok(!b.includes('"url": "https://neuri.tech/en/"'), "/en/bazar/ JSON-LD sin la URL vieja /en/");
 ok(/hreflang="en(-US)?" href="https:\/\/neuri\.tech\/en\/bazar\/"/.test(read("bazar/index.html")), "/bazar/ hreflang en → /en/bazar/");
 

@@ -49,8 +49,9 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html"]) {
     if (!/3 (oportunidades|actionable)/i.test(m[1])) bad(`${f}: «${m[1]}» sin la condición de la garantía (3 oportunidades accionables)`);
 }
 // T38 (B-A1, re-auditoría 19-oct): la portada ES dice en lenguaje llano lo mismo que /en/home/ y el atajo ⌘K no sale en pantallas táctiles.
-// Portada v2 (Ricardo 18-nov): sin «negocios pequeños»; Neuri es una suite que hace crecer tu negocio.
-if (!/Neuri es una suite de agentes de IA que hace crecer tu negocio/.test(home)) bad("T38: la portada ES no explica en llano qué hace Neuri");
+// Portada v2 (Ricardo 18-nov): sin «negocios pequeños». Lectura fácil (Ricardo 24-nov, copy-lectura-subtitulos):
+// el subtítulo dice lo que hace en ≤20 palabras, sin «suite de agentes».
+if (!/Neuri contesta a tus clientes, cobra, lleva tus cuentas y hace tus posts\. A cualquier hora, con tus reglas\./.test(home)) bad("T38: la portada ES no explica en llano qué hace Neuri");
 if (/negocios pequeños/i.test(home)) bad("la portada ES dice «negocios pequeños» (Ricardo 18-nov: no)");
 if (/Tú piensas\. La red ejecuta\.|Ver sistemas en operación/.test(home)) bad("T38: copy abstracto de la portada ES");
 if ((home.match(/>Ver los productos</g) || []).length + (home.match(/>Ver los productos<svg/g) || []).length < 2) bad("T38: falta «Ver los productos» en el encabezado");

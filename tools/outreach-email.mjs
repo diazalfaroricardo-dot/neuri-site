@@ -63,10 +63,42 @@ function datosHtml(d, t) {
       return `<tr><td style="padding:0 0 10px;font-family:${FONT}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:14px;line-height:18px;font-weight:600;color:${t.ink};padding:0 0 5px">${esc(r.label)}</td><td align="right" style="font-size:14px;line-height:18px;font-weight:700;color:${t.ink};padding:0 0 5px;font-variant-numeric:tabular-nums">${esc(String(r.n))}</td></tr><tr><td colspan="2" style="background:#FFFFFF;border-radius:999px;line-height:0;font-size:0;height:8px"><div class="nb-bar nb-d${i}" style="width:${w}%;height:8px;border-radius:999px;background:${t.a};line-height:0;font-size:0">&nbsp;</div></td></tr></table></td></tr>`;
     })
     .join("");
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="nb-card" style="margin:4px 0 22px;background:${t.bg};border:1px solid ${t.line};border-radius:16px;border-collapse:separate"><tr><td style="padding:20px 22px 12px;font-family:${FONT}"><div style="font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:${t.a};margin:0 0 10px">${esc(d.eyebrow ?? "")}</div><div class="nb-big" style="font-size:44px;line-height:46px;font-weight:800;letter-spacing:-.02em;color:${t.ink};font-variant-numeric:tabular-nums">${esc(d.big ?? "")}</div><div style="font-size:15px;line-height:21px;color:${t.sub};margin:4px 0 18px">${esc(d.bigLabel ?? "")}</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${rows}</table>${d.note ? `<div style="font-size:13px;line-height:18px;color:${t.sub};margin:4px 0 6px">${esc(d.note)}</div>` : ""}</td></tr></table>`;
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="nb-card" style="margin:4px 0 22px;background:${t.bg};border:1px solid ${t.line};border-radius:16px;border-collapse:separate"><tr><td style="padding:20px 22px 12px;font-family:${FONT}"><div style="font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:${t.a};margin:0 0 ${d.big ? "10px" : "14px"}">${esc(d.eyebrow ?? "")}</div>${d.big ? "" : "<!--"}<div class="nb-big" style="font-size:44px;line-height:46px;font-weight:800;letter-spacing:-.02em;color:${t.ink};font-variant-numeric:tabular-nums">${esc(d.big ?? "")}</div><div style="font-size:15px;line-height:21px;color:${t.sub};margin:4px 0 18px">${esc(d.bigLabel ?? "")}</div>${d.big ? "" : "-->"}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${rows}</table>${d.note ? `<div style="font-size:13px;line-height:18px;color:${t.sub};margin:4px 0 6px">${esc(d.note)}</div>` : ""}</td></tr></table>`;
 }
 
-const MOTION_CSS = `<style>@media (prefers-reduced-motion:no-preference){.nb-card{animation:nbUp .7s cubic-bezier(.16,1,.3,1) both}.nb-big{animation:nbUp .7s .15s cubic-bezier(.16,1,.3,1) both}.nb-bar{transform-origin:left center;animation:nbGrow 1.1s cubic-bezier(.16,1,.3,1) both}.nb-d0{animation-delay:.35s}.nb-d1{animation-delay:.5s}.nb-d2{animation-delay:.65s}.nb-d3{animation-delay:.8s}@keyframes nbGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes nbUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}}</style>`;
+/** Portada del reporte (sin imagen: texto real, se ve igual con imágenes bloqueadas). */
+function coverHtml(R, t, en) {
+  return `<tr><td class="nb-cover" bgcolor="${t.bg}" style="background:${t.bg};border-radius:18px 18px 0 0;border-bottom:1px solid ${t.line};padding:26px 30px 24px;font-family:${FONT}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:${FONT}"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="28" height="28" align="center" valign="middle" bgcolor="${t.a}" style="width:28px;height:28px;background:${t.a};border-radius:8px;font-family:${FONT};font-size:13px;font-weight:800;color:#FFFFFF;line-height:28px">N</td><td style="padding-left:9px;font-family:${FONT};font-size:15px;font-weight:700;color:${t.ink}">neuri<span style="color:${t.a}">.bots</span></td></tr></table></td><td align="right" style="font-family:${FONT};font-size:12px;line-height:16px;color:${t.sub}">${esc(R.fecha ?? "")}</td></tr></table><div class="nb-rise" style="margin:26px 0 0;font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:${t.a}">${esc(R.eyebrow ?? "")}</div><div class="nb-rise nb-r1" style="margin:6px 0 0;font-size:34px;line-height:38px;font-weight:800;letter-spacing:-.025em;color:${t.ink}">${esc(R.negocio ?? "")}</div><div class="nb-rise nb-r2" style="margin:8px 0 0;font-size:15px;line-height:21px;color:${t.sub}">${esc(R.sub ?? "")}</div></td></tr>`;
+}
+
+/** Tres números grandes (celdas: en celular siguen en una fila, cortas). */
+function kpisHtml(R, t) {
+  if (!R.kpis?.length) return "";
+  const w = Math.floor(100 / R.kpis.length);
+  const cells = R.kpis
+    .map(
+      (k, i) =>
+        `<td width="${w}%" valign="top" class="nb-k nb-k${i}" style="padding:16px 14px;${i ? `border-left:1px solid ${t.line};` : ""}font-family:${FONT}"><div style="font-size:30px;line-height:34px;font-weight:800;letter-spacing:-.02em;color:${i === 1 ? t.a : t.ink};font-variant-numeric:tabular-nums">${esc(k.v)}</div><div style="font-size:13px;line-height:17px;color:${t.sub};margin-top:4px">${esc(k.l)}</div></td>`,
+    )
+    .join("");
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:2px 0 14px;border:1px solid ${t.line};border-radius:16px;border-collapse:separate"><tr>${cells}</tr></table>`;
+}
+
+/** Sus preguntas con la respuesta ya escrita, como plática: comentario → respuesta. */
+function qaHtml(R, t) {
+  if (!R.qa?.length) return "";
+  const pairs = R.qa
+    .map(
+      (x, i) =>
+        `<tr><td style="padding:0 0 6px;font-family:${FONT}"><table role="presentation" cellpadding="0" cellspacing="0" border="0" class="nb-q nb-q${i}" style="max-width:86%"><tr><td style="background:#FFFFFF;border:1px solid ${t.line};border-radius:16px 16px 16px 4px;padding:10px 14px;font-family:${FONT}"><div style="font-size:11px;line-height:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:${t.sub};margin-bottom:3px">${esc(R.qLabel ?? "")}</div><div style="font-size:15px;line-height:21px;color:${t.ink}">${esc(x.q)}</div></td></tr></table></td></tr><tr><td align="right" style="padding:0 0 14px;font-family:${FONT}"><table role="presentation" cellpadding="0" cellspacing="0" border="0" class="nb-a nb-a${i}" style="max-width:86%"><tr><td bgcolor="${t.a}" style="background:${t.a};border-radius:16px 16px 4px 16px;padding:10px 14px;font-family:${FONT};text-align:left"><div style="font-size:11px;line-height:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#FFFFFF;opacity:.75;margin-bottom:3px">${esc(R.aLabel ?? "")}</div><div style="font-size:15px;line-height:21px;color:#FFFFFF">${esc(x.a)}</div></td></tr></table></td></tr>`,
+    )
+    .join("");
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 20px;background:${t.bg};border:1px solid ${t.line};border-radius:16px;border-collapse:separate"><tr><td style="padding:18px 18px 6px;font-family:${FONT}"><div style="font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:${t.a};margin:0 0 14px">${esc(R.qaTitle ?? "")}</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${pairs}</table>${R.mas ? `<div style="font-size:13px;line-height:18px;font-weight:600;color:${t.sub};text-align:center;margin:0 0 12px">${esc(R.mas)}</div>` : ""}</td></tr></table>`;
+}
+
+const MOTION_CSS = `<style>@media (prefers-reduced-motion:no-preference){.nb-card{animation:nbUp .7s cubic-bezier(.16,1,.3,1) both}.nb-big{animation:nbUp .7s .15s cubic-bezier(.16,1,.3,1) both}.nb-bar{transform-origin:left center;animation:nbGrow 1.1s cubic-bezier(.16,1,.3,1) both}.nb-d0{animation-delay:.35s}.nb-d1{animation-delay:.5s}.nb-d2{animation-delay:.65s}.nb-d3{animation-delay:.8s}.nb-rise{animation:nbUp .8s cubic-bezier(.16,1,.3,1) both}.nb-r1{animation-delay:.08s}.nb-r2{animation-delay:.16s}.nb-k{animation:nbUp .7s cubic-bezier(.16,1,.3,1) both}.nb-k0{animation-delay:.25s}.nb-k1{animation-delay:.35s}.nb-k2{animation-delay:.45s}.nb-q,.nb-a{animation:nbUp .6s cubic-bezier(.16,1,.3,1) both}.nb-q0{animation-delay:.9s}.nb-a0{animation-delay:1.5s}.nb-q1{animation-delay:2.1s}.nb-a1{animation-delay:2.7s}.nb-cta{animation:nbPulse 2.4s 3.2s ease-in-out 2}@keyframes nbPulse{50%{transform:scale(1.02)}}@keyframes nbGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes nbUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}}</style>`;
+
+const MOBILE_CSS = `<style>@media (max-width:480px){.nb-pad{padding:22px 18px 18px!important}.nb-cover{padding:22px 18px 20px!important}.nb-k{padding:12px 8px!important}}</style>`;
 
 export function outreachHtml({ product = "bazar", lang = "es", subject = "", body = "", firma = "ricardo", unsubUrl = "", fuente = "", datos = null }) {
   const t = T[product] ?? T.bazar;
@@ -93,13 +125,24 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
   const paras = clean.join("\n").trim().split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
   const P = `margin:0 0 16px;font-family:${FONT};font-size:16px;line-height:1.6;color:${t.ink}`;
   const pHtml = paras.map((p) => `<p style="${P}">${esc(p).replace(/\n/g, "<br>")}</p>`);
-  const card0 = datosHtml(datos, T[product] ?? T.bazar);
-  if (card0) pHtml.splice(Math.min(2, pHtml.length), 0, card0);
+  const R = datos?.kind === "reporte" ? datos : null;
+  if (R) {
+    // A356 v3: reporte hecho para su tienda. Tras el gancho van los 3 números y las barras; tras la
+    // oferta, sus respuestas ya escritas. Solo datos que también van en el texto o en su página /t/.
+    const tt = T[product] ?? T.bazar;
+    pHtml.splice(Math.min(2, pHtml.length), 0, kpisHtml(R, tt) + datosHtml({ rows: R.rows, eyebrow: R.note }, tt));
+    pHtml.splice(Math.min(4, pHtml.length), 0, qaHtml(R, tt));
+  } else {
+    const card0 = datosHtml(datos, T[product] ?? T.bazar);
+    if (card0) pHtml.splice(Math.min(2, pHtml.length), 0, card0);
+  }
   const bodyHtml = pHtml.join("");
   const isProduct = product !== "personal" && T[product]?.url;
   const L = en ? "en" : "es";
-  const href = isProduct ? utm(t.url[L], product) : "";
-  const hero = isProduct
+  const href = isProduct ? utm(R?.cta?.url ?? t.url[L], product) : "";
+  const hero = R
+    ? coverHtml(R, t, en)
+    : isProduct
     ? `<tr><td style="padding:0;line-height:0;font-size:0"><a href="${esc(href)}" target="_blank" style="display:block;text-decoration:none"><img src="https://neuri.tech/assets/email/hero-${product}-${L}.gif" width="600" alt="${esc(en ? `neuri${t.suf} — real product demo` : `neuri${t.suf} — demo del producto real`)}" style="display:block;width:100%;max-width:600px;height:auto;border:0;border-radius:18px 18px 0 0"></a></td></tr>`
     : "";
   const chips = isProduct
@@ -112,8 +155,9 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
         .join("")}</div>`
     : "";
   const card = isProduct
-    ? `${chips}<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px"><tr><td bgcolor="${t.a}" style="background:${t.a};border-radius:12px;box-shadow:0 8px 20px -8px ${t.a}"><a href="${esc(href)}" target="_blank" style="display:inline-block;padding:15px 26px;font-family:${FONT};font-size:16px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:12px">${esc(t.cta[L])}&nbsp;&nbsp;&rarr;</a></td></tr></table>`
+    ? `${R ? "" : chips}<table role="presentation" cellpadding="0" cellspacing="0" border="0" ${R ? 'width="100%" class="nb-cta"' : ""} style="margin:0 0 ${R ? "12px" : "24px"}"><tr><td bgcolor="${t.a}" style="background:${t.a};border-radius:12px;box-shadow:0 8px 20px -8px ${t.a}"><a href="${esc(href)}" target="_blank" style="display:${R ? "block;text-align:center" : "inline-block"};padding:${R ? "18px 26px" : "15px 26px"};font-family:${FONT};font-size:16px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:12px">${esc(R?.cta?.label ?? t.cta[L])}&nbsp;&nbsp;&rarr;</a></td></tr></table>`
     : "";
+  const cardFull = R && isProduct ? `${card}<div style="text-align:center;margin:0 0 22px">${chips.replace("margin:4px 0 14px", "margin:0")}</div>` : card;
   const role = product === "personal"
     ? en
       ? "Fractional operations &amp; program leadership · ex-Amazon (Last Mile Fleet &amp; Central Ops) · Phoenix, AZ"
@@ -131,9 +175,9 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
     : `${product === "personal" ? "" : `${esc(POSTAL)}<br>`}${esc(optOut)}`;
   const outerBg = isProduct ? t.bg : "#FFFFFF";
   const inner = isProduct
-    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="max-width:600px;background:#FFFFFF;border:1px solid ${t.line};border-radius:18px;border-collapse:separate">${hero}<tr><td style="padding:28px 30px 22px">${bodyHtml}${card}${sig}</td></tr></table>`
+    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="max-width:600px;background:#FFFFFF;border:1px solid ${t.line};border-radius:18px;border-collapse:separate">${hero}<tr><td class="nb-pad" style="padding:28px 30px 22px">${bodyHtml}${cardFull}${sig}</td></tr></table>`
     : `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px"><tr><td style="padding:0 2px">${bodyHtml}${sig}</td></tr></table>`;
-  return `<!doctype html><html lang="${L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${esc(subject)}</title>${datos?.rows?.length ? MOTION_CSS : ""}</head><body style="margin:0;padding:0;background:${outerBg}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${outerBg}" style="background:${outerBg}"><tr><td align="center" style="padding:${isProduct ? "24px 10px" : "8px 0"}">${inner}${foot.trim() ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px"><tr><td style="padding:16px 8px 0;font-family:${FONT};font-size:12px;line-height:1.55;color:${t.sub};text-align:${isProduct ? "center" : "left"}">${foot}</td></tr></table>` : ""}</td></tr></table></body></html>`;
+  return `<!doctype html><html lang="${L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${esc(subject)}</title>${datos?.rows?.length ? MOTION_CSS + (R ? MOBILE_CSS : "") : ""}</head><body style="margin:0;padding:0;background:${outerBg}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${outerBg}" style="background:${outerBg}"><tr><td align="center" style="padding:${isProduct ? "24px 10px" : "8px 0"}">${inner}${foot.trim() ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px"><tr><td style="padding:16px 8px 0;font-family:${FONT};font-size:12px;line-height:1.55;color:${t.sub};text-align:${isProduct ? "center" : "left"}">${foot}</td></tr></table>` : ""}</td></tr></table></body></html>`;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

@@ -132,7 +132,7 @@ export function checkOutreach(input) {
     for (const h of hrefs) {
       if (/^mailto:/.test(h)) continue;
       if (equipo && h === "https://www.gob.mx/profeco" && !en) continue;
-      if (!/^https:\/\/(neuri\.tech|consulting\.neuri\.tech)(\/|$)/.test(h)) bad("link", `Link fuera de los dominios de Neuri: ${h}`);
+      if (!/^https:\/\/(neuri\.tech|consulting\.neuri\.tech|sd\.neuri\.tech)(\/|$)/.test(h)) bad("link", `Link fuera de los dominios de Neuri: ${h}`);
     }
     if (product !== "personal" && !hrefs.some((h) => /utm_source=outreach/.test(h))) bad("cta", "Falta el botón con link medible (utm_source=outreach).");
     if (us && product !== "personal" && !/5818 W Raymond St/.test(html)) bad("domicilio-html", "La versión con diseño no muestra el domicilio.");

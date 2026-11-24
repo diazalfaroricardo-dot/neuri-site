@@ -394,9 +394,19 @@
       raf = 0;
       let px = 0;
       for (const el of document.querySelectorAll(".sticky, .cta-fijo, .dock")) {
+        // bots-onboarding-1124: la barra «.dock» entra deslizándose (transform); se mide donde va a
+        // quedar, no donde va, para que el globo suba con ella y nunca tape su botón al entrar.
+        if (el.classList.contains("dock") && !el.classList.contains("show")) continue;
+        const cs = getComputedStyle(el);
+        if (cs.opacity === "0" || cs.display === "none") continue;
         const r = el.getBoundingClientRect();
-        if (r.height && r.top < innerHeight && r.bottom > innerHeight - 140 && getComputedStyle(el).opacity !== "0")
-          px = Math.max(px, innerHeight - r.top + 4);
+        let dy = 0;
+        try {
+          if (cs.transform && cs.transform !== "none") dy = new DOMMatrixReadOnly(cs.transform).m42;
+        } catch {}
+        const top = r.top - dy;
+        if (r.height && top < innerHeight && top + r.height > innerHeight - 140)
+          px = Math.max(px, innerHeight - top + 4);
       }
       host.style.setProperty("--nv-lift", `${Math.round(px)}px`);
     };

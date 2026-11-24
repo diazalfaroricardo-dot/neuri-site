@@ -87,7 +87,7 @@ var NEURI_EN = (document.documentElement.lang||'').slice(0,2)==='en';
   var hdr=document.querySelector('.hdr'), dock=document.querySelector('.dock'), hero=document.querySelector('[data-hero]');
   function onScroll(){
     var y=scrollY; if(hdr) hdr.classList.toggle('scrolled',y>8);
-    if(dock&&hero){var end=hero.getBoundingClientRect().bottom; var alta=document.getElementById('alta'); var nearForm=alta&&alta.getBoundingClientRect().top<innerHeight&&alta.getBoundingClientRect().bottom>0; dock.classList.toggle('show',end<0&&!nearForm);}
+    if(dock&&hero){var end=hero.getBoundingClientRect().bottom; var alta=document.getElementById('alta')||document.getElementById('signup'); var nearForm=alta&&alta.getBoundingClientRect().top<innerHeight&&alta.getBoundingClientRect().bottom>0; dock.classList.toggle('show',end<0&&!nearForm);}
   }
   addEventListener('scroll',onScroll,{passive:true}); onScroll();
 

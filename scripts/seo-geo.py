@@ -20,6 +20,9 @@ PAGINAS = [
     "bazar/", "bazar/recorrido/", "bazar/vs-quail/", "bazar/vs-ricochet/",
     "en/bazar/", "en/bazar/tour/", "en/bazar/vs-quail/", "en/bazar/vs-ricochet/",
     "marketing/", "marketing/vs-predis/", "en/marketing/", "en/marketing/vs-predis/",
+    # seo-contenido-p1 (vista previa en la rama seo/contenido-p1)
+    "sigue-disponible/mejores-bots-instagram/", "sigue-disponible/vs-sendpulse/",
+    "marketing/mejores-apps-ia-posts/", "en/bazar/vs-simpleconsign/",
 ]
 FAQ_DESDE_DETAILS = {"bazar/", "en/bazar/"}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre",

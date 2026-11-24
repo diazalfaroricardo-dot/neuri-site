@@ -65,6 +65,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/bazar/vs-ricochet/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/en/bazar/vs-simpleconsign/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/bazar/vs-simpleconsign/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/en/legal/data-deletion/</loc>
     <lastmod>2026-11-23</lastmod>
     <priority>0.6</priority>
@@ -225,6 +230,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/marketing/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/marketing/mejores-apps-ia-posts/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/marketing/mejores-apps-ia-posts/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/marketing/vs-predis/</loc>
     <lastmod>2026-11-23</lastmod>
     <priority>0.6</priority>
@@ -273,6 +283,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/still-available/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/sigue-disponible/mejores-bots-instagram/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/mejores-bots-instagram/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/sigue-disponible/privacidad/</loc>
     <lastmod>2026-11-23</lastmod>
     <priority>0.6</priority>
@@ -287,5 +302,10 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/still-available/vs-manychat/"/>
     <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/vs-manychat/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/still-available/vs-manychat/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/vs-sendpulse/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/vs-sendpulse/"/>
   </url>
 </urlset>

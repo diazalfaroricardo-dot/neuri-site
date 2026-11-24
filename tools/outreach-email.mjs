@@ -19,7 +19,7 @@ export const T = {
   bots: { a: "#0B5E3A", bg: "#F6F4EE", ink: "#05080D", sub: "#56635C", line: "#E1E3DC", suf: ".bots",
     url: { es: "https://neuri.tech/sigue-disponible/", en: "https://neuri.tech/en/still-available/" },
     cta: { es: "Ver cómo contesta", en: "See it answer" },
-    chips: { es: ["7 días de prueba gratis", "Yo lo configuro", "Contesta con tu hoja"], en: ["7-day free trial", "I set it up for you", "Answers from your sheet"] } },
+    chips: { es: ["7 días de prueba gratis", "Tú apruebas cada respuesta", "Contesta con tu hoja"], en: ["7-day free trial", "You approve every answer", "Answers from your sheet"] } },
   bazar: { a: "#B4441A", bg: "#F7F1E8", ink: "#05080D", sub: "#5E554C", line: "#E6DBC9", suf: ".bazar",
     url: { es: "https://neuri.tech/bazar/recorrido/", en: "https://neuri.tech/en/bazar/tour/" },
     cta: { es: "Ver el recorrido de 2 minutos", en: "Take the 2-minute tour" },
@@ -42,7 +42,7 @@ const utm = (u, p) => `${u}${u.includes("?") ? "&" : "?"}utm_source=outreach&utm
 
 /** Firma «equipo» (envío automático, Ricardo 1-nov-2026): sin primera persona ni «Ricardo». */
 const CHIPS_EQUIPO = {
-  bots: { es: ["7 días de prueba gratis", "Lo configuramos por ti", "Contesta con tu hoja"], en: ["7-day free trial", "We set it up for you", "Answers from your sheet"] },
+  bots: { es: ["7 días de prueba gratis", "Tú apruebas cada respuesta", "Contesta con tu hoja"], en: ["7-day free trial", "You approve every answer", "Answers from your sheet"] },
   bazar: { es: ["Prueba de 14 días", "Lo configuramos con tus vendedores", "Español e inglés"], en: ["14-day trial", "Set up with your vendors", "English and Spanish"] },
 };
 export const PRIVACIDAD = { es: "https://neuri.tech/legal/#prospeccion", en: "https://neuri.tech/en/legal/#outreach" };

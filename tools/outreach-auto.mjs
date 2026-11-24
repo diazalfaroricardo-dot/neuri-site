@@ -6,8 +6,8 @@
  * Uso: baja outreach-auto.mjs, outreach-email.mjs y outreach-check.mjs a la misma carpeta y corre
  *   node outreach-auto.mjs entrada.json > salida.json
  * Entrada: {product, lang:"es"|"en", country:"US"|"MX", subject, body, unsubUrl, fuente}
- *   body = solo los párrafos (60–120 palabras), en plural, sin firma, sin baja y sin domicilio.
- *   corto = true (copy-correos-cortos, apagado hasta el sí de Ricardo): 25–79 palabras y una sola pregunta.
+ *   body = solo los párrafos: 25–79 palabras (ideal < 50) y UNA sola pregunta, en plural, sin firma, sin baja y
+ *   sin domicilio. Modo corto encendido por omisión (sí de Ricardo 24-nov); corto:false vuelve a 60–120.
  * Salida: {ok, issues, warnings, from, replyTo, subject, text, html, headers}. Si ok es false, no enviar.
  */
 import { readFileSync } from "node:fs";
@@ -30,7 +30,7 @@ export function buildAuto(i) {
     : `Este correo es publicidad de Neuri LLC.\n${POSTAL} · ${REPLY_TO}\n${i.fuente ? `Encontramos el correo de tu negocio publicado en ${i.fuente}.\n` : ""}Aviso de privacidad: ${PRIVACIDAD.es}\nProfeco: https://www.gob.mx/profeco\nDarte de baja: ${i.unsubUrl}\nO responde "no" y no te volvemos a escribir.`;
   const text = `${main}\n\n${firma}\n\n${legal}`;
   const html = outreachHtml({ product, lang: en ? "en" : "es", subject: i.subject, body: `${main}\n\n${firma}`, firma: "equipo", unsubUrl: i.unsubUrl, fuente: i.fuente });
-  const r = checkOutreach({ product, lang: en ? "en" : "es", country: i.country, subject: i.subject, body: text, html, firma: "equipo", unsubUrl: i.unsubUrl, corto: i.corto === true });
+  const r = checkOutreach({ product, lang: en ? "en" : "es", country: i.country, subject: i.subject, body: text, html, firma: "equipo", unsubUrl: i.unsubUrl, corto: i.corto !== false });
   return {
     ...r,
     from: `${en ? "The Neuri team" : "El equipo de Neuri"} <hola@holaneuri.com>`,

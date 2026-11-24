@@ -25,6 +25,9 @@ PAGINAS = [
     "marketing/mejores-apps-ia-posts/", "en/bazar/vs-simpleconsign/",
     # seo-herramientas-gratis (vista previa en la rama seo/herramientas-gratis)
     "sigue-disponible/calculadora-dms/", "bazar/calculadora-renta-comision/",
+    # seo-pseo-giros (vista previa en la rama seo/pseo-giros)
+    "sigue-disponible/boutiques/", "sigue-disponible/celulares/", "sigue-disponible/salones/",
+    "en/bazar/antique-mall/", "en/bazar/flea-market/",
 ]
 FAQ_DESDE_DETAILS = {"bazar/", "en/bazar/"}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre",

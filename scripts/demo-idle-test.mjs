@@ -8,7 +8,8 @@ const exe = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacO
 const b = await chromium.launch({ executablePath: exe });
 let fails = 0;
 const ok = (c, m) => { console.log((c ? "OK  " : "FALLA ") + m); if (!c) fails++; };
-for (const path of ["/sigue-disponible/", "/en/still-available/", "/bazar/", "/en/bazar/"]) {
+// bazar v3.1 (23-nov) ya no usa la demo diferida (__nDemo): su «Pruébalo» vive en assets/bazar-v2.js. Solo bots.
+for (const path of ["/sigue-disponible/", "/en/still-available/"]) {
   for (const width of [390, 1280]) {
     const ctx = await b.newContext({ viewport: { width, height: 844 } });
     await ctx.addInitScript(() => { addEventListener("load", () => { window.__demoAtLoad = !!window.__nDemo; }); });

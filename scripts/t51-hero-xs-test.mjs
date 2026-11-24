@@ -1,7 +1,7 @@
 /**
  * T51 (baja, B-A9/B-N2): en / ES a 390 px «Ver los productos» queda arriba del pliegue con
  * (≤664: alto visible de Safari en iPhone de 390×844 con barras) y hay contacto visible en el hero («Hablar con Neuri» → hola@neuri.tech),
- * que a 1280 solo vive en el encabezado. Sin scroll horizontal; toques ≥44 px.
+ * (portada del 23-nov: «Escríbenos» vive en el hero a todo ancho, en /es/). Sin scroll horizontal; toques ≥44 px.
  * Uso: node scripts/t51-hero-xs-test.mjs [--live]
  */
 import { createReadStream, existsSync, statSync } from "node:fs";
@@ -29,13 +29,13 @@ for (const w of [390, 1280]) {
   const page = await ctx.newPage();
   // Con la letra real: sin Geist cada máquina cae en otra letra de reserva y el botón baja hasta 80 px (DejaVu en CI).
   await page.route(/^(?!https?:\/\/(127\.0\.0\.1|neuri\.tech|fonts\.googleapis\.com|fonts\.gstatic\.com))/, (r) => r.abort());
-  await page.goto(`${base}/?lang=es`, { waitUntil: "networkidle" });
+  await page.goto(`${base}/es/`, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(400);
   const m = await page.evaluate(() => {
     const vis = (el) => el && el.getClientRects().length > 0 && getComputedStyle(el).visibility !== "hidden";
-    const cta = [...document.querySelectorAll('a[href="#sistemas"]')].find((a) => vis(a) && /Ver los productos/.test(a.textContent));
-    const hablar = [...document.querySelectorAll("a[data-hero-contacto]")].find(vis);
+    const cta = [...document.querySelectorAll('a[href="#productos"]')].find((a) => vis(a) && /Ver los productos/.test(a.textContent));
+    const hablar = [...document.querySelectorAll("a[data-hero-contacto], main .act a[href^='mailto:']")].find(vis);
     const r = cta?.getBoundingClientRect();
     const hr = hablar?.getBoundingClientRect();
     return {
@@ -54,7 +54,7 @@ for (const w of [390, 1280]) {
       if (m.hablar.h < 44) ok.push(`toque ${m.hablar.h}px`);
       if (m.hablar.bottom > 844) ok.push(`contacto bajo el pliegue (${m.hablar.bottom})`);
     }
-  } else if (m.hablar) ok.push("contacto del hero duplicado a 1280 (ya está en el encabezado)");
+  }
   if (m.scrollX) ok.push("scroll horizontal");
   console.log(`${ok.length ? "FALLA" : "OK"} ${w} ${JSON.stringify(m)} ${ok.join("; ")}`);
   if (ok.length) fallas++;

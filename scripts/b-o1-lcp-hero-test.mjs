@@ -7,7 +7,8 @@ const exe = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacO
 const b = await chromium.launch({ executablePath: exe });
 let fails = 0;
 const ok = (c, m) => { console.log((c ? "OK  " : "FALLA ") + m); if (!c) fails++; };
-const casos = [["/", ".hero-p"], ["/en/home/", ".hero-p"], ["/bazar/", ".hx-p"], ["/en/bazar/", ".hx-p"]];
+// Portada y bazar v3.1 (23-nov): el párrafo del hero ya no tiene entrada; basta con que pinte desde el primer cuadro.
+const casos = [["/", ".hero .sub p"], ["/es/", ".hero .sub p"], ["/bazar/", ".hero .lead"], ["/en/bazar/", ".hero .lead"]];
 for (const [path, sel] of casos) {
   for (const width of [390, 1280]) {
     const ctx = await b.newContext({ viewport: { width, height: 844 } });
@@ -36,7 +37,6 @@ for (const [path, sel] of casos) {
       return { vis: c.visibility, op: Number(c.opacity), primero: window.__primero, lcp: window.__lcp };
     }, sel);
     ok(r.primero?.vis === "visible" && r.primero.op > 0, `${path} ${width}: el párrafo ya está pintado al inicio (${JSON.stringify(r.primero)})`);
-    ok(r.primero?.op <= 0.02, `${path} ${width}: al inicio se ve como antes, casi cero`);
     ok(r.vis === "visible" && r.op === 1, `${path} ${width}: al terminar la entrada se ve completo (${r.op})`);
     ok(errs.length === 0, `${path} ${width}: sin errores de JS ${errs.join(" | ")}`);
     await ctx.close();

@@ -53,15 +53,15 @@ img{display:block;max-width:100%;height:auto}
 h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;text-wrap:balance;color:inherit}
 p{margin:0;text-wrap:pretty}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;font:500 14.5px/1 var(--sans);letter-spacing:-.01em;transition:background .2s,border-color .2s;white-space:nowrap;cursor:pointer;border:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;font:500 14.5px/1 var(--sans);letter-spacing:-.01em;transition:background .2s,border-color .2s;white-space:nowrap;cursor:pointer;border:0}
 .btn.p{background:var(--rust);color:#fff}.btn.p:hover{background:var(--rustDk)}
 .btn.g{border:1px solid var(--line);background:var(--panel);color:var(--ink)}.btn.g:hover{border-color:#CBC9C1}
-.btn.sm{height:34px;padding:0 14px;font-size:13.5px}
+.btn.sm{height:44px;padding:0 14px;font-size:13.5px}
 /* nav */
 .top{position:sticky;top:0;z-index:20;background:rgba(246,244,238,.95);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
 .top.s{border-bottom-color:var(--line)}
 .top .w{display:flex;align-items:center;height:60px;gap:24px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:500;font-size:16px;letter-spacing:-.02em}.brand .bn span{color:var(--rust)}
+.brand{display:flex;align-items:center;gap:9px;min-height:44px;font-weight:500;font-size:16px;letter-spacing:-.02em}.brand .bn span{color:var(--rust)}
 .nav{display:flex;align-items:center;gap:24px;margin-left:auto;font-size:14px;color:#585D57}
 .nav>a:not(.btn):hover{color:var(--ink)}
 /* hero */
@@ -227,7 +227,7 @@ section{padding:150px 0 0}
 .opcion input{accent-color:var(--rust)}
 .opcion span{display:flex;flex-direction:column;font-weight:500;font-size:15px}.opcion small{font-weight:400;color:var(--sub);font-size:13px}
 .error{color:var(--rustDk);font-size:13.5px;margin:6px 0 0;min-height:0}
-.sug-correo{margin-top:8px;background:none;border:0;padding:0;color:var(--rust);font:500 14px var(--sans);cursor:pointer;text-decoration:underline}
+.sug-correo{min-height:44px;margin-top:8px;background:none;border:0;padding:0;color:var(--rust);font:500 14px var(--sans);cursor:pointer;text-decoration:underline}
 .resumen dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:16px 0 0;font-size:14.5px}.resumen dt{color:var(--sub)}.resumen dd{margin:0;font-weight:500}
 .asistente-botones{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
 .btn-anil{background:var(--rust);color:#fff;height:44px;padding:0 22px;border-radius:999px;font:500 15px var(--sans);margin-left:auto}
@@ -269,7 +269,7 @@ section{padding:150px 0 0}
 footer{background:#05080D;color:#9DA29C;border-top:1px solid rgba(246,244,238,.08);font-size:13.5px}
 footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 24px;padding-top:28px;padding-bottom:40px}
 footer .fb{font-weight:500;font-size:18px;color:#F6F4EE}footer .fb span{color:#F3B38F}
-footer nav{display:flex;flex-wrap:wrap;gap:6px 18px}footer a:hover{color:#F6F4EE}
+footer nav{display:flex;flex-wrap:wrap;gap:0 18px}footer nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.nav>a:where(:not(.btn)){display:inline-block;padding:11px 0;min-width:44px;text-align:center}footer a:hover{color:#F6F4EE}
 footer .cp{width:100%}
 /* responsive */
 @media (max-width:1080px){.nav .hide-md{display:none}.hero-in{grid-template-columns:1fr}.pain-row{grid-template-columns:1fr 1fr}.pain-row li+li{border-left:0}.pain-row li{border-bottom:1px solid var(--line2)}.pain-row a,.pain-row li:first-child a{padding:18px 12px 18px 0}.booths,.feat,.dealers{grid-template-columns:1fr}.plans{grid-template-columns:1fr}#prueba .prueba-grid,#ia .ia{grid-template-columns:1fr;padding:32px}.shotph{justify-self:center}}
@@ -280,7 +280,7 @@ section,.story{padding-top:104px}.pains{padding-top:64px}.sh{grid-template-colum
 .grid{grid-template-columns:repeat(6,1fr)}.pts,.fl{grid-template-columns:1fr}.fl div{padding-right:0}
 #prueba .prueba-grid{padding:22px;border-radius:20px}.asistente{padding:18px}
 .fin{margin-top:104px;padding:260px 0 96px}.fin .w{grid-template-columns:1fr;gap:20px}}
-@media (max-width:420px){.nav .hide-xs{display:none}.pain-row{grid-template-columns:1fr}.phone{width:270px}}
+@media (max-width:420px){.nav{gap:12px}}@media (max-width:380px){.nav .hide-xs{display:none}}@media (max-width:420px){.pain-row{grid-template-columns:1fr}.phone{width:270px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 .story.flat .stage{height:auto;min-height:0;display:block;background:none!important}.story.flat .stage-in{display:block}.story.flat .clock{display:none}.story.flat .chapters{display:block;margin:0}.story.flat .chapters li{opacity:1;transform:none;margin-top:64px}.story.flat .art{display:none}.story.flat li .a{position:relative;opacity:1;visibility:visible;margin-top:22px;justify-content:flex-start}
 
@@ -528,14 +528,14 @@ footer .fb{color:var(--ink)}footer .fb span{color:var(--rust)}footer a:hover{col
 <a class="x-skip" href="#inicio">Saltar al contenido</a>
 <header class="top" id="top">
   <div class="w">
-    <a class="brand" href="/bazar/" aria-label="neuri.bazar, inicio"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" rx="6" fill="#B4441A"/><path d="M6 8.5h10M6 11h10M6 13.5h6" stroke="#F6F4EE" stroke-width="1.4" stroke-linecap="round"/></svg><span class="bn">neuri<span>.bazar</span></span></a>
+    <a class="brand" href="/es/" aria-label="neuri.bazar, inicio de Neuri"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" rx="6" fill="#B4441A"/><path d="M6 8.5h10M6 11h10M6 13.5h6" stroke="#F6F4EE" stroke-width="1.4" stroke-linecap="round"/></svg><span class="bn">neuri<span>.bazar</span></span></a>
     <nav class="nav" aria-label="Principal">
       <a class="hide-sm" href="#venta">Cómo funciona</a>
       <a class="hide-md" href="#dealers">Vendedores</a>
       <a class="hide-md" href="#puestos">Puestos</a>
       <a class="hide-sm" href="#precios">Precios</a>
-      <a class="hide-xs" href="/en/bazar/" lang="en" hreflang="en">English</a>
-      <a class="hide-xs" data-entrar href="https://bazar.neuri.tech/login?lang=es">Entrar</a>
+      <a class="hide-xs" data-idioma href="/en/bazar/" lang="en" hreflang="en">English</a>
+      <a data-entrar href="https://bazar.neuri.tech/login?lang=es">Entrar</a>
       <a class="btn p sm" href="#prueba" data-trial data-plan="Pro">Prueba gratis</a>
     </nav>
   </div>
@@ -875,7 +875,7 @@ footer .fb{color:var(--ink)}footer .fb span{color:var(--rust)}footer a:hover{col
         <h3 tabindex="-1" style="margin-top:14px" id="listo-titulo">Ya casi abres tu bazar</h3>
         <p class="ayuda" id="listo-txt">Se abrió tu correo con tus datos. Solo dale Enviar y te mandamos tu acceso.</p>
         <p class="ayuda">¿No se abrió? Escríbenos a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a> con el nombre de tu bazar.</p>
-        <p class="ayuda">Mientras, juega otra vez con <a href="#venta">el simulador</a>.</p>
+        <p class="ayuda">Mientras, cobra otra venta en <a href="#pruebalo">Pruébalo</a>.</p>
       </div>
 
       <div class="asistente-botones" id="botones">

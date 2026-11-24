@@ -58,7 +58,7 @@ for (const width of [360, 390, 1024, 1280, 1440, 1536, 1920]) {
         const a = el.parentElement.querySelector("[role=menu] a");
         const r = el.parentElement.querySelector("[role=menu]").getBoundingClientRect();
         const cs = getComputedStyle(a);
-        const logo = document.querySelector('header a[href="#inicio"], header a[href="/"], header .logo, .nb-logo');
+        const logo = document.querySelector('header .brand, header a[href="#inicio"], header .logo, .nb-logo, header a[href="/"]');
         const sb = el.getBoundingClientRect(), lb = logo ? logo.getBoundingClientRect() : sb;
         return { tt: cs.textTransform, left: r.left, right: r.right, vw: document.documentElement.clientWidth, dy: Math.abs((sb.top + sb.bottom) / 2 - (lb.top + lb.bottom) / 2) };
       });
@@ -75,8 +75,10 @@ for (const width of [360, 390, 1024, 1280, 1440, 1536, 1920]) {
 {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await page.goto(base + "/", { waitUntil: "load" });
+  // La portada del 23-nov («Un día de tu negocio») ya no tiene titular rotativo: si no existe, no aplica.
+  const rota = await page.locator("#x-h1 .x-wa, #x-h1 .x-wb").count();
   const seen = new Set();
-  for (let t = 0; t < 14 && seen.size < 5; t++) {
+  for (let t = 0; rota && t < 14 && seen.size < 5; t++) {
     await page.waitForTimeout(1100);
     const r = await page.evaluate(() => {
       const el = document.querySelector("#x-h1 .x-wa, #x-h1 .x-wb");
@@ -93,7 +95,7 @@ for (const width of [360, 390, 1024, 1280, 1440, 1536, 1920]) {
     seen.add(r.word);
     if (r.room < 0) fails.push(`titular: «${r.word}» queda mocha (${r.room.toFixed(1)} px)`);
   }
-  if (seen.size < 3) fails.push(`titular: solo vi ${seen.size} palabras rotando`);
+  if (rota && seen.size < 3) fails.push(`titular: solo vi ${seen.size} palabras rotando`);
 }
 
 await browser.close();

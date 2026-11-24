@@ -65,7 +65,8 @@ const browser = await chromium.launch(process.env.CHROME ? { executablePath: pro
 // Visitante humano: navigator.webdriver en false para que lang.js ofrezca la barra.
 const humano = () => Object.defineProperty(navigator, "webdriver", { get: () => false });
 for (const w of [390, 1280]) {
-  for (const loc of ["en-US", "es-US"]) {
+  // es-US en la raíz ahora va a /es/ en la primera visita (copy-idioma-default, 23-nov; lo cubre copy-idioma-default-test).
+  for (const loc of ["en-US"]) {
     const ctx = await browser.newContext({ viewport: { width: w, height: 800 }, locale: loc, timezoneId: "America/Phoenix", extraHTTPHeaders: { "Accept-Language": loc + ",en;q=0.5" } });
     await ctx.addInitScript(humano);
     await ctx.route(/^https?:\/\/(?!127\.0\.0\.1)/, (r) => r.abort());
@@ -83,7 +84,7 @@ for (const w of [390, 1280]) {
     }
     ok(!(await p.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)), `${w} ${loc}: sin scroll horizontal`);
     // Toggle ES del encabezado
-    const tg = p.locator('a.lang[hreflang="es"]');
+    const tg = p.locator('header a[hreflang="es"]').first();
     ok((await tg.getAttribute("href")) === "/es/", `${w} ${loc}: toggle ES → /es/`);
     await ctx.close();
   }

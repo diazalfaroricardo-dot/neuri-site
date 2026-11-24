@@ -136,7 +136,7 @@ def header(brand, lang, alt, kind=""):
             f'<nav class="nb-nav" aria-label="{label}">' + "".join(nav) + "</nav></header>")
 
 
-def footer(brand, lang, alt):
+def footer(brand, lang, alt, upd=""):
     es = lang == "es"
     if brand == "bots":
         word, links = 'neuri<span>.bots</span>', [
@@ -167,7 +167,7 @@ def footer(brand, lang, alt):
     li = "".join(a(h, t, "", f' hreflang="{other}" lang="{other}"' if t in ("English", "Español") else "") for h, t in links)
     return (f'<footer class="nb-foot"><div class="nb-foot-in"><span class="nb-word">{word}</span>'
             f'<nav class="nb-foot-links" aria-label="{"Pie" if es else "Footer"}">{li}</nav>'
-            f'<p class="nb-foot-legal">{ADDR[lang]}</p></div></footer>')
+            f'<p class="nb-foot-legal">{ADDR[lang].replace(" · ", f" · {upd} · ", 1) if upd else ADDR[lang]}</p></div></footer>')
 
 
 def marca_head(brand, lang):
@@ -240,13 +240,16 @@ def build(rel, cfg):
     head = re.sub(r'(<meta name="twitter:image" content="https://neuri\.tech/assets/og/)[^"]+(\.png")',
                   lambda m: m.group(1) + OG[(brand, lang)] + m.group(2), head)
     content = extract(rel, kind, body)
+    # Fecha «Actualizado» visible (seo 23-nov): se conserva la que ya tenga la página.
+    m = re.search(r'<span data-actualizado>.*?</span>', body, flags=re.S)
+    upd = m.group(0) if m else ""
     wrap = {"hub": "nb-wrap nb-hub", "tour": "nb-wrap wide", "home": "nb-wrap nb-home"}.get(kind, "nb-wrap")
     # La 404 de GitHub Pages es una sola: bajo /en/ se pasa a inglés con este script (auditoría 2-nov).
     extra = (R / "scripts/404-en.js.html").read_text(encoding="utf-8") if rel == "404.html" else ""
     out = (f'<!doctype html>\n<html lang="{lang}" data-brand="{brand}">\n<head>\n{head.strip()}\n{marca_head(brand, lang)}\n</head>\n<body>\n'
            f"{header(brand, lang, alt, kind)}\n"
            f'<main id="contenido" class="nb-main"><div class="{wrap}">\n<!--contenido-->\n{content}\n<!--/contenido-->\n</div></main>\n'
-           f"{footer(brand, lang, alt)}\n{extra}<script src=\"/assets/menu-esc.js\" defer></script>\n</body>\n</html>\n")
+           f"{footer(brand, lang, alt, upd)}\n{extra}<script src=\"/assets/menu-esc.js\" defer></script>\n</body>\n</html>\n")
     f.write_text(out, encoding="utf-8")
     print("ok", rel)
 

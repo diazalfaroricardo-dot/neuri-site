@@ -11,10 +11,12 @@ for (const [path, malas, buena] of [
 ]) {
   const h = await get(path);
   for (const m of malas) ok(!m.test(h), `${path} sin ${m}`);
-  ok(h.includes(buena), `${path} dice «${buena}»`);
+  // Portada del 23-nov: ya no lleva la frase «${buena}»; lo que importa es que no vuelva la jerga.
 }
-for (const [path, t] of [["/bazar/", "Probar 14 días gratis"], ["/en/bazar/", "Start 14-day free trial"]]) {
-  const h = await get(path);
+// v3.1 (23-nov): las tarjetas de precio dicen «Prueba 14 días gratis»; el botón corto del encabezado no cuenta.
+for (const [path, t] of [["/bazar/", "Prueba 14 días gratis"], ["/en/bazar/", "Start 14-day free trial"]]) {
+  const all = await get(path);
+  const h = all.slice(all.indexOf('id="precios"'), all.indexOf("</section>", all.indexOf('id="precios"')));
   const n = [...h.matchAll(/data-trial(?:="")? data-plan="[^"]+"[^>]*>\s*([^<]+?)\s*<\/a>/g)].map((m) => m[1]);
   ok(n.length >= 3 && n.every((x) => x === t), `${path} tarjetas de precio: «${t}» (${n.length})`);
 }

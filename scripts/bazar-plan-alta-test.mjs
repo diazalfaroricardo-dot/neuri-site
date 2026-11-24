@@ -25,7 +25,7 @@ for (const [path, country, w, idx, want, src, lang] of cases) {
   });
   await p.goto(`${BASE}${path}${src ? `?src=${src}` : ""}`, { waitUntil: "networkidle" });
   // Sin :visible ni click real: las tarjetas fuera de pantalla llevan content-visibility y Playwright las da por ocultas.
-  await p.locator("a[data-trial][data-plan]").nth(idx).evaluate((a) => a.click());
+  await p.locator("#precios a[data-trial][data-plan]").nth(idx).evaluate((a) => a.click());
   await p.waitForTimeout(600);
   for (let i = 0; i < 8 && !dest; i++) {
     await p.evaluate(() => {

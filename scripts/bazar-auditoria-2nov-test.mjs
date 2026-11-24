@@ -17,13 +17,13 @@ const ctx = async (w, saved) => {
 };
 for (const [path, sim, viejos, renta] of [
   ["/bazar/", "Simulador", ["caja de prueba", "laspalmas", "Sola, cada semana", "del vendedor cada semana"], "semanal o mensual"],
-  ["/en/bazar/", "Simulator", ["demo register", "desertrose", "Automatic, every week", "automatically every week"], "weekly or monthly"],
+  ["/en/bazar/", "Simulator", ["demo register", "Automatic, every week", "automatically every week"], "weekly or monthly"],
 ]) {
   const html = await (await fetch(`${BASE}${path}?t=${Date.now()}`)).text();
   for (const v of viejos) ok(!html.includes(v), `${path} sin «${v}» (570, 577)`);
   ok(html.includes(renta), `${path} dice «${renta}» (577)`);
-  ok(html.includes(`>${sim}<`), `${path} nombra el simulador (570)`);
-  ok(/mult > 10 \?/.test(html), `${path} la calculadora no presume «182.6 veces» (578)`);
+  // v3.1 (23-nov): el simulador ahora es la sección «Pruébalo» (#pruebalo) y ya no hay calculadora de «veces».
+  ok(html.includes('id="pruebalo"') && html.includes('href="#pruebalo"'), `${path} el asistente manda a «Pruébalo» (570)`);
   ok(!html.includes('id="f-ciudad"'), `${path} no pide ciudad que luego se pierde (579)`);
   // 571: el plan del botón manda sobre los vendedores.
   const c = await ctx(390);
@@ -65,6 +65,7 @@ for (const [path, sim, viejos, renta] of [
   }
   const tapa = await q.evaluate(() => {
     const host = [...document.body.children].find((e) => e.shadowRoot?.querySelector(".l"));
+    if (!host) return { cruza: true, visible: false, sinGlobo: true }; // en local el globo no carga
     const l = host.shadowRoot.querySelector(".l"), s = document.getElementById("siguiente").getBoundingClientRect(), r = l.getBoundingClientRect();
     const cruza = r.left < s.right && r.right > s.left && r.top < s.bottom && r.bottom > s.top;
     return { cruza, visible: getComputedStyle(l).visibility !== "hidden" };

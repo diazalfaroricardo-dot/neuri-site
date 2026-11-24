@@ -22,6 +22,7 @@
 <meta name="theme-color" content="#F6F4EE">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%230B5E3A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%23F6F4EE%22/%3E%3C/svg%3E">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist-latin-wght.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist-mono-latin-wght.woff2" crossorigin>
 <style>
 @font-face{font-family:Geist;src:url(/assets/fonts/geist-latin-wght.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Geist Mono";src:url(/assets/fonts/geist-mono-latin-wght.woff2) format("woff2");font-weight:100 900;font-display:swap}
@@ -193,7 +194,7 @@ footer a:hover{color:var(--ink)}
   .day{margin-top:44px}
   .day-h{flex-direction:column;align-items:flex-start;padding:16px 18px}.legend{display:none}
   .plot{display:none}
-  .feed{display:block;list-style:none;margin:0;padding:8px 18px 4px}
+  .feed{display:block;list-style:none;margin:0;padding:8px 18px 4px;min-height:calc(760px - 40vw)}
   .feed li{display:grid;grid-template-columns:54px 12px 1fr;gap:10px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line2);font-size:14.5px;color:var(--ink2)}
   .feed li:last-child{border-bottom:0}
   .feed .mono{font-size:13px;color:var(--sub)}
@@ -234,7 +235,8 @@ footer a:hover{color:var(--ink)}
 .a{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden}
 .a.on{opacity:1;visibility:visible}
 /* marketing */
-.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
+.posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%}
+@media (max-width:420px){.posts{gap:8px}.post{padding:12px}.posts span{font-size:13px;overflow-wrap:anywhere}}
 .post{aspect-ratio:4/5;border-radius:16px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:0 30px 60px -40px rgba(5,8,13,.5)}
 .post span{font-size:19px;font-weight:500;letter-spacing:-.02em;line-height:1.15}
 .post small{font-size:12px;opacity:.92}
@@ -355,7 +357,7 @@ footer a:hover{color:#F6F4EE}
       <a class="hide-md" href="#como">How it decides</a>
       <a class="hide-md" href="#neuri">Neuri</a>
       <a class="hide-sm" href="/en/ai-consulting/">AI consulting</a>
-      <a class="hide-xs" href="/es/" hreflang="es" lang="es">ES</a>
+      <a href="/es/" hreflang="es" lang="es">ES</a>
       <details data-entrar class="dd"><summary>Sign in</summary>
         <div role="menu">
           <a role="menuitem" href="https://bazar.neuri.tech/login?lang=en">neuri.bazar</a>

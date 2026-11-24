@@ -65,9 +65,10 @@ export function checkOutreach(input) {
   const sigIdx = body.search(equipo ? /El equipo de Neuri\s*\n|The Neuri team\s*\n/ : /Ricardo Díaz/);
   const main = sigIdx > 0 ? body.slice(0, sigIdx) : body;
   const words = main.split(/\s+/).filter(Boolean).length;
-  // copy-correos-cortos (23-nov): con `corto: true` el cuerpo va de 25 a 79 palabras (ideal < 50) y lleva UNA sola
-  // pregunta. Apagado hasta el sí de Ricardo (items/copy-correos-cortos-aprobar): sin la opción, sigue 60–120.
-  if (input.corto === true) {
+  // copy-correos-cortos: modo corto ENCENDIDO por omisión desde el sí de Ricardo (24-nov 09:06,
+  // items/copy-correos-cortos-aprobar): 25 a 79 palabras (ideal < 50) y UNA sola pregunta, para todo correo de
+  // prospección (automático o borrador). Solo `corto: false` vuelve al modo largo de 60–120 (para volver atrás).
+  if (input.corto !== false) {
     if (body && (words < 25 || words >= 80)) bad("cuerpo-largo", `El cuerpo tiene ${words} palabras antes de la firma (25–79, ideal < 50).`);
     const preguntas = (main.replace(/https?:\/\/\S+/g, "").match(/\?/g) ?? []).length;
     if (body && preguntas !== 1) bad("una-pregunta", `El cuerpo lleva ${preguntas} preguntas; debe llevar una sola.`);
@@ -95,6 +96,10 @@ export function checkOutreach(input) {
   }
   // Promesas por línea
   if (product === "bots" && /marketplace/i.test(body)) bad("promesa", "neuri.bots no promete Marketplace.");
+  // Desde el 23-nov neuri.bots no promete configurarlo: el dueño lo configura solo o con su asistente de IA
+  // (Ricardo 24-nov: «quitar Lo configuramos por ti»).
+  if (product === "bots" && /\b(lo|la|te lo|se lo|se los) (configuramos|configuro|instalamos|instalo) (por|para) (ti|usted|ustedes)\b|\byo lo configuro\b|\b(we|I)(['’]ll)? (set|install) (it|this|everything) up for you\b|\bwe set it up\b|\bdone[- ]for[- ]you\b/i.test(main))
+    bad("promesa", "neuri.bots no promete configurarlo por el cliente: el dueño lo configura solo o con su asistente de IA.");
   if (product === "bots" && /whatsapp/i.test(main)) bad("promesa", "neuri.bots no menciona WhatsApp: todavía no está disponible.");
   // copy-contradicciones (23-nov): /estado → meta "open", whatsapp "on". Lo falso ahora es decir que está pendiente.
   if (product === "bots" && /pendiente de (la aprobación de )?Meta|Meta pendiente|pending Meta|waiting (on|for) Meta|esperamos (su|la) aprobación/i.test(main)) warn("meta", "neuri.bots: ya contesta en Instagram, Facebook y WhatsApp (Meta abierta en /estado); el correo no debe decir que sigue pendiente de Meta.");

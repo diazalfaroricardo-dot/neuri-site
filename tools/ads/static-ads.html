@@ -6,11 +6,12 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Crect width=%2230%22 height=%2230%22 rx=%228%22 fill=%22%230B5E3A%22/%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22 fill=%22%23F6F4EE%22/%3E%3C/svg%3E">
 <meta property="og:image" content="https://neuri.tech/assets/og/neuri.png">
 <style>
-@font-face{font-family:G;src:url('geist.woff2') format('woff2');font-weight:100 900}
+/* Fuente Neuri (Geist), el mismo archivo local que usa neuri-site; ruta relativa, sin CDN. */
+@font-face{font-family:G;src:url('../../assets/fonts/geist-latin-wght.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:block}
 :root{--ink:#0F1A14;--ink2:#36443D;--muted:#5C6963;--mint:#1F8A5B;--mf:#8FE0B4;--peach:#B4581F;--coral:#FF8A7A;--sun:#FFC857;--g:#F5F7F5}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#ccc}
-.ad{position:relative;width:1080px;height:1350px;overflow:hidden;font-family:G;color:var(--ink);
+.ad{position:relative;width:1080px;height:1350px;overflow:hidden;font-family:G,system-ui,sans-serif;color:var(--ink);
   background:radial-gradient(820px 820px at 95% 0%, rgba(143,224,180,.5), transparent 70%),radial-gradient(700px 700px at 0% 100%, rgba(255,200,87,.22), transparent 70%),var(--g)}
 .ad.tall{height:1920px}
 .pad{position:absolute;inset:0;padding:96px 100px}
@@ -55,7 +56,7 @@ const AD={
     <div style="text-align:center;font:400 ${tall?150:170}px G;letter-spacing:-.05em;margin-top:${tall?0:-10}px">2:14</div>
     <div style="text-align:center;font:500 34px G;color:#B9C6BF;margin-top:-6px">sábado</div>
     <div style="display:flex;flex-direction:column;gap:16px;margin-top:${tall?30:44}px">
-     ${[["Ana","¿Todavía tienes la talla M? 🙏"],["Luis","¿Cuánto con envío a Culiacán?"],["Sofi","Hola, ¿sigue disponible?"]].map(([n,t])=>`<div style="display:flex;gap:18px;align-items:center;background:rgba(245,247,245,.93);color:var(--ink);border-radius:32px;padding:20px 24px"><span style="width:58px;height:58px;border-radius:16px;background:linear-gradient(135deg,#1F8A5B,#8FE0B4);flex:none"></span><div><b style="font:700 29px G;display:block">${n}</b><span style="font:500 28px/1.25 G;color:var(--ink2)">${t}</span></div><em style="margin-left:auto;align-self:flex-start;font:500 24px G;font-style:normal;color:var(--muted)">ahora</em></div>`).join("")}
+     ${[["Ana","¿Todavía tienes la talla M? 🙏"],["Luis","¿Cuánto con envío a Houston?"],["Sofi","Hola, ¿sigue disponible?"]].map(([n,t])=>`<div style="display:flex;gap:18px;align-items:center;background:rgba(245,247,245,.93);color:var(--ink);border-radius:32px;padding:20px 24px"><span style="width:58px;height:58px;border-radius:16px;background:linear-gradient(135deg,#1F8A5B,#8FE0B4);flex:none"></span><div><b style="font:700 29px G;display:block">${n}</b><span style="font:500 28px/1.25 G;color:var(--ink2)">${t}</span></div><em style="margin-left:auto;align-self:flex-start;font:500 24px G;font-style:normal;color:var(--muted)">ahora</em></div>`).join("")}
     </div>
     <div class="h" style="font-size:${tall?84:92}px;margin-top:${tall?40:50}px">Tú dormías.<br>Tu Instagram, <span style="color:var(--mf)">no.</span></div>
    </div>
@@ -65,7 +66,7 @@ const AD={
    <div class="h" style="font-size:${tall?104:110}px;margin-top:30px">Contesta en<br><span class="m">segundos.</span><br>A cualquier hora.</div></div>
    <div class="phone" style="left:${tall?130:470}px;top:${tall?675:560}px;width:${tall?640:560}px;height:${tall?560:600}px;transform:rotate(${tall?0:-4}deg)"><div class="scr">
     <div class="chd"><div class="av"></div><div class="who">Ana<small>Instagram</small></div></div>
-    <div class="msgs"><div class="b in">¿Todavía tienes la talla M? 🙏</div><div class="b out">¡Sí! Talla M en negro, $480 con envío. ¿Te la aparto? 🖤</div><div class="meta r">al instante</div></div></div></div>
+    <div class="msgs"><div class="b in">¿Todavía tienes la talla M? 🙏</div><div class="b out">¡Sí! Talla M en negro, $48 con envío. ¿Te la aparto? 🖤</div><div class="meta r">al instante</div></div></div></div>
    ${tall?"":`<div style="position:absolute;left:100px;top:700px;width:330px;font:500 34px/1.35 G;color:var(--ink2)">Contesta lo que tú contestarías, aunque estés dormido.</div>`}
    ${FOOT()}</div>`,
  repeat:()=>{let b="";const xs=[0,60,140,30,110,190,20,90,160];for(let i=0;i<9;i++)b+=`<div style="position:absolute;left:${(tall?110:100)+xs[i]}px;top:${(tall?270:110)+i*(tall?62:70)}px;transform:rotate(${[-3,2,-1,3,-2,1,-3,2,0][i]}deg);font:600 36px G;background:#fff;padding:18px 28px;border-radius:32px;border-bottom-left-radius:8px;box-shadow:0 8px 24px rgba(15,26,20,.1);opacity:${.45+i*.07}">¿Sigue disponible?</div>`;
@@ -83,9 +84,9 @@ const AD={
  offer:()=>`<div class="ad ${tall?"tall":""}" style="background:var(--mf)">${net(41,0,0,1,tall?.3:.4,undefined,undefined,26,.5)}
    <div class="pad"><div class="logo"><i></i>neuri.bots</div>
    <div class="h" style="font-size:${tall?118:124}px;margin-top:${tall?50:46}px">Prueba<br>gratis.</div>
-   <div style="font:600 44px/1.3 G;margin-top:26px;max-width:${tall?820:520}px">Tu asistente que contesta Instagram, Messenger y WhatsApp, 24/7.</div>
-   <div style="display:inline-flex;margin-top:34px;background:var(--ink);color:var(--mf);font:700 44px G;padding:22px 34px;border-radius:24px">desde $899 MXN/mes</div></div>
-   ${tall?"":`<div class="phone" style="left:640px;top:470px;width:400px;height:700px;transform:rotate(5deg)"><div class="scr"><div class="chd"><div class="av"></div><div class="who">Luis<small>WhatsApp</small></div></div><div class="msgs"><div class="b in">¿Cuánto con envío?</div><div class="b out">$480 con envío 📦 ¿Te lo aparto?</div><div class="b in">¡Va! 🙌</div><span class="chip" style="align-self:flex-end">✓ Vendido</span></div></div></div>`}
+   <div style="font:600 44px/1.3 G;margin-top:26px;max-width:${tall?820:520}px">Tu asistente que contesta Instagram, Messenger y WhatsApp en segundos.</div>
+   <div style="display:inline-flex;margin-top:34px;background:var(--ink);color:var(--mf);font:700 44px G;padding:22px 34px;border-radius:24px">desde $49 USD/mes</div></div>
+   ${tall?"":`<div class="phone" style="left:640px;top:470px;width:400px;height:700px;transform:rotate(5deg)"><div class="scr"><div class="chd"><div class="av"></div><div class="who">Luis<small>WhatsApp</small></div></div><div class="msgs"><div class="b in">¿Cuánto con envío?</div><div class="b out">$48 con envío 📦 ¿Te lo aparto?</div><div class="b in">¡Va! 🙌</div><span class="chip" style="align-self:flex-end">✓ Vendido</span></div></div></div>`}
    <div class="foot"><div><span class="btn">Empieza gratis →</span></div><div class="url" style="color:var(--ink)">neuri.tech/bots</div></div></div>`
 };
 document.getElementById("stage").innerHTML=AD[D]();

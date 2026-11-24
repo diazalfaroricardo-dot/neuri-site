@@ -21,7 +21,7 @@ def txt(h):
 
 BOTS_PRECIO = ("<section><h2>Cuánto cuesta</h2><p>Básico US$49 al mes y Pro US$69 al mes, fijo: sin cobro por mensaje ni por contacto, "
                "mes a mes y sin contrato. {pro}</p><p><a href=\"/sigue-disponible/#precios\">Ver planes</a> · "
-               "<a href=\"/sigue-disponible/vs-manychat/\">Comparar con ManyChat</a></p></section>\n")
+               "<a href=\"/sigue-disponible/mejores-bots-instagram/\">Comparar con ManyChat y otros bots</a></p></section>\n")
 
 G = []
 
@@ -67,7 +67,7 @@ G.append(dict(
 
 G.append(dict(
  path="sigue-disponible/salones/", brand="bots", lang="es", alt="/en/still-available/",
- title="Bot para salones de belleza: agenda citas por Instagram y WhatsApp",
+ title="Bot para salones de belleza: citas por Instagram y WhatsApp",
  desc="Para salones, uñas y barberías: neuri.bots ofrece tus horarios libres, agenda la cita, la recuerda y maneja cambios por Instagram, Messenger y WhatsApp.",
  h1="Bot para salones de belleza: contesta y agenda tus citas",
  lead="<b>Respuesta corta:</b> en un salón casi todos los mensajes son «¿cuánto cuesta?» y «¿tienes lugar el sábado?». neuri.bots contesta el precio de cada servicio, ofrece 3 horarios libres de tu agenda, aparta el que elijan y le recuerda la cita a tu clienta. Tú sigues trabajando.",

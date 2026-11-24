@@ -14,7 +14,9 @@ Answers a business's customer messages on Instagram, Messenger and WhatsApp (plu
 
 - Basic US$49/month · Pro US$69/month
 - [neuri.bots (English)](https://neuri.tech/en/still-available/) · [Español](https://neuri.tech/sigue-disponible/)
-- Comparison: [neuri.bots vs ManyChat (English)](https://neuri.tech/en/still-available/vs-manychat/) · [Español](https://neuri.tech/sigue-disponible/vs-manychat/)
+- Comparison: [neuri.bots vs ManyChat (English)](https://neuri.tech/en/still-available/vs-manychat/) · [Español](https://neuri.tech/sigue-disponible/vs-manychat/) · [neuri.bots vs SendPulse (Español)](https://neuri.tech/sigue-disponible/vs-sendpulse/) · [Mejores bots para Instagram](https://neuri.tech/sigue-disponible/mejores-bots-instagram/)
+- By business type (Spanish): [Boutiques](https://neuri.tech/sigue-disponible/boutiques/) · [Celulares](https://neuri.tech/sigue-disponible/celulares/) · [Salones](https://neuri.tech/sigue-disponible/salones/)
+- Free tool: [How much do unanswered DMs cost you? (Spanish)](https://neuri.tech/sigue-disponible/calculadora-dms/)
 
 ## neuri.bazar
 
@@ -23,7 +25,9 @@ Point of sale for antique malls, vendor malls, consignment shops and makers mark
 - Basic US$79 · Pro US$119 · Plus US$149 per month
 - Basic: up to 30 vendors and 1 register · Pro: up to 75 vendors and 3 registers · Plus: unlimited vendors and registers, plus a public website with the whole inventory. Flat monthly price, no fee on sales.
 - [neuri.bazar (English)](https://neuri.tech/en/bazar/) · [Español](https://neuri.tech/bazar/) · [Tour with real screens](https://neuri.tech/en/bazar/tour/) · [Recorrido con pantallas reales](https://neuri.tech/bazar/recorrido/)
-- Comparison: [neuri.bazar vs Quail (English)](https://neuri.tech/en/bazar/vs-quail/) · [Español](https://neuri.tech/bazar/vs-quail/) · [neuri.bazar vs Ricochet (English)](https://neuri.tech/en/bazar/vs-ricochet/) · [Español](https://neuri.tech/bazar/vs-ricochet/)
+- Comparison: [neuri.bazar vs Quail (English)](https://neuri.tech/en/bazar/vs-quail/) · [Español](https://neuri.tech/bazar/vs-quail/) · [neuri.bazar vs Ricochet (English)](https://neuri.tech/en/bazar/vs-ricochet/) · [Español](https://neuri.tech/bazar/vs-ricochet/) · [neuri.bazar vs SimpleConsign (English)](https://neuri.tech/en/bazar/vs-simpleconsign/)
+- By market type: [Antique malls](https://neuri.tech/en/bazar/antique-mall/) · [Flea markets](https://neuri.tech/en/bazar/flea-market/)
+- Free tool: [Booth rent vs commission calculator (Spanish)](https://neuri.tech/bazar/calculadora-renta-comision/)
 
 ## neuri.consulting
 
@@ -38,7 +42,7 @@ AI marketing hub for growing businesses: brand kit, a 30-day content calendar, p
 
 - Start US$49 · Grow US$99 · Pro US$169 per month
 - [neuri.marketing (English)](https://neuri.tech/en/marketing/) · [Español](https://neuri.tech/marketing/)
-- Comparison: [neuri.marketing vs Predis.ai (English)](https://neuri.tech/en/marketing/vs-predis/) · [Español](https://neuri.tech/marketing/vs-predis/)
+- Comparison: [neuri.marketing vs Predis.ai (English)](https://neuri.tech/en/marketing/vs-predis/) · [Español](https://neuri.tech/marketing/vs-predis/) · [Mejores apps de IA para posts (Español)](https://neuri.tech/marketing/mejores-apps-ia-posts/)
 - Free tools: [2026 guide](https://marketing.neuri.tech/guia?lang=en) · [Profile self-check](https://marketing.neuri.tech/diagnostico?lang=en) · [Templates by business type](https://marketing.neuri.tech/plantillas?lang=en) · [Reel ideas](https://marketing.neuri.tech/ideas-reels?lang=en) · [Comment replies](https://marketing.neuri.tech/respuestas?lang=en) · [Brand sheet](https://marketing.neuri.tech/marca?lang=en) (Spanish: drop ?lang=en)
 
 ## Legal

@@ -1,6 +1,8 @@
 // Pedido de Ricardo (2026-11-21): los términos de todas las apps dicen una sola cuenta por red.
 // neuri.bots ES/EN: sección «Una cuenta por red» con las cuatro redes, más cuentas no incluidas
 // (se piden a hola@neuri.tech), WhatsApp ya conectable, TikTok por etapas y versión 0.5 (23-nov-2026; v0.5 agrega SMS y códigos de regalo).
+// v0.10 (rama bots-terminos-cuentas-extra, sin publicar hasta el add-on): «una cuenta por red por plan»;
+// cuentas adicionales con costo (50 % del plan, misma factura), otro negocio sin otra prueba y uso de IA incluido.
 // Uso: node scripts/bots-terminos-una-cuenta-test.mjs [--live]
 import { readFileSync } from "node:fs";
 
@@ -13,20 +15,22 @@ const ok = (c, m) => { console.log((c ? "ok   " : "FALLA") + " " + m); if (!c) f
 const casos = [
   {
     p: "sigue-disponible/terminos/index.html",
-    titulo: "Una cuenta por red",
+    titulo: "Una cuenta por red por plan",
+    extra: ["Cuentas adicionales con costo", "50 % de la mensualidad de tu plan", "en tu misma factura", "Hasta 4 cuentas por red", "La prueba gratis es una por cuenta", "Uso de IA incluido"],
     redes: ["una cuenta de Instagram", "una página de Facebook (Messenger)", "un número de WhatsApp", "una cuenta de TikTok"],
-    fuera: "no están incluidas",
-    version: "Versión 0.9",
+    fuera: "no están incluidos",
+    version: "Versión 0.10",
     fecha: "24 de noviembre de 2026",
     viejo: [/WhatsApp está en camino/, /por <b>Instagram y Messenger<\/b>/],
     tiktok: /TikTok<\/b> y los <b>mensajes de texto \(SMS\)<\/b> se van encendiendo por etapas/,
   },
   {
     p: "en/still-available/terms/index.html",
-    titulo: "One account per network",
+    titulo: "One account per network per plan",
+    extra: ["Additional accounts for a fee", "50% of your plan", "on your same invoice", "Up to 4 accounts per network", "The free trial is one per account", "Included AI use"],
     redes: ["one Instagram account", "one Facebook Page (Messenger)", "one WhatsApp number", "one TikTok account"],
     fuera: "are not included",
-    version: "Version 0.9",
+    version: "Version 0.10",
     fecha: "November 24, 2026",
     viejo: [/WhatsApp is on the way/, /on <b>Instagram and Messenger<\/b>/],
     tiktok: /TikTok<\/b> and <b>text messages \(SMS\)<\/b> are being turned on in stages/,
@@ -40,6 +44,8 @@ for (const c of casos) {
   ok(/data-terms-accounts/.test(sec), `${c.p}: marca data-terms-accounts`);
   for (const r of c.redes) ok(sec.includes(r), `${c.p}: nombra «${r}»`);
   ok(sec.includes(c.fuera), `${c.p}: más cuentas «${c.fuera}»`);
+  for (const e of c.extra) ok(sec.includes(e), `${c.p}: add-on «${e}»`);
+  ok(/data-terms-extra-accounts/.test(sec) && /data-terms-ai-budget/.test(sec), `${c.p}: marcas del add-on y del uso de IA`);
   ok(sec.includes("mailto:hola@neuri.tech"), `${c.p}: se piden a hola@neuri.tech`);
   ok(s.includes(c.version) && s.includes(c.fecha), `${c.p}: ${c.version} · ${c.fecha}`);
   ok(c.tiktok.test(s), `${c.p}: TikTok por etapas`);

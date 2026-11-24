@@ -15,7 +15,8 @@ for (const [f, lang, aviso] of [
   ["index.html", "en", /Test bazaar/],
 ]) {
   const html = readFileSync(join(root, f), "utf8");
-  const shots = [...html.matchAll(/<a class="shot" href="([^"]+)"[^>]*>[\s\S]*?<\/a>/g)];
+  // Una acción (Ricardo 24-nov): la captura ya no es link; el destino es el «Ver …» (a.more) de su tarjeta.
+  const shots = [...html.matchAll(/<a class="more" href="([^"]+)"[\s\S]*?<figure class="shot">[\s\S]*?<\/figure>/g)];
   if (shots.length !== 4) bad(`${f}: ${shots.length} pantallas, deben ser 4`);
   for (const m of shots) {
     const img = m[0].match(/<img src="\/img\/([^"]+)" alt="([^"]{20,})" width="\d+" height="\d+" loading="lazy"/);

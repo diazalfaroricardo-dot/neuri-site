@@ -50,5 +50,18 @@ const ok = (c, m) => { if (!c) { fail++; console.log("✗", m); } else console.l
   ok(/20 palabras o menos/.test(leer("docs/copy/glosario.md")), "glosario docs/copy/glosario.md");
 }
 
+// 3 · Una acción principal por sección en neuri.tech («Productos arriba, demo al cierre»)
+for (const [f, L] of [["es/index.html", { talk: "Hablar con Neuri", prods: "Ver los productos", orw: "o escríbenos", demo: "Agenda una demo de 30 min", mail: "o escribe a hola@neuri.tech" }],
+  ["index.html", { talk: "Talk to Neuri", prods: "See the products", orw: "or write to us", demo: "Book a 30-min demo", mail: "or email hola@neuri.tech" }]]) {
+  const h = leer(f);
+  const seccion = (re) => (h.match(re) || [""])[0];
+  const head = seccion(/<header[\s\S]*?<\/header>/), hero = seccion(/<div class="hero"[\s\S]*?<figure class="day"/), prods = seccion(/id="productos"[\s\S]*?<\/section>/), fin = seccion(/<section class="fin"[\s\S]*?<\/section>/);
+  const botones = (s) => (s.match(/class="btn p\b/g) || []).length;
+  ok(botones(head) === 0 && head.includes(`<a class="tl hide-xs" href="mailto:hola@neuri.tech">${L.talk}</a>`), `${f}: barra sin botón; «${L.talk}» es link de texto`);
+  ok(botones(hero) === 1 && hero.includes(`<a class="btn p" href="#productos">${L.prods}</a>`) && hero.includes(`<a class="tl" href="mailto:hola@neuri.tech">${L.orw}</a>`) && !/btn g/.test(hero), `${f}: hero con un botón + «${L.orw}»`);
+  ok(prods && !/<a class="shot"/.test(prods) && (prods.match(/<figure class="shot">/g) || []).length === 4 && (prods.match(/<a class="more"/g) || []).length === 4, `${f}: 4 tarjetas con un solo link cada una`);
+  ok(botones(fin) === 1 && /<a class="btn p" href="https:\/\/calendly\.com\/[^"]+"[^>]*>/.test(fin) && fin.includes(`${L.demo} <svg`) && fin.includes(`<a class="tl" href="mailto:hola@neuri.tech">${L.mail}</a>`) && !fin.includes("#productos") && !/btn g/.test(fin), `${f}: cierre con demo como botón y el correo como link`);
+}
+
 if (fail) { console.log(`✗ ${fail} fallas`); process.exit(1); }
 console.log("✓ copy 24-nov publicado igual que la vista previa");

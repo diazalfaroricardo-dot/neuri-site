@@ -54,7 +54,8 @@ for (const f of ["consultoria/index.html", "en/ai-consulting/index.html"]) {
 if (!/Neuri contesta a tus clientes, cobra, lleva tus cuentas y hace tus posts\. A cualquier hora, con tus reglas\./.test(home)) bad("T38: la portada ES no explica en llano qué hace Neuri");
 if (/negocios pequeños/i.test(home)) bad("la portada ES dice «negocios pequeños» (Ricardo 18-nov: no)");
 if (/Tú piensas\. La red ejecuta\.|Ver sistemas en operación/.test(home)) bad("T38: copy abstracto de la portada ES");
-if ((home.match(/>Ver los productos</g) || []).length + (home.match(/>Ver los productos<svg/g) || []).length < 2) bad("T38: falta «Ver los productos» en el encabezado");
+// Una acción (Ricardo 24-nov, «Productos arriba, demo al cierre»): «Ver los productos» es el botón del hero; el cierre ya no lo repite.
+if (!/<a class="btn p" href="#productos">Ver los productos<\/a>/.test(home)) bad("T38: falta «Ver los productos» como botón del hero");
 for (const m of home.matchAll(/<span class="([^"]*)"[^>]*>⌘K<\/span>Probar la demo/g))
   if (!/x-kbd/.test(m[1])) bad("T38: el ⌘K del botón «Probar la demo» no se oculta en táctil (.x-kbd)");
 // Portada v12 (23-nov): ya no hay consola ni atajo ⌘K; si el botón vuelve, el ⌘K se oculta en táctil (arriba).

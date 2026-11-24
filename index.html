@@ -69,6 +69,7 @@ html{scrollbar-color:#CFCDC6 transparent}
 .btn.g{border:1px solid var(--line);background:var(--panel);color:var(--ink)}.btn.g:hover{border-color:#CBC9C1}
 .btn.sm{height:44px;padding:0 14px;font-size:13.5px}
 .btn svg{width:14px;height:14px}
+.tl{display:inline-flex;align-items:center;gap:6px;min-height:44px;font:500 14px/1 var(--sans);color:var(--green);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;white-space:nowrap}.tl:hover{color:var(--ink)}
 
 /* hero */
 .hero{padding:96px 0 0}
@@ -76,7 +77,7 @@ html{scrollbar-color:#CFCDC6 transparent}
 .hero h1 span{color:#80857F}
 .hero .sub{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-top:28px}
 .hero .sub p{font-size:18px;line-height:1.55;color:var(--ink2);max-width:34em}
-.hero .act{display:flex;gap:10px;flex-shrink:0}
+.hero .act{display:flex;align-items:center;gap:18px;flex-shrink:0}
 
 /* day instrument */
 .day{margin-top:64px;background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 0 rgba(5,8,13,.02),0 40px 80px -60px rgba(5,8,13,.28);overflow:hidden}
@@ -173,7 +174,7 @@ section{padding:160px 0 0}
 .fin .w{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end}
 .fin h2{font-size:clamp(40px,5vw,68px);line-height:1.02;letter-spacing:-.045em}
 .fin p{color:var(--ink2);font-size:17px;max-width:28em}
-.fin .act{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.fin .act{display:flex;align-items:center;gap:10px 18px;margin-top:24px;flex-wrap:wrap}
 footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:13.5px;color:var(--sub)}
 footer .w{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 footer nav{display:flex;gap:0 20px;flex-wrap:wrap}
@@ -302,6 +303,7 @@ footer a:hover{color:var(--ink)}
 .fin h2{color:#F6F4EE}
 .fin p{color:#B8BDB7}
 .fin .btn.p{background:var(--mint);color:#05080D}.fin .btn.p:hover{background:#A6E9C4}
+.fin .tl{color:#F6F4EE;text-decoration-color:rgba(246,244,238,.45)}.fin .tl:hover{color:var(--mint)}
 .fin .btn.g{background:transparent;border-color:rgba(246,244,238,.2);color:#F6F4EE}.fin .btn.g:hover{border-color:rgba(246,244,238,.4)}
 .fin .tm{display:block;font-size:14px;color:var(--mint);margin-bottom:22px}
 footer{background:#05080D;color:#9DA29C;border-top:1px solid rgba(246,244,238,.08)}
@@ -336,9 +338,8 @@ footer a:hover{color:#F6F4EE}
 .fin .w{z-index:1}
 @media (max-width:760px){.fin{padding:250px 0 96px!important}}
 
-.prod .shot{display:block;width:150px}
+.prod .shot{display:block;width:150px;margin:0}
 .prod .shot .fr{display:block;height:170px;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#fff;padding:8px 8px 0;box-shadow:0 20px 40px -32px rgba(5,8,13,.4);transition:border-color .25s}
-.prod .shot:hover .fr{border-color:#CBC9C1}
 .prod .shot img{border-radius:8px 8px 0 0}
 .prod .shot .src{margin-top:8px;font-size:12px;line-height:1.35;color:var(--sub)}
 @media (max-width:1080px){.prod .shot{display:none}}
@@ -366,7 +367,7 @@ footer a:hover{color:#F6F4EE}
           <a role="menuitem" href="https://marketing.neuri.tech/entrar?lang=en">neuri.marketing</a>
         </div>
       </details>
-      <a class="btn p sm hide-xs" href="mailto:hola@neuri.tech">Talk to Neuri</a>
+      <a class="tl hide-xs" href="mailto:hola@neuri.tech">Talk to Neuri</a>
     </nav>
   </div>
 </header>
@@ -380,7 +381,7 @@ footer a:hover{color:#F6F4EE}
       <p>Neuri answers your customers, runs your register, keeps your books and makes your posts. Any hour, your rules.</p>
       <div class="act">
         <a class="btn p" href="#productos">See the products</a>
-        <a class="btn g" href="mailto:hola@neuri.tech">Write to us</a>
+        <a class="tl" href="mailto:hola@neuri.tech">or write to us</a>
       </div>
     </div>
 
@@ -489,22 +490,22 @@ footer a:hover{color:#F6F4EE}
         <div><h3><i class="dot"></i>neuri.bots</h3><span class="st"><i></i>Sign-up open · Instagram, Facebook and WhatsApp</span></div>
         <div><p class="d">Replies to your buyers on Instagram, Facebook and WhatsApp with your prices and rules: is it still available, how much, where to pick up. Holds items, books visits and passes you the hard ones. TikTok and SMS coming soon.</p><a class="more" href="/en/still-available/">See neuri.bots <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
         <dl class="facts"><div><dt>To reply</dt><dd>Seconds</dd></div><div><dt>Hours</dt><dd>24/7</dd></div><div><dt>Prices</dt><dd>From your sheet</dd></div></dl>
-      <a class="shot" href="/en/still-available/"><span class="fr"><picture><source srcset="/img/pantalla-bots-en.avif" type="image/avif"><source srcset="/img/pantalla-bots-en.webp" type="image/webp"><img src="/img/pantalla-bots-en.jpg" alt="The neuri.bots page on a phone." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">neuri.bots live page</p></a></article>
+      <figure class="shot"><span class="fr"><picture><source srcset="/img/pantalla-bots-en.avif" type="image/avif"><source srcset="/img/pantalla-bots-en.webp" type="image/webp"><img src="/img/pantalla-bots-en.jpg" alt="The neuri.bots page on a phone." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">neuri.bots live page</p></figure></article>
       <article class="prod" style="--c:var(--bazar)">
         <div><h3><i class="dot"></i>neuri.bazar</h3><span class="st"><i></i>Live</span></div>
         <div><p class="d">The register and the books for vendor malls, flea markets and antique malls. Each sale goes to its vendor’s balance, booth rent is deducted from that balance automatically and the books run without a notebook. From US$79 a month; Neuri takes no commission on sales.</p><a class="more" href="/en/bazar/">See neuri.bazar <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
         <dl class="facts"><div><dt>Each sale</dt><dd>To the vendor’s balance</dd></div><div><dt>Booth rent</dt><dd>Deducted automatically</dd></div><div><dt>Commission per sale</dt><dd class="mono">0%</dd></div></dl>
-      <a class="shot" href="/en/bazar/"><span class="fr"><picture><source srcset="/img/pantalla-bazar-en.avif" type="image/avif"><source srcset="/img/pantalla-bazar-en.webp" type="image/webp"><img src="/img/pantalla-bazar-en.jpg" alt="neuri.bazar home with a test bazaar and sample sales." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Test bazaar with test data</p></a></article>
+      <figure class="shot"><span class="fr"><picture><source srcset="/img/pantalla-bazar-en.avif" type="image/avif"><source srcset="/img/pantalla-bazar-en.webp" type="image/webp"><img src="/img/pantalla-bazar-en.jpg" alt="neuri.bazar home with a test bazaar and sample sales." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Test bazaar with test data</p></figure></article>
       <article class="prod" style="--c:var(--consulting)">
         <div><h3><i class="dot"></i>neuri.consulting</h3><span class="st"><i></i>Open</span></div>
         <div><p class="d">Shows where AI saves your business hours and helps you put it to work. Free AI Score, an online diagnosis with quality checks (a person reviews it if something doesn’t add up), implementation and monthly support.</p><a class="more" href="/en/ai-consulting/">See neuri.consulting <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
         <dl class="facts"><div><dt>Your free AI Score</dt><dd>3 min</dd></div><div><dt>Prioritized plan</dt><dd>90 days</dd></div><div><dt>Price per stage</dt><dd>Fixed, with guarantee</dd></div></dl>
-      <a class="shot" href="/en/ai-consulting/"><span class="fr"><picture><source srcset="/img/pantalla-consulting-en.avif" type="image/avif"><source srcset="/img/pantalla-consulting-en.webp" type="image/webp"><img src="/img/pantalla-consulting-en.jpg" alt="A sample neuri.consulting AI assessment." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Sample assessment: fictional business</p></a></article>
+      <figure class="shot"><span class="fr"><picture><source srcset="/img/pantalla-consulting-en.avif" type="image/avif"><source srcset="/img/pantalla-consulting-en.webp" type="image/webp"><img src="/img/pantalla-consulting-en.jpg" alt="A sample neuri.consulting AI assessment." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Sample assessment: fictional business</p></figure></article>
       <article class="prod" style="--c:var(--marketing)">
         <div><h3><i class="dot"></i>neuri.marketing</h3><span class="st off"><i></i>Not open yet</span></div>
         <div><p class="d">Prepares your business’s posts and reels for the month with your brand and your photos; you approve with one tap. New accounts open once Instagram and Facebook can be connected; today you can see a sample and use 6 free tools.</p><a class="more" href="/en/marketing/">See neuri.marketing <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
         <dl class="facts"><div><dt>To approve</dt><dd>1 tap</dd></div><div><dt>Calendar</dt><dd>30 days</dd></div><div><dt>Today</dt><dd>6 free tools</dd></div></dl>
-      <a class="shot" href="/en/marketing/"><span class="fr"><picture><source srcset="/img/pantalla-marketing-en.avif" type="image/avif"><source srcset="/img/pantalla-marketing-en.webp" type="image/webp"><img src="/img/pantalla-marketing-en.jpg" alt="neuri.marketing sample: what your month on Instagram would look like." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Sample page: made-up business</p></a></article>
+      <figure class="shot"><span class="fr"><picture><source srcset="/img/pantalla-marketing-en.avif" type="image/avif"><source srcset="/img/pantalla-marketing-en.webp" type="image/webp"><img src="/img/pantalla-marketing-en.jpg" alt="neuri.marketing sample: what your month on Instagram would look like." width="480" height="680" loading="lazy" decoding="async"></picture></span><p class="src">Sample page: made-up business</p></figure></article>
     </div>
   </div>
 </section>
@@ -561,7 +562,7 @@ footer a:hover{color:#F6F4EE}
     <div><span class="tm mono">11:41 pm · your agents are still awake</span><h2 id="f-t">Tell us what eats up your hours.</h2></div>
     <div>
       <p>We’re opening with our first businesses. Write to us and we’ll tell you which agent fits, or whether we don’t have one for you yet. We reply within 1 business day.</p>
-      <div class="act"><a class="btn p" href="mailto:hola@neuri.tech">hola@neuri.tech</a><a class="btn g" href="https://calendly.com/diazalfaroricardo/30min" target="_blank" rel="noopener">Book a 30-min demo <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5"/></svg></a><a class="btn g" href="#productos">See the products</a></div>
+      <div class="act"><a class="btn p" href="https://calendly.com/diazalfaroricardo/30min" target="_blank" rel="noopener">Book a 30-min demo <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5"/></svg></a><a class="tl" href="mailto:hola@neuri.tech">or email hola@neuri.tech</a></div>
     </div>
   </div>
 </section>

@@ -61,13 +61,13 @@ Container 1200px, side padding 32px (20px ≤760px). Sections start 160px apart 
 
 ## Components
 
-- **Nav:** sticky, wall at 95% + blur, hairline after scroll; sans 14px links `#585D57`; one ink pill CTA.
-- **Buttons:** `.btn.p` ink pill (mint on night), `.btn.g` white with hairline; 40px tall, 14px/500.
+- **Nav:** sticky, wall at 95% + blur, hairline after scroll; sans 14px links `#585D57`; «Talk to Neuri» is a `.tl` text link (no pill: one primary button per section, Ricardo 24-nov).
+- **Buttons:** `.btn.p` ink pill (mint on night), `.btn.g` white with hairline; 40px tall, 14px/500. One `.btn.p` per section; secondary actions are `.tl` text links (green underline, wall on night, 44px touch target).
 - **Day instrument (hero):** white panel; header (title + "sample data" label + lane legend), plot (hour lines every 3 h, night shading 00–07 and 21–24, 4 lanes, event pins with tag cards), footer counters. Mobile: becomes a time-ordered list.
 - **Story (pinned):** clock left, chapter copy, artifact right (posts, chat, ticket, AI Score, end-of-day count); background walks peach → wall → white → blush → ink. Mobile / reduced motion: chapters stacked with their artifact.
-- **Product rows:** hairline rows; name with lane dot + status, copy + link, facts `dl`, real phone screenshot (`a.shot` with `p.src` data note).
+- **Product rows:** hairline rows; name with lane dot + status, copy + link, facts `dl`, real phone screenshot (`figure.shot`, not a link, with `p.src` data note); the card's only link is `a.more`.
 - **Numbers band:** 4 big numerals with hairline dividers (only true facts).
-- **Close (night):** ink background, mint glow, 3,000-dot canvas that swarms and writes `hello` / `hola`; CTAs: email, products, 30-min demo (Calendly `diazalfaroricardo/30min`).
+- **Close (night):** ink background, mint glow, 3,000-dot canvas that swarms and writes `hello` / `hola`; CTAs: one mint button «Book a 30-min demo» (Calendly `diazalfaroricardo/30min`) + text link to hola@neuri.tech. Hero: one button «See the products» + text link «or write to us».
 
 ## Motion
 

@@ -47,7 +47,28 @@ const CHIPS_EQUIPO = {
 };
 export const PRIVACIDAD = { es: "https://neuri.tech/legal/#prospeccion", en: "https://neuri.tech/en/legal/#outreach" };
 
-export function outreachHtml({ product = "bazar", lang = "es", subject = "", body = "", firma = "ricardo", unsubUrl = "", fuente = "" }) {
+/**
+ * A356 premium (vista previa 24-nov, espera el sí de Ricardo): tarjeta de datos con lo que se leyó en
+ * los comentarios públicos de su TikTok. Solo números que ya van en el texto. Motion solo con CSS
+ * (barras que crecen, tarjeta que sube) donde el cliente lo soporta (Apple Mail, iOS); Gmail y Outlook
+ * la ven fija y completa. Respeta prefers-reduced-motion.
+ * datos = {big, bigLabel, eyebrow, rows:[{label, n}], note}
+ */
+function datosHtml(d, t) {
+  if (!d?.rows?.length) return "";
+  const max = Math.max(...d.rows.map((r) => r.n), 1);
+  const rows = d.rows
+    .map((r, i) => {
+      const w = Math.max(6, Math.round((r.n / max) * 100));
+      return `<tr><td style="padding:0 0 10px;font-family:${FONT}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:14px;line-height:18px;font-weight:600;color:${t.ink};padding:0 0 5px">${esc(r.label)}</td><td align="right" style="font-size:14px;line-height:18px;font-weight:700;color:${t.ink};padding:0 0 5px;font-variant-numeric:tabular-nums">${esc(String(r.n))}</td></tr><tr><td colspan="2" style="background:#FFFFFF;border-radius:999px;line-height:0;font-size:0;height:8px"><div class="nb-bar nb-d${i}" style="width:${w}%;height:8px;border-radius:999px;background:${t.a};line-height:0;font-size:0">&nbsp;</div></td></tr></table></td></tr>`;
+    })
+    .join("");
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="nb-card" style="margin:4px 0 22px;background:${t.bg};border:1px solid ${t.line};border-radius:16px;border-collapse:separate"><tr><td style="padding:20px 22px 12px;font-family:${FONT}"><div style="font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:${t.a};margin:0 0 10px">${esc(d.eyebrow ?? "")}</div><div class="nb-big" style="font-size:44px;line-height:46px;font-weight:800;letter-spacing:-.02em;color:${t.ink};font-variant-numeric:tabular-nums">${esc(d.big ?? "")}</div><div style="font-size:15px;line-height:21px;color:${t.sub};margin:4px 0 18px">${esc(d.bigLabel ?? "")}</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${rows}</table>${d.note ? `<div style="font-size:13px;line-height:18px;color:${t.sub};margin:4px 0 6px">${esc(d.note)}</div>` : ""}</td></tr></table>`;
+}
+
+const MOTION_CSS = `<style>@media (prefers-reduced-motion:no-preference){.nb-card{animation:nbUp .7s cubic-bezier(.16,1,.3,1) both}.nb-big{animation:nbUp .7s .15s cubic-bezier(.16,1,.3,1) both}.nb-bar{transform-origin:left center;animation:nbGrow 1.1s cubic-bezier(.16,1,.3,1) both}.nb-d0{animation-delay:.35s}.nb-d1{animation-delay:.5s}.nb-d2{animation-delay:.65s}.nb-d3{animation-delay:.8s}@keyframes nbGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes nbUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}}</style>`;
+
+export function outreachHtml({ product = "bazar", lang = "es", subject = "", body = "", firma = "ricardo", unsubUrl = "", fuente = "", datos = null }) {
   const t = T[product] ?? T.bazar;
   const en = lang === "en";
   const equipo = firma === "equipo";
@@ -71,7 +92,10 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
   const clean = bodyLines.filter((l) => !/^\[.*(Dirección postal|postal address).*\]$/i.test(l.trim()) && !/5818 W Raymond/.test(l));
   const paras = clean.join("\n").trim().split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
   const P = `margin:0 0 16px;font-family:${FONT};font-size:16px;line-height:1.6;color:${t.ink}`;
-  const bodyHtml = paras.map((p) => `<p style="${P}">${esc(p).replace(/\n/g, "<br>")}</p>`).join("");
+  const pHtml = paras.map((p) => `<p style="${P}">${esc(p).replace(/\n/g, "<br>")}</p>`);
+  const card0 = datosHtml(datos, T[product] ?? T.bazar);
+  if (card0) pHtml.splice(Math.min(2, pHtml.length), 0, card0);
+  const bodyHtml = pHtml.join("");
   const isProduct = product !== "personal" && T[product]?.url;
   const L = en ? "en" : "es";
   const href = isProduct ? utm(t.url[L], product) : "";
@@ -109,7 +133,7 @@ export function outreachHtml({ product = "bazar", lang = "es", subject = "", bod
   const inner = isProduct
     ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="max-width:600px;background:#FFFFFF;border:1px solid ${t.line};border-radius:18px;border-collapse:separate">${hero}<tr><td style="padding:28px 30px 22px">${bodyHtml}${card}${sig}</td></tr></table>`
     : `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px"><tr><td style="padding:0 2px">${bodyHtml}${sig}</td></tr></table>`;
-  return `<!doctype html><html lang="${L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${esc(subject)}</title></head><body style="margin:0;padding:0;background:${outerBg}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${outerBg}" style="background:${outerBg}"><tr><td align="center" style="padding:${isProduct ? "24px 10px" : "8px 0"}">${inner}${foot.trim() ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px"><tr><td style="padding:16px 8px 0;font-family:${FONT};font-size:12px;line-height:1.55;color:${t.sub};text-align:${isProduct ? "center" : "left"}">${foot}</td></tr></table>` : ""}</td></tr></table></body></html>`;
+  return `<!doctype html><html lang="${L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${esc(subject)}</title>${datos?.rows?.length ? MOTION_CSS : ""}</head><body style="margin:0;padding:0;background:${outerBg}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${outerBg}" style="background:${outerBg}"><tr><td align="center" style="padding:${isProduct ? "24px 10px" : "8px 0"}">${inner}${foot.trim() ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px"><tr><td style="padding:16px 8px 0;font-family:${FONT};font-size:12px;line-height:1.55;color:${t.sub};text-align:${isProduct ? "center" : "left"}">${foot}</td></tr></table>` : ""}</td></tr></table></body></html>`;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

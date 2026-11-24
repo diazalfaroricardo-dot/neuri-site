@@ -95,7 +95,10 @@ export function checkOutreach(input) {
   }
   // Promesas por línea
   if (product === "bots" && /marketplace/i.test(body)) bad("promesa", "neuri.bots no promete Marketplace.");
-  if (product === "bots" && /whatsapp/i.test(main)) bad("promesa", "neuri.bots no menciona WhatsApp: todavía no está disponible.");
+  // 23-nov: WhatsApp ya contesta en vivo (/estado whatsapp "on"), así que se puede nombrar. TikTok (piloto) y SMS
+  // (apagado) todavía no se prometen en correos.
+  if (product === "bots" && /tik\s?tok|\bsms\b|mensajes? de texto|text messages?/i.test(main))
+    bad("promesa", "neuri.bots no promete TikTok ni SMS todavía (TikTok es piloto y SMS está apagado).");
   // copy-contradicciones (23-nov): /estado → meta "open", whatsapp "on". Lo falso ahora es decir que está pendiente.
   if (product === "bots" && /pendiente de (la aprobación de )?Meta|Meta pendiente|pending Meta|waiting (on|for) Meta|esperamos (su|la) aprobación/i.test(main)) warn("meta", "neuri.bots: ya contesta en Instagram, Facebook y WhatsApp (Meta abierta en /estado); el correo no debe decir que sigue pendiente de Meta.");
   if ((product === "bots" || product === "marketing") && /(\$|US\s?\d|MXN|USD|pesos|dólares|dollars|\/mes|per month|al mes)/i.test(main))

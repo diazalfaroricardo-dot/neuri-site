@@ -113,7 +113,7 @@
   // Si viene del correo de recordatorio (?alta=…), completa la misma alta en vez de crear otra.
   var altaId = (new URLSearchParams(location.search).get('alta') || '').slice(0, 64);
   // Link de referido (?ref=…): se guarda para acreditar el mes gratis a los dos.
-  var refCode = (new URLSearchParams(location.search).get('ref') || '').replace(/[^a-z0-9]/gi, '').slice(0, 16);
+  var refCode = (new URLSearchParams(location.search).get('ref') || '').replace(/[^a-z0-9-]/gi, '').toLowerCase().slice(0, 32);
   var srcCode = (new URLSearchParams(location.search).get('src') || new URLSearchParams(location.search).get('utm_source') || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40);
   (function(){
     var NAMES={1:'Tus datos',2:'Tu negocio',3:'Cómo atiendes',4:'Tu plan'};

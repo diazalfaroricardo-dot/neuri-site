@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://neuri.tech/bazar/calculadora-renta-comision/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/bazar/calculadora-renta-comision/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/bazar/</loc>
     <lastmod>2026-11-23</lastmod>
     <priority>0.9</priority>
@@ -249,6 +254,11 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/whats-new/"/>
     <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/novedades/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/whats-new/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/sigue-disponible/calculadora-dms/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/calculadora-dms/"/>
   </url>
   <url>
     <loc>https://neuri.tech/sigue-disponible/citas/</loc>

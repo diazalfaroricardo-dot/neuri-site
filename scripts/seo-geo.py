@@ -23,6 +23,8 @@ PAGINAS = [
     # seo-contenido-p1 (vista previa en la rama seo/contenido-p1)
     "sigue-disponible/mejores-bots-instagram/", "sigue-disponible/vs-sendpulse/",
     "marketing/mejores-apps-ia-posts/", "en/bazar/vs-simpleconsign/",
+    # seo-herramientas-gratis (vista previa en la rama seo/herramientas-gratis)
+    "sigue-disponible/calculadora-dms/", "bazar/calculadora-renta-comision/",
 ]
 FAQ_DESDE_DETAILS = {"bazar/", "en/bazar/"}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre",

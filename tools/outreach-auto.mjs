@@ -29,7 +29,7 @@ export function buildAuto(i) {
     ? `This email is an advertisement from Neuri LLC.\n${POSTAL} · ${REPLY_TO}\n${i.fuente ? `We found your business email published on ${i.fuente}.\n` : ""}Privacy notice: ${PRIVACIDAD.en}\nUnsubscribe: ${i.unsubUrl}\nOr reply "no" and we won't write again.`
     : `Este correo es publicidad de Neuri LLC.\n${POSTAL} · ${REPLY_TO}\n${i.fuente ? `Encontramos el correo de tu negocio publicado en ${i.fuente}.\n` : ""}Aviso de privacidad: ${PRIVACIDAD.es}\nProfeco: https://www.gob.mx/profeco\nDarte de baja: ${i.unsubUrl}\nO responde "no" y no te volvemos a escribir.`;
   const text = `${main}\n\n${firma}\n\n${legal}`;
-  const html = outreachHtml({ product, lang: en ? "en" : "es", subject: i.subject, body: `${main}\n\n${firma}`, firma: "equipo", unsubUrl: i.unsubUrl, fuente: i.fuente });
+  const html = outreachHtml({ product, lang: en ? "en" : "es", subject: i.subject, body: `${main}\n\n${firma}`, firma: "equipo", unsubUrl: i.unsubUrl, fuente: i.fuente, datos: i.datos ?? null });
   const r = checkOutreach({ product, lang: en ? "en" : "es", country: i.country, subject: i.subject, body: text, html, firma: "equipo", unsubUrl: i.unsubUrl, corto: i.corto !== false });
   return {
     ...r,

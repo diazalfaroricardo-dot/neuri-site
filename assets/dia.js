@@ -114,11 +114,14 @@
     var a = arts[i];
     if (a) gsap.fromTo(a.querySelectorAll('.bub,.post,.tk-r,.bars div,.tasks span,.ct-r,.ct-ok,.appr'), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .6, ease: 'expo.out', stagger: .09, overwrite: true });
   }
+  // dz-h-20261125-tech-reloj-no-cuadra: el reloj se queda en la hora de la escena mientras su texto está en pantalla
+  // y solo corre en la transición; durante ese tramo la escena se va, así hora y texto nunca se contradicen.
+  var HOLD = .7;
   function set(p) {
     var x = Math.min(n - 1, p * n), i = Math.min(n - 1, Math.floor(x)), f = x - i;
-    show(i);
     var t1 = T[i], t2 = T[Math.min(n - 1, i + 1)];
-    var e = Math.max(0, (f - .55) / .45);
+    var e = i < n - 1 ? Math.max(0, (f - HOLD) / (1 - HOLD)) : 0;
+    show(e > 0 ? -1 : i);
     clock.textContent = hhmm(t1 + (t2 - t1) * e);
     stage.style.setProperty('--bg', mix(BG[i], BG[Math.min(n - 1, i + 1)], e));
     stage.style.setProperty('--fg', mix(FG[i], FG[Math.min(n - 1, i + 1)], e > .5 ? 1 : 0));

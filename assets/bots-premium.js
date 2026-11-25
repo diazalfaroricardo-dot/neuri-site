@@ -96,7 +96,7 @@
     function escala() { return innerWidth < 700 ? .62 : (innerHeight < 820 ? .86 : 1); }
     // Límites horizontales: #inicio recorta con overflow-x:clip, así que cada tarjeta se acota para no salirse (con su perspectiva).
     var escena = $('.np-escena'), room = null;
-    function medir() { var e = escena.getBoundingClientRect(), s = hero.getBoundingClientRect(), c = e.left + e.width / 2, m = 12; room = { r: Math.min(s.right, document.documentElement.clientWidth) - m - c, l: c - Math.max(s.left, 0) - m }; }
+    function medir() { var e = escena.getBoundingClientRect(), s = hero.getBoundingClientRect(), c = e.left + e.width / 2, m = 12; var b = $('.cta-row > :last-child'), bl = 0; if (b) { var br = b.getBoundingClientRect(); if (br.bottom > e.top && br.right < c) bl = br.right + 4; } room = { r: Math.min(s.right, document.documentElement.clientWidth) - m - c, l: c - Math.max(s.left, bl, 0) - m }; }
     addEventListener('resize', function () { room = null; place(); });
     function fit(x, z, w) { if (!room) medir(); var f = 1600 / (1600 - z), half = w / 2; return Math.max(-(room.l / f - half), Math.min(room.r / f - half, x)); }
     function place() { var sm = innerWidth < 700 ? .55 : 1; nEls.forEach(function (n, i) { var p = POS[i]; n.style.setProperty('--x', fit(p[0] * sm + cmx * p[2] * .25, p[2], n.offsetWidth) + 'px'); n.style.setProperty('--y', (p[1] * sm + cmy * p[2] * .2) + 'px'); n.style.setProperty('--z', p[2] + 'px'); }); }

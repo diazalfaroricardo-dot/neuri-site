@@ -72,8 +72,8 @@ Container 1200px, side padding 32px (20px ≤760px). Sections start 160px apart 
 ## Motion
 
 One authored moment per surface region, exponential ease-out, content visible by default:
-1. Hero: cursor sweeps 00→24 h once (6.4 s), events land as it passes, then rests at Phoenix time; sky tint follows the hour; counters rise.
-2. Story: ScrollTrigger pin + scrub; artifacts stagger in (expo.out, 0.09 s).
+1. Hero: cursor sweeps 00→24 h once (6.4 s), events land as it passes, then rests at Phoenix time; sky tint follows the hour; counters rise. Behind the headline, the close's dot network in light (`assets/hero-red.js`, canvas `#red`): green and terracotta dots with fine green threads on wall, slow flow-field drift, pointer repels, fades out above the day panel (approved by Ricardo 25-nov).
+2. Story: ScrollTrigger pin + scrub; artifacts stagger in (expo.out, 0.09 s). The clock holds each scene's hour while its copy is on screen; it only runs in the last 30% of each step, while the scene is out (25-nov).
 3. Close: canvas swarm cycle (chaos 3.2 s → form 7.5 s → burst 1.6 s), pointer repels; 60 fps.
 `prefers-reduced-motion`: no sweep, no pin, static word.
 

@@ -223,6 +223,7 @@ footer a:hover{color:var(--ink)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* hero: luz del día */
 .hero{position:relative;isolation:isolate}
+.hero .red{position:absolute;left:0;top:-60px;width:100%;height:720px;z-index:-1;pointer-events:none;display:block;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 62%,transparent 100%)}
 .sky{position:absolute;inset:-60px 0 auto 0;height:900px;z-index:-1;pointer-events:none;background:radial-gradient(60% 55% at 78% 18%,var(--sun,#FCE9DC) 0%,rgba(246,244,238,0) 70%),radial-gradient(50% 50% at 12% 40%,var(--sun2,#E3EFE7) 0%,rgba(246,244,238,0) 70%);opacity:.9;transition:opacity .6s}
 .hero h1{font-size:clamp(44px,6.4vw,88px)}
 .day-f b.mono{display:inline-block;min-width:1.4em;text-align:right}
@@ -382,6 +383,7 @@ footer a:hover{color:#F6F4EE}
 <main id="main">
 <div class="hero" id="inicio" tabindex="-1">
   <div class="sky" id="sky" aria-hidden="true"></div>
+  <canvas class="red" id="red" aria-hidden="true"></canvas>
   <div class="w">
     <h1>Software que trabaja <span>mientras tú vives.</span></h1>
     <div class="sub">
@@ -588,6 +590,7 @@ footer a:hover{color:#F6F4EE}
 <script src="/assets/gsap/ScrollTrigger.min.js"></script>
 <script src="/assets/dia.js"></script>
 <script src="/assets/hola.js" defer></script>
+<script src="/assets/hero-red.js" defer></script>
 <script src="/assets/menu-esc.js" defer></script>
 <script src="/assets/ref-links.js" defer></script>
 </body>

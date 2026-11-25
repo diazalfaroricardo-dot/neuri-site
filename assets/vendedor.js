@@ -430,6 +430,8 @@
         const show = () => {
           if (scrollY < innerHeight * 0.6) return;
           launch.classList.remove("wait");
+          // dz-h-20261125-marketing-boton-flotante: en neuri.marketing aparece con su etiqueta corta, no como círculo mudo.
+          if (prod.th === "mkt" && !st.msgs.length) launch.classList.remove("mini");
           removeEventListener("scroll", show);
         };
         addEventListener("scroll", show, { passive: true });

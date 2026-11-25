@@ -153,6 +153,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/still-available/privacy/"/>
   </url>
   <url>
+    <loc>https://neuri.tech/en/still-available/text-us/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/still-available/text-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/still-available/text-us/"/>
+  </url>
+  <url>
     <loc>https://neuri.tech/en/still-available/vs-manychat/</loc>
     <lastmod>2026-11-23</lastmod>
     <priority>0.6</priority>

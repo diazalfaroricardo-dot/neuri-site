@@ -49,10 +49,10 @@
     el.className = 'sw-q'; el.style.left = x + 'px'; el.style.top = y + 'px';
     el.innerHTML = '<span class="sw-t"></span><small class="sw-s"></small>'; el.firstChild.textContent = d[0];
     layer.appendChild(el); requestAnimationFrame(function () { el.classList.add('in'); });
-    var q = { x: x, y: y, el: el, d: d, born: now, gate: 900 + Math.random() * 1300, won: 0, done: 0 };
+    var q = { x: x, y: y, el: el, d: d, born: now, gate: 1000 + Math.random() * 1400, won: 0, done: 0 };
     // the closest free dots join the race, each with its own "temperament"
     var free = dots.filter(function (p) { var e = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y); return !p.q && !p.home && e > 19600 && e < 360000; }).sort(function (a, b) { return (a.x - x) * (a.x - x) + (a.y - y) * (a.y - y) - ((b.x - x) * (b.x - x) + (b.y - y) * (b.y - y)); });
-    free.slice(0, Math.min(260, Math.round(free.length * .4))).forEach(function (p) { p.q = q; p.acc = .1 + Math.random() * .22; p.max = 3.5 + Math.random() * 4.5; });
+    free.slice(0, Math.min(140, Math.round(free.length * .22))).forEach(function (p) { p.q = q; p.acc = .045 + Math.random() * .06; p.max = 1.6 + Math.random() * 1.6; });
     qs.push(q);
   }
   function win(q, p, now) {
@@ -62,18 +62,18 @@
     q.el.firstChild.textContent = q.d[1];
     q.el.lastChild.textContent = q.d[2] ? (EN ? 'Passed to you' : 'Te lo pasa a ti') : (EN ? 'Answered · ' : 'Contestado · ') + secs + ' s';
     if (q.d[2]) q.el.firstChild.textContent = EN ? 'Mariana decides the price' : 'Mariana decide el precio';
-    dots.forEach(function (o) { if (o.q === q) { o.q = null; var dx = o.x - q.x, dy = o.y - q.y, d = Math.sqrt(dx * dx + dy * dy) || 1; o.vx += dx / d * (2 + Math.random() * 3); o.vy += dy / d * (2 + Math.random() * 3); } });
+    dots.forEach(function (o) { if (o.q === q) { o.q = null; var dx = o.x - q.x, dy = o.y - q.y, d = Math.sqrt(dx * dx + dy * dy) || 1; o.vx = o.vx * .3 + dx / d * (.5 + Math.random() * .6); o.vy = o.vy * .3 + dy / d * (.5 + Math.random() * .6); } });
   }
 
-  function flow(x, y, t) { return Math.sin(x * .0042 + t * .00031) * 1.3 + Math.cos(y * .0051 - t * .00023) * 1.1 + Math.sin((x + y) * .0021 + t * .00041); }
+  function flow(x, y, t) { return Math.sin(x * .0028 + t * .00012) * 1.3 + Math.cos(y * .0034 - t * .0001) * 1.1 + Math.sin((x + y) * .0015 + t * .00016); }
   function frame(now) {
     if (!t0) { t0 = now; nextQ = now + 500; }
-    if (now > nextQ && qs.filter(function (q) { return !q.won; }).length < (W < 620 ? 2 : 3)) { spawn(now); nextQ = now + 1400 + Math.random() * 1000; }
+    if (now > nextQ && qs.filter(function (q) { return !q.won; }).length < (W < 620 ? 1 : 2)) { spawn(now); nextQ = now + 2400 + Math.random() * 1400; }
     ctx.clearRect(0, 0, W, H);
     // links between racers: the neural network appears while they compete
     ctx.lineWidth = .6;
     for (var j = 0; j < qs.length; j++) {
-      var q = qs[j]; if (q.won) continue; ctx.strokeStyle = 'rgba(143,224,180,.16)'; ctx.beginPath();
+      var q = qs[j]; if (q.won) continue; ctx.strokeStyle = 'rgba(143,224,180,.09)'; ctx.beginPath();
       for (var i = 0; i < dots.length; i++) { var p = dots[i]; if (p.q !== q) continue; var dx = p.x - q.x, dy = p.y - q.y; if (dx * dx + dy * dy < 9000) { ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); } }
       ctx.stroke();
     }
@@ -81,34 +81,34 @@
       var p = dots[k]; p.ox = p.x; p.oy = p.y;
       if (p.q) {
         var tq = p.q, dx = tq.x - p.x, dy = tq.y - p.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
-        p.vx += dx / d * p.acc + (Math.random() - .5) * .9; p.vy += dy / d * p.acc + (Math.random() - .5) * .9;
+        p.vx += dx / d * p.acc; p.vy += dy / d * p.acc;
         var sp = Math.sqrt(p.vx * p.vx + p.vy * p.vy); if (sp > p.max) { p.vx *= p.max / sp; p.vy *= p.max / sp; }
-        p.vx *= .985; p.vy *= .985;
+        p.vx *= .97; p.vy *= .97;
         if (d < 9 && !tq.won && now - tq.born > tq.gate) win(tq, p, now);
       } else if (p.home) {
         // the winner returns to the core and the core pulses
         var hx = K.cx - p.x, hy = K.cy - p.y, hd = Math.sqrt(hx * hx + hy * hy) || 1;
-        if (p.home === 1 && now - (p.hw || (p.hw = now)) < 700) { p.vx *= .8; p.vy *= .8; }
-        else { p.home = 2; p.vx += hx / hd * .9; p.vy += hy / hd * .9; var s2 = Math.sqrt(p.vx * p.vx + p.vy * p.vy); if (s2 > 11) { p.vx *= 11 / s2; p.vy *= 11 / s2; } }
-        if (p.home === 2 && hd < 14) { p.home = 0; p.hw = 0; p.s = 0; if (core) { core.classList.remove('hit'); void core.offsetWidth; core.classList.add('hit'); } p.x = K.cx; p.y = K.cy; p.ox = p.x; p.oy = p.y; p.vx = (Math.random() - .5) * 8; p.vy = (Math.random() - .5) * 8; }
+        if (p.home === 1 && now - (p.hw || (p.hw = now)) < 1000) { p.vx *= .8; p.vy *= .8; }
+        else { p.home = 2; p.vx += hx / hd * .12; p.vy += hy / hd * .12; p.vx *= .96; p.vy *= .96; var s2 = Math.sqrt(p.vx * p.vx + p.vy * p.vy); if (s2 > 3.2) { p.vx *= 3.2 / s2; p.vy *= 3.2 / s2; } }
+        if (p.home === 2 && hd < 14) { p.home = 0; p.hw = 0; p.s = 0; if (core) { core.classList.remove('hit'); void core.offsetWidth; core.classList.add('hit'); } p.x = K.cx; p.y = K.cy; p.ox = p.x; p.oy = p.y; p.vx = (Math.random() - .5) * 1.5; p.vy = (Math.random() - .5) * 1.5; }
       } else {
-        var a = flow(p.x, p.y, now); p.vx += Math.cos(a) * .07 + (p.ax + Math.sin(now * .0006 + p.ph) * 14 - p.x) * .0016; p.vy += Math.sin(a) * .07 + (p.ay + Math.cos(now * .0005 + p.ph) * 14 - p.y) * .0016;
+        var a = flow(p.x, p.y, now); p.vx += Math.cos(a) * .018 + (p.ax + Math.sin(now * .00025 + p.ph) * 10 - p.x) * .0009; p.vy += Math.sin(a) * .018 + (p.ay + Math.cos(now * .0002 + p.ph) * 10 - p.y) * .0009;
         
-        var mx = p.x - px, my = p.y - py, md = mx * mx + my * my; if (md < 8100) { var f = (1 - md / 8100) * .9, ml = Math.sqrt(md) || 1; p.vx += mx / ml * f - my / ml * f * .6; p.vy += my / ml * f + mx / ml * f * .6; }
-        p.vx *= .962; p.vy *= .962;
+        var mx = p.x - px, my = p.y - py, md = mx * mx + my * my; if (md < 8100) { var f = (1 - md / 8100) * .22, ml = Math.sqrt(md) || 1; p.vx += mx / ml * f; p.vy += my / ml * f; }
+        p.vx *= .93; p.vy *= .93;
       }
       p.x += p.vx; p.y += p.vy;
       if (!p.q && !p.home) { if (p.x < -6) p.x = p.ox = W + 6; else if (p.x > W + 6) p.x = p.ox = -6; if (p.y < -6) p.y = p.oy = H + 6; else if (p.y > H + 6) p.y = p.oy = -6; }
       var fast = p.q || p.home === 2, dim = fast ? 1 : .18 + .82 * veil(p.x, p.y);
-      if (fast) { ctx.strokeStyle = 'rgba(143,224,180,' + (.5 * p.a) + ')'; ctx.lineWidth = p.r; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(p.ox - (p.x - p.ox) * 1.6, p.oy - (p.y - p.oy) * 1.6); ctx.lineTo(p.x, p.y); ctx.stroke(); }
+      if (fast) { ctx.strokeStyle = 'rgba(143,224,180,' + (.28 * p.a) + ')'; ctx.lineWidth = p.r * .8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(p.ox - (p.x - p.ox) * 3, p.oy - (p.y - p.oy) * 3); ctx.lineTo(p.x, p.y); ctx.stroke(); }
       ctx.fillStyle = p.s ? '#D9FBE8' : (p.w ? 'rgba(255,255,255,' + (p.a * .8 * dim) + ')' : 'rgba(143,224,180,' + (p.a * dim) + ')');
       ctx.beginPath(); ctx.arc(p.x, p.y, p.s ? 3.4 : p.r, 0, 6.283); ctx.fill();
-      if (p.s) { ctx.strokeStyle = 'rgba(143,224,180,.45)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(p.x, p.y, 8 + Math.sin(now / 90) * 1.5, 0, 6.283); ctx.stroke(); }
+      if (p.s) { ctx.strokeStyle = 'rgba(143,224,180,.45)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(p.x, p.y, 8 + Math.sin(now / 260) * 1.5, 0, 6.283); ctx.stroke(); }
     }
     for (var m = qs.length - 1; m >= 0; m--) {
       var qq = qs[m];
-      if (!qq.won && now - qq.born > 6000) { var best = null, bd = 1e9; dots.forEach(function (o) { if (o.q === qq) { var e = (o.x - qq.x) * (o.x - qq.x) + (o.y - qq.y) * (o.y - qq.y); if (e < bd) { bd = e; best = o; } } }); if (best) win(qq, best, now); else { qq.won = now; } }
-      if (qq.won && !qq.done && now - qq.won > 2300) { qq.done = 1; qq.el.classList.add('out'); (function (el) { setTimeout(function () { el.remove(); }, 600); })(qq.el); }
+      if (!qq.won && now - qq.born > 9000) { var best = null, bd = 1e9; dots.forEach(function (o) { if (o.q === qq) { var e = (o.x - qq.x) * (o.x - qq.x) + (o.y - qq.y) * (o.y - qq.y); if (e < bd) { bd = e; best = o; } } }); if (best) win(qq, best, now); else { qq.won = now; } }
+      if (qq.won && !qq.done && now - qq.won > 2800) { qq.done = 1; qq.el.classList.add('out'); (function (el) { setTimeout(function () { el.remove(); }, 600); })(qq.el); }
       if (qq.done && now - qq.won > 3000) qs.splice(m, 1);
     }
     if (run) raf = requestAnimationFrame(frame);

@@ -26,11 +26,13 @@
     var r = sec.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
     W = r.width; H = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     C = rel(copy); K = core ? rel(core) : { x: W / 2, y: H / 3, w: 0, h: 0 }; K.cx = K.x + K.w / 2; K.cy = K.y + K.h / 2;
-    var n = Math.round(Math.max(220, Math.min(820, W * H / 950)));
+    var n = Math.round(Math.max(700, Math.min(2600, W * H / 300)));
     while (dots.length < n) dots.push(dot(Math.random() * W, Math.random() * H));
+    dots.forEach(function (p) { if (p.aw === W && p.ah === H) return; p.aw = W; p.ah = H; var t = 8, x, y; do { x = Math.random() * W; y = Math.random() * H; } while (t-- && Math.random() > veil(x, y) * .9 + .1); p.ax = x; p.ay = y; });
     dots.length = n;
   }
-  function dot(x, y) { var m = Math.random() < .16; return { x: x, y: y, ox: x, oy: y, vx: 0, vy: 0, r: m ? 2 + Math.random() * .9 : 1 + Math.random() * 1.2, w: m, a: .35 + Math.random() * .5, q: null, acc: 0, max: 0, s: 0, home: 0 }; }
+  function dot(x, y) { var m = Math.random() < .16; return { x: x, y: y, ax: x, ay: y, ph: Math.random() * 6.283, ox: x, oy: y, vx: 0, vy: 0, r: m ? 1.8 + Math.random() * .9 : .7 + Math.random() * 1.1, w: m, a: .35 + Math.random() * .5, q: null, acc: 0, max: 0, s: 0, home: 0 }; }
+  function veil(x, y) { var ex = (x - (C.x + C.w / 2)) / (C.w * .62), ey = (y - (C.y + C.h / 2)) / (C.h * .66), d = ex * ex + ey * ey; return d >= 1 ? 1 : d * d; }
   function inCopy(x, y, pad) { return x > C.x - pad && x < C.x + C.w + pad && y > C.y - pad && y < C.y + C.h + pad; }
 
   function spawn(now) {
@@ -48,7 +50,7 @@
     var q = { x: x, y: y, el: el, d: d, born: now, gate: 900 + Math.random() * 1300, won: 0, done: 0 };
     // the closest free dots join the race, each with its own "temperament"
     var free = dots.filter(function (p) { var e = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y); return !p.q && !p.home && e > 19600 && e < 360000; }).sort(function (a, b) { return (a.x - x) * (a.x - x) + (a.y - y) * (a.y - y) - ((b.x - x) * (b.x - x) + (b.y - y) * (b.y - y)); });
-    free.slice(0, Math.min(90, Math.round(free.length * .35))).forEach(function (p) { p.q = q; p.acc = .1 + Math.random() * .22; p.max = 3.5 + Math.random() * 4.5; });
+    free.slice(0, Math.min(260, Math.round(free.length * .4))).forEach(function (p) { p.q = q; p.acc = .1 + Math.random() * .22; p.max = 3.5 + Math.random() * 4.5; });
     qs.push(q);
   }
   function win(q, p, now) {
@@ -86,16 +88,16 @@
         var hx = K.cx - p.x, hy = K.cy - p.y, hd = Math.sqrt(hx * hx + hy * hy) || 1;
         if (p.home === 1 && now - (p.hw || (p.hw = now)) < 700) { p.vx *= .8; p.vy *= .8; }
         else { p.home = 2; p.vx += hx / hd * .9; p.vy += hy / hd * .9; var s2 = Math.sqrt(p.vx * p.vx + p.vy * p.vy); if (s2 > 11) { p.vx *= 11 / s2; p.vy *= 11 / s2; } }
-        if (p.home === 2 && hd < 14) { p.home = 0; p.hw = 0; p.s = 0; if (core) { core.classList.remove('hit'); void core.offsetWidth; core.classList.add('hit'); } p.x = Math.random() * W; p.y = Math.random() < .5 ? -4 : H + 4; p.ox = p.x; p.oy = p.y; }
+        if (p.home === 2 && hd < 14) { p.home = 0; p.hw = 0; p.s = 0; if (core) { core.classList.remove('hit'); void core.offsetWidth; core.classList.add('hit'); } p.x = K.cx; p.y = K.cy; p.ox = p.x; p.oy = p.y; p.vx = (Math.random() - .5) * 8; p.vy = (Math.random() - .5) * 8; }
       } else {
-        var a = flow(p.x, p.y, now); p.vx += Math.cos(a) * .085; p.vy += Math.sin(a) * .085;
-        if (inCopy(p.x, p.y, 10)) { var cx = C.x + C.w / 2, cy = C.y + C.h / 2; p.vx += (p.x - cx) * .0009; p.vy += (p.y - cy) * .0014; }
+        var a = flow(p.x, p.y, now); p.vx += Math.cos(a) * .07 + (p.ax + Math.sin(now * .0006 + p.ph) * 14 - p.x) * .0016; p.vy += Math.sin(a) * .07 + (p.ay + Math.cos(now * .0005 + p.ph) * 14 - p.y) * .0016;
+        
         var mx = p.x - px, my = p.y - py, md = mx * mx + my * my; if (md < 8100) { var f = (1 - md / 8100) * .9, ml = Math.sqrt(md) || 1; p.vx += mx / ml * f - my / ml * f * .6; p.vy += my / ml * f + mx / ml * f * .6; }
         p.vx *= .962; p.vy *= .962;
       }
       p.x += p.vx; p.y += p.vy;
       if (!p.q && !p.home) { if (p.x < -6) p.x = p.ox = W + 6; else if (p.x > W + 6) p.x = p.ox = -6; if (p.y < -6) p.y = p.oy = H + 6; else if (p.y > H + 6) p.y = p.oy = -6; }
-      var fast = p.q || p.home === 2, dim = inCopy(p.x, p.y, 0) && !fast ? .35 : 1;
+      var fast = p.q || p.home === 2, dim = fast ? 1 : .18 + .82 * veil(p.x, p.y);
       if (fast) { ctx.strokeStyle = 'rgba(143,224,180,' + (.5 * p.a) + ')'; ctx.lineWidth = p.r; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(p.ox - (p.x - p.ox) * 1.6, p.oy - (p.y - p.oy) * 1.6); ctx.lineTo(p.x, p.y); ctx.stroke(); }
       ctx.fillStyle = p.s ? '#D9FBE8' : (p.w ? 'rgba(255,255,255,' + (p.a * .8 * dim) + ')' : 'rgba(143,224,180,' + (p.a * dim) + ')');
       ctx.beginPath(); ctx.arc(p.x, p.y, p.s ? 3.4 : p.r, 0, 6.283); ctx.fill();

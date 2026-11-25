@@ -16,13 +16,13 @@ const casos = [
     p: "bazar/terminos/index.html", id: "redes",
     frases: ["Una cuenta por red", "una página de Facebook y una cuenta de Instagram", "no están incluidas",
       "avisos a los vendedores", "no es una cuenta de redes conectada", "TikTok no aplica hoy"],
-    version: "Versión 0.6", fecha: "25 de noviembre de 2026",
+    version: "Versión 0.7", fecha: "25 de noviembre de 2026",
   },
   {
     p: "en/bazar/terms/index.html", id: "social",
     frases: ["One account per network", "one Facebook Page and one Instagram account", "are not included",
       "notices to vendors", "is not a connected social account", "TikTok does not apply"],
-    version: "Version 0.6", fecha: "November 25, 2026",
+    version: "Version 0.7", fecha: "November 25, 2026",
   },
 ];
 

@@ -1143,6 +1143,7 @@ footer.bft a:focus-visible{outline:2px solid var(--menta);outline-offset:2px;bor
 </style>
 <link rel="preload" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/bots-premium.css">
+<link rel="stylesheet" href="/assets/bots-precios.css?v=1125">
 </head>
 <body>
 <a class="skip" href="#contenido">Skip to content</a>
@@ -1736,26 +1737,30 @@ Build my bot
   <p class="tbl-note">ManyChat is a trademark of its owner. We compare how a DIY bot is used, not its prices. Prices and plans side by side: <a href="/en/still-available/vs-manychat/" style="display:inline-block;min-height:24px;line-height:24px">neuri.bots vs ManyChat</a>.</p>
 </section>
 
-<section id="precios" class="blanco band" aria-labelledby="pr-t">
-  <div class="wrap stack" style="gap:28px">
-    <div class="sec-head" style="margin-bottom:0"><h2 class="h2" id="pr-t">One flat monthly price. No per-message fees.</h2><p class="kw">How much does an Instagram DM bot cost?</p></div>
-    <div class="promo"><b>7-day free trial</b>Add your card when you turn it on; nothing is charged until day 8, and you cancel in one click.</div>
-    <div class="planes">
-      <div class="plan reveal">
+<section id="precios" class="pz" aria-labelledby="pr-t">
+  <canvas class="pz-net" aria-hidden="true"></canvas>
+  <div class="wrap pz-grid">
+    <div class="pz-side">
+      <h2 id="pr-t">One flat monthly price. <em>No per&#8209;message fees.</em></h2>
+      <p class="pz-sub">How much does an Instagram DM bot cost?</p>
+      <div class="pz-trial"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13" rx="3" stroke="#9A3D12" stroke-width="1.6"/><path d="M2.5 8h15M6.5 2.5v3M13.5 2.5v3" stroke="#9A3D12" stroke-width="1.6" stroke-linecap="round"/></svg><div><b>7-day free trial</b><span>Add your card when you turn it on; nothing is charged until day 8, and you cancel in one click.</span></div></div>
+      <p class="pz-fine">Billed monthly, no contract. Cancel anytime.</p>
+    </div>
+    <div class="pz-plans">
+      <article class="pz-plan">
         <h3>Basic</h3>
         <div class="precio"><span class="pn">$49</span><span>USD / month</span></div>
         <ul><li>Answers availability, price, pickup and payment</li><li>Your top 5 questions</li><li>Tags your buyers (on hold, asked price…)</li><li>Monday report</li></ul>
         <a class="btn btn-b" href="#signup" data-plan="Basic ($49 USD)" data-cta="pricing-basic">Choose Basic</a>
-      </div>
-      <div class="plan pro reveal">
-        <h3>Pro <small>Most complete</small></h3>
+      </article>
+      <article class="pz-plan pro">
+        <h3>Pro <small><i aria-hidden="true"></i>Most complete</small></h3>
         <div class="precio"><span class="pn">$69</span><span>USD / month</span></div>
-        <ul><li>Everything in Basic</li><li>Books pickups, visits and deliveries</li><li>Sends reminders to buyers who booked</li><li>Up to 10 changes a day to its answers</li></ul>
-        <a class="btn btn-m" href="#signup" data-plan="Pro ($69 USD)" data-cta="pricing-pro">Choose Pro</a>
-      </div>
+        <ul><li class="all">Everything in Basic</li><li>Books pickups, visits and deliveries</li><li>Sends reminders to buyers who booked</li><li>Up to 10 changes a day to its answers</li></ul>
+        <a class="btn btn-m" href="#signup" data-plan="Pro ($69 USD)" data-cta="pricing-pro">Choose Pro <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="#05080D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </article>
     </div>
-    <p class="tbl-note">Billed monthly, no contract. Cancel anytime.</p>
-    <p class="tbl-note precio-fijo"><b>Your price won’t go up:</b> as long as your subscription stays active, you pay the same each month as when you subscribed. It doesn’t cover switching plans (you pay the new plan’s current price), canceling and coming back later, or taxes. <a href="/en/still-available/terms/#plans" style="display:inline-block;min-height:24px;line-height:24px">See terms</a>.</p>
+    <p class="precio-fijo"><b>Your price won’t go up:</b> as long as your subscription stays active, you pay the same each month as when you subscribed. It doesn’t cover switching plans (you pay the new plan’s current price), canceling and coming back later, or taxes. <a href="/en/still-available/terms/#plans" style="display:inline-block;min-height:24px;line-height:24px">See terms</a>.</p>
   </div>
 </section>
 
@@ -2018,6 +2023,7 @@ Build my bot
 <script src="/assets/sd-alta.en.js?v=164daa38"></script>
 <script src="/assets/bots-v3.js?v=ob1124" defer></script>
 <script src="/assets/menu-esc.js" defer></script>
+<script src="/assets/bots-precios.js?v=1125" defer></script>
 <script>(function(){var b=document.getElementById("ia2Copy"),o=document.getElementById("ia2Ok"),u=document.getElementById("ia2Url");if(!b)return;var en=document.documentElement.lang==="en";b.addEventListener("click",function(){var t=u.textContent.trim(),ok=function(){o.textContent=en?"Copied! Paste it into your AI assistant as a custom connector.":"¡Copiada! Pégala en tu asistente de IA como conector personalizado."};if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,function(){o.textContent=en?"Select the URL and copy it.":"Selecciona la URL y cópiala."});else o.textContent=t;});})();</script>
 <script src="/assets/gsap/gsap.min.js" defer></script><script src="/assets/gsap/ScrollTrigger.min.js" defer></script><script src="/assets/bots-premium.js" defer></script><script src="/assets/bots-fin-swarm.js" defer></script>
 </body>

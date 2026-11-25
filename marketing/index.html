@@ -734,6 +734,8 @@ html.mo :is(section,header,footer):not(.mo-in) .grad,html.mo :is(section,header,
 .art.media.reel>video{object-position:50% 50%}
 .art.media.car{background:color-mix(in srgb,var(--surface) 60%,#0B1118)}
 .art.media.car>img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);border-radius:12px}
+.art.media.car>img:not(.on):not(.out){transform:translateX(calc(100% + 16px))}
+.art.media.car>img.out{transform:translateX(calc(-100% - 16px))}
 .toast.ta{left:296px;right:auto;top:-28px;bottom:auto}
 .toast.tb{right:232px;left:auto;top:-28px;bottom:auto}
 .toast.tc{left:43%;right:auto;top:auto;bottom:-28px}

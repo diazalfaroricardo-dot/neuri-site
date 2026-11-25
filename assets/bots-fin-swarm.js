@@ -40,6 +40,8 @@
     while (tries--) {
       x = pw / 2 + 14 + Math.random() * (W - pw - 28); y = 46 + Math.random() * (H - 92); var pad = W < 620 ? 14 : 30; ok = !(x + pw / 2 > C.x - pad && x - pw / 2 < C.x + C.w + pad && y + 28 > C.y - pad && y - 28 < C.y + C.h + pad);
       for (var i = 0; ok && i < qs.length; i++) if (Math.abs(qs[i].x - x) < pw + 16 && Math.abs(qs[i].y - y) < 64) ok = false;
+      // keep clear of the floating chat button (neuri.vendedor, fixed bottom-right of the screen)
+      if (ok && document.getElementById('neuri-vendedor')) { var sr = sec.getBoundingClientRect(), bx = innerWidth - 16 - 300 - sr.left, by = innerHeight - 16 - 52 - 24 - sr.top; if (x + pw / 2 > bx && y + 28 > by) ok = false; }
       if (ok) break;
     }
     if (!ok) return;

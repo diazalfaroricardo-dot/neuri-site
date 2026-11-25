@@ -727,6 +727,17 @@ html.m .sec{content-visibility:visible}
 html.mo :is(section,header,footer):not(.mo-in) .grad,html.mo :is(section,header,footer):not(.mo-in) .logo svg .orb,html.mo :is(section,header,footer):not(.mo-in) .badge .pulse::after,html.mo :is(section,header,footer):not(.mo-in) .glow .g1,html.mo :is(section,header,footer):not(.mo-in) .glow .g2,html.mo :is(section,header,footer):not(.mo-in) .glow .g3,html.mo :is(section,header,footer):not(.mo-in) .status .sp,html.mo :is(section,header,footer):not(.mo-in) .art .prog::after,html.mo :is(section,header,footer):not(.mo-in) .art .seg i:first-child::after,html.mo :is(section,header,footer):not(.mo-in) .skel::after,html.mo :is(section,header,footer):not(.mo-in) .closer .gl i,html.mo :is(section,header,footer):not(.mo-in) .toast,html.mo :is(section,header,footer):not(.mo-in) .node .link::after,html.mo :is(section,header,footer):not(.mo-in) .rec i,html.mo :is(section,header,footer):not(.mo-in) .ppl i,html.mo :is(section,header,footer):not(.mo-in) .sig span,html.mo :is(section,header,footer):not(.mo-in) .ripple i,html.mo :is(section,header,footer):not(.mo-in) .cycle .ring,html.mo :is(section,header,footer):not(.mo-in) .cycle .orbit,html.mo :is(section,header,footer):not(.mo-in) .secstat .dot::after{animation-play-state:paused!important}
 </style>
 <script>document.documentElement.classList.add("mo");addEventListener("DOMContentLoaded",function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("mo-in");io.unobserve(e.target)}})},{threshold:.15});document.querySelectorAll("section,header,footer").forEach(function(el){io.observe(el)})})</script>
+<style id="mk-encuadre">
+/* dz-h-20261125-marketing-ejemplos-cortados: cada pieza completa dentro de su tarjeta y los avisos flotantes en los bordes del marco, sin tapar piezas. */
+.art.media{background:#0B1118}
+.art.media>img,.art.media>video{object-fit:contain}
+.art.media.reel>video{object-position:50% 50%}
+.art.media.car{background:color-mix(in srgb,var(--surface) 60%,#0B1118)}
+.art.media.car>img{inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);border-radius:12px}
+.toast.ta{left:296px;right:auto;top:-28px;bottom:auto}
+.toast.tb{right:232px;left:auto;top:-28px;bottom:auto}
+.toast.tc{left:43%;right:auto;top:auto;bottom:-28px}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -747,7 +758,7 @@ html.mo :is(section,header,footer):not(.mo-in) .grad,html.mo :is(section,header,
     <h1><span class="w" style="--d:0">Your</span> <span class="w" style="--d:1">socials,</span> <span class="w" style="--d:2">always</span> <span class="w" style="--d:3">current.</span> <span class="w" style="--d:4">You</span> <span class="w" style="--d:5">just</span> <span class="w grad" style="--d:6">approve.<svg class="swash" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="swg" x1="0" x2="1"><stop offset="0" stop-color="#FF8A7A"/><stop offset=".5" stop-color="#F3B38F"/><stop offset="1" stop-color="#8FE0B4"/></linearGradient></defs><path pathLength="1" d="M6 18 C 70 6, 150 4, 205 11 S 290 24, 314 9" fill="none" stroke="url(#swg)" stroke-width="5" stroke-linecap="round"/></svg><i class="glint" aria-hidden="true"></i></span></h1>
     <p class="lede">neuri.marketing makes the month's posts and reels in your style. You approve them with one tap.</p>
 
-    <form class="prompt" id="prompt">
+    <form class="prompt" data-globo-evita id="prompt">
       <label for="biz">Tell us about your business</label>
       <textarea id="biz" name="biz" rows="2" placeholder="Specialty coffee shop in Phoenix"></textarea>
       <div class="pbar">
@@ -760,7 +771,7 @@ html.mo :is(section,header,footer):not(.mo-in) .grad,html.mo :is(section,header,
         <button class="send" type="submit" aria-label="See my example week"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15V3M4 8l5-5 5 5"/></svg></button>
       </div>
     </form>
-    <p class="hint">Pick a business type or type your own: these are real pieces neuri.marketing made with sample photos. Nothing is saved.</p>
+    <p class="hint" data-globo-evita>Pick a business type or type your own: these are real pieces neuri.marketing made with sample photos. Nothing is saved.</p>
 
     <div class="week" id="week">
       <div class="toast ta" aria-hidden="true" style="--c:#FF8A7A"><span class="ti"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg></span><span><b>Possible customer</b><span>“How much is the large latte?”</span></span></div>

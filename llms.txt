@@ -10,7 +10,7 @@ Price promise (neuri.bazar, neuri.bots, neuri.marketing): while a subscription s
 
 ## neuri.bots
 
-Answers a business's customer messages on Instagram, Messenger and WhatsApp (plus Telegram and a website chat; TikTok and SMS are coming) from the owner's own catalog sheet: "is this still available?", price and payment, holds items, books appointments, takes orders, and DMs a link to people who comment. It does not make things up: unknown questions go to the owner. The owner sets it up at their own pace (or with their AI assistant). Month to month, no contract; a 7-day free trial (card added when it is turned on; charged on day 8, cancel before and you pay nothing).
+Answers a business's customer messages on Instagram, Messenger and WhatsApp (plus Telegram, a website chat and TikTok comments; SMS is coming) from the owner's own catalog sheet: "is this still available?", price and payment, holds items, books appointments, takes orders, and DMs a link to people who comment. It does not make things up: unknown questions go to the owner. The owner sets it up at their own pace (or with their AI assistant). Month to month, no contract; a 7-day free trial (card added when it is turned on; charged on day 8, cancel before and you pay nothing).
 
 - Basic US$49/month · Pro US$69/month
 - [neuri.bots (English)](https://neuri.tech/en/still-available/) · [Español](https://neuri.tech/sigue-disponible/)

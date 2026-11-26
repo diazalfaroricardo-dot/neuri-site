@@ -61,8 +61,8 @@
      a las notificaciones del celular; si WhatsApp se apaga, vuelve a decir «pronto». Sin respuesta, el
      HTML se queda como está (solo lo que hoy contesta). */
   var EXTRA = {
-    tt: EN ? ['Vale T.', 'tt', 'Saw your TikTok, is the lamp still available?', 'Yes, it’s still available: $800. Want me to hold it?', 'Answered · 1.8 s']
-           : ['Vale T.', 'tt', 'Vi tu TikTok, ¿sigue la lámpara?', 'Sí, sigue disponible: $800. ¿Te la aparto?', 'Contestada · 1.8 s'],
+    tt: EN ? ['Vale T.', 'tt', 'Saw your TikTok, is the lamp still available?', 'Yes, it’s still available: $800. Want me to hold it?', 'Comment answered · 1.8 s']
+           : ['Vale T.', 'tt', 'Vi tu TikTok, ¿sigue la lámpara?', 'Sí, sigue disponible: $800. ¿Te la aparto?', 'Comentario contestado · 1.8 s'],
     sms: EN ? ['Rosa P.', 'sms', 'Hi! Do you deliver on Saturdays?', 'Yes, Saturdays 10 am–2 pm at Plaza Cardón.', 'Answered · 1.6 s']
             : ['Rosa P.', 'sms', '¡Hola! ¿Entregas los sábados?', 'Sí, los sábados de 10 a 2 en Plaza Cardón.', 'Contestada · 1.6 s']
   };
@@ -73,8 +73,9 @@
       var t = (el.firstChild && el.textContent || '').trim(), k = /^WhatsApp/.test(t) ? 'wa' : /^TikTok/.test(t) ? 'tt' : /^SMS/.test(t) ? 'sms' : null;
       if (!k) return;
       var sm = el.querySelector('small');
-      if (on[k]) { el.classList.remove('pronto'); if (sm) sm.remove(); }
-      else if (k !== 'wa' || st.whatsapp === 'off') { el.classList.add('pronto'); if (!sm) { sm = document.createElement('small'); sm.textContent = EN ? 'soon' : 'pronto'; el.appendChild(sm); } }
+      /* Solo se quita la etiqueta «pronto»; otras (TikTok «comentarios») se quedan. Si se apaga, vuelve a decir «pronto». */
+      if (on[k]) { if (sm && el.classList.contains('pronto')) sm.remove(); el.classList.remove('pronto'); }
+      else if (k !== 'wa' || st.whatsapp === 'off') { el.classList.add('pronto'); if (!sm) { sm = document.createElement('small'); el.appendChild(sm); } sm.textContent = EN ? 'soon' : 'pronto'; }
     });
     ['tt', 'sms'].forEach(function (k) { var want = on[k] ? EXTRA[k] : BASE[SLOT[k]]; if (CHATS[SLOT[k]] !== want) { CHATS[SLOT[k]] = want; cambio = true; } });
     if (!on.wa) CHATS.forEach(function (c, i) { if (c[1] === 'wa') { CHATS[i] = [c[0], 'ig', c[2], c[3], c[4]]; cambio = true; } });

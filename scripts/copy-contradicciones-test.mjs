@@ -1,6 +1,6 @@
 // copy-contradicciones (auditoría de copy, 23-nov-2026): tres errores de hecho que no deben volver.
 // 1) neuri.bots: /estado dice meta "open" y whatsapp "on" → ninguna página pública dice que Instagram,
-//    Messenger o WhatsApp siguen «pendientes de Meta». (TikTok y SMS sí siguen «pronto».)
+//    Messenger o WhatsApp siguen «pendientes de Meta». (SMS sí sigue «pronto»; TikTok ya contesta comentarios, 25-nov.)
 //    Los términos/privacidad quedan fuera: hablan en general de que cada conexión depende del permiso de Meta.
 // 2) neuri.marketing: un solo mensaje → herramientas gratis abiertas, cuentas pronto. Sin «acceso anticipado»
 //    ni «gratis y ya disponible» al lado de «todavía no abrimos cuentas nuevas».

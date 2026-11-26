@@ -79,7 +79,7 @@ One authored moment per surface region, exponential ease-out, content visible by
 
 ## Honesty and copy rules (locked by tests)
 
-Sample data is always labelled ("ejemplo con datos inventados" / "sample with made-up data"). neuri.bots says sign-up open and that it already replies on Instagram, Facebook and WhatsApp (TikTok and SMS soon). Consulting: free AI Score, fixed price per stage, "a person reviews it if something doesn't add up". D-10: English at `/`, Spanish at `/es/`, USD, no Mexico references. "We reply within 1 business day" sits next to the email link.
+Sample data is always labelled ("ejemplo con datos inventados" / "sample with made-up data"). neuri.bots says sign-up open and that it already replies on Instagram, Facebook and WhatsApp (and TikTok comments; SMS soon). Consulting: free AI Score, fixed price per stage, "a person reviews it if something doesn't add up". D-10: English at `/`, Spanish at `/es/`, USD, no Mexico references. "We reply within 1 business day" sits next to the email link.
 
 ## Files
 

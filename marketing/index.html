@@ -113,6 +113,9 @@ nav.main .lk-idioma{min-width:44px;justify-content:center;font-weight:600}
 .hero .wrap{display:grid;justify-items:center}
 .badge{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 14px 0 6px;border-radius:999px;background:var(--surface);box-shadow:var(--shadow-sm),inset 0 0 0 1px var(--line);font:500 13px/1 var(--sans);color:var(--ink-2);text-decoration:none}
 .badge b{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--ink);color:var(--bg);font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.badge,.badge b{white-space:nowrap}
+.badge .bx{margin-left:.68em}
+@media (max-width:480px){.badge .bx{display:none}}
 .badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--coral);position:relative}
 .badge .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--coral);animation:ping 2s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.9);opacity:0}}
@@ -756,7 +759,7 @@ html.mo :is(section,header,footer):not(.mo-in) .grad,html.mo :is(section,header,
 <section class="hero">
   <div class="glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><div class="grain"></div></div>
   <div class="wrap">
-    <a class="badge" href="#gratis"><b>Herramientas gratis abiertas</b><span class="pulse" aria-hidden="true"></span>Cuentas, pronto</a>
+    <a class="badge" href="#gratis"><b>Herramientas gratis<span class="bx">abiertas</span></b><span class="pulse" aria-hidden="true"></span>Cuentas, pronto</a>
     <h1><span class="w" style="--d:0">Tus</span> <span class="w" style="--d:1">redes,</span> <span class="w" style="--d:2">al</span> <span class="w" style="--d:3">día.</span> <span class="w" style="--d:4">Tú</span> <span class="w" style="--d:5">solo</span> <span class="w grad" style="--d:6">apruebas.<svg class="swash" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="swg" x1="0" x2="1"><stop offset="0" stop-color="#FF8A7A"/><stop offset=".5" stop-color="#F3B38F"/><stop offset="1" stop-color="#8FE0B4"/></linearGradient></defs><path pathLength="1" d="M6 18 C 70 6, 150 4, 205 11 S 290 24, 314 9" fill="none" stroke="url(#swg)" stroke-width="5" stroke-linecap="round"/></svg><i class="glint" aria-hidden="true"></i></span></h1>
     <p class="lede">neuri.marketing hace los posts y reels del mes con tu estilo. Tú los apruebas con un toque.</p>
 

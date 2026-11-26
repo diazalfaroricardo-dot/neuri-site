@@ -113,6 +113,9 @@ nav.main .lk-idioma{min-width:44px;justify-content:center;font-weight:600}
 .hero .wrap{display:grid;justify-items:center}
 .badge{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 14px 0 6px;border-radius:999px;background:var(--surface);box-shadow:var(--shadow-sm),inset 0 0 0 1px var(--line);font:500 13px/1 var(--sans);color:var(--ink-2);text-decoration:none}
 .badge b{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--ink);color:var(--bg);font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.badge,.badge b{white-space:nowrap}
+.badge .bx{margin-left:.68em}
+@media (max-width:480px){.badge .bx{display:none}}
 .badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--coral);position:relative}
 .badge .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--coral);animation:ping 2s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.9);opacity:0}}

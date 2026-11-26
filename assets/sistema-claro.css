@@ -1,0 +1,29 @@
+/* premium-tech-subpaginas-claro (VISTA PREVIA, sin publicar): /legal, /novedades y 404 con el sistema
+   claro de la portada nueva — papel #F6F4EE, tinta #05080D, verde #0B5E3A, Geist, nav en tipo oración y
+   pie claro. Se activa con <html data-sistema="claro"> y gana sobre el bloque data-brand-css (home oscuro). */
+html[data-brand=home][data-sistema=claro]{color-scheme:light;--bg:#F6F4EE;--surface:#FFFFFF;--ink:#05080D;--text:#3D423E;--muted:#6A6F69;--line:#E4E2DB;--acc:#0B5E3A;--link:#0B5E3A;--on-acc:#FFFFFF;--tint:#E3EFE7;--tint-ink:#0B5E3A;--warn:#FCE9DC;--warn-ink:#9A3D12;--ft-bg:#F6F4EE;--ft-fg:#585D57;--ft-acc:#0B5E3A;--btn:#05080D;--on-btn:#FFFFFF}
+html[data-sistema=claro] body{background:var(--bg);font-feature-settings:"ss01","cv11"}
+html[data-sistema=claro] ::selection{background:#CFE7D9;color:#05080D}
+/* Encabezado: barra pegajosa de papel translúcido, como la portada. */
+html[data-sistema=claro] .nb-head{position:sticky;top:0;z-index:20;max-width:none;padding:8px max(24px,calc((100% - 1136px)/2));background:rgba(246,244,238,.95);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+html[data-sistema=claro] .nb-logo svg circle:nth-child(1){stroke:#0B5E3A;opacity:.45}
+html[data-sistema=claro] .nb-logo svg circle:nth-child(2){fill:#0B5E3A}
+html[data-sistema=claro] .nb-logo svg circle:nth-child(3){fill:#05080D}
+html[data-sistema=claro] .nb-word{font-weight:500;font-size:17px;letter-spacing:-.02em}
+html[data-sistema=claro] .nb-nav{gap:6px 26px}
+html[data-sistema=claro] .nb-nav > a:not(.nb-cta){font-family:var(--font);font-size:14px;letter-spacing:0;text-transform:none;color:#585D57;font-weight:400}
+html[data-sistema=claro] .nb-nav > a:not(.nb-cta):hover{color:var(--ink)}
+html[data-sistema=claro] .nb-menu summary{border:0;padding:0 4px;font-weight:400;color:#585D57}
+html[data-sistema=claro] .nb-menu [role=menu]{box-shadow:0 12px 32px -12px rgba(5,8,13,.18)}
+/* Contenido: titular de la portada (500, -0.035em) y tarjetas blancas con borde fino. */
+html[data-sistema=claro] .nb-wrap h1{font-weight:500;letter-spacing:-.035em}
+html[data-sistema=claro] .nb-wrap h2{font-weight:500;letter-spacing:-.02em}
+html[data-sistema=claro] .nb-eyebrow,html[data-sistema=claro] .code{letter-spacing:0;text-transform:none;font-size:14px;color:var(--acc)}
+html[data-sistema=claro] .nb-wrap section{box-shadow:0 1px 2px rgba(5,8,13,.03)}
+html[data-sistema=claro] .nb-btn:not(.ghost){background:var(--ink);color:#fff}
+/* Pie claro, igual que la portada. */
+html[data-sistema=claro] .nb-foot{background:var(--bg);color:var(--ft-fg);border-top:1px solid var(--line)}
+html[data-sistema=claro] .nb-foot .nb-word{color:var(--ink)}
+html[data-sistema=claro] .nb-foot a{color:var(--ft-fg);font-size:14px}
+html[data-sistema=claro] .nb-foot a:hover{color:var(--ink)}
+html[data-sistema=claro] .nb-foot-legal{font:400 13px/1.6 var(--font);letter-spacing:0;text-transform:none;color:var(--muted);border-top-color:var(--line);opacity:1}

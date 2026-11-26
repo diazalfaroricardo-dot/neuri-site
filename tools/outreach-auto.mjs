@@ -20,6 +20,14 @@ const { checkOutreach } = await import(join(here, "outreach-check.mjs"));
 
 export const REPLY_TO = "hola@neuri.tech";
 
+/**
+ * PAUSA (Ricardo 25-nov-2026 22:27, «sigo tu recomendación A y B»): la política de Resend prohíbe el correo
+ * frío y los contactos sacados de redes (https://resend.com/legal/acceptable-use). Mientras el correo frío no
+ * salga por su propia plataforma (Instantly + dominios aparte, calentados), todo primer correo sale ok:false
+ * y NO se envía. Para reanudar: proveedor "instantly" en la entrada (i.proveedor) cuando ya exista ese envío.
+ */
+export const PAUSA_RESEND = true;
+
 export function buildAuto(i) {
   const product = i.product === "sigue" ? "bots" : (i.product ?? "bazar");
   const en = i.lang === "en";
@@ -31,6 +39,10 @@ export function buildAuto(i) {
   const text = `${main}\n\n${firma}\n\n${legal}`;
   const html = outreachHtml({ product, lang: en ? "en" : "es", subject: i.subject, body: `${main}\n\n${firma}`, firma: "equipo", unsubUrl: i.unsubUrl, fuente: i.fuente, datos: i.datos ?? null });
   const r = checkOutreach({ product, lang: en ? "en" : "es", country: i.country, subject: i.subject, body: text, html, firma: "equipo", unsubUrl: i.unsubUrl, corto: i.corto !== false });
+  if (PAUSA_RESEND && i.proveedor !== "instantly") {
+    r.ok = false;
+    r.issues = [...(r.issues ?? []), "PAUSA: el correo frío no sale por Resend (su política lo prohíbe); espera Instantly + dominios aparte (Ricardo 25-nov)"];
+  }
   return {
     ...r,
     from: `${en ? "The Neuri team" : "El equipo de Neuri"} <hola@holaneuri.com>`,

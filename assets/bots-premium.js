@@ -87,7 +87,9 @@
   window.npCanales = canales;
   if (stage) (function () {
     var phone = $('.np-phone'), capas = $('.np-capas'), chat = $('.np-chat'), notis = $('.np-notis'), canal = $('.np-canal');
-    var POS = [[-90, -300, 160], [180, -240, 90], [-215, 40, 220], [185, 150, 260], [-180, 245, 120]], nEls;
+    var POS = [[-90, -300, 160], [180, -240, 90], [-215, 40, 220], [185, 150, 260], [-180, 245, 120]],
+      // A 390 solo se ven 3 tarjetas: escalonadas izquierda/derecha para que no se enciman ni se corten.
+      POSM = [[-88, -175, 160], [92, -55, 90], [-88, 140, 220]], nEls;
     var h = ''; for (var i = 1; i <= 14; i++) h += '<i style="transform:translateZ(' + (-i) + 'px)"></i>'; capas.innerHTML = h;
     function notisHtml() { notis.innerHTML = CHATS.map(function (c) { return '<div class="np-noti ok"><span class="ap ' + c[1] + '">' + (ICO[c[1]] || IG) + '</span><b>' + esc(c[0]) + '<span>' + AHORA + '</span></b><span>' + esc(c[2]) + '</span><span class="r">' + CHK + esc(c[4]) + '</span></div>'; }).join(''); nEls = $$('.np-noti', notis); }
     notisHtml(); nEls.forEach(function (n) { n.classList.remove('ok'); });
@@ -99,7 +101,7 @@
     function medir() { var e = escena.getBoundingClientRect(), s = hero.getBoundingClientRect(), c = e.left + e.width / 2, m = 12; var b = $('.cta-row > :last-child'), bl = 0; if (b) { var br = b.getBoundingClientRect(); if (br.bottom > e.top && br.right < c) bl = br.right + 4; } room = { r: Math.min(s.right, document.documentElement.clientWidth) - m - c, l: c - Math.max(s.left, bl, 0) - m }; }
     addEventListener('resize', function () { room = null; place(); });
     function fit(x, z, w) { if (!room) medir(); var f = 1600 / (1600 - z), half = w / 2; return Math.max(-(room.l / f - half), Math.min(room.r / f - half, x)); }
-    function place() { var sm = innerWidth < 700 ? .55 : 1; nEls.forEach(function (n, i) { var p = POS[i]; n.style.setProperty('--x', fit(p[0] * sm + cmx * p[2] * .25, p[2], n.offsetWidth) + 'px'); n.style.setProperty('--y', (p[1] * sm + cmy * p[2] * .2) + 'px'); n.style.setProperty('--z', p[2] + 'px'); }); }
+    function place() { var mv = innerWidth < 700; nEls.forEach(function (n, i) { var p = mv ? (POSM[i] || [POS[i][0] * .55, POS[i][1] * .55, POS[i][2]]) : POS[i]; n.style.setProperty('--x', fit(p[0] + cmx * p[2] * .25, p[2], n.offsetWidth) + 'px'); n.style.setProperty('--y', (p[1] + cmy * p[2] * .2) + 'px'); n.style.setProperty('--z', p[2] + 'px'); }); }
     function tick() { cmx += (tmx - cmx) * .06; cmy += (tmy - cmy) * .06; phone.style.transform = 'rotateY(' + (base.ry + cmx * 16) + 'deg) rotateX(' + (base.rx - cmy * 10) + 'deg) scale(' + base.s + ')'; place(); if (on) raf = requestAnimationFrame(tick); }
     hero.addEventListener('pointermove', function (ev) { var r = hero.getBoundingClientRect(); tmx = (ev.clientX - r.left) / r.width - .5; tmy = (ev.clientY - r.top) / r.height - .5; });
     function msg(cls, html) { var d = document.createElement('div'); d.className = cls; d.innerHTML = html; chat.appendChild(d); while (chat.children.length > 7) chat.removeChild(chat.firstChild); if (G && !RM) G.from(d, { y: 14, opacity: 0, duration: .5, ease: 'expo.out' }); return d; }

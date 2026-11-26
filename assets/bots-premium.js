@@ -90,6 +90,9 @@
     var POS = [[-90, -300, 160], [180, -240, 90], [-215, 40, 220], [185, 150, 260], [-180, 245, 120]],
       // A 390 solo se ven 3 tarjetas: escalonadas izquierda/derecha para que no se enciman ni se corten.
       POSM = [[-88, -175, 160], [92, -55, 90], [-88, 140, 220]], nEls;
+    // Vista previa premium-bots-hero (D-11, sin publicar): en escritorio solo 3 tarjetas con jerarquía —
+    // la principal arriba a la izquierda (abajo de la barra), el regateo a la derecha y una pequeña atrás.
+    POS = [[150, -215, 200], [175, 95, 110], [-120, 250, 20]];
     var h = ''; for (var i = 1; i <= 14; i++) h += '<i style="transform:translateZ(' + (-i) + 'px)"></i>'; capas.innerHTML = h;
     function notisHtml() { notis.innerHTML = CHATS.map(function (c) { return '<div class="np-noti ok"><span class="ap ' + c[1] + '">' + (ICO[c[1]] || IG) + '</span><b>' + esc(c[0]) + '<span>' + AHORA + '</span></b><span>' + esc(c[2]) + '</span><span class="r">' + CHK + esc(c[4]) + '</span></div>'; }).join(''); nEls = $$('.np-noti', notis); }
     notisHtml(); nEls.forEach(function (n) { n.classList.remove('ok'); });

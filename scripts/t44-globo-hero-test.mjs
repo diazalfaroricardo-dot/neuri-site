@@ -3,9 +3,10 @@
 import { readFileSync } from "node:fs";
 const s = readFileSync(new URL("../assets/vendedor.js", import.meta.url), "utf8");
 const f = [];
-if (!/\.l\.wait\{[^}]*visibility:hidden/.test(s)) f.push("falta .l.wait oculto");
-if (!/max-width:480px\)"\)\.matches[^\n]*scrollY < innerHeight/.test(s)) f.push("falta el arranque oculto en celular");
-if (!/launch\.classList\.remove\("wait"\)/.test(s)) f.push("el globo nunca reaparece al bajar");
+// premium-arreglo-tech-1126: la espera del hero ya aplica a cualquier ancho y se recalcula al subir y bajar.
+if (!/\.l\.wait[^{]*\{[^}]*visibility:hidden/.test(s)) f.push("falta .l.wait oculto");
+if (!/const enHero = \(\) =>[^\n]*scrollY < innerHeight/.test(s)) f.push("falta el arranque oculto en el hero");
+if (!/classList\.toggle\("wait", !st\.open && enHero\(\)\)/.test(s)) f.push("el globo nunca reaparece al bajar");
 if (f.length) { console.error("t44:", f.join("; ")); process.exit(1); }
 if (process.argv.includes("--live")) {
   const { chromium } = await import("playwright-core");

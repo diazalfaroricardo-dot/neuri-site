@@ -150,7 +150,7 @@
 :host{all:initial}
 *{box-sizing:border-box;font-family:inherit;margin:0}
 .w{--p1:${(C.pl || PL)[0]};--p2:${(C.pl || PL)[1]};--p3:${(C.pl || PL)[2]};--a:${C.a};--ai:${C.ai};--on:${C.on};--bg:${C.bg};--cv:${C.cv};--ab:${C.ab};--ink:${C.ink};--sub:${C.sub};--ln:${C.ln};--tint:${C.tint};--dot:${C.dot};--ring:${C.ring};--f:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--ttl:${C.ttl || "var(--f)"};font-family:var(--f);color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-.l{position:fixed;right:16px;bottom:calc(16px + var(--nv-lift,0px));display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 7px;border:0;border-radius:999px;background:var(--a);color:var(--on);font:600 15px/1 var(--f);letter-spacing:-.015em;box-shadow:0 18px 40px -14px color-mix(in srgb,var(--a) 70%,#000),0 2px 6px rgba(5,8,13,.16),inset 0 1px 0 rgba(255,255,255,.18);cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease,bottom .2s ease,background .2s ease}
+.l{position:fixed;right:16px;bottom:calc(16px + var(--nv-lift,0px));display:flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 7px;border:0;border-radius:999px;background:var(--a);color:var(--on);font:600 15px/1 var(--f);letter-spacing:-.015em;box-shadow:0 18px 40px -14px color-mix(in srgb,var(--a) 70%,#000),0 2px 6px rgba(5,8,13,.16),inset 0 1px 0 rgba(255,255,255,.18);cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease,bottom .2s ease,background .2s ease,opacity .18s ease,visibility .18s}
 .l:hover{transform:translateY(-2px);background:var(--ai)}
 .l:focus-visible,.x:focus-visible,.s:focus-visible,.q:focus-visible,.c:focus-visible,.r:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
 .l .av{width:38px;height:38px;border-radius:50%;background:color-mix(in srgb,var(--on) 14%,transparent);display:grid;place-items:center;flex:none;position:relative}
@@ -161,8 +161,7 @@
 .l.mini .tx{display:none}
 .l.mini .av{background:transparent}
 .l[hidden]{display:none}
-.l.wait{opacity:0;visibility:hidden;pointer-events:none}
-.l.tapa{opacity:0;visibility:hidden;pointer-events:none}
+.l.wait,.l.tapa{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px)}
 .p{position:fixed;right:16px;bottom:16px;width:min(392px,calc(100vw - 32px));height:min(600px,calc(100dvh - 32px));display:flex;flex-direction:column;background:var(--bg);color:var(--ink);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(5,8,13,.5),0 12px 28px -16px rgba(5,8,13,.22),0 0 0 1px var(--ln);transform-origin:bottom right;animation:in .32s cubic-bezier(.22,1,.36,1)}
 .p[hidden]{display:none}
 @keyframes in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
@@ -388,82 +387,166 @@
       input.style.height = `${Math.min(input.scrollHeight, 120)}px`;
     });
 
-    // No tapar las barras fijas de cada página (botón «Quiero mi asistente», «Prueba gratis»…).
-    let raf = 0;
+    // Zona segura (premium-arreglo-tech-1126), la misma regla en todas las landings de neuri.tech:
+    // 1) aparece hasta pasar el hero (a cualquier ancho), 2) sube por encima de cualquier barra fija de abajo
+    // («Prueba gratis», «7-day free trial», .dock de bots…) y 3) se esconde mientras quedaría encima de
+    // contenido: texto, enlaces, botones, deslizadores, los enlaces del pie, la demo (#demo) o lo marcado con data-globo-evita.
+    const VW = () => document.documentElement.clientWidth || innerWidth;
+    const fijo = (el) => {
+      for (let e = el; e && e !== document.body && e !== document.documentElement; e = e.parentElement) {
+        const p = getComputedStyle(e).position;
+        if (p === "fixed" || p === "sticky") return e;
+      }
+      return null;
+    };
     const lift = () => {
-      raf = 0;
       let px = 0;
-      for (const el of document.querySelectorAll(".sticky, .cta-fijo, .dock")) {
+      const barras = new Set(document.querySelectorAll(".sticky, .cta-fijo, .dock"));
+      // Cualquier otra barra fija pegada abajo (se busca por posición, no por clase).
+      for (const x of [VW() - 40, VW() / 2, 24]) {
+        for (const el of document.elementsFromPoint(x, innerHeight - 6)) {
+          if (el === host) continue;
+          const f = fijo(el);
+          if (f) barras.add(f);
+          break;
+        }
+      }
+      for (const el of barras) {
         // bots-onboarding-1124: la barra «.dock» entra deslizándose (transform); se mide donde va a
         // quedar, no donde va, para que el globo suba con ella y nunca tape su botón al entrar.
         if (el.classList.contains("dock") && !el.classList.contains("show")) continue;
         const cs = getComputedStyle(el);
-        if (cs.opacity === "0" || cs.display === "none") continue;
+        if (cs.opacity === "0" || cs.display === "none" || cs.visibility === "hidden") continue;
         const r = el.getBoundingClientRect();
+        if (r.height > innerHeight * 0.5) continue; // un fondo o panel a pantalla completa no es barra
         let dy = 0;
         try {
           if (cs.transform && cs.transform !== "none") dy = new DOMMatrixReadOnly(cs.transform).m42;
         } catch {}
         const top = r.top - dy;
-        if (r.height && top < innerHeight && top + r.height > innerHeight - 140)
-          px = Math.max(px, innerHeight - top + 4);
+        if (r.height && top < innerHeight && top + r.height > innerHeight - 140) px = Math.max(px, innerHeight - top + 4);
       }
       host.style.setProperty("--nv-lift", `${Math.round(px)}px`);
+      return px;
     };
-    let tras = 0;
+    // ¿Dónde va a quedar el globo? (no donde va a media transición).
+    const destino = (px) => {
+      const w = launch.offsetWidth || 52,
+        h = launch.offsetHeight || 52;
+      const right = VW() - 16,
+        bottom = innerHeight - 16 - px;
+      return { left: right - w, right, top: bottom - h, bottom };
+    };
+    const CONT = 'a,button,input,select,textarea,label,summary,video,iframe,[role="slider"],[role="button"],[contenteditable],[data-globo-evita]';
+    const choca = (a, b, m) => a.left - m < b.right && a.right + m > b.left && a.top - m < b.bottom && a.bottom + m > b.top;
+    const pisa = (lr) => {
+      const m = 8;
+      // T60: con la demo (#demo) en pantalla el globo no tapa el teléfono de muestra.
+      const d = document.getElementById("demo");
+      const dr = d && d.getBoundingClientRect();
+      if (dr && dr.top < innerHeight - 70 && dr.bottom > innerHeight - 70) return true;
+      // 575: el botón principal de un asistente («Siguiente») y lo marcado con data-globo-evita.
+      for (const s of document.querySelectorAll("#siguiente, [data-globo-evita]")) {
+        if (s.offsetParent && choca(lr, s.getBoundingClientRect(), m)) return true;
+      }
+      // Se baja por el árbol solo por las ramas que cruzan el globo (por geometría, no por hit-test:
+      // la historia de la portada usa pointer-events:none en tarjetas visibles).
+      const area = VW() * innerHeight;
+      const baja = (el, clip) => {
+        for (const e of el.children) {
+          if (e === host || e.tagName === "SCRIPT" || e.tagName === "STYLE") continue;
+          const r = e.getBoundingClientRect();
+          const cs = getComputedStyle(e);
+          if (cs.display === "contents") {
+            if (baja(e, clip)) return true;
+            continue;
+          }
+          if (!r.width || !r.height || cs.visibility === "hidden" || cs.opacity === "0") continue;
+          const vis = {
+            left: Math.max(r.left, clip.left),
+            right: Math.min(r.right, clip.right),
+            top: Math.max(r.top, clip.top),
+            bottom: Math.min(r.bottom, clip.bottom),
+          };
+          const corta = cs.overflow !== "visible" || cs.position === "fixed";
+          if (corta && (vis.left >= vis.right || vis.top >= vis.bottom)) continue;
+          if (!choca(lr, corta ? vis : r, m)) {
+            // Un contenedor sin recorte puede tener hijos fuera de su caja: solo se salta si recorta.
+            if (corta || !e.children.length) continue;
+          } else {
+            // Los íconos y adornos SVG (órbitas, redes) no cuentan; las maquetas de teléfono y recibos sí (caja con fondo).
+            if (e.matches(CONT) || /^(IMG|VIDEO|IFRAME)$/.test(e.tagName)) return true;
+            // Un canvas en el flujo es contenido (la planta de puestos de bazar); uno absoluto o fijo es fondo (redes, estrellas).
+            if (e.tagName === "CANVAS") {
+              if (cs.position === "static" || cs.position === "relative") return true;
+              continue;
+            }
+            const bg = cs.backgroundColor;
+            const fondo = bg && bg !== "transparent" && !/,\s*0\)$/.test(bg);
+            if (r.width * r.height < area * 0.25 && (fondo || parseFloat(cs.borderTopWidth) > 0 || cs.boxShadow !== "none")) return true;
+            for (const n of e.childNodes) {
+              if (n.nodeType !== 3 || !n.data.trim()) continue;
+              const rg = document.createRange();
+              rg.selectNodeContents(n);
+              for (const t of rg.getClientRects()) if (t.width && choca(lr, t, m)) return true;
+            }
+          }
+          if (baja(e, corta ? vis : clip)) return true;
+        }
+        return false;
+      };
+      return baja(document.body, { left: 0, top: 0, right: VW(), bottom: innerHeight });
+    };
+    // El hero se deja limpio: el globo espera a que la persona baje (a cualquier ancho).
+    // Una página corta (404, avisos) no tiene hero que proteger: ahí manda solo la regla de no pisar contenido.
+    const enHero = () => document.documentElement.scrollHeight - innerHeight > innerHeight * 0.75 && scrollY < innerHeight * 0.75;
+    let raf = 0,
+      tras = 0,
+      tras2 = 0;
+    const place = () => {
+      raf = 0;
+      if (!launch.isConnected) return;
+      const px = lift();
+      launch.classList.toggle("wait", !st.open && enHero());
+      let tapa = !st.open && !enHero() && pisa(destino(px));
+      // En celular, si la etiqueta larga («¿Te ayudo a elegir?») no cabe sin pisar algo, queda como círculo.
+      if (tapa && !launch.classList.contains("mini") && matchMedia("(max-width:480px)").matches) {
+        launch.classList.add("mini");
+        tapa = pisa(destino(px));
+      }
+      launch.classList.toggle("tapa", tapa);
+    };
     const onMove = () => {
-      if (!raf) raf = requestAnimationFrame(lift);
-      // La barra entra con transición: se vuelve a medir cuando ya terminó, aunque nadie siga moviendo la página.
+      if (!raf) raf = requestAnimationFrame(place);
+      // Barras y tarjetas entran con transición: se vuelve a medir cuando ya terminaron.
       clearTimeout(tras);
-      tras = setTimeout(lift, 450);
+      clearTimeout(tras2);
+      tras = setTimeout(place, 450);
+      tras2 = setTimeout(place, 1100);
     };
     addEventListener("scroll", onMove, { passive: true });
     addEventListener("resize", onMove);
 
     const mount = () => {
       document.body.appendChild(host);
-      lift();
-      // T44 (B-N2/A10): en celular el globo no tapa el hero (p. ej. «Sin tarjeta · Sin contrato»):
-      // empieza chico y aparece al bajar más allá de la primera pantalla.
-      if (matchMedia("(max-width:480px)").matches && !st.open && scrollY < innerHeight * 0.6) {
-        launch.classList.add("mini", "wait");
-        const show = () => {
-          if (scrollY < innerHeight * 0.6) return;
-          launch.classList.remove("wait");
-          // dz-h-20261125-marketing-boton-flotante: en neuri.marketing aparece con su etiqueta corta, no como círculo mudo.
-          if (prod.th === "mkt" && !st.msgs.length) launch.classList.remove("mini");
-          removeEventListener("scroll", show);
-        };
-        addEventListener("scroll", show, { passive: true });
-      }
-      // T60 (B-A10/B-N2): con la demo (#demo) en pantalla el globo se esconde y no tapa el teléfono de muestra.
-      // Se busca en cada movimiento porque la demo se pinta tarde (T24) y puede no existir al montar.
-      const tapa = () => {
-        const d = document.getElementById("demo");
-        const r = d && d.getBoundingClientRect();
-        // 575 (B-N2): tampoco tapa el botón principal de un asistente («Siguiente»).
-        // tech-cls: ni lo que la página marque con data-globo-evita (botones y cifra del reporte de ejemplo de consulting).
-        const lr = launch.getBoundingClientRect();
-        let cruza = false;
-        for (const s of document.querySelectorAll("#siguiente, [data-globo-evita]")) {
-          if (!s.offsetParent) continue;
-          const sr = s.getBoundingClientRect();
-          if (lr.width > 0 && lr.left - 8 < sr.right && lr.right + 8 > sr.left && lr.top - 8 < sr.bottom && lr.bottom + 8 > sr.top) cruza = true;
-        }
-        launch.classList.toggle("tapa", !st.open && (cruza || (!!r && r.top < innerHeight - 70 && r.bottom > innerHeight - 70)));
-      };
-      addEventListener("click", () => setTimeout(tapa, 60), { passive: true });
-      addEventListener("scroll", tapa, { passive: true });
-      addEventListener("resize", tapa);
-      tapa();
+      // T44 (B-N2/A10): en celular el globo empieza chico y no tapa el hero (p. ej. «Sin tarjeta · Sin contrato»).
+      // dz-h-20261125-marketing-boton-flotante: en neuri.marketing aparece con su etiqueta corta, no como círculo mudo.
+      if (matchMedia("(max-width:480px)").matches && !st.open && !(prod.th === "mkt" && !st.msgs.length)) launch.classList.add("mini");
+      addEventListener("click", () => setTimeout(place, 60), { passive: true });
       if (st.msgs.length) launch.classList.add("mini");
       // QA #27: solo se reabre solo en la misma página y nunca a 480 px o menos (taparía el formulario).
       if (st.open && st.page === path && !matchMedia("(max-width:480px)").matches) setOpen(true, false);
       // Ya vio la página un rato sin abrirlo: el globo se hace pequeño para no estorbar.
       else {
         st.open = false;
-        setTimeout(() => launch.classList.add("mini"), 25000);
+        setTimeout(() => {
+          launch.classList.add("mini");
+          place();
+        }, 25000);
       }
+      place();
+      // La demo y otras piezas se pintan tarde (T24): una segunda medición cuando ya están.
+      setTimeout(place, 1200);
     };
     // Solo aparece si la IA contesta de verdad (si la llave falla, nadie ve un asistente roto).
     const start = () =>

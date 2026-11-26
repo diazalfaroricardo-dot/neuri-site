@@ -2,7 +2,7 @@
 (function () {
   var cv = document.getElementById('hola'); if (!cv) return;
   var sec = cv.parentNode, cx = cv.getContext('2d'), dpr = Math.min(2, window.devicePixelRatio || 1);
-  var N = 3000, W, H, X, Y, VX, VY, TX, TY, C, S, mode = 0, t = 0, last = 0, phaseT = 0, vis = false, px = -1e4, py = -1e4;
+  var N = 3000, Z = [], W, H, X, Y, VX, VY, TX, TY, C, S, mode = 0, t = 0, last = 0, phaseT = 0, vis = false, px = -1e4, py = -1e4;
   var COL = ['143,224,180', '143,224,180', '143,224,180', '246,244,238', '252,233,220', '60,170,115'];
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   function targets() {
@@ -24,7 +24,16 @@
     cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!X) { X = new Float32Array(N); Y = new Float32Array(N); VX = new Float32Array(N); VY = new Float32Array(N); TX = new Float32Array(N); TY = new Float32Array(N); C = new Uint8Array(N); S = new Float32Array(N);
       for (var i = 0; i < N; i++) { X[i] = Math.random() * W; Y[i] = Math.random() * H; C[i] = (Math.random() * COL.length) | 0; S[i] = 1.1 + Math.random() * 1.2; } }
-    targets();
+    targets(); zonas();
+  }
+  // premium-arreglo-tech-1126: velo suave detrás del texto del cierre (título, párrafo y botones):
+  // los puntos se apagan ahí para que nunca pasen por encima de las letras.
+  function zonas() {
+    var c = cv.getBoundingClientRect(); Z = [];
+    sec.querySelectorAll('.w .tm, .w h2, .w p, .w .act').forEach(function (e) {
+      var r = e.getBoundingClientRect(); if (!r.width) return;
+      Z.push([r.left - c.left - 14, r.top - c.top - 12, r.width + 28, r.height + 24]);
+    });
   }
   function step(dt) {
     t += dt; phaseT += dt;
@@ -63,6 +72,11 @@
       cx.strokeStyle = 'rgba(143,224,180,' + (.08 * Math.min(1, (phaseT - 1.2) / 1.5)) + ')'; cx.lineWidth = .5; cx.beginPath();
       for (var i = 0; i < N; i += 9) { var j = (i * 31 + 17) % N, dx = X[j] - X[i], dy = Y[j] - Y[i]; if (dx * dx + dy * dy < 2500) { cx.moveTo(X[i], Y[i]); cx.lineTo(X[j], Y[j]); } }
       cx.stroke();
+    }
+    if (Z.length) {
+      cx.save(); cx.globalCompositeOperation = 'destination-out'; cx.fillStyle = '#000'; cx.shadowColor = '#000'; cx.shadowBlur = 36;
+      for (var z = 0; z < Z.length; z++) cx.fillRect(Z[z][0], Z[z][1], Z[z][2], Z[z][3]);
+      cx.restore();
     }
   }
   function loop(now) {

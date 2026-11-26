@@ -116,7 +116,9 @@
   }
   // dz-h-20261125-tech-reloj-no-cuadra: el reloj se queda en la hora de la escena mientras su texto está en pantalla
   // y solo corre en la transición; durante ese tramo la escena se va, así hora y texto nunca se contradicen.
-  var HOLD = .7;
+  // premium-arreglo-tech-1126: el tramo sin escena era 30 % del scroll (pantallas casi vacías, solo el reloj);
+  // ahora es 12 %: el reloj corre rápido entre horas y la escena siguiente entra casi enseguida.
+  var HOLD = .88;
   function set(p) {
     var x = Math.min(n - 1, p * n), i = Math.min(n - 1, Math.floor(x)), f = x - i;
     var t1 = T[i], t2 = T[Math.min(n - 1, i + 1)];

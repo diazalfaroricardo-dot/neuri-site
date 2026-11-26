@@ -295,4 +295,18 @@
     <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/sigue-disponible/vs-manychat/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/still-available/vs-manychat/"/>
   </url>
+  <url>
+    <loc>https://neuri.tech/bazar/mejores-programas-bazar/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/bazar/best-vendor-mall-software/"/>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/bazar/mejores-programas-bazar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/bazar/best-vendor-mall-software/"/>
+  </url>
+  <url>
+    <loc>https://neuri.tech/en/bazar/best-vendor-mall-software/</loc>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuri.tech/en/bazar/best-vendor-mall-software/"/>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://neuri.tech/bazar/mejores-programas-bazar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuri.tech/en/bazar/best-vendor-mall-software/"/>
+  </url>
 </urlset>

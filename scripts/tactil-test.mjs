@@ -3,7 +3,7 @@
  * T9 / B-N2: áreas táctiles de 44 px en /consultoria, /en/ai-consulting, /bazar y /en/ —
  * «Solicitar diagnóstico» del encabezado y todos los links del pie miden ≥44 px de alto
  * a 390 y 1280 px, sin scroll horizontal y con axe AA 0 en encabezado y pie.
- * T8 / B-P1: el título de /consultoria y /en/ai-consulting no repite la marca (termina en «| Neuri Consulting»).
+ * T8 / B-P1: el título de /consultoria y /en/ai-consulting no repite la marca (termina en «| neuri.consulting»).
  * Uso: node scripts/tactil-test.mjs [--live]
  */
 import { createReadStream, existsSync, readFileSync, statSync } from "node:fs";

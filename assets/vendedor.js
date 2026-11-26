@@ -53,8 +53,8 @@
       {
         re: /^\/(consultoria|en\/ai-consulting)/,
         th: "consult",
-        es: "Hola, soy el asistente de Neuri Consulting (una IA). Cuéntame qué hace tu empresa y te digo por dónde empezar con IA.",
-        en: "Hi, I'm Neuri Consulting's assistant (an AI). Tell me what your company does and I'll suggest where to start with AI.",
+        es: "Hola, soy el asistente de neuri.consulting (una IA). Cuéntame qué hace tu empresa y te digo por dónde empezar con IA.",
+        en: "Hi, I'm the neuri.consulting assistant (an AI). Tell me what your company does and I'll suggest where to start with AI.",
         qes: ["¿Qué incluye el diagnóstico?", "Queremos automatizar ventas", "¿Cuánto cuesta?"],
         qen: ["What's in the assessment?", "We want to automate sales", "How much is it?"],
       },

@@ -66,7 +66,8 @@
         show(i); stage.style.setProperty('--bg', mix(BG[i], BG[Math.min(n - 1, i + 1)], f));
       };
       set(0);
-      ScrollTrigger.create({ trigger: story, start: 'top top', end: '+=' + (n * 85) + '%', pin: stage, scrub: .4, onUpdate: function (s) { set(s.progress); } });
+      // premium-arreglo-bazar-1126: se fija cuando el escenario (no la sección con su relleno) llega arriba; antes quedaba una franja vacía.
+      ScrollTrigger.create({ trigger: stage, start: 'top top', end: '+=' + (n * 85) + '%', pin: stage, scrub: .4, onUpdate: function (s) { set(s.progress); } });
     }
   }
 

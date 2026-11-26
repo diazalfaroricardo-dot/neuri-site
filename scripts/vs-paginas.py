@@ -184,6 +184,10 @@ TXT = {
 OG = {"bazar": "bazar", "bots": "bots", "marketing": "marketing"}
 
 
+
+CMP_CSS = '<style data-cmp-movil>/* premium-arreglo-bazar-1126: a ≤560px la comparativa pasa a tarjetas por fila */@media (max-width:560px){.tabla.cmp{overflow:visible}.tabla.cmp table{min-width:0}.tabla.cmp tr.cmp-cab{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.tabla.cmp tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;border-top:1px solid var(--line);padding:12px 0}.tabla.cmp th[scope=row]{grid-column:1/-1;border:0;padding:0;font-size:15px}.tabla.cmp td{border:0;padding:0;min-width:0;overflow-wrap:anywhere}.tabla.cmp td::before{content:attr(data-label);display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:2px}}</style>'
+
+
 def page(p, lang):
     t, x = p["T"][lang], TXT[lang]
     locale = x["locale"]  # D-10: es_US / en_US en todas
@@ -196,7 +200,13 @@ def page(p, lang):
           "publisher": {"@type": "Organization", "name": "Neuri LLC", "url": "https://neuri.tech/"},
           "about": [{"@type": "SoftwareApplication", "name": p["us"], "applicationCategory": "BusinessApplication"},
                     {"@type": "SoftwareApplication", "name": p["them"], "applicationCategory": "BusinessApplication", "url": p["them_url"]}]}
-    rows = "".join(f'<tr><th scope="row">{a}</th><td><b>{b}</b></td><td>{c}</td></tr>' for a, b, c in t["rows"])
+    # premium-arreglo-bazar-1126: en bazar, a ≤560px la tabla pasa a tarjetas por fila (CMP_CSS va dentro del contenido: brand-chrome.py quita los <style> del head).
+    cmp = p["brand"] == "bazar"
+    if cmp:
+        rows = "".join(f'<tr role="row"><th role="rowheader" scope="row">{a}</th><td role="cell" data-label="{p["us"]}"><b>{b}</b></td>'
+                       f'<td role="cell" data-label="{p["them"]}">{c}</td></tr>' for a, b, c in t["rows"])
+    else:
+        rows = "".join(f'<tr><th scope="row">{a}</th><td><b>{b}</b></td><td>{c}</td></tr>' for a, b, c in t["rows"])
     links = ", ".join(f'<a href="{h}" rel="nofollow">{n}</a>' for h, n in p["fuentes"])
     src = x["src"].format(them=p["them"], fecha=FECHA[lang], links=links)
     head = (f'<!doctype html>\n<html lang="{lang}" data-brand="{p["brand"]}">\n<head>\n'
@@ -214,9 +224,12 @@ def page(p, lang):
             '<script src="/assets/analytics.js" defer></script>\n</head>\n<body>\n')
     content = (f'<!--contenido-->\n<!-- Fuentes de {p["them"]} revisadas el {ISO}: {", ".join(h for h, _ in p["fuentes"])} -->\n'
                f'<h1>{t["h1"]}</h1>\n<p class="lead">{t["lead"]}</p>\n'
-               f'<section><div class="tabla" tabindex="0" role="region" aria-label="{x["aria"]}"><table>\n'
-               f'<tr><th scope="col">{t["th"]}</th><th scope="col">{p["us"]}</th><th scope="col">{p["them"]}</th></tr>\n{rows}</table></div>\n'
-               f'<p class="nota">{src}</p></section>\n'
+               + (f'<section>{CMP_CSS}<div class="tabla cmp" tabindex="0" role="region" aria-label="{x["aria"]}"><table role="table">\n'
+                f'<tr class="cmp-cab" role="row"><th role="columnheader" scope="col">{t["th"]}</th><th role="columnheader" scope="col">{p["us"]}</th>'
+                f'<th role="columnheader" scope="col">{p["them"]}</th></tr>\n{rows}</table></div>\n' if cmp else
+                f'<section><div class="tabla" tabindex="0" role="region" aria-label="{x["aria"]}"><table>\n'
+                f'<tr><th scope="col">{t["th"]}</th><th scope="col">{p["us"]}</th><th scope="col">{p["them"]}</th></tr>\n{rows}</table></div>\n')
+               + f'<p class="nota">{src}</p></section>\n'
                f'<section><h2>{t["h2a"]}</h2>\n<h3>{t["pick_us"][0]}</h3><p>{t["pick_us"][1]}</p>\n'
                f'<h3>{t["pick_them"][0]}</h3><p>{t["pick_them"][1]}</p></section>\n'
                f'<section><h2>{t["h2b"]}</h2><p>{t["cta"]}</p>'

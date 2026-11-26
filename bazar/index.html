@@ -95,7 +95,7 @@ p{margin:0;text-wrap:pretty}
 .pain-row b{display:block;font-weight:500;font-size:16px;line-height:1.35;letter-spacing:-.01em}
 /* story */
 section{padding:150px 0 0}
-.story{padding:150px 0 0}
+.story{padding:0}
 .stage{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;background:var(--bg,var(--wall))}
 .stage-in{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;width:100%}
 .clock{white-space:nowrap;font-size:clamp(44px,5.6vw,84px);font-weight:500;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
@@ -112,7 +112,8 @@ section{padding:150px 0 0}
 .a.on{opacity:1;visibility:visible}
 .card,.reg,.phone,.cnt,.ledger,.payout{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 40px 80px -50px rgba(5,8,13,.45);color:var(--ink)}
 .reg{width:min(400px,100%);padding:22px}
-.reg-h{display:flex;justify-content:space-between;font-size:13.5px;color:var(--sub);padding-bottom:14px;border-bottom:1px solid var(--line2)}
+.reg-h{display:flex;justify-content:space-between;font-size:13.5px;color:var(--sub);padding-bottom:14px;border-bottom:1px solid var(--line2);gap:12px;align-items:baseline}
+.reg-h>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.reg-h>small{flex:none;white-space:nowrap}
 .scan{display:flex;align-items:center;gap:12px;margin:16px 0;padding:12px 14px;border-radius:12px;background:var(--wall);font-size:13px;color:var(--sub)}
 .bars{width:64px;height:26px;background:repeating-linear-gradient(90deg,#05080D 0 2px,transparent 2px 4px,#05080D 4px 5px,transparent 5px 8px)}
 .reg-i{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
@@ -437,6 +438,7 @@ section,.story{padding-top:104px}.pains{padding-top:64px}.sh{grid-template-colum
 .fin::before{background:radial-gradient(40% 60% at 85% 10%,rgba(252,233,220,.9),transparent 70%)}
 .fin h2{color:var(--ink)}.fin p{color:var(--ink2)}.fin .tm{color:var(--rust)}.fin .tm b{color:var(--ink)}
 .fin .btn.g{background:#fff;border-color:var(--line);color:var(--ink)}.fin .btn.g:hover{border-color:#CBC9C1}
+.fin p.fin-mail{margin-top:16px;font-size:15px}.fin-mail a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;padding-block:6px}
 footer{background:#F9E7DA;color:#585D57;border-top:1px solid #EBD3C1}
 footer .fb{color:var(--ink)}footer .fb span{color:var(--rust)}footer a:hover{color:var(--ink)}
 /* sticky: mobile only */
@@ -911,7 +913,7 @@ footer .fb{color:var(--ink)}footer .fb span{color:var(--rust)}footer a:hover{col
     <div><span class="tm mono">Lunes · 9:00 am · <b id="paid">$0</b> pagados a 40 vendedores</span><h2 id="f-t">El próximo lunes, tus estados de cuenta podrían salir solos.</h2></div>
     <div>
       <p>Prueba 14 días gratis o deja que te lo enseñemos con tus propios puestos. Te contestamos en 1 día hábil.</p>
-      <div class="act"><a class="btn p" href="#prueba" data-trial data-plan="Pro">Prueba 14 días gratis</a><a class="btn g" href="https://calendly.com/diazalfaroricardo/30min?a1=Producto%3A+Neuri+Bazar&amp;utm_source=neuri&amp;utm_medium=landing&amp;utm_campaign=bazar" target="_blank" rel="noopener">Agenda una demo de 30 min</a><a class="btn g" href="mailto:hola@neuri.tech">hola@neuri.tech</a></div>
+      <div class="act"><a class="btn p" href="#prueba" data-trial data-plan="Pro">Prueba 14 días gratis</a><a class="btn g" href="https://calendly.com/diazalfaroricardo/30min?a1=Producto%3A+Neuri+Bazar&amp;utm_source=neuri&amp;utm_medium=landing&amp;utm_campaign=bazar" target="_blank" rel="noopener">Agenda una demo de 30 min</a></div><p class="fin-mail">o escríbenos a <a href="mailto:hola@neuri.tech">hola@neuri.tech</a></p>
     </div>
   </div>
 </section>
@@ -924,7 +926,7 @@ footer .fb{color:var(--ink)}footer .fb span{color:var(--rust)}footer a:hover{col
     <span class="fb">neuri<span>.bazar</span></span>
     <nav aria-label="Pie de página">
       <a class="bz-pie-entrar" data-entrar href="https://bazar.neuri.tech/login?lang=es">Entrar</a>
-      <a href="/es/">neuri.tech</a><a href="/sigue-disponible/">neuri.bots</a><a data-mas-neuri href="/consultoria/">Neuri Consulting</a><a data-mas-neuri href="/marketing/">neuri.marketing</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/bazar/terminos/">Términos</a><a href="/bazar/recorrido/">Recorrido</a><a href="/bazar/privacidad/">Privacidad</a><a href="/bazar/borrar-mis-datos/">Borrar mis datos</a><a href="/en/bazar/" lang="en" hreflang="en">English</a>
+      <a href="/es/">neuri.tech</a><a href="/sigue-disponible/">neuri.bots</a><a data-mas-neuri href="/consultoria/">neuri.consulting</a><a data-mas-neuri href="/marketing/">neuri.marketing</a><a href="mailto:hola@neuri.tech">hola@neuri.tech</a><a href="/bazar/terminos/">Términos</a><a href="/bazar/recorrido/">Recorrido</a><a href="/bazar/privacidad/">Privacidad</a><a href="/bazar/borrar-mis-datos/">Borrar mis datos</a><a href="/en/bazar/" lang="en" hreflang="en">English</a>
     </nav>
     <span class="cp">© 2026 Neuri LLC · <span data-actualizado>Actualizado el <time datetime="2026-11-23">23 de noviembre de 2026</time></span> · Phoenix, Arizona</span>
   </div>

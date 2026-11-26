@@ -64,6 +64,10 @@ T = {
 }
 
 
+
+CMP_CSS = '<style data-cmp-movil>/* premium-arreglo-bazar-1126: a ≤560px la comparativa pasa a tarjetas por fila */@media (max-width:560px){.tabla.cmp{overflow:visible}.tabla.cmp table{min-width:0}.tabla.cmp tr.cmp-cab{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.tabla.cmp tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;border-top:1px solid var(--line);padding:12px 0}.tabla.cmp th[scope=row]{grid-column:1/-1;border:0;padding:0;font-size:15px}.tabla.cmp td{border:0;padding:0;min-width:0;overflow-wrap:anywhere}.tabla.cmp td::before{content:attr(data-label);display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:2px}}</style>'
+
+
 def page(lang, path, alt_path):
     t = T[lang]
     url, alt = "https://neuri.tech/" + path, "https://neuri.tech/" + alt_path
@@ -73,7 +77,9 @@ def page(lang, path, alt_path):
           "publisher": {"@type": "Organization", "name": "Neuri LLC", "url": "https://neuri.tech/"},
           "about": [{"@type": "SoftwareApplication", "name": "neuri.bazar", "applicationCategory": "BusinessApplication"},
                     {"@type": "SoftwareApplication", "name": "Quail", "applicationCategory": "BusinessApplication", "url": "https://quailhq.com/"}]}
-    rows = "".join(f'<tr><th scope="row">{a}</th><td><b>{b}</b></td><td>{c}</td></tr>' for a, b, c in t["rows"])
+    # premium-arreglo-bazar-1126: a ≤560px la tabla pasa a tarjetas por fila (CMP_CSS va dentro del contenido: brand-chrome.py quita los <style> del head); data-label rotula cada celda.
+    rows = "".join(f'<tr role="row"><th role="rowheader" scope="row">{a}</th><td role="cell" data-label="neuri.bazar"><b>{b}</b></td>'
+                   f'<td role="cell" data-label="Quail">{c}</td></tr>' for a, b, c in t["rows"])
     head = (f'<!doctype html>\n<html lang="{lang}" data-brand="bazar">\n<head>\n'
             f'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{t["title"]}</title>'
             f'<meta name="description" content="{t["desc"]}">\n'
@@ -89,8 +95,8 @@ def page(lang, path, alt_path):
             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n'
             '<script src="/assets/analytics.js" defer></script>\n</head>\n<body>\n')
     content = (f'<!--contenido-->\n<h1>{t["h1"]}</h1>\n<p class="lead">{t["lead"]}</p>\n'
-               f'<section><div class="tabla" tabindex="0" role="region" aria-label="{t["aria"]}"><table>\n'
-               f'<tr><th scope="col">{t["th"][0]}</th><th scope="col">{t["th"][1]}</th><th scope="col">{t["th"][2]}</th></tr>\n{rows}</table></div>\n'
+               f'<section>{CMP_CSS}<div class="tabla cmp" tabindex="0" role="region" aria-label="{t["aria"]}"><table role="table">\n'
+               f'<tr class="cmp-cab" role="row"><th role="columnheader" scope="col">{t["th"][0]}</th><th role="columnheader" scope="col">{t["th"][1]}</th><th role="columnheader" scope="col">{t["th"][2]}</th></tr>\n{rows}</table></div>\n'
                f'<p class="nota">{t["src"]} <a href="https://quailhq.com/">quailhq.com</a></p></section>\n'
                f'<section><h2>{t["h2a"]}</h2>\n<h3>{t["us"][0]}</h3><p>{t["us"][1]}</p>\n<h3>{t["them"][0]}</h3><p>{t["them"][1]}</p></section>\n'
                f'<section><h2>{t["h2b"]}</h2><p>{t["cta"]}</p>'

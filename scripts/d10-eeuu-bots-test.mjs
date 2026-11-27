@@ -45,6 +45,21 @@ const visible = (p) =>
 
 async function axe(p, where) {
   if (!axeSrc) return;
+  // El hero de bots (premium) entra con animaciones de una sola vez (las notificaciones del celular aparecen
+  // escalonadas). Si axe mide a media animación, lee un fondo intermedio y marca color-contrast falso
+  // (visto en CI: «Diego R. now» 2.81:1 a media entrada; ya entrado pasa). Se espera a que terminen las
+  // animaciones finitas (máx. 6 s); las infinitas (pulsos, ondas) no se esperan.
+  await p.evaluate(() =>
+    Promise.race([
+      Promise.all(
+        document
+          .getAnimations()
+          .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+          .map((a) => a.finished.catch(() => {})),
+      ),
+      new Promise((r) => setTimeout(r, 6000)),
+    ]),
+  );
   await p.addScriptTag({ content: axeSrc });
   const r = await p.evaluate(async () => {
     // biome-ignore lint: axe global

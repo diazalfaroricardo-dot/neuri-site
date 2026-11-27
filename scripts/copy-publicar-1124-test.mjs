@@ -28,7 +28,9 @@ const ok = (c, m) => { if (!c) { fail++; console.log("✗", m); } else console.l
     ["en/bazar/index.html", /<p class="lead">([^<]*)<\/p>/, "Every sale goes to the right dealer. Statements and payouts are ready Monday. From $79 a month, no commission."],
     ["marketing/index.html", /<p class="lede">([^<]*)<\/p>/, "neuri.marketing hace los posts y reels del mes con tu estilo. Tú los apruebas con un toque."],
     ["en/marketing/index.html", /<p class="lede">([^<]*)<\/p>/, "neuri.marketing makes the month's posts and reels in your style. You approve them with one tap."],
-    ["en/still-available/index.html", /<p class="lead rise rise-2">([^<]*)<\/p>/, "Neuri answers your Instagram, Facebook and WhatsApp messages in seconds: price, stock, pickup and holds. You just hand it over."],
+    // premium-arreglo-bots-1126 (0a0621c) sumó «and your TikTok comments» y quedó en 24 palabras: el texto se pone al día,
+    // el tope de 20 del glosario no se toca (bajarlo de 24 a ≤20 es cambio de copy y necesita el sí de Ricardo).
+    ["en/still-available/index.html", /<p class="lead rise rise-2">([^<]*)<\/p>/, "Neuri answers your Instagram, Facebook and WhatsApp messages and your TikTok comments in seconds: price, stock, pickup and holds. You just hand it over."],
   ];
   for (const [f, re, esperado] of heros) {
     const m = leer(f).match(re);

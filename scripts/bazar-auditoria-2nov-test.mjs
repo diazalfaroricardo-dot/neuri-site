@@ -65,12 +65,17 @@ for (const [path, sim, viejos, renta] of [
   }
   const tapa = await q.evaluate(() => {
     const host = [...document.body.children].find((e) => e.shadowRoot?.querySelector(".l"));
-    if (!host) return { cruza: true, visible: false, sinGlobo: true }; // en local el globo no carga
-    const l = host.shadowRoot.querySelector(".l"), s = document.getElementById("siguiente").getBoundingClientRect(), r = l.getBoundingClientRect();
+    const s = document.getElementById("siguiente").getBoundingClientRect();
+    // El botón tiene que quedar abajo, en la franja donde vive el globo; si no, la prueba no prueba nada.
+    const abajo = s.bottom <= innerHeight && s.bottom > innerHeight - 140;
+    if (!host) return { abajo, cruza: false, visible: false, sinGlobo: true }; // en local el globo no carga
+    const l = host.shadowRoot.querySelector(".l"), r = l.getBoundingClientRect();
     const cruza = r.left < s.right && r.right > s.left && r.top < s.bottom && r.bottom > s.top;
-    return { cruza, visible: getComputedStyle(l).visibility !== "hidden" };
+    return { abajo, cruza, visible: getComputedStyle(l).visibility !== "hidden" };
   });
-  ok(tapa.cruza && !tapa.visible, `${path} 390: globo sin tapar «Siguiente» (575) ${JSON.stringify(tapa)}`);
+  // premium-arreglo-tech-1126 (f147321): el globo sube sobre las barras fijas, cae a círculo a 390 y se esconde si
+  // quedaría sobre botones; ya no tiene que cruzar «Siguiente» para estar bien. Lo que importa es que no lo tape visible.
+  ok(tapa.abajo && !(tapa.cruza && tapa.visible), `${path} 390: globo sin tapar «Siguiente» (575) ${JSON.stringify(tapa)}`);
   await c2.close();
 }
 // 572: la elección de idioma se recuerda al volver (ofrece el otro sin redirigir) y el pie en inglés no regresa al español.

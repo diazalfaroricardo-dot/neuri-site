@@ -5,7 +5,8 @@ const s = readFileSync(new URL("../assets/vendedor.js", import.meta.url), "utf8"
 const f = [];
 if (!/\.l\.tapa\{[^}]*visibility:hidden/.test(s)) f.push("falta .l.tapa oculto");
 // premium-arreglo-tech-1126: la demo es una de las piezas que pisa() protege; place() corre con cada scroll.
-if (!/getElementById\("demo"\)[\s\S]{0,300}return true/.test(s) || !/toggle\("tapa", [^\n]*pisa\(/.test(s) || !/addEventListener\("scroll", onMove/.test(s)) f.push("el globo no se esconde con la demo en pantalla");
+// place() guarda pisa() en `tapa` (y lo vuelve a medir si en celular cae a círculo) y luego hace toggle("tapa", tapa).
+if (!/getElementById\("demo"\)[\s\S]{0,300}return true/.test(s) || !/let tapa = [^\n]*pisa\(destino\(/.test(s) || !/toggle\("tapa", tapa\)/.test(s) || !/addEventListener\("scroll", onMove/.test(s)) f.push("el globo no se esconde con la demo en pantalla");
 if (f.length) { console.error("t60:", f.join("; ")); process.exit(1); }
 if (process.argv.includes("--live")) {
   const { chromium } = await import("playwright-core");

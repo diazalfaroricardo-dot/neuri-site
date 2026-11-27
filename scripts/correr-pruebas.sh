@@ -15,6 +15,8 @@ grep -c '^ok' "$t/res"
 malas=0
 for b in $(awk '$1=="falla"{print $2}' "$t/res"); do
   if timeout 420 node "scripts/$b" >"$t/$b.log" 2>&1; then echo "paso al repetir: $b"; else
-    echo "FALLA $b"; tail -15 "$t/$b.log"; malas=$((malas + 1)); fi
+    echo "FALLA $b"; tail -15 "$t/$b.log"
+    # Las líneas de falla pueden quedar antes de las últimas 15: se muestran aparte.
+    grep -E '^(✗|FAIL)' "$t/$b.log" | head -20 | sed 's/^/  falla: /'; malas=$((malas + 1)); fi
 done
 exit "$malas"

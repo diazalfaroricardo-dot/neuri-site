@@ -507,8 +507,10 @@
       raf = 0;
       if (!launch.isConnected) return;
       const px = lift();
+      // Con el foco del teclado encima, el globo se queda a la vista: nunca se esconde un control enfocado (teclado-oculto).
+      const foco = root.activeElement === launch;
       launch.classList.toggle("wait", !st.open && enHero());
-      let tapa = !st.open && !enHero() && pisa(destino(px));
+      let tapa = !st.open && !foco && !enHero() && pisa(destino(px));
       // En celular, si la etiqueta larga («¿Te ayudo a elegir?») no cabe sin pisar algo, queda como círculo.
       if (tapa && !launch.classList.contains("mini") && matchMedia("(max-width:480px)").matches) {
         launch.classList.add("mini");
@@ -526,6 +528,8 @@
     };
     addEventListener("scroll", onMove, { passive: true });
     addEventListener("resize", onMove);
+    launch.addEventListener("focus", place);
+    launch.addEventListener("blur", onMove);
 
     const mount = () => {
       document.body.appendChild(host);

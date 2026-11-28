@@ -188,7 +188,6 @@
 @media (max-width:620px){#empezar .hx.fin.sw-on{padding-block:120px}.sw-q{font-size:12.5px;padding:7px 12px}#empezar .fin-in::before{inset:-24px -20px}}
 @media (prefers-reduced-motion:reduce){.sw-q{transition:none;animation:none}}
 
-/* vista previa premium-bots-hero: 3 tarjetas con aire alrededor del celular */
+/* premium-bots-hero-3-tarjetas (publicado 27-nov): 3 tarjetas con aire alrededor del celular; a ≤980 px no cambia nada */
 .np-noti:nth-child(n+4){display:none}
-.np-noti:nth-child(3){opacity:.86;transform:translate(-50%,-50%) translate3d(var(--x),var(--y),var(--z)) scale(.9)}
-@media (min-width:981px){.np-escena{padding-left:8%}}
+@media (min-width:981px){.np-noti:nth-child(3){opacity:.86;transform:translate(-50%,-50%) translate3d(var(--x),var(--y),var(--z)) scale(.9)}.np-escena{padding-left:8%}}

@@ -190,4 +190,4 @@
 
 /* premium-bots-hero-3-tarjetas (publicado 27-nov): 3 tarjetas con aire alrededor del celular; a ≤980 px no cambia nada */
 .np-noti:nth-child(n+4){display:none}
-@media (min-width:981px){.np-noti:nth-child(3){opacity:.86;transform:translate(-50%,-50%) translate3d(var(--x),var(--y),var(--z)) scale(.9)}.np-escena{padding-left:8%}}
+@media (min-width:981px){.np-noti:nth-child(3){opacity:.86;transform:translate(-50%,-50%) translate3d(var(--x),var(--y),var(--z)) scale(.9)}.np-noti:nth-child(3) b span{color:#3c4641}.np-escena{padding-left:8%}}
